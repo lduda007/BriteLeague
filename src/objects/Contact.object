@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Match_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Match Role</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Striker/Midfielder</fullName>
+                    <default>false</default>
+                    <label>Striker/Midfielder</label>
+                </value>
+                <value>
+                    <fullName>Goalkeeper/Defence</fullName>
+                    <default>false</default>
+                    <label>Goalkeeper/Defence</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>
