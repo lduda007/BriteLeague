@@ -1,0 +1,23 @@
+.THIS {
+}
+
+.THIS .table-header{
+    background: black;
+    font-size: 1.5em;
+    color: white;
+    position: relative;
+    padding: 0.3rem;
+}
+
+.THIS .save-div{
+	position: absolute;
+    top: 0;
+    right: 0;
+    text-align:right;
+    width:100%;
+}
+
+.THIS .save-button{
+    font-size: 0.8em;
+    margin: 0.2rem;
+}

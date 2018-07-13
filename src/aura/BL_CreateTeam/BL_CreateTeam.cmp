@@ -1,0 +1,15 @@
+<aura:component controller="BL_CreateTeamController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" description="BL_CreateTeam">
+    <aura:attribute name="selectedPlayer" type="sObject" default="{}"/>
+    <aura:attribute name="team" type="BL_Team__c" default="{'sobjectType': 'BL_Team__c'}"/>
+    <aura:attribute name="showButtons" type="Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="slds-m-around_large">
+        <ui:inputText class="slds-input" value="{!v.team.Name}" label="Team Name"/>
+
+        <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}"/>
+		<aura:if isTrue="{!v.showButtons}">
+	        <lightning:button class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team"/>
+        </aura:if>
+    </div>
+</aura:component>

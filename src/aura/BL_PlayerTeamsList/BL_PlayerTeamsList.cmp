@@ -1,0 +1,71 @@
+<aura:component description="BL_PlayerTeamsList" controller="BL_PlayerTeamsListController" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="teamsList" type="List"/>
+    <aura:attribute name="selectedPlayer" type="sObject" default="{}"/>
+    <aura:attribute name="team" type="BL_Team__c" default="{'sobjectType': 'BL_Team__c'}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div aria-hidden="true" aria-modal="true" id="newTeamModal" role="dialog" class="slds-modal slds-fade-in-open" style="display:none;">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
+                                      alternativeText="Close" class="slds-modal__close"
+                                      onclick="{!c.hideModal}"/>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create New Team</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around--medium " style="height: 50vh;">
+                <div>
+                    <c:BL_CreateTeam team="{!v.team}" selectedPlayer="{!v.selectedPlayer}" showButtons="false"/>
+                </div>
+            </div>
+            <footer class="slds-modal__footer">
+            	<lightning:button class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team"/>
+            </footer>
+        </div>
+
+    </div>
+
+    <div aura:id="modal-dialog-background" class="slds-backdrop"></div>
+
+    <div style="background: black; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+        Your Teams
+        <div class="save-div">
+            <lightning:button class="save-button" variant="brand" onclick="{!c.newTeam}" title="Create Team" label="Create Team"/>
+        </div>
+    </div>
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+        <tr class="slds-text-title_caps">
+            <th scope="col">
+                <div class="slds-truncate" title="Team Name">Name</div>
+            </th>
+            <th scope="col">
+                <div class="slds-truncate" title="Win Games">Win</div>
+            </th>
+            <th scope="col">
+                <div class="slds-truncate" title="Lose Games">Lose</div>
+            </th>
+            <th scope="col">
+                <div class="slds-truncate" title="Avg Points / match">Avg points</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <aura:iteration items="{!v.teamsList}" var="team">
+            <tr>
+                <th scope="row" data-label="Name">
+                    <div class="slds-truncate" title="Name"><a href="{!'/one/one.app?#/sObject/'+ team.recordId + '/view'}">{!team.name} ({!team.secondPlayerName})</a></div>
+                </th>
+                <th scope="row" data-label="Win">
+                    <div class="slds-truncate" title="Win">120</div>
+                </th>
+                <th scope="row" data-label="Lose">
+                    <div class="slds-truncate" title="Lose">10</div>
+                </th>
+                <th scope="row" data-label="Avg Points / match">
+                    <div class="slds-truncate" title="Avg Points / match">9.2</div>
+                </th>
+            </tr>
+        </aura:iteration >
+        </tbody>
+    </table>
+</aura:component>
