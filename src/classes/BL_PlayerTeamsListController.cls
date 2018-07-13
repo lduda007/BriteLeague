@@ -2,12 +2,13 @@ public with sharing class BL_PlayerTeamsListController {
     @AuraEnabled
     public static List<DTO_Team> getPlayerTeams(){
         Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
-        List<BL_Team__c> teams = [SELECT Id, Name, Player1__c, Player2__c, Player1__r.Name, Player2__r.Name FROM BL_Team__c WHERE Player1__c = :currentPlayer OR Player2__c = :currentPlayer];
+        List<BL_Team__c> teams = [SELECT Id, Name, Player1__c, Player2__c, Player1__r.Name, Player2__r.Name, IsActive__c FROM BL_Team__c WHERE Player1__c = :currentPlayer OR (Player2__c = :currentPlayer AND IsActive__c = true)];
         List<DTO_Team> dtoList = new List<DTO_Team>();
         for (BL_Team__c team : teams){
             DTO_Team t = new DTO_Team();
             t.recordId = team.Id;
             t.name = team.Name;
+            t.isActive = team.IsActive__c;
             if (team.Player1__c != currentPlayer){
                 t.secondPlayerName = team.Player1__r.Name;
                 t.secondPlayerId = team.Player1__c;
@@ -20,12 +21,37 @@ public with sharing class BL_PlayerTeamsListController {
         
         return dtoList;
     }
-    
+
+    @AuraEnabled
+    public static List<BL_Team__c> getTeamInvitations(){
+        Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
+        List<BL_Team__c> invitations = [SELECT Id, Name, Player1__c, Player1__r.Name FROM BL_Team__c WHERE IsActive__c = false AND Player2__c = :currentPlayer];
+
+        return invitations;
+    }
+
     @AuraEnabled
     public static void saveTeam(BL_Team__c team, sObject player){
         BL_CreateTeamController.saveTeam(team, player);
     }
-    
+
+    @AuraEnabled
+    public static void confirmInvitation(String recordId, Boolean isConfirmed){
+        List<BL_Team__c> teams = [SELECT Id, IsActive__c FROM BL_Team__c WHERE Id = :recordId];
+        if (!teams.isEmpty()){
+            BL_Team__c team = teams.get(0);
+            if (isConfirmed == true){
+                team.IsActive__c = true;
+                update team;
+            } else {
+                delete team;
+            }
+        } else {
+            throw new AuraHandledException('Record doesn\'t exist!');
+        }
+
+    }
+
     public class DTO_Team{
         @AuraEnabled public String name {get;set;}
         @AuraEnabled public String recordId {get;set;}
@@ -33,6 +59,7 @@ public with sharing class BL_PlayerTeamsListController {
         @AuraEnabled public Integer lost {get;set;}
         @AuraEnabled public String secondPlayerName {get;set;}
         @AuraEnabled public String secondPlayerId {get;set;}
+        @AuraEnabled public Boolean isActive {get;set;}
         @AuraEnabled public Boolean canDelete {get;set;}
     }
 }

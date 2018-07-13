@@ -35,7 +35,7 @@
 	},
 
   // function for clear the Record Selaction
-    clear :function(component,event,heplper){
+    clear :function(component,event,helper){
          var pillTarget = component.find("lookup-pill");
          var lookUpTarget = component.find("lookupField");
 
@@ -54,19 +54,27 @@
     handleComponentEvent : function(component, event, helper) {
     // get the selected Account record from the COMPONETN event
        var selectedAccountGetFromEvent = event.getParam("recordByEvent");
-	   component.set("v.selectedRecord" , selectedAccountGetFromEvent);
 
-        var forclose = component.find("lookup-pill");
-           $A.util.addClass(forclose, 'slds-show');
-           $A.util.removeClass(forclose, 'slds-hide');
+       component.set("v.selectedRecord" , selectedAccountGetFromEvent);
 
-        var forclose = component.find("searchRes");
-           $A.util.addClass(forclose, 'slds-is-close');
-           $A.util.removeClass(forclose, 'slds-is-open');
+       var forclose = component.find("lookup-pill");
+          $A.util.addClass(forclose, 'slds-show');
+          $A.util.removeClass(forclose, 'slds-hide');
 
-        var lookUpTarget = component.find("lookupField");
-            $A.util.addClass(lookUpTarget, 'slds-hide');
-            $A.util.removeClass(lookUpTarget, 'slds-show');
+       var forclose = component.find("searchRes");
+          $A.util.addClass(forclose, 'slds-is-close');
+          $A.util.removeClass(forclose, 'slds-is-open');
+
+       var lookUpTarget = component.find("lookupField");
+           $A.util.addClass(lookUpTarget, 'slds-hide');
+           $A.util.removeClass(lookUpTarget, 'slds-show');
 
 	},
+
+	handleApplicationEvent : function(component, event, helper) {
+	    var parentName = event.getParam("parentName");
+	    if (component.get("v.parentName") === parentName){
+	        $A.enqueueAction(component.get('c.clear'));
+        }
+    }
 })

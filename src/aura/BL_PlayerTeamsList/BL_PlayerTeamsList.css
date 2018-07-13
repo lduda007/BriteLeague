@@ -21,3 +21,26 @@
     font-size: 0.8em;
     margin: 0.2rem;
 }
+
+.THIS .approveIcon{
+    fill: darkgreen;
+}
+
+.THIS .rejectIcon{
+    fill: darkred;
+}
+
+.THIS .unread-dot:after{
+    content: '•';
+    padding-left: 5px;
+    color: red;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.THIS .new-notification{
+    vertical-align: middle;
+    margin-left: 0.4rem;
+    background: indianred;
+    color: white;
+}

@@ -6,10 +6,12 @@
     <aura:attribute name="objectAPIName" type="string" default=""/>
     <aura:attribute name="IconName" type="string" default=""/>
     <aura:attribute name="label" type="string" default=""/>
+    <aura:attribute name="parentName" type="string" default=""/>
     <aura:attribute name="Message" type="String" default=""/>
 
     <!--declare events hendlers-->
     <aura:handler name="oSelectedRecordEvent" event="c:BL_SelectedsObjectRecordEvent" action="{!c.handleComponentEvent}"/>
+    <aura:handler event="c:BL_CustomLookupClearEvent" action="{!c.handleApplicationEvent}"/>
 
 
     <!-- https://www.lightningdesignsystem.com/components/lookups/ -->

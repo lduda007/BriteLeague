@@ -21,5 +21,13 @@
         });
         $A.enqueueAction(action);
 
+    },
+    clear : function(component,event){
+        component.set("v.selectedPlayer", {});
+        component.set("v.team.Name", '');
+
+        var compEvent = $A.get("e.c:BL_CustomLookupClearEvent");
+        compEvent.setParams({"parentName" : 'BL_CreateTeam' });
+        compEvent.fire();
     }
 })
