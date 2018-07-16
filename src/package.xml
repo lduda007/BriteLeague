@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>BL_OldestLoggingUserDeactivator</members>
         <members>BL_UserActivationManager</members>
         <members>BL_Utils</members>
+        <members>BL_BriteLeagueRegistrationHandler</members>
+        <members>BL_MatchService</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -33,6 +35,7 @@
         <members>BL_Match__c</members>
         <members>BL_Statistic__c</members>
         <members>BL_Team__c</members>
+        <members>Contact</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -47,6 +50,10 @@
     <types>
         <members>briteleague</members>
         <name>CustomSite</name>
+    </types>
+    <types>
+        <members>BL_UserTrigger</members>
+        <name>ApexTrigger</name>
     </types>
     <version>42.0</version>
 </Package>
