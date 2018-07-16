@@ -18,6 +18,7 @@
         <members>BL_CustomLookupResult</members>
         <members>BL_PlayerTeamsList</members>
         <members>BL_SelectedsObjectRecordEvent</members>
+        <members>BL_CreateLeague</members>  
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
