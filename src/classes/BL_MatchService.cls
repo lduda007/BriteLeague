@@ -1,10 +1,7 @@
 public with sharing class BL_MatchService {
     public static void generateMatchesAfterLeagueStarted(String leagueId){
-        List<BL_Competitor__c> competitors = [
-                SELECT Id, Team__c
-                FROM BL_Competitor__c
-                WHERE League__c =: leagueId
-        ];
+        List<BL_Competitor__c> competitors = BL_Utils.getLeagueCompetitors(leagueId);
+
         if(competitors.size() >= 2){
             List<String> competitorsIds = new List<String>();
             List<BL_Match__c> generatedMatches = new List<BL_Match__c>();
