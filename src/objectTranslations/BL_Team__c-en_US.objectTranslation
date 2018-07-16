@@ -9,6 +9,10 @@
         <value>Teams</value>
     </caseValues>
     <fields>
+        <label><!-- Active --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
         <label><!-- Player1 --></label>
         <name>Player1__c</name>
         <relationshipLabel><!-- Teams --></relationshipLabel>

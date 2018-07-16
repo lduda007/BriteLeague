@@ -1,28 +1,50 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>BL_BriteLeagueRegistrationHandler</members>
+        <members>BL_CreateTeamController</members>
+        <members>BL_CustomLookupController</members>
+        <members>BL_MatchService</members>
         <members>BL_OldestLoggingUserDeactivator</members>
+        <members>BL_PlayerTeamsListController</members>
         <members>BL_UserActivationManager</members>
         <members>BL_Utils</members>
-        <members>BL_BriteLeagueRegistrationHandler</members>
-        <members>BL_MatchService</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>BL_CreateTeam</members>
+        <members>BL_CustomLookup</members>
+        <members>BL_CustomLookupClearEvent</members>
+        <members>BL_CustomLookupResult</members>
+        <members>BL_PlayerTeamsList</members>
+        <members>BL_SelectedsObjectRecordEvent</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>BL_CommunitySettings__c.BL_CommunityUserAccountName__c</members>
+        <members>BL_CommunitySettings__c.BL_CommunityUserProfileId__c</members>
         <members>BL_CommunitySettings__c.BL_CommunityUserProfileName__c</members>
         <members>BL_CommunitySettings__c.BL_NumberOfCommunityLicenses__c</members>
+        <members>BL_CommunitySettings__c.BL_RegistrationUsernameOrgSuffix__c</members>
         <members>BL_Competitor__c.Eliminated__c</members>
         <members>BL_Competitor__c.League__c</members>
         <members>BL_Competitor__c.Team__c</members>
         <members>BL_League__c.End_Date__c</members>
         <members>BL_League__c.Match_No__c</members>
+        <members>BL_League__c.Max_Team_No__c</members>
+        <members>BL_League__c.Max_Teams__c</members>
         <members>BL_League__c.Start_Date__c</members>
+        <members>BL_League__c.isPrivate__c</members>
         <members>BL_Match__c.League__c</members>
         <members>BL_Match__c.Team1_Score__c</members>
         <members>BL_Match__c.Team1__c</members>
         <members>BL_Match__c.Team2_Score__c</members>
         <members>BL_Match__c.Team2__c</members>
         <members>BL_Match__c.Winner__c</members>
+        <members>BL_Statistic__c.Lost__c</members>
+        <members>BL_Statistic__c.Team__c</members>
+        <members>BL_Statistic__c.Won__c</members>
+        <members>BL_Team__c.IsActive__c</members>
         <members>BL_Team__c.Player1__c</members>
         <members>BL_Team__c.Player2__c</members>
         <members>Contact.Match_Role__c</members>
@@ -51,9 +73,5 @@
         <members>briteleague</members>
         <name>CustomSite</name>
     </types>
-    <types>
-        <members>BL_UserTrigger</members>
-        <name>ApexTrigger</name>
-    </types>
-    <version>42.0</version>
+    <version>43.0</version>
 </Package>

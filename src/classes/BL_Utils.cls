@@ -1,4 +1,13 @@
 public with sharing class BL_Utils {
+    private static User CURRENT_USER = getCurrentUser();
+
+    public static User getCurrentUser() {
+        if(CURRENT_USER == null || CURRENT_USER.Id != UserInfo.getUserId()){
+            CURRENT_USER = [SELECT Id, ContactId FROM User WHERE Id = :UserInfo.getUserId()];
+        }
+        return CURRENT_USER;
+    }
+
     public static String getBLCommunitySettings(String field){
         BL_CommunitySettings__c communitySettings = BL_CommunitySettings__c.getInstance('BriteLeagueSettings');
         return (String)communitySettings.get(field);

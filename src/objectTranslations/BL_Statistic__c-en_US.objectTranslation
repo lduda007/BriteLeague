@@ -8,5 +8,18 @@
         <plural>true</plural>
         <value>Statistics</value>
     </caseValues>
+    <fields>
+        <label><!-- Lost --></label>
+        <name>Lost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Team --></label>
+        <name>Team__c</name>
+        <relationshipLabel><!-- Statistics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Won --></label>
+        <name>Won__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

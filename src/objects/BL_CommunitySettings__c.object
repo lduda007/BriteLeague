@@ -3,6 +3,26 @@
     <customSettingsType>List</customSettingsType>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>BL_CommunityUserAccountName__c</fullName>
+        <externalId>false</externalId>
+        <label>Community User Account Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BL_CommunityUserProfileId__c</fullName>
+        <externalId>false</externalId>
+        <label>Community User Profile Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>BL_CommunityUserProfileName__c</fullName>
         <externalId>false</externalId>
         <label>Community User Profile Name</label>
@@ -16,6 +36,16 @@
         <fullName>BL_NumberOfCommunityLicenses__c</fullName>
         <externalId>false</externalId>
         <label>Number of Community Licenses</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BL_RegistrationUsernameOrgSuffix__c</fullName>
+        <externalId>false</externalId>
+        <label>Registration Username Org Suffix</label>
         <length>50</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
