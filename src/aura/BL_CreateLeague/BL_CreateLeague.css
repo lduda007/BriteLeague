@@ -3,3 +3,7 @@
  */
 .THIS {
 }
+
+.THIS .slds-dropdown-trigger{
+    display: block;
+}

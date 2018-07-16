@@ -1,6 +1,52 @@
-<!--
- - Created on 13.07.2018.
- -->
-
 <aura:component description="BL_CreateLeague">
+    <aura:attribute name="newLeague" type="Object"/>
+    <aura:attribute name="simpleNewLeague" type="Object"/>
+    <aura:attribute name="newLeagueError" type="String"/>
+    <aura:attribute name="maxTeamsOptions" type="String[]"/>
+    <aura:attribute name="selectedMaxTeamOption" type="String"/>
+    <aura:attribute name="currentDate" type="String"/>
+    <aura:attribute name="isNumberOfTeamsUnlimited" type="Boolean" default="false"/>
+    <aura:attribute name="isFormVisible" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <force:recordData aura:id="leagueRecordCreator"
+                      layoutType="FULL"
+                      targetRecord="{!v.newLeague}"
+                      targetFields="{!v.simpleNewLeague}"
+                      targetError="{!v.newLeagueError}"/>
+
+    <!-- Display the new league form -->
+    <div class="slds-input--bare">
+        <lightning:input aura:id="leagueField" label="League Name" required="true"
+                         value="{!v.simpleNewLeague.Name}"/>
+        <lightning:input aura:id="leagueField" type="date" label="Start Date" required="true"
+                         value="{!v.simpleNewLeague.Start_Date__c}" min="{!v.currentDate}"/>
+        <lightning:input aura:id="leagueField" type="date" label="End Date" required="true"
+                         value="{!v.simpleNewLeague.End_Date__c}"
+                         min="{!v.simpleNewLeague.Start_Date__c}"/>
+        <aura:if isTrue="{!v.isFormVisible}">
+            <lightning:input aura:id="maxTeamsInput" label="Teams limit" step="1" min="2" max="40"
+                             type="number"
+                             value="{!v.simpleNewLeague.Max_Teams__c}"
+                             disabled="{!v.isNumberOfTeamsUnlimited}"
+                             onchange="{!c.handleMaxTeamsChange}" required="true"/>
+        </aura:if>
+        <lightning:input aura:id="unlimitedTeamsCheckbox" type="checkbox" label="unlimited"
+                         checked="{!v.isNumberOfTeamsUnlimited}" onchange="{!c.handleUnlimitedChanged}"/>
+        <lightning:select label="Visibility" onchange="{!c.handleVisibilityChange}" value="">
+            <option label="Public" value="public"/>
+            <option label="Private" value="private"/>
+        </lightning:select>
+        <br/>
+
+    <lightning:button label="Create league" variant="brand" onclick="{!c.handleSaveLeague}"
+                      disabled="{! empty(v.simpleNewLeague.Name) || empty(v.simpleNewLeague.Start_Date__c) || empty(v.simpleNewLeague.End_Date__c) || (and(empty(v.simpleNewLeague.Max_Teams__c) , !v.isNumberOfTeamsUnlimited))}"/>
+    </div>
+    
+    <!--Display Lightning Data Service errors-->
+    <aura:if isTrue="{!not(empty(v.newleagueError))}">
+        <div class="recordError">
+                {!v.newleagueError}</div>
+    </aura:if>
 </aura:component>
