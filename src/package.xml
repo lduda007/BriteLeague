@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>BL_BriteLeagueRegistrationHandler</members>
@@ -9,6 +9,7 @@
         <members>BL_PlayerTeamsListController</members>
         <members>BL_UserActivationManager</members>
         <members>BL_Utils</members>
+        <members>BL_TournamentsEmailService</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -18,7 +19,7 @@
         <members>BL_CustomLookupResult</members>
         <members>BL_PlayerTeamsList</members>
         <members>BL_SelectedsObjectRecordEvent</members>
-        <members>BL_CreateLeague</members>  
+        <members>BL_CreateLeague</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
