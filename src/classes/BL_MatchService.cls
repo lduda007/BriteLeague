@@ -20,6 +20,7 @@ public with sharing class BL_MatchService {
                         BL_Match__c newMatch = new BL_Match__c();
                         newMatch.Team1__c = competitorIdsForDraw[jj];
                         newMatch.Team2__c = competitorIdsForDraw[numberOfTeams-jj-1];
+                        newMatch.League__c = leagueId;
                         generatedMatches.add(newMatch);
                     }
                     competitorIdsForDraw.remove(numberOfTeams-1);
@@ -33,23 +34,20 @@ public with sharing class BL_MatchService {
                         BL_Match__c newMatch = new BL_Match__c();
                         newMatch.Team1__c = competitorIdsForDraw[jj];
                         newMatch.Team2__c = competitorIdsForDraw[numberOfTeams-jj-2];
+                        newMatch.League__c = leagueId;
                         generatedMatches.add(newMatch);
                     }
                     competitorIdsForDraw.add(competitorIdsForDraw[0]);
                     competitorIdsForDraw.remove(0);
                 }
             }
+            try{
+                insert generatedMatches;
+            }catch (DmlException e){
+                for (Integer i = 0; i < e.getNumDml(); i++) {
+                    System.debug(e.getDmlMessage(i));
+                }
+            }
         }
-    }
-
-    public static Integer getRandomInteger(Integer fromRange, Integer toRange){
-        system.debug(fromRange+' - '+toRange);
-
-        Integer numberToReturn;
-        do{
-            numberToReturn = Math.round(Math.random()*100);
-        }while(numberToReturn < fromRange || numberToReturn > toRange);
-
-        return numberToReturn;
     }
 }
