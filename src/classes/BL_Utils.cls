@@ -15,7 +15,7 @@ public with sharing class BL_Utils {
 
     public static List<BL_Competitor__c> getLeagueCompetitors(String leagueId){
         List<BL_Competitor__c> competitors = [
-            SELECT Id, Team__c
+            SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c
             FROM BL_Competitor__c
             WHERE League__c =: leagueId
         ];
