@@ -4,12 +4,13 @@
         <members>BL_BriteLeagueRegistrationHandler</members>
         <members>BL_CreateTeamController</members>
         <members>BL_CustomLookupController</members>
-        <members>BL_MatchService</members>
         <members>BL_OldestLoggingUserDeactivator</members>
         <members>BL_PlayerTeamsListController</members>
         <members>BL_UserActivationManager</members>
         <members>BL_Utils</members>
         <members>BL_TournamentsEmailService</members>
+        <members>BL_LeagueMatchesService</members>
+        <members>BL_CupMatchesService</members>
         <name>ApexClass</name>
     </types>
     <types>
