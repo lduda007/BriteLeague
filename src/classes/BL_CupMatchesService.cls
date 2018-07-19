@@ -1,4 +1,3 @@
-
 public with sharing class BL_CupMatchesService {
     public static void generateMatchesAfterCupStarted(String leagueId){
         List<BL_Competitor__c> competitors = BL_Utils.getLeagueCompetitors(leagueId);
@@ -86,6 +85,30 @@ public with sharing class BL_CupMatchesService {
     private static void upsertGeneratedMatches(List<BL_Match__c> generatedMatches){
         try{
             upsert generatedMatches;
+        }catch (DmlException e){
+            for (Integer i = 0; i < e.getNumDml(); i++) {
+                System.debug(e.getDmlMessage(i));
+            }
+        }
+    }
+
+    @InvocableMethod
+    public static void moveWinnerTeamToNextCupStep(List<String> wonMatchId){
+        List<BL_Match__c> wonMatch = [SELECT Id, Winner__c, League__c, NextRoundMatch__c FROM BL_Match__c WHERE Id =: wonMatchId];
+        List<BL_Match__c> nextRoundMatch = [
+                SELECT Id, Team1__c, Team2__c
+                FROM BL_Match__c
+                WHERE Id =: wonMatch[0].NextRoundMatch__c
+        ];
+        if(nextRoundMatch[0] != null && nextRoundMatch[0].Team1__c == null){
+            nextRoundMatch[0].Team1__c = wonMatch[0].Winner__c;
+        }else{
+            if(nextRoundMatch[0] != null){
+                nextRoundMatch[0].Team2__c = wonMatch[0].Winner__c;
+            }
+        }
+        try{
+            update nextRoundMatch[0];
         }catch (DmlException e){
             for (Integer i = 0; i < e.getNumDml(); i++) {
                 System.debug(e.getDmlMessage(i));
