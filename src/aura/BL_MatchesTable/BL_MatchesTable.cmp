@@ -1,0 +1,48 @@
+<aura:component description="BL_MatchesTable">
+    <aura:attribute name="matches" type="Object"/>
+
+    <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+        <thead>
+        <tr class="slds-text-title_caps">
+            <th scope="col" style="width: 15%;">
+                <div class="slds-truncate slds-text-align--right" title="Team 1">Team 1</div>
+            </th>
+            <th scope="col" style="width: 40px;">
+                <div class="slds-truncate slds-text-align--center" title="Result">Result</div>
+            </th>
+            <th scope="col" style="width: 15%;">
+                <div class="slds-truncate" title="Team 2">Team 2</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <aura:iteration items="{!v.matches}" var="match" indexVar="index">
+            <tr>
+                <td scope="row" data-label="Team 1">
+                    <div class="slds-truncate slds-text-align--right" title="Team 1">
+                            <aura:if isTrue="{!match.Team1__r.Team__r.Name != null}">
+                                <a class="slds-text-align--right" data-recordId="{!match.Team1__r.Team__c}" onclick="{!c.goToTeamPage}">{!match.Team1__r.Team__r.Name}</a>
+                                <aura:set attribute="else">
+                                    Winner match {!(index*2)+1}
+                                </aura:set>
+                            </aura:if>
+                    </div>
+                </td>
+                <td scope="row" data-label="Result">
+                    <div class="slds-truncate slds-text-align--center score" title="Result" data-recordId="{!match.Id}" onclick="{!c.goToMatchPage}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>
+                </td>
+                <td scope="row" data-label="Team 2">
+                    <div class="slds-truncate" title="Team 2">
+                            <aura:if isTrue="{!match.Team2__r.Team__r.Name != null}">
+                                <a data-recordId="{!match.Team2__r.Team__c}" onclick="{!c.goToTeamPage}">{!match.Team2__r.Team__r.Name}</a>
+                                <aura:set attribute="else">
+                                    Winner match {!(index*2)+2}
+                                </aura:set>
+                            </aura:if>
+                    </div>
+                </td>
+            </tr>
+        </aura:iteration >
+        </tbody>
+    </table>
+</aura:component>

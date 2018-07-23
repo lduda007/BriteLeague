@@ -1,0 +1,168 @@
+<aura:component description="BL_LeagueDetails" controller="BL_LeagueDetailsController">
+    <aura:attribute name="leagueId" type="String"/>
+    <aura:attribute name="league" type="BL_League__c"/>
+    <aura:attribute name="matches" type="Object[]"/>
+    <aura:attribute name="selectedRowIndex" type="Integer"></aura:attribute>
+    <aura:attribute name="today" type="Date" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:layout>
+        <lightning:layoutItem size="12">
+            <lightning:card iconName="utility:activity" title="{!'League: '+v.league.Name}" variant="narrow">
+                <aura:set attribute="actions">
+                    <lightning:button disabled="{!v.league.Max_Teams__c != v.league.Teams_Joined__c || greaterthanorequal(v.today, v.league.Start_Date__c)}" onclick="{!c.startLeagueNowAction}" variant="brand" label="Start now"></lightning:button>
+                </aura:set>
+                <div class="slds-p-horizontal--small">
+                    <fieldset class="slds-form--compound">
+                        <div class="slds-form-element__group">
+                            <div class="slds-form-element__row slds-grid_vertical-align-end">
+                                <div class="slds-form-element slds-size--1-of-3">
+                                    <p class="slds-text-body_small slds-text-color_weak">Start Date: </p>
+                                    <ui:outputText value="{!v.league.Start_Date__c}" title="Start Date"
+                                                   class="slds-text-heading--small"/>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-3">
+                                    <p class="slds-text-body_small slds-text-color_weak">Max teams: </p>
+                                    <ui:outputText value="{!v.league.Max_Teams__c}" title="Max teams"
+                                                   class="slds-text-heading--small"/>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-3">
+                                    <p class="slds-text-body_small slds-text-color_weak">Access: </p>
+                                    <aura:if isTrue="{!v.league.isPrivate__c}">
+                                        <ui:outputText value="Private" title="Access"
+                                                       class="slds-text-heading--small"/>
+                                        <aura:set attribute="else">
+                                            <ui:outputText value="Public" title="Access"
+                                                           class="slds-text-heading--small"/>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row slds-grid_vertical-align-end">
+                                <div class="slds-form-element slds-size--1-of-3">
+                                    <p class="slds-text-body_small slds-text-color_weak">End Date: </p>
+                                    <ui:outputText value="{!v.league.End_Date__c}" title="End Date"
+                                                   class="slds-text-heading--small"/>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-3">
+                                    <p class="slds-text-body_small slds-text-color_weak">Already joined: </p>
+                                    <ui:outputText value="{!v.league.Teams_Joined__c}" title="Already joined"
+                                                   class="slds-text-heading--small"/>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-3">
+                                    <p class="slds-text-body_small slds-text-color_weak">Owner: </p>
+                                    <ui:outputText value="{!v.league.CreatedBy.Name}" title="Owner"
+                                                   class="slds-text-heading--small"/>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </lightning:card>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <lightning:layout horizontalAlign="center" verticalAlign="start" class="slds-m-top--x-small">
+        <lightning:layoutItem size="8" class="slds-p-right--x-small">
+            <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                League Table
+            </div>
+            <aura:if isTrue="{!v.league.Competitors__r.length > 0}">
+                <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                    <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col" style="width: 60px;">
+                            <div class="slds-truncate" title="Position">Pos</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Team Name">Team Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Team Players">Team Players</div>
+                        </th>
+                        <th scope="col" style="width: 50px;">
+                            <div class="slds-truncate slds-text-align--center" title="Win">W</div>
+                        </th>
+                        <th scope="col" style="width: 50px;">
+                            <div class="slds-truncate slds-text-align--center" title="Draw">D</div>
+                        </th>
+                        <th scope="col" style="width: 50px;">
+                            <div class="slds-truncate slds-text-align--center" title="Lost">L</div>
+                        </th>
+                        <th scope="col" style="width: 50px;">
+                            <div class="slds-truncate slds-text-align--center" title="Goals For">GF</div>
+                        </th>
+                        <th scope="col" style="width: 50px;">
+                            <div class="slds-truncate slds-text-align--center" title="Goals Against">GA</div>
+                        </th>
+                        <th scope="col" style="width: 60px;">
+                            <div class="slds-truncate slds-text-align--center" title="Points">PTS</div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration items="{!v.league.Competitors__r}" var="team" indexVar="index">
+                        <tr onclick="{!c.rowClicked}" aura:id="competitorRow" data-index="{!index}" data-competitorId="{!team.Id}">
+                            <td scope="row" data-label="Position">
+                                <div class="slds-truncate" title="Position">{!index+1}</div>
+                            </td>
+                            <td scope="row" data-label="Team Name">
+                                <div class="slds-truncate" title="Team Name"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                            </td>
+                            <td scope="row" data-label="Team Players">
+                                <div class="slds-truncate" title="Team Players">
+                                {!team.Team__r.Player1__r.LastName}
+                                    <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
+                                        <aura:set attribute="else">
+                                            &#38;
+                                        </aura:set>
+                                    </aura:if>
+                                        {!team.Team__r.Player2__r.LastName}</div>
+                            </td>
+                            <td scope="row" data-label="Win">
+                                <div class="slds-truncate slds-text-align--center" title="Win">{!team.GamesWon__c}</div>
+                            </td>
+                            <td scope="row" data-label="Draw">
+                                <div class="slds-truncate slds-text-align--center" title="Draw">{!team.GamesDrawn__c}</div>
+                            </td>
+                            <td scope="row" data-label="Lose">
+                                <div class="slds-truncate slds-text-align--center" title="Lose">{!team.GamesLost__c}</div>
+                            </td>
+                            <td scope="row" data-label="Goals scored">
+                                <div class="slds-truncate slds-text-align--center" title="Goals scored">{!team.GoalsFor__c}</div>
+                            </td>
+                            <td scope="row" data-label="Goals lost">
+                                <div class="slds-truncate slds-text-align--center" title="Goals lost">{!team.GoalsAgainst__c}</div>
+                            </td>
+                            <td scope="row" data-label="Points">
+                                <div class="slds-truncate slds-text-align--center" title="Points">{!team.Points__c}</div>
+                            </td>
+                        </tr>
+                    </aura:iteration >
+                    </tbody>
+                </table>
+                <aura:set attribute="else">
+                    <lightning:layoutItem class="slds-align_absolute-center" flexibility="auto" padding="around-small">
+                        <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                            <ui:outputText value="No competitors found" />
+                        </div>
+                    </lightning:layoutItem>
+                </aura:set>
+            </aura:if>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4">
+            <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                Matches
+            </div>
+            <aura:if isTrue="{!v.matches.length > 0}">
+                <c:BL_MatchesTable matches="{!v.matches}"/>
+                <aura:set attribute="else">
+                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                        <ui:outputText value="No matches found" />
+                    </div>
+                </aura:set>
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>

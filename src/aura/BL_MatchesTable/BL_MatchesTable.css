@@ -1,0 +1,10 @@
+.THIS .score{
+    font-family: 'digitalClockFont';
+    font-size:20px;
+    color: #143058;
+    cursor: pointer;
+}
+@font-face{
+    font-family: 'digitalClockFont';
+    src: url(/resource/digitalClockFont/digital-7.ttf);
+}
