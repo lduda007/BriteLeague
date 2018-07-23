@@ -1,0 +1,50 @@
+<aura:component description="BL_HomeDashboard" implements="forceCommunity:availableForAllPageTypes" controller="BL_HomeDashboardController">
+    <aura:attribute name="lastMatches" type="List"/>
+    <aura:attribute name="nextMatches" type="List"/>
+    <!--<aura:attribute name="chartData" type="Object"/>-->
+    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.generateChart}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-grid slds-size_1-of-1">
+            <div class="slds-col slds-size_1-of-1">
+                <div class="slds-p-around--x-small header-div" align="center" style="margin-bottom: 10px;">Your Condition</div>
+            </div>
+        </div>
+        <div class="slds-col slds-grid slds-size_1-of-1">
+            <div class="slds-col slds-size_1-of-1">
+                <canvas aura:id="condition" height="350" width="100%"></canvas>
+            </div>
+        </div>
+        <!--<div class="slds-col slds-grid slds-size_1-of-1">-->
+            <!--<div class="slds-col slds-size_1-of-1">-->
+                <!--<c:BL_ChartLine values="{!v.chartData.xValues}" labels="{!v.chartData.xLabels}" chartHeight="350" name="condition"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="slds-col slds-grid slds-size_1-of-1">
+            <div class="slds-col slds-p-right--x-small slds-size_1-of-2">
+                <div class="slds-p-around--x-small header-div" align="center">Next Matches</div>
+                <aura:if isTrue="{!v.lastMatches.length > 0}">
+                    <c:BL_NextMatchesTable matches="{!v.nextMatches}" />
+                    <aura:set attribute="else">
+                        <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                            <ui:outputText value="No matches found" />
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </div>
+            <div class="slds-col slds-p-left--x-small slds-size_1-of-2">
+                <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
+                <aura:if isTrue="{!v.lastMatches.length > 0}">
+                    <c:BL_MatchesTable matches="{!v.lastMatches}"/>
+                    <aura:set attribute="else">
+                        <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                            <ui:outputText value="No matches found" />
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>
