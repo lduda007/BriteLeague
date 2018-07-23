@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="BL_ScoreSelectedEvent">
+    <aura:attribute name="score" type="Integer"/>
+    <aura:attribute name="roundNumber" type="Integer"/>
+    <aura:attribute name="teamNumber" type="Integer"/>
+</aura:event>

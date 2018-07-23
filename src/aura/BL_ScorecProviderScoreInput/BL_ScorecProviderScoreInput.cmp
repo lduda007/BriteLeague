@@ -1,0 +1,20 @@
+<aura:component description="BL_ScorecProviderScoreInput">
+    <aura:attribute name="scoreOptions" type="List"/>
+    <aura:attribute name="selectedScore" type="Integer"/>
+    <aura:attribute name="teamNumber" type="Integer"/>
+    <aura:attribute name="roundNumber" type="Integer"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="loserScoreOptions" type="List"/>
+    <aura:attribute name="isLoserScore" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="scoreSelected" type="c:BL_ScoreSelectedEvent"/>
+
+    <!--<lightning:formattedText value="{!'Team '+v.teamNumber+' score'}"/>-->
+    <lightning:select label="Score" value="{!v.selectedScore}" onchange="{!c.handleScoreChange}" disabled="{!v.isDisabled}">
+        <option label="select" value="" />
+        <aura:iteration items="{!v.scoreOptions}" var="score">
+            <option label="{!score}" value="{!score}"/>
+        </aura:iteration>
+    </lightning:select>
+</aura:component>

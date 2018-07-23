@@ -1,0 +1,15 @@
+.THIS{
+font-family: 'digitalClockFont';
+    font-size:12px;
+    color: #143058;
+}
+
+.THIS .singleRoundScore {
+    font-family: 'digitalClockFont';
+    font-size:26px;
+    color: #143058;
+}
+@font-face{
+    font-family: 'digitalClockFont';
+    src: url(/resource/digitalClockFont/digital-7.ttf);
+}

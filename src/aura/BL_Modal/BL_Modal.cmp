@@ -1,0 +1,34 @@
+<aura:component description="BL_Modal">
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="size" type="String"/>
+    <aura:attribute name="footer" type="Aura.Component[]"/>
+    <aura:attribute name="visible" type="Boolean" default="false"/>
+    <aura:attribute name="hasCloseButton" type="Boolean" default="true"/>
+    <aura:method name="show" action="{!c.show}"/>
+    <aura:method name="hide" action="{!c.hide}"/>
+
+    <!--<aura:registerEvent name="closeModalEvent" type="c:PPW_ModalCloseEvent" />-->
+
+    <aura:if isTrue="{!v.visible}">
+        <section role="dialog"  tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1"
+                 class="{!v.size == 'large' ? 'slds-modal slds-backdrop slds-modal_large slds-slide-down-cancel' : 'slds-modal slds-backdrop slds-slide-down-cancel'}">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <aura:if isTrue="{!v.hasCloseButton}">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                            <lightning:icon iconName="utility:close" size="small" variant="inverse"/>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </aura:if>
+                    <h2 id="modal-heading-01" class="slds-text-heading_small slds-hyphenate">{!v.title}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" >
+                        {!v.body}
+                </div>
+                <footer class="slds-modal__footer">
+                        {!v.footer}
+                </footer>
+            </div>
+        </section>
+    </aura:if>
+</aura:component>

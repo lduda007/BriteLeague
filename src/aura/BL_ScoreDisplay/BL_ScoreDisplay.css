@@ -1,0 +1,12 @@
+/**
+ * Created on 19.07.2018.
+ */
+.THIS {
+    font-family: 'digitalClockFont';
+    font-size:80px;
+    color: #143058;
+}
+@font-face{
+    font-family: 'digitalClockFont';
+    src: url(/resource/digitalClockFont/digital-7.ttf);
+}

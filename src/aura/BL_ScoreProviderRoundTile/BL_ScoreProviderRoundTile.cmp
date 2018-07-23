@@ -1,0 +1,53 @@
+<aura:component description="BL_ScoreProviderRoundTile">
+    <aura:attribute name="roundNo" type="Integer" default="1"/>
+    <aura:attribute name="team1Score" type="Integer"/>
+    <aura:attribute name="team2Score" type="Integer"/>
+    <aura:attribute name="team1wins" type="Boolean" default="false"/>
+    <aura:attribute name="team2wins" type="Boolean" default="false"/>
+    <aura:attribute name="isEditMode" type="Boolean" default="true"/>
+
+    <aura:handler name="scoreSelected" event="c:BL_ScoreSelectedEvent" action="{!c.handleScoreSelected}"/>
+    <aura:handler name="change" value="{!v.team1Score}" action="{!c.handleRoundScoreChanged}"/>
+    <aura:handler name="change" value="{!v.team2Score}" action="{!c.handleRoundScoreChanged}"/>
+
+    <aura:registerEvent name="roundScoreSelected" type="c:BL_roundScoreSelected" />
+
+    <div class="slds-grid slds-wrap slds-p-top_small slds-grid--align-spread">
+        <div class="slds-col slds-size_12-of-12">
+            <div class="slds-box slds-box_xx-small slds-align_absolute-center slds-color__background_gray-3">
+                <lightning:formattedText value="{!'Round '+v.roundNo}"/>
+
+            </div>
+        </div>
+
+        <div class="slds-col slds-size_4-of-12 slds-align_absolute-center ">
+            <aura:if isTrue="{!v.isEditMode}">
+                <c:BL_ScorecProviderScoreInput teamNumber="1" roundNumber="{!v.roundNo}" selectedScore="{!v.team1Score}" isLoserScore="{! v.team2wins}" isDisabled="{! !v.isEditMode}"/>
+            </aura:if>
+        </div>
+        <div class="slds-col slds-size_4-of-12 slds-align_absolute-center">
+            <div class="slds-text-align--center singleRoundScore slds-align_absolute-center">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <lightning:formattedText value="{!(empty(v.team1Score)?'-':v.team1Score) + ' : '+(empty(v.team2Score)?'-':v.team2Score)}"/>
+                    </div>
+
+                    <div class="slds-col slds-p-bottom--medium">
+                        <aura:if isTrue="{!v.isEditMode}">
+                            <lightning:buttonIcon iconName="utility:check" variant="brand" onclick="{! c.handleAcceptScoreClick }" alternativeText="Accept" size="medium" disabled="{!or(empty(v.team1Score),empty(v.team2Score)) || !v.isEditMode ? true : false}"/>
+                            <aura:set attribute="else">
+                                <lightning:buttonIcon iconName="utility:edit" variant="brand" onclick="{! c.handleEditModeClick }" alternativeText="Edit" size="medium" disabled="{! v.isEditMode}"/>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_4-of-12 slds-align_absolute-center">
+            <aura:if isTrue="{!v.isEditMode}">
+            <c:BL_ScorecProviderScoreInput teamNumber="2" roundNumber="{!v.roundNo}" selectedScore="{!v.team2Score}" isLoserScore="{! v.team1wins}" isDisabled="{! !v.isEditMode}"/>
+            </aura:if>
+        </div>
+    </div>
+
+</aura:component>

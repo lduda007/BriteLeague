@@ -1,0 +1,17 @@
+/**
+ * Created on 20.07.2018.
+ */
+.THIS {
+}
+.THIS .slds-panel__header-title{
+    text-align: left;
+}
+.THIS.winner-box-shadow{
+    box-shadow: 1px 3px 18px #1bba1c;
+}
+.THIS.loser-box-shadow{
+    box-shadow: 1px 3px 18px #dc2528;
+}
+.THIS.draw-box-shadow{
+    box-shadow: 1px 3px 18px #f4ab3c;
+}

@@ -1,0 +1,9 @@
+<aura:component description="BL_ScoreDisplay">
+    <aura:attribute name="team1Score" type="Integer" default="0"/>
+    <aura:attribute name="team2Score" type="Integer" default="0"/>
+
+    <div class="slds-box slds-box_small slds-border_bottom slds-align_absolute-center slds-color__background_gray-3">
+    <lightning:formattedText value="{!v.team1Score + ' : '+v.team2Score}" title="final score"/>
+    </div>
+
+</aura:component>
