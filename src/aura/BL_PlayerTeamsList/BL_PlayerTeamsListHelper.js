@@ -43,15 +43,17 @@
 		        $A.util.removeClass(component.find("modal-dialog-background"), "slds-backdrop_open");
                 var showToast = $A.get("e.force:showToast");
                 showToast.setParams({
-                    'title' : 'Team saved.',
-                    'message' : 'Approval request was send to ' + selectedPlayer.Name
+                    title : 'Team saved.',
+                    type: 'success',
+                    message : 'Approval request was send to ' + selectedPlayer.Name
                 });
                 showToast.fire();
             }else if(state === 'ERROR') {
 				var showToast = $A.get("e.force:showToast");
                 showToast.setParams({
-                    'title' : 'Error.',
-                    'message' : 'Error.'
+                    title : 'Error.',
+                    type: 'error',
+                    message : 'Error.'
                 });
                 showToast.fire();
             }
@@ -85,7 +87,7 @@
                 } else {
                     showToast.setParams({
                         title : 'Invitation rected.',
-                        type: 'warning',
+                        type: 'success',
                         message : 'Invitation was rejected. Team was deleted :('
                     });
                 }
@@ -103,14 +105,54 @@
         $A.enqueueAction(action);
     },
 
+    deleteTeam : function(component,event){
+        var self = this;
+        var recordToDelete = event.getSource().get("v.name");
+
+        var action = component.get("c.deleteTeams");
+        action.setParams({
+            'recordId': recordToDelete
+        });
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                self.fetchRecords(component,event);
+
+                var showToast = $A.get("e.force:showToast");
+
+                showToast.setParams({
+                    title : 'Team deleted.',
+                    type: 'success',
+                    message : 'Team deleted!'
+                });
+
+                showToast.fire();
+            }else if(state === 'ERROR') {
+                var showToast = $A.get("e.force:showToast");
+                showToast.setParams({
+                    title : 'Error.',
+                    type: 'error',
+                    message : 'Error.'
+                });
+                showToast.fire();
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
     goToTeam : function(component,event){
 //        var recordId = event.getSource().get("v.name");
-        var recordId = event.target.dataset.record;
-        var navEvt = $A.get("e.force:navigateToSObject");
-        navEvt.setParams({
-            "recordId": recordId
+//        var recordId = event.target.dataset.record;
+//        var navEvt = $A.get("e.force:navigateToSObject");
+//        navEvt.setParams({
+//            "recordId": recordId
+//        });
+//        navEvt.fire();
+        var recordId = event.currentTarget.dataset.recordid;
+        var urlEvent = $A.get("e.force:navigateToURL");
+        urlEvent.setParams({
+          "url": "/bl-team/"+recordId
         });
-        navEvt.fire();
-
+        urlEvent.fire();
     }
 })

@@ -7,12 +7,12 @@
     <aura:registerEvent name="customLookupClearEvent" type="c:BL_CustomLookupClearEvent"/>
 
     <div class="slds-m-around_large">
-        <ui:inputText class="slds-input" value="{!v.team.Name}" label="Team Name"/>
+        <ui:inputText aura:id="teamName" class="slds-input" value="{!v.team.Name}" label="Team Name" required="true"/>
 
         <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}" parentName="BL_CreateTeam"/>
-		<aura:if isTrue="{!v.showButtons}">
+        <aura:if isTrue="{!v.showButtons}">
             <lightning:button class="buttonStyle" variant="brand" onclick="{!c.clear}" title="Clear" label="Clear"/>
-            <lightning:button class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team"/>
+            <lightning:button class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team" disabled="{! empty(v.team.Name) || empty(v.selectedPlayer) }"/>
         </aura:if>
     </div>
 </aura:component>

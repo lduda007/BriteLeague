@@ -28,12 +28,7 @@
 
     <div aura:id="modal-dialog-background" class="slds-backdrop"></div>
 
-    <div style="background: black; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-        Teams
-        <!--<div class="save-div">-->
-            <!--<lightning:button class="save-button" variant="brand" onclick="{!c.newTeam}" title="Create Team" label="Create Team"/>-->
-        <!--</div>-->
-    </div>
+    <div class="slds-p-around--x-small header-div" align="center">Teams</div>
     <lightning:tabset variant="scoped">
         <lightning:tab label="My Teams">
             <aura:if isTrue="{!empty(v.teamsList)}">
@@ -63,7 +58,7 @@
                             <aura:iteration items="{!v.teamsList}" var="team">
                                 <tr>
                                     <td scope="row" data-label="Name">
-                                        <div class="slds-truncate" title="{!team.name}"><a data-record="{!team.Id}" onclick="{!c.goToTeam}">{!team.name}</a></div>
+                                        <div class="slds-truncate" title="{!team.name}"><a data-recordId="{!team.recordId}" onclick="{!c.goToTeam}">{!team.name}</a></div>
                                     </td>
                                     <td scope="row" data-label="Player">
                                         <div class="slds-truncate" title="{!team.secondPlayerName}">{!team.secondPlayerName}</div>
@@ -77,6 +72,13 @@
                                     <td scope="row" data-label="Is Active">
                                         <div class="slds-truncate" title="Is Active">
                                             <ui:outputCheckbox value="{!team.isActive}"/>
+                                            <aura:if isTrue="{!team.canDelete}">
+                                                <lightning:buttonIcon name="{!team.recordId}"
+                                                                      variant="bare" iconName="utility:delete" size="medium"
+                                                                      alternativeText="Delete Team"
+                                                                      iconClass="delete-icon"
+                                                                      onclick="{!c.deleteTeam}"/>
+                                            </aura:if>
                                         </div>
                                     </td>
                                 </tr>

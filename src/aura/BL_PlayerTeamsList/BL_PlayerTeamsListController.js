@@ -28,6 +28,10 @@
         helper.confirmInvitation(component,event,false);
     },
 
+    deleteTeam : function(component,event,helper){
+        helper.deleteTeam(component,event);
+    },
+
     goToTeam : function(component,event,helper){
         helper.goToTeam(component,event);
     }

@@ -13,8 +13,17 @@
             if (state === "SUCCESS") {
                 var showToast = $A.get("e.force:showToast");
                 showToast.setParams({
-                    'title' : 'Team saved.',
-                    'message' : 'Approval request was send to ' + selectedPlayer.Name
+                    title : 'Team saved.',
+                    type: 'success',
+                    message : 'Approval request was send to ' + selectedPlayer.Name
+                });
+                showToast.fire();
+            } else if(state === 'ERROR') {
+                var showToast = $A.get("e.force:showToast");
+                showToast.setParams({
+                    title : 'Error.',
+                    type: 'error',
+                    message : 'Error.'
                 });
                 showToast.fire();
             }

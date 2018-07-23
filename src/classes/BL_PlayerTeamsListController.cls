@@ -16,13 +16,14 @@ public with sharing class BL_PlayerTeamsListController {
                 t.secondPlayerName = team.Player2__r.Name;
                 t.secondPlayerId = team.Player2__c;
             }
-            
+
             t.won = 0;
             t.lost = 0;
             for (BL_Statistic__c stat : team.Statistics__r){
                 t.won += Integer.valueOf(stat.Won__c);
                 t.lost += Integer.valueOf(stat.Lost__c);
             }
+            t.canDelete = canDeleteTeam(currentPlayer, team);
             dtoList.add(t);
         }
         
@@ -43,6 +44,17 @@ public with sharing class BL_PlayerTeamsListController {
     }
 
     @AuraEnabled
+    public static void deleteTeams(String recordId){
+        List<BL_Team__c> teams = [SELECT Id FROM BL_Team__c WHERE Id = :recordId];
+        if (!teams.isEmpty()){
+            BL_Team__c team = teams.get(0);
+            delete team;
+        } else {
+            throw new AuraHandledException('Record doesn\'t exist!');
+        }
+    }
+
+    @AuraEnabled
     public static void confirmInvitation(String recordId, Boolean isConfirmed){
         List<BL_Team__c> teams = [SELECT Id, IsActive__c FROM BL_Team__c WHERE Id = :recordId];
         if (!teams.isEmpty()){
@@ -60,6 +72,12 @@ public with sharing class BL_PlayerTeamsListController {
             throw new AuraHandledException('Record doesn\'t exist!');
         }
 
+    }
+
+    private static Boolean canDeleteTeam(Id currentUser, BL_Team__c team){
+        if (team.IsActive__c == false && team.Player1__c == currentUser)
+            return true;
+        return false;
     }
 
     public class DTO_Team{
