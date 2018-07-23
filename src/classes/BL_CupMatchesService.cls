@@ -37,7 +37,7 @@ public with sharing class BL_CupMatchesService {
         while(numberOfTeamsAtCurrentStage/2 > 1){
             numberOfTeamsAtCurrentStage /= 2;
             for(Integer ii=0; ii < numberOfTeamsAtCurrentStage/2; ii++){
-                nextRoundsMatches.add(new BL_Match__c(Team1_Score__c=9, League__c=leaguId));
+                nextRoundsMatches.add(new BL_Match__c(League__c=leaguId));
             }
         }
         //3rd place match
@@ -76,7 +76,7 @@ public with sharing class BL_CupMatchesService {
         stageMatches[0].CupStage__c = 1;
         allGeneratedMatches.add(stageMatches[0]);
         for(BL_Match__c match : allGeneratedMatches){
-            match.Team1_Score__c = 9;
+//            match.Team1_Score__c = 9;
             system.debug(match);
         }
         return allGeneratedMatches;
