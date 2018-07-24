@@ -98,16 +98,16 @@
         });
         $A.enqueueAction(action);
     },
-    initializeTodayDate: function(component){
-        let today = new Date();
-        let monthDigit = today.getMonth() + 1;
-        if (monthDigit <= 9) {
-            monthDigit = '0' + monthDigit;
-        }
-        let dayDigit = today.getDate();
-        if(dayDigit <= 9){
-            dayDigit = '0' + dayDigit;
-        }
-        component.set('v.today', today.getFullYear() + "-" + monthDigit + "-" + dayDigit);
-    }
+    getCurrentUserId : function(component){
+        let action = component.get('c.getCurrentUserId');
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if (state === "SUCCESS")
+            {
+                let userId = response.getReturnValue();
+                component.set("v.userId", userId);
+            }
+        });
+        $A.enqueueAction(action);
+    },
 })

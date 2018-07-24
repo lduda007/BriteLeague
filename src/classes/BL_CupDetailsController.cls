@@ -3,7 +3,7 @@ public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static BL_League__c loadCupDetails(String cupId) {
         List<BL_League__c> cup = [
-                SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name
+                SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, isStarted__c, OwnerId
                 FROM BL_League__c
                 WHERE Id =: cupId
         ];
@@ -35,11 +35,12 @@ public with sharing class BL_CupDetailsController {
         BL_League__c cup = loadCupDetails(cupId);
         System.debug(cup);
 
-        if(cup == null || cup.Start_Date__c <= Date.today()){
+        if(cup == null || cup.isStarted__c){
             throw new AuraHandledException('Cup already started');
         }
         try{
             cup.Start_Date__c = Date.today();
+            cup.isStarted__c = true;
             update cup;
             BL_CupMatchesService.generateMatchesAfterCupStarted(cupId);
             return cup;
@@ -49,5 +50,10 @@ public with sharing class BL_CupDetailsController {
             }
             throw new AuraHandledException('Cannot start cup');
         }
+    }
+
+    @AuraEnabled
+    public static String getCurrentUserId() {
+        return UserInfo.getUserId();
     }
 }

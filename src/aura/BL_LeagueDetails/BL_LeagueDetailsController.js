@@ -2,7 +2,7 @@
     doInit : function(component, event, helper){
         helper.loadLeagueWithCompetitors(component);
         helper.loadLeagueMatches(component, null);
-        helper.initializeTodayDate(component);
+        helper.getCurrentUserId(component);
     },
     rowClicked: function(component, event, helper){
         let index = event.currentTarget.dataset.index;
@@ -31,5 +31,8 @@
     },
     startLeagueNowAction: function (component, event, helper) {
         helper.startLeagueNow(component);
+    },
+    onScoreSubmitted: function (component, event, helper) {
+        helper.loadLeagueMatches(component, null);
     },
 })

@@ -2,14 +2,16 @@
     <aura:attribute name="cupId" type="String"/>
     <aura:attribute name="matches" type="Object"/>
     <aura:attribute name="cup" type="BL_League__c"/>
-    <aura:attribute name="today" type="Date" />
+    <aura:attribute name="userId" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <lightning:layout class="slds-m-bottom--x-small">
         <lightning:layoutItem size="12">
             <lightning:card iconName="utility:activity" title="{!'Cup: '+v.cup.Name}" variant="narrow">
                 <aura:set attribute="actions">
-                    <lightning:button disabled="{!v.cup.Max_Teams__c != v.cup.Teams_Joined__c || greaterthanorequal(v.today, v.cup.Start_Date__c)}" onclick="{!c.startCupNowAction}" variant="brand" label="Start now"></lightning:button>
+                    <aura:if isTrue="{!and(v.userId == v.cup.OwnerId, v.cup.isStarted__c == false)}">
+                        <lightning:button onclick="{!c.startCupNowAction}" variant="brand" label="Start now"></lightning:button>
+                    </aura:if>
                 </aura:set>
                 <div class="slds-p-horizontal--small">
                     <fieldset class="slds-form--compound">
@@ -26,15 +28,9 @@
                                                    class="slds-text-heading--small"/>
                                 </div>
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">Access: </p>
-                                    <aura:if isTrue="{!v.cup.isPrivate__c}">
-                                        <ui:outputText value="Private" title="Access"
-                                                       class="slds-text-heading--small"/>
-                                        <aura:set attribute="else">
-                                            <ui:outputText value="Public" title="Access"
-                                                           class="slds-text-heading--small"/>
-                                        </aura:set>
-                                    </aura:if>
+                                    <p class="slds-text-body_small slds-text-color_weak">Owner: </p>
+                                    <ui:outputText value="{!v.cup.CreatedBy.Name}" title="Owner"
+                                                   class="slds-text-heading--small"/>
                                 </div>
                             </div>
                             <div class="slds-form-element__row slds-grid_vertical-align-end">
@@ -49,9 +45,24 @@
                                                    class="slds-text-heading--small"/>
                                 </div>
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">Owner: </p>
-                                    <ui:outputText value="{!v.cup.CreatedBy.Name}" title="Owner"
-                                                   class="slds-text-heading--small"/>
+                                    <!--<p class="slds-text-body_small slds-text-color_weak">Access: </p>-->
+                                    <!--<aura:if isTrue="{!v.cup.isPrivate__c}">-->
+                                        <!--<ui:outputText value="Private" title="Access"-->
+                                                       <!--class="slds-text-heading&#45;&#45;small"/>-->
+                                        <!--<aura:set attribute="else">-->
+                                            <!--<ui:outputText value="Public" title="Access"-->
+                                                           <!--class="slds-text-heading&#45;&#45;small"/>-->
+                                        <!--</aura:set>-->
+                                    <!--</aura:if>-->
+                                    <p class="slds-text-body_small slds-text-color_weak">Status: </p>
+                                    <aura:if isTrue="{!v.cup.isStarted__c}">
+                                        <ui:outputText value="Started" title="Started"
+                                                       class="slds-text-heading--small"/>
+                                        <aura:set attribute="else">
+                                            <ui:outputText value="Waiting for teams" title="Waiting for teams"
+                                                           class="slds-text-heading--small"/>
+                                        </aura:set>
+                                    </aura:if>
                                 </div>
                             </div>
                         </div>
