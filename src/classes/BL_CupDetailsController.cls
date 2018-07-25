@@ -33,10 +33,8 @@ public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static BL_League__c startCupNow(String cupId) {
         BL_League__c cup = loadCupDetails(cupId);
-        System.debug(cup);
-
         if(cup == null || cup.isStarted__c){
-            throw new AuraHandledException('Cup already started');
+            throw new AuraHandledException(Label.BL_Cup_already_started);
         }
         try{
             cup.Start_Date__c = Date.today();
@@ -48,7 +46,7 @@ public with sharing class BL_CupDetailsController {
             for (Integer i = 0; i < e.getNumDml(); i++) {
                 System.debug(e.getDmlMessage(i));
             }
-            throw new AuraHandledException('Cannot start cup');
+            throw new AuraHandledException(Label.BL_Cannot_start_cup);
         }
     }
 

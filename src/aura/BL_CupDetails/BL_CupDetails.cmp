@@ -4,13 +4,14 @@
     <aura:attribute name="cup" type="BL_League__c"/>
     <aura:attribute name="userId" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onScoreSubmitted}"/>
 
     <lightning:layout class="slds-m-bottom--x-small">
         <lightning:layoutItem size="12">
-            <lightning:card iconName="utility:activity" title="{!'Cup: '+v.cup.Name}" variant="narrow">
+            <lightning:card iconName="utility:activity" title="{!$Label.c.BL_Cup+': '+v.cup.Name}" variant="narrow">
                 <aura:set attribute="actions">
-                    <aura:if isTrue="{!and(v.userId == v.cup.OwnerId, v.cup.isStarted__c == false)}">
-                        <lightning:button onclick="{!c.startCupNowAction}" variant="brand" label="Start now"></lightning:button>
+                    <aura:if isTrue="{!and(and(v.userId == v.cup.OwnerId, v.cup.isStarted__c == false), v.cup.Max_Teams__c == v.cup.Teams_Joined__c)}">
+                        <lightning:button onclick="{!c.startCupNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
                     </aura:if>
                 </aura:set>
                 <div class="slds-p-horizontal--small">
@@ -18,48 +19,48 @@
                         <div class="slds-form-element__group">
                             <div class="slds-form-element__row slds-grid_vertical-align-end">
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">Start Date: </p>
-                                    <ui:outputText value="{!v.cup.Start_Date__c}" title="Start Date"
+                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Start_Date}: </p>
+                                    <ui:outputText value="{!v.cup.Start_Date__c}" title="{!$Label.c.BL_Start_Date}"
                                                    class="slds-text-heading--small"/>
                                 </div>
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">Teams number: </p>
-                                    <ui:outputText value="{!v.cup.Max_Teams__c}" title="Teams number"
+                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Teams_number}: </p>
+                                    <ui:outputText value="{!v.cup.Max_Teams__c}" title="{!$Label.c.BL_Teams_number}"
                                                    class="slds-text-heading--small"/>
                                 </div>
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">Owner: </p>
-                                    <ui:outputText value="{!v.cup.CreatedBy.Name}" title="Owner"
+                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
+                                    <ui:outputText value="{!v.cup.CreatedBy.Name}" title="{!$Label.c.BL_Owner}"
                                                    class="slds-text-heading--small"/>
                                 </div>
                             </div>
                             <div class="slds-form-element__row slds-grid_vertical-align-end">
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">End Date: </p>
-                                    <ui:outputText value="{!v.cup.End_Date__c}" title="End Date"
+                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_End_Date}: </p>
+                                    <ui:outputText value="{!v.cup.End_Date__c}" title="{!$Label.c.BL_End_Date}"
                                                    class="slds-text-heading--small"/>
                                 </div>
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">Already joined: </p>
-                                    <ui:outputText value="{!v.cup.Teams_Joined__c}" title="Already joined"
+                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Already_joined}: </p>
+                                    <ui:outputText value="{!v.cup.Teams_Joined__c}" title="{!$Label.c.BL_Already_joined}"
                                                    class="slds-text-heading--small"/>
                                 </div>
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <!--<p class="slds-text-body_small slds-text-color_weak">Access: </p>-->
+                                    <!--<p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Access}: </p>-->
                                     <!--<aura:if isTrue="{!v.cup.isPrivate__c}">-->
-                                        <!--<ui:outputText value="Private" title="Access"-->
+                                        <!--<ui:outputText value="{!$Label.c.BL_Private}" title="{!$Label.c.BL_Access}"-->
                                                        <!--class="slds-text-heading&#45;&#45;small"/>-->
                                         <!--<aura:set attribute="else">-->
-                                            <!--<ui:outputText value="Public" title="Access"-->
+                                            <!--<ui:outputText value="{!$Label.c.BL_Public}" title="{!$Label.c.BL_Access}"-->
                                                            <!--class="slds-text-heading&#45;&#45;small"/>-->
                                         <!--</aura:set>-->
                                     <!--</aura:if>-->
-                                    <p class="slds-text-body_small slds-text-color_weak">Status: </p>
+                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
                                     <aura:if isTrue="{!v.cup.isStarted__c}">
-                                        <ui:outputText value="Started" title="Started"
+                                        <ui:outputText value="{!$Label.c.BL_Started}" title="{!$Label.c.BL_Started}"
                                                        class="slds-text-heading--small"/>
                                         <aura:set attribute="else">
-                                            <ui:outputText value="Waiting for teams" title="Waiting for teams"
+                                            <ui:outputText value="{!$Label.c.BL_Waiting_for_teams}" title="{!$Label.c.BL_Waiting_for_teams}"
                                                            class="slds-text-heading--small"/>
                                         </aura:set>
                                     </aura:if>
@@ -73,50 +74,50 @@
     </lightning:layout>
 
     <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-        Cup Rounds
+            {!$Label.c.BL_Cup_Rounds}
     </div>
 
     <aura:if isTrue="{!v.matches[1] != null}">
         <lightning:tabset variant="scoped">
 
             <aura:if isTrue="{!!empty(v.matches[64])}">
-                <lightning:tab label="1/16 Stage">
+                <lightning:tab label="{!$Label.c.BL_X1_64_Stage}">
                     <c:BL_MatchesTable matches="{!v.matches[64]}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[32])}">
-                <lightning:tab label="1/16 Stage">
+                <lightning:tab label="{!$Label.c.BL_X1_32_Stage}">
                     <c:BL_MatchesTable matches="{!v.matches[32]}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[16])}">
-                <lightning:tab label="1/16 Stage">
+                <lightning:tab label="{!$Label.c.BL_X1_16_Stage}">
                     <c:BL_MatchesTable matches="{!v.matches[16]}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[8])}">
-                <lightning:tab label="1/8 Stage">
+                <lightning:tab label="{!$Label.c.BL_X1_8_Stage}">
                     <c:BL_MatchesTable matches="{!v.matches[8]}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[4])}">
-                <lightning:tab label="Quarter Finals">
+                <lightning:tab label="{!$Label.c.BL_Quarter_Finals}">
                     <c:BL_MatchesTable matches="{!v.matches[4]}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[2])}">
-                <lightning:tab label="Semi Finals">
+                <lightning:tab label="{!$Label.c.BL_Semi_Finals}">
                     <c:BL_MatchesTable matches="{!v.matches[2]}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[1])}">
-                <lightning:tab label="Final">
+                <lightning:tab label="{!$Label.c.BL_Final}">
                     <c:BL_MatchesTable matches="{!v.matches[1]}"/>
                 </lightning:tab>
             </aura:if>
@@ -124,7 +125,7 @@
         </lightning:tabset>
         <aura:set attribute="else">
             <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                <ui:outputText value="Matches not generated yet"/>
+                <ui:outputText value="{!$Label.c.BL_Matches_not_generated_yet}"/>
             </div>
         </aura:set>
     </aura:if>

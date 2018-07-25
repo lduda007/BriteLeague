@@ -16,10 +16,6 @@ public with sharing class BL_LeagueMatchesService {
             }else{
                 generatedMatches = generateMatchesForNotEvenNumberOfTeams(numberOfTeams, competitorsIds, leagueId, league[0].Match_No__c);
             }
-
-            for(BL_Match__c match : generatedMatches){
-                system.debug(match);
-            }
             insertGeneratedMatches(generatedMatches);
         }
     }

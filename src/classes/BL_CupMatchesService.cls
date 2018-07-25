@@ -10,7 +10,6 @@ public with sharing class BL_CupMatchesService {
             competitorsIds.addAll(new Map<String,BL_Competitor__c>(competitors).keySet());
             Integer numberOfTeams = competitorsIds.size();
             List<String> competitorIdsForDraw = competitorsIds.clone();
-
             allGeneratedMatches = generateMatchesForFirstCupStage(numberOfTeams, competitorIdsForDraw, leagueId, numberOfTeams/2);
             firstRoundMatches.addAll(allGeneratedMatches);
             allGeneratedMatches.clear();
@@ -40,8 +39,6 @@ public with sharing class BL_CupMatchesService {
                 nextRoundsMatches.add(new BL_Match__c(League__c=leaguId));
             }
         }
-        //3rd place match
-//        nextRoundsMatches.add(new BL_Match__c(Team1_Score__c=9, League__c=leaguId));
         try{
             insert nextRoundsMatches;
             return nextRoundsMatches;
@@ -72,13 +69,8 @@ public with sharing class BL_CupMatchesService {
             stageMatches.addAll(nextStageMatches);
             nextStageMatches.clear();
         }
-        //final and 3rd place matches
         stageMatches[0].CupStage__c = 1;
         allGeneratedMatches.add(stageMatches[0]);
-        for(BL_Match__c match : allGeneratedMatches){
-//            match.Team1_Score__c = 9;
-            system.debug(match);
-        }
         return allGeneratedMatches;
     }
 

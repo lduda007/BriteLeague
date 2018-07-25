@@ -15,11 +15,11 @@
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
-                    alert('Error when loading league details');
+                    alert($A.get("$Label.c.BL_Error_when_loading_league_details"));
                 }else{
                     resultsToast.setParams({
-                        "title": "Error",
-                        "message": "Error when loading league details"
+                        "title": $A.get("$Label.c.BL_Error"),
+                        "message": $A.get("$Label.c.BL_Error_when_loading_league_details")
                     });
                     resultsToast.fire();
                 }
@@ -44,11 +44,12 @@
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
-                    alert('Error when loading league matches');
+                    alert($A.get("$Label.c.BL_Error_when_loading_league_matches"));
                 }else{
                     resultsToast.setParams({
-                        "title": "Error",
-                        "message": "Error when loading league matches"
+                        "type": "error",
+                        "title": $A.get("$Label.c.BL_Error"),
+                        "message": $A.get("$Label.c.BL_Error_when_loading_league_matches")
                     });
                     resultsToast.fire();
                 }
@@ -79,8 +80,8 @@
                 let resultsToast = $A.get("e.force:showToast");
                 resultsToast.setParams({
                     "type": "success",
-                    "title": "Success",
-                    "message": "League has started"
+                    "title": $A.get("$Label.c.BL_Success"),
+                    "message": $A.get("$Label.c.BL_League_has_started")
                 });
                 resultsToast.fire();
             }else{
@@ -89,7 +90,8 @@
                     alert(response.getError()[0].message);
                 }else{
                     resultsToast.setParams({
-                        "title": "Error",
+                        "type": "error",
+                        "title": $A.get("$Label.c.BL_Error"),
                         "message": response.getError()[0].message
                     });
                     resultsToast.fire();

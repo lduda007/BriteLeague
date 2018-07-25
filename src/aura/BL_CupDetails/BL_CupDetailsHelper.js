@@ -15,11 +15,11 @@
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
-                    alert('Error when loading cup details');
+                    alert($A.get("$Label.c.BL_Error_when_loading_cup_details"));
                 }else{
                     resultsToast.setParams({
-                        "title": "Error",
-                        "message": "Error when loading cup details"
+                        "title": $A.get("$Label.c.BL_Error"),
+                        "message": $A.get("$Label.c.BL_Error_when_loading_cup_details")
                     });
                     resultsToast.fire();
                 }
@@ -43,11 +43,11 @@
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
-                    alert('Error when loading league matches');
+                    alert($A.get("$Label.c.BL_Error_when_loading_league_matches"));
                 }else{
                     resultsToast.setParams({
-                        "title": "Error",
-                        "message": "Error when loading league matches"
+                        "title": $A.get("$Label.c.BL_Error"),
+                        "message": $A.get("$Label.c.BL_Error_when_loading_league_matches")
                     });
                     resultsToast.fire();
                 }
@@ -72,8 +72,8 @@
                 let resultsToast = $A.get("e.force:showToast");
                 resultsToast.setParams({
                     "type": "success",
-                    "title": "Success",
-                    "message": "Cup has started"
+                    "title": $A.get("$Label.c.BL_Success"),
+                    "message": $A.get("$Label.c.BL_Cup_has_started")
                 });
                 resultsToast.fire();
             }else{
@@ -83,7 +83,7 @@
                 }else{
                     resultsToast.setParams({
                         "type": "error",
-                        "title": "Error",
+                        "title": $A.get("$Label.c.BL_Error"),
                         "message": response.getError()[0].message
                     });
                     resultsToast.fire();

@@ -4,18 +4,20 @@ public with sharing class BL_TournamentsEmailService {
         List<BL_Competitor__c> competitors = BL_Utils.getLeagueCompetitors(leagueId);
         List<Messaging.SingleEmailMessage> emails = new List<Messaging.SingleEmailMessage>();
         List<EmailTemplate> template = [SELECT Id, Name FROM EmailTemplate WHERE Name = 'League Start Email'];
-        Set<String> toAddresses = new Set<String>();
+        Set<String> playersIds = new Set<String>();
 
         for (BL_Competitor__c competitor : competitors) {
-            if(competitor.Team__r.Player1__c != null){
+            if(competitor.Team__r.Player1__c != null && !playersIds.contains(competitor.Team__r.Player1__c)){
                 Messaging.SingleEmailMessage messagePlayer1 = new Messaging.SingleEmailMessage();
                 messagePlayer1.setTargetObjectId(competitor.Team__r.Player1__c);
                 emails.add(messagePlayer1);
+                playersIds.add(competitor.Team__r.Player1__c);
             }
-            if(competitor.Team__r.Player2__c != null){
+            if(competitor.Team__r.Player2__c != null && !playersIds.contains(competitor.Team__r.Player2__c)){
                 Messaging.SingleEmailMessage messagePlayer2 = new Messaging.SingleEmailMessage();
                 messagePlayer2.setTargetObjectId(competitor.Team__r.Player2__c);
                 emails.add(messagePlayer2);
+                playersIds.add(competitor.Team__r.Player2__c);
             }
         }
 
@@ -27,7 +29,7 @@ public with sharing class BL_TournamentsEmailService {
         try {
             Messaging.sendEmail(emails);
         } catch (EmailException e) {
-            throw new EmailException('[U-02] sendTemplatedEmail error. ' + e.getMessage());
+            throw new EmailException('Error ' + e.getMessage());
         }
     }
 
@@ -58,8 +60,12 @@ public with sharing class BL_TournamentsEmailService {
         try {
             Messaging.sendEmail(emails);
         } catch (EmailException e) {
-            throw new EmailException('[U-02] sendTemplatedEmail error. ' + e.getMessage());
+            throw new EmailException('Error: ' + e.getMessage());
         }
     }
 
+    @InvocableMethod
+    public static void sendEmailAfterCompetitionStarts(List<String> leagueId){
+//        notifyPlayersAfterLeagueStarted(leagueId[0]);
+    }
 }

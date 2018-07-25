@@ -1,10 +1,13 @@
 ({
     doInit : function(component, event, helper){
-        helper.loadCupDetails(component, event);
-        helper.loadCupMatches(component, event);
+        helper.loadCupDetails(component);
+        helper.loadCupMatches(component);
         helper.getCurrentUserId(component);
     },
     startCupNowAction: function (component, event, helper) {
         helper.startCupNow(component);
+    },
+    onScoreSubmitted: function (component, event, helper) {
+        helper.loadCupMatches(component);
     },
 })
