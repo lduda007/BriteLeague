@@ -2,27 +2,19 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
     private static final String INTERNAL_USER_PROFILE = 'Standard User';
     private static final String TZSID = [SELECT TimeZoneSidKey FROM User WHERE Profile.Name = 'System Administrator' LIMIT 1].TimeZoneSidKey;
 
-//    global boolean canCreateUser(Auth.UserData data) {
-//        Boolean retVal = (data != null
-//                && data.email != null && data.email.endsWith('@britenet.com.pl')
-//                && data.lastName != null
-//                && data.firstName != null);
-//        return retVal;
-//    }
-    
     global boolean canCreateUser(Auth.UserData data) {
+        String restrictedRegistrationDomain = BL_Utils.getBLCommunitySettings('BL_RestrictedRegistrationDomain__c');
         Boolean retVal = (data != null
-                && data.email != null
+                && data.email != null && data.email.endsWith('@'+restrictedRegistrationDomain)
                 && data.lastName != null
                 && data.firstName != null);
         return retVal;
-    }    
+    }
 
     global User createUser(Id portalId, Auth.UserData data){
         if(!canCreateUser(data)) {
             return null;
         }
-
         if(data.attributeMap.containsKey('sfdc_networkid')) {
             Id contactId;
             List<Contact> existingContacts = [SELECT Id, Email FROM Contact WHERE Email =: data.email];
@@ -36,7 +28,6 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
             } else {
                 contactId = createContact(data);
             }
-
             String communityUserProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c');
             Profile communityUserProfile = [SELECT Id FROM profile WHERE name =: communityUserProfileName];
             User communityUser = createUser(data,communityUserProfile);
@@ -72,7 +63,6 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
         contact.LastName = data.lastName;
         contact.FirstName = data.firstName;
         contact.Email = data.email;
-
         if (data.attributemap.get('accountId') != null){
             contact.accountId = data.attributemap.get('accountId');
         } else {
@@ -84,15 +74,11 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
     
     private Id getCommunityUserAccountId(){
         String communityUserAccountName = BL_Utils.getBLCommunitySettings('BL_CommunityUserAccountName__c');
-        System.debug(communityUserAccountName);
         List<Account> communityUserAccount = [SELECT Id FROM Account WHERE Name =: communityUserAccountName];
-        System.debug(communityUserAccount);
-
         if(communityUserAccount != null && communityUserAccount.size() > 0){
             return communityUserAccount[0].Id;
         }else {
             Account newCommunityUserAccount = new Account(Name=communityUserAccountName);
-            System.debug(newCommunityUserAccount);
             try {
                 insert newCommunityUserAccount;
                 return newCommunityUserAccount.Id;

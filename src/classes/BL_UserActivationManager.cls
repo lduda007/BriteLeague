@@ -56,6 +56,17 @@ public with sharing class BL_UserActivationManager {
         }
     }
 
+    public static void enqueuePlayerPermissionSetAssignement(String userId){
+        BL_PlayerPermissionSetAssigner playerPermissionSetAssigner = new BL_PlayerPermissionSetAssigner(userId);
+        ID jobID = System.enqueueJob(playerPermissionSetAssigner);
+    }
+
+    public static void assignPlayerPermissionSet(String userId){
+        String playerPermissionSetId = BL_Utils.getBLCommunitySettings('BL_PlayerPermissionSetId__c');
+        PermissionSetAssignment  psa = new PermissionSetAssignment(PermissionSetId = playerPermissionSetId, AssigneeId = userId);
+        insert psa;
+    }
+
     public static Integer getNumberOfAvailableCommunityLicenses(){
         String customerCommunityProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c');
         List<User> activeCommunityUsers = [SELECT Id FROM User WHERE Profile.Name =: customerCommunityProfileName AND IsActive = true];
