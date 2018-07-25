@@ -57,21 +57,25 @@ public with sharing class BL_PlayerTeamsListController {
     @AuraEnabled
     public static void confirmInvitation(String recordId, Boolean isConfirmed){
         List<BL_Team__c> teams = [SELECT Id, IsActive__c FROM BL_Team__c WHERE Id = :recordId];
-        if (!teams.isEmpty()){
-            BL_Team__c team = teams.get(0);
-            if (isConfirmed == true){
-                team.IsActive__c = true;
-                update team;
+        try {
+            if (!teams.isEmpty()){
+                BL_Team__c team = teams.get(0);
+                if (isConfirmed == true){
+                    team.IsActive__c = true;
+                    update team;
 
-                BL_Statistic__c stats = new BL_Statistic__c(Team__c = team.Id);
-                insert stats;
+                    BL_Statistic__c stats = new BL_Statistic__c(Team__c = team.Id);
+                    insert stats;
+                } else {
+                    BL_Utils.UnsecureClass unsecureClass = new BL_Utils.UnsecureClass();
+                    unsecureClass.deleteNotOwnedRecord(team);
+                }
             } else {
-                delete team;
+                throw new AuraHandledException('Record doesn\'t exist!');
             }
-        } else {
-            throw new AuraHandledException('Record doesn\'t exist!');
+        } catch (Exception ex) {
+            throw new AuraHandledException(ex.getMessage() + ' --> ' + ex.getStackTraceString());
         }
-
     }
 
     private static Boolean canDeleteTeam(Id currentUser, BL_Team__c team){

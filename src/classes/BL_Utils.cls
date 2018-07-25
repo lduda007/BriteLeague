@@ -21,4 +21,16 @@ public with sharing class BL_Utils {
         ];
         return competitors;
     }
+
+    public without sharing class UnsecureClass{
+        public void deleteNotOwnedRecord(SObject record){
+            try{
+                delete record;
+            }catch (DmlException e){
+                for (Integer i = 0; i < e.getNumDml(); i++) {
+                    System.debug(e.getDmlMessage(i));
+                }
+            }
+        }
+    }
 }
