@@ -3,7 +3,7 @@
     <aura:attribute name="league" type="BL_League__c"/>
     <aura:attribute name="matches" type="Object[]"/>
     <aura:attribute name="selectedRowIndex" type="Integer"></aura:attribute>
-    <aura:attribute name="userId" type="String"/>
+    <aura:attribute name="user" type="Object"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onScoreSubmitted}"/>
 
@@ -12,7 +12,7 @@
             <lightning:card iconName="utility:activity" title="{!$Label.c.BL_League+': '+v.league.Name}" variant="narrow">
                 <aura:set attribute="actions">
                     <!--<lightning:button onclick="{!c.openModal}" variant="brand" label="Join"></lightning:button>-->
-                    <aura:if isTrue="{!and(and(and(v.userId == v.league.OwnerId, v.league.isStarted__c == false), v.league.Competitors__r != null), v.league.Competitors__r.length > 1)}">
+                    <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), v.league.Competitors__r.length > 1)}">
                         <lightning:button onclick="{!c.startLeagueNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
                     </aura:if>
                 </aura:set>
@@ -58,14 +58,7 @@
                                         <!--</aura:set>-->
                                     <!--</aura:if>-->
                                     <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
-                                    <aura:if isTrue="{!v.league.isStarted__c}">
-                                        <ui:outputText value="{!$Label.c.BL_Started}" title="{!$Label.c.BL_Started}"
-                                                       class="slds-text-heading--small"/>
-                                        <aura:set attribute="else">
-                                            <ui:outputText value="{!$Label.c.BL_Waiting_for_teams}" title="{!$Label.c.BL_Waiting_for_teams}"
-                                                           class="slds-text-heading--small"/>
-                                        </aura:set>
-                                    </aura:if>
+                                        <ui:outputText value="{!v.league.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +80,7 @@
                             <th scope="col" style="width: 60px;">
                                 <div class="slds-truncate" title="{!$Label.c.BL_Position}">Pos</div>
                             </th>
-                            <th scope="col">
+                            <th scope="col" style="width: 100px;">
                                 <div class="slds-truncate" title="{!$Label.c.BL_Position}">{!$Label.c.BL_Team_Name}</div>
                             </th>
                             <th scope="col">
@@ -174,7 +167,7 @@
             </div>
             <aura:if isTrue="{!v.matches.length > 0}">
                 <div class="slds-scrollable--y" style="max-height: 300px;">
-                    <c:BL_MatchesTable matches="{!v.matches}"/>
+                    <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}"/>
                 </div>
                 <aura:set attribute="else">
                     <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">

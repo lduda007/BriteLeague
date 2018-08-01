@@ -2,7 +2,7 @@
     doInit : function(component, event, helper){
         helper.loadCupDetails(component);
         helper.loadCupMatches(component);
-        helper.getCurrentUserId(component);
+        helper.getCurrentUser(component);
     },
     startCupNowAction: function (component, event, helper) {
         helper.startCupNow(component);

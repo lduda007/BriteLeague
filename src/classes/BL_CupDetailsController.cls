@@ -3,7 +3,7 @@ public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static BL_League__c loadCupDetails(String cupId) {
         List<BL_League__c> cup = [
-                SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, isStarted__c, OwnerId
+                SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, Status__c, OwnerId
                 FROM BL_League__c
                 WHERE Id =: cupId
         ];
@@ -13,7 +13,7 @@ public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static Map<Decimal, List<BL_Match__c>> loadCupRoundToMatchesMap(String cupId) {
         List<BL_Match__c> cupMatches = [
-                SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, CupStage__c, Team1_Score__c, Team2_Score__c
+                SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Team2__r.Team__r.Name, CupStage__c, Team1_Score__c, Team2_Score__c
                 FROM BL_Match__c
                 WHERE League__c =: cupId
         ];
@@ -33,12 +33,12 @@ public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static BL_League__c startCupNow(String cupId) {
         BL_League__c cup = loadCupDetails(cupId);
-        if(cup == null || cup.isStarted__c){
+        if(cup == null || cup.Status__c == 'Started'){
             throw new AuraHandledException(Label.BL_Cup_already_started);
         }
         try{
             cup.Start_Date__c = Date.today();
-            cup.isStarted__c = true;
+            cup.Status__c = 'Started';
             update cup;
             BL_CupMatchesService.generateMatchesAfterCupStarted(cupId);
             return cup;
@@ -51,7 +51,7 @@ public with sharing class BL_CupDetailsController {
     }
 
     @AuraEnabled
-    public static String getCurrentUserId() {
-        return UserInfo.getUserId();
+    public static User getCurrentUser() {
+        return BL_Utils.getCurrentUser();
     }
 }

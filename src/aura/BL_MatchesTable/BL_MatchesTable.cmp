@@ -1,8 +1,8 @@
 <aura:component description="BL_MatchesTable">
     <aura:attribute name="matches" type="Object"/>
     <aura:attribute name="selectedMatchId" type="String"/>
+    <aura:attribute name="playerId" type="String"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleScoreSelected}"/>
-    
     <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
         <thead>
         <tr class="slds-text-title_caps">
@@ -32,7 +32,11 @@
                 </td>
                 <td scope="row" data-label="{!$Label.c.BL_Result}" class="slds-align--absolute-center">
                     <aura:if isTrue="{!or(match.Team1_Score__c == null, match.Team2_Score__c == null)}">
-                        <aura:if isTrue="{!or(match.Team1__r.Team__r.Name == null, match.Team2__r.Team__r.Name == null)}">
+                        <aura:if isTrue="{!or(
+                                            or(match.Team1__r.Team__r.Name == null, match.Team2__r.Team__r.Name == null),
+                                            and(match.Team1__r.Team__r.Player1__c != v.playerId,
+                                                    and(match.Team1__r.Team__r.Player2__c != v.playerId,
+                                                            and(match.Team2__r.Team__r.Player1__c != v.playerId, match.Team2__r.Team__r.Player2__c != v.playerId))))}">
                             <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}">- : -</div>
                             <aura:set attribute="else">
                                 <lightning:button value="{!match.Id}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"></lightning:button>
@@ -40,7 +44,6 @@
                         </aura:if>
                         <aura:set attribute="else">
                             <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}" data-recordId="{!match.Id}" onclick="{!c.openScoreViewModal}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>
-                            <!--<div class="slds-truncate slds-text-align&#45;&#45;center score" title="{!$Label.c.BL_Result}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>-->
                         </aura:set>
                     </aura:if>
                 </td>

@@ -92,14 +92,14 @@
         });
         $A.enqueueAction(action);
     },
-    getCurrentUserId : function(component){
-        let action = component.get('c.getCurrentUserId');
+    getCurrentUser : function(component){
+        let action = component.get('c.getCurrentUser');
         action.setCallback(this, function(response){
             let state = response.getState();
             if (state === "SUCCESS")
             {
-                let userId = response.getReturnValue();
-                component.set("v.userId", userId);
+                let user = response.getReturnValue();
+                component.set("v.user", user);
             }
         });
         $A.enqueueAction(action);

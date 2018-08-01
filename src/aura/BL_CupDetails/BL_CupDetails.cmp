@@ -2,7 +2,7 @@
     <aura:attribute name="cupId" type="String"/>
     <aura:attribute name="matches" type="Object"/>
     <aura:attribute name="cup" type="BL_League__c"/>
-    <aura:attribute name="userId" type="String"/>
+    <aura:attribute name="user" type="Object"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onScoreSubmitted}"/>
 
@@ -10,7 +10,7 @@
         <lightning:layoutItem size="12">
             <lightning:card iconName="utility:activity" title="{!$Label.c.BL_Cup+': '+v.cup.Name}" variant="narrow">
                 <aura:set attribute="actions">
-                    <aura:if isTrue="{!and(and(v.userId == v.cup.OwnerId, v.cup.isStarted__c == false), v.cup.Max_Teams__c == v.cup.Teams_Joined__c)}">
+                    <aura:if isTrue="{!and(and(v.user.Id == v.cup.OwnerId, v.cup.isStarted__c == false), v.cup.Max_Teams__c == v.cup.Teams_Joined__c)}">
                         <lightning:button onclick="{!c.startCupNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
                     </aura:if>
                 </aura:set>
@@ -82,43 +82,43 @@
 
             <aura:if isTrue="{!!empty(v.matches[64])}">
                 <lightning:tab label="{!$Label.c.BL_X1_64_Stage}">
-                    <c:BL_MatchesTable matches="{!v.matches[64]}"/>
+                    <c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[32])}">
                 <lightning:tab label="{!$Label.c.BL_X1_32_Stage}">
-                    <c:BL_MatchesTable matches="{!v.matches[32]}"/>
+                    <c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[16])}">
                 <lightning:tab label="{!$Label.c.BL_X1_16_Stage}">
-                    <c:BL_MatchesTable matches="{!v.matches[16]}"/>
+                    <c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[8])}">
                 <lightning:tab label="{!$Label.c.BL_X1_8_Stage}">
-                    <c:BL_MatchesTable matches="{!v.matches[8]}"/>
+                    <c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[4])}">
                 <lightning:tab label="{!$Label.c.BL_Quarter_Finals}">
-                    <c:BL_MatchesTable matches="{!v.matches[4]}"/>
+                    <c:BL_MatchesTable matches="{!v.matches[4]}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[2])}">
                 <lightning:tab label="{!$Label.c.BL_Semi_Finals}">
-                    <c:BL_MatchesTable matches="{!v.matches[2]}"/>
+                    <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
             <aura:if isTrue="{!!empty(v.matches[1])}">
                 <lightning:tab label="{!$Label.c.BL_Final}">
-                    <c:BL_MatchesTable matches="{!v.matches[1]}"/>
+                    <c:BL_MatchesTable matches="{!v.matches[1]}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
