@@ -35,6 +35,6 @@ public with sharing class BL_TournamentStartEmailService {
 
     @InvocableMethod
     public static void sendEmailAfterCompetitionStarts(List<String> leagueId){
-        notifyPlayersAfterLeagueStarted(leagueId[0]);
+//        notifyPlayersAfterLeagueStarted(leagueId[0]);
     }
 }

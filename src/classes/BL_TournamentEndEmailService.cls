@@ -33,6 +33,6 @@ public with sharing class BL_TournamentEndEmailService {
 
     @InvocableMethod
     public static void sendEmailAfterCompetitionEnds(List<String> leagueId){
-        notifyPlayersAfterLeagueEnd(leagueId[0]);
+//        notifyPlayersAfterLeagueEnd(leagueId[0]);
     }
 }
