@@ -39,6 +39,8 @@ public with sharing class BL_CupMatchesService {
                 nextRoundsMatches.add(new BL_Match__c(League__c=leaguId));
             }
         }
+        //3rd place match
+        nextRoundsMatches.add(new BL_Match__c(League__c=leaguId));
         try{
             insert nextRoundsMatches;
             return nextRoundsMatches;
@@ -63,6 +65,14 @@ public with sharing class BL_CupMatchesService {
                 stageMatches[ii+1].CupStage__c = stageMatches.size();
                 nextStageMatches.add(nextRoundsMatches[0]);
                 nextRoundsMatches.remove(0);
+                //3rd place match
+                if(nextRoundsMatches.size() == 1){
+                    nextRoundsMatches[0].CupStage__c = 0;
+                    stageMatches[ii].Third_Place_Match__c	 = nextRoundsMatches[0].Id;
+                    stageMatches[ii+1].Third_Place_Match__c	 = nextRoundsMatches[0].Id;
+                    allGeneratedMatches.add(nextRoundsMatches[0]);
+                    nextRoundsMatches.remove(0);
+                }
             }
             allGeneratedMatches.addAll(stageMatches);
             stageMatches.clear();
@@ -86,12 +96,16 @@ public with sharing class BL_CupMatchesService {
 
     @InvocableMethod
     public static void moveWinnerTeamToNextCupStep(List<String> wonMatchId){
-        List<BL_Match__c> wonMatch = [SELECT Id, Winner__c, League__c, NextRoundMatch__c FROM BL_Match__c WHERE Id =: wonMatchId];
+        List<BL_Match__c> wonMatch = [SELECT Id, Winner__c, Team1__c, Team2__c, League__c, NextRoundMatch__c, Third_Place_Match__c FROM BL_Match__c WHERE Id =: wonMatchId];
         List<BL_Match__c> nextRoundMatch = [
                 SELECT Id, Team1__c, Team2__c
                 FROM BL_Match__c
                 WHERE Id =: wonMatch[0].NextRoundMatch__c
         ];
+        if(wonMatch[0].Third_Place_Match__c != null){
+            moveLoserTeamToThirdPlaceMatch(wonMatch[0]);
+        }
+
         if(nextRoundMatch[0] != null && nextRoundMatch[0].Team1__c == null){
             nextRoundMatch[0].Team1__c = wonMatch[0].Winner__c;
         }else{
@@ -101,6 +115,27 @@ public with sharing class BL_CupMatchesService {
         }
         try{
             update nextRoundMatch[0];
+        }catch (DmlException e){
+            for (Integer i = 0; i < e.getNumDml(); i++) {
+                System.debug(e.getDmlMessage(i));
+            }
+        }
+    }
+
+    private static void moveLoserTeamToThirdPlaceMatch(BL_Match__c wonMatch){
+        List<BL_Match__c> thirdPlaceMatch = [
+                SELECT Id, Team1__c, Team2__c
+                FROM BL_Match__c
+                WHERE Id =: wonMatch.Third_Place_Match__c
+        ];
+
+        if(thirdPlaceMatch[0] != null && thirdPlaceMatch[0].Team1__c == null){
+            thirdPlaceMatch[0].Team1__c = wonMatch.Winner__c == wonMatch.Team1__c ? wonMatch.Team2__c : wonMatch.Team1__c;
+        }else{
+            thirdPlaceMatch[0].Team2__c = wonMatch.Winner__c == wonMatch.Team1__c ? wonMatch.Team2__c : wonMatch.Team1__c;
+        }
+        try{
+            update thirdPlaceMatch[0];
         }catch (DmlException e){
             for (Integer i = 0; i < e.getNumDml(); i++) {
                 System.debug(e.getDmlMessage(i));

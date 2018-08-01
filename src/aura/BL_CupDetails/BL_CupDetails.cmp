@@ -10,7 +10,7 @@
         <lightning:layoutItem size="12">
             <lightning:card iconName="utility:activity" title="{!$Label.c.BL_Cup+': '+v.cup.Name}" variant="narrow">
                 <aura:set attribute="actions">
-                    <aura:if isTrue="{!and(and(v.user.Id == v.cup.OwnerId, v.cup.isStarted__c == false), v.cup.Max_Teams__c == v.cup.Teams_Joined__c)}">
+                    <aura:if isTrue="{!and(and(v.user.Id == v.cup.OwnerId, v.cup.Status__c == 'Assembling teams'), v.cup.Max_Teams__c == v.cup.Teams_Joined__c)}">
                         <lightning:button onclick="{!c.startCupNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
                     </aura:if>
                 </aura:set>
@@ -56,14 +56,7 @@
                                         <!--</aura:set>-->
                                     <!--</aura:if>-->
                                     <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
-                                    <aura:if isTrue="{!v.cup.isStarted__c}">
-                                        <ui:outputText value="{!$Label.c.BL_Started}" title="{!$Label.c.BL_Started}"
-                                                       class="slds-text-heading--small"/>
-                                        <aura:set attribute="else">
-                                            <ui:outputText value="{!$Label.c.BL_Waiting_for_teams}" title="{!$Label.c.BL_Waiting_for_teams}"
-                                                           class="slds-text-heading--small"/>
-                                        </aura:set>
-                                    </aura:if>
+                                    <ui:outputText value="{!v.cup.Status__c}" title="{!v.cup.Status__c}" class="slds-text-heading--small"/>
                                 </div>
                             </div>
                         </div>
@@ -113,6 +106,12 @@
             <aura:if isTrue="{!!empty(v.matches[2])}">
                 <lightning:tab label="{!$Label.c.BL_Semi_Finals}">
                     <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}"/>
+                </lightning:tab>
+            </aura:if>
+
+            <aura:if isTrue="{!!empty(v.matches[0])}">
+                <lightning:tab label="3rd Place">
+                    <c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}"/>
                 </lightning:tab>
             </aura:if>
 
