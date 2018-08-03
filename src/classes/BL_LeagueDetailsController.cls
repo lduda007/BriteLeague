@@ -4,7 +4,7 @@ public with sharing class BL_LeagueDetailsController {
     public static BL_League__c loadLeagueWithCompetitors(String leagueId) {
         List<BL_League__c> leagueToReturn = [
             SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, OwnerId, Status__c,
-                (SELECT Id, Team__c, Team__r.Name, Team__r.Player1__r.LastName, Team__r.Player2__r.LastName, GamesWon__c, GamesLost__c, GamesDrawn__c, GoalsFor__c, GoalsAgainst__c, GoalsDraw__c, Points__c
+                (SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c, Team__r.Name, Team__r.Player1__r.LastName, Team__r.Player2__r.LastName, GamesWon__c, GamesLost__c, GamesDrawn__c, GoalsFor__c, GoalsAgainst__c, GoalsDraw__c, Points__c
                     FROM Competitors__r
                     ORDER BY Points__c DESC, GoalsDraw__c DESC, GoalsFor__c DESC, GoalsAgainst__c ASC)
             FROM BL_League__c
@@ -19,16 +19,18 @@ public with sharing class BL_LeagueDetailsController {
         if(competitorId == null){
             leagueMatches = [
                     SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c,
-                           Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c
+                           Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c
                     FROM BL_Match__c
                     WHERE League__c =: leagueId
+                    ORDER BY Round__c, DrawRound__c
             ];
         }else{
             leagueMatches = [
                     SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c,
-                           Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c
+                           Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c
                     FROM BL_Match__c
                     WHERE League__c =: leagueId AND (Team1__c =: competitorId OR Team2__c =: competitorId)
+                    ORDER BY Round__c, DrawRound__c
             ];
         }
         return leagueMatches;

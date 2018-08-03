@@ -4,16 +4,24 @@
     <aura:attribute name="matches" type="Object[]"/>
     <aura:attribute name="selectedRowIndex" type="Integer"></aura:attribute>
     <aura:attribute name="user" type="Object"/>
+    <aura:attribute name="isCurrentUserAlreadyInCompetition" type="Boolean" default="true"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onScoreSubmitted}"/>
+    <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
+    <aura:handler name="BL_CompetitorLeftCompetition" event="c:BL_CompetitorLeftCompetition" action="{!c.handleCompetitorLeftCompetition}"/>
 
     <lightning:layout>
         <lightning:layoutItem size="12">
             <lightning:card iconName="utility:activity" title="{!$Label.c.BL_League+': '+v.league.Name}" variant="narrow">
                 <aura:set attribute="actions">
-                    <!--<lightning:button onclick="{!c.openModal}" variant="brand" label="Join"></lightning:button>-->
-                    <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), v.league.Competitors__r.length > 1)}">
+                    <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), greaterthan(v.league.Competitors__r.length, 1))}">
                         <lightning:button onclick="{!c.startLeagueNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
+                    </aura:if>
+                    <aura:if isTrue="{!and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c))}">
+                        <lightning:button onclick="{!c.openJoinToCompetitionModal}" variant="brand" label="Join"></lightning:button>
+                    </aura:if>
+                    <aura:if isTrue="{!and(v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams')}">
+                        <c:BL_LeaveCompetition aura:id="leaveCompetitionComponent" playerId="{!v.user.ContactId}" competitionId="{!v.leagueId}"/>
                     </aura:if>
                 </aura:set>
                 <div class="slds-p-horizontal--small">
@@ -48,17 +56,8 @@
                                                    class="slds-text-heading--small"/>
                                 </div>
                                 <div class="slds-form-element slds-size--1-of-3">
-                                    <!--<p class="slds-text-body_small slds-text-color_weak">Access: </p>-->
-                                    <!--<aura:if isTrue="{!v.league.isPrivate__c}">-->
-                                        <!--<ui:outputText value="Private" title="Access"-->
-                                                       <!--class="slds-text-heading&#45;&#45;small"/>-->
-                                        <!--<aura:set attribute="else">-->
-                                            <!--<ui:outputText value="Public" title="Access"-->
-                                                           <!--class="slds-text-heading&#45;&#45;small"/>-->
-                                        <!--</aura:set>-->
-                                    <!--</aura:if>-->
                                     <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
-                                        <ui:outputText value="{!v.league.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
+                                    <ui:outputText value="{!v.league.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
                                 </div>
                             </div>
                         </div>
@@ -81,10 +80,10 @@
                                 <div class="slds-truncate" title="{!$Label.c.BL_Position}">Pos</div>
                             </th>
                             <th scope="col" style="width: 100px;">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Position}">{!$Label.c.BL_Team_Name}</div>
+                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
                             </th>
                             <th scope="col">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Position}">{!$Label.c.BL_Team_Players}</div>
+                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
                             </th>
                             <th scope="col" style="width: 50px;">
                                 <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Win}">W</div>
@@ -178,21 +177,22 @@
         </lightning:layoutItem>
     </lightning:layout>
 
-    <!--<div class="slds-modal" aria-hidden="false" role="dialog" id="modal">-->
-        <!--<div class="slds-modal__container">-->
-            <!--<div class="slds-modal__header">-->
-                <!--<lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"-->
-                                      <!--alternativeText="Close" class="slds-modal__close"-->
-                                      <!--onclick="{!c.closeModal}"/>-->
-                <!--<h2 class="slds-text-heading&#45;&#45;medium">Select Your Team</h2>-->
-            <!--</div>-->
-            <!--<div class="slds-modal__content slds-p-around&#45;&#45;medium">-->
-                <!--<div align="center">-->
-                    <!--<c:BL_JoinLeague leagueId="{!v.leagueId}" aura:id="joinComponent"/>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="slds-backdrop" id="backdrop"></div>-->
+    <div class="slds-modal" aria-hidden="false" role="dialog" id="joinToCompetitionModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
+                                      alternativeText="Close" class="slds-modal__close"
+                                      onclick="{!c.closeJoinToCompetitionModal}"/>
+                <h2 class="slds-text-heading--medium">Select Your Team</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div align="center">
+                    <c:BL_JoinLeague leagueId="{!v.leagueId}" aura:id="joinComponent"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slds-backdrop" id="backdrop"></div>
 
 </aura:component>

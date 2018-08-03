@@ -1,0 +1,30 @@
+<aura:component description="BL_LeaveCompetition" controller="BL_LeaveCompetitionController">
+    <aura:attribute name="competitionId" type="String"/>
+    <aura:attribute name="playerId" type="String"/>
+    <aura:registerEvent name="BL_CompetitorLeftCompetition" type="c:BL_CompetitorLeftCompetition"/>
+
+    <lightning:button onclick="{!c.openLeaveCompetitionModal}" variant="brand" label="Leave"></lightning:button>
+
+    <div class="slds-modal" aria-hidden="false" role="dialog" id="leaveCompetitionModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
+                                      alternativeText="Close" class="slds-modal__close"
+                                      onclick="{!c.closeLeaveCompetitionModal}"/>
+                <h2 class="slds-text-heading--medium">Confirm leaving</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div align="center">
+                    Do you really want to leave this competition?
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <lightning:button variant="destructive" label="No" onclick="{!c.closeLeaveCompetitionModal}"/>
+                <lightning:button variant="brand" label="Yes" onclick="{!c.leaveCompetitionAction}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="slds-backdrop" id="backdrop"></div>
+
+</aura:component>

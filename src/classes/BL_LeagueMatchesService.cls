@@ -30,6 +30,8 @@ public with sharing class BL_LeagueMatchesService {
                     newMatch.Team1__c = competitorIdsForDraw[jj];
                     newMatch.Team2__c = competitorIdsForDraw[numberOfTeams-jj-2];
                     newMatch.League__c = leagueId;
+                    newMatch.Round__c = kk+1;
+                    newMatch.DrawRound__c = ii+1;
                     generatedMatches.add(newMatch);
                 }
             }
@@ -50,6 +52,8 @@ public with sharing class BL_LeagueMatchesService {
                     newMatch.Team1__c = competitorIdsForDraw[jj];
                     newMatch.Team2__c = competitorIdsForDraw[numberOfTeams-jj-1];
                     newMatch.League__c = leagueId;
+                    newMatch.Round__c = kk+1;
+                    newMatch.DrawRound__c = ii+1;
                     generatedMatches.add(newMatch);
                 }
             }

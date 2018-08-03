@@ -12,6 +12,7 @@
             {
                 let league = response.getReturnValue();
                 component.set("v.league", league);
+                this.checkIsCurrentUserAlreadyInCompetition(component, component.get("v.user"), league);
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
@@ -108,8 +109,27 @@
             {
                 let user = response.getReturnValue();
                 component.set("v.user", user);
+                this.checkIsCurrentUserAlreadyInCompetition(component, user, component.get("v.league"));
             }
         });
         $A.enqueueAction(action);
+    },
+    closeJoinToCompetitionModal : function(){
+        document.getElementById('backdrop').classList.remove("slds-backdrop_open");
+        document.getElementById('joinToCompetitionModal').classList.remove("slds-slide-down-cancel");
+    },
+    checkIsCurrentUserAlreadyInCompetition : function(component, user, competition){
+        if($A.util.isEmpty(user) || $A.util.isEmpty(competition)){
+            return;
+        }
+        if(!$A.util.isEmpty(competition.Competitors__r)){
+            for (let competitor of competition.Competitors__r){
+                if(competitor.Team__r.Player1__c === user.ContactId || competitor.Team__r.Player2__c === user.ContactId){
+                    component.set("v.isCurrentUserAlreadyInCompetition", true);
+                    return;
+                }
+            }
+        }
+        component.set("v.isCurrentUserAlreadyInCompetition", false);
     },
 })
