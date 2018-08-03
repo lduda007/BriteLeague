@@ -23,6 +23,8 @@
     openScoreProviderModal: function (component, event, helper){
         component.set("v.selectedMatchId", event.getSource().get("v.value"));
         console.log('matchId: '+component.get("v.selectedMatchId"));
+        component.set('v.showModal', false);
+        component.set('v.showModal', true);
         component.find("newScoreModal").show();
     },
     handleScoreSelected: function (component, event, helper){

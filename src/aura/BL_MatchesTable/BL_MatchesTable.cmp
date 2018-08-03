@@ -3,6 +3,7 @@
     <aura:attribute name="selectedMatchId" type="String"/>
     <aura:attribute name="playerId" type="String"/>
     <aura:attribute name="isThirdPlace" type="Boolean" default="false"/>
+    <aura:attribute name="showModal" type="Boolean" default="true"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleScoreSelected}"/>
 
     <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
@@ -74,7 +75,10 @@
         </tbody>
     </table>
 
-    <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" size="large">
-        <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}"/>
-    </c:BL_Modal>
+
+    <aura:if isTrue="{!v.showModal}"> 
+        <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" size="large">
+                <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}"/>
+        </c:BL_Modal>
+    </aura:if>
 </aura:component>
