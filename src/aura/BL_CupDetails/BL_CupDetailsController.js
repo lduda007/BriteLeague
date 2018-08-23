@@ -16,6 +16,7 @@
         helper.startCupNow(component);
     },
     onScoreSubmitted: function (component, event, helper) {
+        helper.loadCupDetails(component);
         helper.loadCupMatches(component);
     },
     openJoinToCompetitionModal : function(component, event, helper) {

@@ -30,20 +30,24 @@
     },
     getCurrentCupStage : function(matches){
         var currentCupStage = 64;
-        var currentCupStageFound = false;
         do{
-            if(matches[currentCupStage] !== 'undefined' && matches[currentCupStage] != null){
+            if(!$A.util.isEmpty(matches[currentCupStage])){
                 for (let match of matches[currentCupStage]){
-                    if(match.Winner__c === 'undefined' || match.Winner__c == null){
+                    if($A.util.isEmpty(match.Winner__c)){
                         return currentCupStage;
+                    }else{
+                        if(currentCupStage == 1){
+                            if($A.util.isEmpty(matches[0][0].Winner__c)){
+                                return 0;
+                            }else{
+                                return 1;
+                            }
+                        }
                     }
                 }
-                if(currentCupStageFound) return currentCupStage;
             }
             currentCupStage = currentCupStage / 2;
-            continue;
-        }while(currentCupStage > 1);
-        return currentCupStage;
+        }while(currentCupStage > 0);
     },
     loadCupMatches : function(component, event, helper){
         let action = component.get('c.loadCupRoundToMatchesMap');
@@ -58,7 +62,9 @@
             {
                 let matches = response.getReturnValue();
                 component.set("v.matches", matches);
-                component.set("v.selectedCupStage", this.getCurrentCupStage(matches).toString());
+                if(!$A.util.isEmpty(matches)){
+                    component.set("v.selectedCupStage", this.getCurrentCupStage(matches).toString());
+                }
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
