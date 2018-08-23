@@ -1,0 +1,98 @@
+<aura:component description="BL_LeaguesListView" controller="BL_LeaguesListViewController" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="leaguesList" type="List"/>
+    <aura:attribute name="myLeaguesList" type="List"/>
+    <aura:attribute name="selectedLeagueId" type="String"/>
+    <aura:attribute name="selectedTabId" type="String" default="open"/>
+    <aura:attribute name="showSpinner" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="competitionCreated" event="c:BL_CompetitionCreatedEvent" action="{!c.handleCompetitionCreated}"/>
+    <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
+    <aura:handler name="BL_CannotJoinLeague" event="c:BL_CannotJoinLeague" action="{!c.handleCannotJoinLeague}"/>
+    <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Competitions</div>
+    <lightning:tabset variant="scoped" selectedTabId="{!v.selectedTabId}" aura:id="tabset">
+        <lightning:tab label="Open" id="open">
+            <aura:if isTrue="{!v.leaguesList.length > 0}">
+                <div class="slds-scrollable--y" style="max-height: 37vh; padding: 0px;">
+                    <table class="slds-table slds-table_bordered  slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                        <c:BL_Spinner show="{!v.showSpinner}"/>
+                        <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col" width="23%">
+                                <div class="slds-truncate" title="{!$Label.c.BL_Name}">{!$Label.c.BL_Name}</div>
+                            </th>
+                            <th scope="col" width="17%">
+                                <div class="" title="{!$Label.c.BL_Start_Date}">{!$Label.c.BL_Start_Date}</div>
+                            </th>
+                            <th scope="col" width="13%">
+                                <div class="" title="{!$Label.c.BL_Teams}">{!$Label.c.BL_Teams}</div>
+                            </th>
+                            <th style="width: 13%">{!$Label.c.BL_Type}</th>
+                            <th style="width: 13%"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <aura:iteration items="{!v.leaguesList}" var="league" indexVar="indx">
+                            <tr>
+                                <th scope="row" data-label="{!league.Name}">
+                                    <div class="slds-truncate" title="{!league.Name}">
+                                        <a onclick="{!c.goToRecord}" data-id="{!league.Id}">{!league.Name}</a>
+                                    </div>
+                                </th>
+                                <td data-label="{!league.Start_Date__c}">
+                                    <div class="" title="{!league.Start_Date__c}">
+                                        <ui:outputDate value="{!league.Start_Date__c}"/>
+                                    </div>
+                                </td>
+                                <td data-label="{!$Label.c.BL_Teams}">
+                                    <div class="" title="{!league.Teams_Joined__c +'/'+league.Max_Teams__c}">{!league.Teams_Joined__c}/{!league.Max_Teams__c}</div>
+                                </td>
+                                <td>
+                                    <div title="">
+                                        <aura:if isTrue="{!league.isCup__c}">{!$Label.c.BL_Cup}</aura:if>
+                                        <aura:if isTrue="{!!league.isCup__c}">{!$Label.c.BL_League}</aura:if>
+                                    </div>
+                                </td>
+                                <td data-label="{!$Label.c.BL_Join}" width="12%">
+                                    <div title="{!$Label.c.BL_Join}">
+                                        <button class="slds-button--brand" style="padding-top: 4px; border-radius: 4px;" onclick="{!c.openModal}" data-id="{!indx}">{!$Label.c.BL_Join}</button>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </aura:iteration>
+                        </tbody>
+                    </table>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.leaguesList.length == 0}">
+                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                    {!$Label.c.BL_No_Open_Competitions}
+                </div>
+            </aura:if>
+        </lightning:tab>
+        <lightning:tab label="{!$Label.c.BL_My_Competitions}" id="myLeagues">
+            <div class="slds-scrollable--y" style="max-height: 37vh">
+                <c:BL_MyLeaguesList aura:id="myLeaguesComponent"/>
+            </div>
+        </lightning:tab>
+        <lightning:tab label="{!$Label.c.BL_Create_Competition}">
+                    <c:BL_CreateLeague/>
+        </lightning:tab>
+    </lightning:tabset>
+    <div class="slds-modal" aria-hidden="false" role="dialog" id="modal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
+                                      alternativeText="{!$Label.c.BL_Close}" class="slds-modal__close"
+                                      onclick="{!c.closeModal}"/>
+                <h2 class="slds-text-heading--medium">{!$Label.c.BL_Select_Your_Team}</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div align="center">
+                    <c:BL_JoinLeague leagueId="{!v.selectedLeagueId}" aura:id="joinComponent"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop" id="backdrop"></div>
+</aura:component>

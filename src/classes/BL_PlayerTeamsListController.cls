@@ -2,7 +2,7 @@ public with sharing class BL_PlayerTeamsListController {
     @AuraEnabled
     public static List<DTO_Team> getPlayerTeams(){
         Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
-        List<BL_Team__c> teams = [SELECT Id, Name, Player1__c, Player2__c, Player1__r.Name, Player2__r.Name, IsActive__c, (SELECT Won__c, Lost__c FROM Statistics__r) FROM BL_Team__c WHERE Player1__c = :currentPlayer OR (Player2__c = :currentPlayer AND IsActive__c = true)];
+        List<BL_Team__c> teams = [SELECT Id, Name, Player1__c, Player2__c, Player1__r.Name, Player2__r.Name, IsActive__c, (SELECT Won__c, Lost__c, Draw__c FROM Statistics__r) FROM BL_Team__c WHERE Player1__c = :currentPlayer OR (Player2__c = :currentPlayer AND IsActive__c = true)];
         List<DTO_Team> dtoList = new List<DTO_Team>();
         for (BL_Team__c team : teams){
             DTO_Team t = new DTO_Team();
@@ -19,9 +19,11 @@ public with sharing class BL_PlayerTeamsListController {
 
             t.won = 0;
             t.lost = 0;
+            t.draw = 0;
             for (BL_Statistic__c stat : team.Statistics__r){
                 t.won += Integer.valueOf(stat.Won__c);
                 t.lost += Integer.valueOf(stat.Lost__c);
+                t.draw += Integer.valueOf(stat.Draw__c);
             }
             t.canDelete = canDeleteTeam(currentPlayer, team);
             dtoList.add(t);
@@ -89,6 +91,7 @@ public with sharing class BL_PlayerTeamsListController {
         @AuraEnabled public String recordId {get;set;}
         @AuraEnabled public Integer won {get;set;}
         @AuraEnabled public Integer lost {get;set;}
+        @AuraEnabled public Integer draw {get;set;}
         @AuraEnabled public String secondPlayerName {get;set;}
         @AuraEnabled public String secondPlayerId {get;set;}
         @AuraEnabled public Boolean isActive {get;set;}

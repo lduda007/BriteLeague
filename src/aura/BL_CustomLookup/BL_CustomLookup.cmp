@@ -21,7 +21,7 @@
         <!--This part is for display search bar for lookup-->
         <div class="slds-form-element__control">
 
-            <div class="slds-input-has-icon slds-input-has-icon--right">
+            <div class="slds-input-has-icon slds-input-has-icon--right"> 
                 <lightning:icon class="slds-input__icon slds-show" iconName="utility:search" size="x-small" alternativeText="search"/>
                 <!-- This markup is for when an record is selected -->
                 <div aura:id="lookup-pill" class="slds-pill-container slds-hide">

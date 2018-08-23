@@ -1,4 +1,3 @@
-
 public with sharing class BL_LeaveCompetitionController {
     @AuraEnabled
     public static String removeCompetitorFromCompetition(String playerId, String competitionId) {

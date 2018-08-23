@@ -1,0 +1,16 @@
+.THIS {
+}
+
+.THIS .button-success{
+     background-color: darkgreen;
+     color: white;
+     font-weight: 600;
+ }
+
+.THIS .slds-card__header{
+    display: none;
+}
+
+.THIS .slds-tabs_scoped__content{
+    padding: 3px !important;
+}

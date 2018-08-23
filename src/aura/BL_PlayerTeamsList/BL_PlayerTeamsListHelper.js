@@ -5,8 +5,15 @@
             var state = response.getState();
             if(state === 'SUCCESS' || state === 'DRAFT') {
                 component.set('v.teamsList', response.getReturnValue());
+                console.log('teams: '+JSON.stringify(component.get('v.teamsList')));
             } else if(state === 'ERROR') {
-
+                var showToast = $A.get("e.force:showToast");
+                showToast.setParams({
+                    title : 'Error.',
+                    type: 'error',
+                    message : response.getError()[0].message
+                });
+                showToast.fire();
             }
         });
         $A.enqueueAction(action);    
@@ -19,7 +26,13 @@
             if(state === 'SUCCESS' || state === 'DRAFT') {
                 component.set('v.invitationList', response.getReturnValue());
             } else if(state === 'ERROR') {
-
+                var showToast = $A.get("e.force:showToast");
+                showToast.setParams({
+                    title : 'Error.',
+                    type: 'error',
+                    message : response.getError()[0].message
+                });
+                showToast.fire();
             }
         });
         $A.enqueueAction(action);
@@ -53,7 +66,7 @@
                 showToast.setParams({
                     title : 'Error.',
                     type: 'error',
-                    message : 'Error.'
+                    message : response.getError()[0].message
                 });
                 showToast.fire();
             }
@@ -97,7 +110,7 @@
                 showToast.setParams({
                     title : 'Error.',
                     type: 'error',
-                    message : 'Error.'
+                    message : response.getError()[0].message
                 });
                 showToast.fire();
             }
@@ -132,7 +145,7 @@
                 showToast.setParams({
                     title : 'Error.',
                     type: 'error',
-                    message : 'Error.'
+                    message : response.getError()[0].message
                 });
                 showToast.fire();
             }

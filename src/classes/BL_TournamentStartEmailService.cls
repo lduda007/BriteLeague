@@ -1,4 +1,3 @@
-
 public with sharing class BL_TournamentStartEmailService {
     @InvocableMethod
     public static void sendEmailAfterCompetitionStarts(List<String> leagueId){

@@ -6,6 +6,29 @@
     <aura:attribute name="dockingSide" type="String" default="left"/>
     <aura:attribute name="teamFinalScoreColorStyle" type="String"/>
 
+
+    <!--<div onclick="{!c.navToUrl}" data-id="managed-services"  class="slds-large-size_1-of-5 slds-box slds-box_border-->
+     <!--slds-medium-size&#45;&#45;1-of-3 slds-col slds-small-size_12-of-12 slds-m-around&#45;&#45;medium slds-p-right&#45;&#45;large slds-p-left&#45;&#45;large slds-p-top&#45;&#45;medium slds-p-bottom&#45;&#45;medium navButton">-->
+        <!--{!v.teamName}-->
+
+            <!--<lightning:tile label="{!v.teamObject.Player1__r.Name}" href="">-->
+                <!--<aura:set attribute="media">-->
+                    <!--<lightning:avatar variant="circle"-->
+                                      <!--src="/docs/component-library/app/images/examples/avatar1.jpg"-->
+                                      <!--fallbackIconName="utility:user" size="x-small"/>-->
+                <!--</aura:set>-->
+            <!--</lightning:tile>-->
+
+            <!--<lightning:tile label="{!v.teamObject.Player2__r.Name}" href="">-->
+                <!--<aura:set attribute="media">-->
+                    <!--<lightning:avatar variant="circle"-->
+                                      <!--src="/docs/component-library/app/images/examples/avatar1.jpg"-->
+                                      <!--fallbackIconName="utility:user" size="x-small"/>-->
+                <!--</aura:set>-->
+
+            <!--</lightning:tile>-->
+    <!--</div>-->
+
     <div class="{!'slds-panel slds-size_full slds-panel_docked slds-panel_docked-'+v.dockingSide+' slds-is-open '+v.teamFinalScoreColorStyle+'-box-shadow'}" aria-hidden="false">
         <div class="slds-panel__header slds-color__background_gray-3" >
             <h2 class="slds-panel__header-title slds-text-heading_small ">
@@ -14,10 +37,7 @@
                         <lightning:avatar src="/docs/component-library/app/images/examples/avatar1.jpg"
                                           fallbackIconName="utility:activity" size="small"/>
                     </aura:set>
-                    <!--<ul class="slds-list_horizontal slds-has-dividers_right">-->
-                    <!--<li class="slds-item">Billionaire, Gotham City</li>-->
-                    <!--<li class="slds-item">Dark Knight</li>-->
-                    <!--</ul>-->
+
                 </lightning:tile>
             </h2>
 
@@ -32,7 +52,7 @@
 
                             </div>
                             <div class="slds-media__body">
-                                <div class="slds-text-heading_medium">
+                                <div class="slds-text-heading_small">
                                     <lightning:tile label="{!v.teamObject.Player1__r.Name}" href="">
                                         <aura:set attribute="media">
                                             <lightning:avatar variant="circle"
@@ -50,7 +70,7 @@
 
                             </div>
                             <div class="slds-media__body">
-                                <div class="slds-text-heading_medium">
+                                <div class="slds-text-heading_small">
                                     <lightning:tile label="{!v.teamObject.Player2__r.Name}" href="">
                                         <aura:set attribute="media">
                                             <lightning:avatar variant="circle"

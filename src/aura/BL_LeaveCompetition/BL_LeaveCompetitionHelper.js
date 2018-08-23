@@ -22,7 +22,7 @@
                 resultsToast.fire();
                 let evt = component.getEvent('BL_CompetitorLeftCompetition');
                 evt.fire();
-                this.closeLeaveCompetitionModal();
+                this.closeLeaveCompetitionModal(component);
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
@@ -39,8 +39,8 @@
         });
         $A.enqueueAction(action);
     },
-    closeLeaveCompetitionModal : function() {
-        document.getElementById('backdrop').classList.remove("slds-backdrop_open");
-        document.getElementById('leaveCompetitionModal').classList.remove("slds-slide-down-cancel");
+    closeLeaveCompetitionModal : function(component) {
+        $A.util.removeClass(component.find('backdrop'), "slds-backdrop_open");
+        $A.util.removeClass(component.find('leaveCompetitionModal'), "slds-slide-down-cancel");
     },
 })

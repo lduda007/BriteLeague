@@ -3,7 +3,6 @@
  */
 .THIS {
 }
-
-.THIS .slds-dropdown-trigger{
-    display: block;
+.THIS .slds-form-element__label{
+    margin: auto;
 }

@@ -23,7 +23,7 @@
                 showToast.setParams({
                     title : 'Error.',
                     type: 'error',
-                    message : response.getError()[0]
+                    message : response.getError()[0].message
                 });
                 showToast.fire();
             }

@@ -5,12 +5,17 @@
     <aura:attribute name="team1wins" type="Boolean" default="false"/>
     <aura:attribute name="team2wins" type="Boolean" default="false"/>
     <aura:attribute name="isEditMode" type="Boolean" default="true"/>
+    <aura:attribute name="isReadOnly" type="Boolean" default="false"/>
+    <aura:attribute name="team1goals" type="Integer" />
+    <aura:attribute name="team2goals" type="Integer" />
 
-    <aura:handler name="scoreSelected" event="c:BL_ScoreSelectedEvent" action="{!c.handleScoreSelected}"/>
+    <aura:handler name="scoreInputSelected" event="c:BL_ScoreSelectedEvent" action="{!c.handleScoreSelected}"/>
     <aura:handler name="change" value="{!v.team1Score}" action="{!c.handleRoundScoreChanged}"/>
     <aura:handler name="change" value="{!v.team2Score}" action="{!c.handleRoundScoreChanged}"/>
 
     <aura:registerEvent name="roundScoreSelected" type="c:BL_roundScoreSelected" />
+
+    <aura:method name="clearScores" action="{!c.clearTeamsScores}" />
 
     <div class="slds-grid slds-wrap slds-p-top_small slds-grid--align-spread">
         <div class="slds-col slds-size_12-of-12">
@@ -29,9 +34,14 @@
             <div class="slds-text-align--center singleRoundScore slds-align_absolute-center">
                 <div class="slds-grid slds-grid_vertical">
                     <div class="slds-col">
+                        <aura:if isTrue="{!v.isReadOnly}">
+                            <lightning:formattedText value="{!(empty(v.team1goals)?'-':v.team1goals) + ' : '+(empty(v.team2goals)?'-':v.team2goals)}"/>
+                        </aura:if>
+                        <aura:if isTrue="{! !v.isReadOnly}">
                         <lightning:formattedText value="{!(empty(v.team1Score)?'-':v.team1Score) + ' : '+(empty(v.team2Score)?'-':v.team2Score)}"/>
+                        </aura:if>
                     </div>
-
+                    <aura:if isTrue="{! !v.isReadOnly}">
                     <div class="slds-col slds-p-bottom--medium">
                         <aura:if isTrue="{!v.isEditMode}">
                             <lightning:buttonIcon iconName="utility:check" variant="brand" onclick="{! c.handleAcceptScoreClick }" alternativeText="Accept" size="medium" disabled="{!or(empty(v.team1Score),empty(v.team2Score)) || !v.isEditMode ? true : false}"/>
@@ -40,6 +50,7 @@
                             </aura:set>
                         </aura:if>
                     </div>
+                    </aura:if>
                 </div>
             </div>
         </div>

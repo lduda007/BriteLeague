@@ -1,4 +1,3 @@
-
 public with sharing class BL_LeagueMatchesService {
     public static void generateMatchesAfterLeagueStarted(String leagueId){
         List<BL_Competitor__c> competitors = BL_Utils.getLeagueCompetitors(leagueId);

@@ -21,7 +21,7 @@
                         <lightning:button onclick="{!c.openJoinToCompetitionModal}" variant="brand" label="Join"></lightning:button>
                     </aura:if>
                     <aura:if isTrue="{!and(v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams')}">
-                        <c:BL_LeaveCompetition aura:id="leaveCompetitionComponent" playerId="{!v.user.ContactId}" competitionId="{!v.leagueId}"/>
+                        <c:BL_LeaveCompetition competitionId="{!v.leagueId}" playerId="{!v.user.ContactId}" aura:id="leaveCompetitionComponent"/>
                     </aura:if>
                 </aura:set>
                 <div class="slds-p-horizontal--small">
@@ -177,7 +177,7 @@
         </lightning:layoutItem>
     </lightning:layout>
 
-    <div class="slds-modal" aria-hidden="false" role="dialog" id="joinToCompetitionModal">
+    <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="joinToCompetitionModal">
         <div class="slds-modal__container">
             <div class="slds-modal__header">
                 <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
@@ -193,6 +193,6 @@
         </div>
     </div>
 
-    <div class="slds-backdrop" id="backdrop"></div>
+    <div class="slds-backdrop" aura:id="backdrop"></div>
 
 </aura:component>

@@ -1,16 +1,20 @@
 <aura:component description="BL_MatchScoreProvider"
-                implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes" controller="BL_MatchScoreProviderController">
+                implements="flexipage:availableForAllPageTypes" controller="BL_MatchScoreProviderController">
     <aura:attribute name="matchRecord" type="Object"/>
     <aura:attribute name="simpleMatchRecord" type="Object"/>
-    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="recordError" type="String"/> 
     <aura:attribute name="team1Score" type="Integer"/>
     <aura:attribute name="team2Score" type="Integer"/>
     <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="isReadOnly" type="Boolean" default="true"/>
 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.recordId}" action="{!c.handleRecordIdChanged}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleRoundScoreSaved}"/>
 
     <force:recordData aura:id="matchRecordEditor"
-                      fields="Id, Name, Team1_Score__c,Team1TotalGoalsScored__c,Team2TotalGoalsScored__c, Team2_Score__c, League__r.isCup__c, Team1__r.Name,Team2__r.Name,
+                      fields="Id, Name, MatchDate__c, isResolved__c, Team1_Score__c,Team1TotalGoalsScored__c,Team2TotalGoalsScored__c,
+                      Team2_Score__c, League__r.isCup__c,League__r.Start_Date__c,League__r.End_Date__c, Team1__r.Name,Team2__r.Name,
                       Team1__r.Team__r.Name, Team2__r.Team__r.Name,Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,
                       Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Team1Round1Goals__c,
                       Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c"
@@ -21,24 +25,28 @@
                       recordUpdated="{!c.recordUpdated}"
                       mode="EDIT"/>
 
-    <lightning:button variant="neutral" type="button" label="Score" name="Score"
-                      onclick="{!c.handleMatchScoreModalOpen}"/>
+    <aura:if isTrue="{!v.isReadOnly}">
 
-    <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="Match Score" size="large">
+            <c:BL_MatchScoreViewer matchRecord="{!v.simpleMatchRecord}" />
+    </aura:if>
+    
+    <aura:if isTrue="{! !v.isReadOnly}">
 
-        <c:BL_MatchScoreProviderTile team1="{!v.simpleMatchRecord.Team1__r}"
-                                     team2="{!v.simpleMatchRecord.Team2__r}"
-                                     isCup="{!v.simpleMatchRecord.League__r.isCup__c}"
-                                     team1Score="{!v.simpleMatchRecord.Team1_Score__c}"
-                                     team2Score="{!v.simpleMatchRecord.Team2_Score__c}"/>
+    <c:BL_MatchScoreProviderTile aura:id="scoreProviderTile"
+                                 matchRecord="{!v.simpleMatchRecord}"
+                                 team1="{!v.simpleMatchRecord.Team1__r}"
+                                 team2="{!v.simpleMatchRecord.Team2__r}"
+                                 isCup="{!v.simpleMatchRecord.League__r.isCup__c}"
+                                 team1Score="{!v.simpleMatchRecord.Team1_Score__c}"
+                                 team2Score="{!v.simpleMatchRecord.Team2_Score__c}"/>
         <br/>
-
-    </c:BL_Modal>
+    </aura:if>
 
     <!-- Display Lightning Data Service errors, if any -->
     <aura:if isTrue="{!not(empty(v.recordError))}">
         <div class="recordError">
-                {!v.recordError}</div>
+                {!v.recordError}
+        </div>
     </aura:if>
 
 </aura:component>

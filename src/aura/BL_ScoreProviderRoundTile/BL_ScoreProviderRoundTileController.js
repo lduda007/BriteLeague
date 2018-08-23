@@ -47,4 +47,9 @@
     handleEditModeClick: function(component,event,helper){
         component.set("v.isEditMode", true);
     },
+    clearTeamsScores: function(component, event, helper){
+        component.set("v.team1Score", null);
+        component.set("v.team2Score", null);
+        component.set("v.isEditMode", true);
+    },
 })

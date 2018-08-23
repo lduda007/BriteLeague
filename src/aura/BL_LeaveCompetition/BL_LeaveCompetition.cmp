@@ -5,7 +5,7 @@
 
     <lightning:button onclick="{!c.openLeaveCompetitionModal}" variant="brand" label="Leave"></lightning:button>
 
-    <div class="slds-modal" aria-hidden="false" role="dialog" id="leaveCompetitionModal">
+    <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="leaveCompetitionModal">
         <div class="slds-modal__container">
             <div class="slds-modal__header">
                 <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
@@ -25,6 +25,6 @@
         </div>
     </div>
 
-    <div class="slds-backdrop" id="backdrop"></div>
+    <div class="slds-backdrop" aura:id="backdrop"></div>
 
 </aura:component>

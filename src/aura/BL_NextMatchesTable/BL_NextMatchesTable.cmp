@@ -1,7 +1,10 @@
 <aura:component description="BL_NextMatchesTable">
     <aura:attribute name="matches" type="Object"/>
+    <aura:attribute name="selectedMatchId" type="String"/>
+    <aura:attribute name="showModal" type="Boolean" default="true"/>
+    <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleScoreSelected}"/>
 
-    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+    <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
         <thead>
         <tr class="slds-text-title_caps">
             <th scope="col">
@@ -12,6 +15,9 @@
             </th>
             <th scope="col">
                 <div class="slds-truncate" title="Competition Name">Competition</div>
+            </th>
+            <th scope="col">
+                <div class="slds-truncate slds-text-align--center" title="Result">Result</div>
             </th>
         </tr>
         </thead>
@@ -27,8 +33,25 @@
                 <td scope="row" data-label="Competition Name">
                     <div class="slds-truncate" title="{!match.League__r.Name}"><a data-recordId="{!match.League__c}" onclick="{!c.goToLeaguePage}">{!match.League__r.Name}</a></div>
                 </td>
+                <td scope="row" data-label="Result">
+                    <!--<div class="slds-truncate slds-text-align&#45;&#45;center score" title="Result" data-recordId="{!match.Id}" onclick="{!c.openScoreProviderModal}">SET</div>-->
+                    <lightning:button value="{!match.Id}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"></lightning:button>
+                </td>
             </tr>
         </aura:iteration>
         </tbody>
     </table>
+
+    <!--<c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="Match Score" size="large">-->
+        <!--<c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}"/>-->
+    <!--</c:BL_Modal>-->
+
+
+
+        <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" size="large">
+            <aura:if isTrue="{!v.showModal}">
+                <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}" isReadOnly="false"/>
+            </aura:if>
+        </c:BL_Modal>
+
 </aura:component>

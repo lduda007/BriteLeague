@@ -12,7 +12,7 @@
         component.set("v.loserScoreOptions", loserOptions);
     },
     handleScoreChange: function(component, event, helper){
-        component.getEvent("scoreSelected").setParams({
+        component.getEvent("scoreInputSelected").setParams({
             "score": event.getSource().get("v.value"),
             "roundNumber": component.get("v.roundNumber"),
             "teamNumber": component.get("v.teamNumber"),

@@ -1,5 +1,6 @@
 <aura:component description="BL_MatchesTable">
     <aura:attribute name="matches" type="Object"/>
+    <aura:attribute name="selectedMatchObject" type="Object"/>
     <aura:attribute name="selectedMatchId" type="String"/>
     <aura:attribute name="playerId" type="String"/>
     <aura:attribute name="isThirdPlace" type="Boolean" default="false"/>
@@ -75,10 +76,26 @@
         </tbody>
     </table>
 
+    <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" size="large">
+        <aura:if isTrue="{!v.showModal}">
+            <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}" isReadOnly="false"/>
+        </aura:if>
+    </c:BL_Modal>
 
-    <aura:if isTrue="{!v.showModal}"> 
-        <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" size="large">
-                <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}"/>
-        </c:BL_Modal>
-    </aura:if>
+        <div class="slds-modal slds-modal--large" aria-hidden="false" role="dialog" aura:id="scoreViewModal">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
+                                          alternativeText="{!$Label.c.BL_Close}" class="slds-modal__close"
+                                          onclick="{!c.closeModal}"/>
+                    <h2 class="slds-text-heading--medium"><c:BL_MatchDetailsViewer match="{!v.selectedMatchObject}"/></h2>
+                </div>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div align="center">
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop" aura:id="backdrop"></div>
+
 </aura:component>

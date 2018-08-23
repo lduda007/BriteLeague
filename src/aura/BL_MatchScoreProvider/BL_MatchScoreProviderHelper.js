@@ -1,4 +1,3 @@
-
 ({
     loadTeamGoalsByRound: function(component, event, team, round){
         if(parseInt(team) == 1){
@@ -18,8 +17,6 @@
         action.setParams({
             "matchId": component.get("v.recordId"),
             "changedFields" : JSON.stringify(param1)
-//            "changedFields" : event.getParam("changedFields")
-
         });
 
         action.setCallback(this, function(response){
@@ -31,12 +28,12 @@
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
-                    alert('Error when creating pricebookentry');
+                    alert('Error updating League Table');
                 }else{
                     resultsToast.setParams({
                         "type": "error",
                         "title": "Error",
-                        "message": "Error when creating pricebookentry"
+                        "message": "Error updating League Table"
                     });
                     resultsToast.fire();
                 }
@@ -45,27 +42,41 @@
         $A.enqueueAction(action);
     },
     updateMatchFinalScore: function(component, event){
-        console.log('event params: '+JSON.stringify(event.getParams()));
+//        console.log('event params: '+JSON.stringify(event.getParams()));
         let action = component.get("c.updateMatchScore");
         action.setParams({
             "matchId": component.get("v.recordId"),
+            "team1Score" : event.getParam("team1score"),
+            "team2Score" : event.getParam("team2score"),
+            "team1GoalsInRound" : event.getParam("team1Goals"),
+            "team2GoalsInRound" : event.getParam("team2Goals"),
+            "matchDateString" : event.getParam("matchDate")
         });
-
         action.setCallback(this, function(response){
             let state = response.getState();
+//            console.log('state: '+state);
             if (state === "SUCCESS")
             {
-                console.log("");
+                // record is saved successfully
+                component.set('v.simpleMatchRecord.isResolved__c', true);
+                component.set("v.isReadOnly", true);
+//                component.set("v.recordId", null);
 
+                var resultsToast = $A.get("e.force:showToast");
+                resultsToast.setParams({
+                    "type": "success",
+                    "message": "Score was saved."
+                });
+                resultsToast.fire();
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
-                    alert('Error when creating pricebookentry');
+                    alert('Error saving score');
                 }else{
                     resultsToast.setParams({
                         "type": "error",
                         "title": "Error",
-                        "message": "Error when creating pricebookentry"
+                        "message": "Error saving score"
                     });
                     resultsToast.fire();
                 }

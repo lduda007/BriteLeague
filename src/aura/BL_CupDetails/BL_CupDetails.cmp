@@ -125,44 +125,49 @@
 
         </lightning:tabset>
         <aura:set attribute="else">
+            <aura:if isTrue="{!greaterthan(v.cup.Teams_Joined__c, 0)}">
+                <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                        {!$Label.c.BL_Teams_Already_Joined}
+                </div>
 
-            <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-                {!$Label.c.BL_Teams_Already_Joined}
-            </div>
-
-            <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
-                <thead>
-                <tr class="slds-text-title_caps">
-                    <th scope="col" style="min-width: 200px;">
-                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
-                    </th>
-                    <th scope="col">
-                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <aura:iteration items="{!v.cup.Competitors__r}" var="team" indexVar="index">
-                    <tr>
-                        <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
-                            <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
-                        </td>
-                        <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
-                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
-                            {!team.Team__r.Player1__r.LastName}
-                                <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
-                                    <aura:set attribute="else">
-                                        &#38;
-                                    </aura:set>
-                                </aura:if>
-                            {!team.Team__r.Player2__r.LastName}
-                            </div>
-                        </td>
+                <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                    <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col" style="min-width: 200px;">
+                            <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                        </th>
                     </tr>
-                </aura:iteration >
-                </tbody>
-            </table>
-
+                    </thead>
+                    <tbody>
+                    <aura:iteration items="{!v.cup.Competitors__r}" var="team" indexVar="index">
+                        <tr>
+                            <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                            </td>
+                            <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
+                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
+                                {!team.Team__r.Player1__r.LastName}
+                                    <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
+                                        <aura:set attribute="else">
+                                            &#38;
+                                        </aura:set>
+                                    </aura:if>
+                                        {!team.Team__r.Player2__r.LastName}
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:iteration >
+                    </tbody>
+                </table>
+                <aura:set attribute="else">
+                    <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                            {!$Label.c.BL_No_teams_joined_yet}
+                    </div>
+                </aura:set>
+            </aura:if>
         </aura:set>
     </aura:if>
 

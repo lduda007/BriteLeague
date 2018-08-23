@@ -28,13 +28,14 @@ public with sharing class BL_LeaguesListViewController {
         for (BL_League__c league : [
                 SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c
                 FROM BL_League__c
-                WHERE (Status__c = 'Assembling Teams' AND Start_Date__c >= :System.today())
+                WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.today())
                 AND Id NOT IN :getPlayerLeaguesIds()
         ]) {
             if (league.Max_Teams__c > league.Teams_Joined__c) {
                 leagues.add(league);
             }
         }
+        System.debug('OPEN LEAAGUES' + leagues);
         return leagues;
     }
 
@@ -42,9 +43,9 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getMyLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for (BL_League__c league : [
-                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c
+                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, Status__c
                 FROM BL_League__c
-                WHERE Id IN :getPlayerLeaguesIds()
+                WHERE Id IN :getPlayerLeaguesIds() AND (Status__c = 'Started' OR Status__c = 'Assembling teams')
         ]) {
             leagues.add(league);
         }

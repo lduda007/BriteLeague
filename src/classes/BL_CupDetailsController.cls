@@ -1,4 +1,3 @@
-
 public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static BL_League__c loadCupDetails(String cupId) {

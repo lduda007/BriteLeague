@@ -18,6 +18,9 @@
         action.setCallback(this, function(response){
             var state = response.getState();
             if(state === 'SUCCESS' || state === 'DRAFT') {
+                console.log(response.getReturnValue().name);
+                console.log(response.getReturnValue().xLabels);
+                console.log(response.getReturnValue().xValues);
                 var chartdata2 = {
                     labels: response.getReturnValue().xLabels,
                     datasets: [
@@ -42,7 +45,7 @@
                     data: chartdata2,
                     options: {
                         legend: {
-                            position: 'bottom',
+                            position: 'false',
                             padding: 10,
                         },
                         responsive: true,
@@ -65,10 +68,11 @@
                     }
                 });
             } else if(state === 'ERROR') {
-
+                console.log('ERROR: ' + response.getError()[0].message);
             }
         });
         $A.enqueueAction(action);
 
-    }
+    },
+    
 })

@@ -6,7 +6,7 @@ public with sharing class BL_HomeDashboardController {
 			Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
 			Map<Id, BL_Team__c> playerTeams = new Map<Id, BL_Team__c>([SELECT Id FROM BL_Team__c WHERE Player1__c = :currentPlayer OR Player2__c = :currentPlayer]);
 			List<BL_Match__c> matches = [
-					SELECT Id, Team1__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__c, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c, CreatedDate
+					SELECT Id, isResolved__c, Team1__r.Team__c, Team1__r.Name, Team1__r.Team__r.Name, Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__c, Team2__r.Name, Team2__r.Team__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Team1_Score__c, Team2_Score__c, Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c, CreatedDate
 					FROM BL_Match__c
 					WHERE
 					isResolved__c = true
@@ -17,7 +17,6 @@ public with sharing class BL_HomeDashboardController {
 					ORDER BY LastModifiedDate DESC
 					LIMIT 20
 			];
-
 			return matches;
 		} catch (Exception ex) {
 			throw new AuraHandledException(ex.getStackTraceString());
@@ -50,7 +49,7 @@ public with sharing class BL_HomeDashboardController {
 			Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
 			Integer days = 7;
 			Datetime dateFrom = Date.today().addDays(-days);
-			Map<Date,Integer> scorePerDate = new Map<Date,Integer>();
+			Map<Date,Decimal> scorePerDate = new Map<Date,Decimal>();
 			Map<Date,Integer> matchPerDate = new Map<Date,Integer>();
 			Map<Id, BL_Team__c> playerTeams = new Map<Id, BL_Team__c>([SELECT Id FROM BL_Team__c WHERE Player1__c = :currentPlayer OR Player2__c = :currentPlayer]);
 			List<BL_Match__c> matches = [
@@ -73,22 +72,22 @@ public with sharing class BL_HomeDashboardController {
 					scorePerDate.put(matchDate, 0);
 					matchPerDate.put(matchDate, 0);
 				}
-				Integer score = scorePerDate.get(matchDate);
+				Decimal score = scorePerDate.get(matchDate);
 				Integer count = matchPerDate.get(matchDate);
 				if (playerTeams.containsKey(match.Team1__r.Team__c)){
-					score += (Integer) (match.Team1Round1Goals__c - match.Team2Round1Goals__c + 10) / 2;
-					score += (Integer) (match.Team1Round2Goals__c - match.Team2Round2Goals__c + 10) / 2;
+					score += (match.Team1Round1Goals__c - match.Team2Round1Goals__c + 10) / 2;
+					score += (match.Team1Round2Goals__c - match.Team2Round2Goals__c + 10) / 2;
 					count += 2;
 					if (match.Team1Round3Goals__c != null && match.Team1Round3Goals__c != 0 && match.Team2Round3Goals__c != null && match.Team2Round3Goals__c != 0){
-						score += (Integer) (match.Team1Round3Goals__c - match.Team2Round3Goals__c + 10) / 2;
+						score += (match.Team1Round3Goals__c - match.Team2Round3Goals__c + 10) / 2;
 						count += 1;
 					}
 				} else {
-					score += (Integer) (match.Team2Round1Goals__c - match.Team1Round1Goals__c + 10) / 2;
-					score += (Integer) (match.Team2Round2Goals__c - match.Team1Round2Goals__c + 10) / 2;
+					score += (match.Team2Round1Goals__c - match.Team1Round1Goals__c + 10) / 2;
+					score += (match.Team2Round2Goals__c - match.Team1Round2Goals__c + 10) / 2;
 					count += 2;
 					if (match.Team1Round3Goals__c != null && match.Team1Round3Goals__c != 0 && match.Team2Round3Goals__c != null && match.Team2Round3Goals__c != 0){
-						score += (Integer) (match.Team2Round3Goals__c - match.Team1Round3Goals__c + 10) / 2;
+						score += (match.Team2Round3Goals__c - match.Team1Round3Goals__c + 10) / 2;
 						count += 1;
 					}
 				}
@@ -98,7 +97,7 @@ public with sharing class BL_HomeDashboardController {
 
 			DTO_Chart chart = new DTO_Chart();
 			chart.name = 'Performance';
-			chart.xValues = new List<Integer>();
+			chart.xValues = new List<Decimal>();
 			chart.xLabels = new List<String>();
 			for (Date matchDate : matchPerDate.keySet()){
 				chart.xLabels.add(matchDate.format());
@@ -115,13 +114,13 @@ public with sharing class BL_HomeDashboardController {
 
 	}
 
-	private static Integer getConditionAvg(Integer score, Integer matches){
-		return score / matches * 10;
+	private static Decimal getConditionAvg(Decimal score, Integer matches){
+		return score / matches * 10.0;
 	}
 
 	public class DTO_Chart{
 		@AuraEnabled public String name {get;set;}
 		@AuraEnabled public List<String> xLabels {get;set;}
-		@AuraEnabled public List<Integer> xValues {get;set;}
+		@AuraEnabled public List<Decimal> xValues {get;set;}
 	}
 }

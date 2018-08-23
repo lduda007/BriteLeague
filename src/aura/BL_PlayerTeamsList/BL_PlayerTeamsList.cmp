@@ -32,7 +32,10 @@
     <lightning:tabset variant="scoped">
         <lightning:tab label="My Teams">
             <aura:if isTrue="{!empty(v.teamsList)}">
-                You are not in any team :(
+                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                    You are not in any team :(
+                </div>
+
                 <aura:set attribute="else">
                     <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
                         <thead>
@@ -43,13 +46,16 @@
                                 <th scope="col">
                                     <div class="slds-truncate" title="Second Player Name">Player</div>
                                 </th>
-                                <th scope="col" style="width: 15%;">
+                                <th scope="col" style="width: 11%;">
                                     <div class="slds-truncate" title="Win Games">Win</div>
                                 </th>
-                                <th scope="col" style="width: 15%;">
+                                <th scope="col" style="width: 12%;">
                                     <div class="slds-truncate" title="Lose Games">Lose</div>
                                 </th>
-                                <th scope="col" style="width: 18%;">
+                                <th scope="col" style="width: 12%;">
+                                    <div class="slds-truncate" title="Draw Games">Draw</div>
+                                </th>
+                                <th scope="col" style="width: 18%; padding :0px;">
                                     <div class="slds-truncate" title="Is Active">Active</div>
                                 </th>
                             </tr>
@@ -57,16 +63,19 @@
                         <tbody>
                             <aura:iteration items="{!v.teamsList}" var="team">
                                 <tr>
-                                    <td scope="row" data-label="Name">
+                                    <td scope="row" data-label="{!team.name}">
                                         <div class="slds-truncate" title="{!team.name}"><a data-recordId="{!team.recordId}" onclick="{!c.goToTeam}">{!team.name}</a></div>
                                     </td>
-                                    <td scope="row" data-label="Player">
+                                    <td scope="row" data-label="{!team.secondPlayerName}">
                                         <div class="slds-truncate" title="{!team.secondPlayerName}">{!team.secondPlayerName}</div>
                                     </td>
                                     <td scope="row" data-label="Win">
                                         <div class="slds-truncate" title="Win">{!team.won}</div>
                                     </td>
                                     <td scope="row" data-label="Lose">
+                                        <div class="slds-truncate" title="Lose">{!team.lost}</div>
+                                    </td>
+                                    <td scope="row" data-label="Draw">
                                         <div class="slds-truncate" title="Lose">{!team.lost}</div>
                                     </td>
                                     <td scope="row" data-label="Is Active">
@@ -96,7 +105,10 @@
                 </aura:if>
             </aura:set>
             <aura:if isTrue="{!empty(v.invitationList)}">
-                You haven't any invitation to team :(
+                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                    You haven't any invitation to team :(
+                </div>
+
                 <aura:set attribute="else">
                     <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
                         <thead>
@@ -144,7 +156,11 @@
 
         </lightning:tab>
         <lightning:tab label="Create Team">
-            <c:BL_CreateTeam team="{!v.team}" selectedPlayer="{!v.selectedPlayer}"/>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_4-of-12">
+                    <c:BL_CreateTeam team="{!v.team}" selectedPlayer="{!v.selectedPlayer}"/>
+                </div>
+            </div>
         </lightning:tab>
     </lightning:tabset>
 

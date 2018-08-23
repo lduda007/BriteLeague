@@ -1,55 +1,125 @@
 public with sharing class BL_MatchScoreProviderController {
 
     @AuraEnabled
-    public static void updateMatchScore(String matchId){
+    public static void updateMatchScore(String matchId, Decimal team1Score, Decimal team2Score, List<Decimal> team1GoalsInRound, List<Decimal> team2GoalsInRound, String matchDateString){
+        system.debug('date param: '+matchDateString);
+        Decimal[] team1GoalsInAllRounds = new Decimal[3];
+        Decimal[] team2GoalsInAllRounds = new Decimal[3];
+        List<String> competitors = new List<String>();
+        Integer roundsPlayed = 3;
+        Date matchDate = Date.valueOf(matchDateString);
+
+        List<BL_Match__c> match = [SELECT id,isResolved__c,MatchDate__c, League__r.isCup__c, Team1__c, Team2__c, Team1_Score__c,Team2_Score__c, Team1TotalGoalsScored__c, Team2TotalGoalsScored__c,
+                Team1__r.GoalsFor__c,Team1__r.GoalsAgainst__c,Team1__r.GamesWon__c,Team1__r.GamesLost__c,Team1__r.GamesDrawn__c,
+                Team2__r.GoalsFor__c,Team2__r.GoalsAgainst__c,Team2__r.GamesWon__c,Team2__r.GamesLost__c,Team2__r.GamesDrawn__c, Team1Round1Goals__c,
+                Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c
+                FROM BL_Match__c WHERE id=:matchId];
+
+        match[0].Team1_Score__c = team1Score;
+        match[0].Team2_Score__c = team2Score;
+        match[0].MatchDate__c = matchDate;
+        competitors.add(match[0].Team1__c);
+        competitors.add(match[0].Team2__c);
+        system.debug('date record: '+match[0].MatchDate__c);
+
+
+        for (Integer ii=0 ; ii<team1GoalsInRound.size() ; ii++) {
+            team1GoalsInAllRounds[ii]=team1GoalsInRound[ii];
+            team2GoalsInAllRounds[ii]=team2GoalsInRound[ii];
+        }
+
+        for (Decimal goalsCount : team1GoalsInAllRounds) {
+            if (goalsCount == null) {
+                roundsPlayed -= 1;
+            }
+        }
+
+        match[0].Team1Round1Goals__c = team1GoalsInAllRounds[0];
+        match[0].Team1Round2Goals__c = team1GoalsInAllRounds[1];
+        match[0].Team1Round3Goals__c = team1GoalsInAllRounds[2];
+
+        match[0].Team2Round1Goals__c = team2GoalsInAllRounds[0];
+        match[0].Team2Round2Goals__c = team2GoalsInAllRounds[1];
+        match[0].Team2Round3Goals__c = team2GoalsInAllRounds[2];
+
+        Decimal team1WinsOld = match[0].Team1__r.GamesWon__c;
+        Decimal team2WinsOld = match[0].Team2__r.GamesWon__c;
+        if (!match[0].League__r.isCup__c && roundsPlayed == 2) {
+            match[0].isResolved__c = true;
+            updateCompetitorStatistics(match[0], competitors, team1Score, team2Score, team1GoalsInRound, team2GoalsInRound);
+        }else if (match[0].League__r.isCup__c && roundsPlayed >= 2 && match[0].Team1_Score__c != match[0].Team2_Score__c) {
+            match[0].isResolved__c = true;
+            updateCompetitorStatistics(match[0], competitors, team1Score, team2Score, team1GoalsInRound, team2GoalsInRound);
+        }
+
+        try{
+            Database.upsert(match);
+        }catch (DmlException e){
+            System.debug('exception has occurred: ' + e.getMessage());
+        }
+    }
+
+    private static void updateCompetitorStatistics(BL_Match__c match, List<String> competitors, Decimal competitor1Score, Decimal competitor2Score, List<Decimal> team1GoalsInRound, List<Decimal> team2GoalsInRound){
+        system.debug('goals: '+team1GoalsInRound+ ' | '+team2GoalsInRound);
+        Decimal team1TotalGoalsScored = 0;
+        Decimal team2TotalGoalsScored = 0;
+        List<BL_Competitor__c> competitorsTeams = new List<BL_Competitor__c>();
+        List<BL_Competitor__c> competitor1 = [
+                SELECT id, GamesLost__c,GamesDrawn__c,GamesWon__c,GoalsAgainst__c,GoalsFor__c
+                FROM BL_Competitor__c
+                WHERE id=:competitors[0]
+        ];
+        List<BL_Competitor__c> competitor2 = [
+                SELECT id, GamesLost__c,GamesDrawn__c,GamesWon__c,GoalsAgainst__c,GoalsFor__c
+                FROM BL_Competitor__c
+                WHERE id=:competitors[1]
+        ];
+        competitorsTeams.add(competitor1[0]);
+        competitorsTeams.add(competitor2[0]);
+        system.debug(competitorsTeams);
+        system.debug(competitorsTeams.size());
+
+        for (Integer ii=0;ii<team1GoalsInRound.size();ii++) {
+            team1TotalGoalsScored += team1GoalsInRound[ii];
+            team2TotalGoalsScored += team2GoalsInRound[ii];
+        }
+
+        if(competitor1Score > competitor2Score){
+            competitorsTeams[0].GamesWon__c += 1;
+            competitorsTeams[1].GamesLost__c += 1;
+        }else if (competitor1Score < competitor2Score) {
+            competitorsTeams[1].GamesWon__c += 1;
+            competitorsTeams[0].GamesLost__c += 1;
+        }else if (competitor1Score == competitor2Score) {
+            competitorsTeams[1].GamesDrawn__c += 1;
+            competitorsTeams[0].GamesDrawn__c += 1;
+        }
+        competitorsTeams[0].GoalsFor__c += team1TotalGoalsScored;
+        competitorsTeams[0].GoalsAgainst__c += team2TotalGoalsScored;
+        competitorsTeams[1].GoalsFor__c += team2TotalGoalsScored;
+        competitorsTeams[1].GoalsAgainst__c += team1TotalGoalsScored;
+
+        try{
+            Database.upsert(competitorsTeams);
+        }catch (DmlException e){
+            System.debug('exception has occurred: ' + e.getMessage());
+        }
 
     }
-    @AuraEnabled
-    public static void updateCompetitorStatistics(String matchId, String changedFields){
-        ValuesMap nazwa = (ValuesMap)JSON.deserialize(changedFields, ValuesMap.class);
-        system.debug(nazwa);
-        system.debug('match Id: '+matchId);
-        Integer team1goalsFor;
-        Integer team1goalsAgainst;
-        Integer team1gamesWon;
-        Integer team1gamesLost;
-        Integer team1draws;
-//        Integer team2goalsFor;
-        Integer team2goalsAgainst;
-        Integer team2gamesWon;
-        Integer team2gamesLost;
-        Integer team2draws;
-        system.debug('changed fields string: '+changedFields);
-        List<BL_Match__c> match = [SELECT id, Team1__c, Team2__c,
-                                    Team1__r.GoalsFor__c,Team1__r.GoalsAgainst__c,Team1__r.GamesWon__c,Team1__r.GamesLost__c,Team1__r.GamesDrawn__c,
-                                    Team2__r.GoalsFor__c,Team2__r.GoalsAgainst__c,Team2__r.GamesWon__c,Team2__r.GamesLost__c,Team2__r.GamesDrawn__c
-                                    FROM BL_Match__c WHERE id=:matchId];
-
-        system.debug(match[0].Team2__r.GoalsFor__c);
-
-//        system.debug('given changedFields: '+changedFields.Team1Round1Goals__c);
-//        Map<String, Object> changedFieldsMap = (Map<String, Object>)JSON.deserializeUntyped(changedFields);
-//        system.debug('keyset: '+changedFieldsMap.keySet());
-//
-//        Map<String, Object> team1goalsForMap = (Map<String,Object>)changedFieldsMap.get('Team1TotalGoalsScored__c');
-//        Map<String, Object> team2GoalsFor = (Map<String,Object>)changedFieldsMap.get('Team2TotalGoalsScored__c');
-//        system.debug('old value for team2 goals for: '+ team2GoalsFor.get('oldValue'));
-
-//        Map<String, Object> m2 = (Map<String,Object>)changedFieldsMap.get('Team1Round1Goals__c');
-//        system.debug(m2);
-//        system.debug(m2.get('oldValue'));
-
-
-
-
-
+    private static List<BL_Match__c> getPlayerAllMatches(String playerId){
+        List<BL_Match__c> playerMatches = [
+                SELECT id
+                FROM BL_Match__c
+                WHERE Team1__r.Team__r.Player1__r.Id=:playerId
+                OR Team1__r.Team__r.Player2__r.Id=:playerId
+                OR Team2__r.Team__r.Player1__r.Id=:playerId
+                OR Team2__r.Team__r.Player2__r.Id=:playerId
+        ];
+        return playerMatches;
     }
-    public class Values{
-        Integer oldValue;
-        Integer value;
-    }
-    public class ValuesMap{
-        Map<String, Values> valuesmap;
+
+    private static void updateTeamStatistics(){
+
     }
 
 }

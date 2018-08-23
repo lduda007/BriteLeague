@@ -1,32 +1,40 @@
 <aura:component description="BL_HomeDashboard" implements="forceCommunity:availableForAllPageTypes" controller="BL_HomeDashboardController">
     <aura:attribute name="lastMatches" type="List"/>
     <aura:attribute name="nextMatches" type="List"/>
-    <!--<aura:attribute name="chartData" type="Object"/>-->
+    <aura:attribute name="chartData" type="Object"/>
     <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.generateChart}"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.doInit}"/>
 
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-grid slds-size_1-of-1">
             <div class="slds-col slds-size_1-of-1">
-                <div class="slds-p-around--x-small header-div" align="center" style="margin-bottom: 10px;">Your Condition</div>
+                <div class="slds-p-around--x-small header-div" align="center" style="margin-bottom: 10px;">Your Performance</div>
             </div>
         </div>
         <div class="slds-col slds-grid slds-size_1-of-1">
-            <div class="slds-col slds-size_1-of-1">
+            <div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">
                 <canvas aura:id="condition" height="350" width="100%"></canvas>
             </div>
         </div>
         <!--<div class="slds-col slds-grid slds-size_1-of-1">-->
-            <!--<div class="slds-col slds-size_1-of-1">-->
-                <!--<c:BL_ChartLine values="{!v.chartData.xValues}" labels="{!v.chartData.xLabels}" chartHeight="350" name="condition"/>-->
+            <!--<div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">-->
+                <!--<c:BL_ChartLine values="{!v.chartData.xValues}" labels="{!v.chartData.xLabels}" chartHeight="350" name="performance" legend="false"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="slds-col slds-grid slds-size_1-of-1">-->
+            <!--<div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">-->
+                <!--<c:BL_ChartPie values="{!v.chartData.xValues}" labels="{!v.chartData.xLabels}" chartHeight="300" name="performance" legend="false"/>-->
             <!--</div>-->
         <!--</div>-->
         <div class="slds-col slds-grid slds-size_1-of-1">
             <div class="slds-col slds-p-right--x-small slds-size_1-of-2">
-                <div class="slds-p-around--x-small header-div" align="center">Next Matches</div>
+                <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
                 <aura:if isTrue="{!v.lastMatches.length > 0}">
-                    <c:BL_NextMatchesTable matches="{!v.nextMatches}" />
+                    <div class="slds-scrollable_y" style="height: 30rem;">
+                        <c:BL_MatchesTable matches="{!v.lastMatches}"/>
+                    </div>
                     <aura:set attribute="else">
                         <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
                             <ui:outputText value="No matches found" />
@@ -35,9 +43,11 @@
                 </aura:if>
             </div>
             <div class="slds-col slds-p-left--x-small slds-size_1-of-2">
-                <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
+                <div class="slds-p-around--x-small header-div" align="center">Next Matches</div>
                 <aura:if isTrue="{!v.lastMatches.length > 0}">
-                    <c:BL_MatchesTable matches="{!v.lastMatches}"/>
+                    <div class="slds-scrollable_y" style="height: 30rem;">
+                        <c:BL_NextMatchesTable matches="{!v.nextMatches}" />
+                    </div>
                     <aura:set attribute="else">
                         <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
                             <ui:outputText value="No matches found" />

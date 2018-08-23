@@ -39,15 +39,15 @@
     openJoinToCompetitionModal : function(component, event, helper) {
         let joinComponent = component.find('joinComponent');
         joinComponent.getTeams(component.get("v.leagueId"));
-        document.getElementById('backdrop').classList.add("slds-backdrop_open");
-        document.getElementById('joinToCompetitionModal').classList.add("slds-slide-down-cancel");
+        $A.util.addClass(component.find('backdrop'), "slds-backdrop_open");
+        $A.util.addClass(component.find('joinToCompetitionModal'), "slds-slide-down-cancel");
     },
     closeJoinToCompetitionModal : function(component, event, helper) {
-        helper.closeJoinToCompetitionModal();
+        helper.closeJoinToCompetitionModal(component);
     },
     handleCompetitorCreated : function(component, event, helper) {
         helper.loadLeagueWithCompetitors(component);
-        helper.closeJoinToCompetitionModal();
+        helper.closeJoinToCompetitionModal(component);
     },
     handleCompetitorLeftCompetition : function(component, event, helper) {
         helper.loadLeagueWithCompetitors(component);
