@@ -1,0 +1,61 @@
+<apex:component id="BL_LeagueEndEmailNotificationContent" access="global" controller="BL_LeagueEndEmailContentController" >
+    <apex:attribute name="competitorId" type="String" description="Competitor Id" assignTo="{!recordId}"/>
+
+    <p>
+        Hello team <span style="font-size: 22; font-weight: bold;">{!competitor.Team__r.Name}!</span>
+    </p>
+    <p>
+        League {!competitor.League__r.Name} that u were competing in has ended.
+    </p>
+    <apex:outputPanel rendered="{!positionInLeague != 1}">
+        <p>
+            Your final position in the league is {!positionInLeague}. Winner is team {!winnerTeamName}.
+            Your team scored {!competitor.GoalsFor__c} goals and got {!competitor.Points__c} points.
+            Good luck next time!
+        </p>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!positionInLeague == 1}">
+        <p>
+            Your team performed best in the league scoring {!competitor.GoalsFor__c} goals and got {!competitor.Points__c} points.
+            We are glad to name you the {!competitor.League__r.Name} league WINNER!
+        </p>
+    </apex:outputPanel>
+    <p>
+        To review league details and full results visit league page at our community :
+    </p>
+    <p>
+        {!competitionUrl}/{!competitor.League__c}
+    </p>
+
+    <table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+        <tr>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">#</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white;">Team</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white;">Players</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">W</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">D</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">L</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">GF</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">GA</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">GD</th>
+            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">PTS</th>
+        </tr>
+        <apex:variable var="index" value="{!0}" />
+        <apex:repeat value="{!leagueCompetitors}" var="competitor" >
+            <apex:variable var="index" value="{!index + 1}" />
+            <tr>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!index}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px;">{!competitor.Team__r.Name}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px;">{!competitor.Team__r.Player1__r.Name+' & '+competitor.Team__r.Player2__r.Name}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GamesWon__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GamesDrawn__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GamesLost__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GoalsFor__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GoalsAgainst__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GoalsDraw__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.Points__c}</td>
+            </tr>
+        </apex:repeat>
+    </table>
+
+</apex:component>
