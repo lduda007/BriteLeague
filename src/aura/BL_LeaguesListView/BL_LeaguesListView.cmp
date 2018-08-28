@@ -8,7 +8,9 @@
     <aura:handler name="competitionCreated" event="c:BL_CompetitionCreatedEvent" action="{!c.handleCompetitionCreated}"/>
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
     <aura:handler name="BL_CannotJoinLeague" event="c:BL_CannotJoinLeague" action="{!c.handleCannotJoinLeague}"/>
+
     <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Competitions</div>
+
     <lightning:tabset variant="scoped" selectedTabId="{!v.selectedTabId}" aura:id="tabset">
         <lightning:tab label="Open" id="open">
             <aura:if isTrue="{!v.leaguesList.length > 0}">
@@ -75,6 +77,7 @@
             <c:BL_CreateLeague/>
         </lightning:tab>
     </lightning:tabset>
+
     <div class="slds-modal" aria-hidden="false" role="dialog" id="modal">
         <div class="slds-modal__container">
             <div class="slds-modal__header">
@@ -90,5 +93,7 @@
             </div>
         </div>
     </div>
+
     <div class="slds-backdrop" id="backdrop"></div>
+
 </aura:component>

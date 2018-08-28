@@ -32,106 +32,109 @@
     <!-- Display the new league form -->
 
     <!--<lightning:formattedNumber value="{!v.totalMatches}"/>-->
-    <aura:if isTrue="{!v.isFormVisible}">
-        <fieldset class="slds-form--compound">
-            <div class="slds-form-element__group">
-                <div class="slds-form-element__row slds-grid_vertical-align-start slds-grid_align-center">
-                    <lightning:radioGroup name="radioButtonGroup"
-                                          label="Competition Type"
-                                          options="{! v.options }"
-                                          value="{! v.competitionType }"
-                                          type="button"
-                                          onchange="{!c.handleCompetitionTypeChange}"/>
-                </div>
-                <div class="slds-form-element__row slds-grid_vertical-align-start">
-                    <div class="slds-form-element slds-size--1-of-1">
-                        <lightning:input aura:id="leagueField"
-                                         label="{! v.competitionType == 'league' ? 'League Name' : 'Cup Name'}"
-                                         required="true"
-                                         value="{!v.simpleNewLeague.Name}" maxlength="40" />
-                    </div>
-                </div>
-
-                <div class="slds-form-element__row slds-grid_vertical-align-start">
-                    <div class="slds-form-element slds-size--1-of-2" onkeydown="{!c.onKeyDown}">
-                        <lightning:input aura:id="leagueField" type="date" label="Start Date" required="true"
-                                         value="{!v.simpleNewLeague.Start_Date__c}" min="{!v.currentDate}" max="{!v.yearLaterDate}" />
-                    </div>
-                    <div class="slds-form-element slds-size--1-of-2">
-                        <aura:if isTrue="{!v.endDateInputVisible}">
-                        <lightning:input aura:id="leagueField" type="date" label="End Date" required="true"
-                                         value="{!v.simpleNewLeague.End_Date__c}"
-                                         min="{!v.simpleNewLeague.Start_Date__c}" max="{!v.maxEndDate}"/>
-                        </aura:if>
-                    </div>
-                </div>
-                <div class="slds-form-element__row slds-grid_vertical-align-start">
-                    <div class="slds-form-element slds-size--1-of-2">
-                        <aura:if isTrue="{!v.competitionType == 'league'}">
-                            <!--<lightning:input aura:id="leagueField" label="Teams limit" step="1" min="2" max="40"-->
-                                             <!--type="number"-->
-                                             <!--value="{!v.simpleNewLeague.Max_Teams__c}"-->
-                                             <!--disabled="{!v.isNumberOfTeamsUnlimited}"-->
-                                             <!--onchange="{!c.handleMaxTeamsChange}" onkeydown="{!c.onKeyDown}"-->
-                                             <!--required="true" />-->
-                            <c:BL_NumberInput label="Teams limit (2-40)"
-                                              min="2"
-                                              max="40"
-                                              required="true"
-                                              forceMinMax="false"
-                                              onchange="{!c.handleMaxTeamsChange}"
-                                              onfocus="{!c.handleMaxTeamsChange}"
-                                              onblur="{!c.handleMaxTeamsChange}"
-                                              value="{!v.simpleNewLeague.Max_Teams__c}"
-                                                />
-                        </aura:if>
-                        <aura:if isTrue="{!v.competitionType == 'cup'}">
-                            <lightning:select aura:id="cupTeamsSelect" label="Teams"
-                                              value="{!v.simpleNewLeague.Max_Teams__c}">
-                                <option label="Select" value=""/>
-                                <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamLimit">
-                                    <option label="{!cupTeamLimit}" value="{!cupTeamLimit}"/>
-                                </aura:iteration>
-                            </lightning:select>
-                        </aura:if>
-                    </div>
-                    <aura:if isTrue="{!v.competitionType == 'league'}">
-                        <div class="slds-form-element slds-size--1-of-2">
-                            <lightning:select aura:id="leagueRoundsSelect" label="Rounds"
-                                              value="{!v.simpleNewLeague.Match_No__c}"
-                                              onchange="{!c.handleNoOfRoundsOrTeamsChange}"
-                                              disabled="{! empty(v.simpleNewLeague.Max_Teams__c)}">
-                                <aura:if isTrue="{! empty(v.leagueRoundsNumber)}">
-                                    <option label="Enter Teams" value=""/>
-                                    <aura:set attribute="else">
-                                        <option label="Select" value=""/>
-                                    </aura:set>
-                                </aura:if>
-                                <aura:iteration items="{!v.leagueRoundsNumber}" var="round">
-                                    <option label="{!round}" value="{!round}"/>
-                                </aura:iteration>
-                            </lightning:select>
+    <lightning:layout horizontalAlign="center" verticalAlign="center" class="slds-p-around--small">
+        <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="4" size="12" >
+            <aura:if isTrue="{!v.isFormVisible}">
+                <fieldset class="slds-form--compound">
+                    <div class="slds-form-element__group">
+                        <div class="slds-form-element__row slds-grid_vertical-align-start slds-grid_align-center">
+                            <lightning:radioGroup name="radioButtonGroup"
+                                                  label="Competition Type"
+                                                  options="{! v.options }"
+                                                  value="{! v.competitionType }"
+                                                  type="button"
+                                                  onchange="{!c.handleCompetitionTypeChange}"/>
                         </div>
-                    </aura:if>
-                </div>
-                <br/>
-                <!--<lightning:select label="Visibility" onchange="{!c.handleVisibilityChange}" value="">-->
-                    <!--<option label="Public" value="public"/>-->
-                    <!--<option label="Private" value="private"/>-->
-                <!--</lightning:select>-->
-                <br/>
-            </div>
-        </fieldset>
-    </aura:if>
-    <lightning:button label="Clear" variant="brand"
-                      onclick="{!c.handleClear}"/>
-    <lightning:button label="{! v.competitionType == 'league' ? 'Create League' : 'Create Cup'}" variant="brand"
-                      onclick="{!c.handleSaveCompetition}"
-                      disabled="{! empty(v.simpleNewLeague.Name) || empty(v.simpleNewLeague.Start_Date__c) || empty(v.simpleNewLeague.End_Date__c) || (and(empty(v.simpleNewLeague.Max_Teams__c) , !v.isNumberOfTeamsUnlimited)) || and(empty(v.simpleNewLeague.Match_No__c) , equals(v.competitionType,'league'))}"/>
+                        <div class="slds-form-element__row slds-grid_vertical-align-start">
+                            <div class="slds-form-element slds-size--1-of-1">
+                                <lightning:input aura:id="leagueField"
+                                                 label="{! v.competitionType == 'league' ? 'League Name' : 'Cup Name'}"
+                                                 required="true"
+                                                 value="{!v.simpleNewLeague.Name}" maxlength="40" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element__row slds-grid_vertical-align-start">
+                            <div class="slds-form-element slds-size--1-of-2" onkeydown="{!c.onKeyDown}">
+                                <lightning:input aura:id="leagueField" type="date" label="Start Date" required="true"
+                                                 value="{!v.simpleNewLeague.Start_Date__c}" min="{!v.currentDate}" max="{!v.yearLaterDate}" />
+                            </div>
+                            <div class="slds-form-element slds-size--1-of-2">
+                                <aura:if isTrue="{!v.endDateInputVisible}">
+                                    <lightning:input aura:id="leagueField" type="date" label="End Date" required="true"
+                                                     value="{!v.simpleNewLeague.End_Date__c}"
+                                                     min="{!v.simpleNewLeague.Start_Date__c}" max="{!v.maxEndDate}"/>
+                                </aura:if>
+                            </div>
+                        </div>
+                        <div class="slds-form-element__row slds-grid_vertical-align-start">
+                            <div class="slds-form-element slds-size--1-of-2">
+                                <aura:if isTrue="{!v.competitionType == 'league'}">
+                                    <!--<lightning:input aura:id="leagueField" label="Teams limit" step="1" min="2" max="40"-->
+                                    <!--type="number"-->
+                                    <!--value="{!v.simpleNewLeague.Max_Teams__c}"-->
+                                    <!--disabled="{!v.isNumberOfTeamsUnlimited}"-->
+                                    <!--onchange="{!c.handleMaxTeamsChange}" onkeydown="{!c.onKeyDown}"-->
+                                    <!--required="true" />-->
+                                    <c:BL_NumberInput label="Teams limit (2-40)"
+                                                      min="2"
+                                                      max="40"
+                                                      required="true"
+                                                      forceMinMax="false"
+                                                      onchange="{!c.handleMaxTeamsChange}"
+                                                      onfocus="{!c.handleMaxTeamsChange}"
+                                                      onblur="{!c.handleMaxTeamsChange}"
+                                                      value="{!v.simpleNewLeague.Max_Teams__c}"
+                                    />
+                                </aura:if>
+                                <aura:if isTrue="{!v.competitionType == 'cup'}">
+                                    <lightning:select aura:id="cupTeamsSelect" label="Teams"
+                                                      value="{!v.simpleNewLeague.Max_Teams__c}">
+                                        <option label="Select" value=""/>
+                                        <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamLimit">
+                                            <option label="{!cupTeamLimit}" value="{!cupTeamLimit}"/>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </aura:if>
+                            </div>
+                            <aura:if isTrue="{!v.competitionType == 'league'}">
+                                <div class="slds-form-element slds-size--1-of-2">
+                                    <lightning:select aura:id="leagueRoundsSelect" label="Rounds"
+                                                      value="{!v.simpleNewLeague.Match_No__c}"
+                                                      onchange="{!c.handleNoOfRoundsOrTeamsChange}"
+                                                      disabled="{! empty(v.simpleNewLeague.Max_Teams__c)}">
+                                        <aura:if isTrue="{! empty(v.leagueRoundsNumber)}">
+                                            <option label="Enter Teams" value=""/>
+                                            <aura:set attribute="else">
+                                                <option label="Select" value=""/>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:iteration items="{!v.leagueRoundsNumber}" var="round">
+                                            <option label="{!round}" value="{!round}"/>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="slds-form-element__row slds-grid_vertical-align-start">
+                            <div class="slds-form-element slds-size--1-of-1 slds-align--absolute-center">
+                                <lightning:button label="Clear" variant="brand"
+                                                  onclick="{!c.handleClear}"/>
+                                <lightning:button label="{! v.competitionType == 'league' ? 'Create League' : 'Create Cup'}" variant="brand"
+                                                  onclick="{!c.handleSaveCompetition}"
+                                                  disabled="{! empty(v.simpleNewLeague.Name) || empty(v.simpleNewLeague.Start_Date__c) || empty(v.simpleNewLeague.End_Date__c) || (and(empty(v.simpleNewLeague.Max_Teams__c) , !v.isNumberOfTeamsUnlimited)) || and(empty(v.simpleNewLeague.Match_No__c) , equals(v.competitionType,'league'))}"/>
 
-    <!--Display Lightning Data Service errors--> 
-    <aura:if isTrue="{!not(empty(v.newleagueError))}">
-        <div class="recordError">
-                {!v.newleagueError}</div>
-    </aura:if>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </aura:if>
+            <!--Display Lightning Data Service errors-->
+            <aura:if isTrue="{!not(empty(v.newleagueError))}">
+                <div class="recordError">
+                        {!v.newleagueError}</div>
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+
 </aura:component>
