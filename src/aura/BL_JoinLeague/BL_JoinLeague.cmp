@@ -8,7 +8,7 @@
     <aura:registerEvent name="BL_CompetitorCreated" type="c:BL_CompetitorCreated"/>
     <aura:registerEvent name="BL_CannotJoinLeague" type="c:BL_CannotJoinLeague"/>
     <aura:method name="getTeams" action="{!c.doInit}" description="sampledescrio">
-        <aura:attribute name="idOfLeague" type="String" default=""/>
+        <aura:attribute name="idOfLeague" type="String" default=""/> 
     </aura:method>
 
     <force:recordData aura:id="competitorRecordCreator"

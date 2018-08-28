@@ -1,0 +1,16 @@
+<aura:component description="BL_ChartPie">
+    <aura:attribute name="values" type="Integer[]" default="[]"/>
+    <aura:attribute name="labels" type="String[]" default="[]"/>
+    <aura:attribute name="colors" type="String[]" default="[]"/>
+    <aura:attribute name="name" type="String" default="Chart"/>
+    <aura:attribute name="legend" type="String" default="bottom"/>
+    <aura:attribute name="chartHeight" type="String" default="300"/>
+    <aura:attribute name="chartWidth" type="String" default="100%"/>
+
+    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.generateChart}"/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.generateChart}"/>-->
+
+    <aura:handler name="change" value="{!v.values}" action="{!c.generateChart}" />
+
+    <canvas aura:id="chart" height="{!v.chartHeight}" width="{!v.chartWidth}"></canvas>
+</aura:component>

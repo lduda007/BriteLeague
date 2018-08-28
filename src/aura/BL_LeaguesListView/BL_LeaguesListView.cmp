@@ -64,11 +64,7 @@
                     </table>
                 </div>
             </aura:if>
-            <aura:if isTrue="{!v.leaguesList.length == 0}">
-                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
-                    {!$Label.c.BL_No_Open_Competitions}
-                </div>
-            </aura:if>
+            <aura:if isTrue="{!v.leaguesList.length == 0}">{!$Label.c.BL_No_Open_Competitions}</aura:if>
         </lightning:tab>
         <lightning:tab label="{!$Label.c.BL_My_Competitions}" id="myLeagues">
             <div class="slds-scrollable--y" style="max-height: 37vh">
@@ -76,7 +72,7 @@
             </div>
         </lightning:tab>
         <lightning:tab label="{!$Label.c.BL_Create_Competition}">
-                    <c:BL_CreateLeague/>
+            <c:BL_CreateLeague/>
         </lightning:tab>
     </lightning:tabset>
     <div class="slds-modal" aria-hidden="false" role="dialog" id="modal">

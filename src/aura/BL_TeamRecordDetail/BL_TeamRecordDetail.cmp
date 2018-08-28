@@ -1,0 +1,122 @@
+<aura:component description="BL_TeamRecordDetail" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="BL_TeamRecordDetailController">
+    <aura:attribute name="team" type="Object"/>
+    <aura:attribute name="related" type="Object"/>
+    <aura:attribute name="contactId" type="String"/>
+    <aura:attribute name="showSpinnerInit" type="Boolean"/>
+    <aura:attribute name="showSpinner" type="Boolean"/>
+    <aura:attribute name="attachmentBody" type="String"/>
+    <aura:attribute name="attachmentName" type="String"/>
+    <aura:attribute name="attachmentContentType" type="String"/>
+    <aura:attribute name="pictureSrc" type="String"
+                    default="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdyq2y3f1IKjJEkyq7Dcx0oSQszq9VVm3lsiRbAR7BRCN0NCNG"/>
+    <aura:attribute name="message" type="String" default="Drag team picture here"/>
+    <aura:registerEvent name="BL_TeamRelatedLoaded" type="c:BL_TeamRelatedLoaded"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <force:recordData targetFields="{!v.team}"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"/>
+    <lightning:card title="" variant="narrow">
+        <c:BL_Spinner show="{!v.showSpinnerInit}"/>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size--2-of-12">
+
+                <aura:if isTrue="{!and(v.team.Player1__c != v.contactId, v.team.Player2__c != v.contactId)}">
+                    <img src="{!v.pictureSrc}"/>
+                </aura:if>
+                <aura:if isTrue="{!or(v.team.Player1__c == v.contactId, v.team.Player2__c == v.contactId)}">
+                    <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" class="slds-is-relative" aura:id="uploadDiv">
+                        <aura:if isTrue="{!v.showSpinner}">
+                            <c:BL_Spinner show="{!v.showSpinner}"/>
+                        </aura:if>
+                        <img src="{!v.pictureSrc}"/>
+                        <p class="slds-text-body_small slds-text-color_weak">{!v.message}</p>
+                    </div>
+                </aura:if>
+                <div style="font-size: 1.7em; font-weight: bold"><p class="slds-m-right--medium">{!v.team.Name}</p>
+                </div>
+            </div>
+            <div class="slds-size--10-of-12 slds-p-top--xx-large">
+                <div class="slds-p-horizontal--small">
+                    <fieldset class="slds-form--compound">
+                        <div class="slds-form-element__group">
+                            <div class="slds-form-element__row slds-grid_vertical-align-end">
+                                <div class="slds-form-element slds-size--1-of-2" align="left">
+                                    <p class="slds-text-body_small slds-text-color_weak">Player 1: </p>
+                                    <ui:outputText value="{!v.team.Player1__r.Name }"
+                                                   class="slds-text-heading--small"/>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-2" align="left">
+                                    <p class="slds-text-body_small slds-text-color_weak">Player 2: </p>
+                                    <ui:outputText value="{!v.team.Player2__r.Name}"
+                                                   class="slds-text-heading--small"/>
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row slds-grid_vertical-align-end">
+                                <div class="slds-form-element slds-size--1-of-2" align="left">
+                                    <p class="slds-text-body_small slds-text-color_weak">Goals For Average: </p>
+                                    <ui:outputNumber value="{!v.related.goalsForAvg}"
+                                                     class="slds-text-heading--small"/>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-2" align="left">
+                                    <p class="slds-text-body_small slds-text-color_weak">Goals Lost Average: </p>
+                                    <ui:outputNumber value="{!v.related.goalsLostAvg}"
+                                                     class="slds-text-heading--small"/>
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row slds-grid_vertical-align-end">
+                                <div class="slds-form-element slds-size--1-of-2" align="left">
+                                    <p class="slds-text-body_small slds-text-color_weak">Winning Factor: </p>
+                                    <aura:if isTrue="{!v.related.matchesLost.length != 0}">
+                                        <ui:outputNumber value="{!(v.related.matchesWon.length/(v.related.matchesLost.length+v.related.matchesWon.length)) * 100}"
+                                                         class="slds-text-heading--small"/>
+                                        %
+                                    </aura:if>
+                                    <aura:if isTrue="{!and(v.related.matchesLost.length == 0, v.related.matchesWon.length != 0)}">
+                                        <ui:outputNumber value="100"
+                                                         class="slds-text-heading--small"/>
+                                        %
+                                    </aura:if>
+                                    <aura:if isTrue="{!and(v.related.matchesLost.length == 0, v.related.matchesWon.length == 0)}">
+                                        <ui:outputText value="No data"
+                                                       class="slds-text-heading--small"/>
+                                    </aura:if>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-2" align="left">
+                                    <p class="slds-text-body_small slds-text-color_weak">Last Game: </p>
+                                    <ui:outputDate value="{!v.related.matches[0].LastModifiedDate}"
+                                                   class="slds-text-heading--small"/>
+                                    <aura:if isTrue="{!v.related.matches[0].LastModifiedDate == null}">
+                                        <ui:outputText value="Zero matches played yet."
+                                                       class="slds-text-heading--small"/>
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </lightning:card>
+    <div class="slds-modal" aria-hidden="false" role="dialog" id="modalOfConfirmTeamsProfilePicture">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
+                                      alternativeText="{!$Label.c.BL_Close}" class="slds-modal__close"
+                                      onclick="{!c.closeModal}"/>
+                <h2 class="slds-text-heading--medium">Do you want to make this image your team's profile image?</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div class="confirmationModalContent">
+                    <img src="{!v.pictureSrc}"/>
+                </div>
+            </div>
+            <footer class="slds-modal__footer">
+                <lightning:button variant="success" onclick="{!c.uploadProfilePicture}">Set as profile picture.</lightning:button>
+                <lightning:button variant="destructive" onclick="{!c.closeModal}">Cancel</lightning:button>
+            </footer>
+        </div>
+
+    </div>
+
+    <div class="slds-backdrop" id="backdropOfConfirmTeamsProfilePicture"></div>
+</aura:component>

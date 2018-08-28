@@ -1,0 +1,60 @@
+<aura:component description="BL_MyLeaguesList" controller="BL_LeaguesListViewController">
+    <aura:attribute name="myLeaguesList" type="List"/>
+    <aura:attribute name="showSpinner" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.retrieveMyLeagues}"/>
+    <aura:method name="retrieve" action="{!c.retrieveMyLeagues}">
+    </aura:method>
+    <div class="slds-is-relative">
+        <c:BL_Spinner show="{!v.showSpinner}"/>
+    </div>
+    <aura:if isTrue="{!v.myLeaguesList.length > 0}">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout" width="100%">
+            <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.BL_Name}">{!$Label.c.BL_Name}</div>
+                </th>
+                <th scope="col" width="22%">
+                    <div class="slds-truncate" title="{!$Label.c.BL_Start_Date}">{!$Label.c.BL_Start_Date}</div>
+                </th>
+                <th scope="col" width="19%">
+                    <div class="slds-truncate" title="{!$Label.c.BL_Type}">{!$Label.c.BL_Type}</div>
+                </th>
+                <th scope="col" width="20%">
+                    <div class="slds-truncate" title="{!$Label.c.BL_Teams}">{!$Label.c.BL_Teams}</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <aura:iteration items="{!v.myLeaguesList}" var="league" indexVar="indx">
+                <tr>
+                    <th scope="row" data-label="{!league.Name}">
+                        <div class="slds-truncate" title="{!league.Name}">
+                            <a data-id="{!league.Id}" onclick="{!c.goToRecord}">{!league.Name}</a>
+                        </div>
+                    </th>
+                    <td data-label="{!league.Start_Date__c}">
+                        <div class="slds-truncate" title="{!league.Start_Date__c}">
+                            <ui:outputDate value="{!league.Start_Date__c}"/>
+                        </div>
+                    </td>
+                    <td data-label="">
+                        <div class="slds-truncate" title="">
+                            <aura:if isTrue="{!league.isCup__c}">{!$Label.c.BL_Cup}</aura:if>
+                            <aura:if isTrue="{!!league.isCup__c}">{!$Label.c.BL_League}</aura:if>
+                        </div>
+                    </td>
+                    <td data-label="{!$Label.c.BL_Teams}">
+                        <div class="slds-truncate" title="{!league.Teams_Joined__c +'/'+league.Max_Teams__c}">{!league.Teams_Joined__c}/{!league.Max_Teams__c}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+            </tbody>
+        </table>
+    </aura:if>
+    <aura:if isTrue="{!v.myLeaguesList.length == 0}">
+        <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                {!$Label.c.BL_You_Are_Not_Assigned}
+        </div>
+    </aura:if>
+</aura:component>

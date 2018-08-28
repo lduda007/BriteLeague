@@ -1,0 +1,31 @@
+.THIS {
+}
+.THIS .slds-icon_container {
+    background-color: #143058;
+}
+
+.THIS {
+    text-align: center;
+}
+
+.THIS > p {
+    font-size: 14px;
+    color: #CCCCCC;
+    margin: 4px 0;
+}
+
+.THIS img {
+    min-height: 100px;
+    max-height: 200px;
+    max-width: 200px;
+	width: auto;
+    height: auto;
+    border-radius: 4px;
+}
+
+.THIS .confirmationModalContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

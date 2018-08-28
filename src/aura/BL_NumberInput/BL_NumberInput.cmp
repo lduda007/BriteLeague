@@ -1,0 +1,69 @@
+<aura:component description="BL_NumberInput">
+    <aura:attribute name="name" type="String" required="true" description="Input field name."/>
+    <aura:attribute name="label" type="String" required="true" description="Input field label."/>
+    <aura:attribute name="value" type="Decimal" required="true" description="Input field value."/>
+    <aura:attribute name="integers" type="Integer" required="true" description="Integer input field value."/>
+    <aura:attribute name="fraction" type="Integer" default="0" description="Fractional input field value."/>
+    <aura:attribute name="fractionSeparator" type="String" default="," description="Input field value separator."/>
+    <aura:attribute name="pattern" type="String"  description="Specifies the regular expression that the input's value is checked against."/>
+    <aura:attribute name="default" type="Decimal" description="Default input field value."/>
+    <aura:attribute name="min" type="Decimal" description="Minimum input field value."/>
+    <aura:attribute name="max" type="Decimal" description="Maximum input field value."/>
+    <aura:attribute name="maxlength" type="Integer" description="The maximum number of characters allowed in the field."/>
+    <aura:attribute name="forceMinMax" type="Boolean" default="false" description="If set as true and initial value is under/over valid range sets input value to min/max."/>
+    <aura:attribute name="forceMinMaxOnChange" type="Boolean" default="false" description=""/>
+    <aura:attribute name="validateOnRangeChange" type="Boolean" default="false" description="If set as true and the min/max attribute values have changed validation is fired."/>
+    <aura:attribute name="validity" type="Object" description="Input field validity object. Read only attribute."/>
+    <aura:attribute name="helpMessageWhenRangeOverflow" type="String" default="{!'The number is too high. Max: ' + v.max + '.'}" description="Error message to be displayed when a range overflow is detected."/>
+    <aura:attribute name="helpMessageWhenRangeUnderflow" type="String" default="{!'The number is too low. Min: ' + v.min + '.'}" description="Error message to be displayed when a range underflow is detected."/>
+    <aura:attribute name="helpMessageWhenValueMissing" type="String" default="Complete this field." description="Error message to be displayed when the value is missing."/>
+    <aura:attribute name="helpMessageWhenPatternMismatch" type="String" default="The value does not belong to the established set." description="Error message to be displayed when a pattern mismatch is detected."/>
+    <aura:attribute name="messageWhenBadInput" type="String" default="" description="Overrides min and max error messages."/>
+    <aura:attribute name="forceError" type="Boolean" default="false" description="If set as true forcing the error. Required messageWhenBadInput attribute."/>
+    <aura:attribute name="required" type="Boolean" default="false" description="Specifies that an input field must be filled out before submitting the form. This value defaults to false."/>
+    <aura:attribute name="readonly" type="Boolean" default="false" description="Specifies that an input field is read-only. This value defaults to false."/>
+    <aura:attribute name="disabled" type="Boolean" default="false" description="Specifies that an input element should be disabled. This value defaults to false."/>
+    <aura:attribute name="variant" type="String" default="" description="The variant changes the appearance of an input field. Accepted variants include standard and label-hidden. This value defaults to standard."/>
+    <aura:attribute name="class" type="String" default="" description="A CSS class for the outer element, in addition to the component's base classes."/>
+    <aura:attribute name="onchange" type="Aura.Action" description="The action triggered when a value attribute changes."/>
+    <aura:attribute name="onblur" type="Aura.Action" description="The action triggered when the element releases focus."/>
+    <aura:attribute name="onfocus" type="Aura.Action" description="The action triggered when the element receives focus."/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.value}" action="{!c.onModelValueChange}"/>
+    <aura:handler name="change" value="{!v.max}" action="{!c.onRangeChange}"/>
+    <aura:handler name="change" value="{!v.min}" action="{!c.onRangeChange}"/>
+    <aura:handler name="change" value="{!v.forceError}" action="{!c.onForceErrorChange}"/>
+    <aura:handler name="change" value="{!v.onblurHelper}" action="{!v.onblur}" />
+    <aura:handler name="change" value="{!v.onchangeHelper}" action="{!v.onchange}" />
+    <aura:handler name="change" value="{!v.onfocusHelper}" action="{!v.onfocus}" />
+
+    <aura:method name="focus" action="{!c.onFocus}" description="Sets the focus on the element."/>
+    <aura:method name="showHelpMessageIfInvalid" action="{!c.onShowHelpMessageIfInvalid}" description="Shows the help message if the form control is in an invalid state."/>
+
+    <aura:attribute access="private" name="isInit" default="true" type="Boolean"/>
+    <aura:attribute access="private" name="oldValue" type="Decimal"/>
+    <aura:attribute access="private" name="viewValue" type="String"/>
+    <aura:attribute access="private" name="initialValue" type="String" default=""/>
+    <aura:attribute access="private" name="validatedValue" type="String"/>
+    <aura:attribute access="private" name="messageWhenBadInputInternal" type="String" default=" "/>
+    <aura:attribute access="private" name="messageWhenValueMissingInternal" type="String" default=" "/>
+    <aura:attribute access="private" name="customErrorMessage" type="String" default=""/>
+    <aura:attribute access="private" name="onblurHelper" type="String" default="0"/>
+    <aura:attribute access="private" name="onchangeHelper" type="String" default="0"/>
+    <aura:attribute access="private" name="onfocusHelper" type="String" default="0"/>
+    <aura:attribute access="private" name="initialClass" type="String"/>
+
+    <lightning:input aura:id="numberInput" name="{!v.name}" label="{#v.label}"  onkeyup="{!c.onViewValueChange}"
+                     value="{!v.viewValue}" variant="{!v.variant}"
+                     required="{!v.required}" readonly="{!v.readonly}" disabled="{!v.disabled}"
+                     onchange="{!c.onInternalChange}" onblur="{!c.onInternalBlur}" onfocus="{!c.onInternalFocus}"
+                     validity="{!v.validity}" class="{!v.class}" maxlength="{!v.maxlength}"
+                     messageWhenValueMissing="{!v.messageWhenValueMissingInternal}"
+                     messageWhenBadInput="{!v.messageWhenBadInputInternal}"
+    />
+
+    <aura:if isTrue="{!not(empty(v.customErrorMessage))}">
+        <div class="slds-text-color_error slds-form-element__help"><aura:unescapedHtml value="{!v.customErrorMessage}"/></div>
+    </aura:if>
+</aura:component>

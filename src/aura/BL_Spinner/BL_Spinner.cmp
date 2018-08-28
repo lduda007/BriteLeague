@@ -1,0 +1,7 @@
+<aura:component description="BL_Spinner">
+    <aura:attribute name="show" type="Boolean"/>
+
+    <aura:if isTrue="{!v.show}">
+            <lightning:spinner variant="brand"/>
+    </aura:if>
+</aura:component>

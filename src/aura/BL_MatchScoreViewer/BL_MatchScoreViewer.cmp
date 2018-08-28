@@ -1,0 +1,42 @@
+<aura:component description="BL_MatchScoreViewer">
+    <aura:attribute name="matchRecord" type="Object"/>
+    <aura:attribute name="matchRecordTest" type="Object"/>
+    <aura:attribute name="team1FinalScoreColorStyle" type="String" />
+    <aura:attribute name="team2FinalScoreColorStyle" type="String" />
+    <aura:attribute name="maxDate" type="String"/>
+    <aura:attribute name="minDate" type="String"/>
+    <aura:attribute name="matchDate" type="String"/>
+
+    <aura:handler name="change" value="{!v.matchRecord}" action="{!c.handleMatchRecordChange}"/>
+    <aura:handler name="change" value="{!v.matchDate}" action="{!c.handleMatchDateChange}"/>
+
+    <div class="slds-grid  slds-grid_align-center">
+        <div class=" slds-size_4-of-12  slds-align-top slds-grid_vertical-align-start slds-box slds-box_small slds-border_bottom" >
+            <c:BL_TeamCard  aura:id="team1Card" teamName="{!v.matchRecord.Team1__r.Team__r.Name}" teamObject="{!v.matchRecord.Team1__r.Team__r}" dockingSide="left" teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"/>
+        </div>
+
+        <div class=" slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+            <div class="slds-grid slds-grid_vertical" style="line-height: 1;">
+                <div class="slds-col">
+                    <c:BL_ScoreDisplay team1Score="{!v.matchRecord.Team1_Score__c}" team2Score="{!v.matchRecord.Team2_Score__c}"/>
+                </div>
+                <div class="slds-col">
+                    <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="1" isEditMode="false" isReadOnly="true" team1goals="{!v.matchRecord.Team1Round1Goals__c}" team2goals="{!v.matchRecord.Team2Round1Goals__c}"/>
+                </div>
+                <div class="slds-col">
+                    <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="2" isEditMode="false" isReadOnly="true" team1goals="{!v.matchRecord.Team1Round2Goals__c}" team2goals="{!v.matchRecord.Team2Round2Goals__c}"/>
+                </div>
+                <aura:if isTrue="{! and(v.matchRecord.League__r.isCup__c, !empty(v.matchRecord.Team1Round3Goals__c) )}">
+                <div class="slds-col">
+                    <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="3" isEditMode="false" isReadOnly="true"  team1goals="{!v.matchRecord.Team1Round3Goals__c}" team2goals="{!v.matchRecord.Team2Round3Goals__c}"/>
+                </div>
+                </aura:if>
+            </div>
+        </div>
+
+        <div class=" slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start slds-box slds-box_small slds-border_bottom">
+            <c:BL_TeamCard aura:id="team2Card" teamName="{!v.matchRecord.Team2__r.Team__r.Name}" teamObject="{!v.matchRecord.Team2__r.Team__r}" dockingSide="right" teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"/>
+        </div>
+
+    </div>
+</aura:component>

@@ -1,0 +1,58 @@
+<aura:component description="BL_TeamLeaguesList" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="BL_TeamRecordDetailController">
+    <aura:attribute name="leaguesList" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Competitions</div>
+    <lightning:card title="">
+        <div class="slds-scrollable--y" style="max-height: 40vh">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout" width="100%">
+                <c:BL_Spinner show="{!v.showSpinner}"/>
+                <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="{!$Label.c.BL_Name}">{!$Label.c.BL_Name}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="{!$Label.c.BL_Start_Date}">{!$Label.c.BL_Start_Date}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="{!$Label.c.BL_End_Date}">{!$Label.c.BL_End_Date}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="{!$Label.c.BL_Type}">{!$Label.c.BL_Type}</div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <aura:if isTrue="{!v.leaguesList.length == 0}">
+                    <div align="center">{!$Label.c.BL_No_Competitions_For_Team}</div>
+                </aura:if>
+                <aura:iteration items="{!v.leaguesList}" var="league" indexVar="indx">
+                    <tr>
+                        <th scope="row" data-label="{!$Label.c.BL_Name}">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Name}">
+                                <a data-id="{!league.Id}" onclick="{!c.goToRecord}" >{!league.Name}</a>
+                            </div>
+                        </th>
+                        <td data-label="{!$Label.c.BL_Start_Date}">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Start_Date}">
+                                <ui:outputDate value="{!league.Start_Date__c}"/>
+                            </div>
+                        </td>
+                        <td data-label="{!$Label.c.BL_End_Date}">
+                            <div class="slds-truncate" title="{!$Label.c.BL_End_Date}">
+                                <ui:outputDate value="{!league.End_Date__c}"/>
+                            </div>
+                        </td>
+                        <td data-label="">
+                            <div class="slds-truncate" title="">
+                                <aura:if isTrue="{!league.isCup__c}">{!$Label.c.BL_Cup}</aura:if>
+                                <aura:if isTrue="{!!league.isCup__c}">{!$Label.c.BL_League}</aura:if>
+                            </div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </lightning:card>
+</aura:component>
