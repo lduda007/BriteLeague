@@ -3,7 +3,7 @@
     <aura:attribute name="team" type="BL_Team__c" default="{'sobjectType': 'BL_Team__c'}"/>
     <aura:attribute name="showButtons" type="Boolean" default="true"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-
+    <aura:registerEvent name="BL_TeamCreatedEvent" type="c:BL_TeamCreatedEvent"/>
     <aura:registerEvent name="customLookupClearEvent" type="c:BL_CustomLookupClearEvent"/>
 
     <div class="slds-m-around_large">

@@ -1,11 +1,18 @@
 ({
     doInit : function(component, event, helper){
-        helper.fetchRecords(component, event);
-        helper.fetchInvitations(component, event);
+        helper.fetchRecords(component);
+        helper.fetchReceivedInvitations(component);
+        helper.fetchSentInvitations(component);
+        helper.getCurrentUser(component);
     },
     
     saveRecord : function(component, event, helper) {
         helper.saveRecord(component,event);
+    },
+
+    onTeamCreatedAction : function(component, event, helper) {
+        helper.fetchSentInvitations(component);
+        component.set("v.selectedTabId", 'sentInvitations');
     },
     
     newTeam : function(component, event, helper) {

@@ -18,6 +18,9 @@
                     message : 'Approval request was send to ' + selectedPlayer.Name
                 });
                 showToast.fire();
+                this.clear(component);
+                let evt = component.getEvent('BL_TeamCreatedEvent');
+                evt.fire();
             } else if(state === 'ERROR') {
                 var showToast = $A.get("e.force:showToast");
                 showToast.setParams({
@@ -31,7 +34,7 @@
         $A.enqueueAction(action);
 
     },
-    clear : function(component,event){
+    clear : function(component){
         component.set("v.selectedPlayer", {});
         component.set("v.team.Name", '');
 

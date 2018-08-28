@@ -1,9 +1,206 @@
 <aura:component description="BL_PlayerTeamsList" controller="BL_PlayerTeamsListController" implements="forceCommunity:availableForAllPageTypes">
-    <aura:attribute name="teamsList" type="List"/>
-    <aura:attribute name="invitationList" type="List"/>
+    <aura:attribute name="teamsList" type="BL_Team__c[]"/>
+    <aura:attribute name="receivedInvitations" type="BL_Team__c[]"/>
+    <aura:attribute name="sentInvitations" type="BL_Team__c[]"/>
     <aura:attribute name="selectedPlayer" type="sObject" default="{}"/>
     <aura:attribute name="team" type="BL_Team__c" default="{'sobjectType': 'BL_Team__c'}"/>
+    <aura:attribute name="user" type="Object"/>
+    <aura:attribute name="selectedTabId" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="BL_TeamCreatedEvent" event="c:BL_TeamCreatedEvent" action="{!c.onTeamCreatedAction}"/>
+
+    <lightning:layout horizontalAlign="center" verticalAlign="start" class="slds-m-top--x-small">
+        <lightning:layoutItem size="7" class="slds-p-right--x-small">
+            <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                My Teams
+            </div>
+            <aura:if isTrue="{!empty(v.teamsList)}">
+                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                    You are not in any team :(
+                </div>
+
+                <aura:set attribute="else">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                        <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col" style="width: 200px;">
+                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                            </th>
+                            <th scope="col" style="width: 50px;">
+                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Win}">W</div>
+                            </th>
+                            <th scope="col" style="width: 50px;">
+                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Draw}">D</div>
+                            </th>
+                            <th scope="col" style="width: 50px;">
+                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Lost}">L</div>
+                            </th>
+                            <th scope="col" style="width: 70px;">
+                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_For}">GF</div>
+                            </th>
+                            <th scope="col" style="width: 70px;">
+                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Against}">GA</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <aura:iteration items="{!v.teamsList}" var="team">
+                            <tr>
+                                <td scope="row" data-label="{!team.Name}">
+                                    <div class="slds-truncate" title="{!team.Name}"><a data-recordId="{!team.Id}" onclick="{!c.goToTeam}">{!team.Name}</a></div>
+                                </td>
+                                <td scope="row" data-label="Players">
+                                    <div class="slds-truncate" title="Players">{!team.Player1__r.LastName} &#38; {!team.Player2__r.LastName}</div>
+                                </td>
+                                <td scope="row" data-label="{!$Label.c.BL_Win}">
+                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Win}">{!team.Total_Games_Won__c}</div>
+                                </td>
+                                <td scope="row" data-label="{!$Label.c.BL_Draw}">
+                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Draw}">{!team.Total_Games_Drawn__c}</div>
+                                </td>
+                                <td scope="row" data-label="{!$Label.c.BL_Lost}">
+                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Lost}">{!team.Total_Games_Lost__c}</div>
+                                </td>
+                                <td scope="row" data-label="{!$Label.c.BL_Goals_For}">
+                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_For}">{!team.Total_Goals_Scored__c}</div>
+                                </td>
+                                <td scope="row" data-label="{!$Label.c.BL_Goals_Against}">
+                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Against}">{!team.Total_Goals_Lost__c}</div>
+                                </td>
+                            </tr>
+                        </aura:iteration >
+                        </tbody>
+                    </table>
+                </aura:set>
+            </aura:if>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="5">
+            <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                Team Management
+            </div>
+            <lightning:tabset variant="scoped" selectedTabId="{!v.selectedTabId}">
+                <lightning:tab title="Received Invitations" id="receivedInvitations">
+                    <aura:set attribute="label">
+                        <span>Received Invitations</span>
+                        <aura:if isTrue="{!not(empty(v.receivedInvitations))}">
+                            <lightning:badge label="new" class="new-notification"/>
+                        </aura:if>
+                    </aura:set>
+                    <aura:if isTrue="{!empty(v.receivedInvitations)}">
+                        <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                            You don't have any team invitations.
+                        </div>
+
+                        <aura:set attribute="else">
+                            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                                <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Team Name">Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Team Creator">Creator</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Action">Action</div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <aura:iteration items="{!v.receivedInvitations}" var="invitation">
+                                    <tr>
+                                        <td scope="row" data-label="Name">
+                                            <div class="slds-truncate" title="{!invitation.Name}">{!invitation.Name}</div>
+                                        </td>
+                                        <td scope="row" data-label="Creator">
+                                            <div class="slds-truncate" title="{!invitation.Player1__r.Name}">{!invitation.Player1__r.Name}</div>
+                                        </td>
+                                        <td scope="row" data-label="Action">
+                                            <div class="slds-truncate" title="Action">
+                                                <lightning:buttonIcon name="{!invitation.Id}"
+                                                                      variant="bare" iconName="utility:check" size="medium"
+                                                                      alternativeText="Approve"
+                                                                      iconClass="approveIcon"
+                                                                      onclick="{!c.acceptInvitation}"/>
+                                                <lightning:buttonIcon name="{!invitation.Id}"
+                                                                      variant="bare" iconName="utility:close" size="medium"
+                                                                      alternativeText="Reject"
+                                                                      iconClass="rejectIcon"
+                                                                      onclick="{!c.rejectInvitation}"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration >
+                                </tbody>
+                            </table>
+                        </aura:set>
+                    </aura:if>
+
+                </lightning:tab>
+                <lightning:tab title="Sent Invitations" id="sentInvitations">
+                    <aura:set attribute="label">
+                        <span>Sent Invitations</span>
+                    </aura:set>
+                    <aura:if isTrue="{!empty(v.sentInvitations)}">
+                        <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                            You didn't any team invitations.
+                        </div>
+
+                        <aura:set attribute="else">
+                            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                                <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Team Name">Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Invited">Invited</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Action">Action</div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <aura:iteration items="{!v.sentInvitations}" var="invitation">
+                                    <tr>
+                                        <td scope="row" data-label="Name">
+                                            <div class="slds-truncate" title="{!invitation.Name}">{!invitation.Name}</div>
+                                        </td>
+                                        <td scope="row" data-label="Creator">
+                                            <div class="slds-truncate" title="{!invitation.Player2__r.Name}">{!invitation.Player2__r.Name}</div>
+                                        </td>
+                                        <td scope="row" data-label="Action">
+                                            <div class="slds-truncate" title="Action">
+                                                <lightning:buttonIcon name="{!invitation.Id}"
+                                                                      variant="bare" iconName="utility:delete" size="medium"
+                                                                      alternativeText="Delete"
+                                                                      iconClass="delete-icon"
+                                                                      onclick="{!c.deleteTeam}"
+                                                                      disabled="{!or(invitation.IsActive__c, invitation.Player2__c == v.user.ContactId)}"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration >
+                                </tbody>
+                            </table>
+                        </aura:set>
+                    </aura:if>
+
+                </lightning:tab>
+                <lightning:tab label="Create Team" id="createTeam">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-size_12-of-12">
+                            <c:BL_CreateTeam team="{!v.team}" selectedPlayer="{!v.selectedPlayer}"/>
+                        </div>
+                    </div>
+                </lightning:tab>
+            </lightning:tabset>
+        </lightning:layoutItem>
+    </lightning:layout>
 
     <div aria-hidden="true" aria-modal="true" id="newTeamModal" role="dialog" class="slds-modal slds-fade-in-open" style="display:none;">
         <div class="slds-modal__container">
@@ -20,148 +217,12 @@
             </div>
             <footer class="slds-modal__footer">
                 <lightning:button class="buttonStyle" variant="neutral" onclick="{!c.hideModal}" title="Close" label="Close"/>
-            	<lightning:button class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team"/>
+                <lightning:button class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team"/>
             </footer>
         </div>
 
     </div>
 
     <div aura:id="modal-dialog-background" class="slds-backdrop"></div>
-
-    <div class="slds-p-around--x-small header-div" align="center">Teams</div>
-    <lightning:tabset variant="scoped">
-        <lightning:tab label="My Teams">
-            <aura:if isTrue="{!empty(v.teamsList)}">
-                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
-                    You are not in any team :(
-                </div>
-
-                <aura:set attribute="else">
-                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
-                        <thead>
-                            <tr class="slds-text-title_caps">
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Team Name">Name</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Second Player Name">Player</div>
-                                </th>
-                                <th scope="col" style="width: 11%;">
-                                    <div class="slds-truncate" title="Win Games">Win</div>
-                                </th>
-                                <th scope="col" style="width: 12%;">
-                                    <div class="slds-truncate" title="Lose Games">Lose</div>
-                                </th>
-                                <th scope="col" style="width: 12%;">
-                                    <div class="slds-truncate" title="Draw Games">Draw</div>
-                                </th>
-                                <th scope="col" style="width: 18%; padding :0px;">
-                                    <div class="slds-truncate" title="Is Active">Active</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <aura:iteration items="{!v.teamsList}" var="team">
-                                <tr>
-                                    <td scope="row" data-label="{!team.name}">
-                                        <div class="slds-truncate" title="{!team.name}"><a data-recordId="{!team.recordId}" onclick="{!c.goToTeam}">{!team.name}</a></div>
-                                    </td>
-                                    <td scope="row" data-label="{!team.secondPlayerName}">
-                                        <div class="slds-truncate" title="{!team.secondPlayerName}">{!team.secondPlayerName}</div>
-                                    </td>
-                                    <td scope="row" data-label="Win">
-                                        <div class="slds-truncate" title="Win">{!team.won}</div>
-                                    </td>
-                                    <td scope="row" data-label="Lose">
-                                        <div class="slds-truncate" title="Lose">{!team.lost}</div>
-                                    </td>
-                                    <td scope="row" data-label="Draw">
-                                        <div class="slds-truncate" title="Lose">{!team.lost}</div>
-                                    </td>
-                                    <td scope="row" data-label="Is Active">
-                                        <div class="slds-truncate" title="Is Active">
-                                            <ui:outputCheckbox value="{!team.isActive}"/>
-                                            <aura:if isTrue="{!team.canDelete}">
-                                                <lightning:buttonIcon name="{!team.recordId}"
-                                                                      variant="bare" iconName="utility:delete" size="medium"
-                                                                      alternativeText="Delete Team"
-                                                                      iconClass="delete-icon"
-                                                                      onclick="{!c.deleteTeam}"/>
-                                            </aura:if>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </aura:iteration >
-                        </tbody>
-                    </table>
-                </aura:set>
-            </aura:if>
-        </lightning:tab>
-        <lightning:tab title="Team Invitations">
-            <aura:set attribute="label">
-                <span>Invitations</span>
-                <aura:if isTrue="{!not(empty(v.invitationList))}">
-                    <lightning:badge label="new" class="new-notification"/>
-                </aura:if>
-            </aura:set>
-            <aura:if isTrue="{!empty(v.invitationList)}">
-                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
-                    You haven't any invitation to team :(
-                </div>
-
-                <aura:set attribute="else">
-                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
-                        <thead>
-                            <tr class="slds-text-title_caps">
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Team Name">Name</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Team Creator">Creator</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Action">Action</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <aura:iteration items="{!v.invitationList}" var="invitation">
-                                <tr>
-                                    <td scope="row" data-label="Name">
-                                        <div class="slds-truncate" title="{!invitation.Name}">{!invitation.Name}</div>
-                                    </td>
-                                    <td scope="row" data-label="Creator">
-                                        <div class="slds-truncate" title="{!invitation.Player1__r.Name}">{!invitation.Player1__r.Name}</div>
-                                    </td>
-                                    <td scope="row" data-label="Action">
-                                        <div class="slds-truncate" title="Action">
-                                            <lightning:buttonIcon name="{!invitation.Id}"
-                                                                  variant="bare" iconName="utility:check" size="medium"
-                                                                  alternativeText="Approve"
-                                                                  iconClass="approveIcon"
-                                                                  onclick="{!c.acceptInvitation}"/>
-                                            <lightning:buttonIcon name="{!invitation.Id}"
-                                                                  variant="bare" iconName="utility:close" size="medium"
-                                                                  alternativeText="Reject"
-                                                                  iconClass="rejectIcon"
-                                                                  onclick="{!c.rejectInvitation}"/>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </aura:iteration >
-                        </tbody>
-                    </table>
-                </aura:set>
-            </aura:if>
-
-        </lightning:tab>
-        <lightning:tab label="Create Team">
-            <div class="slds-grid slds-gutters">
-                <div class="slds-col slds-size_4-of-12">
-                    <c:BL_CreateTeam team="{!v.team}" selectedPlayer="{!v.selectedPlayer}"/>
-                </div>
-            </div>
-        </lightning:tab>
-    </lightning:tabset>
 
 </aura:component>

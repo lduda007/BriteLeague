@@ -22,7 +22,7 @@
         <div class="slds-form-element__control">
 
             <div class="slds-input-has-icon slds-input-has-icon--right"> 
-                <lightning:icon class="slds-input__icon slds-show" iconName="utility:search" size="x-small" alternativeText="search"/>
+                <!--<lightning:icon class="slds-input__icon slds-show" iconName="utility:search" size="x-small" alternativeText="search"/>-->
                 <!-- This markup is for when an record is selected -->
                 <div aura:id="lookup-pill" class="slds-pill-container slds-hide">
                     <lightning:pill class="pillSize" label="{!v.selectedRecord.Name}" name="{!v.selectedRecord.Name}" onremove="{! c.clear }">
