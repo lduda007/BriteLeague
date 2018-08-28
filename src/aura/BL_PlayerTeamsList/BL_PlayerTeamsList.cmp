@@ -9,75 +9,77 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="BL_TeamCreatedEvent" event="c:BL_TeamCreatedEvent" action="{!c.onTeamCreatedAction}"/>
 
-    <lightning:layout horizontalAlign="center" verticalAlign="start" class="slds-m-top--x-small">
-        <lightning:layoutItem size="7" class="slds-p-right--x-small">
+    <lightning:layout horizontalAlign="center" verticalAlign="start" class="slds-m-top--x-small" multipleRows="true">
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="7" class="slds-p-around--xx-small">
             <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
                 My Teams
             </div>
-            <aura:if isTrue="{!empty(v.teamsList)}">
-                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
-                    You are not in any team :(
-                </div>
+            <div class="slds-border--right slds-border--left">
+                <aura:if isTrue="{!empty(v.teamsList)}">
+                    <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                        You are not in any team :(
+                    </div>
 
-                <aura:set attribute="else">
-                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
-                        <thead>
-                        <tr class="slds-text-title_caps">
-                            <th scope="col" style="width: 200px;">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
-                            </th>
-                            <th scope="col">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Win}">W</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Draw}">D</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Lost}">L</div>
-                            </th>
-                            <th scope="col" style="width: 70px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_For}">GF</div>
-                            </th>
-                            <th scope="col" style="width: 70px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Against}">GA</div>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <aura:iteration items="{!v.teamsList}" var="team">
-                            <tr>
-                                <td scope="row" data-label="{!team.Name}">
-                                    <div class="slds-truncate" title="{!team.Name}"><a data-recordId="{!team.Id}" onclick="{!c.goToTeam}">{!team.Name}</a></div>
-                                </td>
-                                <td scope="row" data-label="Players">
-                                    <div class="slds-truncate" title="Players">{!team.Player1__r.LastName} &#38; {!team.Player2__r.LastName}</div>
-                                </td>
-                                <td scope="row" data-label="{!$Label.c.BL_Win}">
-                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Win}">{!team.Total_Games_Won__c}</div>
-                                </td>
-                                <td scope="row" data-label="{!$Label.c.BL_Draw}">
-                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Draw}">{!team.Total_Games_Drawn__c}</div>
-                                </td>
-                                <td scope="row" data-label="{!$Label.c.BL_Lost}">
-                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Lost}">{!team.Total_Games_Lost__c}</div>
-                                </td>
-                                <td scope="row" data-label="{!$Label.c.BL_Goals_For}">
-                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_For}">{!team.Total_Goals_Scored__c}</div>
-                                </td>
-                                <td scope="row" data-label="{!$Label.c.BL_Goals_Against}">
-                                    <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Against}">{!team.Total_Goals_Lost__c}</div>
-                                </td>
+                    <aura:set attribute="else">
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                            <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col" style="width: 200px;">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                                </th>
+                                <th scope="col" style="width: 50px;">
+                                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Win}">W</div>
+                                </th>
+                                <th scope="col" style="width: 50px;">
+                                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Draw}">D</div>
+                                </th>
+                                <th scope="col" style="width: 50px;">
+                                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Lost}">L</div>
+                                </th>
+                                <th scope="col" style="width: 70px;">
+                                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Goals_For}">GF</div>
+                                </th>
+                                <th scope="col" style="width: 70px;">
+                                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Goals_Against}">GA</div>
+                                </th>
                             </tr>
-                        </aura:iteration >
-                        </tbody>
-                    </table>
-                </aura:set>
-            </aura:if>
+                            </thead>
+                            <tbody>
+                            <aura:iteration items="{!v.teamsList}" var="team">
+                                <tr>
+                                    <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Id}" onclick="{!c.goToTeam}">{!team.Name}</a></div>
+                                    </td>
+                                    <td scope="row" data-label="Players">
+                                        <div class="slds-truncate" title="Players">{!team.Player1__r.LastName} &#38; {!team.Player2__r.LastName}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Win}">
+                                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Win}">{!team.Total_Games_Won__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Draw}">
+                                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Draw}">{!team.Total_Games_Drawn__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Lost}">
+                                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Lost}">{!team.Total_Games_Lost__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Goals_For}">
+                                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Goals_For}">{!team.Total_Goals_Scored__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Goals_Against}">
+                                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Goals_Against}">{!team.Total_Goals_Lost__c}</div>
+                                    </td>
+                                </tr>
+                            </aura:iteration >
+                            </tbody>
+                        </table>
+                    </aura:set>
+                </aura:if>
+            </div>
         </lightning:layoutItem>
-        <lightning:layoutItem size="5">
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="5" class="slds-p-around--xx-small">
             <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
                 Team Management
             </div>
@@ -146,7 +148,7 @@
                     </aura:set>
                     <aura:if isTrue="{!empty(v.sentInvitations)}">
                         <div class="slds-col slds-align--absolute-center slds-p-around--medium">
-                            You didn't any team invitations.
+                            You didn't send any team invitations.
                         </div>
 
                         <aura:set attribute="else">
