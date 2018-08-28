@@ -4,6 +4,6 @@ public with sharing class BL_OldestLoggingUserDeactivator implements Queueable{
     }
 
     public void execute(QueueableContext context) {
-        BL_UserActivationManager.deactivateLastLoggingUser();
+        BL_UserActivationManager.deactivateLastLoggingUser('');
     }
 }

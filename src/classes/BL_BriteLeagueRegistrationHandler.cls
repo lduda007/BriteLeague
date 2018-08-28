@@ -18,6 +18,7 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
         if(data.attributeMap.containsKey('sfdc_networkid')) {
             Id contactId;
             List<Contact> existingContacts = [SELECT Id, Email FROM Contact WHERE Email =: data.email];
+
             if (existingContacts.size() > 0){
                 Contact existingContact = existingContacts[0];
                 contactId = existingContact.Id;
@@ -28,7 +29,16 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
             } else {
                 contactId = createContact(data);
             }
+
             String communityUserProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c');
+
+            if(BL_UserActivationManager.getNumberOfAvailableCommunityLicenses(communityUserProfileName, 'BL_NumberOfCommunityLicenses__c') <= 1){
+                String communityPlusUserProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityPlusUserProfileName__c');
+                if(BL_UserActivationManager.getNumberOfAvailableCommunityLicenses(communityPlusUserProfileName, 'BL_Number_Of_Community_Plus_Licenses__c') > 0){
+                    communityUserProfileName = communityPlusUserProfileName;
+                }
+            }
+
             Profile communityUserProfile = [SELECT Id FROM profile WHERE name =: communityUserProfileName];
             User communityUser = createUser(data,communityUserProfile);
             communityUser.contactId = contactId;
@@ -43,19 +53,16 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
 
     global void updateUser(Id userId, Id portalId, Auth.UserData data){
         BL_UserActivationManager.enqueueOldestLoggingUserDeactivation();
-        if(!checkUserIsActive(userId)){
-            BL_UserActivationManager.activateUser(userId);
+        User currentUser = [SELECT Id, IsActive, Profile.Name FROM User WHERE Id =: userId];
+
+        if(!currentUser.IsActive){
+            BL_UserActivationManager.activateUser(currentUser);
         }
-        User currentUser = [SELECT Id, IsActive FROM User WHERE Id =: userId];
+
         currentUser.email = data.email;
         currentUser.lastName = data.lastName;
         currentUser.firstName = data.firstName;
         update(currentUser);
-    }
-
-    private Boolean checkUserIsActive(String userId){
-        User currentUser = [SELECT Id, IsActive FROM User WHERE Id =: userId];
-        return currentUser.IsActive;
     }
 
     private Id createContact(Auth.UserData data){

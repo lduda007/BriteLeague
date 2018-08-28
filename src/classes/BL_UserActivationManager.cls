@@ -1,29 +1,11 @@
 public with sharing class BL_UserActivationManager {
-    public static void activateUser(String userId){
-        User user = [SELECT Id, IsActive FROM User WHERE Id =: userId];
+    public static void activateUser(User user){
         activateInactiveUserTryingToLogIn(user);
     }
 
-    public static void deactivateLastLoggingUser(){
-        String customerCommunityProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c');
-        List<User> allUsers = new List<User>();
-        List<AggregateResult> ar = [
-                SELECT MIN(LastLoginDate) Min_Login, Profile.Name
-                FROM User
-                WHERE Profile.Name =: customerCommunityProfileName  AND IsActive = true
-                GROUP BY Profile.Name
-        ];
-
-        Datetime lastLoginDate = (Datetime)ar[0].get('Min_Login');
-
-        User lastLoggedUser = [
-                SELECT Id, IsActive
-                FROM User
-                WHERE Profile.Name =: customerCommunityProfileName  AND (LastLoginDate =: lastLoginDate OR LastLoginDate = null) AND IsActive = true
-                ORDER BY LastLoginDate
-                LIMIT 1
-        ];
-
+    public static void deactivateLastLoggingUser(String profileName){
+        User lastLoggedUser = String.isEmpty(profileName) ? getLastLoggedUserForNotRestrictedCommunityProfile() :
+                getLastLoggedUserForRestrictedCommunityProfile(profileName);
         try{
             lastLoggedUser.IsActive = false;
             update lastLoggedUser;
@@ -35,11 +17,58 @@ public with sharing class BL_UserActivationManager {
 
     }
 
+    private static User getLastLoggedUserForRestrictedCommunityProfile(String profileName) {
+        List<AggregateResult> ar = [
+                SELECT MIN(LastLoginDate) Min_Login
+                FROM User
+                WHERE Profile.Name =: profileName AND IsActive = true
+        ];
+
+        Datetime lastLoginDate = (Datetime)ar[0].get('Min_Login');
+
+        User lastLoggedUser = [
+                SELECT Id, IsActive
+                FROM User
+                WHERE  Profile.Name =: profileName AND (LastLoginDate =: lastLoginDate OR LastLoginDate = null) AND IsActive = true
+                ORDER BY LastLoginDate
+                LIMIT 1
+        ];
+        return lastLoggedUser;
+    }
+
+    private static User getLastLoggedUserForNotRestrictedCommunityProfile(){
+        String customerCommunityProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c');
+        String communityPlusUserProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityPlusUserProfileName__c');
+
+        List<AggregateResult> ar = [
+                SELECT MIN(LastLoginDate) Min_Login
+                FROM User
+                WHERE (Profile.Name = :customerCommunityProfileName OR Profile.Name = :communityPlusUserProfileName) AND IsActive = true
+        ];
+
+        Datetime lastLoginDate = (Datetime)ar[0].get('Min_Login');
+        User lastLoggedUser = [
+                SELECT Id, IsActive
+                FROM User
+                WHERE (Profile.Name =: customerCommunityProfileName OR Profile.Name =: communityPlusUserProfileName)  AND (LastLoginDate =: lastLoginDate OR LastLoginDate = null) AND IsActive = true
+                ORDER BY LastLoginDate
+                LIMIT 1
+        ];
+
+        return lastLoggedUser;
+    }
+
     public static void activateInactiveUserTryingToLogIn(User user){
         try{
             user.IsActive = true;
-            if(getNumberOfAvailableCommunityLicenses() <= 1){
-                deactivateLastLoggingUser();
+            String csAvailableLicencesFieldName;
+            if(user.Profile.Name == BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c')){
+                csAvailableLicencesFieldName = 'BL_NumberOfCommunityLicenses__c';
+            }else{
+                csAvailableLicencesFieldName = 'BL_Number_Of_Community_Plus_Licenses__c';
+            }
+            if(getNumberOfAvailableCommunityLicenses(user.Profile.Name, csAvailableLicencesFieldName) < 1){
+                deactivateLastLoggingUser(user.Profile.Name);
             }
             update user;
         }catch (DmlException e){
@@ -50,7 +79,11 @@ public with sharing class BL_UserActivationManager {
     }
 
     public static void enqueueOldestLoggingUserDeactivation(){
-        if(getNumberOfAvailableCommunityLicenses() < 1){
+        String customerCommunityProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c');
+        String communityPlusUserProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityPlusUserProfileName__c');
+
+        if(getNumberOfAvailableCommunityLicenses(customerCommunityProfileName, 'BL_NumberOfCommunityLicenses__c') < 1 &&
+                getNumberOfAvailableCommunityLicenses(communityPlusUserProfileName, 'BL_Number_Of_Community_Plus_Licenses__c') < 1){
             BL_OldestLoggingUserDeactivator oldestLoggingUserDeactivator = new BL_OldestLoggingUserDeactivator();
             ID jobID = System.enqueueJob(oldestLoggingUserDeactivator);
         }
@@ -67,10 +100,9 @@ public with sharing class BL_UserActivationManager {
         insert psa;
     }
 
-    public static Integer getNumberOfAvailableCommunityLicenses(){
-        String customerCommunityProfileName = BL_Utils.getBLCommunitySettings('BL_CommunityUserProfileName__c');
-        List<User> activeCommunityUsers = [SELECT Id FROM User WHERE Profile.Name =: customerCommunityProfileName AND IsActive = true];
-        Integer numberOfAllLicenses = Integer.valueOf(BL_Utils.getBLCommunitySettings('BL_NumberOfCommunityLicenses__c'));
+    public static Integer getNumberOfAvailableCommunityLicenses(String profileName, String csAvailableLicencesFieldName){
+        List<User> activeCommunityUsers = [SELECT Id FROM User WHERE Profile.Name =: profileName AND IsActive = true];
+        Integer numberOfAllLicenses = Integer.valueOf(BL_Utils.getBLCommunitySettings(csAvailableLicencesFieldName));
         return numberOfAllLicenses - activeCommunityUsers.size();
     }
 }
