@@ -50,7 +50,7 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
                         <p class="slds-text-body_small slds-text-color_weak">Winning Factor: </p>
-                        <ui:outputNumber value="{!(v.team.TotalRoundsWon__c/(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c)) * 100}" class="slds-text-heading--small"/>
+                        <ui:outputNumber value="{!(v.team.TotalRoundsWon__c/(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c)) * 100}" class="slds-text-heading--small"/>%
                     </lightning:layoutItem>
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
                         <p class="slds-text-body_small slds-text-color_weak">Goals For Average: </p>
