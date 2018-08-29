@@ -44,6 +44,7 @@ public with sharing class BL_MatchScoreProviderController {
 
         Decimal team1WinsOld = match[0].Team1__r.GamesWon__c;
         Decimal team2WinsOld = match[0].Team2__r.GamesWon__c;
+
         if (!match[0].League__r.isCup__c && roundsPlayed == 2) {
             match[0].isResolved__c = true;
             updateCompetitorStatistics(match[0], competitors, team1Score, team2Score, team1GoalsInRound, team2GoalsInRound);
@@ -65,12 +66,12 @@ public with sharing class BL_MatchScoreProviderController {
         Decimal team2TotalGoalsScored = 0;
         List<BL_Competitor__c> competitorsTeams = new List<BL_Competitor__c>();
         List<BL_Competitor__c> competitor1 = [
-                SELECT id, GamesLost__c,GamesDrawn__c,GamesWon__c,GoalsAgainst__c,GoalsFor__c
+                SELECT id, GamesLost__c,GamesDrawn__c,GamesWon__c,GoalsAgainst__c,GoalsFor__c, RoundsWon__c, RoundsLost__c
                 FROM BL_Competitor__c
                 WHERE id=:competitors[0]
         ];
         List<BL_Competitor__c> competitor2 = [
-                SELECT id, GamesLost__c,GamesDrawn__c,GamesWon__c,GoalsAgainst__c,GoalsFor__c
+                SELECT id, GamesLost__c,GamesDrawn__c,GamesWon__c,GoalsAgainst__c,GoalsFor__c, RoundsWon__c, RoundsLost__c
                 FROM BL_Competitor__c
                 WHERE id=:competitors[1]
         ];
@@ -98,6 +99,10 @@ public with sharing class BL_MatchScoreProviderController {
         competitorsTeams[0].GoalsAgainst__c += team2TotalGoalsScored;
         competitorsTeams[1].GoalsFor__c += team2TotalGoalsScored;
         competitorsTeams[1].GoalsAgainst__c += team1TotalGoalsScored;
+        competitorsTeams[0].RoundsWon__c += match.Team1_Score__c;
+        competitorsTeams[0].RoundsLost__c += match.Team2_Score__c;
+        competitorsTeams[1].RoundsWon__c += match.Team2_Score__c;
+        competitorsTeams[1].RoundsLost__c += match.Team1_Score__c;
 
         try{
             Database.upsert(competitorsTeams);

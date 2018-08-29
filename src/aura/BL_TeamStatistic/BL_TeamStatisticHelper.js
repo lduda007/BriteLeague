@@ -1,8 +1,5 @@
 ({
-    drawMatchesChart : function(component, event, helper) {
-        let related = event.getParam('related');
-        let values = [related.matchesWon.length, related.matchesLost.length, related.draws.length];
-        component.set('v.remisy', related.draws.length);
+    drawMatchesChart : function(component, matchesStats) {
         let ctx = component.find("matchesPie").getElement();
         let lineChart = new Chart(ctx ,{
             type: 'pie',
@@ -11,7 +8,7 @@
                datasets: [
                    {
                        label: 'Matches',
-                       data: values,
+                       data: matchesStats,
                        borderColor:'rgba(192,192,192)',
                        backgroundColor: [
                                             'rgba( 7,166,157,1)',
@@ -43,9 +40,7 @@
             }
         });
     },
-    drawGoalsChart : function(component, event, helper) {
-        let related = event.getParam('related');
-        let values = [related.goalsFor, related.goalsLost];
+    drawGoalsChart : function(component, goalsStats) {
         let ctx = component.find("goalsPie").getElement();
         let lineChart = new Chart(ctx ,{
             type: 'pie',
@@ -54,7 +49,7 @@
                datasets: [
                    {
                        label: 'Goals',
-                       data: values,
+                       data: goalsStats,
                        borderColor:'rgba(192,192,192)',
                        backgroundColor: [
                                            'rgba( 7,166,157,1)',
@@ -84,5 +79,25 @@
                 }
             }
         });
+    },
+    loadStatistics: function(component) {
+        let action = component.get("c.loadTeamStatistics");
+        action.setParams({
+            teamId: component.get("v.recordId")
+        });
+        var self = this;
+        action.setCallback(this, function(response) {
+            let state = response.getState();
+            if(state === 'SUCCESS'){
+                let stats = response.getReturnValue();
+                let matchesStats = [stats.Total_Games_Won__c, stats.Total_Games_Lost__c, stats.Total_Games_Drawn__c];
+                let goalsStats = [stats.Total_Goals_Scored__c, stats.Total_Goals_Lost__c];
+                self.drawMatchesChart(component, matchesStats);
+                self.drawGoalsChart(component, goalsStats);
+            } else if (state === 'ERROR') {
+                alert('error');
+            }
+        });
+        $A.enqueueAction(action);
     }
 })

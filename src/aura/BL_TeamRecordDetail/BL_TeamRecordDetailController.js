@@ -2,7 +2,6 @@
     doInit : function(component, event, helper) {
         helper.getCurrentContactId(component, event, helper);
         helper.getPicture(component, event, helper);
-        helper.getTeamRelatedRecords(component, event, helper);
     },
     onDragOver: function(component, event) {
         event.preventDefault();

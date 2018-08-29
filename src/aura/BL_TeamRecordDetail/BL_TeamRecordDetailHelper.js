@@ -10,29 +10,6 @@
         });
         errToast.fire();
     },
-    getTeamRelatedRecords : function(component, event, helper) {
-        component.set('v.showSpinnerInit', true);
-        let action = component.get('c.getRelated');
-        action.setParams({
-            'teamId' : component.get('v.recordId')
-        });
-        action.setCallback(this, function(response){
-            let state = response.getState();
-            if(state === 'SUCCESS' || state === 'DRAFT') {
-                component.set('v.related', response.getReturnValue());
-                let appEvent = $A.get('e.c:BL_TeamRelatedLoaded');
-                appEvent.setParams({
-                    "related": response.getReturnValue()
-                });
-                appEvent.fire();
-            } else if(state === 'ERROR') {
-                helper.handleError(component, response, helper);
-            }
-            component.set('v.showSpinnerInit', false);
-        });
-        $A.enqueueAction(action);
-    },
-
     getPicture : function(component) {
         let action = component.get("c.getProfilePicture");
         action.setParams({

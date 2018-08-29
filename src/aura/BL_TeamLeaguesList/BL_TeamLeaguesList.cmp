@@ -28,11 +28,11 @@
                 </aura:if>
                 <aura:iteration items="{!v.leaguesList}" var="league" indexVar="indx">
                     <tr>
-                        <th scope="row" data-label="{!$Label.c.BL_Name}">
+                        <td scope="row" data-label="{!$Label.c.BL_Name}">
                             <div class="slds-truncate" title="{!$Label.c.BL_Name}">
                                 <a data-id="{!league.Id}" onclick="{!c.goToRecord}" >{!league.Name}</a>
                             </div>
-                        </th>
+                        </td>
                         <td data-label="{!$Label.c.BL_Start_Date}">
                             <div class="slds-truncate" title="{!$Label.c.BL_Start_Date}">
                                 <ui:outputDate value="{!league.Start_Date__c}"/>
@@ -43,7 +43,7 @@
                                 <ui:outputDate value="{!league.End_Date__c}"/>
                             </div>
                         </td>
-                        <td data-label="">
+                        <td data-label="Type">
                             <div class="slds-truncate" title="">
                                 <aura:if isTrue="{!league.isCup__c}">{!$Label.c.BL_Cup}</aura:if>
                                 <aura:if isTrue="{!!league.isCup__c}">{!$Label.c.BL_League}</aura:if>

@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="BL_TeamRelatedLoaded">
-    <aura:attribute name="related" type="Object"/>
-</aura:event>
