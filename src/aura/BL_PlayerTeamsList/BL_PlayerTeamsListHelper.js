@@ -192,7 +192,6 @@
             {
                 let user = response.getReturnValue();
                 component.set("v.user", user);
-                this.checkIsCurrentUserAlreadyInCompetition(component, user, component.get("v.league"));
             }
         });
         $A.enqueueAction(action);
