@@ -21,10 +21,10 @@
                         "type": "success",
                         "message": "The "+competitionName+" was created."
                     });
-                    component.getEvent("competitionCreated").fire();
                     resultsToast.fire();
                     helper.initializeNewLeagueRecord(component);
-
+                    let appEvent = $A.get("e.c:BL_CompetitionCreatedEvent");
+                    appEvent.fire();
                 } else if (saveResult.state === "INCOMPLETE") {
                     // handle the incomplete state
                     console.log("User is offline, device doesn't support drafts.");
@@ -89,7 +89,7 @@
         helper.clearForm(component);
     },
 
-//    onKeyDown: function(component, evnt, helper){
+    onKeyDown: function(component, evnt, helper){
 //        let elem = evnt.getSource();
 //        console.log('log: '+elem);
 //        window.addEventListener("keydown", function(event) {
@@ -101,5 +101,5 @@
 ////              return false;
 //           }
 //        }, false);
-//    },
+    },
 })

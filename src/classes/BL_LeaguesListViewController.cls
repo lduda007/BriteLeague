@@ -26,7 +26,7 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for (BL_League__c league : [
-                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c
+                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c
                 FROM BL_League__c
                 WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.today())
                 AND Id NOT IN :getPlayerLeaguesIds()

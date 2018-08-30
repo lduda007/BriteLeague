@@ -16,11 +16,14 @@
                       targetRecord="{!v.newCompetitor}"
                       targetFields="{!v.competitorToInsert}"
                       targetError="{!v.newCompetitorError}" />
+
     <lightning:select label="Select Your Team" value="{!v.competitorToInsert.Team__c}">
         <option value=""></option>
         <aura:iteration items="{!v.teamsList}" var="team">
             <option value="{!team.recordId}">{!team.name} ({!team.secondPlayerName})</option>
         </aura:iteration>
     </lightning:select>
+
     <lightning:button label="Join" variant="brand" onclick="{!c.saveCompetitor}" class="slds-m-top--medium"/>
+
 </aura:component>

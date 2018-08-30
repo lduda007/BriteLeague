@@ -51,10 +51,11 @@
             </aura:iteration>
             </tbody>
         </table>
+        <aura:set attribute="else">
+            <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                    {!$Label.c.BL_You_Are_Not_Assigned}
+            </div>
+        </aura:set>
     </aura:if>
-    <aura:if isTrue="{!v.myLeaguesList.length == 0}">
-        <div class="slds-col slds-align--absolute-center slds-p-around--medium">
-                {!$Label.c.BL_You_Are_Not_Assigned}
-        </div>
-    </aura:if>
+
 </aura:component>
