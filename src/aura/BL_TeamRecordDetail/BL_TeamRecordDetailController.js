@@ -19,5 +19,8 @@
     closeModal: function(component, event, helper){
    	    helper.onCloseModal(component, event, helper);
         helper.getPicture(component, event, helper);
+    },
+    handleRecordUpdated: function(component, event, helper) {
+        component.set("v.showSpinnerInit", false);
     }
 })

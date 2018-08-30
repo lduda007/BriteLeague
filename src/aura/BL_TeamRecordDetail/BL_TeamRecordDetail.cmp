@@ -2,7 +2,7 @@
     <aura:attribute name="team" type="Object"/>
     <aura:attribute name="related" type="Object"/>
     <aura:attribute name="contactId" type="String"/>
-    <aura:attribute name="showSpinnerInit" type="Boolean"/>
+    <aura:attribute name="showSpinnerInit" type="Boolean" default="true"/>
     <aura:attribute name="showSpinner" type="Boolean"/>
     <aura:attribute name="attachmentBody" type="String"/>
     <aura:attribute name="attachmentName" type="String"/>
@@ -14,7 +14,9 @@
 
     <force:recordData targetFields="{!v.team}"
                       recordId="{!v.recordId}"
-                      layoutType="FULL"/>
+                      layoutType="FULL"
+                      recordUpdated="{!c.handleRecordUpdated}"
+    />
 
     <lightning:card title="" variant="narrow">
 

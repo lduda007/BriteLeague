@@ -88,14 +88,12 @@
         }
         helper.readFile(component, helper, files[0]);
     },
-
-        onOpenModal : function(component, event, helper) {
-            document.getElementById('backdropOfConfirmTeamsProfilePicture').classList.add("slds-backdrop_open");
-            document.getElementById('modalOfConfirmTeamsProfilePicture').classList.add("slds-slide-down-cancel");
-        },
-
-        onCloseModal : function(component, event, helper) {
-            document.getElementById('backdropOfConfirmTeamsProfilePicture').classList.remove("slds-backdrop_open");
-            document.getElementById('modalOfConfirmTeamsProfilePicture').classList.remove("slds-slide-down-cancel");
-        },
+    onOpenModal : function(component, event, helper) {
+        document.getElementById('backdropOfConfirmTeamsProfilePicture').classList.add("slds-backdrop_open");
+        document.getElementById('modalOfConfirmTeamsProfilePicture').classList.add("slds-slide-down-cancel");
+    },
+    onCloseModal : function(component, event, helper) {
+        document.getElementById('backdropOfConfirmTeamsProfilePicture').classList.remove("slds-backdrop_open");
+        document.getElementById('modalOfConfirmTeamsProfilePicture').classList.remove("slds-slide-down-cancel");
+    },
 })
