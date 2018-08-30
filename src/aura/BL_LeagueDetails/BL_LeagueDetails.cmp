@@ -50,8 +50,8 @@
                             <ui:outputText value="{!v.league.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Already_joined}: </p>
-                            <ui:outputText value="{!v.league.Teams_Joined__c}" title="{!$Label.c.BL_Already_joined}" class="slds-text-heading--small"/>
+                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
+                            <ui:outputText value="{!v.league.CreatedBy.Name}" title="{!$Label.c.BL_Owner}" class="slds-text-heading--small"/>
                         </lightning:layoutItem>
 
                     </lightning:layout>
