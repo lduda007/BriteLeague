@@ -10,8 +10,9 @@
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
     <aura:handler name="BL_CompetitorLeftCompetition" event="c:BL_CompetitorLeftCompetition" action="{!c.handleCompetitorLeftCompetition}"/>
 
-    <lightning:layout>
-        <lightning:layoutItem size="12">
+    <lightning:layout multipleRows="true" verticalAlign="center">
+
+        <lightning:layoutItem size="12" class="slds-p-around--x-small">
             <lightning:card iconName="utility:activity" title="{!$Label.c.BL_League+': '+v.league.Name}" variant="narrow">
                 <aura:set attribute="actions">
                     <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), greaterthan(v.league.Competitors__r.length, 1))}">
@@ -24,157 +25,159 @@
                         <c:BL_LeaveCompetition competitionId="{!v.leagueId}" playerId="{!v.user.ContactId}" aura:id="leaveCompetitionComponent"/>
                     </aura:if>
                 </aura:set>
-                <div class="slds-p-horizontal--small">
-                    <fieldset class="slds-form--compound">
-                        <div class="slds-form-element__group">
-                            <div class="slds-form-element__row slds-grid_vertical-align-end">
-                                <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">Start Date: </p>
-                                    <ui:outputText value="{!v.league.Start_Date__c}" title="{!$Label.c.Start_Date}"
-                                                   class="slds-text-heading--small"/>
-                                </div>
-                                <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Teams_number}: </p>
-                                    <ui:outputText value="{!v.league.Max_Teams__c}" title="{!$Label.c.BL_Teams_number}"
-                                                   class="slds-text-heading--small"/>
-                                </div>
-                                <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
-                                    <ui:outputText value="{!v.league.CreatedBy.Name}" title="{!$Label.c.BL_Owner}"
-                                                   class="slds-text-heading--small"/>
-                                </div>
-                            </div>
-                            <div class="slds-form-element__row slds-grid_vertical-align-end">
-                                <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_End_Date}: </p>
-                                    <ui:outputText value="{!v.league.End_Date__c}" title="{!$Label.c.BL_End_Date}"
-                                                   class="slds-text-heading--small"/>
-                                </div>
-                                <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Already_joined}: </p>
-                                    <ui:outputText value="{!v.league.Teams_Joined__c}" title="{!$Label.c.BL_Already_joined}"
-                                                   class="slds-text-heading--small"/>
-                                </div>
-                                <div class="slds-form-element slds-size--1-of-3">
-                                    <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
-                                    <ui:outputText value="{!v.league.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-            </lightning:card>
-        </lightning:layoutItem>
-    </lightning:layout>
 
-    <lightning:layout horizontalAlign="center" verticalAlign="start" class="slds-m-top--x-small">
-        <lightning:layoutItem size="8" class="slds-p-right--x-small">
-            <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-                {!$Label.c.BL_League_Table}
-            </div>
-            <aura:if isTrue="{!v.league.Competitors__r.length > 0}">
-                <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
-                    <thead>
-                        <tr class="slds-text-title_caps">
-                            <th scope="col" style="width: 60px;">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Position}">Pos</div>
-                            </th>
-                            <th scope="col" style="width: 100px;">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
-                            </th>
-                            <th scope="col">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Win}">W</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Draw}">D</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Lost}">L</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_For}">GF</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Against}">GA</div>
-                            </th>
-                            <th scope="col" style="width: 50px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Draw}">GD</div>
-                            </th>
-                            <th scope="col" style="width: 60px;">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Points}">PTS</div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <aura:iteration items="{!v.league.Competitors__r}" var="team" indexVar="index">
-                        <tr onclick="{!c.rowClicked}" aura:id="competitorRow" data-index="{!index}" data-competitorId="{!team.Id}">
-                            <td scope="row" data-label="{!$Label.c.BL_Position}">
-                                <div class="slds-truncate" title="Position">{!index+1}</div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
-                                    {!team.Team__r.Player1__r.LastName}
-                                    <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
-                                        <aura:set attribute="else">
-                                            &#38;
-                                        </aura:set>
-                                    </aura:if>
-                                    {!team.Team__r.Player2__r.LastName}
-                                </div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Win}">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Win}">{!team.GamesWon__c}</div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Draw}">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Draw}">{!team.GamesDrawn__c}</div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Lost}">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Lost}">{!team.GamesLost__c}</div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Goals_For}">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_For}">{!team.GoalsFor__c}</div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Goals_Against}">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Against}">{!team.GoalsAgainst__c}</div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Goals_Draw}">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Goals_Draw}">{!team.GoalsDraw__c}</div>
-                            </td>
-                            <td scope="row" data-label="{!$Label.c.BL_Points}">
-                                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Points}">{!team.Points__c}</div>
-                            </td>
-                        </tr>
-                    </aura:iteration >
-                    </tbody>
-                </table>
-                <aura:set attribute="else">
-                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                        <ui:outputText value="{!$Label.c.BL_No_competitors_found}"/>
-                    </div>
-                </aura:set>
-            </aura:if>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="4">
-            <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-                    {!$Label.c.BL_Matches}
-            </div>
-            <aura:if isTrue="{!v.matches.length > 0}">
-                <div class="slds-scrollable--y" style="max-height: 300px;">
-                    <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}"/>
+                <div style="text-align: center">
+                    <lightning:layout multipleRows="true" verticalAlign="center" horizontalAlign="center">
+
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">Start Date: </p>
+                            <ui:outputText value="{!v.league.Start_Date__c}" title="{!$Label.c.Start_Date}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_End_Date}: </p>
+                            <ui:outputText value="{!v.league.End_Date__c}" title="{!$Label.c.BL_End_Date}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Teams_number}: </p>
+                            <ui:outputText value="{!v.league.Max_Teams__c}" title="{!$Label.c.BL_Teams_number}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Already_joined}: </p>
+                            <ui:outputText value="{!v.league.Teams_Joined__c}" title="{!$Label.c.BL_Already_joined}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
+                            <ui:outputText value="{!v.league.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Already_joined}: </p>
+                            <ui:outputText value="{!v.league.Teams_Joined__c}" title="{!$Label.c.BL_Already_joined}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
+
+                    </lightning:layout>
                 </div>
-                <aura:set attribute="else">
-                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                        <ui:outputText value="{!$Label.c.No_matches_found}"/>
-                    </div>
-                </aura:set>
-            </aura:if>
+
+            </lightning:card>
+
         </lightning:layoutItem>
+
+        <lightning:layoutItem size="12">
+
+            <lightning:layout multipleRows="true">
+
+                <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" size="12" class="slds-p-around--x-small">
+                    <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                        {!$Label.c.BL_League_Table}
+                    </div>
+                    <aura:if isTrue="{!v.league.Competitors__r.length > 0}">
+                        <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                            <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Position}">Pos</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Win}">W</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Draw}">D</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Lost}">L</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_For}">GF</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_Against}">GA</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_Draw}">GD</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Points}">PTS</div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <aura:iteration items="{!v.league.Competitors__r}" var="team" indexVar="index">
+                                <tr onclick="{!c.rowClicked}" aura:id="competitorRow" data-index="{!index}" data-competitorId="{!team.Id}">
+                                    <td scope="row" data-label="{!$Label.c.BL_Position}">
+                                        <div class="slds-truncate" title="Position">{!index+1}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
+                                        {!team.Team__r.Player1__r.LastName}
+                                            <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
+                                                <aura:set attribute="else">
+                                                    &#38;
+                                                </aura:set>
+                                            </aura:if>
+                                                {!team.Team__r.Player2__r.LastName}
+                                        </div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Win}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Win}">{!team.GamesWon__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Draw}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Draw}">{!team.GamesDrawn__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Lost}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Lost}">{!team.GamesLost__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Goals_For}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Goals_For}">{!team.GoalsFor__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Goals_Against}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Goals_Against}">{!team.GoalsAgainst__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Goals_Draw}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Goals_Draw}">{!team.GoalsDraw__c}</div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Points}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Points}">{!team.Points__c}</div>
+                                    </td>
+                                </tr>
+                            </aura:iteration >
+                            </tbody>
+                        </table>
+                        <aura:set attribute="else">
+                            <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                                <ui:outputText value="{!$Label.c.BL_No_competitors_found}"/>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" size="12" class="slds-p-around--x-small">
+                    <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
+                            {!$Label.c.BL_Matches}
+                    </div>
+                    <aura:if isTrue="{!v.matches.length > 0}">
+                        <div class="slds-scrollable--y" style="max-height: 300px;">
+                            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}"/>
+                        </div>
+                        <aura:set attribute="else">
+                            <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                                <ui:outputText value="{!$Label.c.No_matches_found}"/>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </lightning:layoutItem>
+
+            </lightning:layout>
+
+        </lightning:layoutItem>
+
     </lightning:layout>
 
     <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="joinToCompetitionModal">
