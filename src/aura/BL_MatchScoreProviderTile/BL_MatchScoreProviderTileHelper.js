@@ -61,7 +61,6 @@
     },
 
     clearOldDataOnModal: function(component){
-        this.clearTeamScores(component);
         this.clearTeamCardsColorsStyles(component);
         component.set("v.team2Score", null);
         component.set("v.team1Score", null);
