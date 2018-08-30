@@ -17,9 +17,9 @@
                         <th scope="col">
                             <div class="slds-truncate" title="{!$Label.c.BL_Start_Date}">{!$Label.c.BL_Start_Date}</div>
                         </th>
-                        <th scope="col">
-                            <div class="slds-truncate" title="{!$Label.c.BL_End_Date}">{!$Label.c.BL_End_Date}</div>
-                        </th>
+                        <!--<th scope="col">-->
+                            <!--<div class="slds-truncate" title="{!$Label.c.BL_End_Date}">{!$Label.c.BL_End_Date}</div>-->
+                        <!--</th>-->
                         <th scope="col">
                             <div class="slds-truncate" title="{!$Label.c.BL_Type}">{!$Label.c.BL_Type}</div>
                         </th>
@@ -35,7 +35,7 @@
                     <aura:iteration items="{!v.openLeaguesList}" var="league" indexVar="index">
                         <tr>
                             <td data-label="{!$Label.c.BL_Name}">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Name}">
+                                <div class="slds-truncate" title="{!league.Name}">
                                     <a onclick="{!c.goToRecord}" data-id="{!league.Id}">{!league.Name}</a>
                                 </div>
                             </td>
@@ -44,11 +44,11 @@
                                     <ui:outputDate value="{!league.Start_Date__c}"/>
                                 </div>
                             </td>
-                            <td data-label="{!$Label.c.BL_End_Date}">
-                                <div class="slds-truncate" title="{!$Label.c.BL_End_Date}">
-                                    <ui:outputDate value="{!league.End_Date__c}"/>
-                                </div>
-                            </td>
+                            <!--<td data-label="{!$Label.c.BL_End_Date}">-->
+                                <!--<div class="slds-truncate" title="{!$Label.c.BL_End_Date}">-->
+                                    <!--<ui:outputDate value="{!league.End_Date__c}"/>-->
+                                <!--</div>-->
+                            <!--</td>-->
                             <td data-label="Type">
                                 <div class="slds-truncate" title="">
                                     <aura:if isTrue="{!league.isCup__c}">{!$Label.c.BL_Cup}</aura:if>
