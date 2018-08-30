@@ -7,54 +7,56 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.doInit}"/>
 
-    <div class="slds-grid slds-wrap">
-        <div class="slds-col slds-grid slds-size_1-of-1">
-            <div class="slds-col slds-size_1-of-1">
-                <div class="slds-p-around--x-small header-div" align="center" style="margin-bottom: 10px;">Your Performance</div>
+    <lightning:layout multipleRows="true">
+
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
+            <div class="slds-col slds-grid slds-size_1-of-1">
+                <div class="slds-col slds-size_1-of-1">
+                    <div class="slds-p-around--x-small header-div" align="center" style="margin-bottom: 10px;">Your Performance</div>
+                </div>
             </div>
-        </div>
-        <div class="slds-col slds-grid slds-size_1-of-1">
-            <div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">
-                <canvas aura:id="condition" height="350" width="100%"></canvas>
+            <div class="slds-col slds-grid slds-size_1-of-1">
+                <div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">
+                    <canvas aura:id="condition" height="350" width="100%"></canvas>
+                </div>
             </div>
-        </div>
-        <!--<div class="slds-col slds-grid slds-size_1-of-1">-->
-            <!--<div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">-->
-                <!--<c:BL_ChartLine values="{!v.chartData.xValues}" labels="{!v.chartData.xLabels}" chartHeight="350" name="performance" legend="false"/>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="slds-col slds-grid slds-size_1-of-1">-->
-            <!--<div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">-->
-                <!--<c:BL_ChartPie values="{!v.chartData.xValues}" labels="{!v.chartData.xLabels}" chartHeight="300" name="performance" legend="false"/>-->
-            <!--</div>-->
-        <!--</div>-->
-        <div class="slds-col slds-grid slds-size_1-of-1">
-            <div class="slds-col slds-p-right--x-small slds-size_1-of-2">
-                <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
-                <aura:if isTrue="{!v.lastMatches.length > 0}">
-                    <div class="slds-scrollable_y" style="height: 30rem;">
-                        <c:BL_MatchesTable matches="{!v.lastMatches}"/>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
+            <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Open Competitions</div>
+            <div class="slds-box--border">
+                <c:BL_OpenCompetitionsTable/>
+            </div>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
+            <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
+            <aura:if isTrue="{!v.lastMatches.length > 0}">
+                <div class="slds-scrollable_y" style="height: 30rem;">
+                    <c:BL_MatchesTable matches="{!v.lastMatches}"/>
+                </div>
+                <aura:set attribute="else">
+                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                        <ui:outputText value="No matches found" />
                     </div>
-                    <aura:set attribute="else">
-                        <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                            <ui:outputText value="No matches found" />
-                        </div>
-                    </aura:set>
-                </aura:if>
-            </div>
-            <div class="slds-col slds-p-left--x-small slds-size_1-of-2">
-                <div class="slds-p-around--x-small header-div" align="center">Next Matches</div>
-                <aura:if isTrue="{!v.lastMatches.length > 0}">
-                    <div class="slds-scrollable_y" style="height: 30rem;">
-                        <c:BL_NextMatchesTable matches="{!v.nextMatches}" />
+                </aura:set>
+            </aura:if>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
+            <div class="slds-p-around--x-small header-div" align="center">Next Matches</div>
+            <aura:if isTrue="{!v.lastMatches.length > 0}">
+                <div class="slds-scrollable_y" style="height: 30rem;">
+                    <c:BL_NextMatchesTable matches="{!v.nextMatches}" />
+                </div>
+                <aura:set attribute="else">
+                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                        <ui:outputText value="No matches found" />
                     </div>
-                    <aura:set attribute="else">
-                        <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                            <ui:outputText value="No matches found" />
-                        </div>
-                    </aura:set>
-                </aura:if>
-            </div>
-        </div>
-    </div>
+                </aura:set>
+            </aura:if>
+        </lightning:layoutItem>
+
+    </lightning:layout>
+
 </aura:component>

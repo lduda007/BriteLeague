@@ -5,7 +5,7 @@
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
     <aura:handler event="c:BL_CompetitionCreatedEvent" action="{!c.handleCompetitionCreated}"/>
 
-    <div class="slds-scrollable--y" style="max-height: 40vh">
+    <div class="slds-scrollable--y" style="max-height: 350px;">
         <aura:if isTrue="{!v.openLeaguesList.length > 0}">
             <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout" width="100%">
                 <c:BL_Spinner show="{!v.showSpinner}"/>
