@@ -50,11 +50,12 @@
                                 <lightning:input aura:id="leagueField"
                                                  label="{! v.competitionType == 'league' ? 'League Name' : 'Cup Name'}"
                                                  required="true"
-                                                 value="{!v.simpleNewLeague.Name}" maxlength="40" />
+                                                 value="{!v.simpleNewLeague.Name}" maxlength="40" pattern="[a-zA-Z0-9 ]+"
+                                                 messageWhenPatternMismatch="Only letters and numbers allowed"/>
                             </div>
                         </div>
                         <div class="slds-form-element__row slds-grid_vertical-align-start">
-                            <div class="slds-form-element slds-size--1-of-2" onkeydown="{!c.onKeyDown}">
+                            <div class="slds-form-element slds-size--1-of-2">
                                 <lightning:input aura:id="leagueField" type="date" label="Start Date" required="true"
                                                  value="{!v.simpleNewLeague.Start_Date__c}" min="{!v.currentDate}" max="{!v.yearLaterDate}" />
                             </div>

@@ -9,7 +9,7 @@
     <fieldset class="slds-form--compound slds-p-around--small">
         <div class="slds-form-element__group">
             <div class="slds-form-element__row slds-align--absolute-center">
-                <lightning:input aura:id="teamName" value="{!v.team.Name}" label="Team Name" required="true" class="slds-size--1-of-1"/>
+                <lightning:input aura:id="createTeamForm" value="{!v.team.Name}" maxlength="20" label="Team Name" required="true" pattern="[a-zA-Z0-9 ]+" messageWhenPatternMismatch="Only letters and numbers allowed" class="slds-size--1-of-1"/>
             </div>
             <div class="slds-form-element__row slds-align--absolute-center">
                 <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}" parentName="BL_CreateTeam"/>
@@ -17,7 +17,7 @@
             <div class="slds-form-element__row slds-align--absolute-center">
                 <aura:if isTrue="{!v.showButtons}">
                     <lightning:button class="buttonStyle" variant="brand" onclick="{!c.clear}" title="Clear" label="Clear"/>
-                    <lightning:button class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team" disabled="{! empty(v.team.Name) || empty(v.selectedPlayer) }"/>
+                    <lightning:button type="submit" class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team" disabled="{! empty(v.team.Name) || empty(v.selectedPlayer) }"/>
                 </aura:if>
             </div>
         </div>
