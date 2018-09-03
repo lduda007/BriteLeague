@@ -53,7 +53,7 @@
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
                         <p class="slds-text-body_small slds-text-color_weak">Wins percentage: </p>
                         <aura:if isTrue="{!greaterthan(v.team.TotalRoundsLost__c, 0)}">
-                            <ui:outputNumber value="{!(v.team.TotalRoundsWon__c/(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c)) * 100}" class="slds-text-heading--small"/>%
+                            <ui:outputNumber value="{!(v.team.Total_Games_Won__c/(v.team.Total_Games_Won__c+v.team.Total_Games_Drawn__c+v.team.Total_Games_Lost__c)) * 100}" class="slds-text-heading--small"/>%
                             <aura:set attribute="else">
                                 No games played yet
                             </aura:set>
