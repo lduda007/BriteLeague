@@ -9,6 +9,7 @@
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onScoreSubmitted}"/>
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
     <aura:handler name="BL_CompetitorLeftCompetition" event="c:BL_CompetitorLeftCompetition" action="{!c.handleCompetitorLeftCompetition}"/>
+    <aura:handler name="BL_CannotJoinLeague" event="c:BL_CannotJoinLeague" action="{!c.handleCannotJoinLeague}"/>
 
     <lightning:layout multipleRows="true">
 
@@ -170,7 +171,7 @@
 
     </lightning:layout>
 
-    <div class="slds-modal" aria-hidden="false" role="dialog" id="joinToCompetitionModal">
+    <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="joinToCompetitionModal">
         <div class="slds-modal__container">
             <div class="slds-modal__header">
                 <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
@@ -186,7 +187,7 @@
         </div>
     </div>
 
-    <div class="slds-modal" aria-hidden="false" role="dialog" id="leaveCompetitionModal">
+    <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="leaveCompetitionModal">
         <div class="slds-modal__container">
             <div class="slds-modal__header">
                 <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
@@ -202,6 +203,6 @@
         </div>
     </div>
 
-    <div class="slds-backdrop" id="backdrop"></div>
+    <div class="slds-backdrop" aura:id="backdrop"></div>
 
 </aura:component>

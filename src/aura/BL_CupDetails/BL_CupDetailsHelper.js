@@ -130,9 +130,9 @@
         });
         $A.enqueueAction(action);
     },
-    closeJoinToCompetitionModal : function(){
-        document.getElementById('backdrop').classList.remove("slds-backdrop_open");
-        document.getElementById('joinToCompetitionModal').classList.remove("slds-slide-down-cancel");
+    closeJoinToCompetitionModal : function(component){
+        $A.util.removeClass(component.find('backdrop'), "slds-backdrop_open");
+        $A.util.removeClass(component.find('joinToCompetitionModal'), "slds-slide-down-cancel");
     },
     checkIsCurrentUserAlreadyInCompetition : function(component, user, competition){
         if($A.util.isEmpty(user) || $A.util.isEmpty(competition)){

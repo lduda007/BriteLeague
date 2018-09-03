@@ -1,6 +1,6 @@
 ({
     doInit : function(component, event, helper) {
-         helper.getPlayerActiveTeams(component, event, helper);
+         helper.getPlayerActiveTeams(component);
          component.find("competitorRecordCreator").getNewRecord(
              "BL_Competitor__c",
              null,

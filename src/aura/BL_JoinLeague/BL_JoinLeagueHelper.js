@@ -1,5 +1,5 @@
 ({
-    getPlayerActiveTeams : function(component, event, helper) {
+    getPlayerActiveTeams : function(component) {
         let leagueId = component.get("v.leagueId");
         let actionTeams = component.get('c.getPlayerTeams');
         actionTeams.setParams({
@@ -16,7 +16,8 @@
         });
         $A.enqueueAction(actionTeams);
     },
-    handleSaveCompetitor : function(component, event, helper) {
+    handleSaveCompetitor : function(component, event) {
+        var self = this;
         console.log('leagueID' + event.getParam('idOfLeague'));
         let action = component.get('c.insertCompetitor');
         let comp = component.get('v.competitorToInsert');
@@ -35,6 +36,7 @@
                     type: 'success',
                 });
                 resultsToast.fire();
+                self.getPlayerActiveTeams(component);
                 let evt = component.getEvent('BL_CompetitorCreated');
                 evt.fire();
             } else if (state === 'ERROR') {
@@ -42,13 +44,12 @@
                 showToast.setParams({
                     title : 'Error.',
                     type: 'error',
-                    message : response.getError()[0].message,
-                    mode: 'sticky'
+                    message : response.getError()[0].message
                 });
                 showToast.fire();
+                let evt = component.getEvent('BL_CannotJoinLeague');
+                evt.fire();
             }
-            let evt = component.getEvent('BL_CannotJoinLeague');
-            evt.fire();
         });
         $A.enqueueAction(action);
     }

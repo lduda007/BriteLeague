@@ -31,7 +31,7 @@
 
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
             <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
-            <aura:if isTrue="{!v.lastMatches.length > 0}">
+            <aura:if isTrue="{!!empty(v.lastMatches)}">
                 <div class="slds-scrollable_y" style="height: 30rem;">
                     <c:BL_MatchesTable matches="{!v.lastMatches}"/>
                 </div>
@@ -45,7 +45,7 @@
 
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
             <div class="slds-p-around--x-small header-div" align="center">Next Matches</div>
-            <aura:if isTrue="{!v.lastMatches.length > 0}">
+            <aura:if isTrue="{!!empty(v.nextMatches)}">
                 <div class="slds-scrollable_y" style="height: 30rem;">
                     <c:BL_NextMatchesTable matches="{!v.nextMatches}" />
                 </div>

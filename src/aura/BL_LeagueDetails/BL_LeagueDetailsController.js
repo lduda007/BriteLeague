@@ -52,4 +52,9 @@
     handleCompetitorLeftCompetition : function(component, event, helper) {
         helper.loadLeagueWithCompetitors(component);
     },
+    handleCannotJoinLeague : function(component, event, helper) {
+        console.log('cannot join');
+        helper.loadLeagueWithCompetitors(component);
+        helper.closeJoinToCompetitionModal(component);
+    },
 })

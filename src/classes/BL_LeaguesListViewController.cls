@@ -1,7 +1,7 @@
 public with sharing class BL_LeaguesListViewController {
     @AuraEnabled
     public static void insertCompetitor(BL_Competitor__c competitor) {
-        if (checkLeagueCompetitors(competitor.League__c)) {
+        if (checkLeagueCompetitors(competitor.League__c, competitor.Team__c)) {
             insert competitor;
         } else {
             throw new AuraHandledException(Label.BL_League_Full);
@@ -56,13 +56,29 @@ public with sharing class BL_LeaguesListViewController {
     @AuraEnabled
     public static List<DTO_Team> getPlayerTeams(String leagueId) {
         Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
+        List<BL_Competitor__c> competitionCompetitors = [
+                SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c
+                FROM BL_Competitor__c
+                WHERE League__c =: leagueId
+        ];
+
+        Set<Id> playerIds = new Set<Id>();
+        if(!competitionCompetitors.isEmpty()){
+            for(BL_Competitor__c competitor : competitionCompetitors){
+                playerIds.add(competitor.Team__r.Player1__c);
+                playerIds.add(competitor.Team__r.Player2__c);
+            }
+        }
+
         List<BL_Team__c> teams = [
                 SELECT Id, Name, Player1__r.Name, Player2__r.Name, IsActive__c
                 FROM BL_Team__c
-                WHERE IsActive__c = true AND
-                (Player1__c = :currentPlayer OR
-                Player2__c = :currentPlayer)
+                WHERE   IsActive__c = true AND
+                        (Player1__c =: currentPlayer OR Player2__c =: currentPlayer) AND
+                        Player1__c NOT IN: playerIds AND
+                        Player2__c NOT IN: playerIds
         ];
+
         List<DTO_Team> dtoList = new List<DTO_Team>();
         for (BL_Team__c team : teams) {
             DTO_Team t = new DTO_Team();
@@ -81,23 +97,35 @@ public with sharing class BL_LeaguesListViewController {
         return dtoList;
     }
 
-    private static Boolean checkLeagueCompetitors(String leagueId) {
-        String playerId = BL_Utils.getCurrentUser().ContactId;
-        BL_League__c league = [
+    private static Boolean checkLeagueCompetitors(String leagueId, String teamId) {
+        List<BL_Team__c> competitorTeam = [
+                SELECT Id, Player1__c, Player2__c
+                FROM BL_Team__c
+                WHERE Id =: teamId
+        ];
+
+        List<BL_League__c> league = [
                 SELECT Max_Teams__c, (SELECT Id, Team__r.Player1__c, Team__r.Player2__c FROM Competitors__r)
                 FROM BL_League__c
                 WHERE Id = :leagueId
         ];
-        for (BL_Competitor__c comp : league.Competitors__r) {
-            if (comp.Team__r.Player1__c == playerId || comp.Team__r.Player2__c == playerId) {
+
+        if(!competitorTeam.isEmpty() && !league.isEmpty()){
+            for (BL_Competitor__c comp : league[0].Competitors__r) {
+                if (    comp.Team__r.Player1__c == competitorTeam[0].Player1__c ||
+                        comp.Team__r.Player1__c == competitorTeam[0].Player2__c ||
+                        comp.Team__r.Player2__c == competitorTeam[0].Player1__c ||
+                        comp.Team__r.Player2__c == competitorTeam[0].Player2__c
+                 ){
+                    return false;
+                 }
+            }
+            if (league[0].Max_Teams__c <= league[0].Competitors__r.size()) {
                 return false;
-            } else return true;
+            }
         }
-        if (league.Max_Teams__c <= league.Competitors__r.size()) {
-            return false;
-        } else {
-            return true;
-        }
+
+        return true;
     }
 
 

@@ -22,27 +22,29 @@
     openJoinToCompetitionModal : function(component, event, helper) {
         let joinComponent = component.find('joinComponent');
         joinComponent.getTeams(component.get("v.cupId"));
-        document.getElementById('backdrop').classList.add("slds-backdrop_open");
-        document.getElementById('joinToCompetitionModal').classList.add("slds-slide-down-cancel");
+        $A.util.addClass(component.find('backdrop'), "slds-backdrop_open");
+        $A.util.addClass(component.find('joinToCompetitionModal'), "slds-slide-down-cancel");
     },
     closeJoinToCompetitionModal : function(component, event, helper) {
-        helper.closeJoinToCompetitionModal();
+        helper.closeJoinToCompetitionModal(component);
     },
     openLeaveCompetitionModal : function(component, event, helper) {
-//        let leaveLeagueComponent = component.find('leaveLeagueComponent');
-//        leaveLeagueComponent.getTeams(component.get("v.leagueId"));
-        document.getElementById('backdrop').classList.add("slds-backdrop_open");
-        document.getElementById('leaveCompetitionModal').classList.add("slds-slide-down-cancel");
+        $A.util.addClass(component.find('backdrop'), "slds-backdrop_open");
+        $A.util.addClass(component.find('leaveCompetitionModal'), "slds-slide-down-cancel");
     },
     closeLeaveCompetitionModal : function(component, event, helper) {
-        document.getElementById('backdrop').classList.remove("slds-backdrop_open");
-        document.getElementById('leaveCompetitionModal').classList.remove("slds-slide-down-cancel");
+        $A.util.removeClass(component.find('backdrop'), "slds-backdrop_open");
+        $A.util.removeClass(component.find('leaveCompetitionModal'), "slds-slide-down-cancel");
     },
     handleCompetitorCreated : function(component, event, helper) {
         helper.loadCupDetails(component);
-        helper.closeJoinToCompetitionModal();
+        helper.closeJoinToCompetitionModal(component);
     },
     handleCompetitorLeftCompetition : function(component, event, helper) {
         helper.loadCupDetails(component);
+    },
+    handleCannotJoinLeague : function(component, event, helper) {
+        helper.loadCupDetails(component);
+        helper.closeJoinToCompetitionModal(component);
     },
 })

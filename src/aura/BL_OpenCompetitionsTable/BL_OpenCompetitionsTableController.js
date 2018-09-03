@@ -10,6 +10,7 @@
     },
     handleCompetitorCreated : function(component, event, helper) {
         helper.retrieveOpenLeagues(component, event);
+        helper.onCloseModal(component, event);
     },
     handleCompetitionCreated : function(component, event, helper) {
         helper.retrieveOpenLeagues(component, event);
