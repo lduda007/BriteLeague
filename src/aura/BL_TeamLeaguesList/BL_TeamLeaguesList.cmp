@@ -6,7 +6,7 @@
 
     <lightning:card title="">
         <div class="slds-scrollable--y" style="max-height: 40vh">
-            <aura:if isTrue="{!empty(v.receivedInvitations)}">
+            <aura:if isTrue="{!empty(v.leaguesList)}">
                 <div class="slds-col slds-align--absolute-center slds-p-around--medium">
                     {!$Label.c.BL_No_Competitions_For_Team}
                 </div>
