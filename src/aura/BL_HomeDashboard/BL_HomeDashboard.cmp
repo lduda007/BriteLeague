@@ -23,7 +23,7 @@
         </lightning:layoutItem>
 
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
-            <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Open Competitions</div>
+            <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Available Competitions</div>
             <div class="slds-box--border">
                 <c:BL_OpenCompetitionsTable/>
             </div>

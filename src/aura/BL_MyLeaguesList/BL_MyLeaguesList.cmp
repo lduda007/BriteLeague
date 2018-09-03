@@ -23,6 +23,9 @@
                 <th scope="col" width="20%">
                     <div class="slds-truncate" title="{!$Label.c.BL_Teams}">{!$Label.c.BL_Teams}</div>
                 </th>
+                <th scope="col" width="20%">
+                    <div class="slds-truncate" title="{!$Label.c.BL_Status}">{!$Label.c.BL_Status}</div>
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -46,6 +49,9 @@
                     </td>
                     <td data-label="{!$Label.c.BL_Teams}">
                         <div class="slds-truncate" title="{!league.Teams_Joined__c +'/'+league.Max_Teams__c}">{!league.Teams_Joined__c}/{!league.Max_Teams__c}</div>
+                    </td>
+                    <td data-label="{!$Label.c.BL_Status}">
+                        <div class="slds-truncate" title="{!league.Status__c}">{!league.Status__c}</div>
                     </td>
                 </tr>
             </aura:iteration>

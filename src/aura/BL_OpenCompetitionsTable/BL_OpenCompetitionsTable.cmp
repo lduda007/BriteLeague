@@ -69,7 +69,7 @@
             </table>
             <aura:set attribute="else">
                 <div class="slds-col slds-align--absolute-center slds-p-around--medium">
-                        No open leagues found
+                    No available to join competitions found
                 </div>
             </aura:set>
         </aura:if>

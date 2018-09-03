@@ -45,13 +45,13 @@ public with sharing class BL_LeaguesListViewController {
         for (BL_League__c league : [
                 SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, Status__c
                 FROM BL_League__c
-                WHERE Id IN :getPlayerLeaguesIds() AND (Status__c = 'Started' OR Status__c = 'Assembling teams')
+                WHERE Id IN :getPlayerLeaguesIds()
+                ORDER BY Status__c
         ]) {
             leagues.add(league);
         }
         return leagues;
     }
-
 
     @AuraEnabled
     public static List<DTO_Team> getPlayerTeams(String leagueId) {
