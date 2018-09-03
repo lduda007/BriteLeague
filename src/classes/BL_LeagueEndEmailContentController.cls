@@ -22,7 +22,7 @@ public with sharing class BL_LeagueEndEmailContentController {
                 SELECT Id, Team__r.Name, Team__r.Player1__r.Name, Team__r.Player2__r.Name, GamesWon__c, GamesLost__c, GamesDrawn__c, GoalsFor__c, GoalsAgainst__c, GoalsDraw__c, Points__c
                 FROM BL_Competitor__c
                 WHERE League__c =: competitor.League__c
-                ORDER BY Points__c DESC
+                ORDER BY Points__c DESC, GoalsDraw__c DESC, GoalsFor__c DESC, GoalsAgainst__c ASC
             ]);
 
             leagueCompetitors = competitorsMap.values();
