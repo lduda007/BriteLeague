@@ -11,10 +11,11 @@
     <aura:attribute name="isNumberOfTeamsUnlimited" type="Boolean" default="false"/>
     <aura:attribute name="isFormVisible" type="Boolean" default="true"/>
     <aura:attribute name="competitionType" type="String" default="league" access="private"/>
+    <aura:attribute name="teamSize" type="String" default="Two Players Team" access="private"/>
     <aura:attribute name="cupTeamsNumber" type="List" default="[4,8,16,32,64]" access="private"/>
     <aura:attribute name="leagueRoundsNumber" type="List" default="[]" access="private"/>
-    <aura:attribute name="options" type="List"
-                    default="[{'label': 'League', 'value': 'league'},{'label': 'Cup', 'value': 'cup'}]"/>
+    <aura:attribute name="options" type="List" default="[{'label': 'League', 'value': 'league'},{'label': 'Cup', 'value': 'cup'}]"/>
+    <aura:attribute name="teamOptions" type="List" default="[{'label': 'Single Player', 'value': 'Single Player'},{'label': 'Two Players Team', 'value': 'Two Players Team'}]"/>
     <aura:attribute name="totalMatches" type="Integer" default="0" access="private"/>
     <aura:attribute name="totalMatchesLimit" type="Integer" default="800"/>
     <aura:attribute name="totalRoundsLimit" type="Integer" default="20"/>
@@ -37,13 +38,20 @@
             <aura:if isTrue="{!v.isFormVisible}">
                 <fieldset class="slds-form--compound">
                     <div class="slds-form-element__group">
-                        <div class="slds-form-element__row slds-grid_vertical-align-start slds-grid_align-center">
+                        <div class="slds-form-element__row slds-grid_vertical-align-start slds-grid_align-spread">
                             <lightning:radioGroup name="radioButtonGroup"
                                                   label="Competition Type"
                                                   options="{! v.options }"
                                                   value="{! v.competitionType }"
                                                   type="button"
                                                   onchange="{!c.handleCompetitionTypeChange}"/>
+                            <lightning:radioGroup name="teamRadioButtonGroup"
+                                                  label="Team size"
+                                                  options="{! v.teamOptions }"
+                                                  value="{! v.teamSize }"
+                                                  type="button"/>
+                                                  <!--onchange="{!c.handleCompetitionTypeChange}"-->
+                            <!--/>-->
                         </div>
                         <div class="slds-form-element__row slds-grid_vertical-align-start">
                             <div class="slds-form-element slds-size--1-of-1">

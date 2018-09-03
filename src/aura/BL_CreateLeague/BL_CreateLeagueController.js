@@ -13,6 +13,8 @@
                 component.set("v.simpleNewLeague.isCup__c", true);
                 component.set("v.simpleNewLeague.Match_No__c", 1);
             }
+            let teamSize = component.get("v.teamSize");
+            component.set("v.simpleNewLeague.TeamSize__c", teamSize);
             component.find("leagueRecordCreator").saveRecord(function(saveResult) {
                 if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT") {
                     // record is saved successfully
