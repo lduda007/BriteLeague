@@ -12,10 +12,10 @@
     <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Competitions</div>
 
     <lightning:tabset variant="scoped" selectedTabId="{!v.selectedTabId}" aura:id="tabset">
-        <lightning:tab label="Open" id="open">
+        <lightning:tab label="Available to join" id="open">
             <c:BL_OpenCompetitionsTable/>
         </lightning:tab>
-        <lightning:tab label="{!$Label.c.BL_My_Competitions}" id="myLeagues">
+        <lightning:tab label="In progress" id="myLeagues">
             <div class="slds-scrollable--y" style="max-height: 37vh">
                 <c:BL_MyLeaguesList aura:id="myLeaguesComponent"/>
             </div>
