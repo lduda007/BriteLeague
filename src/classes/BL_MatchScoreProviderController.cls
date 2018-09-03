@@ -1,7 +1,7 @@
 public with sharing class BL_MatchScoreProviderController {
 
     @AuraEnabled
-    public static void updateMatchScore(String matchId, Decimal team1Score, Decimal team2Score, List<Decimal> team1GoalsInRound, List<Decimal> team2GoalsInRound, String matchDateString){
+    public static String updateMatchScore(String matchId, Decimal team1Score, Decimal team2Score, List<Decimal> team1GoalsInRound, List<Decimal> team2GoalsInRound, String matchDateString){
         system.debug('date param: '+matchDateString);
         Decimal[] team1GoalsInAllRounds = new Decimal[3];
         Decimal[] team2GoalsInAllRounds = new Decimal[3];
@@ -15,13 +15,16 @@ public with sharing class BL_MatchScoreProviderController {
                 Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c
                 FROM BL_Match__c WHERE id=:matchId];
 
+        if(!match.isEmpty() && match[0].isResolved__c){
+            throw new AuraHandledException('This match score was already set by other player');
+        }
+
         match[0].Team1_Score__c = team1Score;
         match[0].Team2_Score__c = team2Score;
         match[0].MatchDate__c = matchDate;
         competitors.add(match[0].Team1__c);
         competitors.add(match[0].Team2__c);
         system.debug('date record: '+match[0].MatchDate__c);
-
 
         for (Integer ii=0 ; ii<team1GoalsInRound.size() ; ii++) {
             team1GoalsInAllRounds[ii]=team1GoalsInRound[ii];
@@ -55,8 +58,10 @@ public with sharing class BL_MatchScoreProviderController {
 
         try{
             Database.upsert(match);
+            return 'SUCCESS';
         }catch (DmlException e){
             System.debug('exception has occurred: ' + e.getMessage());
+            throw new AuraHandledException('Error. Cannot save match score.');
         }
     }
 

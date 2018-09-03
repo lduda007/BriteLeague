@@ -76,7 +76,7 @@
                     resultsToast.setParams({
                         "type": "error",
                         "title": "Error",
-                        "message": "Error saving score"
+                        "message": response.getError()[0].message
                     });
                     resultsToast.fire();
                 }
