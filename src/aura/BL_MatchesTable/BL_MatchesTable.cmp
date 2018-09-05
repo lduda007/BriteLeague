@@ -4,21 +4,44 @@
     <aura:attribute name="selectedMatchId" type="String"/>
     <aura:attribute name="playerId" type="String"/>
     <aura:attribute name="isThirdPlace" type="Boolean" default="false"/>
-    <aura:attribute name="showModal" type="Boolean" default="true"/>
+    <aura:attribute name="modalVisible" type="Boolean" default="false"/>
+    <aura:attribute name="teamSize" type="String" default="Two Players"/>
+    <aura:attribute name="editMode" type="Boolean" default="false"/>
+    <aura:attribute name="showCompetitionColumn" type="Boolean" default="false"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleScoreSelected}"/>
+    <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
 
     <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
         <thead>
         <tr class="slds-text-title_caps">
-            <th scope="col" style="width: 15%;">
-                <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_1}">{!$Label.c.BL_Team_1}</div>
-            </th>
-            <th scope="col" style="width: 40px;">
+            <aura:if isTrue="{!v.teamSize == 'Single Player'}">
+                <th scope="col">
+                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Player+' 1'}">{!$Label.c.BL_Player+' 1'}</div>
+                </th>
+                <aura:set attribute="else">
+                    <th scope="col">
+                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_1}">{!$Label.c.BL_Team_1}</div>
+                    </th>
+                </aura:set>
+            </aura:if>
+            <th scope="col">
                 <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Result}">{!$Label.c.BL_Result}</div>
             </th>
-            <th scope="col" style="width: 15%;">
-                <div class="slds-truncate" title="{!$Label.c.BL_Team_2}">{!$Label.c.BL_Team_2}</div>
-            </th>
+            <aura:if isTrue="{!v.teamSize == 'Single Player'}">
+                <th scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.BL_Player+' 2'}">{!$Label.c.BL_Player+' 2'}</div>
+                </th>
+                <aura:set attribute="else">
+                    <th scope="col">
+                        <div class="slds-truncate" title="{!$Label.c.BL_Team_2}">{!$Label.c.BL_Team_2}</div>
+                    </th>
+                </aura:set>
+            </aura:if>
+            <aura:if isTrue="{!v.showCompetitionColumn}">
+                <th scope="col">
+                    <div class="slds-truncate" title="Competition Name">Competition</div>
+                </th>
+            </aura:if>
         </tr>
         </thead>
         <tbody>
@@ -48,11 +71,11 @@
                                                             and(match.Team2__r.Team__r.Player1__c != v.playerId, match.Team2__r.Team__r.Player2__c != v.playerId))))}">
                             <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}">- : -</div>
                             <aura:set attribute="else">
-                                <lightning:button value="{!match.Id}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"></lightning:button>
+                                <lightning:button value="{!index}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"></lightning:button>
                             </aura:set>
                         </aura:if>
                         <aura:set attribute="else">
-                            <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}" data-recordId="{!match.Id}" onclick="{!c.openScoreViewModal}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>
+                            <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}" data-recordId="{!match.Id}" data-recordIndex="{!index}" data-recordTeamSize="{!match.League__r.TeamSize__c}" onclick="{!c.openScoreViewModal}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>
                         </aura:set>
                     </aura:if>
                 </td>
@@ -71,31 +94,32 @@
                         </aura:if>
                     </div>
                 </td>
+                <aura:if isTrue="{!v.showCompetitionColumn}">
+                    <td scope="row" data-label="Competition Name">
+                        <div class="slds-truncate" title="{!match.League__r.Name}"><a data-recordId="{!match.League__c}" onclick="{!c.goToLeaguePage}">{!match.League__r.Name}</a></div>
+                    </td>
+                </aura:if>
             </tr>
         </aura:iteration>
         </tbody>
     </table>
 
-    <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" size="large">
-        <aura:if isTrue="{!v.showModal}">
-            <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}" isReadOnly="false"/>
+    <c:BL_Modal aura:id="scoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" hasFooter="false">
+        <aura:if isTrue="{!v.modalVisible}">
+            <aura:if isTrue="{!v.teamSize == 'Single Player'}">
+                <c:BL_SinglePlayerMatchScoreProvider matchId="{!v.selectedMatchId}" editMode="{!v.editMode}"/>
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.editMode}">
+                        <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}" isReadOnly="false"/>
+                        <aura:set attribute="else">
+                            <c:BL_MatchDetailsViewer match="{!v.selectedMatchObject}"/>
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
         </aura:if>
     </c:BL_Modal>
 
-        <div class="slds-modal slds-modal--large" aria-hidden="false" role="dialog" aura:id="scoreViewModal">
-            <div class="slds-modal__container">
-                <div class="slds-modal__header">
-                    <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
-                                          alternativeText="{!$Label.c.BL_Close}" class="slds-modal__close"
-                                          onclick="{!c.closeModal}"/>
-                    <h2 class="slds-text-heading--medium"><c:BL_MatchDetailsViewer match="{!v.selectedMatchObject}"/></h2>
-                </div>
-            </div>
-            <div class="slds-modal__content slds-p-around--medium">
-                <div align="center">
-                </div>
-            </div>
-        </div>
-        <div class="slds-backdrop" aura:id="backdrop"></div>
+    <div class="slds-backdrop" aura:id="backdrop"></div>
 
 </aura:component>

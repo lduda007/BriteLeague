@@ -124,12 +124,15 @@
         }
         if(!$A.util.isEmpty(competition.Competitors__r)){
             for (let competitor of competition.Competitors__r){
-                if(competitor.Team__r.Player1__c === user.ContactId || competitor.Team__r.Player2__c === user.ContactId){
+                if(competition.TeamSize__c === 'Two Players' && competitor.Team__r.Player1__c === user.ContactId || competitor.Team__r.Player2__c === user.ContactId){
+                    component.set("v.isCurrentUserAlreadyInCompetition", true);
+                    return;
+                }else if(competition.TeamSize__c === 'Single Player' && competitor.Team__r.Player1__c === user.ContactId){
                     component.set("v.isCurrentUserAlreadyInCompetition", true);
                     return;
                 }
             }
-        }        
+        }
         component.set("v.isCurrentUserAlreadyInCompetition", false);
     },
 })

@@ -31,4 +31,16 @@
         $A.util.removeClass(component.find('backdrop'), "slds-backdrop_open");
         $A.util.removeClass(component.find('joinToCompetitionModal'), "slds-slide-down-cancel");
     },
+    getCurrentUser : function(component){
+        let action = component.get('c.getCurrentUser');
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if (state === "SUCCESS")
+            {
+                let user = response.getReturnValue();
+                component.set("v.user", user);
+            }
+        });
+        $A.enqueueAction(action);
+    },
 })

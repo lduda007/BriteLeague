@@ -2,18 +2,8 @@
     doInit : function(component, event, helper){
         helper.fetchLastMatches(component, event);
         helper.fetchNextMatches(component, event);
-//        var action = component.get('c.getCondition');
-//        action.setCallback(this, function(response){
-//            var state = response.getState();
-//            if(state === 'SUCCESS' || state === 'DRAFT') {
-//                component.set('v.chartData', response.getReturnValue());
-//            }
-//        });
-//        $A.enqueueAction(action);
     },
-
     generateChart : function(component, event, helper) {
-        // line
         var action = component.get('c.getCondition');
         action.setCallback(this, function(response){
             var state = response.getState();
@@ -38,7 +28,6 @@
                         }
                     ]
                 }
-                //Get the context of the canvas element we want to select
                 var ctx = component.find("condition").getElement();
                 var lineChart2 = new Chart(ctx ,{
                     type: 'line',
@@ -74,5 +63,8 @@
         $A.enqueueAction(action);
 
     },
-    
+    onSinglePlayerMatchScoreSaved : function(component, event, helper) {
+        helper.fetchLastMatches(component, event);
+        helper.fetchNextMatches(component, event);
+    }
 })

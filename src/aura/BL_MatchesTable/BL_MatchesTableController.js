@@ -15,50 +15,57 @@
         });
         urlEvent.fire();
     },
-//    openScoreViewModal: function (component, event, helper){
-//        component.set('v.showModal', false);
-//        component.set("v.selectedMatchId", event.currentTarget.dataset.recordid);
-//        console.log('matchId: '+component.get("v.selectedMatchId"));
-//        component.set('v.showModal', true);
-//        component.find("newScoreModal").show();
-//    },
+    goToLeaguePage: function (component, event, helper) {
+        var recordId = event.currentTarget.dataset.recordid;
+        var urlEvent = $A.get("e.force:navigateToURL");
+        urlEvent.setParams({
+          "url": "/bl-league/"+recordId
+        });
+        urlEvent.fire();
+    },
     openScoreViewModal: function (component, event, helper){
-        component.set('v.showScoreViewModal', false);
         component.set("v.selectedMatchId", event.currentTarget.dataset.recordid);
+        let scoreModal = component.find("scoreModal");
+        component.set("v.editMode", false);
         let matches = component.get('v.matches');
-        for(let ii=0; ii < matches.length ; ii++){
-            if(matches[ii].Id == component.get('v.selectedMatchId')){
-//                console.log('list ID: '+matches[ii].Id+ ' | selected Id: '+component.get('v.selectedMatchId'));
-                component.set('v.selectedMatchObject', matches[ii]);
-                break;
-            }
+        let matchIndex = event.currentTarget.dataset.recordindex;
+        let teamSize = matches[matchIndex].League__r.TeamSize__c;
+        component.set("v.teamSize", teamSize);
+        component.set('v.selectedMatchObject', matches[matchIndex]);
+
+        if(teamSize === 'Single Player'){
+            scoreModal.set("v.size", 'small');
+        }else{
+            scoreModal.set("v.size", 'large');
         }
-
-
-        let backdrop = component.find('backdrop');
-        let scoreViewModal = component.find('scoreViewModal');
-        $A.util.addClass(backdrop, 'slds-backdrop_open');
-        $A.util.addClass(scoreViewModal, 'slds-slide-down-cancel');
-        component.set('v.showScoreViewModal', true);
-
+        component.set("v.modalVisible", false);
+        component.set("v.modalVisible", true);
+        scoreModal.show();
     },
     openScoreProviderModal: function (component, event, helper){
-        component.set('v.showModal', false);
-        component.set("v.selectedMatchId", event.getSource().get("v.value"));
-        console.log('matchId: '+component.get("v.selectedMatchId"));
-        component.set('v.showModal', true);
-        component.find("newScoreModal").show();
+        let scoreModal = component.find("scoreModal");
+        let matches = component.get('v.matches');
+        let matchIndex = event.getSource().get("v.value");
+        let teamSize = matches[matchIndex].League__r.TeamSize__c;
+        component.set("v.teamSize", teamSize);
+        component.set("v.selectedMatchId", matches[matchIndex].Id);
+        component.set("v.editMode", true);
+
+        if(teamSize === 'Single Player'){
+            scoreModal.set("v.size", 'small');
+        }else{
+            scoreModal.set("v.size", 'large');
+        }
+        component.set("v.modalVisible", false);
+        component.set("v.modalVisible", true);
+        scoreModal.show();
     },
     handleScoreSelected: function (component, event, helper){
-        component.set('v.showModal', false);
-        component.set('v.showModal', true);
-        component.find("newScoreModal").hide();
+        let scoreModal = component.find("scoreModal");
+        scoreModal.hide();
     },
-    closeModal : function(component, event, helper) {
-        let backdrop = component.find('backdrop');
-        let scoreViewModal = component.find('scoreViewModal');
-        component.set('v.selectedMatchId', null);
-        $A.util.removeClass(backdrop, 'slds-backdrop_open');
-        $A.util.removeClass(scoreViewModal, 'slds-slide-down-cancel');
-    },
+    onSinglePlayerMatchScoreSaved : function(component, event) {
+        let scoreModal = component.find("scoreModal");
+        scoreModal.hide();
+    }
 })

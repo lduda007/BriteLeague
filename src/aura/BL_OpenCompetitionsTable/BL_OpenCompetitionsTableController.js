@@ -1,6 +1,7 @@
 ({
     doInit : function(component, event, helper){
         helper.retrieveOpenLeagues(component, event);
+        helper.getCurrentUser(component);
     },
     openModal : function(component, event, helper) {
         helper.onOpenModal(component, event);

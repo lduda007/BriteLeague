@@ -2,21 +2,27 @@
     <apex:attribute name="competitorId" type="String" description="Competitor Id" assignTo="{!recordId}"/>
 
     <p>
-        Hello team <span style="font-size: 22; font-weight: bold;">{!competitor.Team__r.Name}!</span>
+        Hello <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}"> team </apex:outputPanel><span style="font-size: 22; font-weight: bold;"> {!competitor.Team__r.Name}!</span>
     </p>
     <p>
         League {!competitor.League__r.Name} that you were competing in has ended.
     </p>
     <apex:outputPanel rendered="{!positionInLeague != 1}">
         <p>
-            Your final position in the league is {!positionInLeague}. Winner is team {!winnerTeamName}.
-            Your team scored {!competitor.GoalsFor__c} goals and got {!competitor.Points__c} points.
+            Your final position in the league is {!positionInLeague}. Winner is
+            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}"> team </apex:outputPanel>
+            {!winnerTeamName}.
+            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}">Your team </apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Single Player'}">You </apex:outputPanel>
+            scored {!competitor.GoalsFor__c} goals and got {!competitor.Points__c} points.
             Good luck next time!
         </p>
     </apex:outputPanel>
     <apex:outputPanel rendered="{!positionInLeague == 1}">
         <p>
-            Your team performed best in the league scoring {!competitor.GoalsFor__c} goals and got {!competitor.Points__c} points.
+            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}">Your team </apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Single Player'}">You </apex:outputPanel>
+            performed best in the league scoring {!competitor.GoalsFor__c} goals and got {!competitor.Points__c} points.
             We are glad to name you the {!competitor.League__r.Name} league WINNER!
         </p>
     </apex:outputPanel>
@@ -30,8 +36,13 @@
     <table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
         <tr>
             <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">#</th>
-            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white;">Team</th>
-            <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white;">Players</th>
+            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}">
+                <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white;">Team</th>
+                <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white;">Players</th>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Single Player'}">
+                <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white;">Player</th>
+            </apex:outputPanel>
             <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">W</th>
             <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">D</th>
             <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">L</th>
@@ -41,19 +52,24 @@
             <th style="border: 1px solid black; text-align: left; padding: 8px; background-color: #4CAF50; color: white; width:35px;">PTS</th>
         </tr>
         <apex:variable var="index" value="{!0}" />
-        <apex:repeat value="{!leagueCompetitors}" var="competitor" >
+        <apex:repeat value="{!leagueCompetitors}" var="competitorItem" >
             <apex:variable var="index" value="{!index + 1}" />
             <tr>
                 <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!index}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px;">{!competitor.Team__r.Name}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px;">{!competitor.Team__r.Player1__r.Name+' & '+competitor.Team__r.Player2__r.Name}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GamesWon__c}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GamesDrawn__c}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GamesLost__c}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GoalsFor__c}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GoalsAgainst__c}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.GoalsDraw__c}</td>
-                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitor.Points__c}</td>
+                <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}">
+                    <td style="border: 1px solid black; text-align: left; padding: 8px;">{!competitorItem.Team__r.Name}</td>
+                    <td style="border: 1px solid black; text-align: left; padding: 8px;">{!competitorItem.Team__r.Player1__r.Name+' & '+competitorItem.Team__r.Player2__r.Name}</td>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Single Player'}">
+                    <td style="border: 1px solid black; text-align: left; padding: 8px;">{!competitorItem.Team__r.Name}</td>
+                </apex:outputPanel>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitorItem.GamesWon__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitorItem.GamesDrawn__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitorItem.GamesLost__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitorItem.GoalsFor__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitorItem.GoalsAgainst__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitorItem.GoalsDraw__c}</td>
+                <td style="border: 1px solid black; text-align: left; padding: 8px; width:35px;">{!competitorItem.Points__c}</td>
             </tr>
         </apex:repeat>
     </table>

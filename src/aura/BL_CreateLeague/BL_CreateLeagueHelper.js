@@ -1,15 +1,4 @@
 ({
-//     validateLeagueForm: function(component) {
-//        var validLeague = true;
-//         // Show error messages if required fields are blank
-//        var allValid = component.find('leagueField').reduce(function (validFields, inputCmp) {
-//            inputCmp.showHelpMessageIfInvalid();
-//            return validFields && inputCmp.get('v.validity').valid;
-//        }, true);
-//        if (allValid) {
-//            return(validLeague);
-//        }
-//    },
     validateLeagueForm: function(component, event) {
         var allValid = component.find('leagueField').reduce(function (validSoFar, inputCmp) {
             inputCmp.reportValidity();

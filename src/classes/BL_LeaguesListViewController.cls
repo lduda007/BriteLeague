@@ -26,7 +26,7 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for (BL_League__c league : [
-                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c
+                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, TeamSize__c
                 FROM BL_League__c
                 WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.today())
                 AND Id NOT IN :getPlayerLeaguesIds()
@@ -43,7 +43,7 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getMyLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for (BL_League__c league : [
-                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, Status__c
+                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, Status__c, TeamSize__c
                 FROM BL_League__c
                 WHERE Id IN :getPlayerLeaguesIds()
                 ORDER BY Status__c
@@ -97,6 +97,11 @@ public with sharing class BL_LeaguesListViewController {
         return dtoList;
     }
 
+    @AuraEnabled
+    public static User getCurrentUser() {
+        return BL_Utils.getCurrentUser();
+    }
+
     private static Boolean checkLeagueCompetitors(String leagueId, String teamId) {
         List<BL_Team__c> competitorTeam = [
                 SELECT Id, Player1__c, Player2__c
@@ -127,8 +132,7 @@ public with sharing class BL_LeaguesListViewController {
 
         return true;
     }
-
-
+    
     public class DTO_Team {
         @AuraEnabled public String name { get; set; }
         @AuraEnabled public String recordId { get; set; }

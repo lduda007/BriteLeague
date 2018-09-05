@@ -57,4 +57,8 @@
         helper.loadLeagueWithCompetitors(component);
         helper.closeJoinToCompetitionModal(component);
     },
+    onSinglePlayerMatchScoreSaved : function(component, event, helper) {
+        helper.loadLeagueWithCompetitors(component);
+        helper.loadLeagueMatches(component, null);
+    }
 })

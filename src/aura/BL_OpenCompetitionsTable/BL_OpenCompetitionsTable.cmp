@@ -1,6 +1,7 @@
 <aura:component description="BL_OpenCompetitionsTable" controller="BL_LeaguesListViewController">
     <aura:attribute name="openLeaguesList" type="BL_League__c[]"/>
     <aura:attribute name="selectedLeagueId" type="String"/>
+    <aura:attribute name="user" type="Object"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
     <aura:handler event="c:BL_CompetitionCreatedEvent" action="{!c.handleCompetitionCreated}"/>
@@ -17,14 +18,14 @@
                         <th scope="col">
                             <div class="slds-truncate" title="{!$Label.c.BL_Start_Date}">{!$Label.c.BL_Start_Date}</div>
                         </th>
-                        <!--<th scope="col">-->
-                            <!--<div class="slds-truncate" title="{!$Label.c.BL_End_Date}">{!$Label.c.BL_End_Date}</div>-->
-                        <!--</th>-->
                         <th scope="col">
                             <div class="slds-truncate" title="{!$Label.c.BL_Type}">{!$Label.c.BL_Type}</div>
                         </th>
                         <th scope="col">
                             <div class="slds-truncate" title="{!$Label.c.BL_Teams}">{!$Label.c.BL_Teams}</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Type">Type</div>
                         </th>
                         <th scope="col">
                             <div class="slds-truncate" title="Actions">Actions</div>
@@ -44,11 +45,6 @@
                                     <ui:outputDate value="{!league.Start_Date__c}"/>
                                 </div>
                             </td>
-                            <!--<td data-label="{!$Label.c.BL_End_Date}">-->
-                                <!--<div class="slds-truncate" title="{!$Label.c.BL_End_Date}">-->
-                                    <!--<ui:outputDate value="{!league.End_Date__c}"/>-->
-                                <!--</div>-->
-                            <!--</td>-->
                             <td data-label="Type">
                                 <div class="slds-truncate" title="">
                                     <aura:if isTrue="{!league.isCup__c}">{!$Label.c.BL_Cup}</aura:if>
@@ -58,9 +54,17 @@
                             <td data-label="{!$Label.c.BL_Teams}">
                                 <div class="" title="{!league.Teams_Joined__c +'/'+league.Max_Teams__c}">{!league.Teams_Joined__c}/{!league.Max_Teams__c}</div>
                             </td>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="{!league.TeamSize__c}">{!league.TeamSize__c}</div>
+                            </td>
                             <td data-label="Actions">
                                 <div class="" title="Actions">
-                                    <lightning:button variant="brand" onclick="{!c.openModal}" value="{!index}">{!$Label.c.BL_Join}</lightning:button>
+                                    <aura:if isTrue="{!league.TeamSize__c == 'Single Player'}">
+                                        <c:BL_JoinSinglePlayerCompetition competitionId="{!league.Id}" playerId="{!v.user.ContactId}"/>
+                                        <aura:set attribute="else">
+                                            <lightning:button variant="brand" onclick="{!c.openModal}" value="{!index}">{!$Label.c.BL_Join}</lightning:button>
+                                        </aura:set>
+                                    </aura:if>
                                 </div>
                             </td>
                         </tr>

@@ -2,8 +2,9 @@
     <apex:attribute name="competitorId" type="String" description="Competitor Id" assignTo="{!recordId}"/>
 
     <p>
-        Hello team <span style="font-size: 22; font-weight: bold;">{!competitor.Team__r.Name}!</span>
+        Hello <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}"> team </apex:outputPanel><span style="font-size: 22; font-weight: bold;"> {!competitor.Team__r.Name}!</span>
     </p>
+
     <p>
         <apex:outputPanel rendered="{!competitor.League__r.isCup__c}">Cup</apex:outputPanel>
         <apex:outputPanel rendered="{!!competitor.League__r.isCup__c}">League</apex:outputPanel>

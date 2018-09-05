@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <aura:iteration items="{!v.matches}" var="match">
+        <aura:iteration items="{!v.matches}" var="match" indexVar="index">
             <tr>
                 <td scope="row" data-label="Team 1">
                     <div class="slds-truncate" title="{!match.Team1__r.Team__r.Name}"><a data-recordId="{!match.Team1__r.Team__c}" onclick="{!c.goToTeamPage}">{!match.Team1__r.Team__r.Name}</a></div>
@@ -35,7 +35,7 @@
                 </td>
                 <td scope="row" data-label="Result">
                     <!--<div class="slds-truncate slds-text-align&#45;&#45;center score" title="Result" data-recordId="{!match.Id}" onclick="{!c.openScoreProviderModal}">SET</div>-->
-                    <lightning:button value="{!match.Id}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"></lightning:button>
+                    <lightning:button value="{!index}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"></lightning:button>
                 </td>
             </tr>
         </aura:iteration>
@@ -48,10 +48,22 @@
 
 
 
-        <c:BL_Modal aura:id="newScoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" size="large">
-            <aura:if isTrue="{!v.showModal}">
-                <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}" isReadOnly="false"/>
+    <c:BL_Modal aura:id="scoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" hasFooter="false">
+        <aura:if isTrue="{!v.modalVisible}">
+            <aura:if isTrue="{!v.teamSize == 'Single Player'}">
+                <c:BL_SinglePlayerMatchScoreProvider matchId="{!v.selectedMatchId}" editMode="{!v.editMode}"/>
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.editMode}">
+                        <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}" isReadOnly="false"/>
+                        <aura:set attribute="else">
+                            <c:BL_MatchDetailsViewer match="{!v.selectedMatchObject}"/>
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
             </aura:if>
-        </c:BL_Modal>
+        </aura:if>
+    </c:BL_Modal>
+
+    <div class="slds-backdrop" aura:id="backdrop"></div>
 
 </aura:component>

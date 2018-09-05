@@ -9,7 +9,7 @@
     <fieldset class="slds-form--compound slds-p-around--small">
         <div class="slds-form-element__group">
             <div class="slds-form-element__row slds-align--absolute-center">
-                <lightning:input aura:id="createTeamForm" value="{!v.team.Name}" maxlength="20" label="Team Name" required="true" pattern="[a-zA-Z0-9 ]+" messageWhenPatternMismatch="Only letters and numbers allowed" class="slds-size--1-of-1"/>
+                <lightning:input aura:id="createTeamForm" value="{!v.team.Name}" maxlength="20" label="Team Name" required="true" pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+" messageWhenPatternMismatch="Only letters and numbers allowed" class="slds-size--1-of-1"/>
             </div>
             <div class="slds-form-element__row slds-align--absolute-center">
                 <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}" parentName="BL_CreateTeam"/>

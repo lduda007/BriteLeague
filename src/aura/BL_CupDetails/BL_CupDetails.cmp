@@ -20,8 +20,11 @@
                     <aura:if isTrue="{!and(and(v.user.Id == v.cup.OwnerId, v.cup.Status__c == 'Assembling teams'), v.cup.Max_Teams__c == v.cup.Teams_Joined__c)}">
                         <lightning:button onclick="{!c.startCupNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
                     </aura:if>
-                    <aura:if isTrue="{!and(and(!v.isCurrentUserAlreadyInCompetition, v.cup.Status__c == 'Assembling teams'), lessthan(v.cup.Teams_Joined__c, v.cup.Max_Teams__c))}">
+                    <aura:if isTrue="{!and(v.cup.TeamSize__c == 'Two Players Team',and(and(!v.isCurrentUserAlreadyInCompetition, v.cup.Status__c == 'Assembling teams'), lessthan(v.cup.Teams_Joined__c, v.cup.Max_Teams__c)))}">
                         <lightning:button onclick="{!c.openJoinToCompetitionModal}" variant="brand" label="Join"></lightning:button>
+                    </aura:if>
+                    <aura:if isTrue="{!and(v.cup.TeamSize__c == 'Single Player',and(and(!v.isCurrentUserAlreadyInCompetition, v.cup.Status__c == 'Assembling teams'), lessthan(v.cup.Teams_Joined__c, v.cup.Max_Teams__c)))}">
+                        <c:BL_JoinSinglePlayerCompetition competitionId="{!v.cupId}" playerId="{!v.user.ContactId}"/>
                     </aura:if>
                     <aura:if isTrue="{!and(v.isCurrentUserAlreadyInCompetition, v.cup.Status__c == 'Assembling teams')}">
                         <c:BL_LeaveCompetition aura:id="leaveCompetitionComponent" playerId="{!v.user.ContactId}" competitionId="{!v.cupId}"/>
@@ -29,7 +32,7 @@
                 </aura:set>
 
                 <div style="text-align: center">
-                    <lightning:layout multipleRows="true" verticalAlign="center" horizontalAlign="center">
+                    <lightning:layout multipleRows="true" verticalAlign="center" class="slds-grid_align-spread">
 
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Start_Date}: </p>
@@ -55,6 +58,10 @@
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
                             <ui:outputText value="{!v.cup.CreatedBy.Name}" title="{!$Label.c.BL_Owner}" class="slds-text-heading--small"/>
                         </lightning:layoutItem>
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">Type:</p>
+                            <ui:outputText value="{!v.cup.TeamSize__c}" title="{!v.cup.TeamSize__c}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
 
                     </lightning:layout>
                 </div>
@@ -67,94 +74,111 @@
             <aura:if isTrue="{!v.cup.Status__c != 'Assembling teams'}">
 
                 <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-                        {!$Label.c.BL_Cup_Rounds}
+                    {!$Label.c.BL_Cup_Rounds}
                 </div>
 
                 <lightning:tabset variant="scoped" selectedTabId="{!v.selectedCupStage}">
 
                     <aura:if isTrue="{!!empty(v.matches[64])}">
                         <lightning:tab id="64" label="{!$Label.c.BL_X1_64_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[32])}">
                         <lightning:tab id="32" label="{!$Label.c.BL_X1_32_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[16])}">
                         <lightning:tab id="16"  label="{!$Label.c.BL_X1_16_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[8])}">
                         <lightning:tab id="8"  label="{!$Label.c.BL_X1_8_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[4])}">
                         <lightning:tab id="4"  label="{!$Label.c.BL_Quarter_Finals}">
-                            <c:BL_MatchesTable matches="{!v.matches[4]}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[4]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[2])}">
                         <lightning:tab id="2"  label="{!$Label.c.BL_Semi_Finals}">
-                            <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[0])}">
                         <lightning:tab id="0"  label="3rd Place">
-                            <c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[1])}">
                         <lightning:tab id="1"  label="{!$Label.c.BL_Final}">
-                            <c:BL_MatchesTable matches="{!v.matches[1]}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[1]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
                         </lightning:tab>
                     </aura:if>
 
                 </lightning:tabset>
+
                 <aura:set attribute="else">
                     <aura:if isTrue="{!greaterthan(v.cup.Teams_Joined__c, 0)}">
                         <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-                                {!$Label.c.BL_Teams_Already_Joined}
+                            {!$Label.c.BL_Teams_Already_Joined}
                         </div>
 
                         <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
                             <thead>
-                            <tr class="slds-text-title_caps">
-                                <th scope="col" style="min-width: 200px;">
-                                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
-                                </th>
-                            </tr>
+                                <tr class="slds-text-title_caps">
+
+                                    <aura:if isTrue="{!v.cup.TeamSize__c == 'Single Player'}">
+                                        <th scope="col">
+                                            <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Player}">{!$Label.c.BL_Player}</div>
+                                        </th>
+                                        <aura:set attribute="else">
+                                            <th scope="col" style="min-width: 200px;">
+                                                <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                                            </th>
+                                        </aura:set>
+                                    </aura:if>
+                                </tr>
                             </thead>
                             <tbody>
                             <aura:iteration items="{!v.cup.Competitors__r}" var="team" indexVar="index">
                                 <tr>
-                                    <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
-                                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
-                                    </td>
-                                    <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
-                                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
-                                        {!team.Team__r.Player1__r.LastName}
-                                            <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
-                                                <aura:set attribute="else">
-                                                    &#38;
-                                                </aura:set>
-                                            </aura:if>
-                                                {!team.Team__r.Player2__r.LastName}
-                                        </div>
-                                    </td>
+                                    <aura:if isTrue="{!v.cup.TeamSize__c == 'Single Player'}">
+                                        <td scope="row" data-label="{!$Label.c.BL_Player}">
+                                            <div class="slds-truncate slds-text-align--center" title="{!team.Team__r.Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                                        </td>
+                                        <aura:set attribute="else">
+
+                                            <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                                <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                                            </td>
+                                            <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
+                                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
+                                                {!team.Team__r.Player1__r.LastName}
+                                                    <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
+                                                        <aura:set attribute="else">
+                                                            &#38;
+                                                        </aura:set>
+                                                    </aura:if>
+                                                        {!team.Team__r.Player2__r.LastName}
+                                                </div>
+                                            </td>
+                                        </aura:set>
+                                    </aura:if>
                                 </tr>
                             </aura:iteration >
                             </tbody>
@@ -182,22 +206,6 @@
             <div class="slds-modal__content slds-p-around--medium">
                 <div align="center">
                     <c:BL_JoinLeague leagueId="{!v.cupId}" aura:id="joinComponent"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="leaveCompetitionModal">
-        <div class="slds-modal__container">
-            <div class="slds-modal__header">
-                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
-                                      alternativeText="Close" class="slds-modal__close"
-                                      onclick="{!c.closeLeaveCompetitionModal}"/>
-                <h2 class="slds-text-heading--medium">Select Your Team</h2>
-            </div>
-            <div class="slds-modal__content slds-p-around--medium">
-                <div align="center">
-                    <!--<c:BL_JoinLeague leagueId="{!v.leagueId}" aura:id="joinComponent"/>-->
                 </div>
             </div>
         </div>

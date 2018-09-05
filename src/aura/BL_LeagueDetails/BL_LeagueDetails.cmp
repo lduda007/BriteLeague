@@ -10,6 +10,7 @@
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
     <aura:handler name="BL_CompetitorLeftCompetition" event="c:BL_CompetitorLeftCompetition" action="{!c.handleCompetitorLeftCompetition}"/>
     <aura:handler name="BL_CannotJoinLeague" event="c:BL_CannotJoinLeague" action="{!c.handleCannotJoinLeague}"/>
+    <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
 
     <lightning:layout multipleRows="true" verticalAlign="center">
 
@@ -19,16 +20,19 @@
                     <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), greaterthan(v.league.Competitors__r.length, 1))}">
                         <lightning:button onclick="{!c.startLeagueNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
                     </aura:if>
-                    <aura:if isTrue="{!and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c))}">
-                        <lightning:button onclick="{!c.openJoinToCompetitionModal}" variant="brand" label="Join"></lightning:button>
-                    </aura:if>
                     <aura:if isTrue="{!and(v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams')}">
                         <c:BL_LeaveCompetition competitionId="{!v.leagueId}" playerId="{!v.user.ContactId}" aura:id="leaveCompetitionComponent"/>
+                    </aura:if>
+                    <aura:if isTrue="{!and(v.league.TeamSize__c == 'Two Players',and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c)))}">
+                        <lightning:button onclick="{!c.openJoinToCompetitionModal}" variant="brand" label="Join"></lightning:button>
+                    </aura:if>
+                    <aura:if isTrue="{!and(v.league.TeamSize__c == 'Single Player',and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c)))}">
+                        <c:BL_JoinSinglePlayerCompetition competitionId="{!v.leagueId}" playerId="{!v.user.ContactId}"/>
                     </aura:if>
                 </aura:set>
 
                 <div style="text-align: center">
-                    <lightning:layout multipleRows="true" verticalAlign="center" horizontalAlign="center">
+                    <lightning:layout multipleRows="true" verticalAlign="center"  class="slds-grid_align-spread">
 
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">Start Date: </p>
@@ -54,6 +58,10 @@
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
                             <ui:outputText value="{!v.league.CreatedBy.Name}" title="{!$Label.c.BL_Owner}" class="slds-text-heading--small"/>
                         </lightning:layoutItem>
+                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
+                            <p class="slds-text-body_small slds-text-color_weak">Type:</p>
+                            <ui:outputText value="{!v.league.TeamSize__c}" title="{!v.league.TeamSize__c}" class="slds-text-heading--small"/>
+                        </lightning:layoutItem>
 
                     </lightning:layout>
                 </div>
@@ -77,12 +85,19 @@
                                 <th scope="col">
                                     <div class="slds-truncate" title="{!$Label.c.BL_Position}">Pos</div>
                                 </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
-                                </th>
+                                <aura:if isTrue="{!v.league.TeamSize__c == 'Single Player'}">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Player}">{!$Label.c.BL_Player}</div>
+                                    </th>
+                                    <aura:set attribute="else">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                                        </th>
+                                    </aura:set>
+                                </aura:if>
                                 <th scope="col">
                                     <div class="slds-truncate" title="{!$Label.c.BL_Win}">W</div>
                                 </th>
@@ -112,20 +127,27 @@
                                     <td scope="row" data-label="{!$Label.c.BL_Position}">
                                         <div class="slds-truncate" title="Position">{!index+1}</div>
                                     </td>
-                                    <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
-                                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
-                                    </td>
-                                    <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
-                                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
-                                        {!team.Team__r.Player1__r.LastName}
-                                            <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
-                                                <aura:set attribute="else">
-                                                    &#38;
-                                                </aura:set>
-                                            </aura:if>
-                                                {!team.Team__r.Player2__r.LastName}
-                                        </div>
-                                    </td>
+                                    <aura:if isTrue="{!v.league.TeamSize__c == 'Single Player'}">
+                                        <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                                        </td>
+                                        <aura:set attribute="else">
+                                            <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                                            </td>
+                                            <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
+                                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
+                                                {!team.Team__r.Player1__r.LastName}
+                                                    <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
+                                                        <aura:set attribute="else">
+                                                            &#38;
+                                                        </aura:set>
+                                                    </aura:if>
+                                                        {!team.Team__r.Player2__r.LastName}
+                                                </div>
+                                            </td>
+                                        </aura:set>
+                                    </aura:if>
                                     <td scope="row" data-label="{!$Label.c.BL_Win}">
                                         <div class="slds-truncate" title="{!$Label.c.BL_Win}">{!team.GamesWon__c}</div>
                                     </td>
@@ -165,7 +187,7 @@
                     </div>
                     <aura:if isTrue="{!v.matches.length > 0}">
                         <div class="slds-scrollable--y" style="max-height: 300px;">
-                            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}"/>
+                            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}" teamSize="{!v.league.TeamSize__c}"/>
                         </div>
                         <aura:set attribute="else">
                             <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">

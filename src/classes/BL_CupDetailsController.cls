@@ -2,7 +2,7 @@ public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static BL_League__c loadCupDetails(String cupId) {
         List<BL_League__c> cup = [
-                SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, Status__c, OwnerId,
+                SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, Status__c, OwnerId, TeamSize__c,
                     (SELECT Id, Team__r.Name, Team__r.Player1__r.LastName, Team__r.Player2__r.LastName, Team__r.Player1__c, Team__r.Player2__c
                      FROM Competitors__r)
                 FROM BL_League__c
