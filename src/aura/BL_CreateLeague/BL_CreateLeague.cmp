@@ -16,7 +16,7 @@
     <aura:attribute name="leagueRoundsNumber" type="List" default="[]" access="private"/>
     <aura:attribute name="options" type="List" default="[{'label': 'League', 'value': 'league'},{'label': 'Cup', 'value': 'cup'}]"/>
     <aura:attribute name="teamOptions" type="List" default="[{'label': 'Single Player', 'value': 'Single Player'},{'label': 'Two Players', 'value': 'Two Players'}]"/>
-    <aura:attribute name="totalMatches" type="Integer" default="0" access="private"/> 
+    <aura:attribute name="totalMatches" type="Integer" default="0" access="private"/>
     <aura:attribute name="totalMatchesLimit" type="Integer" default="800"/>
     <aura:attribute name="totalRoundsLimit" type="Integer" default="20"/>
 

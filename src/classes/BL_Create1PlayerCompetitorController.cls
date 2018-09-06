@@ -23,6 +23,7 @@ public with sharing class BL_Create1PlayerCompetitorController {
         team.Name = currentUser.Name;
         team.Player1__c = currentUser.ContactId;
         team.IsSinglePlayer__c = true;
+        team.IsActive__c = true;
         insert team;
         return team.Id;
     }
