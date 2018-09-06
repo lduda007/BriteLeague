@@ -6,9 +6,10 @@ public with sharing class BL_HomeDashboardController {
 			Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
 			Map<Id, BL_Team__c> playerTeams = new Map<Id, BL_Team__c>([SELECT Id FROM BL_Team__c WHERE Player1__c = :currentPlayer OR Player2__c = :currentPlayer]);
 			List<BL_Match__c> matches = [
-					SELECT 	Id, isResolved__c, Team1__r.Team__c, Team1__r.Name, Team1__r.Team__r.Name, Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,
-							Team2__r.Team__c, Team2__r.Name, Team2__r.Team__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Team1_Score__c, Team2_Score__c,
-							Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c, CreatedDate, League__r.TeamSize__c
+					SELECT 	Id, isResolved__c, Team1__r.Team__c, Team1__r.Name, Team1__r.Team__r.Name, Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,Round__c, DrawRound__c,
+							Team2__r.Team__c, Team2__r.Name, Team2__r.Team__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Team1_Score__c, Team2_Score__c, CupStage__c,
+							Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c, CreatedDate, League__r.TeamSize__c,
+							League__r.Name
 					FROM BL_Match__c
 					WHERE
 					isResolved__c = true
@@ -16,7 +17,7 @@ public with sharing class BL_HomeDashboardController {
 							Team1__r.Team__c IN :playerTeams.keySet()
 							OR Team2__r.Team__c IN :playerTeams.keySet()
 					)
-					ORDER BY LastModifiedDate DESC
+					ORDER BY LastModifiedDate DESC, DrawRound__c, Round__c
 					LIMIT 20
 			];
 			return matches;
@@ -30,15 +31,14 @@ public with sharing class BL_HomeDashboardController {
 		Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
 		Map<Id, BL_Team__c> playerTeams = new Map<Id, BL_Team__c>([SELECT Id FROM BL_Team__c WHERE Player1__c = :currentPlayer OR Player2__c = :currentPlayer]);
 		List<BL_Match__c> matches = [
-				SELECT Id, Team1__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__c, Team2__r.Team__r.Name, League__c, League__r.Name, CreatedDate, Team1_Score__c, Team2_Score__c, League__r.TeamSize__c
+				SELECT Id, Team1__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__c, Team2__r.Team__r.Name, League__c, League__r.Name, CreatedDate, Team1_Score__c, Team2_Score__c, League__r.isCup__c, CupStage__c,
+						League__r.TeamSize__c, Round__c, DrawRound__c
 				FROM BL_Match__c
 				WHERE
-				((Team1_Score__c = null OR Team1_Score__c = 0) AND (Team2_Score__c = null OR Team2_Score__c = 0))
-				AND (
-						Team1__r.Team__c IN :playerTeams.keySet()
-						OR Team2__r.Team__c IN :playerTeams.keySet()
-				)
-				ORDER BY LastModifiedDate DESC
+				((Team1_Score__c = null OR Team1_Score__c = 0) AND (Team2_Score__c = null OR Team2_Score__c = 0)) AND
+				(Team1__r.Team__c IN :playerTeams.keySet() OR Team2__r.Team__c IN :playerTeams.keySet()) AND
+				(Team1__c != null AND Team2__c != null)
+				ORDER BY LastModifiedDate DESC, DrawRound__c, Round__c
 				LIMIT 20
 		];
 

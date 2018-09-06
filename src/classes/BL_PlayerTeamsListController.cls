@@ -5,7 +5,7 @@ public with sharing class BL_PlayerTeamsListController {
         List<BL_Team__c> playerTeams = [
                 SELECT Id, Name, IsActive__c, Player1__c, Player2__c, Player1__r.LastName, Player2__r.LastName, Total_Games_Won__c, Total_Games_Lost__c, Total_Games_Drawn__c, Total_Goals_Scored__c, Total_Goals_Lost__c
                 FROM BL_Team__c
-                WHERE (Player1__c =: currentUser.ContactId OR Player2__c =: currentUser.ContactId) AND IsActive__c = true
+                WHERE (Player1__c =: currentUser.ContactId OR Player2__c =: currentUser.ContactId) AND IsActive__c = true AND IsSinglePlayer__c = false
         ];
         return playerTeams;
     }

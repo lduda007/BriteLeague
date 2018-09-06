@@ -81,49 +81,49 @@
 
                     <aura:if isTrue="{!!empty(v.matches[64])}">
                         <lightning:tab id="64" label="{!$Label.c.BL_X1_64_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[32])}">
                         <lightning:tab id="32" label="{!$Label.c.BL_X1_32_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[16])}">
                         <lightning:tab id="16"  label="{!$Label.c.BL_X1_16_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[8])}">
                         <lightning:tab id="8"  label="{!$Label.c.BL_X1_8_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[4])}">
                         <lightning:tab id="4"  label="{!$Label.c.BL_Quarter_Finals}">
-                            <c:BL_MatchesTable matches="{!v.matches[4]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[4]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[2])}">
                         <lightning:tab id="2"  label="{!$Label.c.BL_Semi_Finals}">
-                            <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[0])}">
                         <lightning:tab id="0"  label="3rd Place">
-                            <c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[1])}">
                         <lightning:tab id="1"  label="{!$Label.c.BL_Final}">
-                            <c:BL_MatchesTable matches="{!v.matches[1]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}"/>
+                            <c:BL_MatchesTable matches="{!v.matches[1]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
                         </lightning:tab>
                     </aura:if>
 

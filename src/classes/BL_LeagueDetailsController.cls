@@ -22,7 +22,7 @@ public with sharing class BL_LeagueDetailsController {
                            Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c
                     FROM BL_Match__c
                     WHERE League__c =: leagueId
-                    ORDER BY Round__c, DrawRound__c
+                    ORDER BY DrawRound__c, Round__c
             ];
         }else{
             leagueMatches = [
@@ -30,7 +30,7 @@ public with sharing class BL_LeagueDetailsController {
                            Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c
                     FROM BL_Match__c
                     WHERE League__c =: leagueId AND (Team1__c =: competitorId OR Team2__c =: competitorId)
-                    ORDER BY Round__c, DrawRound__c
+                    ORDER BY DrawRound__c, Round__c
             ];
         }
         return leagueMatches;

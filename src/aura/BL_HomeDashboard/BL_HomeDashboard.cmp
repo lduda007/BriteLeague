@@ -34,7 +34,7 @@
             <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
             <aura:if isTrue="{!!empty(v.lastMatches)}">
                 <div class="slds-scrollable_y" style="height: 30rem;">
-                    <c:BL_MatchesTable matches="{!v.lastMatches}"/>
+                    <c:BL_MatchesTable matches="{!v.lastMatches}" showCompetitionColumn="true"/>
                 </div>
                 <aura:set attribute="else">
                     <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
