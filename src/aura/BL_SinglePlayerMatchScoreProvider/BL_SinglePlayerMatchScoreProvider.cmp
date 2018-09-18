@@ -26,7 +26,19 @@
             <tr>
                 <td scope="row" data-label="{!$Label.c.BL_Player+' 1'}">
                     <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Player+' 1'}">
-                        {!v.match.Team1__r.Team__r.Player1__r.Name}
+                        <lightning:layout multipleRows="true" >
+                            <lightning:layoutItem size="12" class="slds-align_absolute-center">
+                                {!v.match.Team1__r.Team__r.Player1__r.Name}
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="12" class="slds-align_absolute-center">
+                                <aura:if isTrue="{!not(empty(v.match.Team1__r.Team__r.Player1__r.ImageUrl__c))}">
+                                    <img src="{!v.match.Team1__r.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                    <aura:set attribute="else">
+                                        <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                    </aura:set>
+                                </aura:if>
+                            </lightning:layoutItem>
+                        </lightning:layout>
                     </div>
                 </td>
                 <td scope="row" data-label="{!$Label.c.BL_Result}" class="slds-align--absolute-center">
@@ -68,8 +80,20 @@
                     </lightning:layout>
                 </td>
                 <td scope="row" data-label="{!$Label.c.BL_Player+' 2'}">
-                    <div class="slds-truncate" title="{!$Label.c.BL_Player+' 2'}">
-                        {!v.match.Team2__r.Team__r.Player1__r.Name}
+                    <div class="slds-truncate slds-align_absolute-center" title="{!$Label.c.BL_Player+' 2'}">
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="12" class="slds-align_absolute-center">
+                                {!v.match.Team2__r.Team__r.Player1__r.Name}
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="12" class="slds-align_absolute-center">
+                                <aura:if isTrue="{!not(empty(v.match.Team2__r.Team__r.Player1__r.ImageUrl__c))}">
+                                    <img src="{!v.match.Team2__r.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                    <aura:set attribute="else">
+                                        <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                    </aura:set>
+                                </aura:if>
+                            </lightning:layoutItem>
+                        </lightning:layout>
                     </div>
                 </td>
             </tr>

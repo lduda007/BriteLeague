@@ -81,49 +81,49 @@
 
                     <aura:if isTrue="{!!empty(v.matches[64])}">
                         <lightning:tab id="64" label="{!$Label.c.BL_X1_64_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[32])}">
                         <lightning:tab id="32" label="{!$Label.c.BL_X1_32_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[16])}">
                         <lightning:tab id="16"  label="{!$Label.c.BL_X1_16_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[8])}">
                         <lightning:tab id="8"  label="{!$Label.c.BL_X1_8_Stage}">
-                            <c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[4])}">
                         <lightning:tab id="4"  label="{!$Label.c.BL_Quarter_Finals}">
-                            <c:BL_MatchesTable matches="{!v.matches[4]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[4]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[2])}">
                         <lightning:tab id="2"  label="{!$Label.c.BL_Semi_Finals}">
-                            <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[2]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[0])}">
                         <lightning:tab id="0"  label="3rd Place">
-                            <c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
                     <aura:if isTrue="{!!empty(v.matches[1])}">
                         <lightning:tab id="1"  label="{!$Label.c.BL_Final}">
-                            <c:BL_MatchesTable matches="{!v.matches[1]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false"/>
+                            <c:BL_MatchesTable matches="{!v.matches[1]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>
                         </lightning:tab>
                     </aura:if>
 
@@ -159,7 +159,17 @@
                                 <tr>
                                     <aura:if isTrue="{!v.cup.TeamSize__c == 'Single Player'}">
                                         <td scope="row" data-label="{!$Label.c.BL_Player}">
-                                            <div class="slds-truncate slds-text-align--center" title="{!team.Team__r.Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                                            <div class="slds-truncate slds-text-align--center" title="{!team.Team__r.Name}">
+                                                <a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">
+                                                    <aura:if isTrue="{!not(empty(team.Team__r.Player1__r.ImageUrl__c))}">
+                                                        <img src="{!team.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                                        <aura:set attribute="else">
+                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    <span class="slds-p-left--x-small">{!team.Team__r.Name}</span>
+                                                </a>
+                                            </div>
                                         </td>
                                         <aura:set attribute="else">
 
@@ -168,13 +178,27 @@
                                             </td>
                                             <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
                                                 <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
-                                                {!team.Team__r.Player1__r.LastName}
+                                                    <aura:if isTrue="{!not(empty(team.Team__r.Player1__r.ImageUrl__c))}">
+                                                        <img src="{!team.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                                        <aura:set attribute="else">
+                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                        </aura:set>
+                                                    </aura:if>
+
+                                                    <aura:if isTrue="{!not(empty(team.Team__r.Player2__r.ImageUrl__c))}">
+                                                        <img src="{!team.Team__r.Player2__r.ImageUrl__c}" class="playerAvatar"/>
+                                                        <aura:set attribute="else">
+                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                        </aura:set>
+                                                    </aura:if>
+
+                                                    <span class="slds-p-left--x-small">{!team.Team__r.Player1__r.LastName}</span>
                                                     <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
                                                         <aura:set attribute="else">
                                                             &#38;
                                                         </aura:set>
                                                     </aura:if>
-                                                        {!team.Team__r.Player2__r.LastName}
+                                                    {!team.Team__r.Player2__r.LastName}
                                                 </div>
                                             </td>
                                         </aura:set>

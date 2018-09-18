@@ -40,20 +40,20 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
             }
 
             Profile communityUserProfile = [SELECT Id FROM profile WHERE name =: communityUserProfileName];
-            User communityUser = createUser(data,communityUserProfile);
+            User communityUser = createUser(data,communityUserProfile, data.attributeMap.get('picture'));
             communityUser.contactId = contactId;
             return communityUser;
         } else {
             //This is not a community, so we Assign an internal profile
             Profile communityUserProfile = [SELECT Id FROM profile WHERE name =: INTERNAL_USER_PROFILE];
-            User communityUser = createUser(data,communityUserProfile);
+            User communityUser = createUser(data,communityUserProfile, data.attributeMap.get('picture'));
             return communityUser;
         }
     }
 
     global void updateUser(Id userId, Id portalId, Auth.UserData data){
         BL_UserActivationManager.enqueueOldestLoggingUserDeactivation();
-        User currentUser = [SELECT Id, IsActive, Profile.Name FROM User WHERE Id =: userId];
+        User currentUser = [SELECT Id, IsActive, Profile.Name, ContactId FROM User WHERE Id =: userId];
 
         if(!currentUser.IsActive){
             BL_UserActivationManager.activateUser(currentUser);
@@ -62,7 +62,32 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
         currentUser.email = data.email;
         currentUser.lastName = data.lastName;
         currentUser.firstName = data.firstName;
+        setUserPhoto(currentUser.Id, data.attributeMap.get('picture'));
+        setContactImageUrl(currentUser.Id, data.attributeMap.get('picture'));
         update(currentUser);
+    }
+
+    @future
+    public static void setContactImageUrl(String userId, String photoUrl) {
+        List<User> user = [SELECT FullPhotoUrl, ContactId FROM User WHERE Id =: userId];
+        if(!user.isEmpty()){
+            List<Contact> contact = [SELECT Id, ImageUrl__c FROM Contact WHERE Id =: user[0].ContactId];
+            if(!contact.isEmpty()){
+                contact[0].ImageUrl__c = photoUrl;
+                update contact[0];
+            }
+        }
+    }
+
+    @future(Callout=true)
+    public static void setUserPhoto(String userId, String photoUrl){
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint(photoUrl);
+        req.setMethod('GET');
+        Http binding = new Http();
+        HttpResponse res = binding.send(req);
+        Blob image = res.getBodyAsBlob();
+        ConnectApi.Photo photo = ConnectApi.UserProfiles.setPhoto(null, userId, new ConnectApi.BinaryInput(image, 'image/jpg', 'userImage.jpg'));
     }
 
     private Id createContact(Auth.UserData data){
@@ -98,7 +123,7 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
         }
     }
 
-    private User createUser(Auth.UserData data, Profile communityUserProfile) {
+    private User createUser(Auth.UserData data, Profile communityUserProfile, String imageUrl) {
         User newCommunityUser = new User();
         newCommunityUser.username = data.email + BL_Utils.getBLCommunitySettings('BL_RegistrationUsernameOrgSuffix__c');
         newCommunityUser.email = data.email;
@@ -111,6 +136,7 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
         newCommunityUser.emailEncodingKey = 'UTF-8';
         newCommunityUser.timeZoneSidKey = TZSID;
         newCommunityUser.profileId = communityUserProfile.Id;
+        newCommunityUser.ImageUrl__c = imageUrl;
         return newCommunityUser;
     }
 }

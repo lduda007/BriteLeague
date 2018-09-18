@@ -12,6 +12,7 @@
             if (state === "SUCCESS")
             {
                 let match = response.getReturnValue();
+                console.log(match.Team1__r.Team__r.Player1__r.ImageUrl__c)
                 component.set("v.match", match);
                 self.generateScoreOptions(component);
             }

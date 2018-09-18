@@ -7,7 +7,7 @@ public with sharing class BL_SinglePlayerScoreProviderController {
                 SELECT  Id,isResolved__c,MatchDate__c, League__r.isCup__c, Team1__c, Team2__c, Team1__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player1__r.Name, Team1_Score__c,Team2_Score__c, Team1TotalGoalsScored__c, Team2TotalGoalsScored__c,
                         Team1__r.GoalsFor__c,Team1__r.GoalsAgainst__c,Team1__r.GamesWon__c,Team1__r.GamesLost__c,Team1__r.GamesDrawn__c,
                         Team2__r.GoalsFor__c,Team2__r.GoalsAgainst__c,Team2__r.GamesWon__c,Team2__r.GamesLost__c,Team2__r.GamesDrawn__c, Team1Round1Goals__c,
-                        Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c
+                        Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, Team1__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player1__r.ImageUrl__c
                 FROM BL_Match__c
                 WHERE Id =: matchId
         ];
