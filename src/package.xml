@@ -12,6 +12,7 @@
         <members>BL_LeagueMatchesService</members>
         <members>BL_CupMatchesService</members>
 		<members>BL_MatchScoreProviderController</members>
+        <members>BL_CompetitionProgressChartController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -31,6 +32,7 @@
         <members>BL_ScorecProviderScoreInput</members>
         <members>BL_ScoreSelectedEvent</members>
         <members>BL_roundScoreSelected</members>
+        <members>BL_CompetitionProgressChart</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
