@@ -4,15 +4,16 @@
 
         let action = component.get("c.getInitDataWrapper");
         action.setParams({
-            'competitionId': component.get("v.recordId")
+            "competitionId": component.get("v.recordId")
         });
         action.setCallback(this, function(response) {
             let state = response.getState();
+            let result = response.getReturnValue();
 
             if(state === "SUCCESS") {
+                component.set("v.labels", result.labels);
+                component.set("v.dataSets", result.dataSets);
                 this.generateChart(component);
-            } else if(state === 'ERROR') {
-
             }
 
             this.hideSpinner(component);
@@ -22,29 +23,12 @@
 
     generateChart: function(component) {
         let lineChartData = {};
-        lineChartData.labels = [];
-        lineChartData.datasets = [];
-
-        for(let line = 0; line < 2; line++) {
-            let y = [];
-            let dataset = {};
-            dataset.borderColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-            dataset.fill = false;
-
-            for(let x = 0; x < 10; x++) {
-                y.push(Math.floor((Math.random() * 10) + 1));
-                if(line === 0) {
-                    lineChartData.labels.push(x);
-                }
-            }
-            dataset.data = y;
-
-            lineChartData.datasets.push(dataset);
-        }
+        lineChartData.labels = component.get("v.labels");
+        lineChartData.datasets = component.get("v.dataSets");
 
         let ctx = component.find("chart").getElement();
         let lineChart = new Chart(ctx, {
-            type: 'line',
+            type: "line",
             data: lineChartData,
         });
     },

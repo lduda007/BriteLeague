@@ -1,14 +1,15 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="BL_CompetitionProgressChartController">
 
     <aura:attribute name="recordId" type="String" default="a0j0D000000C0ghQAC"/>
-    <aura:attribute name="data" type="List"/>
-    <aura:attribute name="chartHeight" type="String" default="300"/>
+    <aura:attribute name="labels" type="List"/>
+    <aura:attribute name="dataSets" type="List"/>
+    <aura:attribute name="chartHeight" type="String" default="500"/>
     <aura:attribute name="chartWidth" type="String" default="100%"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
     <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.onInit}"/>
 
-    <aura:if isTrue="isSpinner">
+    <aura:if isTrue="{!v.isSpinner}">
         <lightning:spinner variant="brand" size="small"/>
     </aura:if>
     <canvas aura:id="chart" height="{!v.chartHeight}" width="{!v.chartWidth}"></canvas>
