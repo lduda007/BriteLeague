@@ -195,7 +195,7 @@
                                                     <span class="slds-p-left--x-small">{!team.Team__r.Player1__r.LastName}</span>
                                                     <aura:if isTrue="{!empty(team.Team__r.Player1__r.LastName) || empty(team.Team__r.Player2__r.LastName)}">
                                                         <aura:set attribute="else">
-                                                            &#38;
+                                                            &amp;
                                                         </aura:set>
                                                     </aura:if>
                                                     {!team.Team__r.Player2__r.LastName}

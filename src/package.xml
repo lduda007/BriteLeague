@@ -11,7 +11,7 @@
         <members>BL_TournamentsEmailService</members>
         <members>BL_LeagueMatchesService</members>
         <members>BL_CupMatchesService</members>
-		<members>BL_MatchScoreProviderController</members>
+        <members>BL_MatchScoreProviderController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -22,7 +22,7 @@
         <members>BL_PlayerTeamsList</members>
         <members>BL_SelectedsObjectRecordEvent</members>
         <members>BL_CreateLeague</members>
-		<members>BL_Modal</members>
+        <members>BL_Modal</members>
         <members>BL_CompetitionCreatedEvent</members>
         <members>BL_MatchScoreProviderTile</members>
         <members>BL_TeamCard</members>
@@ -81,6 +81,10 @@
         <members>BL_Statistic__c-en_US</members>
         <members>BL_Team__c-en_US</members>
         <name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabels</name>
     </types>
     <types>
         <members>briteleague</members>

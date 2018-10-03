@@ -54,7 +54,7 @@
                                         <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Id}" onclick="{!c.goToTeam}">{!team.Name}</a></div>
                                     </td>
                                     <td scope="row" data-label="Players">
-                                        <div class="slds-truncate" title="Players">{!team.Player1__r.LastName} &#38; {!team.Player2__r.LastName}</div>
+                                        <div class="slds-truncate" title="Players">{!team.Player1__r.LastName} &amp; {!team.Player2__r.LastName}</div>
                                     </td>
                                     <td scope="row" data-label="{!$Label.c.BL_Win}">
                                         <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Win}">{!team.Total_Games_Won__c}</div>
