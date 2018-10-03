@@ -83,7 +83,7 @@
                             </aura:if>
                             <aura:set attribute="else">
                                 <aura:if isTrue="{!v.isThirdPlace}">
-                                {!$Label.c.Loser_match}&nbsp;{!(index*2)+1}
+                                {!$Label.c.BL_Loser_match}&nbsp;{!(index*2)+1}
                                     <aura:set attribute="else">
                                     {!$Label.c.BL_Winner_match}&nbsp;{!(index*2)+1}
                                     </aura:set>
@@ -101,7 +101,7 @@
                                                             and(match.Team2__r.Team__r.Player1__c != v.playerId, match.Team2__r.Team__r.Player2__c != v.playerId))))}">
                             <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}">- : -</div>
                             <aura:set attribute="else">
-                                <lightning:button value="{!index}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"></lightning:button>
+                                <lightning:button value="{!index}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"/>
                             </aura:set>
                         </aura:if>
                         <aura:set attribute="else">
@@ -138,7 +138,7 @@
                             </aura:if>
                             <aura:set attribute="else">
                                 <aura:if isTrue="{!v.isThirdPlace}">
-                                    {!$Label.c.Loser_match}&nbsp;{!(index*2)+2}
+                                {!$Label.c.BL_Loser_match}&nbsp;{!(index*2)+2}
                                     <aura:set attribute="else">
                                         {!$Label.c.BL_Winner_match}&nbsp;{!(index*2)+2}
                                     </aura:set>

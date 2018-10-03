@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>BL_Access</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Access</shortDescription>
+        <value>Access</value>
+    </labels>
+    <labels>
+        <fullName>BL_Already_joined</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Already joined</shortDescription>
+        <value>Already joined</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cannot_start_cup</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot start cup</shortDescription>
+        <value>Cannot start cup</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cannot_start_league</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot start league</shortDescription>
+        <value>Cannot start league</value>
+    </labels>
+    <labels>
+        <fullName>BL_Close</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>BL_Create_Competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Create Competition</shortDescription>
+        <value>Create Competition</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup</shortDescription>
+        <value>Cup</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup_Rounds</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup Rounds</shortDescription>
+        <value>Cup Rounds</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup_already_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup already started</shortDescription>
+        <value>Cup already started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup_has_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup has started</shortDescription>
+        <value>Cup has started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Draw</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draw</shortDescription>
+        <value>Draw</value>
+    </labels>
+    <labels>
+        <fullName>BL_End_Date</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>End Date</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_When_Leaving_Competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error When Leaving Competition</shortDescription>
+        <value>Error when leaving competition</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_loading_cup_details</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when loading cup details</shortDescription>
+        <value>Error when loading cup details</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_loading_league_details</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when loading league details</shortDescription>
+        <value>Error when loading league details</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_loading_league_matches</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when loading league matches</shortDescription>
+        <value>Error when loading league matches</value>
+    </labels>
+    <labels>
+        <fullName>BL_Final</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Final</shortDescription>
+        <value>Final</value>
+    </labels>
+    <labels>
+        <fullName>BL_Goals_Against</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Goals Against</shortDescription>
+        <value>Goals Against</value>
+    </labels>
+    <labels>
+        <fullName>BL_Goals_Draw</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Goals Draw</shortDescription>
+        <value>Goals Draw</value>
+    </labels>
+    <labels>
+        <fullName>BL_Goals_For</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Goals For</shortDescription>
+        <value>Goals For</value>
+    </labels>
+    <labels>
+        <fullName>BL_Join</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Join</shortDescription>
+        <value>Join</value>
+    </labels>
+    <labels>
+        <fullName>BL_League</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League</shortDescription>
+        <value>League</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Full</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL League Full</shortDescription>
+        <value>Ups! Somebody already join this league and now it is full, or your team mate already joined to this league with your team.</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Table</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Table</shortDescription>
+        <value>League Table</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_already_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League already started</shortDescription>
+        <value>League already started</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_has_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League has started</shortDescription>
+        <value>League has started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Loser_match</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loser match</shortDescription>
+        <value>Loser match</value>
+    </labels>
+    <labels>
+        <fullName>BL_Lost</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lost</shortDescription>
+        <value>Lost</value>
+    </labels>
+    <labels>
+        <fullName>BL_Match_Score</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Match Score</shortDescription>
+        <value>Match Score</value>
+    </labels>
+    <labels>
+        <fullName>BL_Matches</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Matches</shortDescription>
+        <value>Matches</value>
+    </labels>
+    <labels>
+        <fullName>BL_Matches_not_generated_yet</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Matches not generated yet</shortDescription>
+        <value>Matches not generated yet</value>
+    </labels>
+    <labels>
+        <fullName>BL_My_Competitions</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL My Competitions</shortDescription>
+        <value>My Competitions</value>
+    </labels>
+    <labels>
+        <fullName>BL_Name</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_Competitions_For_Team</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL No Competitions For Team</shortDescription>
+        <value>This team doesn&apos;t take part in any competition.</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_Open_Competitions</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL No Open Competitions</shortDescription>
+        <value>There is no open competitions, but you can create one.</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_competitors_found</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No competitors found</shortDescription>
+        <value>No competitors found</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_matches_found</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No matches found</shortDescription>
+        <value>No matches found</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_teams_joined_yet</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No teams joined yet</shortDescription>
+        <value>No teams joined yet</value>
+    </labels>
+    <labels>
+        <fullName>BL_Owner</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner</shortDescription>
+        <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>BL_Player</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Player</shortDescription>
+        <value>Player</value>
+    </labels>
+    <labels>
+        <fullName>BL_Points</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Points</shortDescription>
+        <value>Points</value>
+    </labels>
+    <labels>
+        <fullName>BL_Pos</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pos</shortDescription>
+        <value>Pos</value>
+    </labels>
+    <labels>
+        <fullName>BL_Position</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Position</shortDescription>
+        <value>Position</value>
+    </labels>
+    <labels>
+        <fullName>BL_Private</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Private</shortDescription>
+        <value>Private</value>
+    </labels>
+    <labels>
+        <fullName>BL_Public</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Public</shortDescription>
+        <value>Public</value>
+    </labels>
+    <labels>
+        <fullName>BL_Quarter_Finals</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quarter Finals</shortDescription>
+        <value>Quarter Finals</value>
+    </labels>
+    <labels>
+        <fullName>BL_Result</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Result</shortDescription>
+        <value>Result</value>
+    </labels>
+    <labels>
+        <fullName>BL_Select_Team_Error</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Select Team Error</shortDescription>
+        <value>Please select your team.</value>
+    </labels>
+    <labels>
+        <fullName>BL_Select_Your_Team</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Select Your Team</shortDescription>
+        <value>Select your team</value>
+    </labels>
+    <labels>
+        <fullName>BL_Semi_Finals</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Semi Finals</shortDescription>
+        <value>Semi Finals</value>
+    </labels>
+    <labels>
+        <fullName>BL_Set</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Set</shortDescription>
+        <value>Set</value>
+    </labels>
+    <labels>
+        <fullName>BL_Start_Date</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>BL_Start_now</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start now</shortDescription>
+        <value>Start now</value>
+    </labels>
+    <labels>
+        <fullName>BL_Started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Started</shortDescription>
+        <value>Started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Status</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>BL_Success</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_1</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team 1</shortDescription>
+        <value>Team 1</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_2</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team 2</shortDescription>
+        <value>Team 2</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Name</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Name</shortDescription>
+        <value>Team Name</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Players</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Players</shortDescription>
+        <value>Team Players</value>
+    </labels>
+    <labels>
+        <fullName>BL_Teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Teams</shortDescription>
+        <value>Teams</value>
+    </labels>
+    <labels>
+        <fullName>BL_Teams_Already_Joined</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Teams Already Joined</shortDescription>
+        <value>Teams Already Joined</value>
+    </labels>
+    <labels>
+        <fullName>BL_Teams_number</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Teams number</shortDescription>
+        <value>Teams number</value>
+    </labels>
+    <labels>
+        <fullName>BL_Type</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>BL_Waiting_for_teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Waiting for teams</shortDescription>
+        <value>Waiting for teams</value>
+    </labels>
+    <labels>
+        <fullName>BL_Win</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Win</shortDescription>
+        <value>Win</value>
+    </labels>
+    <labels>
+        <fullName>BL_Winner_match</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Winner match</shortDescription>
+        <value>Winner match</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_16_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/16 Stage</shortDescription>
+        <value>1/16 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_32_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/32 Stage</shortDescription>
+        <value>1/32 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_64_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/64 Stage</shortDescription>
+        <value>1/64 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_8_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/8 Stage</shortDescription>
+        <value>1/8 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_Are_Not_Assigned</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL You Are Not Assigned</shortDescription>
+        <value>You are not assigned to competition.</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_Joined_Competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You Joined Competition</shortDescription>
+        <value>You&apos;ve joined the competition.</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_Joined_League</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL You Joined League</shortDescription>
+        <value>You&apos;ve joined the league.</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_ve_left_the_competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You&apos;ve left the competition.</shortDescription>
+        <value>You&apos;ve left the competition.</value>
+    </labels>
+</CustomLabels>
