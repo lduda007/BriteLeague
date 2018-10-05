@@ -1,7 +1,12 @@
 <aura:component description="BL_Spinner">
-    <aura:attribute name="show" type="Boolean"/>
+
+    <aura:attribute name="show" type="Boolean" default="false" access="public"/>
+
+    <aura:method name="showSpinner" action="{!c.showSpinner}" access="public"/>
+    <aura:method name="hideSpinner" action="{!c.hideSpinner}" access="public"/>
 
     <aura:if isTrue="{!v.show}">
-            <lightning:spinner variant="brand"/>
+        <lightning:spinner variant="brand"/>
     </aura:if>
+
 </aura:component>

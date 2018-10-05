@@ -4,6 +4,7 @@
     <aura:attribute name="body" type="Aura.Component[]" access="public"/>
 
     <div class="bl-card">
+        <c:BL_Spinner aura:id="spinner"/>
         <div class="bl-card__title">
                 {!v.title}
         </div>

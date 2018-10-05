@@ -361,6 +361,14 @@
         <value>Private</value>
     </labels>
     <labels>
+        <fullName>BL_Progress_Chart</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Progress Chart</shortDescription>
+        <value>Progress Chart</value>
+    </labels>
+    <labels>
         <fullName>BL_Public</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -383,6 +391,22 @@
         <protected>false</protected>
         <shortDescription>Result</shortDescription>
         <value>Result</value>
+    </labels>
+    <labels>
+        <fullName>BL_Rounds_Lost_Scores_Title</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rounds Lost Scores Title</shortDescription>
+        <value>How many points {0} scores when opponents win the matches?</value>
+    </labels>
+    <labels>
+        <fullName>BL_Rounds_Won_Scores_Title</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rounds Won Scores Title</shortDescription>
+        <value>How many points opponents scores when {0} win the matches?</value>
     </labels>
     <labels>
         <fullName>BL_Select_Team_Error</fullName>

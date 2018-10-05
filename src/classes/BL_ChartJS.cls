@@ -5,7 +5,7 @@ public class BL_ChartJS {
         @AuraEnabled
         public String label;
         @AuraEnabled
-        public List<BL_ChartJS.Point> data = new List<BL_ChartJS.Point>();
+        public List<Object> data = new List<Object>();
         @AuraEnabled
         public Decimal lineTension;
         @AuraEnabled

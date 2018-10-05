@@ -1,0 +1,11 @@
+<aura:component controller="BL_RoundsLostScores" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+
+    <aura:attribute name="teamName" type="String" default="" access="private"/>
+
+    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.onInit}"/>
+
+    <c:BL_Card title="{!format($Label.c.BL_Rounds_Lost_Scores_Title, v.teamName)}" aura:id="card">
+        <canvas aura:id="chart" height="250"></canvas>
+    </c:BL_Card>
+
+</aura:component>
