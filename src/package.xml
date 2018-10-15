@@ -13,6 +13,8 @@
         <members>BL_CupMatchesService</members>
 		<members>BL_MatchScoreProviderController</members>
         <members>BL_CompetitionProgressChartController</members>
+        <members>BL_ColorHelper</members>
+        <members>BL_ChartJS</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -33,6 +35,7 @@
         <members>BL_ScoreSelectedEvent</members>
         <members>BL_roundScoreSelected</members>
         <members>BL_CompetitionProgressChart</members>
+        <members>BL_Card</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

@@ -28,6 +28,16 @@ public with sharing class BL_Utils {
         return competitors;
     }
 
+    public static void throwAuraHandledException(String message) {
+        throwAuraHandledException(message, message);
+    }
+
+    public static void throwAuraHandledException(String uiMessage, String apexMessage) {
+        AuraHandledException auraException = new AuraHandledException(uiMessage);
+        auraException.setMessage(apexMessage);
+        throw auraException;
+    }
+
     public without sharing class UnsecureClass{
         public void deleteNotOwnedRecord(SObject record){
             try{
