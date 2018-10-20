@@ -1,0 +1,15 @@
+<aura:component description="BL_Card">
+
+    <aura:attribute name="title" type="String" access="public"/>
+    <aura:attribute name="body" type="Aura.Component[]" access="public"/>
+
+    <div class="bl-card">
+        <div class="bl-card__title">
+                {!v.title}
+        </div>
+        <div class="slds-box_border bl-card__body">
+                {!v.body}
+        </div>
+    </div>
+
+</aura:component>

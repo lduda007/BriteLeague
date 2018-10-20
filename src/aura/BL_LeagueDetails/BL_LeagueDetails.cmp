@@ -76,7 +76,7 @@
 
                 <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" size="12" class="slds-p-around--x-small">
                     <div style="background: #143058; font-size: 1.5em; color: white; position: relative; padding: 0.3rem;" align="center">
-                        {!$Label.c.BL_League_Table}
+                            {!$Label.c.BL_League_Table}
                     </div>
                     <aura:if isTrue="{!v.league.Competitors__r.length > 0}">
                         <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
@@ -98,6 +98,9 @@
                                         </th>
                                     </aura:set>
                                 </aura:if>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Matches}">M</div>
+                                </th>
                                 <th scope="col">
                                     <div class="slds-truncate" title="{!$Label.c.BL_Win}">W</div>
                                 </th>
@@ -166,11 +169,14 @@
                                                             &amp;
                                                         </aura:set>
                                                     </aura:if>
-                                                    {!team.Team__r.Player2__r.LastName}
+                                                        {!team.Team__r.Player2__r.LastName}
                                                 </div>
                                             </td>
                                         </aura:set>
                                     </aura:if>
+                                    <td scope="row" data-label="{!$Label.c.BL_Matches}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Matches}">{!team.GamesWon__c + team.GamesDrawn__c + team.GamesLost__c}</div>
+                                    </td>
                                     <td scope="row" data-label="{!$Label.c.BL_Win}">
                                         <div class="slds-truncate" title="{!$Label.c.BL_Win}">{!team.GamesWon__c}</div>
                                     </td>
@@ -218,6 +224,10 @@
                             </div>
                         </aura:set>
                     </aura:if>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12" size="12" class="slds-p-around--x-small">
+                    <c:BL_CompetitionProgressChart competitionId="{!v.leagueId}"/>
                 </lightning:layoutItem>
 
             </lightning:layout>

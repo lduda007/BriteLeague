@@ -11,7 +11,10 @@
         <members>BL_TournamentsEmailService</members>
         <members>BL_LeagueMatchesService</members>
         <members>BL_CupMatchesService</members>
-        <members>BL_MatchScoreProviderController</members>
+		<members>BL_MatchScoreProviderController</members>
+        <members>BL_CompetitionProgressChartController</members>
+        <members>BL_ColorHelper</members>
+        <members>BL_ChartJS</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -22,7 +25,7 @@
         <members>BL_PlayerTeamsList</members>
         <members>BL_SelectedsObjectRecordEvent</members>
         <members>BL_CreateLeague</members>
-        <members>BL_Modal</members>
+		<members>BL_Modal</members>
         <members>BL_CompetitionCreatedEvent</members>
         <members>BL_MatchScoreProviderTile</members>
         <members>BL_TeamCard</members>
@@ -31,6 +34,8 @@
         <members>BL_ScorecProviderScoreInput</members>
         <members>BL_ScoreSelectedEvent</members>
         <members>BL_roundScoreSelected</members>
+        <members>BL_CompetitionProgressChart</members>
+        <members>BL_Card</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

@@ -1,0 +1,23 @@
+<aura:component description="BL_CompetitionProgressChart"
+                controller="BL_CompetitionProgressChartController"
+                implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <aura:attribute name="competitionId" type="String"/>
+    <aura:attribute name="labels" type="List"/>
+    <aura:attribute name="dataSets" type="List"/>
+    <aura:attribute name="chartHeight" type="String" default="300"/>
+    <aura:attribute name="isSpinner" type="Boolean" default="false"/>
+
+    <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
+
+    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.onInit}"/>
+
+    <c:BL_Card title="{!$Label.c.BL_Progress_Chart}">
+        <aura:if isTrue="{!v.isSpinner}">
+            <lightning:spinner variant="brand" size="small"/>
+        </aura:if>
+        <div style="position: relative; padding: 24px;">
+            <canvas aura:id="chart" height="{!v.chartHeight}"></canvas>
+        </div>
+    </c:BL_Card>
+</aura:component>
