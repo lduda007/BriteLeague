@@ -88,6 +88,10 @@
         <name>CustomObjectTranslation</name>
     </types>
     <types>
+        <members>*</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
         <members>briteleague</members>
         <name>CustomSite</name>
     </types>
