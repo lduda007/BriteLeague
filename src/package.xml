@@ -11,10 +11,12 @@
         <members>BL_TournamentsEmailService</members>
         <members>BL_LeagueMatchesService</members>
         <members>BL_CupMatchesService</members>
-		<members>BL_MatchScoreProviderController</members>
+        <members>BL_MatchScoreProviderController</members>
         <members>BL_CompetitionProgressChartController</members>
         <members>BL_ColorHelper</members>
         <members>BL_ChartJS</members>
+        <members>BL_RoundsLostScores</members>
+        <members>BL_RoundsWonScores</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -36,6 +38,8 @@
         <members>BL_roundScoreSelected</members>
         <members>BL_CompetitionProgressChart</members>
         <members>BL_Card</members>
+        <members>BL_RoundsLostScores</members>
+        <members>BL_RoundsWonScores</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
