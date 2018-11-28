@@ -10,6 +10,7 @@
         });
         errToast.fire();
     },
+
     getPicture : function(component) {
         let action = component.get("c.getProfilePicture");
         action.setParams({
@@ -18,59 +19,104 @@
         action.setCallback(this, function(response) {
             let attachment = response.getReturnValue();
             if (attachment && attachment.Id) {
-                component.set('v.pictureSrc', '/servlet/servlet.FileDownload?file='
-                                                  + attachment.Id);
+                component.set('v.pictureSrc', '/servlet/servlet.FileDownload?file=' + attachment.Id);
             }
         });
         $A.enqueueAction(action);
     },
-    readFile: function(component, helper, file) {
-        if (!file) return;
-        if (!file.type.match(/(image.*)/)) {
-  			return alert('Image file not supported');
-		}
-        let reader = new FileReader();
-        reader.onloadend = function() {
-            let dataURL = reader.result;
-            component.set("v.pictureSrc", dataURL);
-            component.set('v.attachmentContentType', file.type);
-            component.set('v.attachmentName', file.name);
-            component.set('v.attachmentBody', dataURL.match(/,(.*)$/)[1]);
-            helper.onOpenModal(component, event, helper);
-        };
-        reader.readAsDataURL(file);
-	},
 
-    upload: function(component, event, helper) {
-        component.set('v.showSpinner', true);
-        let action = component.get("c.savePicture");
+    save: function(component, file) {
+
+        let reader = new FileReader();
+
+        let helper = this;
+        reader.onload = function() {
+            let fileContents = reader.result;
+            let base64Mark = 'base64,';
+            let dataStart = fileContents.indexOf(base64Mark) + base64Mark.length;
+
+            fileContents = fileContents.substring(dataStart);
+
+            helper.upload(component, file, fileContents);
+        };
+
+        reader.readAsDataURL(file);
+    },
+
+    upload: function(component, file, fileContents) {
+        if(!file) return;
+        if(!file.type.match(/(image.*)/)) {
+            return alert('Image file not supported');
+        }
+
+        if(file.size > 4500000) {
+            alert('File size cannot exceed 4 500 000 bytes.\n' +
+                'Selected file size: ' + file.size);
+            return;
+        }
+        let reader = new FileReader();
+
+        let helper = this;
+        reader.onload = function() {
+            let fileContents = reader.result;
+            let base64Mark = 'base64,';
+            let dataStart = fileContents.indexOf(base64Mark) + base64Mark.length;
+
+            fileContents = fileContents.substring(dataStart);
+
+            helper.upload(component, file, fileContents);
+        };
+
+        let fromPos = 0;
+        let toPos = Math.min(fileContents.length, fromPos + 750000);
+        this.uploadChunk(component, file, fileContents, fromPos, toPos, '');
+    },
+
+    uploadChunk: function(component, file, fileContents, fromPos, toPos, attachId) {
+        component.set("v.showSpinner", true);
+        let chunk = fileContents.substring(fromPos, toPos);
+        let self = this;
+        let action = component.get("c.saveTheChunk");
         action.setParams({
             parentId: component.get("v.recordId"),
-            fileName: component.get('v.attachmentName'),
-            base64Data: component.get('v.attachmentBody'),
-            contentType: component.get('v.attachmentContentType')
+            fileName: file.name,
+            base64Data: encodeURIComponent(chunk),
+            contentType: file.type,
+            fileId: attachId
         });
-        component.set("v.message", "Uploading...");
         action.setCallback(this, function(response) {
-            console.log('IN CALLBACK');
             let state = response.getState();
-            if(state === 'SUCCESS' || state === 'DRAFT'){
-                component.set("v.message", "Image uploaded");
-                component.set("v.showSpinner", false);
-                let successToast = $A.get("e.force:showToast");
-                successToast.setParams({
-                    "message": 'Image uploaded',
-                    "type": 'success'
-                });
-                successToast.fire();
-            } else if (state === 'ERROR') {
-                alert('error');
+            if(state === 'SUCCESS' || state === 'DRAFT') {
+                attachId = response.getReturnValue();
+                fromPos = toPos;fromPos = toPos;
+                toPos = Math.min(fileContents.length, fromPos + 750000);
+                if(fromPos < toPos) {
+                    self.uploadChunk(component, file, fileContents, fromPos, toPos, attachId);
+                } else {
+                    component.set("v.message", "Image uploaded");
+                    component.set("v.showSpinner", false);
+                    $A.get("e.force:showToast").setParams({
+                        "message": 'Image uploaded',
+                        "type": 'success'
+                    }).fire();
+                    self.getPicture(component);
+                }
+            } else if(state === 'ERROR') {
+                let errors = response.getError();
+                let errorMessage = '';
+                for(let i = 0; i < errors.length; i++) {
+                    errorMessage += errors[i].message + ' ';
+                }
+                $A.get("e.force:showToast").setParams({
+                    "message": errorMessage,
+                    "type": 'error'
+                }).fire();
             }
         });
         $A.enqueueAction(action);
     },
-    getCurrentContactId : function(component, event, helper) {
-        console.log('get user');
+
+    getCurrentContactId : function(component) {
         let action = component.get("c.getUserContactId");
         action.setCallback(this, function(response) {
             component.set('v.contactId', response.getReturnValue());
@@ -78,22 +124,14 @@
         $A.enqueueAction(action);
     },
 
-    handleOnDrop : function(component, event, helper) {
+    handleOnDrop: function(component, event) {
         event.stopPropagation();
         event.preventDefault();
         event.dataTransfer.dropEffect = 'copy';
         let files = event.dataTransfer.files;
-        if (files.length>1) {
+        if(files.length > 1) {
             return alert("You can only upload one profile picture");
         }
-        helper.readFile(component, helper, files[0]);
-    },
-    onOpenModal : function(component, event, helper) {
-        document.getElementById('backdropOfConfirmTeamsProfilePicture').classList.add("slds-backdrop_open");
-        document.getElementById('modalOfConfirmTeamsProfilePicture').classList.add("slds-slide-down-cancel");
-    },
-    onCloseModal : function(component, event, helper) {
-        document.getElementById('backdropOfConfirmTeamsProfilePicture').classList.remove("slds-backdrop_open");
-        document.getElementById('modalOfConfirmTeamsProfilePicture').classList.remove("slds-slide-down-cancel");
-    },
-})
+        this.save(component, files[0]);
+    }
+});

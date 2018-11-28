@@ -5,7 +5,6 @@
             'teamId' : component.get('v.recordId')
         });
         action.setCallback(this, function(response){
-            console.log(response.getState())
             component.set('v.leaguesList', response.getReturnValue());
         });
         $A.enqueueAction(action);
