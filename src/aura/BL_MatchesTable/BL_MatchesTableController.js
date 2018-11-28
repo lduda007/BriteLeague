@@ -46,9 +46,10 @@
         let scoreModal = component.find("scoreModal");
         let matches = component.get('v.matches');
         let matchIndex = event.getSource().get("v.value");
-        let teamSize = matches[matchIndex].League__r.TeamSize__c;
+        let match = matches[matchIndex];
+        let teamSize = match.League__r.TeamSize__c;
         component.set("v.teamSize", teamSize);
-        component.set("v.selectedMatchId", matches[matchIndex].Id);
+        component.set("v.selectedMatchId", match.Id);
         component.set("v.editMode", true);
 
         if(teamSize === 'Single Player'){
