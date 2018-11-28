@@ -4,15 +4,55 @@
 .THIS {
     font-size: 14px;
 }
-.THIS .slds-panel__header-title{
+
+.THIS .slds-panel__header-title {
     text-align: left;
 }
-.THIS.winner-box-shadow{
-    box-shadow: 1px 3px 18px #1bba1c;
+
+.THIS.winner-box-shadow {
+    animation: winner-shadow-pulse 1.5s infinite;
 }
-.THIS.loser-box-shadow{
-    box-shadow: 1px 3px 18px #dc2528;
+
+.THIS.loser-box-shadow {
+    animation: loser-shadow-pulse 1.5s infinite;
 }
-.THIS.draw-box-shadow{
-    box-shadow: 1px 3px 18px #f4ab3c;
+
+.THIS.draw-box-shadow {
+    animation: draw-shadow-pulse 1.5s infinite;
+}
+
+@keyframes winner-shadow-pulse {
+    0% {
+        box-shadow: 0px 0px 0 0px rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: 0px 0px 15px 10px #1bba1c;
+    }
+    100% {
+        box-shadow: 0px 0px 0 0px rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes loser-shadow-pulse {
+    0% {
+        box-shadow: 0px 0px 0 0px rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: 0px 0px 15px 10px #dc2528;
+    }
+    100% {
+        box-shadow: 0px 0px 0 0px rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes draw-shadow-pulse {
+    0% {
+        box-shadow: 0px 0px 0 0px rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: 0px 0px 15px 10px #f4ab3c;
+    }
+    100% {
+        box-shadow: 0px 0px 0 0px rgba(0, 0, 0, 0);
+    }
 }

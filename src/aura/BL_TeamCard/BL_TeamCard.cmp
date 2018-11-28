@@ -1,4 +1,5 @@
 <aura:component description="BL_TeamCard">
+
     <aura:attribute name="teamName" type="String"/>
     <aura:attribute name="teamObject" type="List"/>
     <aura:attribute name="player1Name" type="String"/>
@@ -6,85 +7,34 @@
     <aura:attribute name="dockingSide" type="String" default="left"/>
     <aura:attribute name="teamFinalScoreColorStyle" type="String"/>
 
-
-    <!--<div onclick="{!c.navToUrl}" data-id="managed-services"  class="slds-large-size_1-of-5 slds-box slds-box_border-->
-     <!--slds-medium-size&#45;&#45;1-of-3 slds-col slds-small-size_12-of-12 slds-m-around&#45;&#45;medium slds-p-right&#45;&#45;large slds-p-left&#45;&#45;large slds-p-top&#45;&#45;medium slds-p-bottom&#45;&#45;medium navButton">-->
-        <!--{!v.teamName}-->
-
-            <!--<lightning:tile label="{!v.teamObject.Player1__r.Name}" href="">-->
-                <!--<aura:set attribute="media">-->
-                    <!--<lightning:avatar variant="circle"-->
-                                      <!--src="/docs/component-library/app/images/examples/avatar1.jpg"-->
-                                      <!--fallbackIconName="utility:user" size="x-small"/>-->
-                <!--</aura:set>-->
-            <!--</lightning:tile>-->
-
-            <!--<lightning:tile label="{!v.teamObject.Player2__r.Name}" href="">-->
-                <!--<aura:set attribute="media">-->
-                    <!--<lightning:avatar variant="circle"-->
-                                      <!--src="/docs/component-library/app/images/examples/avatar1.jpg"-->
-                                      <!--fallbackIconName="utility:user" size="x-small"/>-->
-                <!--</aura:set>-->
-
-            <!--</lightning:tile>-->
-    <!--</div>-->
-
-    <div class="{!'slds-panel slds-size_full slds-panel_docked slds-panel_docked-'+v.dockingSide+' slds-is-open '+v.teamFinalScoreColorStyle+'-box-shadow'}" aria-hidden="false">
-        <div class="slds-panel__header slds-color__background_gray-3" >
-            <h2 class="slds-panel__header-title slds-text-heading_small ">
-                <lightning:tile label="{!v.teamName}" href="">
-                    <aura:set attribute="media">
-                        <lightning:avatar src="/docs/component-library/app/images/examples/avatar1.jpg"
-                                          fallbackIconName="utility:activity" size="small"/>
-                    </aura:set>
-
-                </lightning:tile>
-            </h2>
-
-        </div>
-        <div class="slds-panel__body">
-            <div class="slds-media__body">
-
-                <ul class="slds-has-dividers--bottom-space">
-                    <li class="slds-item">
-                        <div class="slds-tile slds-media">
-                            <div class="slds-media__figure">
-
-                            </div>
-                            <div class="slds-media__body">
-                                <div class="slds-text-heading_small">
-                                    <lightning:tile label="{!v.teamObject.Player1__r.Name}" href="">
-                                        <aura:set attribute="media">
-                                            <lightning:avatar variant="circle"
-                                                              src="/docs/component-library/app/images/examples/avatar1.jpg"
-                                                              fallbackIconName="utility:user"/>
-                                        </aura:set>
-                                    </lightning:tile>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="slds-item">
-                        <div class="slds-tile slds-media">
-                            <div class="slds-media__figure">
-
-                            </div>
-                            <div class="slds-media__body">
-                                <div class="slds-text-heading_small">
-                                    <lightning:tile label="{!v.teamObject.Player2__r.Name}" href="">
-                                        <aura:set attribute="media">
-                                            <lightning:avatar variant="circle"
-                                                              src="/docs/component-library/app/images/examples/avatar1.jpg"
-                                                              fallbackIconName="utility:user"/>
-                                        </aura:set>
-
-                                    </lightning:tile>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div class="{!v.teamFinalScoreColorStyle+'-box-shadow'}">
+        <c:BL_Card title="{!v.teamName}">
+            <ul class="slds-list--vertical">
+                <li class="slds-list__item">
+                    <lightning:tile label="{!v.teamObject.Player1__r.Name}" href="" class="slds-text-heading_small">
+                        <aura:set attribute="media">
+                            <lightning:avatar variant="circle"
+                                              size="medium"
+                                              src="{!v.teamObject.Player1__r.ImageUrl__c}"
+                                              fallbackIconName="utility:user"
+                                              title="{!v.teamObject.Player1__r.Name}"
+                                              alternativeText="Avatar of Player 1"/>
+                        </aura:set>
+                    </lightning:tile>
+                </li>
+                <li class="slds-list__item slds-has-divider_top-space">
+                    <lightning:tile label="{!v.teamObject.Player2__r.Name}" href="" class="slds-text-heading_small">
+                        <aura:set attribute="media">
+                            <lightning:avatar variant="circle"
+                                              size="medium"
+                                              src="{!v.teamObject.Player2__r.ImageUrl__c}"
+                                              fallbackIconName="utility:user"
+                                              title="{!v.teamObject.Player2__r.Name}"
+                                              alternativeText="Avatar of Player 2"/>
+                        </aura:set>
+                    </lightning:tile>
+                </li>
+            </ul>
+        </c:BL_Card>
     </div>
 </aura:component>
