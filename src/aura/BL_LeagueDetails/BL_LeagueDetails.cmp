@@ -151,16 +151,16 @@
                                             <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
                                                 <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
                                                     <aura:if isTrue="{!not(empty(team.Team__r.Player1__r.ImageUrl__c))}">
-                                                        <img src="{!team.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                                        <img src="{!team.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar" title="{!team.Team__r.Player1__r.Name}"/>
                                                         <aura:set attribute="else">
-                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar" title="{!team.Team__r.Player1__r.Name}"/>
                                                         </aura:set>
                                                     </aura:if>
 
                                                     <aura:if isTrue="{!not(empty(team.Team__r.Player2__r.ImageUrl__c))}">
-                                                        <img src="{!team.Team__r.Player2__r.ImageUrl__c}" class="playerAvatar"/>
+                                                        <img src="{!team.Team__r.Player2__r.ImageUrl__c}" class="playerAvatar" title="{!team.Team__r.Player2__r.Name}"/>
                                                         <aura:set attribute="else">
-                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar" title="{!team.Team__r.Player2__r.Name}"/>
                                                         </aura:set>
                                                     </aura:if>
                                                     <span class="slds-p-left--x-small">{!team.Team__r.Player1__r.LastName}</span>
