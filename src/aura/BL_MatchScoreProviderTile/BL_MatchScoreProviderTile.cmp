@@ -31,8 +31,10 @@
 
     <aura:method name="clearScores" action="{!c.clearData}"/>
     <div class="slds-grid slds-grid_align-center">
-        <div class=" slds-size_4-of-12  slds-align-top slds-grid_vertical-align-start slds-box slds-box_small slds-border_bottom" >
-            <c:BL_TeamCard  teamName="{!v.team1.Team__r.Name}" teamObject="{!v.team1.Team__r}" dockingSide="left" teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"/>
+        <div class=" slds-size_4-of-12  slds-align-top slds-grid_vertical-align-start">
+            <div class="slds-m-horizontal_medium">
+                <c:BL_TeamCard  teamName="{!v.team1.Team__r.Name}" teamObject="{!v.team1.Team__r}" dockingSide="left" teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"/>
+            </div>
         </div>
 
         <div class=" slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
@@ -65,8 +67,10 @@
             </div>
         </div>
 
-        <div class=" slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start slds-box slds-box_small slds-border_bottom">
-            <c:BL_TeamCard teamName="{!v.team2.Team__r.Name}" teamObject="{!v.team2.Team__r}" dockingSide="right" teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"/>
+        <div class=" slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+            <div class="slds-m-horizontal_medium">
+                <c:BL_TeamCard teamName="{!v.team2.Team__r.Name}" teamObject="{!v.team2.Team__r}" dockingSide="right" teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"/>
+            </div>
         </div>
 
     </div>
