@@ -3,12 +3,8 @@
         console.log(response.getError()[0].message);
         let errorData = JSON.parse(response.getError()[0].message);
         console.log(errorData.name +" (code "+ errorData.code +"): "+ errorData.message);
-        let errToast = $A.get("e.force:showToast");
-        errToast.setParams({
-            "message": errorData.name +" (code "+ errorData.code +"): "+ errorData.message,
-            "type": 'error'
-        });
-        errToast.fire();
+        this.showToast(component, 'error', errorData.name + " (code " + errorData.code + "): " + errorData.message);
+
     },
 
     getPicture : function(component) {
@@ -26,54 +22,41 @@
     },
 
     save: function(component, file) {
-
-        let reader = new FileReader();
-
-        let helper = this;
-        reader.onload = function() {
-            let fileContents = reader.result;
-            let base64Mark = 'base64,';
-            let dataStart = fileContents.indexOf(base64Mark) + base64Mark.length;
-
-            fileContents = fileContents.substring(dataStart);
-
-            helper.upload(component, file, fileContents);
-        };
-
-        reader.readAsDataURL(file);
-    },
-
-    upload: function(component, file, fileContents) {
-        if(!file) return;
-        if(!file.type.match(/(image.*)/)) {
-            return alert('Image file not supported');
-        }
-
-        if(file.size > 4500000) {
-            alert('File size cannot exceed 4 500 000 bytes.\n' +
-                'Selected file size: ' + file.size);
+        if(!file) {
             return;
+        } else if(!file.type.match(/(image.*)/)) {
+            this.showToast(component, 'error', 'This file type is not supported');
+            return;
+        } else if(file.size > 4500000) {
+            this.showToast(component, 'error', 'File size cannot exceed 4.5 MB.\n' + 'Selected file size: ' + (file.size / (1024*1024)).toPrecision(2) + ' MB');
+            return;
+        } else {
+            let reader = new FileReader();
+            let helper = this;
+
+            reader.onloadend = function() {
+                let fileContents = reader.result;
+                let base64Mark = 'base64,';
+                let dataStart = fileContents.indexOf(base64Mark) + base64Mark.length;
+                fileContents = fileContents.substring(dataStart);
+
+                component.set("v.pictureSrc", fileContents);
+                component.set('v.attachmentContentType', file.type);
+                component.set('v.attachmentName', file.name);
+                component.set('v.attachmentBody', fileContents);
+
+                let fromPos = 0;
+                let toPos = Math.min(fileContents.length, fromPos + 500000);
+                helper.uploadChunk(component, file, fromPos, toPos, '');
+            };
+
+            reader.readAsDataURL(file);
         }
-        let reader = new FileReader();
-
-        let helper = this;
-        reader.onload = function() {
-            let fileContents = reader.result;
-            let base64Mark = 'base64,';
-            let dataStart = fileContents.indexOf(base64Mark) + base64Mark.length;
-
-            fileContents = fileContents.substring(dataStart);
-
-            helper.upload(component, file, fileContents);
-        };
-
-        let fromPos = 0;
-        let toPos = Math.min(fileContents.length, fromPos + 750000);
-        this.uploadChunk(component, file, fileContents, fromPos, toPos, '');
     },
 
-    uploadChunk: function(component, file, fileContents, fromPos, toPos, attachId) {
+    uploadChunk: function(component, file, fromPos, toPos, attachId) {
         component.set("v.showSpinner", true);
+        let fileContents = component.get("v.attachmentBody");
         let chunk = fileContents.substring(fromPos, toPos);
         let self = this;
         let action = component.get("c.saveTheChunk");
@@ -88,10 +71,11 @@
             let state = response.getState();
             if(state === 'SUCCESS' || state === 'DRAFT') {
                 attachId = response.getReturnValue();
-                fromPos = toPos;fromPos = toPos;
-                toPos = Math.min(fileContents.length, fromPos + 750000);
+                fromPos = toPos;
+                fromPos = toPos;
+                toPos = Math.min(fileContents.length, fromPos + 500000);
                 if(fromPos < toPos) {
-                    self.uploadChunk(component, file, fileContents, fromPos, toPos, attachId);
+                    self.uploadChunk(component, file, fromPos, toPos, attachId);
                 } else {
                     component.set("v.message", "Image uploaded");
                     component.set("v.showSpinner", false);
@@ -114,6 +98,7 @@
             }
         });
         $A.enqueueAction(action);
+        component.find('uploadDiv').click();
     },
 
     getCurrentContactId : function(component) {
@@ -133,5 +118,17 @@
             return alert("You can only upload one profile picture");
         }
         this.save(component, files[0]);
+    },
+
+    showToast: function(component, type, message) {
+        let toast = $A.get("e.force:showToast");
+        if(toast) {
+            toast.setParams({
+                "message": message,
+                "type": type
+            }).fire();
+        } else {
+            alert(message);
+        }
     }
 });

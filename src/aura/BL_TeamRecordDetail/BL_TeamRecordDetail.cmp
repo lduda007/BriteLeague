@@ -4,6 +4,9 @@
     <aura:attribute name="contactId" type="String"/>
     <aura:attribute name="showSpinnerInit" type="Boolean" default="true"/>
     <aura:attribute name="showSpinner" type="Boolean"/>
+    <aura:attribute name="attachmentBody" type="String"/>
+    <aura:attribute name="attachmentName" type="String"/>
+    <aura:attribute name="attachmentContentType" type="String"/>
     <aura:attribute name="pictureSrc" type="String" default="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdyq2y3f1IKjJEkyq7Dcx0oSQszq9VVm3lsiRbAR7BRCN0NCNG"/>
     <aura:attribute name="message" type="String" default="Drag team picture here"/>
 
