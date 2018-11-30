@@ -9,6 +9,7 @@
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
+    <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onInit}"/>
 
     <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.onInit}"/>
 
