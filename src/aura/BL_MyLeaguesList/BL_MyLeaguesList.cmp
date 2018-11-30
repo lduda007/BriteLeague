@@ -14,19 +14,19 @@
                 <th scope="col">
                     <div class="slds-truncate" title="{!$Label.c.BL_Name}">{!$Label.c.BL_Name}</div>
                 </th>
-                <th scope="col" width="22%">
+                <th scope="col" width="15%">
                     <div class="slds-truncate" title="{!$Label.c.BL_Start_Date}">{!$Label.c.BL_Start_Date}</div>
                 </th>
-                <th scope="col" width="19%">
+                <th scope="col" width="15%">
                     <div class="slds-truncate" title="{!$Label.c.BL_Type}">{!$Label.c.BL_Type}</div>
                 </th>
-                <th scope="col" width="20%">
+                <th scope="col" width="10%">
                     <div class="slds-truncate" title="{!$Label.c.BL_Teams}">{!$Label.c.BL_Teams}</div>
                 </th>
                 <th scope="col">
                     <div class="slds-truncate" title="Type">Type</div>
                 </th>
-                <th scope="col" width="20%">
+                <th scope="col" width="10%">
                     <div class="slds-truncate" title="{!$Label.c.BL_Status}">{!$Label.c.BL_Status}</div>
                 </th>
             </tr>

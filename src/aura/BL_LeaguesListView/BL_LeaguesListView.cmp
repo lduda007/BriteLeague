@@ -2,7 +2,7 @@
     <aura:attribute name="leaguesList" type="List"/>
     <aura:attribute name="myLeaguesList" type="List"/>
     <aura:attribute name="selectedLeagueId" type="String"/>
-    <aura:attribute name="selectedTabId" type="String" default="open"/>
+    <aura:attribute name="selectedTabId" type="String" default="myLeagues"/>
     <aura:attribute name="showSpinner" type="Boolean"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="competitionCreated" event="c:BL_CompetitionCreatedEvent" action="{!c.handleCompetitionCreated}"/>
@@ -12,13 +12,13 @@
     <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Competitions</div>
 
     <lightning:tabset variant="scoped" selectedTabId="{!v.selectedTabId}" aura:id="tabset">
-        <lightning:tab label="Available to join" id="open">
-            <c:BL_OpenCompetitionsTable/>
-        </lightning:tab>
         <lightning:tab label="{!$Label.c.BL_My_Competitions}" id="myLeagues">
             <div class="slds-scrollable--y" style="max-height: 37vh">
                 <c:BL_MyLeaguesList aura:id="myLeaguesComponent"/>
             </div>
+        </lightning:tab>
+        <lightning:tab label="Available to join" id="open">
+            <c:BL_OpenCompetitionsTable/>
         </lightning:tab>
         <lightning:tab label="{!$Label.c.BL_Create_Competition}">
             <c:BL_CreateLeague/>

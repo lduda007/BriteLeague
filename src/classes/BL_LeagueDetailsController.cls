@@ -3,8 +3,8 @@ public with sharing class BL_LeagueDetailsController {
     public static BL_League__c loadLeagueWithCompetitors(String leagueId) {
         List<BL_League__c> leagueToReturn = [
             SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, OwnerId, Status__c, TeamSize__c,
-                (SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c, Team__r.Name, Team__r.Player1__r.LastName, Team__r.Player2__r.LastName, GamesWon__c, GamesLost__c, GamesDrawn__c,
-                        GoalsFor__c, GoalsAgainst__c, GoalsDraw__c, Points__c,
+                (SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c, Team__r.Name, Team__r.Player1__r.LastName, Team__r.Player1__r.Name, Team__r.Player2__r.LastName, Team__r.Player2__r.Name,
+						GamesWon__c, GamesLost__c, GamesDrawn__c, GoalsFor__c, GoalsAgainst__c, GoalsDraw__c, Points__c,
                         Team__r.Player1__r.ImageUrl__c, Team__r.Player2__r.ImageUrl__c
                     FROM Competitors__r
                     ORDER BY Points__c DESC, GoalsDraw__c DESC, GoalsFor__c DESC, GoalsAgainst__c ASC)
@@ -22,15 +22,19 @@ public with sharing class BL_LeagueDetailsController {
                     SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c, League__r.TeamSize__c,
                            Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c, Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
                            Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c,
-                           Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c
+                           Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name,
+                           Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c
                     FROM BL_Match__c
                     WHERE League__c =: leagueId
                     ORDER BY DrawRound__c, Round__c
             ];
         }else{
             leagueMatches = [
-                    SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c,
-                           Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c
+                    SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c, League__r.TeamSize__c,
+                            Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c, Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
+                            Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c,
+                            Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name,
+                            Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c
                     FROM BL_Match__c
                     WHERE League__c =: leagueId AND (Team1__c =: competitorId OR Team2__c =: competitorId)
                     ORDER BY DrawRound__c, Round__c

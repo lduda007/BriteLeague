@@ -19,11 +19,8 @@
     />
 
     <lightning:card title="" variant="narrow">
-
         <c:BL_Spinner show="{!v.showSpinnerInit}"/>
-
         <lightning:layout multipleRows="true" verticalAlign="center">
-
             <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="4" largeDeviceSize="3" size="12" >
                 <aura:if isTrue="{!and(v.team.Player1__c != v.contactId, v.team.Player2__c != v.contactId)}">
                     <img src="{!v.pictureSrc}"/>
@@ -39,7 +36,6 @@
                 </aura:if>
                 <div style="font-size: 1.7em; font-weight: bold"><p class="slds-m-right--medium">{!v.team.Name}</p></div>
             </lightning:layoutItem>
-
             <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="8" largeDeviceSize="9" size="12">
                 <lightning:layout multipleRows="true">
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
@@ -90,34 +86,7 @@
                         <ui:outputNumber value="{!v.team.Total_Games_Drawn__c}" class="slds-text-heading--small"/>
                     </lightning:layoutItem>
                 </lightning:layout>
-
             </lightning:layoutItem>
-
         </lightning:layout>
-
     </lightning:card>
-
-    <div class="slds-modal" aria-hidden="false" role="dialog" id="modalOfConfirmTeamsProfilePicture">
-        <div class="slds-modal__container">
-            <div class="slds-modal__header">
-                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
-                                      alternativeText="{!$Label.c.BL_Close}" class="slds-modal__close"
-                                      onclick="{!c.closeModal}"/>
-                <h2 class="slds-text-heading--medium">Do you want to make this image your team's profile image?</h2>
-            </div>
-            <div class="slds-modal__content slds-p-around--medium">
-                <div class="confirmationModalContent">
-                    <img src="{!v.pictureSrc}"/>
-                </div>
-            </div>
-            <footer class="slds-modal__footer">
-                <lightning:button variant="success" onclick="{!c.uploadProfilePicture}">Set as profile picture.</lightning:button>
-                <lightning:button variant="destructive" onclick="{!c.closeModal}">Cancel</lightning:button>
-            </footer>
-        </div>
-
-    </div>
-
-    <div class="slds-backdrop" id="backdropOfConfirmTeamsProfilePicture"></div>
-
 </aura:component>
