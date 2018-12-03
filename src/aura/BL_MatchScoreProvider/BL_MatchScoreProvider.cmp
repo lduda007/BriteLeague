@@ -1,5 +1,6 @@
 <aura:component description="BL_MatchScoreProvider"
                 implements="flexipage:availableForAllPageTypes" controller="BL_MatchScoreProviderController">
+
     <aura:attribute name="matchRecord" type="Object"/>
     <aura:attribute name="simpleMatchRecord" type="Object"/>
     <aura:attribute name="recordError" type="String"/> 
@@ -11,6 +12,8 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.recordId}" action="{!c.handleRecordIdChanged}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleRoundScoreSaved}"/>
+
+    <aura:registerEvent name="BL_MatchScoreSaved" type="c:BL_MatchScoreSaved"/>
 
     <force:recordData aura:id="matchRecordEditor"
                       fields="Id, Name, MatchDate__c, isResolved__c, Team1_Score__c,Team1TotalGoalsScored__c,Team2TotalGoalsScored__c,
