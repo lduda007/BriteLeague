@@ -68,6 +68,8 @@
                     "message": "Score was saved."
                 });
                 resultsToast.fire();
+
+                $A.get("e.c:BL_MatchScoreSaved").fire();
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
