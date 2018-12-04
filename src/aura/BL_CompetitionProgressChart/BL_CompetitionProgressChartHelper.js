@@ -61,7 +61,7 @@
                             ticks: {
                                 min: 0,
                                 beginAtZero: true,
-                                suggestedMax: 5
+                                suggestedMax: 1
                             },
                             scaleLabel: {
                                 display: true,

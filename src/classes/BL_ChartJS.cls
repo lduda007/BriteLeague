@@ -35,7 +35,7 @@ public class BL_ChartJS {
         }
 
         public void setSecondaryColorBasedOnPrimaryColor() {
-            String color = borderColor.removeEnd('FF') + '11';
+            String color = borderColor.removeEnd('FF') + '50';
             backgroundColor = color;
             pointHoverBackgroundColor = color;
         }
