@@ -13,11 +13,11 @@ public class BL_ChartJS {
         @AuraEnabled
         public String borderColor;
         @AuraEnabled
-        public String backgroundColor;
+        public Object backgroundColor;
         @AuraEnabled
         public String pointHoverBorderColor;
         @AuraEnabled
-        public String pointHoverBackgroundColor;
+        public Object pointHoverBackgroundColor;
 
         public DataSet() {
             lineTension = 0.25;
@@ -32,6 +32,11 @@ public class BL_ChartJS {
         public void setSecondaryColor(String color) {
             backgroundColor = color;
             pointHoverBackgroundColor = color;
+        }
+
+        public void setSecondaryColor(List<String> colors) {
+            backgroundColor = colors;
+            pointHoverBackgroundColor = colors;
         }
 
         public void setSecondaryColorBasedOnPrimaryColor() {

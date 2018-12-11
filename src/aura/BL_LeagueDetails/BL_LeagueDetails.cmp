@@ -14,7 +14,7 @@
 
     <lightning:layout multipleRows="true" verticalAlign="center">
 
-        <lightning:layoutItem size="12" class="slds-p-around--x-small">
+        <lightning:layoutItem size="8" class="slds-p-around--x-small">
             <lightning:card iconName="utility:activity" title="{!$Label.c.BL_League+': '+v.league.Name}" variant="narrow">
                 <aura:set attribute="actions">
                     <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), greaterthan(v.league.Competitors__r.length, 1))}">
@@ -68,6 +68,10 @@
 
             </lightning:card>
 
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="4" class="slds-p-around--x-small">
+            <c:BL_CompetitionStatusChart competitionId="{!v.leagueId}"/>
         </lightning:layoutItem>
 
         <lightning:layoutItem size="12">

@@ -1,0 +1,35 @@
+.THIS.allChartContainer {
+    position: relative;
+    margin: 0;
+    height: 180px;
+}
+
+.THIS .chart1Container {
+    position: absolute;
+    top: 36px;
+}
+
+.THIS .chart2Container {
+    position: absolute;
+    top: 20px;
+}
+
+.THIS .chart3Container {
+    position: absolute;
+    top: 0px;
+}
+
+.THIS .chart1Container canvas {
+    width: 216px !important;
+    height: 108px !important;
+}
+
+.THIS .chart2Container canvas {
+    width: 280px !important;
+    height: 140px !important;
+}
+
+.THIS .chart3Container canvas {
+    width: 360px !important;
+    height: 180px !important;
+}

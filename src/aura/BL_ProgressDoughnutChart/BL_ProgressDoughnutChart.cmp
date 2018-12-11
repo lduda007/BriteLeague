@@ -1,0 +1,24 @@
+<aura:component description="BL_ProgressDoughnutChart">
+
+    <aura:attribute name="dataSet1" type="Object"/>
+    <aura:attribute name="dataSet2" type="Object"/>
+    <aura:attribute name="dataSet3" type="Object"/>
+    <aura:attribute name="isDataLoaded" type="Boolean" default="false"/>
+    <aura:attribute name="isScriptsLoaded" type="Boolean" default="false"/>
+
+    <aura:method name="setIsDataLoaded" action="{!c.onDataLoaded}"/>
+
+    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.onScriptsLoaded}"/>
+
+    <div class="slds-align--absolute-center slds-m-around--medium slds-grid slds-wrap allChartContainer">
+        <div class="chart1Container slds-col">
+            <canvas aura:id="chart1"></canvas>
+        </div>
+        <div class="chart2Container slds-col">
+            <canvas aura:id="chart2"></canvas>
+        </div>
+        <div class="chart3Container slds-col">
+            <canvas aura:id="chart3"></canvas>
+        </div>
+    </div>
+</aura:component>
