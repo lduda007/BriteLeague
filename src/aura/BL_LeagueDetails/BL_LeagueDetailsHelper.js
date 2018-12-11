@@ -41,7 +41,6 @@
             if (state === "SUCCESS")
             {
                 let matches = response.getReturnValue();
-                console.log(matches);
                 component.set("v.matches", matches);
             }else{
                 let resultsToast = $A.get("e.force:showToast");

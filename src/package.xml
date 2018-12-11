@@ -17,6 +17,7 @@
         <members>BL_ChartJS</members>
         <members>BL_RoundsLostScores</members>
         <members>BL_RoundsWonScores</members>
+        <members>BL_CompetitionStatusChartController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -41,6 +42,8 @@
         <members>BL_RoundsLostScores</members>
         <members>BL_RoundsWonScores</members>
         <members>BL_TeamRecordDetail</members>
+        <members>BL_ProgressDoughnutChart</members>
+        <members>BL_CompetitionStatusChart</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
