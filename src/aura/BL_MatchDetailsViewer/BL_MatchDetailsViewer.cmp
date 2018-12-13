@@ -1,16 +1,18 @@
 <aura:component description="BL_MatchDetailsViewer">
-    <aura:attribute name="match" type="Object" />
-    <aura:attribute name="team1FinalScoreColorStyle" type="String" />
-    <aura:attribute name="team2FinalScoreColorStyle" type="String" />
+
+    <aura:attribute name="match" type="Object"/>
+    <aura:attribute name="team1FinalScoreColorStyle" type="String"/>
+    <aura:attribute name="team2FinalScoreColorStyle" type="String"/>
 
     <aura:handler name="change" value="{!v.match}" action="{!c.handleMatchChange}"/>
 
-    <div class="slds-grid  slds-grid_align-center">
-        <div class=" slds-size_4-of-12  slds-align-top slds-grid_vertical-align-start slds-box slds-box_small slds-border_bottom" >
-            <c:BL_TeamCard  aura:id="team1Card" teamName="{!v.match.Team1__r.Team__r.Name}" teamObject="{!v.match.Team1__r.Team__r}" dockingSide="left" teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"/>
+    <div class="slds-grid slds-grid_align-center">
+        <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+            <div class="slds-m-horizontal_medium">
+                <c:BL_TeamCard  aura:id="team1Card" teamName="{!v.match.Team1__r.Team__r.Name}" teamObject="{!v.match.Team1__r.Team__r}" dockingSide="left" teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"/>
+            </div>
         </div>
-
-        <div class=" slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+        <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
             <div class="slds-grid slds-grid_vertical" style="line-height: 1;">
                 <div class="slds-col">
                     <c:BL_ScoreDisplay team1Score="{!v.match.Team1_Score__c}" team2Score="{!v.match.Team2_Score__c}"/>
@@ -28,10 +30,10 @@
                 </aura:if>
             </div>
         </div>
-
-        <div class=" slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start slds-box slds-box_small slds-border_bottom">
-            <c:BL_TeamCard aura:id="team2Card" teamName="{!v.match.Team2__r.Team__r.Name}" teamObject="{!v.match.Team2__r.Team__r}" dockingSide="right" teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"/>
+        <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+            <div class="slds-m-horizontal_medium">
+                <c:BL_TeamCard aura:id="team2Card" teamName="{!v.match.Team2__r.Team__r.Name}" teamObject="{!v.match.Team2__r.Team__r}" dockingSide="right" teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"/>
+            </div>
         </div>
-
     </div>
 </aura:component>

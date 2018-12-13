@@ -32,7 +32,7 @@
         let lineChartData = {};
         lineChartData.labels = component.get("v.labels");
         lineChartData.datasets = component.get("v.dataSets");
-
+        this.prepareWinComboPointStyles(lineChartData.datasets);
         if(!component.lineChart) {
             let ctx = component.find("chart").getElement();
             component.lineChart = new Chart(ctx, {
@@ -100,6 +100,38 @@
         } else {
             component.lineChart.data = lineChartData;
             component.lineChart.update();
+        }
+    },
+
+    prepareWinComboPointStyles: function(dataSets) {
+        for(let ds = 0; ds < dataSets.length; ds++) {
+            let dataSet = dataSets[ds];
+            let winCombo = 0;
+            dataSet.pointStyle = [];
+            dataSet.radius = [];
+            dataSet.pointHoverRadius = [];
+            dataSet.fill = true;
+            dataSet.pointBackgroundColor = [];
+
+            for(let i = 0; i < dataSet.data.length; i++) {
+                if(dataSet.data[i].matchPoints === 3) {
+                    winCombo++;
+                } else {
+                    winCombo = 0;
+                }
+
+                if(dataSet.data.length === (i + 1) && winCombo >= 2) {
+                    dataSet.pointStyle.push('rectRot');
+                    dataSet.radius.push(8);
+                    dataSet.pointHoverRadius.push(9);
+                    dataSet.pointBackgroundColor.push(dataSet.backgroundColor.substring(0, 7));
+                } else {
+                    dataSet.pointStyle.push('circle');
+                    dataSet.radius.push(3);
+                    dataSet.pointHoverRadius.push(4);
+                    dataSet.pointBackgroundColor.push(dataSet.backgroundColor);
+                }
+            }
         }
     },
 
