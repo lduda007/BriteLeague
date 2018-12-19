@@ -61,7 +61,7 @@
                             ticks: {
                                 min: 0,
                                 beginAtZero: true,
-                                suggestedMax: 1
+                                suggestedMax: this.getSuggestedYAxisMax(lineChartData.datasets)
                             },
                             scaleLabel: {
                                 display: true,
@@ -133,6 +133,20 @@
                 }
             }
         }
+    },
+
+    getSuggestedYAxisMax: function(dataSets) {
+        let maxPoints = 1;
+        for(let ds = 0; ds < dataSets.length; ds++) {
+            let dataSet = dataSets[ds];
+            if(dataSet.data.length > 0 && maxPoints < dataSet.data[dataSet.data.length - 1].y) {
+                maxPoints = dataSet.data[dataSet.data.length - 1].y;
+            }
+        }
+        let yAxisMax = maxPoints * 1.2 + 5 - (maxPoints * 1.2 % 5);
+        return yAxisMax - 5 > maxPoints
+                ? yAxisMax - 5
+                : yAxisMax;
     },
 
     showSpinner: function(component) {
