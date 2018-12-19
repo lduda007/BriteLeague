@@ -47,6 +47,13 @@
                             fontColor: "#000",
                             fontFamily: "Salesforce Sans",
                             usePointStyle: true
+                        },
+                        onClick: function(e, legendItem) {
+                            let ci = this.chart;
+                            let dataSet = ci.data.datasets[legendItem.datasetIndex];
+                            dataSet.hidden = !dataSet.hidden;
+                            ci.options.scales.yAxes[0].ticks.suggestedMax = ci.options.getSuggestedYAxisMax(ci.data.datasets);
+                            ci.update();
                         }
                     },
                     scales: {
@@ -94,7 +101,8 @@
                                 return point.matchDate;
                             }
                         }
-                    }
+                    },
+                    getSuggestedYAxisMax: this.getSuggestedYAxisMax
                 }
             });
         } else {
@@ -139,7 +147,7 @@
         let maxPoints = 1;
         for(let ds = 0; ds < dataSets.length; ds++) {
             let dataSet = dataSets[ds];
-            if(dataSet.data.length > 0 && maxPoints < dataSet.data[dataSet.data.length - 1].y) {
+            if((dataSet.hidden === undefined || dataSet.hidden === false) && dataSet.data.length > 0 && maxPoints < dataSet.data[dataSet.data.length - 1].y) {
                 maxPoints = dataSet.data[dataSet.data.length - 1].y;
             }
         }
