@@ -2,13 +2,14 @@
 
     <aura:attribute name="title" type="String" access="public"/>
     <aura:attribute name="body" type="Aura.Component[]" access="public"/>
+    <aura:attribute name="boxBorder" type="Boolean" access="public" default="true"/>
 
     <div class="bl-card">
         <c:BL_Spinner aura:id="spinner"/>
         <div class="bl-card__title">
                 {!v.title}
         </div>
-        <div class="slds-box_border bl-card__body">
+        <div class="{!'bl-card__body' + (v.boxBorder ? ' slds-box_border' : '')}">
                 {!v.body}
         </div>
     </div>

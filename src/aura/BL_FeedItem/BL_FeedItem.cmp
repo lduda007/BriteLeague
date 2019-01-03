@@ -1,0 +1,7 @@
+<aura:component description="BL_FeedItem">
+
+    <aura:attribute name="feedItem" type="Object" access="public"/>
+
+    <lightning:icon iconName="{!v.feedItem.iconName}" size="medium"/>
+
+</aura:component>
