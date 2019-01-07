@@ -9,12 +9,28 @@
         <value>Access</value>
     </labels>
     <labels>
+        <fullName>BL_All</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
         <fullName>BL_Already_joined</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Already joined</shortDescription>
         <value>Already joined</value>
+    </labels>
+    <labels>
+        <fullName>BL_Available</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available</shortDescription>
+        <value>Available</value>
     </labels>
     <labels>
         <fullName>BL_Cannot_start_cup</fullName>
@@ -39,6 +55,14 @@
         <protected>false</protected>
         <shortDescription>BL Close</shortDescription>
         <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>BL_Competitions</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Competitions</shortDescription>
+        <value>Competitions</value>
     </labels>
     <labels>
         <fullName>BL_Create_Competition</fullName>
@@ -193,6 +217,14 @@
         <value>Ups! Somebody already join this league and now it is full, or your team mate already joined to this league with your team.</value>
     </labels>
     <labels>
+        <fullName>BL_League_Not_Started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League not started</shortDescription>
+        <value>League not started</value>
+    </labels>
+    <labels>
         <fullName>BL_League_Table</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -257,12 +289,12 @@
         <value>Matches not generated yet</value>
     </labels>
     <labels>
-        <fullName>BL_My_Competitions</fullName>
+        <fullName>BL_My</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>BL My Competitions</shortDescription>
-        <value>My Competitions</value>
+        <shortDescription>My</shortDescription>
+        <value>My</value>
     </labels>
     <labels>
         <fullName>BL_Name</fullName>

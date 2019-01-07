@@ -1,13 +1,13 @@
 ({
-    retrieveOpenLeagues  : function(component, event) {
-        let action = component.get('c.getLeagues');
+    retrieveOpenLeagues: function(component, event) {
+        let action = component.get('c.getOpenLeagues');
         component.set('v.showSpinner', true);
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             let state = response.getState();
             if(state === 'SUCCESS') {
                 let openLeaguesList = response.getReturnValue();
                 component.set('v.openLeaguesList', openLeaguesList);
-            } else{
+            } else {
                 let errToast = $A.get("e.force:showToast");
                 errToast.setParams({
                     "message": "Error accured while joining to league",
@@ -19,7 +19,8 @@
         });
         $A.enqueueAction(action);
     },
-    onOpenModal : function(component, event) {
+
+    onOpenModal: function(component, event) {
         let selectedItemIndex = event.getSource().get("v.value");
         let joinComponent = component.find('joinComponent');
         joinComponent.getTeams(selectedItemIndex);
@@ -27,20 +28,21 @@
         $A.util.addClass(component.find('backdrop'), "slds-backdrop_open");
         $A.util.addClass(component.find('joinToCompetitionModal'), "slds-slide-down-cancel");
     },
-    onCloseModal : function(component, event) {
+
+    onCloseModal: function(component, event) {
         $A.util.removeClass(component.find('backdrop'), "slds-backdrop_open");
         $A.util.removeClass(component.find('joinToCompetitionModal'), "slds-slide-down-cancel");
     },
-    getCurrentUser : function(component){
+
+    getCurrentUser: function(component) {
         let action = component.get('c.getCurrentUser');
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             let state = response.getState();
-            if (state === "SUCCESS")
-            {
+            if(state === "SUCCESS") {
                 let user = response.getReturnValue();
                 component.set("v.user", user);
             }
         });
         $A.enqueueAction(action);
-    },
-})
+    }
+});
