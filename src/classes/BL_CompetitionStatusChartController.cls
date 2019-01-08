@@ -7,7 +7,7 @@ public class BL_CompetitionStatusChartController {
             initDataWrapper = new InitDataWrapper();
 
             BL_League__c league = [
-                    SELECT Id, TeamSize__c, Teams_Joined__c, Start_Date__c, End_Date__c, (
+                    SELECT Id, TeamSize__c, Teams_Joined__c, Start_Date__c, End_Date__c, Status__c, (
                             SELECT Id, isResolved__c, Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c,
                                     Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c
                             FROM Matches__r
@@ -17,11 +17,17 @@ public class BL_CompetitionStatusChartController {
                     LIMIT 1
             ];
 
-            initDataWrapper.competitionTimeProgressDataSet = getCompetitionTimeProgressDataSet(league);
-            initDataWrapper.competitionMatchesProgressDataSet = getCompetitionMatchesProgressDataSet(league.Matches__r);
-            initDataWrapper.teamMatchesProgressDataSet = getTeamMatchesProgressDataSet(league.Matches__r);
+            if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
+                initDataWrapper.isCompetitionStarted = true;
 
-            populateStatusFields(initDataWrapper);
+                initDataWrapper.competitionTimeProgressDataSet = getCompetitionTimeProgressDataSet(league);
+                initDataWrapper.competitionMatchesProgressDataSet = getCompetitionMatchesProgressDataSet(league.Matches__r);
+                initDataWrapper.teamMatchesProgressDataSet = getTeamMatchesProgressDataSet(league.Matches__r);
+
+                populateStatusFields(initDataWrapper);
+            } else {
+                initDataWrapper.isCompetitionStarted = false;
+            }
         } catch(Exception e) {
             String uiMessage = 'An error occurred during initialization of Competition Status Chart component: ' + e.getMessage();
             BL_Utils.throwAuraHandledException(uiMessage, uiMessage + ' ' + e.getStackTraceString());
@@ -131,6 +137,8 @@ public class BL_CompetitionStatusChartController {
     }
 
     public class InitDataWrapper {
+        @AuraEnabled
+        public Boolean isCompetitionStarted;
         @AuraEnabled
         public BL_ChartJS.DataSet competitionTimeProgressDataSet;
         @AuraEnabled

@@ -7,13 +7,22 @@
             "competitionId": component.get("v.competitionId")
         });
         action.setCallback(this, function(response) {
+            this.hideSpinner(component);
+
             let state = response.getState();
             let result = response.getReturnValue();
 
             if(state === "SUCCESS") {
-                component.set("v.labels", result.labels);
-                component.set("v.dataSets", result.dataSets);
-                this.generateChart(component);
+                try{
+                    component.set("v.isCompetitionStarted", result.isCompetitionStarted);
+                    if(result.isCompetitionStarted) {
+                        component.set("v.labels", result.labels);
+                        component.set("v.dataSets", result.dataSets);
+                        this.generateChart(component);
+                    }
+                } catch(error) {
+                    console.log(error);
+                }
             } else if(state === "ERROR") {
                 let errors = response.getError();
                 let message = 'Unknown error';
@@ -22,8 +31,6 @@
                 }
                 console.error(message);
             }
-
-            this.hideSpinner(component);
         });
         $A.enqueueAction(action);
     },

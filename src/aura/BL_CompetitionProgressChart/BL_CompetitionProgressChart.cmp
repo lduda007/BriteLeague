@@ -7,6 +7,7 @@
     <aura:attribute name="dataSets" type="List"/>
     <aura:attribute name="chartHeight" type="String" default="300"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="isCompetitionStarted" type="Boolean" default="false"/>
 
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
 
@@ -16,8 +17,13 @@
         <aura:if isTrue="{!v.isSpinner}">
             <lightning:spinner variant="brand" size="small"/>
         </aura:if>
-        <div style="position: relative; padding: 24px;">
+        <div style="position: relative; padding: 4px;">
             <canvas aura:id="chart" height="{!v.chartHeight}"></canvas>
         </div>
+        <aura:if isTrue="{!not(v.isSpinner)}">
+            <aura:if isTrue="{!not(v.isCompetitionStarted)}">
+                    <ui:outputText value="{!$Label.c.BL_League_Not_Started}" class="slds-align_absolute-center height-full"/>
+            </aura:if>
+        </aura:if>
     </c:BL_Card>
 </aura:component>

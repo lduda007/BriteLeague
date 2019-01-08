@@ -7,7 +7,7 @@ public with sharing class BL_LeagueDetailsController {
 						GamesWon__c, GamesLost__c, GamesDrawn__c, GoalsFor__c, GoalsAgainst__c, GoalsDraw__c, Points__c,
                         Team__r.Player1__r.ImageUrl__c, Team__r.Player2__r.ImageUrl__c
                     FROM Competitors__r
-                    ORDER BY Points__c DESC, GoalsDraw__c DESC, GoalsFor__c DESC, GoalsAgainst__c ASC)
+                    ORDER BY Points__c DESC, GoalsDraw__c DESC, GoalsFor__c DESC, GoalsAgainst__c ASC, Team__r.Name ASC)
             FROM BL_League__c
             WHERE Id =: leagueId
         ];

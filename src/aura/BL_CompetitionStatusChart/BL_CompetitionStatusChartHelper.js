@@ -7,13 +7,18 @@
             "competitionId": component.get("v.competitionId")
         });
         action.setCallback(this, function(response) {
+            this.hideSpinner(component);
+
             let state = response.getState();
             let result = response.getReturnValue();
 
             if(state === "SUCCESS") {
                 component.set("v.initDataWrapper", result);
-                let progressDoughnutChart = component.find("progressDoughnutChart");
-                progressDoughnutChart.setIsDataLoaded();
+                component.set("v.isCompetitionStarted", result.isCompetitionStarted);
+                if(result.isCompetitionStarted) {
+                    let progressDoughnutChart = component.find("progressDoughnutChart");
+                    progressDoughnutChart.setIsDataLoaded();
+                }
             } else if(state === "ERROR") {
                 let errors = response.getError();
                 let message = 'Unknown error';
@@ -22,8 +27,6 @@
                 }
                 console.error(message);
             }
-
-            this.hideSpinner(component);
         });
         $A.enqueueAction(action);
     },

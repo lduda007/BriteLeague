@@ -193,6 +193,14 @@
         <value>Ups! Somebody already join this league and now it is full, or your team mate already joined to this league with your team.</value>
     </labels>
     <labels>
+        <fullName>BL_League_Not_Started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League not started</shortDescription>
+        <value>League not started</value>
+    </labels>
+    <labels>
         <fullName>BL_League_Table</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>

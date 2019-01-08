@@ -19,6 +19,7 @@
         <members>BL_RoundsWonScores</members>
         <members>BL_CompetitionStatusChartController</members>
         <members>BL_CompetitionFeedController</members>
+        <members>BL_Constants</members>
         <name>ApexClass</name>
     </types>
     <types>

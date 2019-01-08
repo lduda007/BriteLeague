@@ -10,19 +10,20 @@
         });
         errToast.fire();
     },
+
     retrieveOpenLeagues  : function(component, event, helper) {
-    let action = component.get('c.getLeagues');
-    component.set('v.showSpinner', true);
-    action.setCallback(this, function(response){
-        let state = response.getState();
-        if(state === 'SUCCESS' || state === 'DRAFT') {
-            component.set('v.leaguesList', response.getReturnValue());
-        } else if(state === 'ERROR') {
-            helper.handleError(component, response, helper);
-        }
-        component.set('v.showSpinner', false);
-    });
-    $A.enqueueAction(action);
+        let action = component.get('c.getLeagues');
+        component.set('v.showSpinner', true);
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if(state === 'SUCCESS' || state === 'DRAFT') {
+                component.set('v.leaguesList', response.getReturnValue());
+            } else if(state === 'ERROR') {
+                helper.handleError(component, response, helper);
+            }
+            component.set('v.showSpinner', false);
+        });
+        $A.enqueueAction(action);
     },
 
     onOpenModal : function(component, event, helper) {
