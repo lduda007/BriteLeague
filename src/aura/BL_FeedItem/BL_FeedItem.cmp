@@ -2,6 +2,24 @@
 
     <aura:attribute name="feedItem" type="Object" access="public"/>
 
-    <lightning:icon iconName="{!v.feedItem.iconName}" size="medium"/>
-
+    <aura:if isTrue="{!equals(v.feedItem.type, 'event')}">
+        <lightning:layout  multipleRows="true" class="slds-p-around_small">
+            <lightning:layoutItem size="1" class="slds-align_absolute-center">
+                <lightning:icon iconName="{!v.feedItem.iconName}" size="medium"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="11" class="height-auto margin-auto">
+                <ui:outputText value="{!v.feedItem.message}" class="slds-p-horizontal--small"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="height-auto margin-auto">
+                <lightning:formattedDateTime value="{!v.feedItem.dt}"
+                                             year="numeric"
+                                             month="numeric"
+                                             day="numeric"
+                                             hour="numeric"
+                                             minute="numeric"
+                                             hour12="false"
+                                             class="text-x-small"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
 </aura:component>
