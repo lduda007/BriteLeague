@@ -46,6 +46,9 @@
         <members>BL_TeamRecordDetail</members>
         <members>BL_ProgressDoughnutChart</members>
         <members>BL_CompetitionStatusChart</members>
+        <members>BL_LeaguesListView</members>
+        <members>BL_MyLeaguesList</members>
+        <members>BL_OpenCompetitionsTable</members>
         <members>BL_CompetitionFeed</members>
         <members>BL_FeedItem</members>
         <name>AuraDefinitionBundle</name>

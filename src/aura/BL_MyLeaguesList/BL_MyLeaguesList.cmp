@@ -1,9 +1,13 @@
-<aura:component description="BL_MyLeaguesList" controller="BL_LeaguesListViewController">
+<aura:component description="BL_MyLeaguesList"
+                controller="BL_LeaguesListViewController">
+
     <aura:attribute name="myLeaguesList" type="List"/>
     <aura:attribute name="showSpinner" type="Boolean"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.retrieveMyLeagues}"/>
-    <aura:method name="retrieve" action="{!c.retrieveMyLeagues}">
-    </aura:method>
+
+    <aura:method name="retrieve" action="{!c.retrieveMyLeagues}"/>
+
     <div class="slds-is-relative">
         <c:BL_Spinner show="{!v.showSpinner}"/>
     </div>
@@ -69,5 +73,4 @@
             </div>
         </aura:set>
     </aura:if>
-
 </aura:component>
