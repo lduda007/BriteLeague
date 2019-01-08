@@ -1,26 +1,31 @@
-<aura:component description="BL_HomeDashboard" implements="forceCommunity:availableForAllPageTypes" controller="BL_HomeDashboardController">
+<aura:component description="BL_HomeDashboard"
+                controller="BL_HomeDashboardController"
+                implements="forceCommunity:availableForAllPageTypes">
+
     <aura:attribute name="lastMatches" type="List"/>
     <aura:attribute name="nextMatches" type="List"/>
-    <aura:attribute name="chartData" type="Object"/>
-    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.generateChart}"/>
+    <aura:attribute name="performancePeriod" type="String" default="LAST_YEAR"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.doInit}"/>
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
 
-    <lightning:layout multipleRows="true">
+    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.generateChart}"/>
 
+    <lightning:layout multipleRows="true">
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
-            <div class="slds-col slds-grid slds-size_1-of-1">
-                <div class="slds-col slds-size_1-of-1">
-                    <div class="slds-p-around--x-small header-div" align="center" style="margin-bottom: 10px;">Your Performance</div>
+            <c:BL_Card title="Your Performance">
+                <lightning:select label="Period" value="{!v.performancePeriod}" onchange="{!c.generateChart}">
+                    <option value="ALL_TIME">All Time</option>
+                    <option value="LAST_YEAR">Last Year</option>
+                    <option value="LAST_6_MONTHS">Last 6 Months</option>
+                    <option value="LAST_MONTH">Last Month</option>
+                    <option value="LAST_WEEK">Last Week</option>
+                </lightning:select>
+                <div class="slds-p-around--small">
+                    <canvas aura:id="performanceChart" height="350" width="100%"></canvas>
                 </div>
-            </div>
-            <div class="slds-col slds-grid slds-size_1-of-1">
-                <div class="slds-col slds-size_1-of-1" style="margin-bottom: 10px;">
-                    <canvas aura:id="condition" height="350" width="100%"></canvas>
-                </div>
-            </div>
+            </c:BL_Card>
         </lightning:layoutItem>
 
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">

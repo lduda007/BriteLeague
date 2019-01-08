@@ -47,6 +47,7 @@
         <members>BL_LeaguesListView</members>
         <members>BL_MyLeaguesList</members>
         <members>BL_OpenCompetitionsTable</members>
+        <members>BL_HomeDashboard</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
