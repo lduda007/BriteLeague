@@ -51,6 +51,7 @@
         <members>BL_OpenCompetitionsTable</members>
         <members>BL_CompetitionFeed</members>
         <members>BL_FeedItem</members>
+        <members>BL_HomeDashboard</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

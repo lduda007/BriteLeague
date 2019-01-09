@@ -3,7 +3,7 @@ public with sharing class BL_Utils {
 
     public static User getCurrentUser() {
         if(CURRENT_USER == null || CURRENT_USER.Id != UserInfo.getUserId()){
-            CURRENT_USER = [SELECT Id, ContactId FROM User WHERE Id = :UserInfo.getUserId()];
+            CURRENT_USER = [SELECT Id, ContactId, CreatedDate FROM User WHERE Id = :UserInfo.getUserId()];
         }
         return CURRENT_USER;
     }

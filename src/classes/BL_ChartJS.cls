@@ -1,9 +1,10 @@
 public class BL_ChartJS {
 
     public class DataSet {
-
         @AuraEnabled
         public String label;
+        @AuraEnabled
+        public List<String> labels = new List<String>();
         @AuraEnabled
         public List<Object> data = new List<Object>();
         @AuraEnabled
@@ -55,7 +56,6 @@ public class BL_ChartJS {
     }
 
     public class Point {
-
         @AuraEnabled
         public Object x;
         @AuraEnabled
