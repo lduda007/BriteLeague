@@ -13,15 +13,11 @@
             let result = response.getReturnValue();
 
             if(state === "SUCCESS") {
-                try{
-                    component.set("v.isCompetitionStarted", result.isCompetitionStarted);
-                    if(result.isCompetitionStarted) {
-                        component.set("v.labels", result.labels);
-                        component.set("v.dataSets", result.dataSets);
-                        this.generateChart(component);
-                    }
-                } catch(error) {
-                    console.log(error);
+                component.set("v.isCompetitionStarted", result.isCompetitionStarted);
+                if(result.isCompetitionStarted) {
+                    component.set("v.labels", result.labels);
+                    component.set("v.dataSets", result.dataSets);
+                    this.generateChart(component);
                 }
             } else if(state === "ERROR") {
                 let errors = response.getError();
