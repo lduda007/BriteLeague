@@ -84,8 +84,9 @@
                         bodyFontStyle: "bold",
                         callbacks: {
                             title: function(tooltipItems, data) {
-                                let point = data.datasets[tooltipItems[0].datasetIndex].data[tooltipItems[0].index];
-                                return $A.get("$Label.c.BL_Points") + ": " + point.y + " (+" + point.matchPoints + ")";
+                                let dataset = data.datasets[tooltipItems[0].datasetIndex];
+                                let point = dataset.data[tooltipItems[0].index];
+                                return dataset.label + ": " + point.y + " (+" + point.matchPoints + ")";
                             },
                             label: function(tooltipItem, data) {
                                 let point = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
