@@ -67,6 +67,15 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>MatchDate__c</fullName>
+        <description>Datetime when match was resolved</description>
+        <externalId>false</externalId>
+        <label>Match Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>NextRoundMatch__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -79,8 +88,64 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Round__c</fullName>
+        <externalId>false</externalId>
+        <label>Round</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team1Round1Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Team1 Round1 Goals</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team1Round2Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Team1 Round2 Goals</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team1Round3Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Team1 Round3 Goals</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team1TotalGoalsScored__c</fullName>
+        <externalId>false</externalId>
+        <formula>Team1Round1Goals__c +  Team1Round2Goals__c +  Team1Round3Goals__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Team1 Total Goals Scored</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Team1_Score__c</fullName>
-        <defaultValue>0</defaultValue>
         <externalId>false</externalId>
         <label>Team1 Score</label>
         <precision>3</precision>
@@ -95,16 +160,61 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Team1</label>
-        <referenceTo>BL_Team__c</referenceTo>
+        <referenceTo>BL_Competitor__c</referenceTo>
         <relationshipLabel>Matches</relationshipLabel>
-        <relationshipName>Matches1</relationshipName>
+        <relationshipName>Matches</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Team2Round1Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Team2 Round1 Goals</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team2Round2Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Team2 Round2 Goals</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team2Round3Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Team2 Round3 Goals</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team2TotalGoalsScored__c</fullName>
+        <externalId>false</externalId>
+        <formula>Team2Round1Goals__c + Team2Round2Goals__c + Team2Round3Goals__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Team2 Total Goals Scored</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Team2_Score__c</fullName>
-        <defaultValue>0</defaultValue>
         <externalId>false</externalId>
         <label>Team2 Score</label>
         <precision>3</precision>
@@ -119,9 +229,21 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Team2</label>
-        <referenceTo>BL_Team__c</referenceTo>
+        <referenceTo>BL_Competitor__c</referenceTo>
         <relationshipLabel>Matches (Team2)</relationshipLabel>
-        <relationshipName>Matches2</relationshipName>
+        <relationshipName>Matches1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Third_Place_Match__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>3rd Place Match</label>
+        <referenceTo>BL_Match__c</referenceTo>
+        <relationshipLabel>Matches (3rd Place Match)</relationshipLabel>
+        <relationshipName>ThirdPlacePreviousRoundMatches</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -129,7 +251,7 @@
     <fields>
         <fullName>Winner__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Team1_Score__c &gt; Team2_Score__c,  Team1__r.Id ,  Team2__r.Id)</formula>
+        <formula>IF( Team1_Score__c &gt; Team2_Score__c,  Team1__c ,  (IF(Team1_Score__c &lt; Team2_Score__c, Team2__c, NULL)))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Winner</label>
         <required>false</required>
@@ -137,9 +259,24 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>isResolved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If match isResolved that means all rounds was played and match should be included in score tables, otherwise, statistics are not counted</description>
+        <externalId>false</externalId>
+        <label>isResolved</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>Match</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>League__c</columns>
+        <columns>CupStage__c</columns>
+        <columns>Team1_Score__c</columns>
+        <columns>Team2_Score__c</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
