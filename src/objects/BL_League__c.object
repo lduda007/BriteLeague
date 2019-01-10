@@ -264,7 +264,7 @@
         <label>Start Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
@@ -312,9 +312,9 @@
                     <label>Single Player</label>
                 </value>
                 <value>
-                    <fullName>Two Players Team</fullName>
+                    <fullName>Two Players</fullName>
                     <default>false</default>
-                    <label>Two Players Team</label>
+                    <label>Two Players</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -370,6 +370,7 @@
         <columns>CREATEDBY_USER</columns>
         <columns>Matches_Scheduled__c</columns>
         <columns>Total_Matches_Played__c</columns>
+        <columns>TeamSize__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

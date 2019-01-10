@@ -1,10 +1,12 @@
 <aura:component description="BL_LeagueDetails" controller="BL_LeagueDetailsController">
+
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="league" type="BL_League__c"/>
     <aura:attribute name="matches" type="Object[]"/>
     <aura:attribute name="selectedRowIndex" type="Integer"/>
     <aura:attribute name="user" type="Object"/>
     <aura:attribute name="isCurrentUserAlreadyInCompetition" type="Boolean" default="true"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onScoreSubmitted}"/>
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
@@ -36,11 +38,21 @@
 
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Start_Date}:</p>
-                            <ui:outputText value="{!v.league.Start_Date__c}" title="{!$Label.c.BL_Start_Date}" class="slds-text-heading--small"/>
+                            <lightning:formattedDateTime value="{!v.league.Start_Date__c}"
+                                                         title="{!$Label.c.BL_Start_Date}"
+                                                         year="numeric"
+                                                         month="numeric"
+                                                         day="numeric"
+                                                         class="slds-text-heading--small"/>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_End_Date}: </p>
-                            <ui:outputText value="{!v.league.End_Date__c}" title="{!$Label.c.BL_End_Date}" class="slds-text-heading--small"/>
+                            <lightning:formattedDateTime value="{!v.league.End_Date__c}"
+                                                         title="{!$Label.c.BL_End_Date}"
+                                                         year="numeric"
+                                                         month="numeric"
+                                                         day="numeric"
+                                                         class="slds-text-heading--small"/>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Teams_number}: </p>

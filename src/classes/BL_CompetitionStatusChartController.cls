@@ -33,13 +33,13 @@ public class BL_CompetitionStatusChartController {
         BL_ChartJS.DataSet dataSet = new BL_ChartJS.DataSet();
 
         Date today = System.today();
-        Integer fromStartDays = league.Start_Date__c.daysBetween(today);
+        Integer fromStartDays = league.Start_Date__c.date().daysBetween(today);
         if(fromStartDays < 0) {
             fromStartDays = 0;
         }
         Integer toEndDays = today.daysBetween(league.End_Date__c);
         if(toEndDays < 0) {
-            fromStartDays = league.Start_Date__c.daysBetween(league.End_Date__c);
+            fromStartDays = league.Start_Date__c.date().daysBetween(league.End_Date__c);
             toEndDays = 0;
         }
 

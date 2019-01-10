@@ -38,7 +38,7 @@ public with sharing class BL_LeaguesListViewController {
         for(BL_League__c league : [
                 SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, TeamSize__c
                 FROM BL_League__c
-                WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.today())
+                WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.now())
                 AND Id NOT IN :getPlayerLeaguesIds()
         ]) {
             if(league.Max_Teams__c > league.Teams_Joined__c) {
