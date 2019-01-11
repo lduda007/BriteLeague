@@ -5,7 +5,7 @@
     <aura:attribute name="newLeagueError" type="String"/>
     <aura:attribute name="maxTeamsOptions" type="String[]"/>
     <aura:attribute name="selectedMaxTeamOption" type="String"/>
-    <aura:attribute name="endDateInputVisible" type="Boolean" default="true"/>
+    <aura:attribute name="endDateInputVisible" type="Boolean" default="false"/>
     <aura:attribute name="currentDate" type="String"/>
     <aura:attribute name="yearLaterDate" type="String"/>
     <aura:attribute name="maxEndDate" type="String"/>
@@ -75,7 +75,7 @@
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" class="slds-p-around--x-small">
                     <aura:if isTrue="{!v.endDateInputVisible}">
-                        <lightning:input aura:id="leagueField" type="date" label="End Date" required="true"
+                        <lightning:input aura:id="leagueField" type="datetime" label="End Date" required="true"
                                          value="{!v.simpleNewLeague.End_Date__c}"
                                          min="{!v.simpleNewLeague.Start_Date__c}" max="{!v.maxEndDate}"/>
                     </aura:if>
