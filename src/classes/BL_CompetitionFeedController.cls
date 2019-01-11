@@ -1,12 +1,14 @@
 public class BL_CompetitionFeedController {
 
     public final static String FEED_ITEM_TYPE_EVENT = 'event';
+    public final static String FEED_ITEM_TYPE_MATCH = 'match';
 
     @AuraEnabled
     public static InitDataWrapper getInitDataWrapper(Id competitionId) {
         InitDataWrapper initDataWrapper;
         try {
             initDataWrapper = new InitDataWrapper();
+            FeedItemWrapper feedItem;
 
             BL_League__c league = [
                     SELECT Id, CreatedDate, TeamSize__c, Teams_Joined__c, Status__c, Start_Date__c, End_Date__c
@@ -14,20 +16,21 @@ public class BL_CompetitionFeedController {
                     WHERE Id = :competitionId
                     LIMIT 1
             ];
-            initDataWrapper.addFeedItem(
-                    FEED_ITEM_TYPE_EVENT,
-                    'League created',
-                    'custom:custom44',
-                    league.CreatedDate
-            );
+
+            feedItem = new FeedItemWrapper();
+            feedItem.type = FEED_ITEM_TYPE_EVENT;
+            feedItem.message = 'League created';
+            feedItem.iconName = 'custom:custom44';
+            feedItem.dt = league.CreatedDate;
+            initDataWrapper.addFeedItem(feedItem);
 
             if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
-                initDataWrapper.addFeedItem(
-                        FEED_ITEM_TYPE_EVENT,
-                        'League started',
-                        'custom:custom20',
-                        league.Start_Date__c
-                );
+                feedItem = new FeedItemWrapper();
+                feedItem.type = FEED_ITEM_TYPE_EVENT;
+                feedItem.message = 'League started';
+                feedItem.iconName = 'custom:custom20';
+                feedItem.dt = league.Start_Date__c;
+                initDataWrapper.addFeedItem(feedItem);
 
                 for(BL_Competitor__c competitor : [
                         SELECT Id, Team__r.Name, CreatedDate
@@ -35,12 +38,12 @@ public class BL_CompetitionFeedController {
                         WHERE League__c = :competitionId
                         ORDER BY Team__r.Name ASC
                 ]) {
-                    initDataWrapper.addFeedItem(
-                            FEED_ITEM_TYPE_EVENT,
-                            competitor.Team__r.Name + ' joined',
-                            'custom:custom83',
-                            competitor.CreatedDate
-                    );
+                    feedItem = new FeedItemWrapper();
+                    feedItem.type = FEED_ITEM_TYPE_EVENT;
+                    feedItem.message = competitor.Team__r.Name + ' joined';
+                    feedItem.iconName = 'custom:custom83';
+                    feedItem.dt = league.CreatedDate;
+                    initDataWrapper.addFeedItem(feedItem);
                 }
 
                 for(BL_Match__c match : [
@@ -51,22 +54,24 @@ public class BL_CompetitionFeedController {
                         AND isResolved__c = true
                         ORDER BY MatchDate__c ASC, LastModifiedDate ASC
                 ]) {
-                    initDataWrapper.addFeedItem(
-                            FEED_ITEM_TYPE_EVENT,
-                            match.Team1__r.Team__r.Name + ' vs ' + match.Team2__r.Team__r.Name + ' (' + match.Team1_Score__c + ':' + match.Team2_Score__c + ')',
-                            'custom:custom82',
-                            match.MatchDate__c
-                    );
+                    feedItem = new FeedItemWrapper();
+                    feedItem.type = FEED_ITEM_TYPE_MATCH;
+                    feedItem.message = '(' + match.Team1_Score__c + ':' + match.Team2_Score__c + ')';
+                    feedItem.team1 = match.Team1__r.Team__r.Name;
+                    feedItem.team2 = match.Team2__r.Team__r.Name;
+                    feedItem.iconName = 'custom:custom82';
+                    feedItem.dt = match.MatchDate__c;
+                    initDataWrapper.addFeedItem(feedItem);
                 }
             }
 
             if(league.Status__c == BL_Constants.LEAGUE_STATUS_FINISHED) {
-                initDataWrapper.addFeedItem(
-                        FEED_ITEM_TYPE_EVENT,
-                        'League finished',
-                        'custom:custom95',
-                        league.End_Date__c
-                );
+                feedItem = new FeedItemWrapper();
+                feedItem.type = FEED_ITEM_TYPE_EVENT;
+                feedItem.message = 'League finished';
+                feedItem.iconName = 'custom:custom95';
+                feedItem.dt = league.End_Date__c;
+                initDataWrapper.addFeedItem(feedItem);
             }
 
             initDataWrapper.sortFeedItems();
@@ -82,13 +87,8 @@ public class BL_CompetitionFeedController {
         @AuraEnabled
         public List<FeedItemWrapper> feedItems = new List<FeedItemWrapper>();
 
-        public void addFeedItem(String type, String message, String iconName, Datetime dt) {
-            FeedItemWrapper feedItemWrapper = new FeedItemWrapper();
-            feedItemWrapper.type = type;
-            feedItemWrapper.message = message;
-            feedItemWrapper.iconName = iconName;
-            feedItemWrapper.dt = dt;
-            feedItems.add(feedItemWrapper);
+        public void addFeedItem(FeedItemWrapper feedItem) {
+            feedItems.add(feedItem);
         }
 
         public void sortFeedItems() {
@@ -105,6 +105,10 @@ public class BL_CompetitionFeedController {
         public String iconName;
         @AuraEnabled
         public Datetime dt;
+        @AuraEnabled
+        public String team1;
+        @AuraEnabled
+        public String team2;
 
         public Integer compareTo(Object compareTo) {
             Long thisMillis = dt.getTime();

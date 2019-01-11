@@ -9,3 +9,11 @@
 .THIS .text-x-small {
     font-size: .6rem;
 }
+
+.THIS .no-padding {
+    padding: 0;
+}
+
+.THIS .text-bold {
+    font-weight: bold;
+}

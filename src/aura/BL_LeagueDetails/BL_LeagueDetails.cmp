@@ -235,20 +235,10 @@
             </c:BL_Card>
         </lightning:layoutItem>
 
-        <aura:if isTrue="{!or(equals(v.user.Id, '0050D000000QXxOQAW'), equals(v.user.Id, '0050D000000QXxJQAW'))}">
-            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-                <c:BL_CompetitionFeed competitionId="{!v.leagueId}"/>
-            </lightning:layoutItem>
-            <aura:set attribute="else">
-                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-                    <c:BL_Card title="?">
-                        <div style="height: 348px;" class="slds-align_absolute-center">
-                            Coming Soon!
-                        </div>
-                    </c:BL_Card>
-                </lightning:layoutItem>
-            </aura:set>
-        </aura:if>
+
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
+            <c:BL_CompetitionFeed competitionId="{!v.leagueId}"/>
+        </lightning:layoutItem>
 
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
             <c:BL_CompetitionProgressChart competitionId="{!v.leagueId}"/>
