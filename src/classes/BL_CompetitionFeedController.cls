@@ -42,7 +42,7 @@ public class BL_CompetitionFeedController {
                     feedItem.type = FEED_ITEM_TYPE_EVENT;
                     feedItem.message = competitor.Team__r.Name + ' joined';
                     feedItem.iconName = 'custom:custom83';
-                    feedItem.dt = league.CreatedDate;
+                    feedItem.dt = competitor.CreatedDate;
                     initDataWrapper.addFeedItem(feedItem);
                 }
 
