@@ -37,9 +37,9 @@ public class BL_CompetitionStatusChartController {
         if(fromStartDays < 0) {
             fromStartDays = 0;
         }
-        Integer toEndDays = today.daysBetween(league.End_Date__c);
+        Integer toEndDays = today.daysBetween(league.End_Date__c.date());
         if(toEndDays < 0) {
-            fromStartDays = league.Start_Date__c.date().daysBetween(league.End_Date__c);
+            fromStartDays = league.Start_Date__c.date().daysBetween(league.End_Date__c.date());
             toEndDays = 0;
         }
 
