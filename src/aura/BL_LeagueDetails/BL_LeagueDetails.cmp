@@ -155,7 +155,11 @@
                                     </td>
                                     <aura:set attribute="else">
                                         <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
-                                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">{!team.Team__r.Name}</a></div>
+                                            <div class="slds-truncate text-bold" title="{!$Label.c.BL_Team_Name}">
+                                                <a data-recordId="{!team.Team__c}" onclick="{!c.goToTeamPage}">
+                                                        {!team.Team__r.Name}
+                                                </a>
+                                            </div>
                                         </td>
                                         <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
                                             <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">
