@@ -1,10 +1,11 @@
 <aura:component description="BL_CreateLeague">
+
     <aura:attribute name="newLeague" type="Object"/>
     <aura:attribute name="simpleNewLeague" type="Object"/>
     <aura:attribute name="newLeagueError" type="String"/>
     <aura:attribute name="maxTeamsOptions" type="String[]"/>
     <aura:attribute name="selectedMaxTeamOption" type="String"/>
-    <aura:attribute name="endDateInputVisible" type="Boolean" default="true"/>
+    <aura:attribute name="endDateInputVisible" type="Boolean" default="false"/>
     <aura:attribute name="currentDate" type="String"/>
     <aura:attribute name="yearLaterDate" type="String"/>
     <aura:attribute name="maxEndDate" type="String"/>
@@ -14,14 +15,17 @@
     <aura:attribute name="teamSize" type="String" default="Two Players" access="private"/>
     <aura:attribute name="cupTeamsNumber" type="List" default="[4,8,16,32,64]" access="private"/>
     <aura:attribute name="leagueRoundsNumber" type="List" default="[]" access="private"/>
-    <aura:attribute name="options" type="List" default="[{'label': 'League', 'value': 'league'},{'label': 'Cup', 'value': 'cup'}]"/>
-    <aura:attribute name="teamOptions" type="List" default="[{'label': 'Single Player', 'value': 'Single Player'},{'label': 'Two Players', 'value': 'Two Players'}]"/>
+    <aura:attribute name="options" type="List"
+                    default="[{'label': 'League', 'value': 'league'},{'label': 'Cup', 'value': 'cup'}]"/>
+    <aura:attribute name="teamOptions" type="List"
+                    default="[{'label': 'Single Player', 'value': 'Single Player'},{'label': 'Two Players', 'value': 'Two Players'}]"/>
     <aura:attribute name="totalMatches" type="Integer" default="0" access="private"/>
     <aura:attribute name="totalMatchesLimit" type="Integer" default="800"/>
     <aura:attribute name="totalRoundsLimit" type="Integer" default="20"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.simpleNewLeague.Start_Date__c}" action="{!c.handleStartDateChange}"/>
+
     <aura:registerEvent name="competitionCreated" type="c:BL_CompetitionCreatedEvent"/>
 
     <force:recordData aura:id="leagueRecordCreator"
@@ -34,10 +38,11 @@
 
     <!--<lightning:formattedNumber value="{!v.totalMatches}"/>-->
     <lightning:layout horizontalAlign="center" verticalAlign="center" class="slds-p-around--small">
-        <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="5" size="12" >
+        <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="5" size="12">
 
             <lightning:layout multipleRows="true">
-                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small slds-align_absolute-center">
+                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                                      class="slds-p-around--x-small slds-align_absolute-center">
                     <lightning:radioGroup name="radioButtonGroup"
                                           label="Competition Type"
                                           options="{! v.options }"
@@ -45,7 +50,8 @@
                                           type="button"
                                           onchange="{!c.handleCompetitionTypeChange}"/>
                 </lightning:layoutItem>
-                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small slds-align_absolute-center">
+                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                                      class="slds-p-around--x-small slds-align_absolute-center">
                     <lightning:radioGroup name="teamRadioButtonGroup"
                                           label="Team size"
                                           options="{! v.teamOptions }"
@@ -58,16 +64,18 @@
                     <lightning:input aura:id="leagueField"
                                      label="{! v.competitionType == 'league' ? 'League Name' : 'Cup Name'}"
                                      required="true"
-                                     value="{!v.simpleNewLeague.Name}" maxlength="40" pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
+                                     value="{!v.simpleNewLeague.Name}" maxlength="40"
+                                     pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
                                      messageWhenPatternMismatch="Only letters and numbers allowed"/>
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" class="slds-p-around--x-small">
-                    <lightning:input aura:id="leagueField" type="date" label="Start Date" required="true"
-                                     value="{!v.simpleNewLeague.Start_Date__c}" min="{!v.currentDate}" max="{!v.yearLaterDate}" />
+                    <lightning:input aura:id="leagueField" type="datetime" label="Start Date" required="true"
+                                     value="{!v.simpleNewLeague.Start_Date__c}" min="{!v.currentDate}"
+                                     max="{!v.yearLaterDate}"/>
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" class="slds-p-around--x-small">
                     <aura:if isTrue="{!v.endDateInputVisible}">
-                        <lightning:input aura:id="leagueField" type="date" label="End Date" required="true"
+                        <lightning:input aura:id="leagueField" type="datetime" label="End Date" required="true"
                                          value="{!v.simpleNewLeague.End_Date__c}"
                                          min="{!v.simpleNewLeague.Start_Date__c}" max="{!v.maxEndDate}"/>
                     </aura:if>
@@ -122,7 +130,8 @@
                 <lightning:layoutItem size="12" class="slds-p-around--x-small slds-align--absolute-center">
                     <lightning:button label="Clear" variant="brand"
                                       onclick="{!c.handleClear}"/>
-                    <lightning:button label="{! v.competitionType == 'league' ? 'Create League' : 'Create Cup'}" variant="brand"
+                    <lightning:button label="{! v.competitionType == 'league' ? 'Create League' : 'Create Cup'}"
+                                      variant="brand"
                                       onclick="{!c.handleSaveCompetition}"
                                       disabled="{! empty(v.simpleNewLeague.Name) || empty(v.simpleNewLeague.Start_Date__c) || empty(v.simpleNewLeague.End_Date__c) || (and(empty(v.simpleNewLeague.Max_Teams__c) , !v.isNumberOfTeamsUnlimited)) || and(empty(v.simpleNewLeague.Match_No__c) , equals(v.competitionType,'league'))}"/>
 
@@ -136,5 +145,4 @@
             </aura:if>
         </lightning:layoutItem>
     </lightning:layout>
-
 </aura:component>

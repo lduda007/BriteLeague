@@ -43,7 +43,7 @@ public with sharing class BL_CupDetailsController {
             throw new AuraHandledException(Label.BL_Cup_already_started);
         }
         try{
-            cup.Start_Date__c = Date.today();
+            cup.Start_Date__c = System.now();
             cup.Status__c = 'Started';
             update cup;
             BL_CupMatchesService.generateMatchesAfterCupStarted(cupId);

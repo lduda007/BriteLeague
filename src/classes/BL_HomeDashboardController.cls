@@ -104,22 +104,21 @@ public with sharing class BL_HomeDashboardController {
                     OR Player2__c = :currentPlayerId
             ]);
             List<BL_Match__c> matches = [
-                    SELECT Id, LastModifiedDate, Team1__r.Team__c, Team2__r.Team__c,
+                    SELECT Id, MatchDate__c, Team1__r.Team__c, Team2__r.Team__c,
                             Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c,
                             Team2Round1Goals__c, Team2Round2Goals__c, Team2Round3Goals__c
                     FROM BL_Match__c
-                    WHERE LastModifiedDate >= :dateFrom
-                    AND (Team1_Score__c != 0 OR Team2_Score__c != 0)
-                    AND (Team1Round1Goals__c != null AND Team2Round1Goals__c != null)
+                    WHERE MatchDate__c >= :dateFrom
+                    AND isResolved__c = true
                     AND (
                             Team1__r.Team__c IN :playerTeams.keySet()
                             OR Team2__r.Team__c IN :playerTeams.keySet()
                     )
-                    ORDER BY LastModifiedDate ASC
+                    ORDER BY MatchDate__c ASC
             ];
 
             for(BL_Match__c match : matches) {
-                Date matchDate = Date.newInstance(match.LastModifiedDate.year(), match.LastModifiedDate.month(), match.LastModifiedDate.day());
+                Date matchDate = match.MatchDate__c.date();
                 if(!scorePerDate.containsKey(matchDate)) {
                     scorePerDate.put(matchDate, 0);
                     matchPerDate.put(matchDate, 0);

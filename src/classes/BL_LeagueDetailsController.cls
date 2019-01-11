@@ -51,7 +51,7 @@ public with sharing class BL_LeagueDetailsController {
             throw new AuraHandledException(Label.BL_League_already_started);
         }
         try{
-            league.Start_Date__c = Date.today();
+            league.Start_Date__c = System.now();
             league.Status__c = 'Started';
             update league;
             BL_LeagueMatchesService.generateMatchesAfterLeagueStarted(leagueId);
