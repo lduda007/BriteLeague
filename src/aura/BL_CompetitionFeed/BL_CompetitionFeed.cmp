@@ -9,7 +9,7 @@
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
 
     <c:BL_Card title="Feed">
-        <div style="height: 310px;" class="slds-scrollable">
+        <div style="height: 310px;" class="slds-scrollable_y">
             <aura:if isTrue="{!v.isSpinner}">
                 <lightning:spinner variant="brand" size="small"/>
                 <aura:set attribute="else">

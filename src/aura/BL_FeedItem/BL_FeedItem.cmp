@@ -7,15 +7,10 @@
         <lightning:layoutItem size="1" class="slds-align_absolute-center">
             <lightning:icon iconName="{!v.feedItem.iconName}" size="medium"/>
         </lightning:layoutItem>
-        <lightning:layoutItem size="11" class="height-auto margin-auto">
-            <aura:if isTrue="{!equals(v.feedItem.type, 'match')}">
-                <ui:outputText value="{!v.feedItem.team1 + ' vs ' + v.feedItem.team2 + ' ' + v.feedItem.message}"
-                               title="{!v.feedItem.team1 + ' vs ' + v.feedItem.team2 + ' ' + v.feedItem.message}"
-                               class="slds-p-horizontal--small slds-truncate"/>
-                <aura:set attribute="else">
-                    <ui:outputText value="{!v.feedItem.message}" class="slds-p-horizontal--small"/>
-                </aura:set>
-            </aura:if>
+        <lightning:layoutItem size="11" class="margin-auto">
+            <div class="slds-p-horizontal--small">
+                <lightning:formattedRichText value="{!v.feedItem.message}"/>
+            </div>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" class="height-auto margin-auto">
             <lightning:formattedDateTime value="{!v.feedItem.dt}"
