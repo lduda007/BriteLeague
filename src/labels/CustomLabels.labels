@@ -113,6 +113,14 @@
         <value>Draw</value>
     </labels>
     <labels>
+        <fullName>BL_Draw_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draw Statements</shortDescription>
+        <value>Drużyny {0} i {1} zremisowały!</value>
+    </labels>
+    <labels>
         <fullName>BL_End_Date</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -191,6 +199,22 @@
         <protected>false</protected>
         <shortDescription>Goals For</shortDescription>
         <value>Goals For</value>
+    </labels>
+    <labels>
+        <fullName>BL_Hard_Loss_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hard Loss Statements</shortDescription>
+        <value>Drużyna {0} dostała ostre bęcki od zespołu {1}!</value>
+    </labels>
+    <labels>
+        <fullName>BL_Hard_Win_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hard Win Statements</shortDescription>
+        <value>Zespół {0} nie zostawił suchej nitki na drużynie {0}!</value>
     </labels>
     <labels>
         <fullName>BL_Join</fullName>
@@ -471,6 +495,22 @@
         <protected>false</protected>
         <shortDescription>Set</shortDescription>
         <value>Set</value>
+    </labels>
+    <labels>
+        <fullName>BL_Soft_Loss_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Soft Loss Statements</shortDescription>
+        <value>Drużyna {0} uległa zespołowi {1}.</value>
+    </labels>
+    <labels>
+        <fullName>BL_Soft_Win_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Soft Win Statements</shortDescription>
+        <value>Zespołowi {0} udało się pokonać drużynę {1}.</value>
     </labels>
     <labels>
         <fullName>BL_Start_Date</fullName>
