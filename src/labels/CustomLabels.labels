@@ -118,7 +118,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Draw Statements</shortDescription>
-        <value>Drużyny {0} i {1} zremisowały!</value>
+        <value>Drużyny {0} i {1} zremisowały!;Drużyny {0} i {1} rozegrały równy mecz!;Mecz pomiędzy drużynami {0} i {1} zakończył się remisem.;Równy podział punktów pomiędzy zespoły {0} i {1}.;Równa walka pomiędzy {0} i {1} dobiegła końca!</value>
     </labels>
     <labels>
         <fullName>BL_End_Date</fullName>
@@ -206,7 +206,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Hard Loss Statements</shortDescription>
-        <value>Drużyna {0} dostała ostre bęcki od zespołu {1}!</value>
+        <value>Drużyna {0} dostała ostre bęcki od zespołu {1}!;Drużyna {0} nie spodziewała się takiej potęgi ze strony {1}.;Drużyna {0} dowiedziała się gdzie pieprz rośnie dzięki zespołowi {1}!;Drużyna {0} musi jeszcze długo popracować jeśli chce się mierzyć z takimi jak {1}!</value>
     </labels>
     <labels>
         <fullName>BL_Hard_Win_Statements</fullName>
@@ -214,7 +214,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Hard Win Statements</shortDescription>
-        <value>Zespół {0} nie zostawił suchej nitki na drużynie {0}!</value>
+        <value>Zespół {0} nie zostawił suchej nitki na drużynie {1}!;Zespół {0} rozgromił drużynę {1}!;Babcie zespołu {0} grają o niebo lepiej niż drużyna {1}!;Zespół {0} dał drużynie {1} porządną lekcję!;Tacy kozacy jak {0} nie powinni męczyć drużyn pokroju {0}...</value>
     </labels>
     <labels>
         <fullName>BL_Join</fullName>
@@ -502,7 +502,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Soft Loss Statements</shortDescription>
-        <value>Drużyna {0} uległa zespołowi {1}.</value>
+        <value>Drużyna {0} uległa zespołowi {1}.; Tym razem drużyna {0} nie zdołała pokonać zespołu {1}.;Drużyna {0} dostała nauczkę od zespołu {1}!;Może kolejnym razem drużyna {0} będzie miała więcej szczęścia. {1} górą!</value>
     </labels>
     <labels>
         <fullName>BL_Soft_Win_Statements</fullName>
@@ -510,7 +510,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Soft Win Statements</shortDescription>
-        <value>Zespołowi {0} udało się pokonać drużynę {1}.</value>
+        <value>Zespołowi {0} udało się pokonać drużynę {1}.;Zespół {0} odniósł zwycięstwo nad drużyną {1};Zespół {0} zagrał dobry mecz i tym razem drużyna {1} musiała pogodzić się z porażką.;Zespół {0} zlitował się nad drużyną {1} i zafundował jej tylko lekki wpiernicz.;Zespół {0} pokazał drużynie {1} jak się gra w tą grę!</value>
     </labels>
     <labels>
         <fullName>BL_Start_Date</fullName>
