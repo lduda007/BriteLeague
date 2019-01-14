@@ -606,7 +606,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Team Joined Statement</shortDescription>
-        <value>Drużyna {0} dołączyła do gry</value>
+        <value>Drużyna {0} dołączyła do gry!</value>
     </labels>
     <labels>
         <fullName>BL_Team_Name</fullName>
