@@ -169,6 +169,14 @@
         <value>Error when loading league matches</value>
     </labels>
     <labels>
+        <fullName>BL_Feed</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Feed</shortDescription>
+        <value>Feed</value>
+    </labels>
+    <labels>
         <fullName>BL_Final</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -214,7 +222,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Hard Win Statements</shortDescription>
-        <value>Zespół {0} nie zostawił suchej nitki na drużynie {1}!;Zespół {0} rozgromił drużynę {1}!;Babcie zespołu {0} grają o niebo lepiej niż drużyna {1}!;Zespół {0} dał drużynie {1} porządną lekcję!;Tacy kozacy jak {0} nie powinni męczyć drużyn pokroju {0}...</value>
+        <value>Zespół {0} nie zostawił suchej nitki na drużynie {1}!;Zespół {0} rozgromił drużynę {1}!;Babcie zespołu {0} grają o niebo lepiej niż drużyna {1}!;Zespół {0} dał drużynie {1} porządną lekcję!;Tacy kozacy jak {0} nie powinni męczyć drużyn pokroju {1}!</value>
     </labels>
     <labels>
         <fullName>BL_Join</fullName>
@@ -233,6 +241,22 @@
         <value>League</value>
     </labels>
     <labels>
+        <fullName>BL_League_Created_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Created Statement</shortDescription>
+        <value>Liga została utworzona przez użytkownika {0}.</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Finished_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Finished Statement</shortDescription>
+        <value>Liga dobiegła końca!</value>
+    </labels>
+    <labels>
         <fullName>BL_League_Full</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -247,6 +271,14 @@
         <protected>false</protected>
         <shortDescription>League not started</shortDescription>
         <value>League not started</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Started_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Started Statement</shortDescription>
+        <value>Ligę uznaję za rozpoczętą!</value>
     </labels>
     <labels>
         <fullName>BL_League_Table</fullName>
@@ -567,6 +599,14 @@
         <protected>false</protected>
         <shortDescription>Team 2</shortDescription>
         <value>Team 2</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Joined_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Joined Statement</shortDescription>
+        <value>Drużyna {0} dołączyła do gry</value>
     </labels>
     <labels>
         <fullName>BL_Team_Name</fullName>

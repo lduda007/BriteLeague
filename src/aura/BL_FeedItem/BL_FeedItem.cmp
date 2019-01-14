@@ -20,6 +20,9 @@
                                          hour="numeric"
                                          minute="numeric"
                                          class="text-x-small" timeZone="UTC" timeZoneName="short"/>
+            <aura:if isTrue="{!v.feedItem.isToday}">
+                <lightning:icon iconName="custom:custom105" size="xx-small" class="slds-m-horizontal--x-small"/>
+            </aura:if>
         </lightning:layoutItem>
     </lightning:layout>
 </aura:component>

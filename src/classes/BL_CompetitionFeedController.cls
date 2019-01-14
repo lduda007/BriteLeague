@@ -10,7 +10,7 @@ public class BL_CompetitionFeedController {
             initDataWrapper = new InitDataWrapper();
 
             BL_League__c league = [
-                    SELECT Id, CreatedDate, Status__c, Start_Date__c, End_Date__c
+                    SELECT Id, CreatedDate, CreatedBy.Name, Status__c, Start_Date__c, End_Date__c
                     FROM BL_League__c
                     WHERE Id = :competitionId
                     LIMIT 1
@@ -18,7 +18,7 @@ public class BL_CompetitionFeedController {
 
             initDataWrapper.addFeedItem(
                     new FeedItemWrapperBuilder()
-                            .setAsLeagueCreated(league.CreatedDate)
+                            .setAsLeagueCreated(league.CreatedDate, league.CreatedBy.Name)
                             .build()
             );
 
@@ -95,6 +95,12 @@ public class BL_CompetitionFeedController {
         public Datetime dt;
         @AuraEnabled
         public String message;
+        @AuraEnabled
+        public Boolean isToday {
+            get {
+                return dt.isSameDay(System.now());
+            }
+        }
 
         public Integer compareTo(Object compareTo) {
             Long thisMillis = dt.getTime();
@@ -118,10 +124,12 @@ public class BL_CompetitionFeedController {
             record = new FeedItemWrapper();
         }
 
-        public FeedItemWrapperBuilder setAsLeagueCreated(Datetime createdDatetime) {
+        public FeedItemWrapperBuilder setAsLeagueCreated(Datetime createdDatetime, String createdBy) {
             record.iconName = 'custom:custom44';
             record.dt = createdDatetime;
-            record.message = 'League created';
+            record.message = String.format(Label.BL_League_Created_Statement, new List<String>{
+                    makeTextBold(createdBy)
+            });
 
             return this;
         }
@@ -129,7 +137,7 @@ public class BL_CompetitionFeedController {
         public FeedItemWrapperBuilder setAsLeagueStarted(Datetime startDatetime) {
             record.iconName = 'custom:custom20';
             record.dt = startDatetime;
-            record.message = 'League started';
+            record.message = Label.BL_League_Started_Statement;
 
             return this;
         }
@@ -137,7 +145,7 @@ public class BL_CompetitionFeedController {
         public FeedItemWrapperBuilder setAsLeagueFinished(Datetime endDatetime) {
             record.iconName = 'custom:custom95';
             record.dt = endDatetime;
-            record.message = 'League finished';
+            record.message = Label.BL_League_Finished_Statement;
 
             return this;
         }
@@ -145,7 +153,9 @@ public class BL_CompetitionFeedController {
         public FeedItemWrapperBuilder setAsTeamJoined(String teamName, Datetime joinDatetime) {
             record.iconName = 'custom:custom83';
             record.dt = joinDatetime;
-            record.message = teamName + ' joined';
+            record.message = String.format(Label.BL_Team_Joined_Statement, new List<String>{
+                    makeTextBold(teamName)
+            });
 
             return this;
         }
