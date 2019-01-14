@@ -56,7 +56,7 @@ public with sharing class BL_LeaguesListViewController {
                 SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, Status__c, TeamSize__c
                 FROM BL_League__c
                 WHERE Id IN :getPlayerLeaguesIds()
-                ORDER BY Status__c
+                ORDER BY Name
         ]) {
             leagues.add(league);
         }
