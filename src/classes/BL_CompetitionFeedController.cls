@@ -2,6 +2,12 @@ public class BL_CompetitionFeedController {
 
     public static MatchStatementsManager matchStatementsManager = new MatchStatementsManager();
 
+    private static final String EVENT_TYPE_LEAGUE_CREATED = 'league_created';
+    private static final String EVENT_TYPE_LEAGUE_STARTED = 'league_started';
+    private static final String EVENT_TYPE_LEAGUE_FINISHED = 'league_finished';
+    private static final String EVENT_TYPE_TEAM_JOINED = 'team_joined';
+    private static final String EVENT_TYPE_MATCH = 'match';
+
     @AuraEnabled
     public static InitDataWrapper getInitDataWrapper(Id competitionId) {
         InitDataWrapper initDataWrapper;
@@ -101,6 +107,10 @@ public class BL_CompetitionFeedController {
                 return dt.isSameDay(System.now());
             }
         }
+        @AuraEnabled
+        public String eventType;
+        @AuraEnabled
+        public Id eventRecordId;
 
         public Integer compareTo(Object compareTo) {
             Long thisMillis = dt.getTime();
@@ -125,6 +135,7 @@ public class BL_CompetitionFeedController {
         }
 
         public FeedItemWrapperBuilder setAsLeagueCreated(Datetime createdDatetime, String createdBy) {
+            record.eventType = EVENT_TYPE_LEAGUE_CREATED;
             record.iconName = 'custom:custom44';
             record.dt = createdDatetime;
             record.message = String.format(Label.BL_League_Created_Statement, new List<String>{
@@ -135,6 +146,7 @@ public class BL_CompetitionFeedController {
         }
 
         public FeedItemWrapperBuilder setAsLeagueStarted(Datetime startDatetime) {
+            record.eventType = EVENT_TYPE_LEAGUE_STARTED;
             record.iconName = 'custom:custom20';
             record.dt = startDatetime;
             record.message = Label.BL_League_Started_Statement;
@@ -143,6 +155,7 @@ public class BL_CompetitionFeedController {
         }
 
         public FeedItemWrapperBuilder setAsLeagueFinished(Datetime endDatetime) {
+            record.eventType = EVENT_TYPE_LEAGUE_FINISHED;
             record.iconName = 'custom:custom95';
             record.dt = endDatetime;
             record.message = Label.BL_League_Finished_Statement;
@@ -151,6 +164,7 @@ public class BL_CompetitionFeedController {
         }
 
         public FeedItemWrapperBuilder setAsTeamJoined(String teamName, Datetime joinDatetime) {
+            record.eventType = EVENT_TYPE_TEAM_JOINED;
             record.iconName = 'custom:custom83';
             record.dt = joinDatetime;
             record.message = String.format(Label.BL_Team_Joined_Statement, new List<String>{
@@ -161,8 +175,10 @@ public class BL_CompetitionFeedController {
         }
 
         public FeedItemWrapperBuilder setAsMatch(BL_Match__c match) {
+            record.eventType = EVENT_TYPE_MATCH;
             record.iconName = 'custom:custom82';
             record.dt = match.MatchDate__c;
+            record.eventRecordId = match.Id;
 
             String statement;
 

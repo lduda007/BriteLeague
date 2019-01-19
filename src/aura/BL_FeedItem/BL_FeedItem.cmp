@@ -1,28 +1,41 @@
 <aura:component description="BL_FeedItem">
 
     <aura:attribute name="feedItem" type="Object" access="public"/>
+    <aura:attribute name="modalVisible" type="Boolean" default="false"/>
 
-
-    <lightning:layout  multipleRows="true" class="slds-p-around_small">
-        <lightning:layoutItem size="1" class="slds-align_absolute-center">
-            <lightning:icon iconName="{!v.feedItem.iconName}" size="medium"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="11" class="margin-auto">
-            <div class="slds-p-horizontal--small">
-                <lightning:formattedRichText value="{!v.feedItem.message}"/>
-            </div>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" class="height-auto margin-auto">
-            <lightning:formattedDateTime value="{!v.feedItem.dt}"
-                                         year="numeric"
-                                         month="numeric"
-                                         day="numeric"
-                                         hour="numeric"
-                                         minute="numeric"
-                                         class="text-x-small" timeZone="UTC" timeZoneName="short"/>
-            <aura:if isTrue="{!v.feedItem.isToday}">
-                <lightning:icon iconName="custom:custom105" size="xx-small" class="slds-m-horizontal--x-small"/>
-            </aura:if>
-        </lightning:layoutItem>
-    </lightning:layout>
+    <div class="{!equals(v.feedItem.eventType, 'match') ? 'match-feed-item' : ''}" onclick="{!c.onFeedItemClick}">
+        <lightning:layout multipleRows="true" class="slds-p-around_small">
+            <lightning:layoutItem size="1" class="slds-align_absolute-center">
+                <lightning:icon iconName="{!v.feedItem.iconName}" size="medium"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="11" class="margin-auto">
+                <div class="slds-p-horizontal--small">
+                    <lightning:formattedRichText value="{!v.feedItem.message}"/>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="height-auto margin-auto">
+                <lightning:formattedDateTime value="{!v.feedItem.dt}"
+                                             year="numeric"
+                                             month="numeric"
+                                             day="numeric"
+                                             hour="numeric"
+                                             minute="numeric"
+                                             class="text-x-small" timeZone="UTC" timeZoneName="short"/>
+                <aura:if isTrue="{!v.feedItem.isToday}">
+                    <lightning:icon iconName="custom:custom105" size="xx-small" class="slds-m-horizontal--x-small"/>
+                </aura:if>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    <c:BL_Modal
+            aura:id="scoreModal"
+            hasCloseButton="true"
+            title="{!$Label.c.BL_Match_Score}"
+            hasFooter="false"
+            size="large"
+    >
+        <aura:if isTrue="{!v.modalVisible}">
+            <c:BL_MatchDetailsViewer matchId="{!v.feedItem.eventRecordId}"/>
+        </aura:if>
+    </c:BL_Modal>
 </aura:component>

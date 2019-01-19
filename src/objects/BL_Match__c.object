@@ -156,6 +156,25 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Team1_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+  Team1_Score__c &gt; Team2_Score__c,
+  &quot;winner&quot;,
+  IF(
+    Team2_Score__c &gt; Team1_Score__c,
+    &quot;loser&quot;,
+    &quot;draw&quot;
+  )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Team 1 Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Team1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

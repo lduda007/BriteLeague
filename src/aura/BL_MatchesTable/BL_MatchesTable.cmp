@@ -187,7 +187,7 @@
                     <aura:if isTrue="{!v.editMode}">
                         <c:BL_MatchScoreProvider recordId="{!v.selectedMatchId}" isReadOnly="false"/>
                         <aura:set attribute="else">
-                            <c:BL_MatchDetailsViewer match="{!v.selectedMatchObject}"/>
+                            <c:BL_MatchDetailsViewer matchId="{!v.selectedMatchId}"/>
                         </aura:set>
                     </aura:if>
                 </aura:set>

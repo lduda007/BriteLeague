@@ -1,39 +1,96 @@
 <aura:component description="BL_MatchDetailsViewer">
 
+    <aura:attribute name="matchId" type="String"/>
     <aura:attribute name="match" type="Object"/>
-    <aura:attribute name="team1FinalScoreColorStyle" type="String"/>
-    <aura:attribute name="team2FinalScoreColorStyle" type="String"/>
 
-    <aura:handler name="change" value="{!v.match}" action="{!c.handleMatchChange}"/>
+    <force:recordData
+            aura:id="matchRecordData"
+            fields="Id, Name, MatchDate__c, League__r.isCup__c,
+                      Team1__r.Team__r.Name, Team2__r.Team__r.Name,
+                      Team1_Status__c, Team2_Status__c, Team1_Score__c, Team2_Score__c,
+                      Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,
+                      Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c,
+                      Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name,
+                      Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
+                      Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c,
+                      Team2Round1Goals__c, Team2Round2Goals__c, Team2Round3Goals__c"
+            recordId="{!v.matchId}"
+            targetFields="{!v.match}"
+            mode="VIEW"
+    />
 
-    <div class="slds-grid slds-grid_align-center">
-        <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
-            <div class="slds-m-horizontal_medium">
-                <c:BL_TeamCard  aura:id="team1Card" teamName="{!v.match.Team1__r.Team__r.Name}" teamObject="{!v.match.Team1__r.Team__r}" dockingSide="left" teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"/>
+    <aura:if isTrue="{!not(empty(v.match))}">
+        <div class="slds-grid slds-grid_align-center">
+            <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+                <div class="slds-m-horizontal_medium">
+                    <c:BL_TeamCard
+                            aura:id="team1Card"
+                            teamName="{!v.match.Team1__r.Team__r.Name}"
+                            teamObject="{!v.match.Team1__r.Team__r}"
+                            dockingSide="left"
+                            teamFinalScoreColorStyle="{!v.match.Team1_Status__c}"
+                    />
+                </div>
             </div>
-        </div>
-        <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
-            <div class="slds-grid slds-grid_vertical" style="line-height: 1;">
-                <div class="slds-col">
-                    <c:BL_ScoreDisplay team1Score="{!v.match.Team1_Score__c}" team2Score="{!v.match.Team2_Score__c}"/>
-                </div>
-                <div class="slds-col">
-                    <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="1" isEditMode="false" isReadOnly="true" team1goals="{!v.match.Team1Round1Goals__c}" team2goals="{!v.match.Team2Round1Goals__c}"/>
-                </div>
-                <div class="slds-col">
-                    <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="2" isEditMode="false" isReadOnly="true" team1goals="{!v.match.Team1Round2Goals__c}" team2goals="{!v.match.Team2Round2Goals__c}"/>
-                </div>
-                <aura:if isTrue="{! and(v.match.League__r.isCup__c, !empty(v.match.Team1Round3Goals__c) )}">
+            <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+                <div class="slds-grid slds-grid_vertical" style="line-height: 1;">
                     <div class="slds-col">
-                        <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="3" isEditMode="false" isReadOnly="true"  team1goals="{!v.match.Team1Round3Goals__c}" team2goals="{!v.match.Team2Round3Goals__c}"/>
+                        <c:BL_ScoreDisplay
+                                team1Score="{!v.match.Team1_Score__c}"
+                                team2Score="{!v.match.Team2_Score__c}"
+                        />
                     </div>
-                </aura:if>
+                    <div class="slds-col">
+                        <c:BL_ScoreProviderRoundTile
+                                aura:id="roundProviders"
+                                roundNo="1"
+                                isEditMode="false"
+                                isReadOnly="true"
+                                team1goals="{!v.match.Team1Round1Goals__c}"
+                                team2goals="{!v.match.Team2Round1Goals__c}"
+                        />
+                    </div>
+                    <div class="slds-col">
+                        <c:BL_ScoreProviderRoundTile
+                                aura:id="roundProviders"
+                                roundNo="2"
+                                isEditMode="false"
+                                isReadOnly="true"
+                                team1goals="{!v.match.Team1Round2Goals__c}"
+                                team2goals="{!v.match.Team2Round2Goals__c}"
+                        />
+                    </div>
+                    <aura:if isTrue="{! and(v.match.League__r.isCup__c, !empty(v.match.Team1Round3Goals__c) )}">
+                        <div class="slds-col">
+                            <c:BL_ScoreProviderRoundTile
+                                    aura:id="roundProviders"
+                                    roundNo="3"
+                                    isEditMode="false"
+                                    isReadOnly="true"
+                                    team1goals="{!v.match.Team1Round3Goals__c}"
+                                    team2goals="{!v.match.Team2Round3Goals__c}"
+                            />
+                        </div>
+                    </aura:if>
+                </div>
+            </div>
+            <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
+                <div class="slds-m-horizontal_medium">
+                    <c:BL_TeamCard
+                            aura:id="team2Card"
+                            teamName="{!v.match.Team2__r.Team__r.Name}"
+                            teamObject="{!v.match.Team2__r.Team__r}"
+                            dockingSide="right"
+                            teamFinalScoreColorStyle="{!v.match.Team2_Status__c}"
+                    />
+                </div>
             </div>
         </div>
-        <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
-            <div class="slds-m-horizontal_medium">
-                <c:BL_TeamCard aura:id="team2Card" teamName="{!v.match.Team2__r.Team__r.Name}" teamObject="{!v.match.Team2__r.Team__r}" dockingSide="right" teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"/>
-            </div>
-        </div>
-    </div>
+        <aura:set attribute="else">
+            <lightning:spinner
+                    size="small"
+                    variant="brand"
+            />
+        </aura:set>
+    </aura:if>
 </aura:component>
