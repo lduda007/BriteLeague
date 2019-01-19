@@ -1,50 +1,64 @@
 <aura:component description="BL_MatchScoreProvider"
-                implements="flexipage:availableForAllPageTypes" controller="BL_MatchScoreProviderController">
+                controller="BL_MatchScoreProviderController"
+                implements="flexipage:availableForAllPageTypes">
 
-    <aura:attribute name="matchRecord" type="Object"/>
-    <aura:attribute name="simpleMatchRecord" type="Object"/>
-    <aura:attribute name="recordError" type="String"/> 
-    <aura:attribute name="team1Score" type="Integer"/>
-    <aura:attribute name="team2Score" type="Integer"/>
     <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="simpleMatchRecord" type="Object"/>
     <aura:attribute name="isReadOnly" type="Boolean" default="true"/>
+    <aura:attribute name="recordError" type="String"/>
 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.recordId}" action="{!c.handleRecordIdChanged}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleRoundScoreSaved}"/>
 
     <aura:registerEvent name="BL_MatchScoreSaved" type="c:BL_MatchScoreSaved"/>
 
     <force:recordData aura:id="matchRecordEditor"
-                      fields="Id, Name, MatchDate__c, isResolved__c, Team1_Score__c,Team1TotalGoalsScored__c,Team2TotalGoalsScored__c,
-                      Team2_Score__c, League__r.isCup__c,League__r.Start_Date__c,League__r.End_Date__c, Team1__r.Name,Team2__r.Name,
-                      Team1__r.Team__r.Name, Team2__r.Team__r.Name,Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,
-                      Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c,
-                      Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
-                      Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Team1Round1Goals__c,
-                      Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c"
+                      fields="
+                      MatchDate__c,
+                      isResolved__c,
+                      League__r.isCup__c,
+                      League__r.Start_Date__c,
+                      League__r.End_Date__c,
+                      Team1_Score__c,
+                      Team2_Score__c,
+                      Team1_Status__c,
+                      Team2_Status__c,
+                      Team1__r.Team__r.Name,
+                      Team2__r.Team__r.Name,
+                      Team1__r.Team__r.Player1__r.Name,
+                      Team1__r.Team__r.Player2__r.Name,
+                      Team2__r.Team__r.Player1__r.Name,
+                      Team2__r.Team__r.Player2__r.Name,
+                      Team1__r.Team__r.Player1__r.ImageUrl__c,
+                      Team1__r.Team__r.Player2__r.ImageUrl__c,
+                      Team2__r.Team__r.Player1__r.ImageUrl__c,
+                      Team2__r.Team__r.Player2__r.ImageUrl__c,
+                      Team1TotalGoalsScored__c,
+                      Team2TotalGoalsScored__c,
+                      Team1Round1Goals__c,
+                      Team1Round2Goals__c,
+                      Team1Round3Goals__c,
+                      Team2Round1Goals__c,
+                      Team2Round2Goals__c,
+                      Team2Round3Goals__c"
                       recordId="{!v.recordId}"
-                      targetRecord="{!v.matchRecord}"
                       targetFields="{!v.simpleMatchRecord}"
                       targetError="{!v.recordError}"
-                      recordUpdated="{!c.recordUpdated}"
                       mode="EDIT"/>
 
     <aura:if isTrue="{!v.isReadOnly}">
-
-            <c:BL_MatchScoreViewer matchRecord="{!v.simpleMatchRecord}" />
-    </aura:if>
-    
-    <aura:if isTrue="{! !v.isReadOnly}">
-
-    <c:BL_MatchScoreProviderTile aura:id="scoreProviderTile"
-                                 matchRecord="{!v.simpleMatchRecord}"
-                                 team1="{!v.simpleMatchRecord.Team1__r}"
-                                 team2="{!v.simpleMatchRecord.Team2__r}"
-                                 isCup="{!v.simpleMatchRecord.League__r.isCup__c}"
-                                 team1Score="{!v.simpleMatchRecord.Team1_Score__c}"
-                                 team2Score="{!v.simpleMatchRecord.Team2_Score__c}"/>
-        <br/>
+        <c:BL_MatchDetailsViewer matchId="{!v.recordId}"/>
+        <aura:set attribute="else">
+            <c:BL_MatchScoreProviderTile
+                    aura:id="scoreProviderTile"
+                    matchRecord="{!v.simpleMatchRecord}"
+                    team1="{!v.simpleMatchRecord.Team1__r}"
+                    team2="{!v.simpleMatchRecord.Team2__r}"
+                    isCup="{!v.simpleMatchRecord.League__r.isCup__c}"
+                    team1Score="{!v.simpleMatchRecord.Team1_Score__c}"
+                    team2Score="{!v.simpleMatchRecord.Team2_Score__c}"
+            />
+        </aura:set>
     </aura:if>
 
     <!-- Display Lightning Data Service errors, if any -->

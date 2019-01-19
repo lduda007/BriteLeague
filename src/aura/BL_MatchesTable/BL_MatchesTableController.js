@@ -51,7 +51,6 @@
         component.set("v.teamSize", teamSize);
         component.set("v.selectedMatchId", match.Id);
         component.set("v.editMode", true);
-
         if(teamSize === 'Single Player'){
             scoreModal.set("v.size", 'small');
         }else{

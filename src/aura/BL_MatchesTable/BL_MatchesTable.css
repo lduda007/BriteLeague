@@ -1,13 +1,15 @@
-.THIS .score{
+.THIS .score {
     font-family: 'digitalClockFont';
-    font-size:20px;
+    font-size: 20px;
     color: #143058;
     cursor: pointer;
 }
-@font-face{
+
+@font-face {
     font-family: 'digitalClockFont';
     src: url(/resource/digitalClockFont/digital-7.ttf);
 }
-.THIS .slds-modal__container{
-    width: 70%;
+
+.THIS.slds-backdrop {
+    margin-top: -16px;
 }

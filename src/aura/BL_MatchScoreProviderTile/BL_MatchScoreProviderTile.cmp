@@ -1,8 +1,8 @@
 <aura:component description="BL_MatchScoreProviderTile">
 
     <aura:attribute name="matchRecord" type="Object"/>
-    <aura:attribute name="team1" type="List"/>
-    <aura:attribute name="team2" type="List"/>
+    <aura:attribute name="team1" type="Object"/>
+    <aura:attribute name="team2" type="Object"/>
     <aura:attribute name="team1TotalGoals" type="Integer"/>
     <aura:attribute name="team2TotalGoals" type="Integer"/>
     <aura:attribute name="team1Goals" type="Integer[]" />

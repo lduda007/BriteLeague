@@ -194,7 +194,4 @@
             </aura:if>
         </aura:if>
     </c:BL_Modal>
-
-    <div class="slds-backdrop" aura:id="backdrop"></div>
-
 </aura:component>

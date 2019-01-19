@@ -22,3 +22,7 @@
 .THIS .text-bold {
     font-weight: bold;
 }
+
+.THIS.slds-backdrop {
+    margin-top: -16px;
+}

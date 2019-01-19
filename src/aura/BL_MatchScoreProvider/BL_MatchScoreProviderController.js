@@ -1,27 +1,4 @@
 ({
-    doInit: function(component, event, helper) {
-
-    },
-
-    handleMatchScoreModalOpen: function(component, event, helper) {
-        component.find("newScoreModal").show();
-    },
-
-    recordUpdated: function(component, event, helper) {
-//        var eventParams = event.getParams();
-//        component.set("v.team1Score", component.get("v.simpleMatchRecord.Team1_Score__c"));
-//        component.set("v.team2Score", component.get("v.simpleMatchRecord.Team2_Score__c"));
-//        if(component.get("v.simpleMatchRecord.isResolved__c") == true){
-//            component.set("v.isReadOnly", true);
-//            console.log("resolved true");
-//        }else{
-//            component.set("v.isReadOnly", false);
-//            console.log("resolved false");
-//        }
-//        component.find("newScoreModal").hide();
-//        helper.updateLeagueStatistics(component, event);
-    },
-
     handleRoundScoreSaved: function(component, event, helper) {
         // tt - team ( 1 or 2 )
         for(let tt = 1; tt < 3; tt++) {
