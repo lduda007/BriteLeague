@@ -1,13 +1,17 @@
-<aura:component description="BL_TeamCard">
+<aura:component description="BL_TeamCard"
+                controller="BL_TeamRecordDetailController">
 
     <aura:attribute name="teamName" type="String"/>
-    <aura:attribute name="teamObject" type="List"/>
+    <aura:attribute name="teamObject" type="Object"/>
     <aura:attribute name="player1Name" type="String"/>
     <aura:attribute name="player2Name" type="String"/>
     <aura:attribute name="dockingSide" type="String" default="left"/>
     <aura:attribute name="teamFinalScoreColorStyle" type="String"/>
+    <aura:attribute name="teamLogo" type="String"/>
 
-    <div class="{!v.teamFinalScoreColorStyle+'-box-shadow'}">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <div class="{!v.teamFinalScoreColorStyle + '-box-shadow'}">
         <c:BL_Card title="{!v.teamName}">
             <ul class="slds-list--vertical">
                 <li class="slds-list__item">
@@ -36,5 +40,17 @@
                 </li>
             </ul>
         </c:BL_Card>
+    </div>
+    <div class="team-logo-container slds-align_absolute-center">
+        <aura:if isTrue="{!empty(v.teamLogo)}">
+            <lightning:spinner
+                    size="small"
+                    variant="brand"
+                    class="slds-spinner_inline"
+            />
+            <aura:set attribute="else">
+                <img src="{!v.teamLogo}" class="team-logo"/>
+            </aura:set>
+        </aura:if>
     </div>
 </aura:component>

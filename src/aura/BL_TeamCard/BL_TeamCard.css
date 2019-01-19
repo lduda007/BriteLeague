@@ -5,6 +5,15 @@
     font-size: 14px;
 }
 
+.THIS.team-logo-container {
+    height: 300px;
+    padding: 30px;
+}
+
+.THIS .team-logo {
+    height: 100%;
+}
+
 .THIS .slds-panel__header-title {
     text-align: left;
 }
