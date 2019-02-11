@@ -28,11 +28,19 @@
             </c:BL_Card>
         </lightning:layoutItem>
 
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
-            <div style="background: #143058; font-size: 1.5em; user-select: none; color: white;" class="slds-p-around--x-small" align="center">Available Competitions</div>
-            <div class="slds-box--border">
-                <c:BL_OpenCompetitionsTable/>
-            </div>
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6">
+            <lightning:layout verticalAlign="start" multipleRows="true">
+                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12" class="slds-p-around--x-small">
+                    <c:BL_Card title="My Competitions">
+                        <c:BL_MyLeaguesList/>
+                    </c:BL_Card>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12" class="slds-p-around--x-small">
+                    <c:BL_Card title="Available Competitions">
+                        <c:BL_OpenCompetitionsTable/>
+                    </c:BL_Card>
+                </lightning:layoutItem>
+            </lightning:layout>
         </lightning:layoutItem>
 
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
