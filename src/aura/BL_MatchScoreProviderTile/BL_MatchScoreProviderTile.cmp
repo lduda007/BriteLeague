@@ -5,8 +5,8 @@
     <aura:attribute name="team2" type="Object"/>
     <aura:attribute name="team1TotalGoals" type="Integer"/>
     <aura:attribute name="team2TotalGoals" type="Integer"/>
-    <aura:attribute name="team1Goals" type="Integer[]" />
-    <aura:attribute name="team2Goals" type="Integer[]" />
+    <aura:attribute name="team1Goals" type="Integer[]"/>
+    <aura:attribute name="team2Goals" type="Integer[]"/>
     <aura:attribute name="team1Score" type="Integer" default="0"/>
     <aura:attribute name="team2Score" type="Integer" default="0"/>
     <aura:attribute name="team1FinalScoreColorStyle" type="String"/>
@@ -14,19 +14,16 @@
     <aura:attribute name="isCup" type="Boolean" default="false"/>
     <aura:attribute name="isMatchWithExtraTimeRound" type="Boolean" default="false"/>
     <aura:attribute name="isReadOnly" type="Boolean" default="false"/>
-    <aura:attribute name="matchDate" type="Date" />
-    <aura:attribute name="matchMaxDate" type="String" />
-    <aura:attribute name="matchMinDate" type="String" />
+    <aura:attribute name="matchDate" type="Date"/>
     <aura:attribute name="isSelectedMatchDateValid" type="Boolean" default="true"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler name="roundScoreSelected" event="c:BL_roundScoreSelected" action="{!c.handleRoundScoreSelected}" />
+    <aura:handler name="roundScoreSelected" event="c:BL_roundScoreSelected" action="{!c.handleRoundScoreSelected}"/>
     <aura:handler name="change" value="{!v.matchRecord}" action="{!c.handleMatchRecordChange}"/>
     <aura:handler name="change" value="{!v.team1Goals}" action="{!c.handleTeamGoalsChange}"/>
     <aura:handler name="change" value="{!v.team2Goals}" action="{!c.handleTeamGoalsChange}"/>
     <aura:handler name="change" value="{!v.team1Score}" action="{!c.handleTeamScoreChange}"/>
     <aura:handler name="change" value="{!v.team2Score}" action="{!c.handleTeamScoreChange}"/>
-    <aura:handler name="change" value="{!v.matchDate}" action="{!c.matchDateChange}"/>
 
     <aura:registerEvent name="scoreSaved" type="c:BL_roundScoreSelected"/>
 
@@ -35,7 +32,12 @@
     <div class="slds-grid slds-grid_align-center">
         <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
             <div class="slds-m-horizontal_medium">
-                <c:BL_TeamCard teamName="{!v.team1.Team__r.Name}" teamObject="{!v.team1.Team__r}" dockingSide="left" teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"/>
+                <c:BL_TeamCard
+                        teamName="{!v.team1.Team__r.Name}"
+                        teamObject="{!v.team1.Team__r}"
+                        dockingSide="left"
+                        teamFinalScoreColorStyle="{!v.team1FinalScoreColorStyle}"
+                />
             </div>
         </div>
         <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
@@ -57,18 +59,34 @@
                     </aura:if>
                     <div class="slds-col slds-align--absolute-center slds-p-around--medium slds-form-element " aura:id="inputContainer">
                         <div class="slds-form-element__control">
-                            <ui:inputDate aura:id="inputDateCmp" onClearErrors="{!c.handleDateInputErrorClear}" onError="{!c.handleDateInputError}" label="Match date" value="{!v.matchDate}" displayDatePicker="true" />
+                            <lightning:input
+                                    type="datetime"
+                                    label="Match date"
+                                    value="{!v.matchDate}"
+                                    min="{!v.matchRecord.League__r.Start_Date__c}"
+                                    max="{!v.matchRecord.League__r.End_Date__c}"
+                            />
                         </div>
                     </div>
                     <div class="slds-col slds-align--absolute-center slds-p-around--medium slds-border_top ">
-                        <lightning:button onclick="{!c.handleSaveScore}" label="Save Score" variant="brand" disabled="{!  v.isSelectedMatchDateValid == false ? true : or(and( v.isCup == false, (v.team1Score+v.team2Score) &lt; 2), and(v.isCup == true, or(v.team1Score == v.team2Score, v.team1Score + v.team2Score &lt;=1))) }"/>
+                        <lightning:button
+                                label="Save Score"
+                                onclick="{!c.handleSaveScore}"
+                                variant="brand"
+                                disabled="{!  v.isSelectedMatchDateValid == false ? true : or(and( v.isCup == false, (v.team1Score+v.team2Score) &lt; 2), and(v.isCup == true, or(v.team1Score == v.team2Score, v.team1Score + v.team2Score &lt;=1))) }"
+                        />
                     </div>
                 </aura:if>
             </div>
         </div>
         <div class="slds-size_4-of-12 slds-align-top slds-grid_vertical-align-start">
             <div class="slds-m-horizontal_medium">
-                <c:BL_TeamCard teamName="{!v.team2.Team__r.Name}" teamObject="{!v.team2.Team__r}" dockingSide="right" teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"/>
+                <c:BL_TeamCard
+                        teamName="{!v.team2.Team__r.Name}"
+                        teamObject="{!v.team2.Team__r}"
+                        dockingSide="right"
+                        teamFinalScoreColorStyle="{!v.team2FinalScoreColorStyle}"
+                />
             </div>
         </div>
     </div>
