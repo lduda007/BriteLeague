@@ -1,14 +1,17 @@
 ({
-    doInit: function(component, event, helper) {
+    onInit: function(component, event, helper) {
+        helper.doInit(component);
         helper.loadCurrentDate(component);
         helper.initializeNewLeagueRecord(component);
     },
 
     handleSaveCompetition: function(component, event, helper) {
-        let competitionName = (component.get("v.competitionType") == 'league' ? 'league' : 'cup');
         if(helper.validateLeagueForm(component, event)) {
-            if(component.get("v.competitionType") == 'cup') {
-                component.set("v.simpleNewLeague.isCup__c", true);
+            let competitionType = component.get("v.competitionType");
+            let initDataWrapper = component.get("v.initDataWrapper");
+            component.set("v.simpleNewLeague.RecordTypeId", initDataWrapper.leagueRecordTypeDeveloperNameToId[competitionType]);
+
+            if(competitionType === "Cup") {
                 component.set("v.simpleNewLeague.Match_No__c", 1);
             }
             let teamSize = component.get("v.teamSize");
@@ -19,7 +22,7 @@
                     let resultsToast = $A.get("e.force:showToast");
                     resultsToast.setParams({
                         "type": "success",
-                        "message": "The " + competitionName + " was created."
+                        "message": "The competition was created."
                     });
                     resultsToast.fire();
                     helper.initializeNewLeagueRecord(component);
@@ -81,19 +84,5 @@
 
     handleCompetitionTypeChange: function(component, event, helper) {
         helper.clearForm(component);
-    },
-
-    onKeyDown: function(component, evnt, helper) {
-//        let elem = evnt.getSource();
-//        console.log('log: '+elem);
-//        window.addEventListener("keydown", function(event) {
-////          console.log("key: " + event.key + " , code: " + event.code);
-//          console.log( " , code: " + event.code);
-//          if(event.code == 'Comma' || event.code == 'Period' || event.code == 'KeyE' || event.code == 'Minus' || event.code =='NumpadSubtract' || event.code == 'NumpadAdd'){
-//              event.preventDefault();
-////              event.returnValue = false;
-////              return false;
-//           }
-//        }, false);
     }
 });

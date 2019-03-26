@@ -25,8 +25,8 @@ public with sharing class BL_LeaguesListViewController {
     @AuraEnabled
     public static List<BL_League__c> getAllLeagues() {
         return [
-                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, TeamSize__c,
-                        Status__c
+                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, TeamSize__c,
+                        RecordType.DeveloperName, Status__c
                 FROM BL_League__c
                 ORDER BY Name ASC
         ];
@@ -36,7 +36,8 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getOpenLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for(BL_League__c league : [
-                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, TeamSize__c
+                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, TeamSize__c,
+                        RecordType.DeveloperName
                 FROM BL_League__c
                 WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.now())
                 AND Id NOT IN :getPlayerLeaguesIds()
@@ -45,7 +46,6 @@ public with sharing class BL_LeaguesListViewController {
                 leagues.add(league);
             }
         }
-        System.debug('OPEN LEAAGUES' + leagues);
         return leagues;
     }
 
@@ -53,7 +53,8 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getMyLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for(BL_League__c league : [
-                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, Status__c, TeamSize__c
+                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, RecordType.DeveloperName,
+                        Status__c, TeamSize__c
                 FROM BL_League__c
                 WHERE Id IN :getPlayerLeaguesIds()
                 ORDER BY Name

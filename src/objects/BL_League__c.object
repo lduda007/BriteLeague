@@ -343,14 +343,6 @@
         <type>Summary</type>
     </fields>
     <fields>
-        <fullName>isCup__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>isCup</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>isPrivate__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -363,7 +355,6 @@
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>CREATED_DATE</columns>
-        <columns>isCup__c</columns>
         <columns>Match_No__c</columns>
         <columns>Teams_Joined__c</columns>
         <columns>Max_Teams__c</columns>

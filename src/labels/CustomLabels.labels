@@ -33,6 +33,14 @@
         <value>Available</value>
     </labels>
     <labels>
+        <fullName>BL_Battle_Royale</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Battle Royale</shortDescription>
+        <value>Battle Royale</value>
+    </labels>
+    <labels>
         <fullName>BL_Cannot_start_cup</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>

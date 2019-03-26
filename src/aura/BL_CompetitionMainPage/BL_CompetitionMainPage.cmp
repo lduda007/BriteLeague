@@ -6,19 +6,20 @@
 
     <force:recordData aura:id="competitionDescriptor"
                       recordId="{!v.recordId}"
-                      fields="Id, isCup__c"
+                      fields="Id, RecordType.DeveloperName"
                       targetError="{!v.recordError}"
                       targetRecord="{!v.competition}"
                       targetFields ="{!v.competitionFields}"
                       recordUpdated="{!c.recordUpdated}"
     />
 
-    <aura:if isTrue="{!v.competitionType == 'league'}">
+    <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'Classic')}">
         <c:BL_LeagueDetails leagueId="{!v.recordId}"/>
     </aura:if>
-
-    <aura:if isTrue="{!v.competitionType == 'cup'}">
+    <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'Cup')}">
         <c:BL_CupDetails cupId="{!v.recordId}"/>
     </aura:if>
+    <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'Battle_Royale')}">
 
+    </aura:if>
 </aura:component>

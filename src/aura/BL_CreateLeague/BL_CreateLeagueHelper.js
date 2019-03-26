@@ -1,4 +1,24 @@
 ({
+    doInit: function(component) {
+        let action = component.get("c.getInitDataWrapper");
+        action.setCallback(this, function(response) {
+            let state = response.getState();
+            let result = response.getReturnValue();
+
+            if(state === "SUCCESS") {
+                component.set("v.initDataWrapper", result);
+            } else if(state === "ERROR") {
+                let errors = response.getError();
+                let message = 'Unknown error';
+                if(errors && Array.isArray(errors) && errors.length > 0) {
+                    message = errors[0].message;
+                }
+                console.error(message);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
     validateLeagueForm: function(component, event) {
         var allValid = component.find('leagueField').reduce(function(validSoFar, inputCmp) {
             inputCmp.reportValidity();
@@ -77,14 +97,10 @@
             $A.getCallback(function() {
                 let rec = component.get("v.newLeague");
                 let error = component.get("v.newLeagueError");
-//                console.log("record: "+JSON.stringify(component.get("v.simpleNewLeague")))
                 if(error || (rec === null)) {
                     console.log("Error initializing record template: " + error);
                     return;
                 }
-//                component.set("v.currentDate", helper.loadCurrentDate(component));
-//                component.set("v.maxStartDate", helper.loadMaxStartDate(component));
-//                component.set("v.simpleNewLeague.Match_No__c", 2);
             })
         );
     },

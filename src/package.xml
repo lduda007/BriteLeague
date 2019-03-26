@@ -20,6 +20,7 @@
         <members>BL_CompetitionStatusChartController</members>
         <members>BL_CompetitionFeedController</members>
         <members>BL_Constants</members>
+        <members>BL_CreateLeagueController</members>
         <name>ApexClass</name>
     </types>
     <types>

@@ -9,7 +9,7 @@ public with sharing class BL_TeamRecordDetailController {
         List<BL_Team__c> teamStatistics = [
                 SELECT Id, Total_Games_Won__c, Total_Games_Drawn__c, Total_Games_Lost__c, Total_Goals_Scored__c, Total_Goals_Lost__c, TotalRoundsWon__c, TotalRoundsLost__c
                 FROM BL_Team__c
-                WHERE Id =: teamId
+                WHERE Id = :teamId
         ];
         return teamStatistics.isEmpty() ? new BL_Team__c() : teamStatistics[0];
     }
@@ -20,7 +20,11 @@ public with sharing class BL_TeamRecordDetailController {
         for (BL_Competitor__c comp : [SELECT Id, League__c FROM BL_Competitor__c WHERE Team__c = :teamId]) {
             compsIds.add(comp.League__c);
         }
-        return [SELECT isCup__c, Start_Date__c, End_Date__c, Name FROM BL_League__c WHERE Id IN :compsIds];
+        return [
+                SELECT RecordType.DeveloperName, Start_Date__c, End_Date__c, Name
+                FROM BL_League__c
+                WHERE Id IN :compsIds
+        ];
     }
 
     @AuraEnabled

@@ -8,7 +8,7 @@ public with sharing class BL_MatchScoreProviderController {
         Integer roundsPlayed = 3;
 
         List<BL_Match__c> match = [
-                SELECT id,isResolved__c,MatchDate__c, League__r.isCup__c, Team1__c, Team2__c, Team1_Score__c,Team2_Score__c, Team1TotalGoalsScored__c, Team2TotalGoalsScored__c,
+                SELECT id, isResolved__c,MatchDate__c, League__r.RecordType.DeveloperName, Team1__c, Team2__c, Team1_Score__c,Team2_Score__c, Team1TotalGoalsScored__c, Team2TotalGoalsScored__c,
                         Team1__r.GoalsFor__c,Team1__r.GoalsAgainst__c,Team1__r.GamesWon__c,Team1__r.GamesLost__c,Team1__r.GamesDrawn__c,
                         Team2__r.GoalsFor__c,Team2__r.GoalsAgainst__c,Team2__r.GamesWon__c,Team2__r.GamesLost__c,Team2__r.GamesDrawn__c, Team1Round1Goals__c,
                         Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c
@@ -25,7 +25,6 @@ public with sharing class BL_MatchScoreProviderController {
         match[0].MatchDate__c = System.now();
         competitors.add(match[0].Team1__c);
         competitors.add(match[0].Team2__c);
-        system.debug('date record: ' + match[0].MatchDate__c);
 
         for(Integer ii = 0; ii < team1GoalsInRound.size(); ii++) {
             team1GoalsInAllRounds[ii] = team1GoalsInRound[ii];
@@ -49,10 +48,10 @@ public with sharing class BL_MatchScoreProviderController {
         Decimal team1WinsOld = match[0].Team1__r.GamesWon__c;
         Decimal team2WinsOld = match[0].Team2__r.GamesWon__c;
 
-        if(!match[0].League__r.isCup__c && roundsPlayed == 2) {
+        if(match[0].League__r.RecordType.DeveloperName != BL_Constants.LEAGUE_RT_CUP && roundsPlayed == 2) {
             match[0].isResolved__c = true;
             updateCompetitorStatistics(match[0], competitors, team1Score, team2Score, team1GoalsInRound, team2GoalsInRound);
-        } else if(match[0].League__r.isCup__c && roundsPlayed >= 2 && match[0].Team1_Score__c != match[0].Team2_Score__c) {
+        } else if(match[0].League__r.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CUP && roundsPlayed >= 2 && match[0].Team1_Score__c != match[0].Team2_Score__c) {
             match[0].isResolved__c = true;
             updateCompetitorStatistics(match[0], competitors, team1Score, team2Score, team1GoalsInRound, team2GoalsInRound);
         }

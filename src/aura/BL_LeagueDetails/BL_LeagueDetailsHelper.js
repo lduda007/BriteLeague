@@ -28,7 +28,8 @@
         });
         $A.enqueueAction(action);
     },
-    loadLeagueMatches : function(component, competitorId){
+
+    loadLeagueMatches : function(component, competitorId) {
         let action = component.get('c.loadLeagueMatches');
         let leagueId = component.get("v.leagueId");
         action.setParams({
@@ -58,6 +59,7 @@
         });
         $A.enqueueAction(action);
     },
+
     removeHighlightFromAllRows: function(component) {
         let rows = component.find("competitorRow")
         for(var ii=0; ii< rows.length; ii++){

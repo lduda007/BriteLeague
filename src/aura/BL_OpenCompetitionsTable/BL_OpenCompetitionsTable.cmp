@@ -47,8 +47,9 @@
                             </td>
                             <td data-label="Type">
                                 <div class="slds-truncate" title="">
-                                    <aura:if isTrue="{!league.isCup__c}">{!$Label.c.BL_Cup}</aura:if>
-                                    <aura:if isTrue="{!!league.isCup__c}">{!$Label.c.BL_League}</aura:if>
+                                    <aura:if isTrue="{!equals(league.RecordType.DeveloperName, 'Cup')}">{!$Label.c.BL_Cup}</aura:if>
+                                    <aura:if isTrue="{!equals(league.RecordType.DeveloperName, 'Classic')}">{!$Label.c.BL_League}</aura:if>
+                                    <aura:if isTrue="{!equals(league.RecordType.DeveloperName, 'Battle_Royale')}">{!$Label.c.BL_Battle_Royale}</aura:if>
                                 </div>
                             </td>
                             <td data-label="{!$Label.c.BL_Teams}">

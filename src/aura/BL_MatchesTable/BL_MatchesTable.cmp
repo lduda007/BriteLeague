@@ -153,7 +153,7 @@
                     </td>
                 </aura:if>
                 <aura:if isTrue="{!v.showRoundsColumn}">
-                    <aura:if isTrue="{!match.League__r.isCup__c}">
+                    <aura:if isTrue="{!equals(match.League__r.RecordType.DeveloperName, 'Cup')}">
                         <td scope="row" data-label="Round">
                             <aura:if isTrue="{!greaterthan(match.CupStage__c,1)}">
                                 <div class="slds-truncate" title="{!'1/'+match.CupStage__c}">{!'1/'+match.CupStage__c}</div>
