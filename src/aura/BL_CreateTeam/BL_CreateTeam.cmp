@@ -2,6 +2,12 @@
     <aura:attribute name="selectedPlayer" type="sObject" default="{}"/>
     <aura:attribute name="team" type="BL_Team__c" default="{'sobjectType': 'BL_Team__c'}"/>
     <aura:attribute name="showButtons" type="Boolean" default="true"/>
+    <aura:attribute name="isBattleRoyale" type="Boolean" default="false"/>
+
+    <aura:attribute name="options" type="List" default="[
+        {'label': 'Classic', 'value': 'true'},
+        {'label': 'Battle Royale', 'value': 'false'}
+    ]"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:registerEvent name="BL_TeamCreatedEvent" type="c:BL_TeamCreatedEvent"/>
     <aura:registerEvent name="customLookupClearEvent" type="c:BL_CustomLookupClearEvent"/>
@@ -11,13 +17,19 @@
             <div class="slds-form-element__row slds-align--absolute-center">
                 <lightning:input aura:id="createTeamForm" value="{!v.team.Name}" maxlength="20" label="Team Name" required="true" pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+" messageWhenPatternMismatch="Only letters and numbers allowed" class="slds-size--1-of-1"/>
             </div>
-            <div class="slds-form-element__row slds-align--absolute-center">
-                <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}" parentName="BL_CreateTeam"/>
+            <div class="slds-form-element__row slds-text-align--left">
+                <ui:inputCheckbox value="{!v.isBattleRoyale}" label="Battle Royale" />
             </div>
+            <aura:if isTrue="{! !v.isBattleRoyale}">
+                <div class="slds-form-element__row slds-align--absolute-center">
+                    <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}" parentName="BL_CreateTeam"/>
+                </div>
+            </aura:if>
             <div class="slds-form-element__row slds-align--absolute-center">
                 <aura:if isTrue="{!v.showButtons}">
                     <lightning:button class="buttonStyle" variant="brand" onclick="{!c.clear}" title="Clear" label="Clear"/>
-                    <lightning:button type="submit" class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Invite to team" label="Invite to team" disabled="{! empty(v.team.Name) || empty(v.selectedPlayer) }"/>
+                    <lightning:button type="submit" class="buttonStyle" variant="brand" onclick="{!c.saveRecord}" title="Create Team"
+                                      label="Create Team" disabled="{! empty(v.team.Name) || and(empty(v.selectedPlayer), !v.isBattleRoyale) }"/>
                 </aura:if>
             </div>
         </div>

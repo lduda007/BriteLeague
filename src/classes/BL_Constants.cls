@@ -11,4 +11,7 @@ public class BL_Constants {
     public static final String LEAGUE_RT_CLASSIC = 'Classic';
     public static final String LEAGUE_RT_CUP = 'Cup';
     public static final String LEAGUE_RT_BATTLE_ROYALE = 'Battle_Royale';
+
+    public static final String TEAM_RT_CLASSIC = 'Classic';
+    public static final String TEAM_RT_BATTLE_ROYALE = 'Battle_Royale';
 }
