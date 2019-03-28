@@ -82,7 +82,7 @@
         helper.clearForm(component);
     },
 
-    handleCompetitionTypeChange: function(component, event, helper) {
+    onLeagueRecordTypeChange: function(component, event, helper) {
         helper.clearForm(component);
     }
 });

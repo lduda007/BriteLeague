@@ -97,6 +97,8 @@
         <members>BL_Statistic__c</members>
         <members>BL_Team__c</members>
         <members>Contact</members>
+        <members>BL_BriteLeagueUrls__c</members>
+        <members>BL_BriteLeagueSettings__c</members>
         <name>CustomObject</name>
     </types>
     <types>
