@@ -7,6 +7,7 @@ public without sharing class BL_CreateLeagueController {
             initDataWrapper = new InitDataWrapper();
             initDataWrapper.populateLeagueRecordTypeDeveloperNameToIdMap();
             initDataWrapper.populateLeagueTeamSizeOptions();
+            initDataWrapper.populateLeagueWrapper();
         } catch(Exception e) {
             String uiMessage = 'An error occurred during initialization: ' + e.getMessage();
             BL_Utils.throwAuraHandledException(uiMessage, uiMessage + ' ' + e.getStackTraceString());
@@ -19,6 +20,8 @@ public without sharing class BL_CreateLeagueController {
         public List<OptionWrapper> leagueRecordTypeOptions;
         @AuraEnabled
         public List<OptionWrapper> leagueTeamSizeOptions;
+        @AuraEnabled
+        public LeagueWrapper leagueWrapper;
 
         public void populateLeagueRecordTypeDeveloperNameToIdMap() {
             leagueRecordTypeOptions = new List<OptionWrapper>();
@@ -41,6 +44,27 @@ public without sharing class BL_CreateLeagueController {
                     new OptionWrapper('Two Players', 'Two Players')
             };
         }
+
+        public void populateLeagueWrapper() {
+            leagueWrapper = new LeagueWrapper();
+        }
+    }
+
+    public class LeagueWrapper {
+        @AuraEnabled
+        public String recordType;
+        @AuraEnabled
+        public Integer teamSize;
+        @AuraEnabled
+        public String name;
+        @AuraEnabled
+        public Datetime startDate;
+        @AuraEnabled
+        public Datetime endDate;
+        @AuraEnabled
+        public Integer teamsLimit;
+        @AuraEnabled
+        public Integer rounds;
     }
 
     public class OptionWrapper {

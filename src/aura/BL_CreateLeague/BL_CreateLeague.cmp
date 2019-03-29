@@ -30,130 +30,121 @@
                       targetFields="{!v.simpleNewLeague}"
                       targetError="{!v.newLeagueError}"/>
 
-    <div class="slds-align_absolute-center">
-        <lightning:layout multipleRows="true" class="new-league-form">
-            <lightning:layoutItem
-                    size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                    class="slds-p-around--x-small"
-            >
-                <lightning:radioGroup
-                        label="Type"
-                        options="{!v.initDataWrapper.leagueRecordTypeOptions}"
-                        value="{!v.newLeagueWrapper.recordType}"
-                        type="button"
-                        onchange="{!c.onLeagueRecordTypeChange}"
-                        required="true"
-                />
-            </lightning:layoutItem>
-            <lightning:layoutItem
-                    size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                    class="slds-p-around--x-small"
-            >
-                <lightning:radioGroup
-                        label="Team size"
-                        options="{!v.initDataWrapper.leagueTeamSizeOptions}"
-                        value="{!v.newLeagueWrapper.teamSize}"
-                        type="button"
-                        required="true"
-                />
-            </lightning:layoutItem>
-            <lightning:layoutItem size="12" class="slds-p-around--x-small">
-                <lightning:input
-                        label="Name"
-                        value="{!v.newLeagueWrapper.name}"
-                        pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
-                        maxlength="40"
-                        required="true"
-                        messageWhenPatternMismatch="Only letters and numbers allowed"
-                />
-            </lightning:layoutItem>
-            <lightning:layoutItem
-                    size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                    class="slds-p-around--x-small">
-                <lightning:input
-                        label="Start Date"
-                        value="{!v.newLeagueWrapper.startDate}"
-                        type="datetime"
-                        required="true"
-                        min="{!v.currentDate}"
-                        max="{!v.yearLaterDate}"
-                />
-            </lightning:layoutItem>
-            <lightning:layoutItem
-                    size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                    class="slds-p-around--x-small"
-            >
-                <lightning:input
-                        label="End Date"
-                        value="{!v.newLeagueWrapper.endDate}"
-                        type="datetime"
-                        required="true"
-                        min="{!v.startDate}"
-                        max="{!v.maxEndDate}"
-                        disabled="{!empty(v.startDate)}"
-                />
-            </lightning:layoutItem>
-            <aura:if isTrue="{!or(equals(v.leagueRecordType, 'Classic'), equals(v.leagueRecordType, 'Battle_Royale'))}">
+    <aura:if isTrue="{!not(empty(v.initDataWrapper))}">
+        <div class="slds-align_absolute-center">
+            <lightning:layout multipleRows="true" class="new-league-form">
+                <lightning:layoutItem
+                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                        class="slds-p-around--x-small"
+                >
+                    <lightning:radioGroup
+                            label="Type"
+                            options="{!v.initDataWrapper.leagueRecordTypeOptions}"
+                            value="{!v.newLeagueWrapper.recordType}"
+                            type="button"
+                            onchange="{!c.onLeagueRecordTypeChange}"
+                            required="true"
+                    />
+                </lightning:layoutItem>
+                <lightning:layoutItem
+                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                        class="slds-p-around--x-small"
+                >
+                    <lightning:radioGroup
+                            label="Team size"
+                            options="{!v.initDataWrapper.leagueTeamSizeOptions}"
+                            value="{!v.newLeagueWrapper.teamSize}"
+                            type="button"
+                            required="true"
+                    />
+                </lightning:layoutItem>
+                <lightning:layoutItem size="12" class="slds-p-around--x-small">
+                    <lightning:input
+                            label="Name"
+                            value="{!v.newLeagueWrapper.name}"
+                            pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
+                            maxlength="40"
+                            required="true"
+                            messageWhenPatternMismatch="Only letters and numbers allowed"
+                    />
+                </lightning:layoutItem>
+                <lightning:layoutItem
+                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                        class="slds-p-around--x-small">
+                    <lightning:input
+                            label="Start Date"
+                            value="{!v.newLeagueWrapper.startDate}"
+                            type="datetime"
+                            required="true"
+                            min="{!v.currentDate}"
+                    />
+                </lightning:layoutItem>
                 <lightning:layoutItem
                         size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
                         class="slds-p-around--x-small"
                 >
                     <lightning:input
-                            label="Teams limit (2-40)"
-                            value="{!v.newLeagueWrapper.teamsLimit}"
-                            type="number"
-                            min="2"
-                            max="40"
+                            label="End Date"
+                            value="{!v.newLeagueWrapper.endDate}"
+                            type="datetime"
                             required="true"
+                            min="{!v.newLeagueWrapper.startDate}"
+                            disabled="{!empty(v.newLeagueWrapper.startDate)}"
                     />
                 </lightning:layoutItem>
-            </aura:if>
-            <aura:if isTrue="{!equals(v.leagueRecordType, 'Cup')}">
-                <lightning:layoutItem
-                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                        class="slds-p-around--x-small"
-                >
-                    <lightning:select
-                            label="Teams"
-                            value="{!v.newLeagueWrapper.teamsLimit}"
-                            required="true"
+                <aura:if isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
+                    <lightning:layoutItem
+                            size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                            class="slds-p-around--x-small"
                     >
-                        <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamsLimit">
-                            <option label="{!cupTeamsLimit}" value="{!cupTeamsLimit}"></option>
-                        </aura:iteration>
-                    </lightning:select>
-                </lightning:layoutItem>
-            </aura:if>
-            <aura:if isTrue="{!or(equals(v.leagueRecordType, 'Classic'), equals(v.leagueRecordType, 'Battle_Royale'))}">
-                <lightning:layoutItem
-                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                        class="slds-p-around--x-small"
-                >
-                    <lightning:input
-                            label="Rounds"
-                            value="{!v.newLeagueWrapper.rounds}"
-                            type="number"
-                            min="2"
-                            max="40"
-                            required="true"
+                        <lightning:input
+                                label="Teams limit (2-40)"
+                                value="{!v.newLeagueWrapper.teamsLimit}"
+                                type="number"
+                                min="2"
+                                max="40"
+                                required="true"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+                <aura:if isTrue="{!equals(v.newLeagueWrapper.recordType, 'Cup')}">
+                    <lightning:layoutItem
+                            size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                            class="slds-p-around--x-small"
+                    >
+                        <lightning:select
+                                label="Teams"
+                                value="{!v.newLeagueWrapper.teamsLimit}"
+                                required="true"
+                        >
+                            <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamsLimit">
+                                <option label="{!cupTeamsLimit}" value="{!cupTeamsLimit}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </lightning:layoutItem>
+                </aura:if>
+                <aura:if isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
+                    <lightning:layoutItem
+                            size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                            class="slds-p-around--x-small"
+                    >
+                        <lightning:input
+                                label="Rounds"
+                                value="{!v.newLeagueWrapper.rounds}"
+                                type="number"
+                                min="2"
+                                max="40"
+                                required="true"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+                <lightning:layoutItem size="12" class="slds-p-around--x-small slds-align--absolute-center">
+                    <lightning:button label="Create"
+                                      variant="brand"
+                                      onclick="{!c.onSave}"
                     />
                 </lightning:layoutItem>
-            </aura:if>
-            <lightning:layoutItem size="12" class="slds-p-around--x-small slds-align--absolute-center">
-                <lightning:button label="Clear" variant="brand"
-                                  onclick="{!c.handleClear}"/>
-                <lightning:button label="Create"
-                                  variant="brand"
-                                  onclick="{!c.handleSaveCompetition}"
-                                  disabled="{! empty(v.simpleNewLeague.Name) || empty(v.simpleNewLeague.Start_Date__c) || empty(v.simpleNewLeague.End_Date__c) || (and(empty(v.simpleNewLeague.Max_Teams__c) , !v.isNumberOfTeamsUnlimited)) || and(empty(v.simpleNewLeague.Match_No__c) , equals(v.competitionType,'league'))}"/>
-
-            </lightning:layoutItem>
-
-        </lightning:layout>
-
-        <!--Display Lightning Data Service errors-->
-        <aura:if isTrue="{!not(empty(v.newleagueError))}">
-            <div class="recordError">{!v.newleagueError}</div>
-        </aura:if>
-    </div>
+            </lightning:layout>
+        </div>
+    </aura:if>
 </aura:component>

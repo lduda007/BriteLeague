@@ -1,11 +1,9 @@
 ({
     onInit: function(component, event, helper) {
         helper.doInit(component);
-        helper.loadCurrentDate(component);
-        helper.initializeNewLeagueRecord(component);
     },
 
-    handleSaveCompetition: function(component, event, helper) {
+    onSave: function(component, event, helper) {
         if(helper.validateLeagueForm(component, event)) {
             let competitionType = component.get("v.competitionType");
             let initDataWrapper = component.get("v.initDataWrapper");
