@@ -16,3 +16,48 @@
 .THIS .text-bold {
     font-weight: bold;
 }
+
+.THIS .competitor-final-position tr:nth-child(1) {
+    animation: competitor-final-position-1-pulse 1.5s infinite;
+}
+
+.THIS .competitor-final-position tr:nth-child(2) {
+    animation: competitor-final-position-2-pulse 1.5s infinite;
+}
+
+.THIS .competitor-final-position tr:nth-child(3) {
+    animation: competitor-final-position-3-pulse 1.5s infinite;
+}
+
+@keyframes competitor-final-position-1-pulse {
+    0% {
+    }
+    50% {
+        background-color: #FFC107;
+        box-shadow: 0px 0px 15px 5px #FFC107;
+    }
+    100% {
+    }
+}
+
+@keyframes competitor-final-position-2-pulse {
+    0% {
+    }
+    50% {
+        background-color: #9E9E9E;
+        box-shadow: 0px 0px 15px 5px #9E9E9E;
+    }
+    100% {
+    }
+}
+
+@keyframes competitor-final-position-3-pulse {
+    0% {
+    }
+    50% {
+        background-color: #795548;
+        box-shadow: 0px 0px 15px 5px #795548;
+    }
+    100% {
+    }
+}
