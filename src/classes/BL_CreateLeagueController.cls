@@ -15,6 +15,17 @@ public without sharing class BL_CreateLeagueController {
         return initDataWrapper;
     }
 
+    @AuraEnabled
+    public static Id saveCompetition() {
+        Id newLeagueId;
+        try {
+
+        } catch(Exception e) {
+
+        }
+        return newLeagueId;
+    }
+
     public class InitDataWrapper {
         @AuraEnabled
         public List<OptionWrapper> leagueRecordTypeOptions;

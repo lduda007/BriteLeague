@@ -4,31 +4,9 @@
     <aura:attribute name="newLeagueWrapper" type="Object" default="{}" access="private"/>
     <aura:attribute name="cupTeamsNumber" type="List" default="[4,8,16,32,64]" access="private"/>
 
-    <aura:attribute name="simpleNewLeague" type="Object"/>
-    <aura:attribute name="newLeagueError" type="String"/>
-    <aura:attribute name="maxTeamsOptions" type="String[]"/>
-    <aura:attribute name="selectedMaxTeamOption" type="String"/>
-    <aura:attribute name="endDateInputVisible" type="Boolean" default="false"/>
-    <aura:attribute name="currentDate" type="String"/>
-    <aura:attribute name="yearLaterDate" type="String"/>
-    <aura:attribute name="maxEndDate" type="String"/>
-    <aura:attribute name="isNumberOfTeamsUnlimited" type="Boolean" default="false"/>
-    <aura:attribute name="isFormVisible" type="Boolean" default="true"/>
-    <aura:attribute name="leagueRoundsNumber" type="List" default="[]" access="private"/>
-    <aura:attribute name="totalMatches" type="Integer" default="0" access="private"/>
-    <aura:attribute name="totalMatchesLimit" type="Integer" default="800"/>
-    <aura:attribute name="totalRoundsLimit" type="Integer" default="20"/>
-
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <aura:handler name="change" value="{!v.simpleNewLeague.Start_Date__c}" action="{!c.handleStartDateChange}"/>
 
     <aura:registerEvent name="competitionCreated" type="c:BL_CompetitionCreatedEvent"/>
-
-    <force:recordData aura:id="leagueRecordCreator"
-                      layoutType="FULL"
-                      targetRecord="{!v.newLeague}"
-                      targetFields="{!v.simpleNewLeague}"
-                      targetError="{!v.newLeagueError}"/>
 
     <aura:if isTrue="{!not(empty(v.initDataWrapper))}">
         <div class="slds-align_absolute-center">
