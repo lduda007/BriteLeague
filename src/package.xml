@@ -99,6 +99,7 @@
         <members>Contact</members>
         <members>BL_BriteLeagueUrls__c</members>
         <members>BL_BriteLeagueSettings__c</members>
+        <members>BL_TeamMember__c</members>
         <name>CustomObject</name>
     </types>
     <types>
