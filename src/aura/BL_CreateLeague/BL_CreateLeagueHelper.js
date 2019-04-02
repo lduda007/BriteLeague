@@ -25,7 +25,7 @@
     doSave: function(component) {
         let action = component.get("c.saveCompetition");
         action.setParams({
-            newLeagueWrapper: JSON.stringify(component.get("v.newLeagueWrapper"))
+            newLeagueWrapperJson: JSON.stringify(component.get("v.newLeagueWrapper"))
         });
         action.setCallback(this, function(response) {
             let state = response.getState();
@@ -33,13 +33,19 @@
             let errors = response.getError();
 
             if(state === "SUCCESS") {
-                this.showToast('success', 'Competiton Created!');
+                this.showToast('SUCCESS', 'Competition Created!');
+                $A.get("e.force:navigateToSObject").setParams({
+                      "recordId": result,
+                      "slideDevName": "detail"
+                      }).fire();
             } else if(state === "ERROR") {
-                let message = 'Unknown error';
+                let message;
                 if(errors && Array.isArray(errors) && errors.length > 0) {
                     message = errors[0].message;
+                } else {
+                    message = 'Unknown error!';
                 }
-                console.error(message);
+                this.showToast('ERROR', message);
             }
         });
         $A.enqueueAction(action);
@@ -65,6 +71,12 @@
             + ':' + dateObject.getMinutes()
             + ':' + dateObject.getSeconds()
             + '.' + dateObject.getMilliseconds() + 'Z';
+    },
+
+    validateForm: function(component) {
+        return component.find('newLeagueForm').reduce(function (isValidSoFar, input) {
+            return isValidSoFar && input.get('v.validity').valid;
+            }, true);
     },
 
     clearForm: function(component) {

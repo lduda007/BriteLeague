@@ -16,14 +16,35 @@ public without sharing class BL_CreateLeagueController {
     }
 
     @AuraEnabled
-    public static Id saveCompetition() {
-        Id newLeagueId;
+    public static Id saveCompetition(String newLeagueWrapperJson) {
+        BL_League__c league = new BL_League__c();
         try {
+            LeagueWrapper newLeagueWrapper = (LeagueWrapper) JSON.deserialize(newLeagueWrapperJson, LeagueWrapper.class);
 
+            league.RecordTypeId = BL_League__c.getSObjectType()
+                    .getDescribe()
+                    .getRecordTypeInfosByDeveloperName()
+                    .get(newLeagueWrapper.recordType)
+                    .getRecordTypeId();
+
+            league.Name = newLeagueWrapper.name;
+            league.TeamSize__c = newLeagueWrapper.teamSize;
+            league.Start_Date__c = newLeagueWrapper.startDate;
+            league.End_Date__c = newLeagueWrapper.endDate;
+            league.Max_Teams__c = newLeagueWrapper.teamsLimit;
+
+            if(newLeagueWrapper.recordType == BL_Constants.LEAGUE_RT_CUP) {
+                league.Match_No__c = 1;
+            } else {
+                league.Match_No__c = newLeagueWrapper.rounds;
+            }
+
+            insert league;
         } catch(Exception e) {
-
+            String uiMessage = 'An error occurred during creation of competition: ' + e.getMessage();
+            BL_Utils.throwAuraHandledException(uiMessage, uiMessage + ' ' + e.getStackTraceString());
         }
-        return newLeagueId;
+        return league.Id;
     }
 
     public class InitDataWrapper {
@@ -63,11 +84,11 @@ public without sharing class BL_CreateLeagueController {
 
     public class LeagueWrapper {
         @AuraEnabled
-        public String recordType;
+        public String recordType;//
         @AuraEnabled
-        public Integer teamSize;
+        public String teamSize;//
         @AuraEnabled
-        public String name;
+        public String name;//
         @AuraEnabled
         public Datetime startDate;
         @AuraEnabled
