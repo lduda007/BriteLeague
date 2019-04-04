@@ -21,6 +21,7 @@
         <members>BL_CompetitionFeedController</members>
         <members>BL_Constants</members>
         <members>BL_CreateLeagueController</members>
+        <members>BL_ImageController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -58,6 +59,8 @@
         <members>BL_MatchDetailsViewer</members>
         <members>BL_MatchScoreProvider</members>
         <members>BL_BattleRoyaleDetails</members>
+        <members>BL_Image</members>
+        <members>BL_LeagueDetails</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

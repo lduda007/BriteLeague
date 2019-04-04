@@ -1,0 +1,39 @@
+<aura:component
+        description="BL_Image"
+        controller="BL_ImageController"
+>
+
+    <aura:attribute name="parentId" type="String" access="public" required="true"/>
+    <aura:attribute name="isEditable" type="Boolean" access="public" default="false"/>
+    <aura:attribute name="name" type="String" access="public"/>
+    <aura:attribute name="width" type="String" access="public" default="200px"/>
+    <aura:attribute name="height" type="String" access="public" default="200px"/>
+
+    <aura:attribute name="wrapper" type="Object" access="private"/>
+    <aura:attribute name="pictureSrc" type="String" default="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdyq2y3f1IKjJEkyq7Dcx0oSQszq9VVm3lsiRbAR7BRCN0NCNG"/>
+    <aura:attribute name="showSpinner" type="Boolean" access="private" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:if isTrue="{!v.showSpinner}">
+        <c:BL_Spinner show="{!v.showSpinner}"/>
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.isEditable}">
+                <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" class="slds-is-relative" aura:id="uploadDiv">
+                    <img
+                            src="{!v.pictureSrc}"
+                            style="{!'width: ' + v.width + '; height: ' + v.height}"
+                            alt="{!v.name}"
+                    />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!not(v.isEditable)}">
+                <img
+                        src="{!v.pictureSrc}"
+                        style="{!'width: ' + v.width + '; height: ' + v.height}"
+                        alt="{!v.name}"
+                />
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>
