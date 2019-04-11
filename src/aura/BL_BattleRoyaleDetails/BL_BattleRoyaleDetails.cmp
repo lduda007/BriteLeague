@@ -22,7 +22,9 @@
 
                 <div style="text-align: center">
                     <lightning:layout multipleRows="true" verticalAlign="center" class="slds-grid_align-spread">
-
+                        <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-p-around--medium">
+<!--                            <c:BL_Image parentId="{!v.leagueId}" name="league-logo" width="150px" height="150px"/>-->
+                        </lightning:layoutItem>
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Start_Date}:</p>
                             <lightning:formattedDateTime value="{!v.league.Start_Date__c}"

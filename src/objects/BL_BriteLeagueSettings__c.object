@@ -3,6 +3,15 @@
     <customSettingsType>Hierarchy</customSettingsType>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Default_Image_URL__c</fullName>
+        <defaultValue>&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdyq2y3f1IKjJEkyq7Dcx0oSQszq9VVm3lsiRbAR7BRCN0NCNG&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Default Image URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
         <fullName>Enabled_League_Record_Types__c</fullName>
         <description>Comma separated list of enabled League Record Type developer names.</description>
         <externalId>false</externalId>

@@ -8,6 +8,6 @@
     },
 
     onDrop: function(component, event, helper) {
-        helper.handleOnDrop(component, event);
+        helper.handleDrop(component, event);
     }
 });

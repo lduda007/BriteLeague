@@ -1,17 +1,19 @@
 public class BL_ImageController {
 
     @AuraEnabled
-    public static Attachment getProfilePicture(Id parentId) {
-        List<Attachment> att = [
-                SELECT Id, Name, LastModifiedDate, ContentType
+    public static String getImageLink(Id parentId, String fileName) {
+        List<Attachment> attachments = [
+                SELECT Id
                 FROM Attachment
-                WHERE parentid = :ParentId AND ContentType IN ('image/png', 'image/jpeg', 'image/gif')
+                WHERE ParentId = :ParentId AND ContentType IN ('image/png', 'image/jpeg', 'image/gif')
+                AND Name = :fileName
                 ORDER BY LastModifiedDate DESC
                 LIMIT 1
         ];
-        if(att.size() > 0) {
-            return att[0];
-        } else return new Attachment();
+
+        return attachments.isEmpty()
+                ? BL_BriteLeagueSettings__c.getOrgDefaults().Default_Image_URL__c
+                : '/servlet/servlet.FileDownload?file=' + attachments[0].Id;
     }
 
     @AuraEnabled

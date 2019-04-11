@@ -25,6 +25,7 @@
                     resultsToast.fire();
                 }
             }
+            component.set("v.showSpinner", false);
         });
         $A.enqueueAction(action);
     },
