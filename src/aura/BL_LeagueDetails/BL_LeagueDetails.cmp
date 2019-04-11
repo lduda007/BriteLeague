@@ -148,7 +148,7 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="{!equals(v.league.Status__c, 'Finished') ? ('competitor-final-position') : ''}">
                         <aura:iteration items="{!v.league.Competitors__r}" var="team" indexVar="index">
                             <tr onclick="{!c.rowClicked}" aura:id="competitorRow" data-index="{!index}" data-competitorId="{!team.Id}">
                                 <td scope="row" data-label="{!$Label.c.BL_Position}">
