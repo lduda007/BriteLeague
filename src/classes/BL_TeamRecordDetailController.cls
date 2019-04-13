@@ -28,6 +28,29 @@ public with sharing class BL_TeamRecordDetailController {
     }
 
     @AuraEnabled
+    public static List<BL_TeamMember__c> getTeamMembers(String teamId) {
+        List<BL_TeamMember__c> teamMembers = [
+            SELECT Id, Member__r.Name, Member__r.Player1__r.Name, Member__r.Player2__r.Name,
+                    Member__r.Player1__r.LastName, Member__r.Player2__r.LastName,
+                    Member__r.Player1__r.ImageUrl__c, Member__r.Player2__r.ImageUrl__c
+            FROM BL_TeamMember__c
+            WHERE Team__c = :teamId
+        ];
+
+        return teamMembers;
+    }
+
+    @AuraEnabled
+    public static List<BL_TeamMember__c > getParentTeams(String teamId) {
+        List<BL_TeamMember__c> parentTeams = [
+                SELECT Id, Team__r.Name, Team__r.Player1__r.Name, Team__r.Team_Member_Count__c
+                FROM BL_TeamMember__c
+                WHERE Member__c = :teamId
+        ];
+        return parentTeams;
+    }
+
+    @AuraEnabled
     public static Attachment getProfilePicture(Id parentId) {
         List<Attachment> att = [
                 SELECT Id, Name, LastModifiedDate, ContentType

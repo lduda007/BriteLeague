@@ -1,0 +1,21 @@
+<aura:component description="BL_TeamMainPage" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="teamType" type="String"/>
+    <aura:attribute name="team" type="BL_Team__c"/>
+    <aura:attribute name="teamFields" type="BL_Team__c"/>
+    <aura:attribute name="recordError" type="String" />
+
+    <force:recordData aura:id="teamDescriptor"
+                      recordId="{!v.recordId}"
+                      fields="Id, RecordType.DeveloperName"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.team}"
+                      targetFields ="{!v.teamFields}"
+    />
+
+    <aura:if isTrue="{!equals(v.teamFields.RecordType.DeveloperName, 'Classic')}">
+        <c:BL_TeamDetails teamId="{!v.recordId}"/>
+    </aura:if>
+    <aura:if isTrue="{!equals(v.teamFields.RecordType.DeveloperName, 'Battle_Royale')}">
+        <c:BL_ParentTeamDetails teamId="{!v.recordId}"/>
+    </aura:if>
+</aura:component>
