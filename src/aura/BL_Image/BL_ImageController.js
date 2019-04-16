@@ -1,6 +1,10 @@
 ({
-    onInit : function(component, event, helper) {
+    onInit: function(component, event, helper) {
         helper.doInit(component);
+    },
+
+    onImageLoad: function(component) {
+        component.set("v.showSpinner", false);
     },
 
     onDragOver: function(component, event) {
@@ -8,6 +12,8 @@
     },
 
     onDrop: function(component, event, helper) {
-        helper.handleDrop(component, event);
+        if(component.get("v.isEditable")) {
+            helper.handleDrop(component, event);
+        }
     }
 });

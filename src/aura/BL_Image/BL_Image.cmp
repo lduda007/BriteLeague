@@ -15,27 +15,20 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
-    <aura:if isTrue="{!v.showSpinner}">
-        <div class="slds-is-relative" style="{!'width: ' + v.width + '; height: ' + v.height + ';'}">
-            <lightning:spinner size="small" variant="brand"/>
-        </div>
-    </aura:if>
-    <aura:if isTrue="{!not(v.showSpinner)}">
-        <aura:if isTrue="{!v.isEditable}">
-            <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" class="slds-is-relative" aura:id="uploadDiv">
-                <img
-                        src="{!v.fileSrc}"
-                        style="{!'width: ' + v.width + '; height: ' + v.height + '; cursor: pointer;'}"
-                        alt="{!v.name}"
-                />
+    <div class="slds-is-relative">
+        <aura:if isTrue="{!v.showSpinner}">
+            <div style="{!'width: ' + v.width + '; height: ' + v.height}">
+                <lightning:spinner size="small" variant="brand"/>
             </div>
         </aura:if>
-        <aura:if isTrue="{!not(v.isEditable)}">
+        <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" class="slds-is-relative" aura:id="uploadDiv">
             <img
                     src="{!v.fileSrc}"
                     style="{!'width: ' + v.width + '; height: ' + v.height}"
                     alt="{!v.name}"
+                    onload="{!c.onImageLoad}"
+                    class="{!v.showSpinner ? 'slds-hide' : ''}"
             />
-        </aura:if>
-    </aura:if>
+        </div>
+    </div>
 </aura:component>

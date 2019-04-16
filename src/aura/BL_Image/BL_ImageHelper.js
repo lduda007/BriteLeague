@@ -14,13 +14,14 @@
                 component.set("v.fileSrc", result);
             } else {
                 this.handleApexError(component, errors);
+                component.set("v.showSpinner", false);
             }
-            component.set("v.showSpinner", false);
         });
         $A.enqueueAction(action);
     },
 
     handleDrop: function(component, event) {
+        component.set("v.showSpinner", true);
         event.stopPropagation();
         event.preventDefault();
         event.dataTransfer.dropEffect = 'copy';
@@ -33,16 +34,17 @@
 
     saveImage: function(component, file) {
         if(!file) {
+            component.set("v.showSpinner", false);
             return;
         } else if(!file.type.match(/(image.*)/)) {
+            component.set("v.showSpinner", false);
             this.showToast(component, "error", "This file type is not supported");
             return;
         } else if(file.size > 4500000) {
-            this.showToast(component, "error", "File size cannot exceed 4.5 MB.\n' Selected file size: " + (file.size / (1024*1024)).toPrecision(2) + " MB");
+            component.set("v.showSpinner", false);
+            this.showToast(component, "error", "File size cannot exceed 4.5 MB.\n' Selected file size: " + (file.size / (1024 * 1024)).toPrecision(2) + " MB");
             return;
         } else {
-            component.set("v.showSpinner", true);
-
             let reader = new FileReader();
             let helper = this;
 
@@ -87,10 +89,10 @@
                 fromPos = toPos;
                 fromPos = toPos;
                 toPos = Math.min(fileContents.length, fromPos + 500000);
+
                 if(fromPos < toPos) {
                     helper.uploadChunk(component, file, fromPos, toPos, fileId);
                 } else {
-                    component.set("v.message", "Image uploaded");
                     helper.showToast(component, "success", "Image uploaded");
                     helper.doInit(component);
                 }

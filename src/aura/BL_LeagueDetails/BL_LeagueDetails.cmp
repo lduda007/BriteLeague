@@ -38,8 +38,8 @@
                 </aura:set>
 
                 <div style="text-align: center">
-                    <lightning:layout multipleRows="true" verticalAlign="start" class="slds-grid_align-spread">
-                        <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-p-around--medium">
+                    <lightning:layout multipleRows="true" verticalAlign="start">
+                        <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3">
                             <c:BL_Image
                                     parentId="{!v.leagueId}"
                                     fileName="league-logo"
