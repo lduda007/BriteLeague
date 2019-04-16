@@ -1,0 +1,18 @@
+.THIS .row-highlighted {
+  background-color:  rgb(216, 237, 255);
+}
+
+.THIS .playerAvatar{
+     width: 35px;
+     height: 35px;
+     border-radius: 50%;
+     border: 3px solid white;
+}
+
+.THIS .height-230px {
+    height: 230px;
+}
+
+.THIS .text-bold {
+    font-weight: bold;
+}

@@ -153,6 +153,14 @@
         <value>Error when leaving competition</value>
     </labels>
     <labels>
+        <fullName>BL_Error_When_Loading_Team_Details</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Error When Loading Team Details</shortDescription>
+        <value>Error when loading team details</value>
+    </labels>
+    <labels>
         <fullName>BL_Error_when_loading_cup_details</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -353,6 +361,14 @@
         <value>Matches not generated yet</value>
     </labels>
     <labels>
+        <fullName>BL_Members</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Members</shortDescription>
+        <value>Members</value>
+    </labels>
+    <labels>
         <fullName>BL_My</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -385,6 +401,14 @@
         <value>There is no open competitions, but you can create one.</value>
     </labels>
     <labels>
+        <fullName>BL_No_Team_Members</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL No Team Members</shortDescription>
+        <value>This team doesn&apos;t have any members.</value>
+    </labels>
+    <labels>
         <fullName>BL_No_competitors_found</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -415,6 +439,14 @@
         <protected>false</protected>
         <shortDescription>Owner</shortDescription>
         <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>BL_Parent_Teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Parent Teams</shortDescription>
+        <value>Parent Teams</value>
     </labels>
     <labels>
         <fullName>BL_Player</fullName>
@@ -607,6 +639,14 @@
         <protected>false</protected>
         <shortDescription>Team 2</shortDescription>
         <value>Team 2</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Capitain</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Team Capitain</shortDescription>
+        <value>Team Capitain</value>
     </labels>
     <labels>
         <fullName>BL_Team_Joined_Statement</fullName>

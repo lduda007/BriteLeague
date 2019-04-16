@@ -1,0 +1,92 @@
+<aura:component description="BL_TeamMembersList" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+                controller="BL_TeamRecordDetailController">
+    <aura:attribute type="List" name="teamMembers" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <c:BL_Card title="{!$Label.c.BL_Members}">
+        <aura:if isTrue="{! !empty(v.teamMembers)}">
+            <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                <thead>
+                <tr class="slds-text-title_caps">
+                    <aura:if isTrue="{!v.league.TeamSize__c == 'Single Player'}">
+                        <th scope="col">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Player}">{!$Label.c.BL_Player}</div>
+                        </th>
+                        <aura:set attribute="else">
+                            <th scope="col">
+                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                            </th>
+                        </aura:set>
+                    </aura:if>
+                </tr>
+                </thead>
+                <tbody>
+                <aura:iteration items="{!v.teamMembers}" var="team" indexVar="index">
+                <tr>
+                    <aura:if isTrue="{!v.league.TeamSize__c == 'Single Player'}">
+                        <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">
+                                <a data-recordId="{!team.Member__c}" onclick="{!c.goToTeamPage}">
+                                    <aura:if isTrue="{!not(empty(team.Member__r.Player1__r.ImageUrl__c))}">
+                                        <img src="{!team.Member__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                        <aura:set attribute="else">
+                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                        </aura:set>
+                                    </aura:if>
+                                    <span class="slds-p-left--x-small">{!team.Member__r.Name}</span>
+                                </a>
+                            </div>
+                        </td>
+                        <aura:set attribute="else">
+                            <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                <div class="slds-truncate text-bold" title="{!$Label.c.BL_Team_Name}">
+                                    <a data-recordId="{!team.Member__c}" onclick="{!c.goToRecord}">
+                                            {!team.Member__r.Name}
+                                    </a>
+                                </div>
+                            </td>
+                            <td scope="row" data-label="{!$Label.c.BL_Team_Players}">
+                                <div class="slds-truncate">
+                                    <aura:if isTrue="{!not(empty(team.Member__r.Player1__r.ImageUrl__c))}">
+                                        <img src="{!team.Member__r.Player1__r.ImageUrl__c}" class="playerAvatar"
+                                             title="{!team.Member__r.Player1__r.Name}"/>
+                                        <aura:set attribute="else">
+                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"
+                                                 title="{!team.Member__r.Player1__r.Name}"/>
+                                        </aura:set>
+                                    </aura:if>
+
+                                    <aura:if isTrue="{!not(empty(team.Member__r.Player2__r.ImageUrl__c))}">
+                                        <img src="{!team.Member__r.Player2__r.ImageUrl__c}" class="playerAvatar"
+                                             title="{!team.Member__r.Player2__r.Name}"/>
+                                        <aura:set attribute="else">
+                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"
+                                                 title="{!team.Member__r.Player2__r.Name}"/>
+                                        </aura:set>
+                                    </aura:if>
+                                    <span class="slds-p-left--x-small">{!team.Member__r.Player1__r.LastName}</span>
+                                    <aura:if isTrue="{!empty(team.Member__r.Player1__r.LastName) || empty(team.Member__r.Player2__r.LastName)}">
+                                        <aura:set attribute="else">
+                                            &amp;
+                                        </aura:set>
+                                    </aura:if>
+                                        {!team.Member__r.Player2__r.LastName}
+                                </div>
+                            </td>
+                        </aura:set>
+                    </aura:if>
+                </tr>
+                </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else">
+                <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                        {!$Label.c.BL_No_Team_Members}
+                </div>
+            </aura:set>
+        </aura:if>
+    </c:BL_Card>
+</aura:component>
