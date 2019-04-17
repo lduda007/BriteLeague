@@ -1,18 +1,23 @@
 public with sharing class BL_CustomLookupController {
-	@AuraEnabled
-	public static List < sObject > fetchLookUpValues(String searchKeyWord, String ObjectName) {
-		system.debug('ObjectName-->' + ObjectName);
-		String searchKey = '%' + searchKeyWord + '%';
+    @AuraEnabled
+    public static List < sObject > fetchLookUpValues(String searchKeyWord, String ObjectName, String additionalFilters) {
 
-		List < sObject > returnList = new List < sObject > ();
+        String searchKey = '%' + searchKeyWord + '%';
+        Id playerId = BL_Utils.getCurrentUser().ContactId;
+        List < sObject > returnList = new List < sObject > ();
 
-		// Create a Dynamic SOQL Query For Fetch Record List with LIMIT 5
-		String sQuery =  'select id, Name from ' +ObjectName + ' where Name LIKE: searchKey order by createdDate DESC limit 5';
-		List < sObject > lstOfRecords = Database.query(sQuery);
+        // Create a Dynamic SOQL Query For Fetch Record List with LIMIT 5
+        String queryFilters = 'Name LIKE :searchKey ';
+        if (String.isEmpty(additionalFilters) == false) {
+            queryFilters += ' AND ' + additionalFilters;
+        }
+        String sQuery = 'SELECT Id, Name from ' + ObjectName + ' WHERE ' + queryFilters + ' ORDER BY CreatedDate DESC LIMIT 5';
 
-		for (sObject obj: lstOfRecords) {
-			returnList.add(obj);
-		}
-		return returnList;
-	}
+        List < sObject > lstOfRecords = Database.query(sQuery);
+
+        for (sObject obj: lstOfRecords) {
+            returnList.add(obj);
+        }
+        return returnList;
+    }
 }

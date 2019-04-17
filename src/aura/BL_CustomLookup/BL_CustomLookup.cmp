@@ -1,4 +1,4 @@
-<aura:component controller="BL_CreateTeamLookupController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+<aura:component controller="BL_CustomLookupController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
     <!--declare attributes-->
     <aura:attribute name="selectedRecord" type="sObject" default="{}" description="Use,for store SELECTED sObject Record"/>
     <aura:attribute name="listOfSearchRecords" type="List" description="Use,for store the list of search records which returns from apex class"/>
@@ -8,6 +8,7 @@
     <aura:attribute name="label" type="string" default=""/>
     <aura:attribute name="parentName" type="string" default=""/>
     <aura:attribute name="Message" type="String" default=""/>
+    <aura:attribute name="filters" type="String" default=""/>
 
     <!--declare events hendlers-->
     <aura:handler name="oSelectedRecordEvent" event="c:BL_SelectedsObjectRecordEvent" action="{!c.handleComponentEvent}"/>

@@ -51,6 +51,18 @@ public with sharing class BL_TeamRecordDetailController {
     }
 
     @AuraEnabled
+    public static void addTeamMembers(Id parentTeamId, List<Id> memberTeamsIds) {
+        List<BL_TeamMember__c> newTeamMembers = new List<BL_TeamMember__c>();
+        for (Id memberId : memberTeamsIds) {
+            newTeamMembers.add(new BL_TeamMember__c(
+                    Member__c = memberId,
+                    Team__c = parentTeamId
+            ));
+        }
+        insert newTeamMembers;
+    }
+
+    @AuraEnabled
     public static Attachment getProfilePicture(Id parentId) {
         List<Attachment> att = [
                 SELECT Id, Name, LastModifiedDate, ContentType

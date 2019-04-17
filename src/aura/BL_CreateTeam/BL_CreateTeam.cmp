@@ -22,7 +22,7 @@
             </div>
             <aura:if isTrue="{! !v.isBattleRoyale}">
                 <div class="slds-form-element__row slds-align--absolute-center">
-                    <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}" parentName="BL_CreateTeam"/>
+                    <c:BL_CustomLookup objectAPIName="contact" IconName="standard:contact" label="Second Player" selectedRecord="{!v.selectedPlayer}" parentName="BL_CreateTeam" filters=""/>
                 </div>
             </aura:if>
             <div class="slds-form-element__row slds-align--absolute-center">
