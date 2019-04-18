@@ -10,6 +10,7 @@
     <aura:attribute name="selectedTeam" type="BL_Team__c"/>
     <aura:attribute name="selectedTeams" type="List"/>
     <aura:attribute name="lookupFilters" type="String" default=""/>
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
 
     <force:recordData aura:id="teamDescriptor"
                       recordId="{!v.recordId}"
@@ -41,29 +42,35 @@
     </aura:if>
 
     <c:BL_Card title="{!$Label.c.BL_Members}">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner variant="brand" size="small"/>
+        </aura:if>
         <aura:if isTrue="{! !empty(v.teamMembers)}">
             <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
                 <thead>
                 <tr class="slds-text-title_caps">
-                    <aura:if isTrue="{!v.league.TeamSize__c == 'Single Player'}">
-                        <th scope="col">
-                            <div class="slds-truncate" title="{!$Label.c.BL_Player}">{!$Label.c.BL_Player}</div>
-                        </th>
-                        <aura:set attribute="else">
-                            <th scope="col">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
-                            </th>
-                            <th scope="col">
-                                <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
-                            </th>
-                        </aura:set>
+                    <th scope="col">
+                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
+                    </th>
+                    <aura:if isTrue="{! and(v.teamFields.Player1__c != null, v.teamFields.Player1__c == v.currentPlayerId)}">
+                        <th scope="col"></th>
                     </aura:if>
                 </tr>
                 </thead>
                 <tbody>
                 <aura:iteration items="{!v.teamMembers}" var="team" indexVar="index">
                     <tr>
-                        <aura:if isTrue="{!v.league.TeamSize__c == 'Single Player'}">
+                        <aura:if isTrue="{! empty(team.Member__r.Player2__r.LastName)}">
+                            <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                                <div class="slds-truncate text-bold" title="{!$Label.c.BL_Team_Name}">
+                                    <a data-recordId="{!team.Member__c}" onclick="{!c.goToRecord}">
+                                            {!team.Member__r.Name}
+                                    </a>
+                                </div>
+                            </td>
                             <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
                                 <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">
                                     <a data-recordId="{!team.Member__c}" onclick="{!c.goToTeamPage}">
@@ -73,7 +80,6 @@
                                                 <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
                                             </aura:set>
                                         </aura:if>
-                                        <span class="slds-p-left--x-small">{!team.Member__r.Name}</span>
                                     </a>
                                 </div>
                             </td>
@@ -104,16 +110,14 @@
                                                      title="{!team.Member__r.Player2__r.Name}"/>
                                             </aura:set>
                                         </aura:if>
-                                        <span class="slds-p-left--x-small">{!team.Member__r.Player1__r.LastName}</span>
-                                        <aura:if isTrue="{!empty(team.Member__r.Player1__r.LastName) || empty(team.Member__r.Player2__r.LastName)}">
-                                            <aura:set attribute="else">
-                                                &amp;
-                                            </aura:set>
-                                        </aura:if>
-                                            {!team.Member__r.Player2__r.LastName}
                                     </div>
                                 </td>
                             </aura:set>
+                        </aura:if>
+                        <aura:if isTrue="{! and(v.teamFields.Player1__c != null, v.teamFields.Player1__c == v.currentPlayerId)}">
+                            <td>
+                                <lightning:buttonIcon iconName="utility:close" alternativeText="Remove" size="small" onclick="{!c.removeTeam}" value="{!team.Id}" />
+                            </td>
                         </aura:if>
                     </tr>
                 </aura:iteration>

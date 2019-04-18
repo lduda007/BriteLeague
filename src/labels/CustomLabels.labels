@@ -209,6 +209,14 @@
         <value>Error when loading league matches</value>
     </labels>
     <labels>
+        <fullName>BL_Error_when_removing_team</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when removing team</shortDescription>
+        <value>Error when removing team</value>
+    </labels>
+    <labels>
         <fullName>BL_Feed</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -695,6 +703,14 @@
         <protected>false</protected>
         <shortDescription>Team Players</shortDescription>
         <value>Team Players</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Removed</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Removed</shortDescription>
+        <value>Team removed</value>
     </labels>
     <labels>
         <fullName>BL_Teams</fullName>

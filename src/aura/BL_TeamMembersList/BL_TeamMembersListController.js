@@ -26,7 +26,8 @@
     },
 
     removeTeam: function(component, event, helper) {
-        //   TODO: ability to remove teams if the league haven't started yet
+        let teamMemberId = event.getSource().get("v.value");
+        helper.removeTeam(component, teamMemberId);
     },
 
     goToRecord : function(component, event, handler) {
