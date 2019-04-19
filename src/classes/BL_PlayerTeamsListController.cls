@@ -2,13 +2,26 @@ public with sharing class BL_PlayerTeamsListController {
     @AuraEnabled
     public static List<BL_Team__c> getPlayerTeams(){
         User currentUser = BL_Utils.getCurrentUser();
-        List<BL_Team__c> playerTeams = [
+        List<BL_Team__c> directTeams = [
                 SELECT Id, Name, RecordType.Name, IsActive__c, Player1__c, Player2__c, Player1__r.LastName, Player2__r.LastName, Total_Games_Won__c,
                         Total_Games_Lost__c, Total_Games_Drawn__c, Total_Goals_Scored__c, Total_Goals_Lost__c
                 FROM BL_Team__c
-                WHERE (Player1__c =: currentUser.ContactId OR Player2__c =: currentUser.ContactId) AND IsActive__c = true AND IsSinglePlayer__c = false
+                WHERE (Player1__c = :currentUser.ContactId OR Player2__c = :currentUser.ContactId)
+                AND IsActive__c = true
+                AND IsSinglePlayer__c = false
+                ORDER BY LastModifiedDate
         ];
-        return playerTeams;
+        List<BL_Team__c> parentTeams = [
+                SELECT Id, Name, RecordType.Name, IsActive__c, Player1__c, Player2__c, Player1__r.LastName, Player2__r.LastName, Total_Games_Won__c,
+                        Total_Games_Lost__c, Total_Games_Drawn__c, Total_Goals_Scored__c, Total_Goals_Lost__c
+                FROM BL_Team__c
+                WHERE Id IN (SELECT Team__c FROM BL_TeamMember__c WHERE Member__c IN :directTeams)
+                ORDER BY LastModifiedDate
+        ];
+        Set<BL_Team__c> playerTeams = new Set<BL_Team__c>();
+        playerTeams.addAll(directTeams);
+        playerTeams.addAll(parentTeams);
+        return new List<BL_Team__c>(playerTeams);
     }
 
     @AuraEnabled
