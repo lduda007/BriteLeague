@@ -3,9 +3,9 @@
                 implements="flexipage:availableForAllPageTypes,force:hasRecordId">
 
     <aura:attribute name="competitionId" type="String"/>
+    <aura:attribute name="height" type="String" default="300px"/>
     <aura:attribute name="labels" type="List"/>
     <aura:attribute name="dataSets" type="List"/>
-    <aura:attribute name="chartHeight" type="String" default="300"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
     <aura:attribute name="isCompetitionStarted" type="Boolean" default="false"/>
 
@@ -14,16 +14,18 @@
     <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.onInit}"/>
 
     <c:BL_Card title="{!$Label.c.BL_Progress_Chart}">
-        <aura:if isTrue="{!v.isSpinner}">
-            <lightning:spinner variant="brand" size="small"/>
-        </aura:if>
-        <div style="position: relative; padding: 4px;">
-            <canvas aura:id="chart" height="{!v.chartHeight}"></canvas>
-        </div>
-        <aura:if isTrue="{!not(v.isSpinner)}">
-            <aura:if isTrue="{!not(v.isCompetitionStarted)}">
-                    <ui:outputText value="{!$Label.c.BL_League_Not_Started}" class="slds-align_absolute-center height-full"/>
+        <div style="{!'padding: 4px; height: ' + v.height}">
+            <aura:if isTrue="{!v.isSpinner}">
+                <lightning:spinner variant="brand" size="small"/>
             </aura:if>
-        </aura:if>
+            <canvas aura:id="chart" height="0"></canvas>
+            <aura:if isTrue="{!not(v.isSpinner)}">
+                <aura:if isTrue="{!not(v.isCompetitionStarted)}">
+                    <div class="slds-align_absolute-center height-full">
+                        <ui:outputText value="{!$Label.c.BL_League_Not_Started}"/>
+                    </div>
+                </aura:if>
+            </aura:if>
+        </div>
     </c:BL_Card>
 </aura:component>

@@ -66,6 +66,9 @@
         <members>BL_TeamDetails</members>
         <members>BL_TeamMainPage</members>
         <members>BL_ParentTeamsList</members>
+        <members>BL_BattleRoyaleTable</members>
+        <members>BattleRoyalePage</members>
+        <members>BL_BattleRoyalePage</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

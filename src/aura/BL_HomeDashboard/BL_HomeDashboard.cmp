@@ -27,7 +27,6 @@
                 </div>
             </c:BL_Card>
         </lightning:layoutItem>
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6">
             <lightning:layout verticalAlign="start" multipleRows="true">
                 <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12" class="slds-p-around--x-small">
@@ -42,35 +41,11 @@
                 </lightning:layoutItem>
             </lightning:layout>
         </lightning:layoutItem>
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
-            <div class="slds-p-around--x-small header-div" align="center">Last Matches</div>
-            <aura:if isTrue="{!!empty(v.lastMatches)}">
-                <div class="slds-scrollable_y" style="height: 30rem;">
-                    <c:BL_MatchesTable matches="{!v.lastMatches}" showCompetitionColumn="true"/>
-                </div>
-                <aura:set attribute="else">
-                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                        <ui:outputText value="No matches found" />
-                    </div>
-                </aura:set>
-            </aura:if>
+            <c:BL_MatchesTable title="Last Matches" matches="{!v.lastMatches}" showCompetitionColumn="true"/>
         </lightning:layoutItem>
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" class="slds-p-around--x-small">
-            <div class="slds-p-around--x-small header-div" align="center">Next Matches</div>
-            <aura:if isTrue="{!!empty(v.nextMatches)}">
-                <div class="slds-scrollable_y" style="height: 30rem;">
-                    <c:BL_MatchesTable matches="{!v.nextMatches}" showCompetitionColumn="true"/>
-                </div>
-                <aura:set attribute="else">
-                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                        <ui:outputText value="No matches found" />
-                    </div>
-                </aura:set>
-            </aura:if>
+            <c:BL_MatchesTable title="Next Matches" matches="{!v.nextMatches}" showCompetitionColumn="true"/>
         </lightning:layoutItem>
-
     </lightning:layout>
-
 </aura:component>

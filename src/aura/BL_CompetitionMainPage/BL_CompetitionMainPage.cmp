@@ -20,6 +20,6 @@
         <c:BL_CupDetails cupId="{!v.recordId}"/>
     </aura:if>
     <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'Battle_Royale')}">
-        <c:BL_BattleRoyaleDetails leagueId="{!v.recordId}"/>
+        <c:BL_BattleRoyalePage leagueId="{!v.recordId}"/>
     </aura:if>
 </aura:component>

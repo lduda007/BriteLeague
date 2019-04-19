@@ -36,7 +36,6 @@
                         <c:BL_JoinSinglePlayerCompetition competitionId="{!v.leagueId}" playerId="{!v.user.ContactId}"/>
                     </aura:if>
                 </aura:set>
-
                 <div style="text-align: center">
                     <lightning:layout multipleRows="true" verticalAlign="start">
                         <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3">
@@ -92,14 +91,11 @@
                         </lightning:layoutItem>
                     </lightning:layout>
                 </div>
-
             </lightning:card>
         </lightning:layoutItem>
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
             <c:BL_CompetitionStatusChart competitionId="{!v.leagueId}"/>
         </lightning:layoutItem>
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
             <c:BL_Card title="{!$Label.c.BL_League_Table}">
                 <aura:if isTrue="{!v.league.Competitors__r.length > 0}">
@@ -238,31 +234,15 @@
                 </aura:if>
             </c:BL_Card>
         </lightning:layoutItem>
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-            <c:BL_Card title="{!$Label.c.BL_Matches}">
-                <aura:if isTrue="{!v.matches.length > 0}">
-                    <div class="slds-scrollable--y" style="max-height: 300px;">
-                        <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}" teamSize="{!v.league.TeamSize__c}"/>
-                    </div>
-                    <aura:set attribute="else">
-                        <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                            <ui:outputText value="{!$Label.c.BL_No_matches_found}"/>
-                        </div>
-                    </aura:set>
-                </aura:if>
-            </c:BL_Card>
+            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}" teamSize="{!v.league.TeamSize__c}"/>
         </lightning:layoutItem>
-
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
             <c:BL_CompetitionFeed competitionId="{!v.leagueId}"/>
         </lightning:layoutItem>
-
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
             <c:BL_CompetitionProgressChart competitionId="{!v.leagueId}"/>
         </lightning:layoutItem>
-
     </lightning:layout>
     </aura:if>
 
