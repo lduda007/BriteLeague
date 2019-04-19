@@ -13,10 +13,24 @@ public with sharing class BL_LeaguesListViewController {
         List<BL_Competitor__c> comps = [
                 SELECT Id, League__c
                 FROM BL_Competitor__c
-                WHERE Team__r.Player1__c = :playerId OR Team__r.Player2__c = :playerId
+                WHERE Team__r.Player1__c = :playerId
+                OR Team__r.Player2__c = :playerId
         ];
         List<Id> excLeagues = new List<Id>();
+        List<BL_Competitor__c> parentTeamsCompetitors = [
+                SELECT League__c
+                FROM BL_Competitor__c
+                WHERE Team__c IN (
+                    SELECT Team__c
+                    FROM BL_TeamMember__c
+                    WHERE Member__r.Player1__c = :playerId
+                    OR Member__r.Player2__c = :playerId
+                )
+        ];
         for(BL_Competitor__c bl_competitor : comps) {
+            excLeagues.add(bl_competitor.League__c);
+        }
+        for(BL_Competitor__c bl_competitor : parentTeamsCompetitors) {
             excLeagues.add(bl_competitor.League__c);
         }
         return excLeagues;
@@ -41,6 +55,7 @@ public with sharing class BL_LeaguesListViewController {
                 FROM BL_League__c
                 WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.now())
                 AND Id NOT IN :getPlayerLeaguesIds()
+                AND RecordType.DeveloperName != :BL_Constants.LEAGUE_RT_BATTLE_ROYALE
         ]) {
             if(league.Max_Teams__c > league.Teams_Joined__c) {
                 leagues.add(league);

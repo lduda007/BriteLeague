@@ -30,11 +30,12 @@ public with sharing class BL_TeamRecordDetailController {
     @AuraEnabled
     public static List<BL_TeamMember__c> getTeamMembers(String teamId) {
         List<BL_TeamMember__c> teamMembers = [
-            SELECT Id, Member__r.Name, Member__r.Player1__r.Name, Member__r.Player2__r.Name,
-                    Member__r.Player1__r.LastName, Member__r.Player2__r.LastName,
-                    Member__r.Player1__r.ImageUrl__c, Member__r.Player2__r.ImageUrl__c
-            FROM BL_TeamMember__c
-            WHERE Team__c = :teamId
+                SELECT Id, Member__r.Name, Member__r.Player1__r.Name, Member__r.Player2__r.Name,
+                        Member__r.Player1__r.LastName, Member__r.Player2__r.LastName,
+                        Member__r.Player1__r.ImageUrl__c, Member__r.Player2__r.ImageUrl__c
+                FROM BL_TeamMember__c
+                WHERE Team__c = :teamId
+                ORDER BY Member__r.Name
         ];
 
         return teamMembers;
@@ -48,6 +49,24 @@ public with sharing class BL_TeamRecordDetailController {
                 WHERE Member__c = :teamId
         ];
         return parentTeams;
+    }
+
+    @AuraEnabled
+    public static void addTeamMembers(Id parentTeamId, List<Id> memberTeamsIds) {
+        List<BL_TeamMember__c> newTeamMembers = new List<BL_TeamMember__c>();
+        for (Id memberId : memberTeamsIds) {
+            newTeamMembers.add(new BL_TeamMember__c(
+                    Member__c = memberId,
+                    Team__c = parentTeamId
+            ));
+        }
+        insert newTeamMembers;
+    }
+
+    @AuraEnabled
+    public static void removeTeamMember(Id parentTeamId, Id teamMemberId) {
+        BL_TeamMember__c memberToDelete = new BL_TeamMember__c(Id = teamMemberId);
+        delete memberToDelete;
     }
 
     @AuraEnabled

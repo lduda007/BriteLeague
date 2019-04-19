@@ -1,11 +1,38 @@
 ({
-	doInit : function(component, event, helper){
-		helper.loadTeamMembers(component);
+    doInit : function(component, event, helper){
+        helper.loadTeamMembers(component);
+        let lookupFilters = "RecordType.DeveloperName = 'Classic' AND Id NOT IN (SELECT Member__c FROM BL_TeamMember__c WHERE Team__c = '" + component.get("v.recordId") + "')";
+        component.set("v.lookupFilters", lookupFilters);
+    },
+
+    recordUpdated : function(component, event, helper) {
+        helper.getCurrentPlayer(component);
+    },
+
+    newTeamSelected : function(component, event, helper) {
+        helper.tryToSelectTeam(component);
+    },
+
+    unselectTeam: function(component, event, helper) {
+        event.preventDefault();
+        let teamId = event.getSource().get('v.name');
+        let selectedTeams = component.get("v.selectedTeams");
+        selectedTeams = selectedTeams.filter((team) => team.Id != teamId);
+        component.set("v.selectedTeams", selectedTeams);
+    },
+
+    saveTeamMembers: function(component, event, helper) {
+        helper.addSelectedTeams(component);
+    },
+
+    removeTeam: function(component, event, helper) {
+        let teamMemberId = event.getSource().get("v.value");
+        helper.removeTeam(component, teamMemberId);
     },
 
     goToRecord : function(component, event, handler) {
-    	let recordId = event.currentTarget.dataset.recordid;
-    	var navEvt = $A.get("e.force:navigateToSObject");
+     let recordId = event.currentTarget.dataset.recordid;
+     var navEvt = $A.get("e.force:navigateToSObject");
         navEvt.setParams({
             "recordId": recordId
         });

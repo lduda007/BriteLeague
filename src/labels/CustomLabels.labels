@@ -9,6 +9,22 @@
         <value>Access</value>
     </labels>
     <labels>
+        <fullName>BL_Add_Members</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Members</shortDescription>
+        <value>Add Members</value>
+    </labels>
+    <labels>
+        <fullName>BL_Add_Selected_Teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Selected Teams</shortDescription>
+        <value>Add Selected Teams</value>
+    </labels>
+    <labels>
         <fullName>BL_All</fullName>
         <categories>BriteLeague</categories>
         <language>en_US</language>
@@ -157,8 +173,16 @@
         <categories>BriteLeague</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>BL Error When Loading Team Details</shortDescription>
+        <shortDescription>Error When Loading Team Details</shortDescription>
         <value>Error when loading team details</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_adding_teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when adding teams</shortDescription>
+        <value>Error when adding teams</value>
     </labels>
     <labels>
         <fullName>BL_Error_when_loading_cup_details</fullName>
@@ -183,6 +207,14 @@
         <protected>false</protected>
         <shortDescription>Error when loading league matches</shortDescription>
         <value>Error when loading league matches</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_removing_team</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when removing team</shortDescription>
+        <value>Error when removing team</value>
     </labels>
     <labels>
         <fullName>BL_Feed</fullName>
@@ -671,6 +703,14 @@
         <protected>false</protected>
         <shortDescription>Team Players</shortDescription>
         <value>Team Players</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Removed</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Removed</shortDescription>
+        <value>Team removed</value>
     </labels>
     <labels>
         <fullName>BL_Teams</fullName>
