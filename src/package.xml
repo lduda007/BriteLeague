@@ -22,6 +22,11 @@
         <members>BL_Constants</members>
         <members>BL_CreateLeagueController</members>
         <members>BL_ImageController</members>
+        <members>BL_BattleRoyaleTableController</members>
+        <members>BL_DAO_League</members>
+        <members>BL_DAO_Team</members>
+        <members>BL_BattleRoyaleDetailsController</members>
+        <members>BL_UserSettings</members>
         <name>ApexClass</name>
     </types>
     <types>

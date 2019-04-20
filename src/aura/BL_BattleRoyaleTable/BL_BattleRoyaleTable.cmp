@@ -1,7 +1,11 @@
-<aura:component>
+<aura:component
+        description="BL_BattleRoyaleTable"
+        controller="BL_BattleRoyaleTableController"
+>
 
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="battleRoyaleTeams" type="List"/>
+    <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 

@@ -38,6 +38,13 @@ public with sharing class BL_Utils {
         throw auraException;
     }
 
+    public static void throwAuraHandledException(String uiMessage, Exception e) {
+        throwAuraHandledException(
+                uiMessage,
+                uiMessage + ' - ' + e.getMessage() + ' - ' + e.getStackTraceString()
+        );
+    }
+
     public static Id getRecordTypeIdByDeveloperName(String objectAPIName, String recordTypeDeveloperName) {
         SObjectType objectType = Schema.getGlobalDescribe().get(objectAPIName);
         if(objectType != null) {

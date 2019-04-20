@@ -1,20 +1,48 @@
-<aura:component description="BL_BattleRoyaleDetails">
+<aura:component
+        description="BL_BattleRoyaleDetails"
+        controller="BL_BattleRoyaleDetailsController"
+>
 
     <aura:attribute name="leagueId" type="String"/>
+    <aura:attribute name="league" type="Object"/>
+    <aura:attribute name="userSettings" type="Object"/>
+    <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
-    <lightning:card iconName="utility:activity" title="{!$Label.c.BL_League+': '+v.league.Name}" variant="narrow" class="height-230px">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <lightning:card
+            iconName="utility:activity"
+            title="{!$Label.c.BL_League+': '+v.league.Name}"
+            variant="narrow"
+            class="height-230px"
+    >
         <aura:set attribute="actions">
             <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), greaterthan(v.league.Competitors__r.length, 1))}">
-                <lightning:button onclick="{!c.startLeagueNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"/>
+                <lightning:button
+                        label="{!$Label.c.BL_Start_now}"
+                        onclick="{!c.startLeagueNowAction}"
+                        variant="brand"
+                />
             </aura:if>
             <aura:if isTrue="{!and(v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams')}">
-                <c:BL_LeaveCompetition competitionId="{!v.leagueId}" playerId="{!v.user.ContactId}" aura:id="leaveCompetitionComponent"/>
+                <c:BL_LeaveCompetition
+                        competitionId="{!v.leagueId}"
+                        playerId="{!v.user.ContactId}"
+                        aura:id="leaveCompetitionComponent"
+                />
             </aura:if>
             <aura:if isTrue="{!and(v.league.TeamSize__c == 'Two Players',and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c)))}">
-                <lightning:button onclick="{!c.openJoinToCompetitionModal}" variant="brand" label="{!$Label.c.BL_Join}"/>
+                <lightning:button
+                        label="{!$Label.c.BL_Join}"
+                        onclick="{!c.openJoinToCompetitionModal}"
+                        variant="brand"
+                />
             </aura:if>
             <aura:if isTrue="{!and(v.league.TeamSize__c == 'Single Player',and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c)))}">
-                <c:BL_JoinSinglePlayerCompetition competitionId="{!v.leagueId}" playerId="{!v.user.ContactId}"/>
+                <c:BL_JoinSinglePlayerCompetition
+                        competitionId="{!v.leagueId}"
+                        playerId="{!v.user.ContactId}"
+                />
             </aura:if>
         </aura:set>
         <div style="text-align: center">
@@ -62,11 +90,11 @@
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
-                            <ui:outputText value="{!v.league.CreatedBy.Name}" title="{!$Label.c.BL_Owner}" class="slds-text-heading--small"/>
+                            <ui:outputText value="{!v.league.Owner.Name}" title="{!$Label.c.BL_Owner}" class="slds-text-heading--small"/>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
                             <p class="slds-text-body_small slds-text-color_weak">Type:</p>
-                            <ui:outputText value="{!v.league.TeamSize__c}" title="{!v.league.TeamSize__c}" class="slds-text-heading--small"/>
+                            <ui:outputText value="{!v.league.RecordType.Name}" title="{!v.league.RecordType.Name}" class="slds-text-heading--small"/>
                         </lightning:layoutItem>
                     </lightning:layout>
                 </lightning:layoutItem>

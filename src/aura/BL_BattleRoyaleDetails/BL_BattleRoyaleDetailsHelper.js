@@ -11,7 +11,8 @@
             let result = response.getReturnValue();
 
             if(state === "SUCCESS") {
-                component.set("v.battleRoyaleTeams", result.battleRoyaleTeams);
+                component.set("v.league", result.league);
+                component.set("v.userSettings", result.userSettings);
             } else if(state === "ERROR") {
                 let errors = response.getError();
                 let message = 'Unknown error';
