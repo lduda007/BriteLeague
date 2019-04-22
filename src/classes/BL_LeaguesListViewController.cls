@@ -21,10 +21,10 @@ public with sharing class BL_LeaguesListViewController {
                 SELECT League__c
                 FROM BL_Competitor__c
                 WHERE Team__c IN (
-                    SELECT Team__c
-                    FROM BL_TeamMember__c
-                    WHERE Member__r.Player1__c = :playerId
-                    OR Member__r.Player2__c = :playerId
+                        SELECT Team__c
+                        FROM BL_TeamMember__c
+                        WHERE Member__r.Player1__c = :playerId
+                        OR Member__r.Player2__c = :playerId
                 )
         ];
         for(BL_Competitor__c bl_competitor : comps) {
@@ -81,45 +81,33 @@ public with sharing class BL_LeaguesListViewController {
 
     @AuraEnabled
     public static List<DTO_Team> getPlayerTeams(String leagueId) {
-        Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
-        List<BL_Competitor__c> competitionCompetitors = [
-                SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c
-                FROM BL_Competitor__c
-                WHERE League__c = :leagueId
-        ];
+        Id playerId = BL_Utils.getCurrentUser().ContactId;
 
-        Set<Id> playerIds = new Set<Id>();
-        if(!competitionCompetitors.isEmpty()) {
-            for(BL_Competitor__c competitor : competitionCompetitors) {
-                playerIds.add(competitor.Team__r.Player1__c);
-                playerIds.add(competitor.Team__r.Player2__c);
-            }
-        }
+        BL_DAO_Team daoTeam = new BL_DAO_Team();
+        List<BL_Team__c> teams = daoTeam.getTeamsByPlayerId(playerId);
 
-        List<BL_Team__c> teams = [
-                SELECT Id, Name, Player1__r.Name, Player2__r.Name, IsActive__c
-                FROM BL_Team__c
-                WHERE IsActive__c = true AND
-                (Player1__c = :currentPlayer OR Player2__c = :currentPlayer) AND
-                Player1__c NOT IN:playerIds AND
-                Player2__c NOT IN:playerIds
-        ];
+        BL_DAO_League daoLeague = new BL_DAO_League();
+        BL_League__c league = daoLeague.getLeagueById(leagueId);
 
         List<DTO_Team> dtoList = new List<DTO_Team>();
+
         for(BL_Team__c team : teams) {
-            DTO_Team t = new DTO_Team();
-            t.recordId = team.Id;
-            t.name = team.Name;
-            t.isActive = team.IsActive__c;
-            if(team.Player1__c != currentPlayer) {
-                t.secondPlayerName = team.Player1__r.Name;
-                t.secondPlayerId = team.Player1__c;
-            } else if(team.Player2__c != currentPlayer) {
-                t.secondPlayerName = team.Player2__r.Name;
-                t.secondPlayerId = team.Player2__c;
+            if(league.RecordType.DeveloperName != BL_Constants.LEAGUE_RT_BATTLE_ROYALE || (league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE && team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE)) {
+                DTO_Team t = new DTO_Team();
+                t.recordId = team.Id;
+                t.name = team.Name;
+                t.isActive = team.IsActive__c;
+                if(team.Player1__c != playerId) {
+                    t.secondPlayerName = team.Player1__r.Name;
+                    t.secondPlayerId = team.Player1__c;
+                } else if(team.Player2__c != playerId) {
+                    t.secondPlayerName = team.Player2__r.Name;
+                    t.secondPlayerId = team.Player2__c;
+                }
+                dtoList.add(t);
             }
-            dtoList.add(t);
         }
+
         return dtoList;
     }
 

@@ -11,7 +11,9 @@
 
     <c:BL_Card title="{!$Label.c.BL_League_Table}">
         <aura:if isTrue="{!not(empty(v.battleRoyaleTeams))}">
-
+            <aura:iteration items="{!v.battleRoyaleTeams}" var="battleRoyaleTeam">
+                {!battleRoyaleTeam.Name}
+            </aura:iteration>
         </aura:if>
         <aura:if isTrue="{!empty(v.battleRoyaleTeams)}">
             <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">

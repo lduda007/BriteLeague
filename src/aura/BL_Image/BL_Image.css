@@ -1,3 +1,7 @@
-.THIS {
+.THIS .editable:hover, .THIS .editable:drop {
+    cursor: pointer;
+}
 
+.THIS .editable[drop-active=true] {
+    box-shadow: inset 0px 0px 0px 2px #00C;
 }

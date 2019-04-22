@@ -21,7 +21,12 @@
                 <lightning:spinner size="small" variant="brand"/>
             </div>
         </aura:if>
-        <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" class="slds-is-relative" aura:id="uploadDiv">
+        <div
+                ondragover="{!c.onDragOver}"
+                ondrop="{!c.onDrop}"
+                class="{!v.isEditable ? ' editable' : ''}"
+                aura:id="uploadDiv"
+        >
             <img
                     src="{!v.fileSrc}"
                     style="{!'width: ' + v.width + '; height: ' + v.height}"

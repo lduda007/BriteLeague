@@ -27,6 +27,8 @@
         <members>BL_DAO_Team</members>
         <members>BL_BattleRoyaleDetailsController</members>
         <members>BL_UserSettings</members>
+        <members>BL_DAO_Competitor</members>
+        <members>BL_LeagueService</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -74,6 +76,8 @@
         <members>BL_BattleRoyaleTable</members>
         <members>BattleRoyalePage</members>
         <members>BL_BattleRoyalePage</members>
+        <members>BL_Utils</members>
+        <members>BL_JoinLeague</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

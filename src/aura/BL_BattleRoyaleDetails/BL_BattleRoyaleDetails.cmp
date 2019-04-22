@@ -10,6 +10,8 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
+    <c:BL_Utils aura:id="utils"/>
+
     <lightning:card
             iconName="utility:activity"
             title="{!$Label.c.BL_League+': '+v.league.Name}"
@@ -17,33 +19,29 @@
             class="height-230px"
     >
         <aura:set attribute="actions">
-            <aura:if isTrue="{!and(and(and(v.user.Id == v.league.OwnerId, v.league.Status__c == 'Assembling teams'), v.league.Competitors__r != null), greaterthan(v.league.Competitors__r.length, 1))}">
-                <lightning:button
-                        label="{!$Label.c.BL_Start_now}"
-                        onclick="{!c.startLeagueNowAction}"
-                        variant="brand"
-                />
-            </aura:if>
-            <aura:if isTrue="{!and(v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams')}">
-                <c:BL_LeaveCompetition
-                        competitionId="{!v.leagueId}"
-                        playerId="{!v.user.ContactId}"
-                        aura:id="leaveCompetitionComponent"
-                />
-            </aura:if>
-            <aura:if isTrue="{!and(v.league.TeamSize__c == 'Two Players',and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c)))}">
-                <lightning:button
-                        label="{!$Label.c.BL_Join}"
-                        onclick="{!c.openJoinToCompetitionModal}"
-                        variant="brand"
-                />
-            </aura:if>
-            <aura:if isTrue="{!and(v.league.TeamSize__c == 'Single Player',and(and(!v.isCurrentUserAlreadyInCompetition, v.league.Status__c == 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c)))}">
-                <c:BL_JoinSinglePlayerCompetition
-                        competitionId="{!v.leagueId}"
-                        playerId="{!v.user.ContactId}"
-                />
-            </aura:if>
+            <lightning:buttonGroup>
+                <aura:if isTrue="{!and(v.userSettings.isLeagueOwner, v.league.Status__c == 'Assembling teams')}">
+                    <lightning:button
+                            label="Start"
+                            onclick="{!c.onStart}"
+                            variant="neutral"
+                    />
+                </aura:if>
+                <aura:if isTrue="{!and(v.userSettings.isLeagueCompetitor, v.league.Status__c == 'Assembling teams')}">
+                    <c:BL_LeaveCompetition
+                            competitionId="{!v.leagueId}"
+                            playerId="{!v.user.ContactId}"
+                            aura:id="leaveCompetitionComponent"
+                    />
+                </aura:if>
+                <aura:if isTrue="{!and(not(v.userSettings.isLeagueCompetitor), and(equals(v.league.Status__c, 'Assembling teams'), lessthan(v.league.Teams_Joined__c, v.league.Max_Teams__c)))}">
+                    <lightning:button
+                            label="{!$Label.c.BL_Join}"
+                            onclick="{!c.onJoin}"
+                            variant="brand"
+                    />
+                </aura:if>
+            </lightning:buttonGroup>
         </aura:set>
         <div style="text-align: center">
             <lightning:layout multipleRows="true" verticalAlign="start">
@@ -53,7 +51,7 @@
                             fileName="league-logo"
                             width="150px"
                             height="150px"
-                            isEditable="{!equals(v.league.OwnerId, v.user.Id)}"
+                            isEditable="{!v.userSettings.isLeagueOwner}"
                     />
                 </lightning:layoutItem>
                 <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="9">
@@ -101,4 +99,11 @@
             </lightning:layout>
         </div>
     </lightning:card>
+
+    <c:BL_Modal
+            aura:id="joinLeague"
+            visible="false"
+    >
+        <c:BL_JoinLeague leagueId="{!v.leagueId}"/>
+    </c:BL_Modal>
 </aura:component>

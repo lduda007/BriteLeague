@@ -14,6 +14,8 @@
     onDrop: function(component, event, helper) {
         if(component.get("v.isEditable")) {
             helper.handleDrop(component, event);
+        } else {
+            event.preventDefault();
         }
     }
 });
