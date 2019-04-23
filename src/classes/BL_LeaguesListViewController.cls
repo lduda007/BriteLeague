@@ -117,10 +117,11 @@ public with sharing class BL_LeaguesListViewController {
     }
 
     private static Boolean checkLeagueCompetitors(String leagueId, String teamId) {
-        List<BL_Team__c> competitorTeam = [
+        BL_Team__c team = [
                 SELECT Id, Player1__c, Player2__c
                 FROM BL_Team__c
                 WHERE Id = :teamId
+                LIMIT 1
         ];
 
         List<BL_League__c> league = [
@@ -129,14 +130,13 @@ public with sharing class BL_LeaguesListViewController {
                 WHERE Id = :leagueId
         ];
 
-        if(!competitorTeam.isEmpty() && !league.isEmpty()) {
+        if(!league.isEmpty()) {
             for(BL_Competitor__c comp : league[0].Competitors__r) {
-                if(comp.Team__r.Player1__c == competitorTeam[0].Player1__c ||
-                        comp.Team__r.Player1__c == competitorTeam[0].Player2__c ||
-                        comp.Team__r.Player2__c == competitorTeam[0].Player1__c ||
-                        comp.Team__r.Player2__c == competitorTeam[0].Player2__c
-                        ) {
-                    return false;
+                if(team.Player1__c != null && (team.Player1__c == comp.Team__r.Player1__c || team.Player1__c == comp.Team__r.Player2__c)) {
+                    return true;
+                }
+                if(team.Player2__c != null && (team.Player2__c == comp.Team__r.Player1__c || team.Player2__c == comp.Team__r.Player2__c)) {
+                    return true;
                 }
             }
             if(league[0].Max_Teams__c <= league[0].Competitors__r.size()) {
