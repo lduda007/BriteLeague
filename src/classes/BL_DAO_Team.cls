@@ -1,5 +1,20 @@
 public class BL_DAO_Team {
 
+    public BL_Team__c getTeamById(Id teamId) {
+        return [
+                SELECT
+                        Id,
+                        IsActive__c,
+                        Name,
+                        Player1__r.Name,
+                        Player2__r.Name,
+                        RecordType.DeveloperName
+                FROM BL_Team__c
+                WHERE Id = :teamId
+                LIMIT 1
+        ];
+    }
+
     public List<BL_Team__c> getTeamsByLeagueId(Id leagueId) {
         return [
                 SELECT
@@ -31,6 +46,24 @@ public class BL_DAO_Team {
                 WHERE (
                         Player1__c = :playerId
                         OR Player2__c = :playerId
+                )
+        ];
+    }
+
+    public List<BL_Team__c> getTeamsByParentTeamId(Id parentTeamId) {
+        return [
+                SELECT
+                        Id,
+                        IsActive__c,
+                        Name,
+                        Player1__r.Name,
+                        Player2__r.Name,
+                        RecordType.DeveloperName
+                FROM BL_Team__c
+                WHERE Id IN (
+                        SELECT Member__c
+                        FROM BL_TeamMember__c
+                        WHERE Team__c = :parentTeamId
                 )
         ];
     }
