@@ -13,7 +13,7 @@
 
             if(state === "SUCCESS") {
                 component.set("v.league", result.league);
-                component.set("v.userSettings", result.userSettings);
+                component.set("v.settings", result.settings);
             } else if(state === "ERROR") {
                 this.getUtils(component).handleError(errors);
             }

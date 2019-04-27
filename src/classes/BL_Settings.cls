@@ -1,4 +1,4 @@
-public class BL_UserSettings {
+public class BL_Settings {
 
     @AuraEnabled
     public Id userId;
@@ -9,29 +9,42 @@ public class BL_UserSettings {
     @AuraEnabled
     public String leagueRecordTypeDevName;
     @AuraEnabled
+    public Integer numberOfDirectLeagueCompetitors = 0;
+    @AuraEnabled
     public Boolean isLeagueOwner = false;
     @AuraEnabled
     public Boolean isLeagueCompetitor = false;
     @AuraEnabled
     public Boolean isCaptainOfBattleRoyaleTeam = false;
 
-    public BL_UserSettings() {
+    private BL_League__c league;
+    private List<BL_Competitor__c> competitors;
+
+    public BL_Settings() {
         this.userId = UserInfo.getUserId();
         populatePlayerId();
     }
 
-    public BL_UserSettings populateSettingsForLeague(Id leagueId) {
+    public BL_Settings populateSettingsForLeague(Id leagueId) {
         this.leagueId = leagueId;
 
         BL_DAO_League daoLeague = new BL_DAO_League();
-        BL_League__c league = daoLeague.getLeagueById(leagueId);
-        populateLeagueSettings(league);
+        this.league = daoLeague.getLeagueById(leagueId);
+        populateLeagueSettings();
 
         BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
-        List<BL_Competitor__c> competitors = daoCompetitor.getCompetitorsByLeagueId(leagueId);
-        populateLeagueCompetitorSettings(competitors);
+        this.competitors = daoCompetitor.getCompetitorsByLeagueId(leagueId);
+        populateCompetitorSettings();
 
         return this;
+    }
+
+    public BL_League__c getLeague() {
+        return this.league;
+    }
+
+    public List<BL_Competitor__c> getCompetitors() {
+        return this.competitors;
     }
 
     private void populatePlayerId() {
@@ -39,14 +52,15 @@ public class BL_UserSettings {
         this.playerId = user.ContactId;
     }
 
-    private void populateLeagueSettings(BL_League__c league) {
-        this.leagueRecordTypeDevName = league.RecordType.DeveloperName;
-        this.isLeagueOwner = league.OwnerId == this.userId;
+    private void populateLeagueSettings() {
+        this.leagueRecordTypeDevName = this.league.RecordType.DeveloperName;
+        this.isLeagueOwner = this.league.OwnerId == this.userId;
     }
 
-    private void populateLeagueCompetitorSettings(List<BL_Competitor__c> competitors) {
+    private void populateCompetitorSettings() {
+        this.numberOfDirectLeagueCompetitors = 0;
 
-        for(BL_Competitor__c competitor : competitors) {
+        for(BL_Competitor__c competitor : this.competitors) {
             if(competitor.Team__r.Player1__c == playerId || competitor.Team__r.Player2__c == playerId) {
                 if(leagueRecordTypeDevName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
                     if(competitor.Team__r.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
@@ -56,8 +70,11 @@ public class BL_UserSettings {
                     }
                 } else {
                     this.isLeagueCompetitor = true;
-                    break;
                 }
+            }
+
+            if(competitor.Is_Direct_Competitor__c) {
+                numberOfDirectLeagueCompetitors++;
             }
         }
     }

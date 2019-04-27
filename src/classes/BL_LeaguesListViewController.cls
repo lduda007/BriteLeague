@@ -135,29 +135,22 @@ public with sharing class BL_LeaguesListViewController {
     }
 
     private static Boolean checkLeagueCompetitors(String leagueId, String teamId) {
-        BL_Team__c team = [
-                SELECT Id, Player1__c, Player2__c
-                FROM BL_Team__c
-                WHERE Id = :teamId
-                LIMIT 1
-        ];
+        BL_Settings settings = new BL_Settings()
+                .populateSettingsForLeague(leagueId);
 
-        List<BL_League__c> league = [
-                SELECT Max_Teams__c, (SELECT Id, Team__r.Player1__c, Team__r.Player2__c FROM Competitors__r)
-                FROM BL_League__c
-                WHERE Id = :leagueId
-        ];
+        if(settings.isCaptainOfBattleRoyaleTeam || settings.isLeagueCompetitor || settings.numberOfDirectLeagueCompetitors == settings.getLeague().Max_Teams__c) {
+            return false;
+        }
 
-        if(!league.isEmpty()) {
-            for(BL_Competitor__c comp : league[0].Competitors__r) {
-                if(team.Player1__c != null && (team.Player1__c == comp.Team__r.Player1__c || team.Player1__c == comp.Team__r.Player2__c)) {
-                    return true;
-                }
-                if(team.Player2__c != null && (team.Player2__c == comp.Team__r.Player1__c || team.Player2__c == comp.Team__r.Player2__c)) {
-                    return true;
-                }
+        BL_DAO_Team daoTeam = new BL_DAO_Team();
+        BL_Team__c team = daoTeam.getTeamById(teamId);
+
+        for(BL_Competitor__c competitor : settings.getCompetitors()) {
+            if(team.Player1__c != null && (team.Player1__c == competitor.Team__r.Player1__c || team.Player1__c == competitor.Team__r.Player2__c)) {
+                return false;
             }
-            if(league[0].Max_Teams__c <= league[0].Competitors__r.size()) {
+
+            if(team.Player2__c != null && (team.Player2__c == competitor.Team__r.Player1__c || team.Player2__c == competitor.Team__r.Player2__c)) {
                 return false;
             }
         }

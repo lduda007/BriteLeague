@@ -4,6 +4,7 @@ public class BL_DAO_Competitor {
         return [
                 SELECT
                         Id,
+                        Is_Direct_Competitor__c,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
@@ -16,6 +17,7 @@ public class BL_DAO_Competitor {
         return [
                 SELECT
                         Id,
+                        Is_Direct_Competitor__c,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
@@ -33,6 +35,7 @@ public class BL_DAO_Competitor {
         return [
                 SELECT
                         Id,
+                        Is_Direct_Competitor__c,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName

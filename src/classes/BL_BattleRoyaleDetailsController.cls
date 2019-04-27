@@ -9,7 +9,7 @@ public class BL_BattleRoyaleDetailsController {
             BL_DAO_League daoLeague = new BL_DAO_League();
             wrapper.league = daoLeague.getLeagueById(leagueId);
 
-            wrapper.userSettings = new BL_UserSettings()
+            wrapper.settings = new BL_Settings()
                     .populateSettingsForLeague(leagueId);
         } catch(Exception e) {
             String uiMessage = 'An error occurred during initialization of "Battle Royale Details" component';
@@ -33,6 +33,6 @@ public class BL_BattleRoyaleDetailsController {
         @AuraEnabled
         public BL_League__c league;
         @AuraEnabled
-        public BL_UserSettings userSettings;
+        public BL_Settings settings;
     }
 }

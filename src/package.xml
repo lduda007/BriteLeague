@@ -26,9 +26,10 @@
         <members>BL_DAO_League</members>
         <members>BL_DAO_Team</members>
         <members>BL_BattleRoyaleDetailsController</members>
-        <members>BL_UserSettings</members>
+        <members>BL_Settings</members>
         <members>BL_DAO_Competitor</members>
         <members>BL_LeagueService</members>
+        <members>BL_LeaguesListViewController</members>
         <name>ApexClass</name>
     </types>
     <types>
