@@ -7,9 +7,13 @@ public class BL_UserSettings {
     @AuraEnabled
     public Id leagueId;
     @AuraEnabled
-    public Boolean isLeagueOwner;
+    public String leagueRecordTypeDevName;
     @AuraEnabled
-    public Boolean isLeagueCompetitor;
+    public Boolean isLeagueOwner = false;
+    @AuraEnabled
+    public Boolean isLeagueCompetitor = false;
+    @AuraEnabled
+    public Boolean isCaptainOfBattleRoyaleTeam = false;
 
     public BL_UserSettings() {
         this.userId = UserInfo.getUserId();
@@ -21,11 +25,11 @@ public class BL_UserSettings {
 
         BL_DAO_League daoLeague = new BL_DAO_League();
         BL_League__c league = daoLeague.getLeagueById(leagueId);
-        populateIsLeagueOwner(league);
+        populateLeagueSettings(league);
 
         BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
         List<BL_Competitor__c> competitors = daoCompetitor.getCompetitorsByLeagueId(leagueId);
-        populateIsLeagueCompetitor(competitors);
+        populateLeagueCompetitorSettings(competitors);
 
         return this;
     }
@@ -35,20 +39,26 @@ public class BL_UserSettings {
         this.playerId = user.ContactId;
     }
 
-    private void populateIsLeagueOwner(BL_League__c league) {
+    private void populateLeagueSettings(BL_League__c league) {
+        this.leagueRecordTypeDevName = league.RecordType.DeveloperName;
         this.isLeagueOwner = league.OwnerId == this.userId;
     }
 
-    private void populateIsLeagueCompetitor(List<BL_Competitor__c> competitors) {
-        Boolean result = false;
+    private void populateLeagueCompetitorSettings(List<BL_Competitor__c> competitors) {
 
         for(BL_Competitor__c competitor : competitors) {
             if(competitor.Team__r.Player1__c == playerId || competitor.Team__r.Player2__c == playerId) {
-                result = true;
-                break;
+                if(leagueRecordTypeDevName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
+                    if(competitor.Team__r.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
+                        this.isCaptainOfBattleRoyaleTeam = true;
+                    } else if(competitor.Team__r.RecordType.DeveloperName == BL_Constants.TEAM_RT_CLASSIC) {
+                        this.isLeagueCompetitor = true;
+                    }
+                } else {
+                    this.isLeagueCompetitor = true;
+                    break;
+                }
             }
         }
-
-        this.isLeagueCompetitor = result;
     }
 }

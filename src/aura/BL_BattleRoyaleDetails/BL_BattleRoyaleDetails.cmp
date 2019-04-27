@@ -20,14 +20,14 @@
     >
         <aura:set attribute="actions">
             <lightning:buttonGroup>
-                <aura:if isTrue="{!and(v.userSettings.isLeagueOwner, v.league.Status__c == 'Assembling teams')}">
+                <aura:if isTrue="{!and(v.userSettings.isLeagueOwner, equals(v.league.Status__c, 'Assembling teams'))}">
                     <lightning:button
                             label="Start"
                             onclick="{!c.onStart}"
                             variant="neutral"
                     />
                 </aura:if>
-                <aura:if isTrue="{!and(v.userSettings.isLeagueCompetitor, v.league.Status__c == 'Assembling teams')}">
+                <aura:if isTrue="{!and(v.userSettings.isLeagueCompetitor, and(equals(v.league.Status__c, 'Assembling teams'), v.userSettings.isCaptainOfBattleRoyaleTeam))}">
                     <c:BL_LeaveCompetition
                             competitionId="{!v.leagueId}"
                             playerId="{!v.userSettings.playerId}"
