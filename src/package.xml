@@ -78,6 +78,7 @@
         <members>BL_BattleRoyalePage</members>
         <members>BL_Utils</members>
         <members>BL_JoinLeague</members>
+        <members>BL_LeaveCompetition</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

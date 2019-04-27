@@ -30,7 +30,7 @@
                 <aura:if isTrue="{!and(v.userSettings.isLeagueCompetitor, v.league.Status__c == 'Assembling teams')}">
                     <c:BL_LeaveCompetition
                             competitionId="{!v.leagueId}"
-                            playerId="{!v.user.ContactId}"
+                            playerId="{!v.userSettings.playerId}"
                             aura:id="leaveCompetitionComponent"
                     />
                 </aura:if>

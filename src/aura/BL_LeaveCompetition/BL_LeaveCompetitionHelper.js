@@ -1,46 +1,36 @@
 ({
-    leaveCompetition : function(component, user, competition){
+    leaveCompetition: function(component, user, competition) {
         let action = component.get('c.removeCompetitorFromCompetition');
         let playerId = component.get("v.playerId");
-        let competitionId = component.get("v.competitionId");
+        let leagueId = component.get("v.competitionId");
 
         action.setParams({
             playerId: playerId,
-            competitionId: competitionId
+            leagueId: leagueId
         });
 
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             let state = response.getState();
-            if (state === "SUCCESS")
-            {
-                let resultsToast = $A.get("e.force:showToast");
-                resultsToast.setParams({
-                    "type": "success",
-                    "title": $A.get("$Label.c.BL_Success"),
-                    "message": $A.get("$Label.c.BL_You_ve_left_the_competition")
-                });
-                resultsToast.fire();
-                let evt = component.getEvent('BL_CompetitorLeftCompetition');
-                evt.fire();
+            let errors = response.getError();
+
+            if(state === "SUCCESS") {
+                this.getUtils(component).showSuccessToast($A.get("$Label.c.BL_You_ve_left_the_competition"));
                 this.closeLeaveCompetitionModal(component);
-            }else{
-                let resultsToast = $A.get("e.force:showToast");
-                if ($A.util.isUndefined(resultsToast)){
-                    alert(response.getError()[0].message);
-                }else{
-                    resultsToast.setParams({
-                        "type": "error",
-                        "title": $A.get("$Label.c.BL_Error"),
-                        "message": response.getError()[0].message
-                    });
-                    resultsToast.fire();
-                }
+
+                component.getEvent('BL_CompetitorLeftCompetition').fire();
+            } else {
+                this.getUtils(component).handleError(errors);
             }
         });
         $A.enqueueAction(action);
     },
-    closeLeaveCompetitionModal : function(component) {
+
+    closeLeaveCompetitionModal: function(component) {
         $A.util.removeClass(component.find('backdrop'), "slds-backdrop_open");
         $A.util.removeClass(component.find('leaveCompetitionModal'), "slds-slide-down-cancel");
     },
-})
+
+    getUtils: function(component) {
+        return component.find("utils");
+    }
+});
