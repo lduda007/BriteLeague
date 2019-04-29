@@ -1,0 +1,8 @@
+.THIS.item:first-child, .THIS.item:last-child {
+    border: 1px solid #d4d4d4;
+}
+
+.THIS.item:not(:first-child):not(:last-child) {
+    border-right: 1px solid #d4d4d4;
+    border-left: 1px solid #d4d4d4;
+}

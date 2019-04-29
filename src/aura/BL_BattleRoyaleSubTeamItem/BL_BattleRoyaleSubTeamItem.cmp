@@ -1,0 +1,98 @@
+<aura:component
+        description="BL_BattleRoyaleSubTeamItem"
+>
+
+    <aura:attribute name="team" type="Object"/>
+
+    <tr
+            onclick="{!c.onTeamRowClick}"
+            data-team-id="{!v.team.teamId}"
+    >
+        <td>
+            <aura:if isTrue="{!empty(v.team.player2Id)}">
+                <div class="slds-truncate">
+                    <a data-recordId="{!v.team.teamId}" onclick="{!c.onTeamNameClick}">
+                        <aura:if isTrue="{!not(empty(v.team.player1ImageUrl))}">
+                            <img src="{!v.team.player1ImageUrl}" class="playerAvatar"/>
+                            <aura:set attribute="else">
+                                <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png"
+                                     class="playerAvatar"
+                                />
+                            </aura:set>
+                        </aura:if>
+                        <span class="slds-p-left--x-small">
+                                {!v.team.name}
+                        </span>
+                    </a>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!not(empty(v.team.player2Id))}">
+                <lightning:layout>
+                    <lightning:layoutItem>
+                    </lightning:layoutItem>
+                </lightning:layout>
+                <div class="slds-truncate">
+                    <a data-recordId="{!v.team.teamId}" onclick="{!c.onTeamNameClick}" class="text-bold">
+                            {!v.team.name}
+                    </a>
+                    <aura:if isTrue="{!not(empty(v.team.player1ImageUrl))}">
+                        <img src="{!v.team.player1ImageUrl}"
+                             class="playerAvatar"
+                             title="{!v.team.player1Name}"
+                        />
+                        <aura:set attribute="else">
+                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png"
+                                 class="playerAvatar"
+                                 title="{!v.team.player1Name}"
+                            />
+                        </aura:set>
+                    </aura:if>
+                    <aura:if isTrue="{!not(empty(v.team.player2ImageUrl))}">
+                        <img src="{!v.team.player2ImageUrl}"
+                             class="playerAvatar"
+                             title="{!v.team.player2Name}"/>
+                        <aura:set attribute="else">
+                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png"
+                                 class="playerAvatar"
+                                 title="{!v.team.player2Name}"/>
+                        </aura:set>
+                    </aura:if>
+                    <span class="slds-p-left--x-small">
+                            {!v.team.player1LastName}
+                    </span>
+                    <aura:if
+                            isTrue="{!empty(v.team.player1LastName) || empty(v.team.player2LastName)}">
+                        <aura:set attribute="else">
+                            &amp;
+                        </aura:set>
+                    </aura:if>
+                        {!v.team.player2LastName}
+                </div>
+            </aura:if>
+        </td>
+        <td class="slds-truncate">
+                {!v.team.gamesWon + v.team.gamesDrawn + v.team.gamesLost}
+        </td>
+        <td class="slds-truncate">
+                {!v.team.gamesWon}
+        </td>
+        <td class="slds-truncate">
+                {!v.team.gamesDrawn}
+        </td>
+        <td class="slds-truncate">
+                {!v.team.gamesLost}
+        </td>
+        <td class="slds-truncate">
+                {!v.team.goalsFor}
+        </td>
+        <td class="slds-truncate">
+                {!v.team.goalsAgainst}
+        </td>
+        <td class="slds-truncate">
+                {!v.team.goalsDrawn}
+        </td>
+        <td class="slds-truncate">
+                {!v.team.points}
+        </td>
+    </tr>
+</aura:component>

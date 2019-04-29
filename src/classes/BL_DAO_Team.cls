@@ -33,6 +33,36 @@ public class BL_DAO_Team {
         ];
     }
 
+    public List<BL_Team__c> getTeamsWithMembersByLeagueId(Id leagueId) {
+        return [
+                SELECT
+                        Id,
+                        IsActive__c,
+                        Name,
+                        Player1__r.Name,
+                        Player2__r.Name,
+                        Player1__r.FirstName,
+                        Player2__r.FirstName,
+                        Player1__r.LastName,
+                        Player2__r.LastName,
+                        Player1__r.ImageUrl__c,
+                        Player2__r.ImageUrl__c,
+                        RecordType.DeveloperName,
+                (
+                        SELECT
+                                Id,
+                                Team__c
+                        FROM Members__r
+                )
+                FROM BL_Team__c
+                WHERE Id IN (
+                        SELECT Team__c
+                        FROM BL_Competitor__c
+                        WHERE League__c = :leagueId
+                )
+        ];
+    }
+
     public List<BL_Team__c> getTeamsByPlayerId(Id playerId) {
         return [
                 SELECT

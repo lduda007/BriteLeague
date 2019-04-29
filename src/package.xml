@@ -30,6 +30,7 @@
         <members>BL_DAO_Competitor</members>
         <members>BL_LeagueService</members>
         <members>BL_LeaguesListViewController</members>
+        <members>BL_DTO_Team</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -80,6 +81,8 @@
         <members>BL_Utils</members>
         <members>BL_JoinLeague</members>
         <members>BL_LeaveCompetition</members>
+        <members>BL_BattleRoyaleTeamItem</members>
+        <members>BL_BattleRoyaleSubTeamItem</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

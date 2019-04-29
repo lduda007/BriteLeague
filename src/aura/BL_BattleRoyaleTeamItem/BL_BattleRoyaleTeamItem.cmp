@@ -1,0 +1,88 @@
+<aura:component
+        description="BL_BattleRoyaleTeamItem"
+>
+
+    <aura:attribute name="mainTeam" type="Object"/>
+    <aura:attribute name="subTeams" type="List"/>
+
+    <div class="item">
+        <lightning:layout>
+            <lightning:layoutItem size="2">
+                <c:BL_Image
+                        parentId="{!v.mainTeam.teamId}"
+                        fileName="team-logo"
+                        height="135px"
+                        width="135px"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="10" class="slds-p-around--medium">
+                <lightning:layout multipleRows="true" verticalAlign="start">
+                    <lightning:layoutItem size="12">
+                        <ui:outputText
+                                value="{!v.mainTeam.name}"
+                                class="slds-text-heading--small"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12">
+                        <table>
+                            <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Team">
+                                        Team
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Matches}">
+                                        M
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Win}">
+                                        W
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Draw}">
+                                        D
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Lost}">
+                                        L
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_For}">
+                                        GF
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_Against}">
+                                        GA
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_Draw}">
+                                        GD
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Points}">
+                                        PTS
+                                    </div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <aura:iteration items="{!v.subTeams}" var="subTeam" indexVar="index">
+                                <c:BL_BattleRoyaleSubTeamItem team="{!subTeam}"/>
+                            </aura:iteration>
+                            </tbody>
+                        </table>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

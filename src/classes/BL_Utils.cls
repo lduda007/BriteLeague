@@ -40,7 +40,6 @@ public with sharing class BL_Utils {
 
     public static void throwAuraHandledException(String uiMessage, Exception e) {
         throwAuraHandledException(
-                uiMessage,
                 uiMessage + ' - ' + e.getMessage() + ' - ' + e.getStackTraceString()
         );
     }

@@ -23,18 +23,11 @@
         <c:BL_Spinner show="{!v.showSpinnerInit}"/>
         <lightning:layout multipleRows="true" verticalAlign="center">
             <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="4" largeDeviceSize="3" size="12" >
-                <aura:if isTrue="{!and(v.team.Player1__c != v.contactId, v.team.Player2__c != v.contactId)}">
-                    <img src="{!v.pictureSrc}"/>
-                </aura:if>
-                <aura:if isTrue="{!or(v.team.Player1__c == v.contactId, v.team.Player2__c == v.contactId)}">
-                    <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" class="slds-is-relative" aura:id="uploadDiv">
-                        <aura:if isTrue="{!v.showSpinner}">
-                            <c:BL_Spinner show="{!v.showSpinner}"/>
-                        </aura:if>
-                        <img src="{!v.pictureSrc}"/>
-                        <p class="slds-text-body_small slds-text-color_weak">{!v.message}</p>
-                    </div>
-                </aura:if>
+                <c:BL_Image
+                        parentId="{!v.recordId}"
+                        fileName="team-logo"
+                        isEditable="{!or(v.team.Player1__c == v.contactId, v.team.Player2__c == v.contactId)}"
+                />
                 <div style="font-size: 1.7em; font-weight: bold"><p class="slds-m-right--medium">{!v.team.Name}</p></div>
             </lightning:layoutItem>
             <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="8" largeDeviceSize="9" size="12">
