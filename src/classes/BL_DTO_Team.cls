@@ -37,7 +37,7 @@ public class BL_DTO_Team {
     @AuraEnabled
     public Integer goalsAgainst;
     @AuraEnabled
-    public Integer goalsDraw;
+    public Integer goalsDrawn;
     @AuraEnabled
     public Integer points;
 
@@ -64,6 +64,12 @@ public class BL_DTO_Team {
     public void setCompetitor(BL_Competitor__c competitor) {
         this.competitor = competitor;
 
-
+        this.gamesWon = Integer.valueOf(competitor.GamesWon__c);
+        this.gamesDrawn = Integer.valueOf(competitor.GamesDrawn__c);
+        this.gamesLost = Integer.valueOf(competitor.GamesLost__c);
+        this.goalsFor = Integer.valueOf(competitor.GoalsFor__c);
+        this.goalsAgainst = Integer.valueOf(competitor.GoalsAgainst__c);
+        this.goalsDrawn = Integer.valueOf(competitor.GamesDrawn__c);
+        this.points = Integer.valueOf(competitor.Points__c);
     }
 }

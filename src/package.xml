@@ -31,6 +31,12 @@
         <members>BL_LeagueService</members>
         <members>BL_LeaguesListViewController</members>
         <members>BL_DTO_Team</members>
+        <members>BL_BattleRoyaleMatchGenerator</members>
+        <members>BL_ClassicMatchGenerator</members>
+        <members>BL_LeagueMatchesServiceTest</members>
+        <members>BL_MatchBuilder</members>
+        <members>BL_MatchGenerator</members>
+        <members>BL_DTO_BattleRoyaleTeam</members>
         <name>ApexClass</name>
     </types>
     <types>

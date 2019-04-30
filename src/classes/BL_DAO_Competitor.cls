@@ -4,7 +4,14 @@ public class BL_DAO_Competitor {
         return [
                 SELECT
                         Id,
+                        GamesWon__c,
+                        GamesDrawn__c,
+                        GamesLost__c,
+                        GoalsFor__c,
+                        GoalsAgainst__c,
+                        GoalsDraw__c,
                         Is_Direct_Competitor__c,
+                        Points__c,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
@@ -17,7 +24,14 @@ public class BL_DAO_Competitor {
         return [
                 SELECT
                         Id,
+                        GamesWon__c,
+                        GamesDrawn__c,
+                        GamesLost__c,
+                        GoalsFor__c,
+                        GoalsAgainst__c,
+                        GoalsDraw__c,
                         Is_Direct_Competitor__c,
+                        Points__c,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
@@ -35,7 +49,14 @@ public class BL_DAO_Competitor {
         return [
                 SELECT
                         Id,
+                        GamesWon__c,
+                        GamesDrawn__c,
+                        GamesLost__c,
+                        GoalsFor__c,
+                        GoalsAgainst__c,
+                        GoalsDraw__c,
                         Is_Direct_Competitor__c,
+                        Points__c,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
@@ -54,6 +75,14 @@ public class BL_DAO_Competitor {
         return [
                 SELECT
                         Id,
+                        GamesWon__c,
+                        GamesDrawn__c,
+                        GamesLost__c,
+                        GoalsFor__c,
+                        GoalsAgainst__c,
+                        GoalsDraw__c,
+                        Is_Direct_Competitor__c,
+                        Points__c,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
