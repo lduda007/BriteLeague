@@ -161,6 +161,19 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>MatchesPlayed__c</fullName>
+        <externalId>false</externalId>
+        <formula>GamesDrawn__c + GamesLost__c + GamesWon__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Matches Played</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Points__c</fullName>
         <externalId>false</externalId>
         <formula>(3 *  GamesWon__c) + (1  *  GamesDrawn__c )</formula>

@@ -27,6 +27,8 @@ public class BL_DTO_Team {
     @AuraEnabled
     public String player2LastName;
     @AuraEnabled
+    public Integer matchesPlayed;
+    @AuraEnabled
     public Integer gamesWon;
     @AuraEnabled
     public Integer gamesDrawn;
@@ -64,6 +66,7 @@ public class BL_DTO_Team {
     public void setCompetitor(BL_Competitor__c competitor) {
         this.competitor = competitor;
 
+        this.matchesPlayed = Integer.valueOf(competitor.MatchesPlayed__c);
         this.gamesWon = Integer.valueOf(competitor.GamesWon__c);
         this.gamesDrawn = Integer.valueOf(competitor.GamesDrawn__c);
         this.gamesLost = Integer.valueOf(competitor.GamesLost__c);

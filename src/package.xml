@@ -89,7 +89,6 @@
         <members>BL_JoinLeague</members>
         <members>BL_LeaveCompetition</members>
         <members>BL_BattleRoyaleTeamItem</members>
-        <members>BL_BattleRoyaleSubTeamItem</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
