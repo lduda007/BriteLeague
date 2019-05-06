@@ -38,6 +38,8 @@
         <members>BL_MatchGenerator</members>
         <members>BL_DTO_BattleRoyaleTeam</members>
         <members>BL_DAO_Match</members>
+        <members>BL_MatchScoreService</members>
+        <members>BL_MatchScoreServiceTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -89,7 +91,6 @@
         <members>BL_JoinLeague</members>
         <members>BL_LeaveCompetition</members>
         <members>BL_BattleRoyaleTeamItem</members>
-        <members>BL_BattleRoyaleSubTeamItem</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

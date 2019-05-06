@@ -1,9 +1,10 @@
-<aura:component
-        description="BL_BattleRoyaleTeamItem"
->
+<aura:component description="BL_BattleRoyaleTeamItem">
 
     <aura:attribute name="mainTeam" type="Object"/>
     <aura:attribute name="subTeams" type="List"/>
+    <aura:attribute name="columns" type="Object"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <div class="item">
         <lightning:layout>
@@ -24,62 +25,12 @@
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem size="12">
-                        <table>
-                            <thead>
-                            <tr class="slds-text-title_caps">
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Team">
-                                        Team
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Matches}">
-                                        M
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Win}">
-                                        W
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Draw}">
-                                        D
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Lost}">
-                                        L
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_For}">
-                                        GF
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_Against}">
-                                        GA
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Goals_Draw}">
-                                        GD
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="{!$Label.c.BL_Points}">
-                                        PTS
-                                    </div>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <aura:iteration items="{!v.subTeams}" var="subTeam" indexVar="index">
-                                <c:BL_BattleRoyaleSubTeamItem team="{!subTeam}"/>
-                            </aura:iteration>
-                            </tbody>
-                        </table>
+                        <lightning:datatable
+                                data="{!v.subTeams}"
+                                keyField="teamId"
+                                columns="{!v.columns}"
+                                hideCheckboxColumn="true"
+                        />
                     </lightning:layoutItem>
                 </lightning:layout>
             </lightning:layoutItem>
