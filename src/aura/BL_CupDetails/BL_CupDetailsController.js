@@ -6,11 +6,11 @@
     },
     goToTeamPage: function (component, event, helper) {
         let recordId = event.currentTarget.dataset.recordid;
-        let urlEvent = $A.get("e.force:navigateToURL");
-        urlEvent.setParams({
-          "url": "/bl-team/"+recordId
+        var navEvt = $A.get("e.force:navigateToSObject");
+        navEvt.setParams({
+            "recordId": recordId
         });
-        urlEvent.fire();
+        navEvt.fire();
     },
     startCupNowAction: function (component, event, helper) {
         helper.startCupNow(component);
