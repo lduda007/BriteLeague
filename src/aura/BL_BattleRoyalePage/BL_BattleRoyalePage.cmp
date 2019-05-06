@@ -1,9 +1,10 @@
 <aura:component description="BL_BattleRoyalePage" controller="BL_BattleRoyaleDetailsController">
 
-    <aura:handler name="init" value="{!this}" action="{!c.getData}" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="settings" type="object"/>
+    <aura:attribute name="matches" type="List"/>
 
     <lightning:layout multipleRows="true" verticalAlign="start">
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
@@ -16,7 +17,7 @@
             <c:BL_BattleRoyaleTable leagueId="{!v.leagueId}"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-            <c:BL_MatchesTable matches="{!v.settings.matches}" playerId="{!v.settings.settings.playerId}"/>
+            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.settings.playerId}"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
             <c:BL_CompetitionFeed competitionId="{!v.leagueId}"/>

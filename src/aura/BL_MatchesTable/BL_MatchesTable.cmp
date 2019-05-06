@@ -175,7 +175,7 @@
                                     </td>
                                     <aura:set attribute="else">
                                         <td scope="row" data-label="Round">
-                                            <div class="slds-truncate" title="{!match.DrawRound__c+ ' - '+match.Round__c}">{!match.DrawRound__c+ ' - '+match.Round__c}</div>
+                                            <div class="slds-truncate" title="{!match.Round__c}">{!match.Round__c}</div>
                                         </td>
                                     </aura:set>
                                 </aura:if>

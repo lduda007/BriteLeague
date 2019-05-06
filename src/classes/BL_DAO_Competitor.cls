@@ -13,11 +13,13 @@ public class BL_DAO_Competitor {
                         Is_Direct_Competitor__c,
                         MatchesPlayed__c,
                         Points__c,
+                        Team__r.Name,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
                 FROM BL_Competitor__c
                 WHERE League__c = :leagueId
+                ORDER BY Team__r.Name ASC
         ];
     }
 
@@ -34,6 +36,7 @@ public class BL_DAO_Competitor {
                         Is_Direct_Competitor__c,
                         MatchesPlayed__c,
                         Points__c,
+                        Team__r.Name,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
@@ -60,6 +63,7 @@ public class BL_DAO_Competitor {
                         Is_Direct_Competitor__c,
                         MatchesPlayed__c,
                         Points__c,
+                        Team__r.Name,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
@@ -87,6 +91,7 @@ public class BL_DAO_Competitor {
                         Is_Direct_Competitor__c,
                         MatchesPlayed__c,
                         Points__c,
+                        Team__r.Name,
                         Team__r.Player1__c,
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName

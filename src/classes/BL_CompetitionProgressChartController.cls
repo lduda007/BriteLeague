@@ -4,32 +4,28 @@ public class BL_CompetitionProgressChartController {
     public static InitDataWrapper getInitDataWrapper(String competitionId) {
         InitDataWrapper wrapper = new InitDataWrapper();
         try {
-            BL_League__c league = [
-                    SELECT Id, TeamSize__c, Teams_Joined__c, Status__c
-                    FROM BL_League__c
-                    WHERE Id = :competitionId
-                    LIMIT 1
-            ];
+            BL_DAO_League daoLeague = new BL_DAO_League();
+            BL_League__c league = daoLeague.getLeagueById(competitionId);
+
             if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
                 wrapper.isCompetitionStarted = true;
                 Map<String, BL_ChartJS.DataSet> teamIdToDataSet = new Map<String, BL_ChartJS.DataSet>();
                 List<String> hexColors = BL_ColorHelper.getHexColors(Integer.valueOf(league.Teams_Joined__c));
 
-                for(BL_Competitor__c competitor : [
-                        SELECT Id, Team__r.Name
-                        FROM BL_Competitor__c
-                        WHERE League__c = :competitionId
-                        ORDER BY Team__r.Name ASC
-                ]) {
-                    String teamColor = hexColors[teamIdToDataSet.size()];
+                BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
 
-                    BL_ChartJS.DataSet dataSet = new BL_ChartJS.DataSet();
-                    dataSet.label = competitor.Team__r.Name;
-                    dataSet.setPrimaryColor(teamColor);
-                    dataSet.setSecondaryColorBasedOnPrimaryColor();
-                    dataSet.fill();
-                    dataSet.addPoint(new BL_ChartJS.Point(0, 0));
-                    teamIdToDataSet.put(competitor.Id, dataSet);
+                for(BL_Competitor__c competitor : daoCompetitor.getCompetitorsByLeagueId(competitionId)) {
+                    if(competitor.Is_Direct_Competitor__c) {
+                        String teamColor = hexColors[teamIdToDataSet.size()];
+
+                        BL_ChartJS.DataSet dataSet = new BL_ChartJS.DataSet();
+                        dataSet.label = competitor.Team__r.Name;
+                        dataSet.setPrimaryColor(teamColor);
+                        dataSet.setSecondaryColorBasedOnPrimaryColor();
+                        dataSet.fill();
+                        dataSet.addPoint(new BL_ChartJS.Point(0, 0));
+                        teamIdToDataSet.put(competitor.Id, dataSet);
+                    }
                 }
 
                 for(BL_Match__c match : [

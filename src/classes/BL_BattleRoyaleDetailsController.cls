@@ -8,29 +8,10 @@ public class BL_BattleRoyaleDetailsController {
 
             BL_DAO_League daoLeague = new BL_DAO_League();
             wrapper.league = daoLeague.getLeagueById(leagueId);
-
-            wrapper.settings = new BL_Settings()
-                    .populateSettingsForLeague(leagueId);
-        } catch(Exception e) {
-            String uiMessage = 'An error occurred during initialization of "Battle Royale Details" component';
-            BL_Utils.throwAuraHandledException(uiMessage, e);
-        }
-
-        return wrapper;
-    }
-
-    @AuraEnabled
-    public static MatchesDataWrapper getMatchesDataWrapper(Id leagueId) {
-        MatchesDataWrapper wrapper;
-        try {
-            wrapper = new MatchesDataWrapper();
-            BL_DAO_League daoLeague = new BL_DAO_League();
-            wrapper.league = daoLeague.getLeagueById(leagueId);
             wrapper.settings = new BL_Settings().populateSettingsForLeague(leagueId);
             wrapper.matches = loadLeagueMatches(leagueId, null);
-
         } catch(Exception e) {
-            String uiMessage = 'An error occurred during initialization of "Battle Royale Page" component';
+            String uiMessage = 'An error occurred during initialization of "Battle Royale Details" component';
             BL_Utils.throwAuraHandledException(uiMessage, e);
         }
 
@@ -59,13 +40,6 @@ public class BL_BattleRoyaleDetailsController {
     }
 
     public class DataWrapper {
-        @AuraEnabled
-        public BL_League__c league;
-        @AuraEnabled
-        public BL_Settings settings;
-    }
-
-    public class MatchesDataWrapper {
         @AuraEnabled
         public BL_League__c league;
         @AuraEnabled

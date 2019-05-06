@@ -18,7 +18,7 @@ public with sharing class BL_HomeDashboardController {
                     OR Player2__c = :currentPlayer
             ]);
             List<BL_Match__c> matches = [
-                    SELECT Id, isResolved__c, CupStage__c, Round__c, DrawRound__c, Team1_Score__c, Team2_Score__c,
+                    SELECT Id, isResolved__c, CupStage__c, Round__c, Team1_Score__c, Team2_Score__c,
                             Team1__r.Name, Team1__r.Team__r.Name, Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,
                             Team2__r.Name, Team2__r.Team__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name,
                             Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c,
@@ -30,7 +30,7 @@ public with sharing class BL_HomeDashboardController {
                             Team1__r.Team__c IN :playerTeams.keySet()
                             OR Team2__r.Team__c IN :playerTeams.keySet()
                     )
-                    ORDER BY LastModifiedDate DESC, DrawRound__c, Round__c
+                    ORDER BY LastModifiedDate DESC, Round__c
                     LIMIT 20
             ];
             return matches;
@@ -51,7 +51,7 @@ public with sharing class BL_HomeDashboardController {
         List<BL_Match__c> matches = [
                 SELECT Id, Team1__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__c, Team2__r.Team__r.Name, League__c,
                         League__r.Name, CreatedDate, Team1_Score__c, Team2_Score__c, CupStage__c, League__r.RecordType.DeveloperName,
-                        League__r.TeamSize__c, Round__c, DrawRound__c
+                        League__r.TeamSize__c, Round__c
                 FROM BL_Match__c
                 WHERE (
                         (
@@ -68,7 +68,7 @@ public with sharing class BL_HomeDashboardController {
                         Team1__c != null
                         AND Team2__c != null
                 )
-                ORDER BY LastModifiedDate DESC, DrawRound__c, Round__c
+                ORDER BY LastModifiedDate DESC, Round__c
                 LIMIT 20
         ];
 

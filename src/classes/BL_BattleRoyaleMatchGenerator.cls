@@ -29,19 +29,16 @@ public with sharing class BL_BattleRoyaleMatchGenerator implements BL_MatchGener
         // TODO: Less loops
         List<List<Id>> teamsCompetitors = parentToMembersIds.values();
         Integer parentTeamsCount = teamsCompetitors.size();
-        Integer drawRound = 0;
         for (Integer parentTeamIndex = 0; parentTeamIndex < parentTeamsCount - 1; parentTeamIndex++) {
             for (Integer memberTeamIndex = 0; memberTeamIndex < teamsCompetitors[parentTeamIndex].size(); memberTeamIndex++) {
                 for (Integer opponentParentTeamIndex = parentTeamIndex + 1; opponentParentTeamIndex < parentTeamsCount; opponentParentTeamIndex++) {
                     for (Integer opponentTeamMemberIndex = 0; opponentTeamMemberIndex < teamsCompetitors[opponentParentTeamIndex].size(); opponentTeamMemberIndex++) {
-                        drawRound++;
                         for (Integer round = 1; round <= rounds; round++) {
                             generatedMatches.add(
                                     new BL_MatchBuilder().
                                             setLeague(leagueId).
                                             setTeam1(teamsCompetitors[parentTeamIndex][memberTeamIndex]).
                                             setTeam2(teamsCompetitors[opponentParentTeamIndex][opponentTeamMemberIndex]).
-                                            setDrawRound(drawRound).
                                             setRound(round).
                                             build()
                             );

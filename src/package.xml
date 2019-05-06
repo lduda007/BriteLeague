@@ -40,6 +40,7 @@
         <members>BL_DAO_Match</members>
         <members>BL_MatchScoreService</members>
         <members>BL_MatchScoreServiceTest</members>
+        <members>BL_MatchScoreProviderControllerTest</members>
         <name>ApexClass</name>
     </types>
     <types>

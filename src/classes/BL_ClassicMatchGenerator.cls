@@ -22,7 +22,6 @@ public with sharing class BL_ClassicMatchGenerator implements BL_MatchGenerator 
                                     .setTeam2(competitorsIds[numberOfTeams - j - 1])
                                     .setLeague(leagueId)
                                     .setRound(currentRound + 1)
-                                    .setDrawRound(i + 1)
                                     .build()
                     );
                 }
@@ -48,7 +47,6 @@ public with sharing class BL_ClassicMatchGenerator implements BL_MatchGenerator 
                                     .setTeam2(competitorsIds[numberOfTeams - j - 2])
                                     .setLeague(leagueId)
                                     .setRound(currentRound + 1)
-                                    .setDrawRound(i + 1)
                                     .build()
                     );
                 }

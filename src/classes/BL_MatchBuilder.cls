@@ -25,11 +25,6 @@ public without sharing class BL_MatchBuilder {
         return this;
     }
 
-    public BL_MatchBuilder setDrawRound(Integer drawRound) {
-        record.DrawRound__c = drawRound;
-        return this;
-    }
-
     public BL_Match__c build() {
         return record;
     }
