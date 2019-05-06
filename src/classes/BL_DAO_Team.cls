@@ -60,6 +60,7 @@ public class BL_DAO_Team {
                         FROM BL_Competitor__c
                         WHERE League__c = :leagueId
                 )
+                ORDER BY Name ASC
         ];
     }
 
