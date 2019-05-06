@@ -18,8 +18,8 @@ public with sharing class BL_ClassicMatchGenerator implements BL_MatchGenerator 
                 for (Integer currentRound = 0; currentRound < rounds; currentRound++) {
                     generatedMatches.add(
                             new BL_MatchBuilder()
-                                    .setTeam1(competitorsIds[j])
-                                    .setTeam2(competitorsIds[numberOfTeams - j - 1])
+                                    .setTeam1(Math.mod(currentRound + 1, 2) == 0 ? competitorsIds[j] : competitorsIds[numberOfTeams - j - 1])
+                                    .setTeam2(Math.mod(currentRound + 1, 2) == 0 ? competitorsIds[numberOfTeams - j - 1] : competitorsIds[j])
                                     .setLeague(leagueId)
                                     .setRound(currentRound + 1)
                                     .build()

@@ -9,13 +9,13 @@ public with sharing class BL_BattleRoyaleMatchGenerator implements BL_MatchGener
             teamToParentComp.put(comp.Team__r.Id, comp.Id);
         }
 
-        List<BL_Competitor__c> memberCompetitors = [SELECT Id, Team__r.Name FROM BL_Competitor__c WHERE Team__c IN (SELECT Member__c FROM BL_TeamMember__c WHERE Team__r.Id In :teamToParentComp.keySet())];
+        List<BL_Competitor__c> memberCompetitors = [SELECT Id, Team__r.Name FROM BL_Competitor__c WHERE League__c = :leagueId AND Team__c IN (SELECT Member__c FROM BL_TeamMember__c WHERE Team__r.Id In :teamToParentComp.keySet())];
         Map<Id, Id> teamToMemberComp = new Map<Id, Id>();
         for (BL_Competitor__c comp : memberCompetitors) {
             teamToMemberComp.put(comp.Team__r.Id, comp.Id);
         }
 
-        List<BL_TeamMember__c> teamMembers = [select id, Team__r.Id, Member__c from bl_teammember__c where Member__r.Id IN :teamToMemberComp.keyset()];
+        List<BL_TeamMember__c> teamMembers = [select id, Team__r.Id, Member__c from bl_teammember__c where Member__r.Id IN :teamToMemberComp.keyset() AND Team__c IN :teamToParentComp.keySet()];
         Map<Id, List<Id>> parentToMembersIds = new Map<Id, List<Id>>();
         for (BL_TeamMember__c tm : teamMembers) {
             if (parentToMembersIds.get(tm.Team__c) == null) {
