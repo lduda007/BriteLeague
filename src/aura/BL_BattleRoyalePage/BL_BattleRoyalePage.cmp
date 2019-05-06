@@ -23,7 +23,7 @@
             <c:BL_CompetitionFeed competitionId="{!v.leagueId}"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
-            <c:BL_CompetitionProgressChart competitionId="{!v.leagueId}"/>
+            <c:BL_CompetitionProgressChart leagueId="{!v.leagueId}"/>
         </lightning:layoutItem>
     </lightning:layout>
 </aura:component>

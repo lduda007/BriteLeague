@@ -16,5 +16,6 @@
         }
 
         helper.showToast(component, $A.get("$Label.c.BL_Error"), message, "ERROR");
+        console.error(message);
     }
 });

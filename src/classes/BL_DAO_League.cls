@@ -5,6 +5,8 @@ public class BL_DAO_League {
                 SELECT
                         Id,
                         End_Date__c,
+                        Match_No__c,
+                        Matches_Scheduled__c,
                         Max_Teams__c,
                         Name,
                         Owner.Name,

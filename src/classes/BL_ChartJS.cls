@@ -20,6 +20,8 @@ public class BL_ChartJS {
         @AuraEnabled
         public Object pointHoverBackgroundColor;
 
+        public Id recordId;
+
         public DataSet() {
             lineTension = 0.25;
             fill = false;
@@ -64,6 +66,8 @@ public class BL_ChartJS {
         public Integer matchPoints;
         @AuraEnabled
         public String matchDate;
+        @AuraEnabled
+        public String teamName;
         @AuraEnabled
         public String enemyName;
         @AuraEnabled

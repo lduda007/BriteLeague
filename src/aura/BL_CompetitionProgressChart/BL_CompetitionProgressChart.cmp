@@ -2,16 +2,19 @@
                 controller="BL_CompetitionProgressChartController"
                 implements="flexipage:availableForAllPageTypes,force:hasRecordId">
 
-    <aura:attribute name="competitionId" type="String"/>
+    <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="height" type="String" default="300px"/>
     <aura:attribute name="labels" type="List"/>
     <aura:attribute name="dataSets" type="List"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
     <aura:attribute name="isCompetitionStarted" type="Boolean" default="false"/>
+    <aura:attribute name="isError" type="Boolean" default="false"/>
 
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
 
     <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.onInit}"/>
+
+    <c:BL_Utils aura:id="utils"/>
 
     <c:BL_Card title="{!$Label.c.BL_Progress_Chart}">
         <div style="{!'padding: 4px; height: ' + v.height}">
@@ -20,10 +23,18 @@
             </aura:if>
             <canvas aura:id="chart" height="0"></canvas>
             <aura:if isTrue="{!not(v.isSpinner)}">
-                <aura:if isTrue="{!not(v.isCompetitionStarted)}">
+                <aura:if isTrue="{!v.isError}">
                     <div class="slds-align_absolute-center height-full">
-                        <ui:outputText value="{!$Label.c.BL_League_Not_Started}"/>
+                        <lightning:icon iconName="utility:error" size="x-small" variant="error"/>
+                        <ui:outputText value="An error occurred!"/>
                     </div>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!not(v.isCompetitionStarted)}">
+                            <div class="slds-align_absolute-center height-full">
+                                <ui:outputText value="{!$Label.c.BL_League_Not_Started}"/>
+                            </div>
+                        </aura:if>
+                    </aura:set>
                 </aura:if>
             </aura:if>
         </div>
