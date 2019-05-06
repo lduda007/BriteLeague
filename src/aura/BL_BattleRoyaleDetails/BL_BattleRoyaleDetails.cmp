@@ -45,12 +45,12 @@
         </aura:set>
         <div style="text-align: center">
             <lightning:layout multipleRows="true" verticalAlign="start">
-                <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3">
+                <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="padding-left-20px">
                     <c:BL_Image
                             parentId="{!v.leagueId}"
                             fileName="league-logo"
-                            width="150px"
-                            height="150px"
+                            width="200px"
+                            height="160px"
                             isEditable="{!v.settings.isLeagueOwner}"
                     />
                 </lightning:layoutItem>
