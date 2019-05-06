@@ -12,6 +12,7 @@
 
     onTeamCreatedAction : function(component, event, helper) {
         helper.fetchSentInvitations(component);
+        helper.fetchRecords(component);
         component.set("v.selectedTabId", 'sentInvitations');
     },
     

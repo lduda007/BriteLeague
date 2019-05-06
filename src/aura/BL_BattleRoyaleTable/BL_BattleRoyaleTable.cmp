@@ -6,6 +6,7 @@
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="battleRoyaleTeams" type="List"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
+    <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
