@@ -28,25 +28,25 @@ public class BL_CompetitionFeedController {
                             .build()
             );
 
+            for(BL_Competitor__c competitor : [
+                    SELECT Id, Team__r.Name, CreatedDate
+                    FROM BL_Competitor__c
+                    WHERE League__c = :competitionId
+                    ORDER BY Team__r.Name ASC
+            ]) {
+                initDataWrapper.addFeedItem(
+                        new FeedItemWrapperBuilder()
+                                .setAsTeamJoined(competitor.Team__r.Name, competitor.CreatedDate)
+                                .build()
+                );
+            }
+
             if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
                 initDataWrapper.addFeedItem(
                         new FeedItemWrapperBuilder()
                                 .setAsLeagueStarted(league.Start_Date__c)
                                 .build()
                 );
-
-                for(BL_Competitor__c competitor : [
-                        SELECT Id, Team__r.Name, CreatedDate
-                        FROM BL_Competitor__c
-                        WHERE League__c = :competitionId
-                        ORDER BY Team__r.Name ASC
-                ]) {
-                    initDataWrapper.addFeedItem(
-                            new FeedItemWrapperBuilder()
-                                    .setAsTeamJoined(competitor.Team__r.Name, competitor.CreatedDate)
-                                    .build()
-                    );
-                }
 
                 for(BL_Match__c match : [
                         SELECT Id, Team1_Score__c, Team2_Score__c, Team1TotalGoalsScored__c, Team2TotalGoalsScored__c,
@@ -74,8 +74,8 @@ public class BL_CompetitionFeedController {
 
             initDataWrapper.sortFeedItems();
         } catch(Exception e) {
-            String uiMessage = 'An error occurred during initialization of BL_CompetitionFeed component: ' + e.getMessage();
-            BL_Utils.throwAuraHandledException(uiMessage + ' ' + e.getStackTraceString());
+            String uiMessage = 'An error occurred during initialization of BL_CompetitionFeed component';
+            BL_Utils.throwAuraHandledException(uiMessage, e);
         }
 
         return initDataWrapper;
