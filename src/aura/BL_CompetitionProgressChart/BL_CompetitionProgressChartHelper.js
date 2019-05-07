@@ -87,20 +87,30 @@
                             title: function(tooltipItems, data) {
                                 let dataset = data.datasets[tooltipItems[0].datasetIndex];
                                 let point = dataset.data[tooltipItems[0].index];
-                                return dataset.label + ": " + point.y + " (+" + point.matchPoints + ")";
+                                let result = "";
+
+                                if(dataset.label !== point.teamName) {
+                                    result += point.teamName + " (" + dataset.label + ")";
+                                } else {
+                                    result += dataset.label;
+                                }
+
+                                result += ": " + point.y + " (+" + point.matchPoints + ")"
+
+                                return result;
                             },
                             label: function(tooltipItem, data) {
                                 let dataset = data.datasets[tooltipItem.datasetIndex];
                                 let point = dataset.data[tooltipItem.index];
-                                let label = "";
+                                let result = "";
 
-                                if(dataset.label !== point.teamName) {
-                                    label += point.teamName;
+                                result += "vs " + point.enemyName;
+
+                                if(point.enemyName !== point.enemyDataSetLabel) {
+                                    result += " (" + point.enemyDataSetLabel + ")";
                                 }
 
-                                label += " vs " + point.enemyName;
-
-                                return label;
+                                return result;
                             },
                             labelTextColor: function(tooltipItem, chart) {
                                 let dataset = chart.config.data.datasets[tooltipItem.datasetIndex];

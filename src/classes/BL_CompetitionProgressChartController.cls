@@ -82,6 +82,7 @@ public class BL_CompetitionProgressChartController {
                     team1Point.matchDate = match.MatchDate__c != null ? match.MatchDate__c.format() : null;
                     team1Point.teamName = match.Team1__r.Team__r.Name;
                     team1Point.enemyName = match.Team2__r.Team__r.Name;
+                    team1Point.enemyDataSetLabel = team2DataSet.label;
                     team1Point.enemyColor = team2DataSet.borderColor;
 
                     BL_ChartJS.Point team2Point = new BL_ChartJS.Point(team2DataSet.data.size(), team2Points);
@@ -89,6 +90,7 @@ public class BL_CompetitionProgressChartController {
                     team2Point.matchDate = match.MatchDate__c != null ? match.MatchDate__c.format() : null;
                     team2Point.teamName = match.Team2__r.Team__r.Name;
                     team2Point.enemyName = match.Team1__r.Team__r.Name;
+                    team2Point.enemyDataSetLabel = team1DataSet.label;
                     team2Point.enemyColor = team1DataSet.borderColor;
 
                     team1DataSet.addPoint(team1Point);

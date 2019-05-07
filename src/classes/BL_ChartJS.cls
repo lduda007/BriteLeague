@@ -71,6 +71,8 @@ public class BL_ChartJS {
         @AuraEnabled
         public String enemyName;
         @AuraEnabled
+        public String enemyDataSetLabel;
+        @AuraEnabled
         public String enemyColor;
 
         public Point(Object x, Object y) {
