@@ -17,7 +17,7 @@
     <c:BL_Utils aura:id="utils"/>
 
     <c:BL_Card title="{!$Label.c.BL_Progress_Chart}">
-        <div style="{!'padding: 4px; height: ' + v.height}">
+        <div style="{!'height: ' + v.height}">
             <aura:if isTrue="{!v.isSpinner}">
                 <lightning:spinner variant="brand" size="small"/>
             </aura:if>
