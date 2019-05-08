@@ -127,13 +127,30 @@ public class BL_CompetitionProgressChartController {
         } else if(league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
             Integer numberOfSubTeamsPerBattleRoyaleTeam = Integer.valueOf(league.Teams_Joined__c - numberOfDirectCompetitors) / numberOfDirectCompetitors;
 
-            numberOfMatchesPerTeam = Integer.valueOf((numberOfDirectCompetitors - 1) * numberOfSubTeamsPerBattleRoyaleTeam * league.Match_No__c);
+            numberOfMatchesPerTeam = Integer.valueOf((numberOfDirectCompetitors - 1) * Math.pow(numberOfSubTeamsPerBattleRoyaleTeam, 2) * league.Match_No__c);
         }
 
         List<String> labels = new List<String>();
 
+        Integer labelsScale;
+
+        if(numberOfMatchesPerTeam <= 25) {
+            labelsScale = 1;
+        } else if(numberOfMatchesPerTeam <= 50) {
+            labelsScale = 2;
+        } else if(numberOfMatchesPerTeam <= 100) {
+            labelsScale = 4;
+        } else {
+            labelsScale = 10;
+        }
+
+
         for(Integer i = 0; i <= numberOfMatchesPerTeam; i++) {
-            labels.add(String.valueOf(i));
+            if(Math.mod(i, labelsScale) == 0) {
+                labels.add(String.valueOf(i));
+            } else {
+                labels.add('');
+            }
         }
 
         return labels;
