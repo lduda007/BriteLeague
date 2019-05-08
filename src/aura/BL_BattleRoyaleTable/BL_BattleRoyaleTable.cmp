@@ -6,23 +6,30 @@
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="battleRoyaleTeams" type="List"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
-    <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
 
+    <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
     <c:BL_Card title="{!$Label.c.BL_League_Table}">
-        <aura:if isTrue="{!not(empty(v.battleRoyaleTeams))}">
-            <aura:iteration items="{!v.battleRoyaleTeams}" var="battleRoyaleTeam">
-                <c:BL_BattleRoyaleTeamItem
-                        mainTeam="{!battleRoyaleTeam.mainTeam}"
-                        subTeams="{!battleRoyaleTeam.subTeams}"
-                />
-            </aura:iteration>
-        </aura:if>
-        <aura:if isTrue="{!empty(v.battleRoyaleTeams)}">
-            <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
-                <ui:outputText value="{!$Label.c.BL_No_competitors_found}"/>
+        <aura:if isTrue="{!v.isSpinner}">
+            <div class="spinner-wrapper">
+                <lightning:spinner size="small" variant="brand"/>
             </div>
+        </aura:if>
+        <aura:if isTrue="{!not(v.isSpinner)}">
+            <aura:if isTrue="{!not(empty(v.battleRoyaleTeams))}">
+                <aura:iteration items="{!v.battleRoyaleTeams}" var="battleRoyaleTeam">
+                    <c:BL_BattleRoyaleTeamItem
+                            mainTeam="{!battleRoyaleTeam.mainTeam}"
+                            subTeams="{!battleRoyaleTeam.subTeams}"
+                    />
+                </aura:iteration>
+            </aura:if>
+            <aura:if isTrue="{!empty(v.battleRoyaleTeams)}">
+                <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                    <ui:outputText value="{!$Label.c.BL_No_competitors_found}"/>
+                </div>
+            </aura:if>
         </aura:if>
     </c:BL_Card>
 </aura:component>
