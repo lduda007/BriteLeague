@@ -44,7 +44,11 @@
             </lightning:buttonGroup>
         </aura:set>
         <div style="text-align: center">
-            <lightning:layout multipleRows="true" verticalAlign="start">
+            <aura:if isTrue="{!v.isSpinner}">
+                <lightning:spinner size="small" variant="brand"/>
+            </aura:if>
+            <aura:if isTrue="{!not(v.isSpinner)}">
+                <lightning:layout multipleRows="true" verticalAlign="start">
                 <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="padding-left-20px">
                     <c:BL_Image
                             parentId="{!v.leagueId}"
@@ -97,6 +101,7 @@
                     </lightning:layout>
                 </lightning:layoutItem>
             </lightning:layout>
+            </aura:if>
         </div>
     </lightning:card>
 
