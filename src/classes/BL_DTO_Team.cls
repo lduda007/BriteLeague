@@ -27,6 +27,8 @@ public class BL_DTO_Team {
     @AuraEnabled
     public String player2LastName;
     @AuraEnabled
+    public String players;
+    @AuraEnabled
     public Integer matchesPlayed;
     @AuraEnabled
     public Integer gamesWon;
@@ -52,15 +54,20 @@ public class BL_DTO_Team {
         this.teamId = team.Id;
         this.name = team.Name;
         this.player1Id = team.Player1__c;
-        this.player2Id = team.Player2__c;
         this.player1Name = team.Player1__r.Name;
-        this.player2Name = team.Player2__r.Name;
         this.player1FirstName = team.Player1__r.FirstName;
-        this.player2FirstName = team.Player2__r.FirstName;
         this.player1LastName = team.Player1__r.LastName;
-        this.player2LastName = team.Player2__r.LastName;
+        this.players = player1LastName;
         this.player1ImageUrl = team.Player1__r.ImageUrl__c;
-        this.player2ImageUrl = team.Player2__r.ImageUrl__c;
+
+        if(team.Player2__c != null) {
+            this.player2Id = team.Player2__c;
+            this.player2Name = team.Player2__r.Name;
+            this.player2FirstName = team.Player2__r.FirstName;
+            this.player2LastName = team.Player2__r.LastName;
+            this.players += ' & ' + player2LastName;
+            this.player2ImageUrl = team.Player2__r.ImageUrl__c;
+        }
     }
 
     public void setCompetitor(BL_Competitor__c competitor) {

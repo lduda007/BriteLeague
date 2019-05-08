@@ -6,6 +6,8 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
+    <c:BL_Utils aura:id="utils"/>
+
     <div class="item">
         <lightning:layout>
             <lightning:layoutItem size="2">
@@ -18,18 +20,33 @@
             </lightning:layoutItem>
             <lightning:layoutItem size="10" class="slds-p-around--medium">
                 <lightning:layout multipleRows="true" verticalAlign="start">
-                    <lightning:layoutItem size="12">
-                        <ui:outputText
-                                value="{!v.mainTeam.name}"
-                                class="slds-text-heading--small"
+                    <lightning:layoutItem size="6">
+                        <lightning:button
+                                label="{!v.mainTeam.name}"
+                                class="slds-text-heading--medium text-bold"
+                                onclick="{!c.onMainTeamNameClick}"
+                                variant="base"
+                                value="{!v.mainTeam.teamId}"
                         />
                     </lightning:layoutItem>
-                    <lightning:layoutItem size="12">
+                    <lightning:layoutItem size="6" class="slds-text-align--right">
+                        <ui:outputText
+                                value="Points: "
+                                class="slds-text-heading_medium"
+                        />
+                        <ui:outputText
+                                value="{!v.mainTeam.points}"
+                                class="slds-text-heading_medium text-bold"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" class="slds-m-top--small">
                         <lightning:datatable
                                 data="{!v.subTeams}"
                                 keyField="teamId"
                                 columns="{!v.columns}"
                                 hideCheckboxColumn="true"
+                                onrowaction="{!c.onRowAction}"
+                                maxColumnWidth="685"
                         />
                     </lightning:layoutItem>
                 </lightning:layout>

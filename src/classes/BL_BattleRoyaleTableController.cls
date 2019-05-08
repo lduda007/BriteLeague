@@ -67,6 +67,9 @@ public class BL_BattleRoyaleTableController {
             }
 
             for(BL_DTO_BattleRoyaleTeam battleRoyaleTeam : battleRoyaleTeamsMap.values()) {
+                BL_Competitor__c battleRoyaleTeamCompetitor = teamIdToCompetitorMap.get(battleRoyaleTeam.mainTeam.teamId);
+                battleRoyaleTeam.mainTeam.setCompetitor(battleRoyaleTeamCompetitor);
+
                 for(BL_DTO_Team team : battleRoyaleTeam.subTeams) {
                     BL_Competitor__c competitor = teamIdToCompetitorMap.get(team.teamId);
                     team.setCompetitor(competitor);

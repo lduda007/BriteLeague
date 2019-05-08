@@ -3,18 +3,18 @@
         let columns = [
             {
                 label: "Name",
-                fieldName: "name",
-                type: "text",
-                minColumnWidth: "200"
+                type: "button",
+                typeAttributes: {
+                    label: {
+                        fieldName: "name"
+                    },
+                    name: "goToRecord",
+                    variant: "base"
+                }
             },
             {
-                label: "P1",
-                fieldName: "player1LastName",
-                type: "text"
-            },
-            {
-                label: "P2",
-                fieldName: "player2LastName",
+                label: "Players",
+                fieldName: "players",
                 type: "text"
             },
             {
@@ -50,5 +50,9 @@
         ];
 
         component.set("v.columns", columns);
+    },
+
+    getUtils: function(component) {
+        return component.find("utils");
     }
 });

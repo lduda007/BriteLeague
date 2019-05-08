@@ -24,4 +24,8 @@
     <aura:method name="handleError" action="{!c.handleError}" access="global">
         <aura:attribute name="errors" type="Object" required="true"/>
     </aura:method>
+
+    <aura:method name="goToRecord" action="{!c.goToRecord}" access="global">
+        <aura:attribute name="recordId" type="String" required="true"/>
+    </aura:method>
 </aura:component>
