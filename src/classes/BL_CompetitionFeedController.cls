@@ -16,7 +16,7 @@ public class BL_CompetitionFeedController {
             initDataWrapper = new InitDataWrapper();
 
             BL_League__c league = [
-                    SELECT Id, CreatedDate, CreatedBy.Name, Status__c, Start_Date__c, End_Date__c
+                    SELECT Id, CreatedDate, CreatedBy.Name, Status__c, Start_Date__c, End_Date__c, Date_League_Finished__c
                     FROM BL_League__c
                     WHERE Id = :competitionId
                     LIMIT 1
@@ -67,7 +67,7 @@ public class BL_CompetitionFeedController {
             if(league.Status__c == BL_Constants.LEAGUE_STATUS_FINISHED) {
                 initDataWrapper.addFeedItem(
                         new FeedItemWrapperBuilder()
-                                .setAsLeagueFinished(league.End_Date__c)
+                                .setAsLeagueFinished(league.Date_League_Finished__c)
                                 .build()
                 );
             }
