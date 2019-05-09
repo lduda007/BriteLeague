@@ -9,6 +9,9 @@
         <div class="bl-card__title">
                 {!v.title}
         </div>
+        <aura:set attribute="actions">
+            {!v.actions}
+        </aura:set>
         <div class="{!'bl-card__body' + (v.boxBorder ? ' slds-box_border' : '')}">
                 {!v.body}
         </div>

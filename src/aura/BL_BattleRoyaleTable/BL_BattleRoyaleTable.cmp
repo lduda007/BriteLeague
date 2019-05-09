@@ -5,6 +5,7 @@
 
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="battleRoyaleTeams" type="List"/>
+    <aura:attribute name="viewMode" type="String" default="DETAILS" description="Values: DETAILS, COMPACT"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
@@ -18,12 +19,32 @@
         </aura:if>
         <aura:if isTrue="{!not(v.isSpinner)}">
             <aura:if isTrue="{!not(empty(v.battleRoyaleTeams))}">
-                <aura:iteration items="{!v.battleRoyaleTeams}" var="battleRoyaleTeam">
-                    <c:BL_BattleRoyaleTeamItem
-                            mainTeam="{!battleRoyaleTeam.mainTeam}"
-                            subTeams="{!battleRoyaleTeam.subTeams}"
-                    />
-                </aura:iteration>
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem size="12">
+                        <lightning:buttonGroup class="slds-float--right">
+                            <lightning:button
+                                    label="Toggle View"
+                                    variant="brand"
+                                    iconName="utility:rotate"
+                                    iconPosition="left"
+                                    onclick="{!c.onToggleViewMode}"
+                            />
+                        </lightning:buttonGroup>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12">
+                        <aura:if isTrue="{!equals(v.viewMode, 'DETAILS')}">
+                            <aura:iteration items="{!v.battleRoyaleTeams}" var="battleRoyaleTeam">
+                                <c:BL_BattleRoyaleTeamItem
+                                        mainTeam="{!battleRoyaleTeam.mainTeam}"
+                                        subTeams="{!battleRoyaleTeam.subTeams}"
+                                />
+                            </aura:iteration>
+                        </aura:if>
+                        <aura:if isTrue="{!equals(v.viewMode, 'COMPACT')}">
+                            <img src="https://lh3.google.com/u/0/d/1dVh3ULe379S5713WwyPOCa5Zl6FZ-k1z=w1919-h383-iv1"/>
+                        </aura:if>
+                    </lightning:layoutItem>
+                </lightning:layout>
             </aura:if>
             <aura:if isTrue="{!empty(v.battleRoyaleTeams)}">
                 <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
