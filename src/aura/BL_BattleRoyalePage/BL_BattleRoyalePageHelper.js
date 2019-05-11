@@ -11,6 +11,7 @@
             if (state === "SUCCESS") {
                 component.set("v.settings", result.settings);
                 component.set("v.matches", result.matches);
+                component.set("v.leagueId", leagueId);
             } else {
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
