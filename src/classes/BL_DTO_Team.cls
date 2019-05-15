@@ -1,4 +1,4 @@
-public class BL_DTO_Team {
+public virtual class BL_DTO_Team implements Comparable {
 
     @AuraEnabled
     public Id teamId;
@@ -81,5 +81,17 @@ public class BL_DTO_Team {
         this.goalsAgainst = Integer.valueOf(competitor.GoalsAgainst__c);
         this.goalsDrawn = Integer.valueOf(competitor.GamesDrawn__c);
         this.points = Integer.valueOf(competitor.Points__c);
+    }
+
+    public Integer compareTo(Object toCompare) {
+        BL_DTO_Team toCompareTeam = (BL_DTO_Team) toCompare;
+
+        if(this.points > toCompareTeam.points) {
+            return -1;
+        } else if(this.points < toCompareTeam.points) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

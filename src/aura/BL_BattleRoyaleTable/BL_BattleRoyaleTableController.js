@@ -1,6 +1,7 @@
 ({
     onInit: function(component, event, helper) {
         helper.getDataWrapper(component);
+        helper.setColumns(component);
     },
 
     onToggleViewMode: function(component, event, helper) {

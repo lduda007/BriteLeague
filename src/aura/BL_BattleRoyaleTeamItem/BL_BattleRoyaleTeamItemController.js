@@ -3,7 +3,7 @@
         helper.setColumns(component);
     },
 
-    onMainTeamNameClick: function(component, event, helper) {
+    onTeamNameClick: function(component, event, helper) {
         let teamId = event.getSource().get("v.value");
         let utils = helper.getUtils(component);
         utils.goToRecord(teamId);

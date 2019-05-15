@@ -1,7 +1,6 @@
 <aura:component description="BL_BattleRoyaleTeamItem">
 
-    <aura:attribute name="mainTeam" type="Object"/>
-    <aura:attribute name="subTeams" type="List"/>
+    <aura:attribute name="team" type="Object"/>
     <aura:attribute name="columns" type="Object"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
@@ -12,7 +11,7 @@
         <lightning:layout>
             <lightning:layoutItem size="2">
                 <c:BL_Image
-                        parentId="{!v.mainTeam.teamId}"
+                        parentId="{!v.team.teamId}"
                         fileName="team-logo"
                         height="135px"
                         width="135px"
@@ -22,11 +21,11 @@
                 <lightning:layout multipleRows="true" verticalAlign="start">
                     <lightning:layoutItem size="6">
                         <lightning:button
-                                label="{!v.mainTeam.name}"
+                                label="{!v.team.name}"
                                 class="slds-text-heading--medium text-bold"
-                                onclick="{!c.onMainTeamNameClick}"
+                                onclick="{!c.onTeamNameClick}"
                                 variant="base"
-                                value="{!v.mainTeam.teamId}"
+                                value="{!v.team.teamId}"
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem size="6" class="slds-text-align--right">
@@ -35,13 +34,13 @@
                                 class="slds-text-heading_medium"
                         />
                         <ui:outputText
-                                value="{!v.mainTeam.points}"
+                                value="{!v.team.points}"
                                 class="slds-text-heading_medium text-bold"
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem size="12" class="slds-m-top--small">
                         <lightning:datatable
-                                data="{!v.subTeams}"
+                                data="{!v.team.subTeams}"
                                 keyField="teamId"
                                 columns="{!v.columns}"
                                 hideCheckboxColumn="true"

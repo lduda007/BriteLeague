@@ -5,6 +5,7 @@
 
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="battleRoyaleTeams" type="List"/>
+    <aura:attribute name="columns" type="Object"/>
     <aura:attribute name="viewMode" type="String" default="DETAILS" description="Values: DETAILS, COMPACT"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
@@ -37,13 +38,19 @@
                         <aura:if isTrue="{!equals(v.viewMode, 'DETAILS')}">
                             <aura:iteration items="{!v.battleRoyaleTeams}" var="battleRoyaleTeam">
                                 <c:BL_BattleRoyaleTeamItem
-                                        mainTeam="{!battleRoyaleTeam.mainTeam}"
-                                        subTeams="{!battleRoyaleTeam.subTeams}"
+                                        team="{!battleRoyaleTeam}"
                                 />
                             </aura:iteration>
                         </aura:if>
                         <aura:if isTrue="{!equals(v.viewMode, 'COMPACT')}">
-                            <img src="https://lh3.google.com/u/0/d/1dVh3ULe379S5713WwyPOCa5Zl6FZ-k1z=w1919-h383-iv1"/>
+                            <lightning:datatable
+                                    data="{!v.battleRoyaleTeams}"
+                                    keyField="teamId"
+                                    columns="{!v.columns}"
+                                    hideCheckboxColumn="true"
+                                    onrowaction="{!c.onRowAction}"
+                                    maxColumnWidth="685"
+                            />
                         </aura:if>
                     </lightning:layoutItem>
                 </lightning:layout>

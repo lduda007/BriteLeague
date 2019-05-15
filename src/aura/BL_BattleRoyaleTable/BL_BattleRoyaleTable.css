@@ -2,3 +2,20 @@
     height: 230px;
     position: relative;
 }
+
+.THIS .myTable .slds-th__action .slds-th__action-button {
+    display: none;
+}
+
+.THIS .slds-button_icon-bare {
+    display: none;
+}
+
+.THIS table tbody tr th:first-child * {
+    font-weight: bold;
+    color: #3F51B5;
+}
+
+.THIS table tbody tr td:last-child * {
+    font-weight: bold;
+}

@@ -21,17 +21,13 @@ public class BL_BattleRoyaleTableController {
         public void populateBattleRoyaleTeams(Id leagueId) {
             BL_DAO_Team daoTeam = new BL_DAO_Team();
 
-
             Map<Id, BL_DTO_BattleRoyaleTeam> battleRoyaleTeamsMap = new Map<Id, BL_DTO_BattleRoyaleTeam>();
             List<BL_Team__c> classicTeams = new List<BL_Team__c>();
 
             for(BL_Team__c team : daoTeam.getTeamsWithMembersByLeagueId(leagueId)) {
                 if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
-                    BL_DTO_Team dtoTeam = new BL_DTO_Team();
-                    dtoTeam.setTeam(team);
-
                     BL_DTO_BattleRoyaleTeam battleRoyaleTeam = new BL_DTO_BattleRoyaleTeam();
-                    battleRoyaleTeam.mainTeam = dtoTeam;
+                    battleRoyaleTeam.setTeam(team);
 
                     battleRoyaleTeamsMap.put(team.Id, battleRoyaleTeam);
                 } else {
@@ -49,10 +45,10 @@ public class BL_BattleRoyaleTableController {
                 }
 
                 if(battleRoyaleTeam != null) {
-                    BL_DTO_Team dtoTeam = new BL_DTO_Team();
-                    dtoTeam.setTeam(team);
+                    BL_DTO_Team subTeam = new BL_DTO_Team();
+                    subTeam.setTeam(team);
 
-                    battleRoyaleTeam.subTeams.add(dtoTeam);
+                    battleRoyaleTeam.addSubTeam(subTeam);
                 } else {
                     BL_Utils.throwAuraHandledException('Battle Royale Team not found for ' + team.Name);
                 }
@@ -67,16 +63,17 @@ public class BL_BattleRoyaleTableController {
             }
 
             for(BL_DTO_BattleRoyaleTeam battleRoyaleTeam : battleRoyaleTeamsMap.values()) {
-                BL_Competitor__c battleRoyaleTeamCompetitor = teamIdToCompetitorMap.get(battleRoyaleTeam.mainTeam.teamId);
-                battleRoyaleTeam.mainTeam.setCompetitor(battleRoyaleTeamCompetitor);
+                BL_Competitor__c battleRoyaleTeamCompetitor = teamIdToCompetitorMap.get(battleRoyaleTeam.teamId);
+                battleRoyaleTeam.setCompetitor(battleRoyaleTeamCompetitor);
 
-                for(BL_DTO_Team team : battleRoyaleTeam.subTeams) {
-                    BL_Competitor__c competitor = teamIdToCompetitorMap.get(team.teamId);
-                    team.setCompetitor(competitor);
+                for(BL_DTO_Team subTeam : battleRoyaleTeam.subTeams) {
+                    BL_Competitor__c competitor = teamIdToCompetitorMap.get(subTeam.teamId);
+                    subTeam.setCompetitor(competitor);
                 }
             }
 
             this.battleRoyaleTeams = battleRoyaleTeamsMap.values();
+            this.battleRoyaleTeams.sort();
         }
     }
 }
