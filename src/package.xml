@@ -41,6 +41,7 @@
         <members>BL_MatchScoreService</members>
         <members>BL_MatchScoreServiceTest</members>
         <members>BL_MatchScoreProviderControllerTest</members>
+        <members>BL_MatchDetailsController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -92,6 +93,7 @@
         <members>BL_JoinLeague</members>
         <members>BL_LeaveCompetition</members>
         <members>BL_BattleRoyaleTeamItem</members>
+        <members>BL_MatchDetails</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
