@@ -17,6 +17,7 @@ public with sharing class BL_SinglePlayerScoreProviderController {
     @AuraEnabled
     public static String saveMatchScoreAndUpdateCompetitorsStatistics(BL_Match__c match) {
         match.isResolved__c = true;
+        match.MatchDate__c = System.now();
         try{
             update match;
             updateCompetitorsStatistics(match);
