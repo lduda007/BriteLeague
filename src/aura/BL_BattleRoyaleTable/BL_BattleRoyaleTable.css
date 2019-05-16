@@ -3,19 +3,29 @@
     position: relative;
 }
 
-.THIS .myTable .slds-th__action .slds-th__action-button {
+.THIS .compact-table .slds-button_icon-bare {
     display: none;
 }
 
-.THIS .slds-button_icon-bare {
-    display: none;
+.THIS .compact-table table tbody tr th:first-child * {
+    font-weight: bold;
+    color: #0099de;
 }
 
-.THIS table tbody tr th:first-child * {
+.THIS .compact-table table tbody tr th:first-child:hover * {
     font-weight: bold;
-    color: #3F51B5;
+    color: #135f90;
 }
 
-.THIS table tbody tr td:last-child * {
+.THIS .compact-table table tbody tr td:last-child * {
     font-weight: bold;
+}
+
+.THIS .compact-table table tbody tr th:first-child lightning-primitive-icon svg {
+    height: 3rem;
+    width: 3rem;
+}
+
+.THIS .compact-table table tbody tr th:first-child lightning-icon {
+    background-color: #0eb58a;
 }

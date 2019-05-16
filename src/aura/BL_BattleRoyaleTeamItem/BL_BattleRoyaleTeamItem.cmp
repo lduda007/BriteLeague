@@ -30,6 +30,14 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem size="6" class="slds-text-align--right">
                         <ui:outputText
+                                value="Matches: "
+                                class="slds-text-heading_medium"
+                        />
+                        <ui:outputText
+                                value="{!v.team.matchesPlayed}"
+                                class="slds-text-heading_medium text-bold slds-m-right--large"
+                        />
+                        <ui:outputText
                                 value="Points: "
                                 class="slds-text-heading_medium"
                         />

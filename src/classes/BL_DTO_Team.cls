@@ -41,9 +41,11 @@ public virtual class BL_DTO_Team implements Comparable {
     @AuraEnabled
     public Integer goalsAgainst;
     @AuraEnabled
-    public Integer goalsDrawn;
+    public Integer goalsDraw;
     @AuraEnabled
     public Integer points;
+    @AuraEnabled
+    public String teamIcon;
 
     private BL_Team__c team;
     private BL_Competitor__c competitor;
@@ -57,7 +59,7 @@ public virtual class BL_DTO_Team implements Comparable {
         this.player1Name = team.Player1__r.Name;
         this.player1FirstName = team.Player1__r.FirstName;
         this.player1LastName = team.Player1__r.LastName;
-        this.players = player1LastName;
+        this.players = team.Player1__r.LastName;
         this.player1ImageUrl = team.Player1__r.ImageUrl__c;
 
         if(team.Player2__c != null) {
@@ -65,8 +67,18 @@ public virtual class BL_DTO_Team implements Comparable {
             this.player2Name = team.Player2__r.Name;
             this.player2FirstName = team.Player2__r.FirstName;
             this.player2LastName = team.Player2__r.LastName;
-            this.players += ' & ' + player2LastName;
+            this.players += ' & ' + team.Player2__r.LastName;
             this.player2ImageUrl = team.Player2__r.ImageUrl__c;
+        }
+
+        if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
+            this.teamIcon = BL_Constants.ICON_STANDARD_HOUSEHOLD;
+        } else if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_CLASSIC) {
+            if(team.Player2__c != null) {
+                this.teamIcon = BL_Constants.ICON_STANDARD_CUSTOMERS;
+            } else {
+                this.teamIcon = BL_Constants.ICON_STANDARD_AVATAR;
+            }
         }
     }
 
@@ -79,7 +91,7 @@ public virtual class BL_DTO_Team implements Comparable {
         this.gamesLost = Integer.valueOf(competitor.GamesLost__c);
         this.goalsFor = Integer.valueOf(competitor.GoalsFor__c);
         this.goalsAgainst = Integer.valueOf(competitor.GoalsAgainst__c);
-        this.goalsDrawn = Integer.valueOf(competitor.GamesDrawn__c);
+        this.goalsDraw = Integer.valueOf(competitor.GoalsDraw__c);
         this.points = Integer.valueOf(competitor.Points__c);
     }
 
