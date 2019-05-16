@@ -10,6 +10,12 @@
                     },
                     name: "goToRecord",
                     variant: "base"
+                },
+                cellAttributes: {
+                    iconName: {
+                        fieldName: "teamIcon"
+                    },
+                    iconPosition: "left"
                 }
             },
             {
@@ -21,31 +27,46 @@
                 label: "M",
                 fieldName: "matchesPlayed",
                 type: "number",
-                initialWidth: "50"
+                initialWidth: "50",
+                cellAttributes: {
+                    alignment: "left"
+                }
             },
             {
                 label: "W",
                 fieldName: "gamesWon",
                 type: "number",
-                initialWidth: "50"
+                initialWidth: "50",
+                cellAttributes: {
+                    alignment: "left"
+                }
             },
             {
                 label: "D",
                 fieldName: "gamesDrawn",
                 type: "number",
-                initialWidth: "50"
+                initialWidth: "50",
+                cellAttributes: {
+                    alignment: "left"
+                }
             },
             {
                 label: "L",
                 fieldName: "gamesLost",
                 type: "number",
-                initialWidth: "50"
+                initialWidth: "50",
+                cellAttributes: {
+                    alignment: "left"
+                }
             },
             {
                 label: "P",
                 fieldName: "points",
                 type: "number",
-                initialWidth: "50"
+                initialWidth: "50",
+                cellAttributes: {
+                    alignment: "left"
+                }
             }
         ];
 

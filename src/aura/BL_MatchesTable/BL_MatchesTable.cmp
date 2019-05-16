@@ -1,6 +1,7 @@
 <aura:component description="BL_MatchesTable" controller="BL_BattleRoyaleDetailsController">
 
     <aura:attribute name="leagueId" type="String"/>
+    <aura:attribute name="height" type="String" default="300px"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.BL_Matches}"/>
     <aura:attribute name="matches" type="Object"/>
     <aura:attribute name="selectedMatchObject" type="Object"/>
@@ -17,8 +18,8 @@
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
 
     <c:BL_Card title="{!v.title}">
-        <aura:if isTrue="{!v.matches.length > 0}">
-            <div class="slds-scrollable--y" style="max-height: 300px;">
+        <div class="slds-scrollable--y" style="{!'height: ' + v.height}">
+            <aura:if isTrue="{!not(empty(v.matches.length))}">
                 <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
                     <thead>
                     <tr class="slds-text-title_caps">
@@ -184,13 +185,13 @@
                     </aura:iteration>
                     </tbody>
                 </table>
-            </div>
-            <aura:set attribute="else">
+            </aura:if>
+            <aura:if isTrue="{!empty(v.matches.length)}">
                 <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
                     <ui:outputText value="{!$Label.c.BL_No_matches_found}"/>
                 </div>
-            </aura:set>
-        </aura:if>
+            </aura:if>
+        </div>
     </c:BL_Card>
 
     <c:BL_Modal aura:id="scoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" hasFooter="false">
