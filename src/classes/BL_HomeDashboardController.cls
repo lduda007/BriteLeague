@@ -150,9 +150,9 @@ public with sharing class BL_HomeDashboardController {
                 dataset.labels.add(matchDate.format());
                 dataset.data.add(getConditionAvg(scorePerDate.get(matchDate), matchPerDate.get(matchDate)));
             }
-        } catch(Exception ex) {
+        } catch(Exception e) {
             String uiMessage = 'An error occurred during loading of Performance Chart!';
-            BL_Utils.throwAuraHandledException(uiMessage + ' - ' + ex.getStackTraceString(), uiMessage + ' - ' + ex.getStackTraceString());
+            BL_Utils.throwAuraHandledException(uiMessage, e);
         }
 
         return dataset;
