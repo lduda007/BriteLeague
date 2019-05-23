@@ -6,7 +6,7 @@
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="battleRoyaleTeams" type="List"/>
     <aura:attribute name="columns" type="Object"/>
-    <aura:attribute name="viewMode" type="String" default="DETAILS" description="Values: DETAILS, COMPACT"/>
+    <aura:attribute name="viewMode" type="String" default="COMPACT" description="Values: DETAILS, COMPACT"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
@@ -26,7 +26,15 @@
             <aura:if isTrue="{!not(v.isSpinner)}">
                 <aura:if isTrue="{!not(empty(v.battleRoyaleTeams))}">
                     <lightning:layout multipleRows="true">
-                        <lightning:layoutItem size="12">
+                        <lightning:layoutItem size="6">
+                            <lightning:buttonGroup class="slds-float--left slds-p-around--small">
+                                <ui:outputText
+                                        value="{!v.viewMode}"
+                                        class="slds-text-heading--small"
+                                />
+                            </lightning:buttonGroup>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
                             <lightning:buttonGroup class="slds-float--right">
                                 <lightning:button
                                         label="Toggle View"
