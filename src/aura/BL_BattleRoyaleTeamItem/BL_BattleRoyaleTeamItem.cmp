@@ -8,8 +8,13 @@
     <c:BL_Utils aura:id="utils"/>
 
     <div class="item">
-        <lightning:layout>
-            <lightning:layoutItem size="2">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem
+                    size="12"
+                    smallDeviceSize="12"
+                    mediumDeviceSize="12"
+                    largeDeviceSize="2"
+            >
                 <c:BL_Image
                         parentId="{!v.team.teamId}"
                         fileName="team-logo"
@@ -17,9 +22,20 @@
                         width="135px"
                 />
             </lightning:layoutItem>
-            <lightning:layoutItem size="10" class="slds-p-around--medium">
+            <lightning:layoutItem
+                    size="12"
+                    smallDeviceSize="12"
+                    mediumDeviceSize="12"
+                    largeDeviceSize="10"
+                    padding="around-medium"
+            >
                 <lightning:layout multipleRows="true" verticalAlign="start">
-                    <lightning:layoutItem size="6">
+                    <lightning:layoutItem
+                            size="12"
+                            smallDeviceSize="12"
+                            mediumDeviceSize="12"
+                            largeDeviceSize="6"
+                    >
                         <lightning:button
                                 label="{!v.team.name}"
                                 class="slds-text-heading--medium text-bold"
@@ -28,7 +44,13 @@
                                 value="{!v.team.teamId}"
                         />
                     </lightning:layoutItem>
-                    <lightning:layoutItem size="6" class="slds-text-align--right">
+                    <lightning:layoutItem
+                            size="12"
+                            smallDeviceSize="12"
+                            mediumDeviceSize="12"
+                            largeDeviceSize="6"
+                            class="slds-text-align--right"
+                    >
                         <ui:outputText
                                 value="Matches: "
                                 class="slds-text-heading_medium"
