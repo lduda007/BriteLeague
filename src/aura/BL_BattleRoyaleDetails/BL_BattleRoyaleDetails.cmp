@@ -16,7 +16,7 @@
 
     <lightning:card
             iconName="utility:activity"
-            title="{!$Label.c.BL_League+': '+v.league.Name}"
+            title="{!v.league.Name}"
             variant="narrow"
             class="height-230px"
     >
@@ -50,59 +50,85 @@
                 <lightning:spinner size="small" variant="brand"/>
             </aura:if>
             <aura:if isTrue="{!not(v.isSpinner)}">
-                <lightning:layout multipleRows="true" verticalAlign="start">
-                <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="padding-left-20px">
-                    <c:BL_Image
-                            parentId="{!v.leagueId}"
-                            fileName="league-logo"
-                            width="200px"
-                            height="160px"
-                            isEditable="{!v.settings.isLeagueOwner}"
-                    />
-                </lightning:layoutItem>
-                <lightning:layoutItem size="6" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="9">
-                    <lightning:layout multipleRows="true" verticalAlign="center">
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Start_Date}:</p>
-                            <lightning:formattedDateTime value="{!v.league.Start_Date__c}"
-                                                         title="{!$Label.c.BL_Start_Date}"
-                                                         year="numeric"
-                                                         month="numeric"
-                                                         day="numeric"
-                                                         class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_End_Date}: </p>
-                            <lightning:formattedDateTime value="{!v.league.End_Date__c}"
-                                                         title="{!$Label.c.BL_End_Date}"
-                                                         year="numeric"
-                                                         month="numeric"
-                                                         day="numeric"
-                                                         class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Teams_number}: </p>
-                            <ui:outputText value="{!v.league.Max_Teams__c}" title="{!$Label.c.BL_Teams_number}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Already_joined}: </p>
-                            <ui:outputText value="{!v.settings.numberOfDirectLeagueCompetitors}" title="{!$Label.c.BL_Already_joined}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
-                            <ui:outputText value="{!v.league.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
-                            <ui:outputText value="{!v.league.Owner.Name}" title="{!$Label.c.BL_Owner}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">Type:</p>
-                            <ui:outputText value="{!v.league.RecordType.Name}" title="{!v.league.RecordType.Name}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                    </lightning:layout>
-                </lightning:layoutItem>
-            </lightning:layout>
+                <lightning:layout multipleRows="true" verticalAlign="center">
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
+                        <lightning:layout multipleRows="true" verticalAlign="stretch">
+                            <lightning:layoutItem
+                                    size="12"
+                                    smallDeviceSize="12"
+                                    mediumDeviceSize="6"
+                                    largeDeviceSize="12"
+                                    padding="around-medium"
+                            >
+                                <p class="slds-text-body_small slds-text-color_weak">
+                                    Type
+                                </p>
+                                <ui:outputText
+                                        value="{!v.league.RecordType.Name}"
+                                        class="slds-text-heading--small"
+                                />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem
+                                    size="12"
+                                    smallDeviceSize="12"
+                                    mediumDeviceSize="6"
+                                    largeDeviceSize="12"
+                                    padding="around-medium"
+                            >
+                                <p class="slds-text-body_small slds-text-color_weak">
+                                        {!$Label.c.BL_Status}
+                                </p>
+                                <ui:outputText
+                                        value="{!v.league.Status__c}"
+                                        class="slds-text-heading--small"
+                                />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
+                        <c:BL_Image
+                                parentId="{!v.leagueId}"
+                                fileName="league-logo"
+                                width="200px"
+                                height="160px"
+                                isEditable="{!v.settings.isLeagueOwner}"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
+                        <lightning:layout multipleRows="true" verticalAlign="stretch">
+                            <lightning:layoutItem
+                                    size="12"
+                                    smallDeviceSize="12"
+                                    mediumDeviceSize="6"
+                                    largeDeviceSize="12"
+                                    padding="around-medium"
+                            >
+                                <p class="slds-text-body_small slds-text-color_weak">
+                                        {!$Label.c.BL_Teams}
+                                </p>
+                                <ui:outputText
+                                        value="{!v.settings.numberOfDirectLeagueCompetitors + '/' + v.league.Max_Teams__c}"
+                                        class="slds-text-heading--small"
+                                />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem
+                                    size="12"
+                                    smallDeviceSize="12"
+                                    mediumDeviceSize="6"
+                                    largeDeviceSize="12"
+                                    padding="around-medium"
+                            >
+                                <p class="slds-text-body_small slds-text-color_weak">
+                                        {!$Label.c.BL_Owner}
+                                </p>
+                                <ui:outputText
+                                        value="{!v.league.Owner.Name}"
+                                        class="slds-text-heading--small"
+                                />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                </lightning:layout>
             </aura:if>
         </div>
     </lightning:card>

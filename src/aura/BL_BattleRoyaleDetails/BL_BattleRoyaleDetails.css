@@ -1,5 +1,5 @@
 .THIS.height-230px {
-   height: 230px;
+   min-height: 230px;
 }
 
 .THIS .padding-left-20px {
