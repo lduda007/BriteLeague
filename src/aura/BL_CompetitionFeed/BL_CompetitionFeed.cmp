@@ -3,13 +3,16 @@
 
     <aura:attribute name="competitionId" type="String"/>
     <aura:attribute name="feedItems" type="List"/>
+    <aura:attribute name="height" type="String" default="300px"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
 
+    <aura:method name="refresh" action="{!c.onInit}" />
+
     <c:BL_Card title="{!$Label.c.BL_Feed}">
-        <div style="height: 310px;" class="slds-scrollable_y">
+        <div style="{!'height: ' + v.height}" class="slds-scrollable_y">
             <aura:if isTrue="{!v.isSpinner}">
                 <lightning:spinner variant="brand" size="small"/>
                 <aura:set attribute="else">

@@ -1,0 +1,56 @@
+<aura:component description="BL_ParentTeamsList" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+                controller="BL_TeamRecordDetailController">
+    <aura:attribute type="List" name="parentTeams" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{! !empty(v.parentTeams)}">
+        <c:BL_Card title="{!$Label.c.BL_Parent_Teams}">
+            <aura:if isTrue="{! !empty(v.parentTeams)}">
+                <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                    <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">{!$Label.c.BL_Team_Name}</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Capitain}">{!$Label.c.BL_Team_Capitain}</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Members}">{!$Label.c.BL_Members}</div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration items="{!v.parentTeams}" var="team" indexVar="index">
+                    <tr>
+                        <td scope="row" data-label="{!$Label.c.BL_Team_Name}">
+                            <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}">
+                                <a data-recordId="{!team.Team__c}" onclick="{!c.goToRecord}">
+                                        {!team.Team__r.Name}
+                                </a>
+                            </div>
+                        </td>
+                        <td scope="row" data-label="{!$Label.c.BL_Team_Capitain}">
+                            <div class="slds-truncate">
+                                    {!team.Team__r.Player1__r.Name}
+                            </div>
+                        </td>
+                        <td scope="row" data-label="{!$Label.c.BL_Members}">
+                            <div class="slds-truncate">
+                                    {!team.Team__r.Team_Member_Count__c}
+                            </div>
+                        </td>
+                    </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+                <aura:set attribute="else">
+                    <div class="slds-col slds-align--absolute-center slds-p-around--medium">
+                            {!$Label.c.BL_No_Competitions_For_Team}
+                    </div>
+                </aura:set>
+            </aura:if>
+        </c:BL_Card>
+    </aura:if>
+
+</aura:component>

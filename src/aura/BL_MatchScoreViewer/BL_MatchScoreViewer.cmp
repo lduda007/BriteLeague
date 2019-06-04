@@ -26,7 +26,7 @@
                 <div class="slds-col">
                     <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="2" isEditMode="false" isReadOnly="true" team1goals="{!v.matchRecord.Team1Round2Goals__c}" team2goals="{!v.matchRecord.Team2Round2Goals__c}"/>
                 </div>
-                <aura:if isTrue="{! and(v.matchRecord.League__r.isCup__c, !empty(v.matchRecord.Team1Round3Goals__c) )}">
+                <aura:if isTrue="{! and(equals(v.matchRecord.League__r.RecordType.DeveloperName, 'Cup'), !empty(v.matchRecord.Team1Round3Goals__c) )}">
                 <div class="slds-col">
                     <c:BL_ScoreProviderRoundTile aura:id="roundProviders" roundNo="3" isEditMode="false" isReadOnly="true"  team1goals="{!v.matchRecord.Team1Round3Goals__c}" team2goals="{!v.matchRecord.Team2Round3Goals__c}"/>
                 </div>

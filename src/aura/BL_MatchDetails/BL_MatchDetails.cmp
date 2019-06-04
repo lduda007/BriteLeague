@@ -1,0 +1,9 @@
+<aura:component
+        description="BL_MatchDetails"
+        controller="BL_MatchDetailsController"
+>
+
+    <aura:attribute name="matchId" type="String"/>
+    <aura:attribute name="match" type="Object"/>
+
+</aura:component>

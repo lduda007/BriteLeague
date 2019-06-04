@@ -30,7 +30,7 @@ public class BL_CompetitionStatusChartController {
             }
         } catch(Exception e) {
             String uiMessage = 'An error occurred during initialization of Competition Status Chart component: ' + e.getMessage();
-            BL_Utils.throwAuraHandledException(uiMessage, uiMessage + ' ' + e.getStackTraceString());
+            BL_Utils.throwAuraHandledException(uiMessage, e);
         }
         return initDataWrapper;
     }
@@ -52,7 +52,7 @@ public class BL_CompetitionStatusChartController {
         dataSet.data.add(fromStartDays);
         dataSet.data.add(toEndDays);
 
-        String backgroundColor = '#00BCD4FF';
+        String backgroundColor = BL_ColorHelper.TEAL;
         dataSet.setSecondaryColor(new List<String>{
                 backgroundColor, backgroundColor.removeEnd('FF') + '50'
         });
@@ -76,7 +76,7 @@ public class BL_CompetitionStatusChartController {
         dataSet.data.add(resolvedMatches);
         dataSet.data.add(unsolvedMatches);
 
-        String backgroundColor = '#2196F3FF';
+        String backgroundColor = BL_ColorHelper.BLUE;
         dataSet.setSecondaryColor(new List<String>{
                 backgroundColor, backgroundColor.removeEnd('FF') + '50'
         });
@@ -110,7 +110,7 @@ public class BL_CompetitionStatusChartController {
         dataSet.data.add(userTeamResolvedMatches);
         dataSet.data.add(userTeamUnsolvedMatches);
 
-        String backgroundColor = '#3F51B5FF';
+        String backgroundColor = BL_ColorHelper.INDIGO;
         dataSet.setSecondaryColor(new List<String>{
                 backgroundColor, backgroundColor.removeEnd('FF') + '50'
         });

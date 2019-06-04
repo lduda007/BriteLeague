@@ -91,6 +91,16 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Teams</pluralLabel>
+    <recordTypes>
+        <fullName>Battle_Royale</fullName>
+        <active>true</active>
+        <label>Battle Royale</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Classic</fullName>
+        <active>true</active>
+        <label>Classic</label>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

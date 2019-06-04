@@ -1,0 +1,31 @@
+.THIS .spinner-wrapper {
+    height: 230px;
+    position: relative;
+}
+
+.THIS .compact-table .slds-button_icon-bare {
+    display: none;
+}
+
+.THIS .compact-table table tbody tr th:first-child * {
+    font-weight: bold;
+    color: #0099de;
+}
+
+.THIS .compact-table table tbody tr th:first-child:hover * {
+    font-weight: bold;
+    color: #135f90;
+}
+
+.THIS .compact-table table tbody tr td:last-child * {
+    font-weight: bold;
+}
+
+.THIS .compact-table table tbody tr th:first-child lightning-primitive-icon svg {
+    height: 3rem;
+    width: 3rem;
+}
+
+.THIS .compact-table table tbody tr th:first-child lightning-icon {
+    background-color: #0eb58a;
+}

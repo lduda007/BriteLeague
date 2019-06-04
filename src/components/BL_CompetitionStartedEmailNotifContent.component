@@ -6,8 +6,9 @@
     </p>
 
     <p>
-        <apex:outputPanel rendered="{!competitor.League__r.isCup__c}">Cup</apex:outputPanel>
-        <apex:outputPanel rendered="{!!competitor.League__r.isCup__c}">League</apex:outputPanel>
+        <apex:outputPanel rendered="{!competitor.League__r.RecordType.DeveloperName = 'Cup'}">{!$Label.BL_Cup}</apex:outputPanel>
+        <apex:outputPanel rendered="{!competitor.League__r.RecordType.DeveloperName = 'Classic'}">{!$Label.BL_League}</apex:outputPanel>
+        <apex:outputPanel rendered="{!competitor.League__r.RecordType.DeveloperName = 'Battle_Royale'}">{!$Label.BL_Battle_Royale}</apex:outputPanel>
         <span style="font-weight: bold;">{!competitor.League__r.Name}</span> has just started. Competition ends on
         <span style="font-weight: bold;">
             <apex:outputText value="{0, date, MMMM d','  yyyy}">

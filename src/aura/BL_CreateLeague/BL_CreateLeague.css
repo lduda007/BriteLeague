@@ -1,8 +1,19 @@
-/**
- * Created on 16.07.2018.
- */
-.THIS {
+.THIS .new-league-form {
+    max-width: 600px;
 }
-.THIS .slds-form-element__label{
+
+.THIS .slds-form-element__label {
     margin: auto;
+    font-weight: 700;
+}
+
+.THIS .slds-radio_button [type=radio]:checked + label,
+.THIS .slds-radio_button [type=radio]:checked + label:hover {
+    background-color: #3F51B5 !important;
+    font-weight: bold;
+}
+
+.THIS .slds-radio_button [type=radio] + label:hover {
+    background-color: #00BCD4 !important;
+    color: #FFFFFF;
 }

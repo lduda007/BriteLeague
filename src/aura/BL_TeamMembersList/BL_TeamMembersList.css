@@ -1,0 +1,35 @@
+.THIS .row-highlighted {
+  background-color:  rgb(216, 237, 255);
+}
+
+.THIS .playerAvatar{
+     width: 35px;
+     height: 35px;
+     border-radius: 50%;
+     border: 3px solid white;
+}
+
+.THIS .height-230px {
+    height: 230px;
+}
+
+.THIS .text-bold {
+    font-weight: bold;
+}
+
+.THIS .highlighted {
+	z-index: 10;
+    animation: highlight-animation 1s;
+}
+
+@keyframes highlight-animation {
+    0% {
+    }
+    50% {
+        -webkit-box-shadow: 0px 0px 9px 3px rgba(10,107,17,1);
+        -moz-box-shadow: 0px 0px 9px 3px rgba(10,107,17,1);
+        box-shadow: 0px 0px 9px 3px rgba(10,107,17,1);
+    }
+    100% {
+    }
+}

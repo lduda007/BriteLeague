@@ -1,4 +1,8 @@
-<aura:component description="BL_MatchesTable">
+<aura:component description="BL_MatchesTable" controller="BL_BattleRoyaleDetailsController">
+
+    <aura:attribute name="leagueId" type="String"/>
+    <aura:attribute name="height" type="String" default="300px"/>
+    <aura:attribute name="title" type="String" default="{!$Label.c.BL_Matches}"/>
     <aura:attribute name="matches" type="Object"/>
     <aura:attribute name="selectedMatchObject" type="Object"/>
     <aura:attribute name="selectedMatchId" type="String"/>
@@ -13,171 +17,182 @@
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleScoreSelected}"/>
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
 
-    <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
-        <thead>
-        <tr class="slds-text-title_caps">
-            <aura:if isTrue="{!v.teamSize == 'Single Player'}">
-                <th scope="col">
-                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Player+' 1'}">{!$Label.c.BL_Player+' 1'}</div>
-                </th>
-                <aura:set attribute="else">
-                    <th scope="col">
-                        <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_1}">{!$Label.c.BL_Team_1}</div>
-                    </th>
-                </aura:set>
-            </aura:if>
-            <th scope="col">
-                <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Result}">{!$Label.c.BL_Result}</div>
-            </th>
-            <aura:if isTrue="{!v.teamSize == 'Single Player'}">
-                <th scope="col">
-                    <div class="slds-truncate" title="{!$Label.c.BL_Player+' 2'}">{!$Label.c.BL_Player+' 2'}</div>
-                </th>
-                <aura:set attribute="else">
-                    <th scope="col">
-                        <div class="slds-truncate" title="{!$Label.c.BL_Team_2}">{!$Label.c.BL_Team_2}</div>
-                    </th>
-                </aura:set>
-            </aura:if>
-            <aura:if isTrue="{!v.showCompetitionColumn}">
-                <th scope="col">
-                    <div class="slds-truncate" title="Competition Name">Competition</div>
-                </th>
-            </aura:if>
-            <aura:if isTrue="{!v.showRoundsColumn}">
-                <th scope="col">
-                    <div class="slds-truncate" title="Round">Round</div>
-                </th>
-            </aura:if>
-        </tr>
-        </thead>
-        <tbody>
-        <aura:iteration items="{!v.matches}" var="match" indexVar="index">
-            <tr>
-                <td scope="row" data-label="{!$Label.c.BL_Team_1}">
-                    <div class="slds-truncate slds-text-align--right" title="{!match.Team1__r.Team__r.Name}">
-                        <aura:if isTrue="{!match.Team1__r.Team__r.Name != null}">
-                            <aura:if isTrue="{!!v.showPlayersAvatars}">
-                                <a class="slds-text-align--right" data-recordId="{!match.Team1__r.Team__c}" onclick="{!c.goToTeamPage}">
-                                    {!match.Team1__r.Team__r.Name}
-                                </a>
-                                <aura:set attribute="else">
-                                    <a data-recordId="{!match.Team1__r.Team__c}" onclick="{!c.goToTeamPage}">
-                                        <span class="slds-p-horizontal--x-small">{!match.Team1__r.Team__r.Name}</span>
-                                        <aura:if isTrue="{!not(empty(match.Team2__r.Team__r.Player1__r.ImageUrl__c))}">
-                                            <img src="{!match.Team1__r.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
-                                            <aura:set attribute="else">
-                                                <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
-                                            </aura:set>
-                                        </aura:if>
-                                        <aura:if isTrue="{!v.teamSize != 'Single Player'}">
-                                            <aura:if isTrue="{!not(empty(match.Team1__r.Team__r.Player2__r.ImageUrl__c))}">
-                                                <img src="{!match.Team1__r.Team__r.Player2__r.ImageUrl__c}" class="playerAvatar"/>
-                                                <aura:set attribute="else">
-                                                    <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
-                                                </aura:set>
-                                            </aura:if>
-                                        </aura:if>
-                                    </a>
-                                </aura:set>
-                            </aura:if>
+    <c:BL_Card title="{!v.title}">
+        <div class="slds-scrollable--y" style="{!'height: ' + v.height}">
+            <aura:if isTrue="{!not(empty(v.matches.length))}">
+                <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
+                    <thead>
+                    <tr class="slds-text-title_caps">
+                        <aura:if isTrue="{!v.teamSize == 'Single Player'}">
+                            <th scope="col">
+                                <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Player+' 1'}">{!$Label.c.BL_Player+' 1'}</div>
+                            </th>
                             <aura:set attribute="else">
-                                <aura:if isTrue="{!v.isThirdPlace}">
-                                {!$Label.c.BL_Loser_match}&nbsp;{!(index*2)+1}
-                                    <aura:set attribute="else">
-                                    {!$Label.c.BL_Winner_match}&nbsp;{!(index*2)+1}
-                                    </aura:set>
-                                </aura:if>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Team_1}">{!$Label.c.BL_Team_1}</div>
+                                </th>
                             </aura:set>
                         </aura:if>
-                    </div>
-                </td>
-                <td scope="row" data-label="{!$Label.c.BL_Result}" class="slds-align--absolute-center">
-                    <aura:if isTrue="{!or(match.Team1_Score__c == null, match.Team2_Score__c == null)}">
-                        <aura:if isTrue="{!or(
+                        <th scope="col">
+                            <div class="slds-truncate slds-text-align--center" title="{!$Label.c.BL_Result}">{!$Label.c.BL_Result}</div>
+                        </th>
+                        <aura:if isTrue="{!v.teamSize == 'Single Player'}">
+                            <th scope="col">
+                                <div class="slds-truncate" title="{!$Label.c.BL_Player+' 2'}">{!$Label.c.BL_Player+' 2'}</div>
+                            </th>
+                            <aura:set attribute="else">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Team_2}">{!$Label.c.BL_Team_2}</div>
+                                </th>
+                            </aura:set>
+                        </aura:if>
+                        <aura:if isTrue="{!v.showCompetitionColumn}">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Competition Name">Competition</div>
+                            </th>
+                        </aura:if>
+                        <aura:if isTrue="{!v.showRoundsColumn}">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Round">Round</div>
+                            </th>
+                        </aura:if>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration items="{!v.matches}" var="match" indexVar="index">
+                        <tr>
+                            <td scope="row" data-label="{!$Label.c.BL_Team_1}">
+                                <div class="slds-truncate slds-text-align--right" title="{!match.Team1__r.Team__r.Name}">
+                                    <aura:if isTrue="{!match.Team1__r.Team__r.Name != null}">
+                                        <aura:if isTrue="{!!v.showPlayersAvatars}">
+                                            <a class="slds-text-align--right" data-recordId="{!match.Team1__r.Team__c}" onclick="{!c.goToTeamPage}">
+                                                    {!match.Team1__r.Team__r.Name}
+                                            </a>
+                                            <aura:set attribute="else">
+                                                <a data-recordId="{!match.Team1__r.Team__c}" onclick="{!c.goToTeamPage}">
+                                                    <span class="slds-p-horizontal--x-small">{!match.Team1__r.Team__r.Name}</span>
+                                                    <aura:if isTrue="{!not(empty(match.Team2__r.Team__r.Player1__r.ImageUrl__c))}">
+                                                        <img src="{!match.Team1__r.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                                        <aura:set attribute="else">
+                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!v.teamSize != 'Single Player'}">
+                                                        <aura:if isTrue="{!not(empty(match.Team1__r.Team__r.Player2__r.ImageUrl__c))}">
+                                                            <img src="{!match.Team1__r.Team__r.Player2__r.ImageUrl__c}" class="playerAvatar"/>
+                                                            <aura:set attribute="else">
+                                                                <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                            </aura:set>
+                                                        </aura:if>
+                                                    </aura:if>
+                                                </a>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!v.isThirdPlace}">
+                                            {!$Label.c.BL_Loser_match}&nbsp;{!(index*2)+1}
+                                                <aura:set attribute="else">
+                                                {!$Label.c.BL_Winner_match}&nbsp;{!(index*2)+1}
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </td>
+                            <td scope="row" data-label="{!$Label.c.BL_Result}" class="slds-align--absolute-center">
+                                <aura:if isTrue="{!or(match.Team1_Score__c == null, match.Team2_Score__c == null)}">
+                                    <aura:if isTrue="{!or(
                                             or(match.Team1__r.Team__r.Name == null, match.Team2__r.Team__r.Name == null),
                                             and(match.Team1__r.Team__r.Player1__c != v.playerId,
                                                     and(match.Team1__r.Team__r.Player2__c != v.playerId,
                                                             and(match.Team2__r.Team__r.Player1__c != v.playerId, match.Team2__r.Team__r.Player2__c != v.playerId))))}">
-                            <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}">- : -</div>
-                            <aura:set attribute="else">
-                                <lightning:button value="{!index}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"/>
-                            </aura:set>
-                        </aura:if>
-                        <aura:set attribute="else">
-                            <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}" data-recordId="{!match.Id}" data-recordIndex="{!index}" data-recordTeamSize="{!match.League__r.TeamSize__c}" onclick="{!c.openScoreViewModal}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>
-                        </aura:set>
-                    </aura:if>
-                </td>
-                <td scope="row" data-label="{!$Label.c.BL_Team_2}">
-                    <div class="slds-truncate" title="{!match.Team2__r.Team__r.Name}">
-                        <aura:if isTrue="{!match.Team2__r.Team__r.Name != null}">
-                            <aura:if isTrue="{!!v.showPlayersAvatars}">
-                                <a data-recordId="{!match.Team2__r.Team__c}" onclick="{!c.goToTeamPage}">
-                                    {!match.Team2__r.Team__r.Name}
-                                </a>
-                                <aura:set attribute="else">
-                                    <a data-recordId="{!match.Team2__r.Team__c}" onclick="{!c.goToTeamPage}">
-                                        <aura:if isTrue="{!not(empty(match.Team2__r.Team__r.Player1__r.ImageUrl__c))}">
-                                            <img src="{!match.Team2__r.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
-                                            <aura:set attribute="else">
-                                                <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
-                                            </aura:set>
-                                        </aura:if>
-                                        <aura:if isTrue="{!v.teamSize != 'Single Player'}">
-                                            <aura:if isTrue="{!not(empty(match.Team2__r.Team__r.Player2__r.ImageUrl__c))}">
-                                                <img src="{!match.Team2__r.Team__r.Player2__r.ImageUrl__c}" class="playerAvatar"/>
-                                                <aura:set attribute="else">
-                                                    <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
-                                                </aura:set>
-                                            </aura:if>
-                                        </aura:if>
-                                        <span class="slds-p-horizontal--x-small">{!match.Team2__r.Team__r.Name}</span>
-                                    </a>
-                                </aura:set>
-                            </aura:if>
-                            <aura:set attribute="else">
-                                <aura:if isTrue="{!v.isThirdPlace}">
-                                {!$Label.c.BL_Loser_match}&nbsp;{!(index*2)+2}
-                                    <aura:set attribute="else">
-                                        {!$Label.c.BL_Winner_match}&nbsp;{!(index*2)+2}
-                                    </aura:set>
-                                </aura:if>
-                            </aura:set>
-                        </aura:if>
-                    </div>
-                </td>
-                <aura:if isTrue="{!v.showCompetitionColumn}">
-                    <td scope="row" data-label="Competition Name">
-                        <div class="slds-truncate" title="{!match.League__r.Name}"><a data-recordId="{!match.League__c}" onclick="{!c.goToLeaguePage}">{!match.League__r.Name}</a></div>
-                    </td>
-                </aura:if>
-                <aura:if isTrue="{!v.showRoundsColumn}">
-                    <aura:if isTrue="{!match.League__r.isCup__c}">
-                        <td scope="row" data-label="Round">
-                            <aura:if isTrue="{!greaterthan(match.CupStage__c,1)}">
-                                <div class="slds-truncate" title="{!'1/'+match.CupStage__c}">{!'1/'+match.CupStage__c}</div>
-                                <aura:set attribute="else">
-                                    <aura:if isTrue="{!match.CupStage__c == 1}">
-                                        <div class="slds-truncate" title="Final">Final</div>
+                                        <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}">- : -</div>
                                         <aura:set attribute="else">
-                                            <div class="slds-truncate" title="3rd Place">3rd Place</div>
+                                            <lightning:button value="{!index}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"/>
                                         </aura:set>
                                     </aura:if>
-                                </aura:set>
-                            </aura:if>
-                        </td>
-                        <aura:set attribute="else">
-                            <td scope="row" data-label="Round">
-                                <div class="slds-truncate" title="{!match.DrawRound__c+ ' - '+match.Round__c}">{!match.DrawRound__c+ ' - '+match.Round__c}</div>
+                                    <aura:set attribute="else">
+                                        <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}" data-recordId="{!match.Id}" data-recordIndex="{!index}" data-recordTeamSize="{!match.League__r.TeamSize__c}" onclick="{!c.openScoreViewModal}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>
+                                    </aura:set>
+                                </aura:if>
                             </td>
-                        </aura:set>
-                    </aura:if>
-                </aura:if>
-            </tr>
-        </aura:iteration>
-        </tbody>
-    </table>
+                            <td scope="row" data-label="{!$Label.c.BL_Team_2}">
+                                <div class="slds-truncate" title="{!match.Team2__r.Team__r.Name}">
+                                    <aura:if isTrue="{!match.Team2__r.Team__r.Name != null}">
+                                        <aura:if isTrue="{!!v.showPlayersAvatars}">
+                                            <a data-recordId="{!match.Team2__r.Team__c}" onclick="{!c.goToTeamPage}">
+                                                    {!match.Team2__r.Team__r.Name}
+                                            </a>
+                                            <aura:set attribute="else">
+                                                <a data-recordId="{!match.Team2__r.Team__c}" onclick="{!c.goToTeamPage}">
+                                                    <aura:if isTrue="{!not(empty(match.Team2__r.Team__r.Player1__r.ImageUrl__c))}">
+                                                        <img src="{!match.Team2__r.Team__r.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                                                        <aura:set attribute="else">
+                                                            <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!v.teamSize != 'Single Player'}">
+                                                        <aura:if isTrue="{!not(empty(match.Team2__r.Team__r.Player2__r.ImageUrl__c))}">
+                                                            <img src="{!match.Team2__r.Team__r.Player2__r.ImageUrl__c}" class="playerAvatar"/>
+                                                            <aura:set attribute="else">
+                                                                <img src="https://kiittnp.in/8134d463acc8c7b66744a481847ab4b/assets/img/user.png" class="playerAvatar"/>
+                                                            </aura:set>
+                                                        </aura:if>
+                                                    </aura:if>
+                                                    <span class="slds-p-horizontal--x-small">{!match.Team2__r.Team__r.Name}</span>
+                                                </a>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!v.isThirdPlace}">
+                                            {!$Label.c.BL_Loser_match}&nbsp;{!(index*2)+2}
+                                                <aura:set attribute="else">
+                                                {!$Label.c.BL_Winner_match}&nbsp;{!(index*2)+2}
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </td>
+                            <aura:if isTrue="{!v.showCompetitionColumn}">
+                                <td scope="row" data-label="Competition Name">
+                                    <div class="slds-truncate" title="{!match.League__r.Name}"><a data-recordId="{!match.League__c}" onclick="{!c.goToLeaguePage}">{!match.League__r.Name}</a></div>
+                                </td>
+                            </aura:if>
+                            <aura:if isTrue="{!v.showRoundsColumn}">
+                                <aura:if isTrue="{!equals(match.League__r.RecordType.DeveloperName, 'Cup')}">
+                                    <td scope="row" data-label="Round">
+                                        <aura:if isTrue="{!greaterthan(match.CupStage__c,1)}">
+                                            <div class="slds-truncate" title="{!'1/'+match.CupStage__c}">{!'1/'+match.CupStage__c}</div>
+                                            <aura:set attribute="else">
+                                                <aura:if isTrue="{!match.CupStage__c == 1}">
+                                                    <div class="slds-truncate" title="Final">Final</div>
+                                                    <aura:set attribute="else">
+                                                        <div class="slds-truncate" title="3rd Place">3rd Place</div>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </aura:set>
+                                        </aura:if>
+                                    </td>
+                                    <aura:set attribute="else">
+                                        <td scope="row" data-label="Round">
+                                            <div class="slds-truncate" title="{!match.Round__c}">{!match.Round__c}</div>
+                                        </td>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:if>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </aura:if>
+            <aura:if isTrue="{!empty(v.matches.length)}">
+                <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                    <ui:outputText value="{!$Label.c.BL_No_matches_found}"/>
+                </div>
+            </aura:if>
+        </div>
+    </c:BL_Card>
 
     <c:BL_Modal aura:id="scoreModal" hasCloseButton="true" title="{!$Label.c.BL_Match_Score}" hasFooter="false">
         <aura:if isTrue="{!v.modalVisible}">

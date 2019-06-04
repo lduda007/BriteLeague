@@ -5,7 +5,7 @@
 
     <force:recordData
             aura:id="matchRecordData"
-            fields="Id, Name, MatchDate__c, League__r.isCup__c,
+            fields="Id, Name, MatchDate__c, League__r.RecordType.DeveloperName,
                       Team1__r.Team__r.Name, Team2__r.Team__r.Name,
                       Team1_Status__c, Team2_Status__c, Team1_Score__c, Team2_Score__c,
                       Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,
@@ -60,7 +60,7 @@
                                 team2goals="{!v.match.Team2Round2Goals__c}"
                         />
                     </div>
-                    <aura:if isTrue="{! and(v.match.League__r.isCup__c, !empty(v.match.Team1Round3Goals__c) )}">
+                    <aura:if isTrue="{!and(equals(v.match.League__r.RecordType.DeveloperName, 'Cup'), !empty(v.match.Team1Round3Goals__c))}">
                         <div class="slds-col">
                             <c:BL_ScoreProviderRoundTile
                                     aura:id="roundProviders"

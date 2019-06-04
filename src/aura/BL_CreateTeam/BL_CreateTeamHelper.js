@@ -2,21 +2,32 @@
     saveRecord : function(component,event) {
         if(this.isFormValid(component, 'createTeamForm')){
             var selectedPlayer = component.get("v.selectedPlayer");
+            var isBattleRoyale = component.get("v.isBattleRoyale");
+
             var action = component.get("c.saveTeam");
-            action.setParams({
-                'team': component.get("v.team"),
-                'player' : selectedPlayer
-            });
+            action.setParam('team', component.get("v.team"));
+            if (isBattleRoyale) {
+                action.setParam('isBattleRoyale', isBattleRoyale);
+                action.setParam('player', null);
+            } else {
+                action.setParam('player', selectedPlayer);
+            }
 
             action.setCallback(this, function(response) {
                 $A.util.removeClass(component.find("mySpinner"), "slds-show");
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var showToast = $A.get("e.force:showToast");
+                    let toastMessage = null;
+                    if (component.get("v.isBattleRoyale") == false) {
+                        toastMessage = 'Approval request was send to ' + selectedPlayer.Name;
+                    } else {
+                        toastMessage = 'Battle Royale team was successfully created'
+                    }
                     showToast.setParams({
                         title : 'Team saved.',
                         type: 'success',
-                        message : 'Approval request was send to ' + selectedPlayer.Name
+                        message : toastMessage
                     });
                     showToast.fire();
                     this.clear(component);
