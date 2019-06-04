@@ -56,6 +56,7 @@
         <members>BL_NextMatchesTable</members>
         <members>BL_MatchDetailsViewer</members>
         <members>BL_MatchScoreProvider</members>
+        <members>BL_ImageUploader</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
