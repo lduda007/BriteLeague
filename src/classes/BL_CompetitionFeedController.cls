@@ -16,7 +16,7 @@ public class BL_CompetitionFeedController {
             initDataWrapper = new InitDataWrapper();
 
             BL_League__c league = [
-                    SELECT Id, CreatedDate, CreatedBy.Name, Status__c, Start_Date__c, End_Date__c
+                    SELECT Id, CreatedDate, CreatedBy.Name, Status__c, Start_Date__c, End_Date__c, Date_League_Finished__c
                     FROM BL_League__c
                     WHERE Id = :competitionId
                     LIMIT 1
@@ -28,6 +28,19 @@ public class BL_CompetitionFeedController {
                             .build()
             );
 
+            for(BL_Competitor__c competitor : [
+                    SELECT Id, Team__r.Name, CreatedDate
+                    FROM BL_Competitor__c
+                    WHERE League__c = :competitionId
+                    ORDER BY Team__r.Name ASC
+            ]) {
+                initDataWrapper.addFeedItem(
+                        new FeedItemWrapperBuilder()
+                                .setAsTeamJoined(competitor.Team__r.Name, competitor.CreatedDate)
+                                .build()
+                );
+            }
+
             if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
                 initDataWrapper.addFeedItem(
                         new FeedItemWrapperBuilder()
@@ -35,22 +48,9 @@ public class BL_CompetitionFeedController {
                                 .build()
                 );
 
-                for(BL_Competitor__c competitor : [
-                        SELECT Id, Team__r.Name, CreatedDate
-                        FROM BL_Competitor__c
-                        WHERE League__c = :competitionId
-                        ORDER BY Team__r.Name ASC
-                ]) {
-                    initDataWrapper.addFeedItem(
-                            new FeedItemWrapperBuilder()
-                                    .setAsTeamJoined(competitor.Team__r.Name, competitor.CreatedDate)
-                                    .build()
-                    );
-                }
-
                 for(BL_Match__c match : [
                         SELECT Id, Team1_Score__c, Team2_Score__c, Team1TotalGoalsScored__c, Team2TotalGoalsScored__c,
-                                Team1__r.Team__r.Name, Team2__r.Team__r.Name, MatchDate__c
+                                Team1__r.Team__r.Name, Team2__r.Team__r.Name, MatchDate__c, LastModifiedDate
                         FROM BL_Match__c
                         WHERE League__c = :competitionId
                         AND isResolved__c = true
@@ -67,15 +67,15 @@ public class BL_CompetitionFeedController {
             if(league.Status__c == BL_Constants.LEAGUE_STATUS_FINISHED) {
                 initDataWrapper.addFeedItem(
                         new FeedItemWrapperBuilder()
-                                .setAsLeagueFinished(league.End_Date__c)
+                                .setAsLeagueFinished(league.Date_League_Finished__c)
                                 .build()
                 );
             }
 
             initDataWrapper.sortFeedItems();
         } catch(Exception e) {
-            String uiMessage = 'An error occurred during initialization of BL_CompetitionFeed component: ' + e.getMessage();
-            BL_Utils.throwAuraHandledException(uiMessage + ' ' + e.getStackTraceString());
+            String uiMessage = 'An error occurred during initialization of BL_CompetitionFeed component';
+            BL_Utils.throwAuraHandledException(uiMessage, e);
         }
 
         return initDataWrapper;
@@ -184,18 +184,18 @@ public class BL_CompetitionFeedController {
 
             if(match.Team1_Score__c > match.Team2_Score__c) {
                 if(match.Team1TotalGoalsScored__c - match.Team2TotalGoalsScored__c > 10) {
-                    statement = matchStatementsManager.getHardWinStatement();
+                    statement = matchStatementsManager.getHardWinStatement(match.LastModifiedDate.second());
                 } else {
-                    statement = matchStatementsManager.getSoftWinStatement();
+                    statement = matchStatementsManager.getSoftWinStatement(match.LastModifiedDate.second());
                 }
             } else if(match.Team1_Score__c < match.Team2_Score__c) {
                 if(match.Team2TotalGoalsScored__c - match.Team1TotalGoalsScored__c > 10) {
-                    statement = matchStatementsManager.getHardLossStatement();
+                    statement = matchStatementsManager.getHardLossStatement(match.LastModifiedDate.second());
                 } else {
-                    statement = matchStatementsManager.getSoftLossStatement();
+                    statement = matchStatementsManager.getSoftLossStatement(match.LastModifiedDate.second());
                 }
             } else {
-                statement = matchStatementsManager.getDrawStatement();
+                statement = matchStatementsManager.getDrawStatement(match.LastModifiedDate.second());
             }
 
             record.message = String.format(statement, new List<String>{
@@ -217,117 +217,63 @@ public class BL_CompetitionFeedController {
 
     public class MatchStatementsManager {
 
-        private Map<String, Integer> hardWinStatementsToUsage;
-        private Map<String, Integer> softWinStatementsToUsage;
-        private Map<String, Integer> hardLossStatementsToUsage;
-        private Map<String, Integer> softLossStatementsToUsage;
-        private Map<String, Integer> drawStatementsToUsage;
+        private List<String> hardWinStatements;
+        private List<String> softWinStatements;
+        private List<String> hardLossStatements;
+        private List<String> softLossStatements;
+        private List<String> drawStatements;
+
+        private List<String> hardWinRecentlyUsed = new List<String>();
+        private List<String> softWinRecentlyUsed = new List<String>();
+        private List<String> hardLossRecentlyUsed = new List<String>();
+        private List<String> softLossRecentlyUsed = new List<String>();
+        private List<String> drawRecentlyUsed = new List<String>();
 
         public MatchStatementsManager() {
-            populateHardWinStatementsToUsage();
-            populateSoftWinStatementsToUsage();
-            populateHardLossStatementsToUsage();
-            populateSoftLossStatementsToUsage();
-            populateDrawStatementsToUsage();
+            hardWinStatements = Label.BL_Hard_Win_Statements.split(';');
+            softWinStatements = Label.BL_Soft_Win_Statements.split(';');
+            hardLossStatements = Label.BL_Hard_Loss_Statements.split(';');
+            softLossStatements = Label.BL_Soft_Loss_Statements.split(';');
+            drawStatements = Label.BL_Draw_Statements.split(';');
         }
 
-        public String getHardWinStatement() {
-            String statement = getRandomStatementWithLowestUsage(hardWinStatementsToUsage);
-
-            incrementStatementUsage(hardWinStatementsToUsage, statement);
-
-            return statement;
+        public String getHardWinStatement(Integer seed) {
+            return getRandomStatement(hardWinStatements, seed, hardWinRecentlyUsed);
         }
 
-        public String getSoftWinStatement() {
-            String statement = getRandomStatementWithLowestUsage(softWinStatementsToUsage);
-
-            incrementStatementUsage(softWinStatementsToUsage, statement);
-
-            return statement;
+        public String getSoftWinStatement(Integer seed) {
+            return getRandomStatement(softWinStatements, seed, softWinRecentlyUsed);
         }
 
-        public String getHardLossStatement() {
-            String statement = getRandomStatementWithLowestUsage(hardLossStatementsToUsage);
-
-            incrementStatementUsage(hardLossStatementsToUsage, statement);
-
-            return statement;
+        public String getHardLossStatement(Integer seed) {
+            return getRandomStatement(hardLossStatements, seed, hardLossRecentlyUsed);
         }
 
-        public String getSoftLossStatement() {
-            String statement = getRandomStatementWithLowestUsage(softLossStatementsToUsage);
-
-            incrementStatementUsage(softLossStatementsToUsage, statement);
-
-            return statement;
+        public String getSoftLossStatement(Integer seed) {
+            return getRandomStatement(softLossStatements, seed, softLossRecentlyUsed);
         }
 
-        public String getDrawStatement() {
-            String statement = getRandomStatementWithLowestUsage(drawStatementsToUsage);
-
-            incrementStatementUsage(drawStatementsToUsage, statement);
-
-            return statement;
+        public String getDrawStatement(Integer seed) {
+            return getRandomStatement(drawStatements, seed, drawRecentlyUsed);
         }
 
-        private String getRandomStatementWithLowestUsage(Map<String, Integer> usageMap) {
-            List<String> statementsWithLowestUsage = new List<String>();
-            Integer lowestUsage = usageMap.values()[0];
-
-            for(String statement : usageMap.keySet()) {
-                Integer usage = usageMap.get(statement);
-
-
-                if(usage < lowestUsage) {
-                    statementsWithLowestUsage = new List<String>{
-                            statement
-                    };
-                    lowestUsage = usage;
-                } else if(usage == lowestUsage) {
-                    statementsWithLowestUsage.add(statement);
+        private String getRandomStatement(List<String> statements, Integer seed, List<string> recentlyUsed) {
+            List<String> statementsToUse = statements.clone();
+            Integer i = 0;
+            while (i < statementsToUse.size()){
+                if (recentlyUsed.contains(statementsToUse[i])) {
+                    statementsToUse.remove(i);
+                } else {
+                    i++;
                 }
             }
+            Integer chosenStatementIndex = Math.mod(seed, statementsToUse.size());
 
-            Integer randomIndex = Integer.valueOf(Math.floor(Math.random() * statementsWithLowestUsage.size()));
-
-            return statementsWithLowestUsage[randomIndex];
-        }
-
-        private void incrementStatementUsage(Map<String, Integer> usageMap, String statement) {
-            Integer usage = usageMap.get(statement);
-            usage++;
-            usageMap.put(statement, usage);
-        }
-
-        private void populateHardWinStatementsToUsage() {
-            hardWinStatementsToUsage = getNewUsageMapForStatements(Label.BL_Hard_Win_Statements.split(';'));
-        }
-
-        private void populateSoftWinStatementsToUsage() {
-            softWinStatementsToUsage = getNewUsageMapForStatements(Label.BL_Soft_Win_Statements.split(';'));
-        }
-
-        private void populateHardLossStatementsToUsage() {
-            hardLossStatementsToUsage = getNewUsageMapForStatements(Label.BL_Hard_Loss_Statements.split(';'));
-        }
-
-        private void populateSoftLossStatementsToUsage() {
-            softLossStatementsToUsage = getNewUsageMapForStatements(Label.BL_Soft_Loss_Statements.split(';'));
-        }
-
-        private void populateDrawStatementsToUsage() {
-            drawStatementsToUsage = getNewUsageMapForStatements(Label.BL_Draw_Statements.split(';'));
-        }
-
-        private Map<String, Integer> getNewUsageMapForStatements(List<String> statements) {
-            Map<String, Integer> usageMap = new Map<String, Integer>();
-
-            for(String s : statements) {
-                usageMap.put(s, 0);
+            if (recentlyUsed.size() >= 3) {
+                recentlyUsed.remove(0);
             }
-
-            return usageMap;
+            recentlyUsed.add(statementsToUse[chosenStatementIndex]);
+            return statementsToUse[chosenStatementIndex];
         }
     }
 }

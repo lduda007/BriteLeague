@@ -20,6 +20,28 @@
         <members>BL_CompetitionStatusChartController</members>
         <members>BL_CompetitionFeedController</members>
         <members>BL_Constants</members>
+        <members>BL_CreateLeagueController</members>
+        <members>BL_ImageController</members>
+        <members>BL_BattleRoyaleTableController</members>
+        <members>BL_DAO_League</members>
+        <members>BL_DAO_Team</members>
+        <members>BL_BattleRoyaleDetailsController</members>
+        <members>BL_Settings</members>
+        <members>BL_DAO_Competitor</members>
+        <members>BL_LeagueService</members>
+        <members>BL_LeaguesListViewController</members>
+        <members>BL_DTO_Team</members>
+        <members>BL_BattleRoyaleMatchGenerator</members>
+        <members>BL_ClassicMatchGenerator</members>
+        <members>BL_LeagueMatchesServiceTest</members>
+        <members>BL_MatchBuilder</members>
+        <members>BL_MatchGenerator</members>
+        <members>BL_DTO_BattleRoyaleTeam</members>
+        <members>BL_DAO_Match</members>
+        <members>BL_MatchScoreService</members>
+        <members>BL_MatchScoreServiceTest</members>
+        <members>BL_MatchScoreProviderControllerTest</members>
+        <members>BL_MatchDetailsController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -56,6 +78,22 @@
         <members>BL_NextMatchesTable</members>
         <members>BL_MatchDetailsViewer</members>
         <members>BL_MatchScoreProvider</members>
+        <members>BL_BattleRoyaleDetails</members>
+        <members>BL_Image</members>
+        <members>BL_LeagueDetails</members>
+        <members>BL_TeamMembersList</members>
+        <members>BL_ParentTeamDetails</members>
+        <members>BL_TeamDetails</members>
+        <members>BL_TeamMainPage</members>
+        <members>BL_ParentTeamsList</members>
+        <members>BL_BattleRoyaleTable</members>
+        <members>BattleRoyalePage</members>
+        <members>BL_BattleRoyalePage</members>
+        <members>BL_Utils</members>
+        <members>BL_JoinLeague</members>
+        <members>BL_LeaveCompetition</members>
+        <members>BL_BattleRoyaleTeamItem</members>
+        <members>BL_MatchDetails</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -96,6 +134,9 @@
         <members>BL_Statistic__c</members>
         <members>BL_Team__c</members>
         <members>Contact</members>
+        <members>BL_BriteLeagueUrls__c</members>
+        <members>BL_BriteLeagueSettings__c</members>
+        <members>BL_TeamMember__c</members>
         <name>CustomObject</name>
     </types>
     <types>

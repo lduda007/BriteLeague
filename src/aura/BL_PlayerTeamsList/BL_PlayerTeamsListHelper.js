@@ -177,11 +177,11 @@
 
     goToTeam : function(component,event){
         var recordId = event.currentTarget.dataset.recordid;
-        var urlEvent = $A.get("e.force:navigateToURL");
-        urlEvent.setParams({
-          "url": "/bl-team/"+recordId
+        var navEvt = $A.get("e.force:navigateToSObject");
+        navEvt.setParams({
+            "recordId": recordId
         });
-        urlEvent.fire();
+        navEvt.fire();
     },
 
     getCurrentUser : function(component){

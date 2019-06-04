@@ -4,15 +4,17 @@
 
         let action = component.get("c.getInitDataWrapper");
         action.setParams({
-            "competitionId": component.get("v.competitionId")
+            "leagueId": component.get("v.leagueId")
         });
         action.setCallback(this, function(response) {
             this.hideSpinner(component);
 
             let state = response.getState();
             let result = response.getReturnValue();
+            let errors = response.getError();
 
             if(state === "SUCCESS") {
+                component.set("v.isError", false);
                 component.set("v.isCompetitionStarted", result.isCompetitionStarted);
                 if(result.isCompetitionStarted) {
                     component.set("v.labels", result.labels);
@@ -20,12 +22,8 @@
                     this.generateChart(component);
                 }
             } else if(state === "ERROR") {
-                let errors = response.getError();
-                let message = 'Unknown error';
-                if(errors && Array.isArray(errors) && errors.length > 0) {
-                    message = errors[0].message;
-                }
-                console.error(message);
+                component.set("v.isError", true);
+                this.getUtils(component).handleError(errors);
             }
         });
         $A.enqueueAction(action);
@@ -89,11 +87,30 @@
                             title: function(tooltipItems, data) {
                                 let dataset = data.datasets[tooltipItems[0].datasetIndex];
                                 let point = dataset.data[tooltipItems[0].index];
-                                return dataset.label + ": " + point.y + " (+" + point.matchPoints + ")";
+                                let result = "";
+
+                                if(dataset.label !== point.teamName) {
+                                    result += point.teamName + " (" + dataset.label + ")";
+                                } else {
+                                    result += dataset.label;
+                                }
+
+                                result += ": " + point.y + " (+" + point.matchPoints + ")"
+
+                                return result;
                             },
                             label: function(tooltipItem, data) {
-                                let point = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                                return "vs " + point.enemyName || "";
+                                let dataset = data.datasets[tooltipItem.datasetIndex];
+                                let point = dataset.data[tooltipItem.index];
+                                let result = "";
+
+                                result += "vs " + point.enemyName;
+
+                                if(point.enemyName !== point.enemyDataSetLabel) {
+                                    result += " (" + point.enemyDataSetLabel + ")";
+                                }
+
+                                return result;
                             },
                             labelTextColor: function(tooltipItem, chart) {
                                 let dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
@@ -167,5 +184,9 @@
 
     hideSpinner: function(component) {
         component.set("v.isSpinner", false);
+    },
+
+    getUtils: function(component) {
+        return component.find("utils");
     }
 });

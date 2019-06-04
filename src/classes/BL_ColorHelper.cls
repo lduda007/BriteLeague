@@ -1,5 +1,9 @@
 public class BL_ColorHelper {
 
+    public static final String BLUE = '#2196F3FF';
+    public static final String TEAL = '#00BCD4FF';
+    public static final String INDIGO = '#3F51B5FF';
+
     private static final List<String> hexColors = new List<String>{
             '#FF8C13FF', '#C715FFFF', '#20B2AAFF', '#DC143CFF', '#6495EDFF', '#A55043FF', '#778899FF', '#FF1493FF',
             '#F4A460FF', '#EE82EEFF', '#FFD720FF', '#8B4513FF', '#4949A0FF', '#148B8BFF', '#14FF7FFF', '#556B2FFF',

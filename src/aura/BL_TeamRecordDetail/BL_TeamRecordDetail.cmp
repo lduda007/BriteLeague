@@ -15,6 +15,7 @@
     <force:recordData targetFields="{!v.team}"
                       recordId="{!v.recordId}"
                       layoutType="FULL"
+                      fields="RecordType.DeveloperName, Team_Member_Count__c"
                       recordUpdated="{!c.handleRecordUpdated}"
     />
 
@@ -22,33 +23,33 @@
         <c:BL_Spinner show="{!v.showSpinnerInit}"/>
         <lightning:layout multipleRows="true" verticalAlign="center">
             <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="4" largeDeviceSize="3" size="12" >
-                <aura:if isTrue="{!and(v.team.Player1__c != v.contactId, v.team.Player2__c != v.contactId)}">
-                    <img src="{!v.pictureSrc}"/>
-                </aura:if>
-                <aura:if isTrue="{!or(v.team.Player1__c == v.contactId, v.team.Player2__c == v.contactId)}">
-                    <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" class="slds-is-relative" aura:id="uploadDiv">
-                        <aura:if isTrue="{!v.showSpinner}">
-                            <c:BL_Spinner show="{!v.showSpinner}"/>
-                        </aura:if>
-                        <img src="{!v.pictureSrc}"/>
-                        <p class="slds-text-body_small slds-text-color_weak">{!v.message}</p>
-                    </div>
-                </aura:if>
+                <c:BL_Image
+                        parentId="{!v.recordId}"
+                        fileName="team-logo"
+                        isEditable="{!or(v.team.Player1__c == v.contactId, v.team.Player2__c == v.contactId)}"
+                />
                 <div style="font-size: 1.7em; font-weight: bold"><p class="slds-m-right--medium">{!v.team.Name}</p></div>
             </lightning:layoutItem>
             <lightning:layoutItem smallDeviceSize="12" mediumDeviceSize="8" largeDeviceSize="9" size="12">
                 <lightning:layout multipleRows="true">
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
-                        <p class="slds-text-body_small slds-text-color_weak">Player 1: </p>
+                        <p class="slds-text-body_small slds-text-color_weak">{! if(v.team.RecordType.DeveloperName == 'Battle_Royale', 'Capitain', 'Player 1')}: </p>
                         <ui:outputText value="{!v.team.Player1__r.Name }" class="slds-text-heading--small"/>
                     </lightning:layoutItem>
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
-                        <p class="slds-text-body_small slds-text-color_weak">Player 2: </p>
-                        <ui:outputText value="{!v.team.Player2__r.Name}" class="slds-text-heading--small"/>
+                        <aura:if isTrue="{!v.team.RecordType.DeveloperName == 'Battle_Royale'}">
+                            <p class="slds-text-body_small slds-text-color_weak">Members: </p>
+                            <ui:outputText value="{!v.team.Team_Member_Count__c}" class="slds-text-heading--small"/>
+                            <aura:set attribute="else">
+                                <p class="slds-text-body_small slds-text-color_weak">Player 2: </p>
+                                <ui:outputText value="{!v.team.Player2__r.Name}" class="slds-text-heading--small"/>
+                            </aura:set>
+                        </aura:if>
+
                     </lightning:layoutItem>
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
                         <p class="slds-text-body_small slds-text-color_weak">Wins percentage: </p>
-                        <aura:if isTrue="{!greaterthan(v.team.TotalRoundsLost__c, 0)}">
+                        <aura:if isTrue="{!greaterthan(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c, 0)}">
                             <ui:outputNumber value="{!(v.team.Total_Games_Won__c/(v.team.Total_Games_Won__c+v.team.Total_Games_Drawn__c+v.team.Total_Games_Lost__c)) * 100}" class="slds-text-heading--small"/>%
                             <aura:set attribute="else">
                                 No games played yet
@@ -57,7 +58,7 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
                         <p class="slds-text-body_small slds-text-color_weak">Goals For Average: </p>
-                        <aura:if isTrue="{!greaterthan(v.team.TotalRoundsLost__c, 0)}">
+                        <aura:if isTrue="{!greaterthan(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c, 0)}">
                             <ui:outputNumber value="{!v.team.Total_Goals_Scored__c/(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c)}" class="slds-text-heading--small"/>
                             <aura:set attribute="else">
                                 No games played yet
@@ -66,7 +67,7 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" size="6" class="slds-p-around--medium">
                         <p class="slds-text-body_small slds-text-color_weak">Goals Lost Average: </p>
-                        <aura:if isTrue="{!greaterthan(v.team.TotalRoundsLost__c, 0)}">
+                        <aura:if isTrue="{!greaterthan(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c, 0)}">
                             <ui:outputNumber value="{!v.team.Total_Goals_Lost__c/(v.team.TotalRoundsWon__c+v.team.TotalRoundsLost__c)}" class="slds-text-heading--small"/>
                             <aura:set attribute="else">
                                 No games played yet

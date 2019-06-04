@@ -1,19 +1,19 @@
 ({
     goToTeamPage: function (component, event, helper) {
         var recordId = event.currentTarget.dataset.recordid;
-        var urlEvent = $A.get("e.force:navigateToURL");
-        urlEvent.setParams({
-          "url": "/bl-team/"+recordId
+        var navEvt = $A.get("e.force:navigateToSObject");
+        navEvt.setParams({
+            "recordId": recordId
         });
-        urlEvent.fire();
+        navEvt.fire();
     },
     goToLeaguePage: function (component, event, helper) {
         var recordId = event.currentTarget.dataset.recordid;
-        var urlEvent = $A.get("e.force:navigateToURL");
-        urlEvent.setParams({
-          "url": "/bl-league/"+recordId
+        var navEvt = $A.get("e.force:navigateToSObject");
+        navEvt.setParams({
+            "recordId": recordId
         });
-        urlEvent.fire();
+        navEvt.fire();
     },
 //    openScoreProviderModal: function (component, event, helper){
 //        component.set("v.selectedMatchId", event.currentTarget.dataset.recordid);

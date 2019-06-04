@@ -5,7 +5,8 @@
       // set param to method
         action.setParams({
             'searchKeyWord': getInputkeyWord,
-            'ObjectName' : component.get("v.objectAPIName")
+            'ObjectName' : component.get("v.objectAPIName"),
+            'additionalFilters': component.get("v.filters")
           });
       // set a callBack
         action.setCallback(this, function(response) {

@@ -9,7 +9,7 @@ public with sharing class BL_TeamRecordDetailController {
         List<BL_Team__c> teamStatistics = [
                 SELECT Id, Total_Games_Won__c, Total_Games_Drawn__c, Total_Games_Lost__c, Total_Goals_Scored__c, Total_Goals_Lost__c, TotalRoundsWon__c, TotalRoundsLost__c
                 FROM BL_Team__c
-                WHERE Id =: teamId
+                WHERE Id = :teamId
         ];
         return teamStatistics.isEmpty() ? new BL_Team__c() : teamStatistics[0];
     }
@@ -20,7 +20,53 @@ public with sharing class BL_TeamRecordDetailController {
         for (BL_Competitor__c comp : [SELECT Id, League__c FROM BL_Competitor__c WHERE Team__c = :teamId]) {
             compsIds.add(comp.League__c);
         }
-        return [SELECT isCup__c, Start_Date__c, End_Date__c, Name FROM BL_League__c WHERE Id IN :compsIds];
+        return [
+                SELECT RecordType.DeveloperName, Start_Date__c, End_Date__c, Name
+                FROM BL_League__c
+                WHERE Id IN :compsIds
+        ];
+    }
+
+    @AuraEnabled
+    public static List<BL_TeamMember__c> getTeamMembers(String teamId) {
+        List<BL_TeamMember__c> teamMembers = [
+                SELECT Id, Member__r.Name, Member__r.Player1__r.Name, Member__r.Player2__r.Name,
+                        Member__r.Player1__r.LastName, Member__r.Player2__r.LastName,
+                        Member__r.Player1__r.ImageUrl__c, Member__r.Player2__r.ImageUrl__c
+                FROM BL_TeamMember__c
+                WHERE Team__c = :teamId
+                ORDER BY Member__r.Name
+        ];
+
+        return teamMembers;
+    }
+
+    @AuraEnabled
+    public static List<BL_TeamMember__c > getParentTeams(String teamId) {
+        List<BL_TeamMember__c> parentTeams = [
+                SELECT Id, Team__r.Name, Team__r.Player1__r.Name, Team__r.Team_Member_Count__c
+                FROM BL_TeamMember__c
+                WHERE Member__c = :teamId
+        ];
+        return parentTeams;
+    }
+
+    @AuraEnabled
+    public static void addTeamMembers(Id parentTeamId, List<Id> memberTeamsIds) {
+        List<BL_TeamMember__c> newTeamMembers = new List<BL_TeamMember__c>();
+        for (Id memberId : memberTeamsIds) {
+            newTeamMembers.add(new BL_TeamMember__c(
+                    Member__c = memberId,
+                    Team__c = parentTeamId
+            ));
+        }
+        insert newTeamMembers;
+    }
+
+    @AuraEnabled
+    public static void removeTeamMember(Id parentTeamId, Id teamMemberId) {
+        BL_TeamMember__c memberToDelete = new BL_TeamMember__c(Id = teamMemberId);
+        delete memberToDelete;
     }
 
     @AuraEnabled

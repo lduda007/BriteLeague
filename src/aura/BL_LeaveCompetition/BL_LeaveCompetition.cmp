@@ -1,9 +1,13 @@
 <aura:component description="BL_LeaveCompetition" controller="BL_LeaveCompetitionController">
+
     <aura:attribute name="competitionId" type="String"/>
     <aura:attribute name="playerId" type="String"/>
+
     <aura:registerEvent name="BL_CompetitorLeftCompetition" type="c:BL_CompetitorLeftCompetition"/>
 
-    <lightning:button onclick="{!c.openLeaveCompetitionModal}" variant="brand" label="Leave"></lightning:button>
+    <c:BL_Utils aura:id="utils"/>
+
+    <lightning:button onclick="{!c.openLeaveCompetitionModal}" variant="neutral" label="Leave"></lightning:button>
 
     <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="leaveCompetitionModal">
         <div class="slds-modal__container">

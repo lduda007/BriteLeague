@@ -15,7 +15,7 @@ public with sharing class BL_CupDetailsController {
     @AuraEnabled
     public static Map<Decimal, List<BL_Match__c>> loadCupRoundToMatchesMap(String cupId) {
         List<BL_Match__c> cupMatches = [
-                SELECT  Id, Name, Winner__c, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, League__r.isCup__c,
+                SELECT  Id, Name, Winner__c, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c,
                         Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c, Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
                         Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Team2__r.Team__r.Name, CupStage__c, Team1_Score__c, Team2_Score__c,
                         Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c,

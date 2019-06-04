@@ -17,28 +17,11 @@ public with sharing class BL_LeagueDetailsController {
     @AuraEnabled
     public static List<BL_Match__c> loadLeagueMatches(String leagueId, String competitorId) {
         List<BL_Match__c> leagueMatches;
-        if(competitorId == null){
-            leagueMatches = [
-                    SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c, League__r.TeamSize__c,
-                           Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c, Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
-                           Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c,
-                           Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name,
-                           Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c
-                    FROM BL_Match__c
-                    WHERE League__c =: leagueId
-                    ORDER BY DrawRound__c, Round__c
-            ];
-        }else{
-            leagueMatches = [
-                    SELECT Id, Name, Team1__r.Team__c, Team2__r.Team__c, Team1__r.Team__r.Name, Team2__r.Team__r.Name, Team1_Score__c, Team2_Score__c, League__r.TeamSize__c,
-                            Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c, Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
-                            Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c, Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Round__c, DrawRound__c,
-                            Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name,
-                            Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c, League__r.isCup__c
-                    FROM BL_Match__c
-                    WHERE League__c =: leagueId AND (Team1__c =: competitorId OR Team2__c =: competitorId)
-                    ORDER BY DrawRound__c, Round__c
-            ];
+        BL_DAO_Match daoMatch = new BL_DAO_Match();
+        if(competitorId == null) {
+            leagueMatches = daoMatch.getMatchesForLeague(leagueId);
+        } else {
+            leagueMatches = daoMatch.getMatchesForLeagueAndCompetitor(leagueId, competitorId);
         }
         return leagueMatches;
     }

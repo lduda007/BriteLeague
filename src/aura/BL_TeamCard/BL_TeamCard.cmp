@@ -1,5 +1,7 @@
-<aura:component description="BL_TeamCard"
-                controller="BL_TeamRecordDetailController">
+<aura:component
+        description="BL_TeamCard"
+        controller="BL_TeamRecordDetailController"
+>
 
     <aura:attribute name="teamName" type="String"/>
     <aura:attribute name="teamObject" type="Object"/>

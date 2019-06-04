@@ -30,6 +30,9 @@
                                 <th scope="col">
                                     <div class="slds-truncate" title="{!$Label.c.BL_Team_Players}">{!$Label.c.BL_Team_Players}</div>
                                 </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="{!$Label.c.BL_Type}">{!$Label.c.BL_Type}</div>
+                                </th>
                                 <th scope="col" style="width: 50px;">
                                     <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Win}">W</div>
                                 </th>
@@ -54,7 +57,14 @@
                                         <div class="slds-truncate" title="{!$Label.c.BL_Team_Name}"><a data-recordId="{!team.Id}" onclick="{!c.goToTeam}">{!team.Name}</a></div>
                                     </td>
                                     <td scope="row" data-label="Players">
-                                        <div class="slds-truncate" title="Players">{!team.Player1__r.LastName} &amp; {!team.Player2__r.LastName}</div>
+                                        <div class="slds-truncate" title="Players">{!team.Player1__r.LastName}
+                                        <aura:if isTrue="{!team.RecordType.Name != 'Battle Royale'}">
+                                             &amp; {!team.Player2__r.LastName}
+                                        </aura:if>
+                                        </div>
+                                    </td>
+                                    <td scope="row" data-label="{!$Label.c.BL_Type}">
+                                        <div class="slds-truncate" title="{!$Label.c.BL_Type}">{!team.RecordType.Name}</div>
                                     </td>
                                     <td scope="row" data-label="{!$Label.c.BL_Win}">
                                         <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Win}">{!team.Total_Games_Won__c}</div>

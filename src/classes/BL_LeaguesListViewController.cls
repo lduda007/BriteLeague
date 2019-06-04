@@ -1,8 +1,26 @@
 public with sharing class BL_LeaguesListViewController {
     @AuraEnabled
     public static void insertCompetitor(BL_Competitor__c competitor) {
+        List<BL_Competitor__c> competitorsToInsert = new List<BL_Competitor__c>();
+
         if(checkLeagueCompetitors(competitor.League__c, competitor.Team__c)) {
-            insert competitor;
+            competitorsToInsert.add(competitor);
+
+            BL_DAO_Team daoTeam = new BL_DAO_Team();
+            BL_Team__c team = daoTeam.getTeamById(competitor.Team__c);
+
+            if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
+                for(BL_Team__c subTeam : daoTeam.getTeamsByParentTeamId(competitor.Team__c)) {
+                    BL_Competitor__c subCompetitor = new BL_Competitor__c(
+                            Team__c = subTeam.Id,
+                            League__c = competitor.League__c
+                    );
+
+                    competitorsToInsert.add(subCompetitor);
+                }
+            }
+
+            insert competitorsToInsert;
         } else {
             throw new AuraHandledException(Label.BL_League_Full);
         }
@@ -13,10 +31,24 @@ public with sharing class BL_LeaguesListViewController {
         List<BL_Competitor__c> comps = [
                 SELECT Id, League__c
                 FROM BL_Competitor__c
-                WHERE Team__r.Player1__c = :playerId OR Team__r.Player2__c = :playerId
+                WHERE Team__r.Player1__c = :playerId
+                OR Team__r.Player2__c = :playerId
         ];
         List<Id> excLeagues = new List<Id>();
+        List<BL_Competitor__c> parentTeamsCompetitors = [
+                SELECT League__c
+                FROM BL_Competitor__c
+                WHERE Team__c IN (
+                        SELECT Team__c
+                        FROM BL_TeamMember__c
+                        WHERE Member__r.Player1__c = :playerId
+                        OR Member__r.Player2__c = :playerId
+                )
+        ];
         for(BL_Competitor__c bl_competitor : comps) {
+            excLeagues.add(bl_competitor.League__c);
+        }
+        for(BL_Competitor__c bl_competitor : parentTeamsCompetitors) {
             excLeagues.add(bl_competitor.League__c);
         }
         return excLeagues;
@@ -25,8 +57,8 @@ public with sharing class BL_LeaguesListViewController {
     @AuraEnabled
     public static List<BL_League__c> getAllLeagues() {
         return [
-                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, TeamSize__c,
-                        Status__c
+                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, TeamSize__c,
+                        RecordType.DeveloperName, Status__c
                 FROM BL_League__c
                 ORDER BY Name ASC
         ];
@@ -36,16 +68,17 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getOpenLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for(BL_League__c league : [
-                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, TeamSize__c
+                SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, TeamSize__c,
+                        RecordType.DeveloperName
                 FROM BL_League__c
                 WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.now())
                 AND Id NOT IN :getPlayerLeaguesIds()
+                AND RecordType.DeveloperName != :BL_Constants.LEAGUE_RT_BATTLE_ROYALE
         ]) {
             if(league.Max_Teams__c > league.Teams_Joined__c) {
                 leagues.add(league);
             }
         }
-        System.debug('OPEN LEAAGUES' + leagues);
         return leagues;
     }
 
@@ -53,7 +86,8 @@ public with sharing class BL_LeaguesListViewController {
     public static List<BL_League__c> getMyLeagues() {
         List<BL_League__c> leagues = new List<BL_League__c>();
         for(BL_League__c league : [
-                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, isCup__c, Status__c, TeamSize__c
+                SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, RecordType.DeveloperName,
+                        Status__c, TeamSize__c
                 FROM BL_League__c
                 WHERE Id IN :getPlayerLeaguesIds()
                 ORDER BY Name
@@ -65,45 +99,33 @@ public with sharing class BL_LeaguesListViewController {
 
     @AuraEnabled
     public static List<DTO_Team> getPlayerTeams(String leagueId) {
-        Id currentPlayer = BL_Utils.getCurrentUser().ContactId;
-        List<BL_Competitor__c> competitionCompetitors = [
-                SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c
-                FROM BL_Competitor__c
-                WHERE League__c = :leagueId
-        ];
+        Id playerId = BL_Utils.getCurrentUser().ContactId;
 
-        Set<Id> playerIds = new Set<Id>();
-        if(!competitionCompetitors.isEmpty()) {
-            for(BL_Competitor__c competitor : competitionCompetitors) {
-                playerIds.add(competitor.Team__r.Player1__c);
-                playerIds.add(competitor.Team__r.Player2__c);
-            }
-        }
+        BL_DAO_Team daoTeam = new BL_DAO_Team();
+        List<BL_Team__c> teams = daoTeam.getTeamsByPlayerId(playerId);
 
-        List<BL_Team__c> teams = [
-                SELECT Id, Name, Player1__r.Name, Player2__r.Name, IsActive__c
-                FROM BL_Team__c
-                WHERE IsActive__c = true AND
-                (Player1__c = :currentPlayer OR Player2__c = :currentPlayer) AND
-                Player1__c NOT IN:playerIds AND
-                Player2__c NOT IN:playerIds
-        ];
+        BL_DAO_League daoLeague = new BL_DAO_League();
+        BL_League__c league = daoLeague.getLeagueById(leagueId);
 
         List<DTO_Team> dtoList = new List<DTO_Team>();
+
         for(BL_Team__c team : teams) {
-            DTO_Team t = new DTO_Team();
-            t.recordId = team.Id;
-            t.name = team.Name;
-            t.isActive = team.IsActive__c;
-            if(team.Player1__c != currentPlayer) {
-                t.secondPlayerName = team.Player1__r.Name;
-                t.secondPlayerId = team.Player1__c;
-            } else if(team.Player2__c != currentPlayer) {
-                t.secondPlayerName = team.Player2__r.Name;
-                t.secondPlayerId = team.Player2__c;
+            if(league.RecordType.DeveloperName != BL_Constants.LEAGUE_RT_BATTLE_ROYALE || (league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE && team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE)) {
+                DTO_Team t = new DTO_Team();
+                t.recordId = team.Id;
+                t.name = team.Name;
+                t.isActive = team.IsActive__c;
+                if(team.Player1__c != playerId) {
+                    t.secondPlayerName = team.Player1__r.Name;
+                    t.secondPlayerId = team.Player1__c;
+                } else if(team.Player2__c != playerId) {
+                    t.secondPlayerName = team.Player2__r.Name;
+                    t.secondPlayerId = team.Player2__c;
+                }
+                dtoList.add(t);
             }
-            dtoList.add(t);
         }
+
         return dtoList;
     }
 
@@ -113,29 +135,22 @@ public with sharing class BL_LeaguesListViewController {
     }
 
     private static Boolean checkLeagueCompetitors(String leagueId, String teamId) {
-        List<BL_Team__c> competitorTeam = [
-                SELECT Id, Player1__c, Player2__c
-                FROM BL_Team__c
-                WHERE Id = :teamId
-        ];
+        BL_Settings settings = new BL_Settings()
+                .populateSettingsForLeague(leagueId);
 
-        List<BL_League__c> league = [
-                SELECT Max_Teams__c, (SELECT Id, Team__r.Player1__c, Team__r.Player2__c FROM Competitors__r)
-                FROM BL_League__c
-                WHERE Id = :leagueId
-        ];
+        if(settings.isCaptainOfBattleRoyaleTeam || settings.isLeagueCompetitor || settings.numberOfDirectLeagueCompetitors == settings.getLeague().Max_Teams__c) {
+            return false;
+        }
 
-        if(!competitorTeam.isEmpty() && !league.isEmpty()) {
-            for(BL_Competitor__c comp : league[0].Competitors__r) {
-                if(comp.Team__r.Player1__c == competitorTeam[0].Player1__c ||
-                        comp.Team__r.Player1__c == competitorTeam[0].Player2__c ||
-                        comp.Team__r.Player2__c == competitorTeam[0].Player1__c ||
-                        comp.Team__r.Player2__c == competitorTeam[0].Player2__c
-                        ) {
-                    return false;
-                }
+        BL_DAO_Team daoTeam = new BL_DAO_Team();
+        BL_Team__c team = daoTeam.getTeamById(teamId);
+
+        for(BL_Competitor__c competitor : settings.getCompetitors()) {
+            if(team.Player1__c != null && (team.Player1__c == competitor.Team__r.Player1__c || team.Player1__c == competitor.Team__r.Player2__c)) {
+                return false;
             }
-            if(league[0].Max_Teams__c <= league[0].Competitors__r.size()) {
+
+            if(team.Player2__c != null && (team.Player2__c == competitor.Team__r.Player1__c || team.Player2__c == competitor.Team__r.Player2__c)) {
                 return false;
             }
         }

@@ -62,7 +62,7 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
         currentUser.email = data.email;
         currentUser.lastName = data.lastName;
         currentUser.firstName = data.firstName;
-        setUserPhoto(currentUser.Id, data.attributeMap.get('picture'));
+        //setUserPhoto(currentUser.Id, data.attributeMap.get('picture'));
         setContactImageUrl(currentUser.Id, data.attributeMap.get('picture'));
         update(currentUser);
     }

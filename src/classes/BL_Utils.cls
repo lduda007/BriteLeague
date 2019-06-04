@@ -38,6 +38,21 @@ public with sharing class BL_Utils {
         throw auraException;
     }
 
+    public static void throwAuraHandledException(String uiMessage, Exception e) {
+        throwAuraHandledException(
+                uiMessage + ' - ' + e.getMessage() + ' - ' + e.getStackTraceString()
+        );
+    }
+
+    public static Id getRecordTypeIdByDeveloperName(String objectAPIName, String recordTypeDeveloperName) {
+        SObjectType objectType = Schema.getGlobalDescribe().get(objectAPIName);
+        if(objectType != null) {
+            Schema.RecordTypeInfo recordTypeInfo = objectType.getDescribe().getRecordTypeInfosByDeveloperName().get(recordTypeDeveloperName);
+            return recordTypeInfo != null ? recordTypeInfo.getRecordTypeId() : null;
+        }
+        return null;
+    }
+
     public without sharing class UnsecureClass{
         public void deleteNotOwnedRecord(SObject record){
             try{

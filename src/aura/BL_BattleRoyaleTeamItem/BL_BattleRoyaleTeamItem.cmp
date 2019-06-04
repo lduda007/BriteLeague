@@ -1,0 +1,85 @@
+<aura:component description="BL_BattleRoyaleTeamItem">
+
+    <aura:attribute name="team" type="Object"/>
+    <aura:attribute name="columns" type="Object"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <c:BL_Utils aura:id="utils"/>
+
+    <div class="item">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem
+                    size="12"
+                    smallDeviceSize="12"
+                    mediumDeviceSize="12"
+                    largeDeviceSize="2"
+            >
+                <c:BL_Image
+                        parentId="{!v.team.teamId}"
+                        fileName="team-logo"
+                        height="135px"
+                        width="135px"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem
+                    size="12"
+                    smallDeviceSize="12"
+                    mediumDeviceSize="12"
+                    largeDeviceSize="10"
+                    padding="around-medium"
+            >
+                <lightning:layout multipleRows="true" verticalAlign="start">
+                    <lightning:layoutItem
+                            size="12"
+                            smallDeviceSize="12"
+                            mediumDeviceSize="12"
+                            largeDeviceSize="6"
+                    >
+                        <lightning:button
+                                label="{!v.team.name}"
+                                class="slds-text-heading--medium text-bold"
+                                onclick="{!c.onTeamNameClick}"
+                                variant="base"
+                                value="{!v.team.teamId}"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem
+                            size="12"
+                            smallDeviceSize="12"
+                            mediumDeviceSize="12"
+                            largeDeviceSize="6"
+                            class="slds-text-align--right"
+                    >
+                        <ui:outputText
+                                value="Matches: "
+                                class="slds-text-heading_medium"
+                        />
+                        <ui:outputText
+                                value="{!v.team.matchesPlayed}"
+                                class="slds-text-heading_medium text-bold slds-m-right--large"
+                        />
+                        <ui:outputText
+                                value="Points: "
+                                class="slds-text-heading_medium"
+                        />
+                        <ui:outputText
+                                value="{!v.team.points}"
+                                class="slds-text-heading_medium text-bold"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" class="slds-m-top--small">
+                        <lightning:datatable
+                                data="{!v.team.subTeams}"
+                                keyField="teamId"
+                                columns="{!v.columns}"
+                                hideCheckboxColumn="true"
+                                onrowaction="{!c.onRowAction}"
+                                maxColumnWidth="685"
+                        />
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

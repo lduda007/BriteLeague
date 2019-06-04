@@ -1,11 +1,11 @@
 ({
-    getPlayerActiveTeams : function(component) {
+    getPlayerActiveTeams: function(component) {
         let leagueId = component.get("v.leagueId");
         let actionTeams = component.get('c.getPlayerTeams');
         actionTeams.setParams({
             leagueId: leagueId
         });
-        actionTeams.setCallback(this, function(response){
+        actionTeams.setCallback(this, function(response) {
             let state = response.getState();
             if(state === 'SUCCESS' || state === 'DRAFT') {
                 let teams = response.getReturnValue();
@@ -16,17 +16,16 @@
         });
         $A.enqueueAction(actionTeams);
     },
-    handleSaveCompetitor : function(component, event) {
-        var self = this;
-        console.log('leagueID' + event.getParam('idOfLeague'));
+
+    handleSaveCompetitor: function(component, event) {
+        let self = this;
         let action = component.get('c.insertCompetitor');
         let comp = component.get('v.competitorToInsert');
         comp.League__c = component.get('v.leagueId');
         action.setParams({
-            'competitor' : comp
+            'competitor': comp
         });
-        console.log('COMPETITIOR ' + JSON.stringify(comp));
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             let state = response.getState();
             if(state === 'SUCCESS' || state === 'DRAFT') {
                 let resultsToast = $A.get("e.force:showToast");
@@ -39,12 +38,12 @@
                 self.getPlayerActiveTeams(component);
                 let evt = component.getEvent('BL_CompetitorCreated');
                 evt.fire();
-            } else if (state === 'ERROR') {
+            } else if(state === 'ERROR') {
                 let showToast = $A.get("e.force:showToast");
                 showToast.setParams({
-                    title : 'Error.',
+                    title: 'Error.',
                     type: 'error',
-                    message : response.getError()[0].message
+                    message: response.getError()[0].message
                 });
                 showToast.fire();
                 let evt = component.getEvent('BL_CannotJoinLeague');
@@ -53,4 +52,4 @@
         });
         $A.enqueueAction(action);
     }
-})
+});
