@@ -8,7 +8,6 @@ trigger BL_UserTrigger on User (after insert) {
                 BL_UserActivationManager.enqueuePlayerPermissionSetAssignement(newUser.Id);
                 BL_UserActivationManager.enqueueOldestLoggingUserDeactivation();
                 BL_BriteLeagueRegistrationHandler.setContactImageUrl(newUser.Id, newUser.ImageUrl__c);
-                BL_BriteLeagueRegistrationHandler.setUserPhoto(newUser.Id, newUser.ImageUrl__c);
             }
         }
     }

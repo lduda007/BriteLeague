@@ -62,7 +62,6 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
         currentUser.email = data.email;
         currentUser.lastName = data.lastName;
         currentUser.firstName = data.firstName;
-        //setUserPhoto(currentUser.Id, data.attributeMap.get('picture'));
         setContactImageUrl(currentUser.Id, data.attributeMap.get('picture'));
         update(currentUser);
     }
@@ -77,17 +76,6 @@ global class BL_BriteLeagueRegistrationHandler implements Auth.RegistrationHandl
                 update contact[0];
             }
         }
-    }
-
-    @future(Callout=true)
-    public static void setUserPhoto(String userId, String photoUrl){
-        HttpRequest req = new HttpRequest();
-        req.setEndpoint(photoUrl);
-        req.setMethod('GET');
-        Http binding = new Http();
-        HttpResponse res = binding.send(req);
-        Blob image = res.getBodyAsBlob();
-        ConnectApi.Photo photo = ConnectApi.UserProfiles.setPhoto(null, userId, new ConnectApi.BinaryInput(image, 'image/jpg', 'userImage.jpg'));
     }
 
     private Id createContact(Auth.UserData data){
