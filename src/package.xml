@@ -94,6 +94,7 @@
         <members>BL_LeaveCompetition</members>
         <members>BL_BattleRoyaleTeamItem</members>
         <members>BL_MatchDetails</members>
+        <members>BL_TeamSelectedEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

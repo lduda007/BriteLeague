@@ -18,6 +18,14 @@
                 let utils = helper.getUtils(component);
                 utils.goToRecord(row.teamId);
                 break;
+            case 'selectTeam':
+                let teamId = row.teamId;
+                let teamSelectedEvent = $A.get("e.c:BL_TeamSelectedEvent");
+                teamSelectedEvent.setParams({
+                    teamId : teamId
+                });
+                teamSelectedEvent.fire();
+                break;
         }
     }
 });

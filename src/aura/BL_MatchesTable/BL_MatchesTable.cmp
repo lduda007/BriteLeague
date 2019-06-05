@@ -3,7 +3,9 @@
     <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="height" type="String" default="300px"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.BL_Matches}"/>
-    <aura:attribute name="matches" type="Object"/>
+    <aura:attribute name="selectedTeamId" type="String"/>
+    <aura:attribute name="matches" type="List"/>
+    <aura:attribute name="teamMatches" type="List"/>
     <aura:attribute name="selectedMatchObject" type="Object"/>
     <aura:attribute name="selectedMatchId" type="String"/>
     <aura:attribute name="playerId" type="String"/>
@@ -14,12 +16,14 @@
     <aura:attribute name="showCompetitionColumn" type="Boolean" default="false"/>
     <aura:attribute name="showRoundsColumn" type="Boolean" default="true"/>
     <aura:attribute name="showPlayersAvatars" type="Boolean" default="false"/>
+
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleScoreSelected}"/>
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
+    <aura:handler event="c:BL_TeamSelectedEvent" action="{!c.onHandleTeamSelectedEvent}"/>
 
     <c:BL_Card title="{!v.title}">
         <div class="slds-scrollable--y" style="{!'height: ' + v.height}">
-            <aura:if isTrue="{!not(empty(v.matches.length))}">
+            <aura:if isTrue="{!not(empty(v.teamMatches.length))}">
                 <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
                     <thead>
                     <tr class="slds-text-title_caps">
@@ -59,7 +63,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <aura:iteration items="{!v.matches}" var="match" indexVar="index">
+                    <aura:iteration items="{!v.teamMatches}" var="match" indexVar="index">
                         <tr>
                             <td scope="row" data-label="{!$Label.c.BL_Team_1}">
                                 <div class="slds-truncate slds-text-align--right" title="{!match.Team1__r.Team__r.Name}">
@@ -186,7 +190,7 @@
                     </tbody>
                 </table>
             </aura:if>
-            <aura:if isTrue="{!empty(v.matches.length)}">
+            <aura:if isTrue="{!empty(v.teamMatches.length)}">
                 <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
                     <ui:outputText value="{!$Label.c.BL_No_matches_found}"/>
                 </div>

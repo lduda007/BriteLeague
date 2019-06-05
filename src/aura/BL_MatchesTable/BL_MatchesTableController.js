@@ -72,5 +72,23 @@
     onSinglePlayerMatchScoreSaved: function(component, event) {
         let scoreModal = component.find("scoreModal");
         scoreModal.hide();
+    },
+
+    onHandleTeamSelectedEvent: function(component, event, helper) {
+        let selectedTeamId = event.getParam("teamId");
+        let currentlySelectedTeamId = component.get("v.selectedTeamId");
+        let matches = component.get("v.matches");
+        let teamMatches = [];
+
+        if(!currentlySelectedTeamId || selectedTeamId !== currentlySelectedTeamId) {
+            teamMatches = helper.getMatchesForTeam(matches, selectedTeamId);
+            currentlySelectedTeamId = selectedTeamId;
+        } else {
+            Array.prototype.push.apply(teamMatches, matches);
+            currentlySelectedTeamId = null;
+        }
+
+        component.set("v.teamMatches", teamMatches);
+        component.set("v.selectedTeamId", currentlySelectedTeamId);
     }
 });

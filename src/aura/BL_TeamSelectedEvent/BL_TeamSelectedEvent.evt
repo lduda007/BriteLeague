@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="BL_TeamSelectedEvent">
+    <aura:attribute name="teamId" type="String"/>
+</aura:event>
