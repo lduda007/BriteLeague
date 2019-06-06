@@ -5,6 +5,8 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
+    <aura:registerEvent name="teamSelectedEvent" type="c:BL_TeamSelectedEvent"/>
+
     <c:BL_Utils aura:id="utils"/>
 
     <div class="item">

@@ -77,6 +77,18 @@
             }
         });
 
+        if(!isPhone) {
+            columns.push({
+                type: "button-icon",
+                typeAttributes: {
+                    name: "selectTeam",
+                    variant: "base",
+                    iconName: "utility:check"
+                },
+                initialWidth: "50"
+            });
+        }
+
         component.set("v.columns", columns);
     },
 

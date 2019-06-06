@@ -20,7 +20,7 @@
             <c:BL_BattleRoyaleTable leagueId="{!v.leagueId}" aura:id="leagueTable"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.settings.playerId}" height="600px"/>
+            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.settings.playerId}" height="600px" teamMatches="{!v.matches}"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
             <c:BL_CompetitionFeed competitionId="{!v.leagueId}" aura:id="feed"/>
