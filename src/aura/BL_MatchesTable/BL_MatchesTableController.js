@@ -74,21 +74,32 @@
         scoreModal.hide();
     },
 
+    onAllMatchesChange: function(component, event, helper) {
+        let allMatches = component.get("v.allMatches");
+        component.set("v.matches", allMatches);
+    },
+
     onHandleTeamSelectedEvent: function(component, event, helper) {
+        component.set("v.isSpinner", true);
+
         let selectedTeamId = event.getParam("teamId");
+        let selectedTeamName = event.getParam("teamName");
         let currentlySelectedTeamId = component.get("v.selectedTeamId");
-        let matches = component.get("v.matches");
-        let teamMatches = [];
+        let allMatches = component.get("v.allMatches");
+        let matches = [];
 
         if(!currentlySelectedTeamId || selectedTeamId !== currentlySelectedTeamId) {
-            teamMatches = helper.getMatchesForTeam(matches, selectedTeamId);
+            matches = helper.getMatchesForTeam(allMatches, selectedTeamId);
             currentlySelectedTeamId = selectedTeamId;
         } else {
-            Array.prototype.push.apply(teamMatches, matches);
+            Array.prototype.push.apply(matches, allMatches);
             currentlySelectedTeamId = null;
+            selectedTeamName = null;
         }
 
-        component.set("v.teamMatches", teamMatches);
+        component.set("v.matches", matches);
         component.set("v.selectedTeamId", currentlySelectedTeamId);
+        component.set("v.selectedTeamName", selectedTeamName);
+        component.set("v.isSpinner", false);
     }
 });

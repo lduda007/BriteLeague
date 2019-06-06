@@ -19,10 +19,10 @@
                 utils.goToRecord(row.teamId);
                 break;
             case 'selectTeam':
-                let teamId = row.teamId;
                 let teamSelectedEvent = $A.get("e.c:BL_TeamSelectedEvent");
                 teamSelectedEvent.setParams({
-                    teamId : teamId
+                    teamId: row.teamId,
+                    teamName: row.name
                 });
                 teamSelectedEvent.fire();
                 break;
