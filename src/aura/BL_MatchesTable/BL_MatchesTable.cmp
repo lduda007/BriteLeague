@@ -24,9 +24,20 @@
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
     <aura:handler event="c:BL_TeamSelectedEvent" action="{!c.onHandleTeamSelectedEvent}"/>
 
-    <c:BL_Card title="{!v.title + ' ' + v.selectedTeamName}">
+    <c:BL_Card title="{!v.title}">
         <aura:if isTrue="{!v.isSpinner}">
-            <lightning:spinner size="small" variant="brand"/>
+            <div style="{!'height: ' + v.height}">
+                <lightning:spinner size="small" variant="brand" class="my-spinner"/>
+                <div class="slds-align--absolute-center" style="height: 100%">
+                    <span class="spinner-text">
+                        I'm loading
+                        <span class="slds-text-title_bold">
+                            {!empty(v.selectedTeamId) ? 'All' : v.selectedTeamName}
+                        </span>
+                        matches
+                    </span>
+                </div>
+            </div>
         </aura:if>
         <aura:if isTrue="{!not(v.isSpinner)}">
             <div class="slds-scrollable--y" style="{!'height: ' + v.height}">
@@ -34,6 +45,11 @@
                     <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout">
                         <thead>
                         <tr class="slds-text-title_caps">
+                            <aura:if isTrue="{!v.showRoundsColumn}">
+                                <th class="slds-text-title--caps" scope="col">
+                                    <span title="Round">R</span>
+                                </th>
+                            </aura:if>
                             <aura:if isTrue="{!v.teamSize == 'Single Player'}">
                                 <th scope="col">
                                     <div class="slds-truncate slds-text-align--right" title="{!$Label.c.BL_Player+' 1'}">{!$Label.c.BL_Player+' 1'}</div>
@@ -62,16 +78,33 @@
                                     <div class="slds-truncate" title="Competition Name">Competition</div>
                                 </th>
                             </aura:if>
-                            <aura:if isTrue="{!v.showRoundsColumn}">
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Round">Round</div>
-                                </th>
-                            </aura:if>
                         </tr>
                         </thead>
                         <tbody>
                         <aura:iteration items="{!v.matches}" var="match" indexVar="index">
                             <tr>
+                                <aura:if isTrue="{!v.showRoundsColumn}">
+                                    <aura:if isTrue="{!equals(match.League__r.RecordType.DeveloperName, 'Cup')}">
+                                        <td scope="row" data-label="Round">
+                                            <aura:if isTrue="{!greaterthan(match.CupStage__c,1)}">
+                                                <div class="slds-truncate" title="{!'1/'+match.CupStage__c}">{!'1/'+match.CupStage__c}</div>
+                                                <aura:set attribute="else">
+                                                    <aura:if isTrue="{!match.CupStage__c == 1}">
+                                                        <div class="slds-truncate" title="Final">Final</div>
+                                                        <aura:set attribute="else">
+                                                            <div class="slds-truncate" title="3rd Place">3rd Place</div>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </aura:set>
+                                            </aura:if>
+                                        </td>
+                                        <aura:set attribute="else">
+                                            <td scope="row" data-label="Round">
+                                                <span class="slds-truncate" title="{!match.Round__c}">{!match.Round__c}</span>
+                                            </td>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:if>
                                 <td scope="row" data-label="{!$Label.c.BL_Team_1}">
                                     <div class="slds-truncate slds-text-align--right" title="{!match.Team1__r.Team__r.Name}">
                                         <aura:if isTrue="{!match.Team1__r.Team__r.Name != null}">
@@ -169,28 +202,6 @@
                                     <td scope="row" data-label="Competition Name">
                                         <div class="slds-truncate" title="{!match.League__r.Name}"><a data-recordId="{!match.League__c}" onclick="{!c.goToLeaguePage}">{!match.League__r.Name}</a></div>
                                     </td>
-                                </aura:if>
-                                <aura:if isTrue="{!v.showRoundsColumn}">
-                                    <aura:if isTrue="{!equals(match.League__r.RecordType.DeveloperName, 'Cup')}">
-                                        <td scope="row" data-label="Round">
-                                            <aura:if isTrue="{!greaterthan(match.CupStage__c,1)}">
-                                                <div class="slds-truncate" title="{!'1/'+match.CupStage__c}">{!'1/'+match.CupStage__c}</div>
-                                                <aura:set attribute="else">
-                                                    <aura:if isTrue="{!match.CupStage__c == 1}">
-                                                        <div class="slds-truncate" title="Final">Final</div>
-                                                        <aura:set attribute="else">
-                                                            <div class="slds-truncate" title="3rd Place">3rd Place</div>
-                                                        </aura:set>
-                                                    </aura:if>
-                                                </aura:set>
-                                            </aura:if>
-                                        </td>
-                                        <aura:set attribute="else">
-                                            <td scope="row" data-label="Round">
-                                                <div class="slds-truncate" title="{!match.Round__c}">{!match.Round__c}</div>
-                                            </td>
-                                        </aura:set>
-                                    </aura:if>
                                 </aura:if>
                             </tr>
                         </aura:iteration>

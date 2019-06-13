@@ -83,7 +83,8 @@
                 typeAttributes: {
                     name: "selectTeam",
                     variant: "base",
-                    iconName: "utility:check"
+                    iconName: "utility:check",
+                    class: "button-icon-size-small"
                 },
                 initialWidth: "50"
             });

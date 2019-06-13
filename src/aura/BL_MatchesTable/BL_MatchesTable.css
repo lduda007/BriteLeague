@@ -13,3 +13,9 @@
 .THIS.slds-backdrop {
     margin-top: -16px;
 }
+
+.THIS .spinner-text {
+    position: absolute;
+    margin-top: 50px;
+    z-index: 10000;
+}

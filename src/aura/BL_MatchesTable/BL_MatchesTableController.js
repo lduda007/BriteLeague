@@ -100,6 +100,12 @@
         component.set("v.matches", matches);
         component.set("v.selectedTeamId", currentlySelectedTeamId);
         component.set("v.selectedTeamName", selectedTeamName);
-        component.set("v.isSpinner", false);
+
+        window.setTimeout(
+            $A.getCallback(function() {
+                component.set("v.isSpinner", false);
+            }),
+            2000
+        );
     }
 });

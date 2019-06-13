@@ -32,3 +32,13 @@
 .THIS .text-bold {
     font-weight: bold;
 }
+
+.THIS .button-icon-size-small button {
+    width: 1rem;
+    height: 1rem;
+}
+
+.THIS .button-icon-size-small svg {
+    width: 0.5rem;
+    height: 0.5rem;
+}
