@@ -118,9 +118,6 @@
         <members>BL_Match__c.Team2_Score__c</members>
         <members>BL_Match__c.Team2__c</members>
         <members>BL_Match__c.Winner__c</members>
-        <members>BL_Statistic__c.Lost__c</members>
-        <members>BL_Statistic__c.Team__c</members>
-        <members>BL_Statistic__c.Won__c</members>
         <members>BL_Team__c.IsActive__c</members>
         <members>BL_Team__c.Player1__c</members>
         <members>BL_Team__c.Player2__c</members>
@@ -132,7 +129,6 @@
         <members>BL_Competitor__c</members>
         <members>BL_League__c</members>
         <members>BL_Match__c</members>
-        <members>BL_Statistic__c</members>
         <members>BL_Team__c</members>
         <members>Contact</members>
         <members>BL_BriteLeagueUrls__c</members>
@@ -145,7 +141,6 @@
         <members>BL_Competitor__c-en_US</members>
         <members>BL_League__c-en_US</members>
         <members>BL_Match__c-en_US</members>
-        <members>BL_Statistic__c-en_US</members>
         <members>BL_Team__c-en_US</members>
         <name>CustomObjectTranslation</name>
     </types>

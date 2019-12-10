@@ -73,9 +73,6 @@ public with sharing class BL_PlayerTeamsListController {
                 if (isConfirmed == true){
                     team.IsActive__c = true;
                     update team;
-
-                    BL_Statistic__c stats = new BL_Statistic__c(Team__c = team.Id);
-                    insert stats;
                 } else {
                     BL_Utils.UnsecureClass unsecureClass = new BL_Utils.UnsecureClass();
                     unsecureClass.deleteNotOwnedRecord(team);
