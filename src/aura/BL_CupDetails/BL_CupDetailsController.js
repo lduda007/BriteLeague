@@ -42,9 +42,5 @@
     },
     handleCompetitorLeftCompetition : function(component, event, helper) {
         helper.loadCupDetails(component);
-    },
-    handleCannotJoinLeague : function(component, event, helper) {
-        helper.loadCupDetails(component);
-        helper.closeJoinToCompetitionModal(component);
-    },
+    }
 })

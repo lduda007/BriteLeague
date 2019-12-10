@@ -6,7 +6,6 @@
     <aura:attribute name="playerId" type="String"/>
     <aura:attribute name="isCurrentUserAlreadyInCompetition" type="Boolean" default="true"/>
     <aura:registerEvent name="BL_CompetitorCreated" type="c:BL_CompetitorCreated"/>
-    <aura:registerEvent name="BL_CannotJoinLeague" type="c:BL_CannotJoinLeague"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 

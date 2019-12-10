@@ -29,8 +29,6 @@
                     message : response.getError()[0].message
                 });
                 showToast.fire();
-                let evt = component.getEvent('BL_CannotJoinLeague');
-                evt.fire();
             }
         });
         $A.enqueueAction(action);
