@@ -5,7 +5,6 @@
             var state = response.getState();
             if(state === 'SUCCESS' || state === 'DRAFT') {
                 component.set('v.teamsList', response.getReturnValue());
-                console.log('teams: '+JSON.stringify(component.get('v.teamsList')));
             } else if(state === 'ERROR') {
                 var showToast = $A.get("e.force:showToast");
                 showToast.setParams({
