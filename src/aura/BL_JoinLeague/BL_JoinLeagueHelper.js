@@ -41,13 +41,11 @@
             } else if(state === 'ERROR') {
                 let showToast = $A.get("e.force:showToast");
                 showToast.setParams({
-                    title: 'Error.',
+                    title: 'Error',
                     type: 'error',
                     message: response.getError()[0].message
                 });
                 showToast.fire();
-                let evt = component.getEvent('BL_CannotJoinLeague');
-                evt.fire();
             }
         });
         $A.enqueueAction(action);

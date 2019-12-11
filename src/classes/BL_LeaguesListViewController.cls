@@ -3,26 +3,34 @@ public with sharing class BL_LeaguesListViewController {
     public static void insertCompetitor(BL_Competitor__c competitor) {
         List<BL_Competitor__c> competitorsToInsert = new List<BL_Competitor__c>();
 
-        if(checkLeagueCompetitors(competitor.League__c, competitor.Team__c)) {
-            competitorsToInsert.add(competitor);
+        try {
+            if(checkLeagueCompetitors(competitor.League__c, competitor.Team__c)) {
+                competitorsToInsert.add(competitor);
 
-            BL_DAO_Team daoTeam = new BL_DAO_Team();
-            BL_Team__c team = daoTeam.getTeamById(competitor.Team__c);
+                BL_DAO_Team daoTeam = new BL_DAO_Team();
+                BL_Team__c team = daoTeam.getTeamById(competitor.Team__c);
 
-            if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
-                for(BL_Team__c subTeam : daoTeam.getTeamsByParentTeamId(competitor.Team__c)) {
-                    BL_Competitor__c subCompetitor = new BL_Competitor__c(
-                            Team__c = subTeam.Id,
-                            League__c = competitor.League__c
-                    );
+                if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
+                    for(BL_Team__c subTeam : daoTeam.getTeamsByParentTeamId(competitor.Team__c)) {
+                        BL_Competitor__c subCompetitor = new BL_Competitor__c(
+                                Team__c = subTeam.Id,
+                                League__c = competitor.League__c
+                        );
 
-                    competitorsToInsert.add(subCompetitor);
+                        competitorsToInsert.add(subCompetitor);
+                    }
                 }
-            }
 
-            insert competitorsToInsert;
-        } else {
-            throw new AuraHandledException(Label.BL_League_Full);
+                insert competitorsToInsert;
+            } else {
+                throw new AuraHandledException(Label.BL_League_Full);
+            }
+        } catch (Exception ex) {
+            if (ex instanceof AuraHandledException) {
+                throw ex;
+            } else {
+                BL_Utils.throwAuraHandledException(ex.getMessage());
+            }
         }
     }
 

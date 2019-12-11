@@ -12,7 +12,6 @@
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.onScoreSubmitted}"/>
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.handleCompetitorCreated}"/>
     <aura:handler name="BL_CompetitorLeftCompetition" event="c:BL_CompetitorLeftCompetition" action="{!c.handleCompetitorLeftCompetition}"/>
-    <aura:handler name="BL_CannotJoinLeague" event="c:BL_CannotJoinLeague" action="{!c.handleCannotJoinLeague}"/>
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
 
     <aura:if isTrue="{!v.showSpinner}">
@@ -263,5 +262,6 @@
     </div>
 
     <div class="slds-backdrop" aura:id="backdrop"></div>
+    <c:BL_Utils aura:id="utils" />
 
 </aura:component>
