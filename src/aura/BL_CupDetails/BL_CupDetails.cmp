@@ -11,64 +11,6 @@
     <aura:handler name="BL_CompetitorLeftCompetition" event="c:BL_CompetitorLeftCompetition" action="{!c.handleCompetitorLeftCompetition}"/>
 
     <lightning:layout multipleRows="true">
-
-        <lightning:layoutItem size="12" class="slds-p-around--x-small">
-
-            <lightning:card iconName="utility:activity" title="{!$Label.c.BL_Cup+': '+v.cup.Name}" variant="narrow">
-                <aura:set attribute="actions">
-                    <aura:if isTrue="{!and(and(v.user.Id == v.cup.OwnerId, v.cup.Status__c == 'Assembling teams'), v.cup.Max_Teams__c == v.cup.Teams_Joined__c)}">
-                        <lightning:button onclick="{!c.startCupNowAction}" variant="brand" label="{!$Label.c.BL_Start_now}"></lightning:button>
-                    </aura:if>
-                    <aura:if isTrue="{!and(v.cup.TeamSize__c == 'Two Players Team',and(and(!v.isCurrentUserAlreadyInCompetition, v.cup.Status__c == 'Assembling teams'), lessthan(v.cup.Teams_Joined__c, v.cup.Max_Teams__c)))}">
-                        <lightning:button onclick="{!c.openJoinToCompetitionModal}" variant="brand" label="Join"></lightning:button>
-                    </aura:if>
-                    <aura:if isTrue="{!and(v.cup.TeamSize__c == 'Single Player',and(and(!v.isCurrentUserAlreadyInCompetition, v.cup.Status__c == 'Assembling teams'), lessthan(v.cup.Teams_Joined__c, v.cup.Max_Teams__c)))}">
-                        <c:BL_JoinSinglePlayerCompetition competitionId="{!v.cupId}" playerId="{!v.user.ContactId}"/>
-                    </aura:if>
-                    <aura:if isTrue="{!and(v.isCurrentUserAlreadyInCompetition, v.cup.Status__c == 'Assembling teams')}">
-                        <c:BL_LeaveCompetition aura:id="leaveCompetitionComponent" playerId="{!v.user.ContactId}" competitionId="{!v.cupId}"/>
-                    </aura:if>
-                </aura:set>
-
-                <div style="text-align: center">
-                    <lightning:layout multipleRows="true" verticalAlign="center" class="slds-grid_align-spread">
-
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Start_Date}: </p>
-                            <ui:outputText value="{!v.cup.Start_Date__c}" title="{!$Label.c.BL_Start_Date}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_End_Date}: </p>
-                            <ui:outputText value="{!v.cup.End_Date__c}" title="{!$Label.c.BL_End_Date}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Teams_number}: </p>
-                            <ui:outputText value="{!v.cup.Max_Teams__c}" title="{!$Label.c.BL_Teams_number}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Already_joined}: </p>
-                            <ui:outputText value="{!v.cup.Teams_Joined__c}" title="{!$Label.c.BL_Already_joined}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Status}: </p>
-                            <ui:outputText value="{!v.cup.Status__c}" title="{!v.league.Status__c}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">{!$Label.c.BL_Owner}: </p>
-                            <ui:outputText value="{!v.cup.CreatedBy.Name}" title="{!$Label.c.BL_Owner}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="2" class="slds-p-around--medium">
-                            <p class="slds-text-body_small slds-text-color_weak">Type:</p>
-                            <ui:outputText value="{!v.cup.TeamSize__c}" title="{!v.cup.TeamSize__c}" class="slds-text-heading--small"/>
-                        </lightning:layoutItem>
-
-                    </lightning:layout>
-                </div>
-
-            </lightning:card>
-
-        </lightning:layoutItem>
-
         <lightning:layoutItem size="12" class="slds-p-around--x-small">
             <aura:if isTrue="{!v.cup.Status__c != 'Assembling teams'}">
 

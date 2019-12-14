@@ -4,7 +4,7 @@
 
         let action = component.get("c.getInitDataWrapper");
         action.setParams({
-            "competitionId": component.get("v.competitionId")
+            "competitionId": component.get("v.recordId")
         });
         action.setCallback(this, function(response) {
             this.hideSpinner(component);

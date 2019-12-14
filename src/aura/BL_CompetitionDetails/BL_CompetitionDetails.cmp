@@ -1,9 +1,10 @@
 <aura:component
-        description="BL_BattleRoyaleDetails"
-        controller="BL_BattleRoyaleDetailsController"
+        description="BL_CompetitionDetails"
+        controller="BL_CompetitionDetailsController"
+        implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+        access="global"
 >
 
-    <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="league" type="Object"/>
     <aura:attribute name="settings" type="Object"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
@@ -38,7 +39,7 @@
                 </aura:if>
                 <aura:if isTrue="{!and(v.settings.isLeagueCompetitor, and(equals(v.league.Status__c, 'Assembling teams'), v.settings.isCaptainOfBattleRoyaleTeam))}">
                     <c:BL_LeaveCompetition
-                            competitionId="{!v.leagueId}"
+                            competitionId="{!v.recordId}"
                             playerId="{!v.settings.playerId}"
                             aura:id="leaveCompetitionComponent"
                     />
@@ -87,7 +88,7 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
                         <c:BL_Image
-                                parentId="{!v.leagueId}"
+                                parentId="{!v.recordId}"
                                 fileName="league-logo"
                                 width="200px"
                                 height="160px"
@@ -137,6 +138,6 @@
             aura:id="joinLeague"
             visible="false"
     >
-        <c:BL_JoinLeague leagueId="{!v.leagueId}"/>
+        <c:BL_JoinLeague leagueId="{!v.recordId}"/>
     </c:BL_Modal>
 </aura:component>

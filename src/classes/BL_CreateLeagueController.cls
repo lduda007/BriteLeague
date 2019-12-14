@@ -84,13 +84,13 @@ public without sharing class BL_CreateLeagueController {
 
     public class LeagueWrapper {
         @AuraEnabled
-        public String recordType;//
+        public String recordType;
         @AuraEnabled
-        public String teamSize;//
+        public String teamSize;
         @AuraEnabled
-        public String name;//
+        public String name;
         @AuraEnabled
-        public Datetime startDate;
+        public Datetime startDate = Datetime.now();
         @AuraEnabled
         public Datetime endDate;
         @AuraEnabled

@@ -42,6 +42,7 @@
         <members>BL_MatchScoreServiceTest</members>
         <members>BL_MatchScoreProviderControllerTest</members>
         <members>BL_MatchDetailsController</members>
+        <members>BL_CompetitionDetailsController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -68,8 +69,6 @@
         <members>BL_TeamRecordDetail</members>
         <members>BL_ProgressDoughnutChart</members>
         <members>BL_CompetitionStatusChart</members>
-        <members>BL_LeaguesListView</members>
-        <members>BL_MyLeaguesList</members>
         <members>BL_OpenCompetitionsTable</members>
         <members>BL_CompetitionFeed</members>
         <members>BL_FeedItem</members>
@@ -78,7 +77,6 @@
         <members>BL_NextMatchesTable</members>
         <members>BL_MatchDetailsViewer</members>
         <members>BL_MatchScoreProvider</members>
-        <members>BL_BattleRoyaleDetails</members>
         <members>BL_Image</members>
         <members>BL_LeagueDetails</members>
         <members>BL_TeamMembersList</members>
@@ -95,6 +93,7 @@
         <members>BL_BattleRoyaleTeamItem</members>
         <members>BL_MatchDetails</members>
         <members>BL_TeamSelectedEvent</members>
+        <members>BL_CompetitionDetails</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

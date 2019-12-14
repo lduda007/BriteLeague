@@ -1,7 +1,11 @@
-<aura:component description="BL_CompetitionStatusChart"
-                controller="BL_CompetitionStatusChartController">
+<aura:component
+        description="BL_CompetitionStatusChart"
+        controller="BL_CompetitionStatusChartController"
+        implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+        access="global"
+>
 
-    <aura:attribute name="competitionId" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="initDataWrapper" type="Object"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
     <aura:attribute name="isCompetitionStarted" type="Boolean" default="false"/>

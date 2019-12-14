@@ -11,19 +11,10 @@
 
     <lightning:layout multipleRows="true" verticalAlign="start">
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
-            <c:BL_BattleRoyaleDetails leagueId="{!v.leagueId}"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-            <c:BL_CompetitionStatusChart competitionId="{!v.leagueId}"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
             <c:BL_BattleRoyaleTable leagueId="{!v.leagueId}" aura:id="leagueTable"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
             <c:BL_MatchesTable playerId="{!v.settings.playerId}" height="600px" allMatches="{!v.matches}"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-            <c:BL_CompetitionFeed competitionId="{!v.leagueId}" aura:id="feed"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
             <c:BL_CompetitionProgressChart leagueId="{!v.leagueId}"/>
