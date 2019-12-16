@@ -55,7 +55,7 @@
                     console.error(e);
                 }
             } else if(state === 'ERROR') {
-                console.log('ERROR: ' + response.getError()[0].message);
+                console.error('ERROR: ' + response.getError()[0].message);
             }
         });
 

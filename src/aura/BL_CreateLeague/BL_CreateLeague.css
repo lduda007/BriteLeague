@@ -9,11 +9,11 @@
 
 .THIS .slds-radio_button [type=radio]:checked + label,
 .THIS .slds-radio_button [type=radio]:checked + label:hover {
-    background-color: #3F51B5 !important;
+    background-color: #0099de !important;
     font-weight: bold;
 }
 
 .THIS .slds-radio_button [type=radio] + label:hover {
-    background-color: #00BCD4 !important;
+    background-color: #135F90 !important;
     color: #FFFFFF;
 }

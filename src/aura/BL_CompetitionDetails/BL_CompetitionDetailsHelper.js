@@ -4,7 +4,7 @@
 
         let action = component.get("c.getDataWrapper");
         action.setParams({
-            "leagueId": component.get("v.leagueId")
+            "leagueId": component.get("v.recordId")
         });
         action.setCallback(this, function(response) {
             let state = response.getState();
@@ -28,7 +28,7 @@
 
         let action = component.get("c.startLeague");
         action.setParams({
-            "leagueId": component.get("v.leagueId")
+            "leagueId": component.get("v.recordId")
         });
         action.setCallback(this, function(response) {
             let state = response.getState();

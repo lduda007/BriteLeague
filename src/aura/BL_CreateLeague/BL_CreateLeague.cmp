@@ -1,4 +1,8 @@
-<aura:component description="BL_CreateLeague" controller="BL_CreateLeagueController">
+<aura:component
+        description="BL_CreateLeague"
+        controller="BL_CreateLeagueController"
+        implements="force:lightningQuickActionWithoutHeader,forceCommunity:availableForAllPageTypes"
+>
 
     <aura:attribute name="initDataWrapper" type="Object" access="private"/>
     <aura:attribute name="newLeagueWrapper" type="Object" default="{}" access="private"/>
@@ -8,129 +12,132 @@
 
     <aura:registerEvent name="competitionCreated" type="c:BL_CompetitionCreatedEvent"/>
 
-    <aura:if isTrue="{!not(empty(v.initDataWrapper))}">
-        <div class="slds-align_absolute-center">
-            <lightning:layout multipleRows="true" class="new-league-form">
-                <lightning:layoutItem
-                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                        class="slds-p-around--x-small"
-                >
-                    <lightning:radioGroup
-                            label="Type"
-                            options="{!v.initDataWrapper.leagueRecordTypeOptions}"
-                            value="{!v.newLeagueWrapper.recordType}"
-                            type="button"
-                            onchange="{!c.onLeagueRecordTypeChange}"
-                            required="true"
-                            aura:id="newLeagueForm"
-                    />
-                </lightning:layoutItem>
-                <lightning:layoutItem
-                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                        class="slds-p-around--x-small"
-                >
-                    <lightning:radioGroup
-                            label="Team size"
-                            options="{!v.initDataWrapper.leagueTeamSizeOptions}"
-                            value="{!v.newLeagueWrapper.teamSize}"
-                            type="button"
-                            required="true"
-                            aura:id="newLeagueForm"
-                    />
-                </lightning:layoutItem>
-                <lightning:layoutItem size="12" class="slds-p-around--x-small">
-                    <lightning:input
-                            label="Name"
-                            value="{!v.newLeagueWrapper.name}"
-                            pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
-                            maxlength="40"
-                            required="true"
-                            messageWhenPatternMismatch="Only letters and numbers allowed"
-                            aura:id="newLeagueForm"
-                    />
-                </lightning:layoutItem>
-                <lightning:layoutItem
-                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                        class="slds-p-around--x-small">
-                    <lightning:input
-                            label="Start Date"
-                            value="{!v.newLeagueWrapper.startDate}"
-                            type="datetime"
-                            required="true"
-                            min="{!v.currentDate}"
-                            aura:id="newLeagueForm"
-                    />
-                </lightning:layoutItem>
-                <lightning:layoutItem
-                        size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                        class="slds-p-around--x-small"
-                >
-                    <lightning:input
-                            label="End Date"
-                            value="{!v.newLeagueWrapper.endDate}"
-                            type="datetime"
-                            required="true"
-                            min="{!v.newLeagueWrapper.startDate}"
-                            disabled="{!empty(v.newLeagueWrapper.startDate)}"
-                            aura:id="newLeagueForm"
-                    />
-                </lightning:layoutItem>
-                <aura:if isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
+    <lightning:card title="New League">
+        <aura:if isTrue="{!not(empty(v.initDataWrapper))}">
+            <div class="slds-align_absolute-center">
+                <lightning:layout multipleRows="true" class="new-league-form">
                     <lightning:layoutItem
-                            size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                            size="12"
                             class="slds-p-around--x-small"
                     >
-                        <lightning:input
-                                label="Teams limit (2-40)"
-                                value="{!v.newLeagueWrapper.teamsLimit}"
-                                type="number"
-                                min="2"
-                                max="40"
+                        <lightning:radioGroup
+                                label="Type"
+                                options="{!v.initDataWrapper.leagueRecordTypeOptions}"
+                                value="{!v.newLeagueWrapper.recordType}"
+                                type="button"
+                                onchange="{!c.onLeagueRecordTypeChange}"
                                 required="true"
                                 aura:id="newLeagueForm"
                         />
                     </lightning:layoutItem>
-                </aura:if>
-                <aura:if isTrue="{!equals(v.newLeagueWrapper.recordType, 'Cup')}">
                     <lightning:layoutItem
-                            size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
+                            size="12"
                             class="slds-p-around--x-small"
                     >
-                        <lightning:select
-                                label="Teams"
-                                value="{!v.newLeagueWrapper.teamsLimit}"
+                        <lightning:radioGroup
+                                label="Team size"
+                                options="{!v.initDataWrapper.leagueTeamSizeOptions}"
+                                value="{!v.newLeagueWrapper.teamSize}"
+                                type="button"
                                 required="true"
                                 aura:id="newLeagueForm"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" class="slds-p-around--x-small">
+                        <lightning:input
+                                label="Name"
+                                value="{!v.newLeagueWrapper.name}"
+                                pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
+                                maxlength="40"
+                                required="true"
+                                messageWhenPatternMismatch="Only letters and numbers allowed"
+                                aura:id="newLeagueForm"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem
+                            size="12"
+                            class="slds-p-around--x-small">
+                        <lightning:input
+                                label="Start Date"
+                                value="{!v.newLeagueWrapper.startDate}"
+                                type="datetime"
+                                required="true"
+                                min="{!v.currentDate}"
+                                aura:id="newLeagueForm"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem
+                            size="12"
+                            class="slds-p-around--x-small"
+                    >
+                        <lightning:input
+                                label="End Date"
+                                value="{!v.newLeagueWrapper.endDate}"
+                                type="datetime"
+                                required="true"
+                                min="{!v.newLeagueWrapper.startDate}"
+                                aura:id="newLeagueForm"
+                        />
+                    </lightning:layoutItem>
+                    <aura:if
+                            isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
+                        <lightning:layoutItem
+                                size="12"
+                                class="slds-p-around--x-small"
                         >
-                            <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamsLimit">
-                                <option label="{!cupTeamsLimit}" value="{!cupTeamsLimit}"></option>
-                            </aura:iteration>
-                        </lightning:select>
-                    </lightning:layoutItem>
-                </aura:if>
-                <aura:if isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
-                    <lightning:layoutItem
-                            size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6"
-                            class="slds-p-around--x-small"
-                    >
-                        <lightning:input
-                                label="Rounds"
-                                value="{!v.newLeagueWrapper.rounds}"
-                                type="number"
-                                min="1"
-                                max="40"
-                                required="true"
-                                aura:id="newLeagueForm"
+                            <lightning:input
+                                    label="Teams limit (2-40)"
+                                    value="{!v.newLeagueWrapper.teamsLimit}"
+                                    type="number"
+                                    min="2"
+                                    max="40"
+                                    required="true"
+                                    aura:id="newLeagueForm"
+                            />
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <aura:if isTrue="{!equals(v.newLeagueWrapper.recordType, 'Cup')}">
+                        <lightning:layoutItem
+                                size="12"
+                                class="slds-p-around--x-small"
+                        >
+                            <lightning:select
+                                    label="Teams"
+                                    value="{!v.newLeagueWrapper.teamsLimit}"
+                                    required="true"
+                                    aura:id="newLeagueForm"
+                            >
+                                <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamsLimit">
+                                    <option label="{!cupTeamsLimit}" value="{!cupTeamsLimit}"></option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <aura:if
+                            isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
+                        <lightning:layoutItem
+                                size="12"
+                                class="slds-p-around--x-small"
+                        >
+                            <lightning:input
+                                    label="Rounds"
+                                    value="{!v.newLeagueWrapper.rounds}"
+                                    type="number"
+                                    min="1"
+                                    max="40"
+                                    required="true"
+                                    aura:id="newLeagueForm"
+                            />
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <lightning:layoutItem size="12" class="slds-p-around--x-small slds-align--absolute-center">
+                        <lightning:button label="Create"
+                                          variant="brand"
+                                          onclick="{!c.onSave}"
                         />
                     </lightning:layoutItem>
-                </aura:if>
-                <lightning:layoutItem size="12" class="slds-p-around--x-small slds-align--absolute-center">
-                    <lightning:button label="Create"
-                                      variant="brand"
-                                      onclick="{!c.onSave}"
-                    />
-                </lightning:layoutItem>
-            </lightning:layout>
-        </div>
-    </aura:if>
+                </lightning:layout>
+            </div>
+        </aura:if>
+    </lightning:card>
 </aura:component>
