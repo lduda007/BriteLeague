@@ -30,37 +30,6 @@
         $A.enqueueAction(action);
     },
 
-    loadLeagueMatches : function(component, competitorId) {
-        let action = component.get('c.loadLeagueMatches');
-        let leagueId = component.get("v.leagueId");
-        action.setParams({
-            leagueId: leagueId,
-            competitorId: competitorId
-        })
-
-        action.setCallback(this, function(response){
-            let state = response.getState();
-            if (state === "SUCCESS")
-            {
-                let matches = response.getReturnValue();
-                component.set("v.matches", matches);
-            }else{
-                let resultsToast = $A.get("e.force:showToast");
-                if ($A.util.isUndefined(resultsToast)){
-                    alert($A.get("$Label.c.BL_Error_when_loading_league_matches"));
-                }else{
-                    resultsToast.setParams({
-                        "type": "error",
-                        "title": $A.get("$Label.c.BL_Error"),
-                        "message": $A.get("$Label.c.BL_Error_when_loading_league_matches")
-                    });
-                    resultsToast.fire();
-                }
-            }
-        });
-        $A.enqueueAction(action);
-    },
-
     removeHighlightFromAllRows: function(component) {
         let rows = component.find("competitorRow")
         for(var ii=0; ii< rows.length; ii++){

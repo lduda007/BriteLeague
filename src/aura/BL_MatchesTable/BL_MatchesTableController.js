@@ -1,4 +1,9 @@
 ({
+    onInit : function(component, event, helper) {
+        helper.loadLeagueMatches(component, null);
+        helper.getCurrentUser(component);
+    },
+
     goToTeamPage: function(component, event, helper) {
         let recordId = event.currentTarget.dataset.recordid;
         var navEvt = $A.get("e.force:navigateToSObject");

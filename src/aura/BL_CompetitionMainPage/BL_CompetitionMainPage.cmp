@@ -1,4 +1,9 @@
-<aura:component description="BL_CompetitionMainPage"  implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+<aura:component
+        description="BL_CompetitionMainPage"
+        implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+        access="global"
+>
+
     <aura:attribute name="competitionType" type="String"/>
     <aura:attribute name="competition" type="BL_League__c"/>
     <aura:attribute name="competitionFields" type="BL_League__c"/>
@@ -20,6 +25,6 @@
         <c:BL_CupDetails cupId="{!v.recordId}"/>
     </aura:if>
     <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'Battle_Royale')}">
-        <c:BL_BattleRoyalePage leagueId="{!v.recordId}"/>
+        <c:BL_BattleRoyaleTable leagueId="{!v.recordId}" aura:id="leagueTable"/>
     </aura:if>
 </aura:component>

@@ -18,9 +18,8 @@
         <lightning:spinner size="small" variant="brand"/>
     </aura:if>
     <aura:if isTrue="{!not(v.showSpinner)}">
-        <lightning:layout multipleRows="true" verticalAlign="start">
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
-            <c:BL_Card title="{!$Label.c.BL_League_Table}">
+        <c:BL_Card title="{!$Label.c.BL_League_Table}">
+            <div class="slds-scrollable--y" style="height: 300px">
                 <aura:if isTrue="{!v.league.Competitors__r.length > 0}">
                     <table class="slds-table slds-box_border slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
                         <thead>
@@ -155,18 +154,11 @@
                         </div>
                     </aura:set>
                 </aura:if>
-            </c:BL_Card>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}" teamSize="{!v.league.TeamSize__c}"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around--x-small">
-            <c:BL_CompetitionFeed competitionId="{!v.leagueId}"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="8" class="slds-p-around--x-small">
-            <c:BL_CompetitionProgressChart leagueId="{!v.leagueId}"/>
-        </lightning:layoutItem>
-    </lightning:layout>
+            </div>
+        </c:BL_Card>
+<!--        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-p-around&#45;&#45;x-small">-->
+<!--            <c:BL_MatchesTable matches="{!v.matches}" playerId="{!v.user.ContactId}" teamSize="{!v.league.TeamSize__c}"/>-->
+<!--        </lightning:layoutItem>-->
     </aura:if>
 
     <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="joinToCompetitionModal">

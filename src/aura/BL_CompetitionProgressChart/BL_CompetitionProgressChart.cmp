@@ -1,8 +1,7 @@
 <aura:component description="BL_CompetitionProgressChart"
                 controller="BL_CompetitionProgressChartController"
-                implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+                implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
 
-    <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="height" type="String" default="300px"/>
     <aura:attribute name="labels" type="List"/>
     <aura:attribute name="dataSets" type="List"/>

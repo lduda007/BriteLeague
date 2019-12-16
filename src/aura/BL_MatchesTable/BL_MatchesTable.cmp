@@ -1,6 +1,9 @@
-<aura:component description="BL_MatchesTable" controller="BL_BattleRoyaleDetailsController">
+<aura:component
+        description="BL_MatchesTable"
+        controller="BL_MatchesTableController"
+        implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+>
 
-    <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="height" type="String" default="300px"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.BL_Matches}"/>
     <aura:attribute name="selectedTeamId" type="String"/>
@@ -19,6 +22,7 @@
     <aura:attribute name="showPlayersAvatars" type="Boolean" default="false"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="scoreSaved" event="c:BL_roundScoreSelected" action="{!c.handleScoreSelected}"/>
     <aura:handler name="change" value="{!v.allMatches}" action="{!c.onAllMatchesChange}"/>
     <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onSinglePlayerMatchScoreSaved}"/>
@@ -145,18 +149,35 @@
                                 </td>
                                 <td scope="row" data-label="{!$Label.c.BL_Result}" class="slds-align--absolute-center">
                                     <aura:if isTrue="{!or(match.Team1_Score__c == null, match.Team2_Score__c == null)}">
-                                        <aura:if isTrue="{!or(
-                                                or(match.Team1__r.Team__r.Name == null, match.Team2__r.Team__r.Name == null),
-                                                and(match.Team1__r.Team__r.Player1__c != v.playerId,
-                                                        and(match.Team1__r.Team__r.Player2__c != v.playerId,
-                                                                and(match.Team2__r.Team__r.Player1__c != v.playerId, match.Team2__r.Team__r.Player2__c != v.playerId))))}">
-                                            <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}">- : -</div>
+                                        <aura:if
+                                                isTrue="{!or(
+                                                        or(match.Team1__r.Team__r.Name == null, match.Team2__r.Team__r.Name == null),
+                                                        and(match.Team1__r.Team__r.Player1__c != v.playerId, and(match.Team1__r.Team__r.Player2__c != v.playerId, and(match.Team2__r.Team__r.Player1__c != v.playerId, match.Team2__r.Team__r.Player2__c != v.playerId)))
+                                                        )}"
+                                        >
+                                            <div
+                                                    class="slds-truncate slds-text-align--center score"
+                                                    title="{!$Label.c.BL_Result}">
+                                                - : -
+                                            </div>
                                             <aura:set attribute="else">
-                                                <lightning:button value="{!index}" label="{!$Label.c.BL_Set}" onclick="{!c.openScoreProviderModal}"/>
+                                                <lightning:button
+                                                        value="{!index}"
+                                                        label="{!$Label.c.BL_Set}"
+                                                        onclick="{!c.openScoreProviderModal}"
+                                                />
                                             </aura:set>
                                         </aura:if>
                                         <aura:set attribute="else">
-                                            <div class="slds-truncate slds-text-align--center score" title="{!$Label.c.BL_Result}" data-recordId="{!match.Id}" data-recordIndex="{!index}" data-recordTeamSize="{!match.League__r.TeamSize__c}" onclick="{!c.openScoreViewModal}">{!match.Team1_Score__c} : {!match.Team2_Score__c}</div>
+                                            <div
+                                                    class="slds-truncate slds-text-align--center score"
+                                                    title="{!$Label.c.BL_Result}"
+                                                    data-recordId="{!match.Id}"
+                                                    data-recordIndex="{!index}"
+                                                    data-recordTeamSize="{!match.League__r.TeamSize__c}"
+                                                    onclick="{!c.openScoreViewModal}">
+                                            {!match.Team1_Score__c} : {!match.Team2_Score__c}
+                                            </div>
                                         </aura:set>
                                     </aura:if>
                                 </td>

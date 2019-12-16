@@ -43,6 +43,7 @@
         <members>BL_MatchScoreProviderControllerTest</members>
         <members>BL_MatchDetailsController</members>
         <members>BL_CompetitionDetailsController</members>
+        <members>BL_MatchesTableController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -86,7 +87,6 @@
         <members>BL_ParentTeamsList</members>
         <members>BL_BattleRoyaleTable</members>
         <members>BattleRoyalePage</members>
-        <members>BL_BattleRoyalePage</members>
         <members>BL_Utils</members>
         <members>BL_JoinLeague</members>
         <members>BL_LeaveCompetition</members>
