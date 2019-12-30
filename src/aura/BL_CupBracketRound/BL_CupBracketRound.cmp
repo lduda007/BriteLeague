@@ -1,0 +1,37 @@
+<aura:component description="BL_CupBracketRound">
+    <aura:attribute name="matches" type="Object[]"/>
+    <aura:attribute name="matchesCoupled" type="Object[]"/>
+    <aura:attribute name="sectionClass" type="String"/>
+    <aura:attribute name="showConnectorSection" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <section class="{!v.sectionClass}">
+        <aura:iteration items="{!v.matchesCoupled}" var="matchup">
+            <div class="winners">
+                <div class="matchups">
+                    <aura:iteration items="{!matchup}" var="match" indexVar="matchIndex">
+                        <div class="matchup">
+                            <div class="participants">
+                                <c:BL_CupBracketParticipant participant="{!match.Team1__r.Team__r}"
+                                                            isWinner="{!greaterthan(match.Team1_Score__c, match.Team2_Score__c)}"
+                                                            score="{!match.Team1_Score__c}"/>
+
+                                <c:BL_CupBracketParticipant participant="{!match.Team2__r.Team__r}"
+                                                            isWinner="{!greaterthan(match.Team2_Score__c, match.Team1_Score__c)}"
+                                                            score="{!match.Team2_Score__c}"/>
+                            </div>
+                        </div>
+                    </aura:iteration>
+                </div>
+                <aura:if isTrue="{!v.showConnectorSection}">
+                    <div class="connector">
+                        <div class="merger"></div>
+                        <div class="line"></div>
+                    </div>
+                </aura:if>
+            </div>
+        </aura:iteration>
+    </section>
+
+</aura:component>

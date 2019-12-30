@@ -1,0 +1,75 @@
+.THIS {
+
+}
+
+.THIS .admin-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f2f2f2;
+    z-index: 3;
+    opacity: .6;
+    border: 1px solid #0C51A1;
+}
+
+.THIS .admin-icons {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 9004;
+}
+
+.THIS .admin-icon_container {
+    cursor: pointer;
+    background-color: #ca3838;
+    padding: .1rem;
+    margin: 0 .5rem;
+    border-radius: 50%;
+}
+
+.THIS .admin-icon_container.active {
+    background-color: #58c026;
+}
+
+.THIS .admin-icon_container:hover {
+    transform: scale(1.1);
+}
+
+.THIS .admin-icon {
+    padding: .4rem;
+    width: 45px;
+}
+
+.THIS .banner_container {
+    padding: .7rem;
+}
+
+.THIS .banner_container.banner-edit_container {
+    background-color: #ff6620;
+}
+
+.THIS .banner_container.banner-settings_container {
+    background-color: #0d51a2;
+}
+
+.THIS .banner-icon svg {
+    fill: #fff;
+}
+
+.THIS .admin-popover {
+    position: absolute;
+    top: -55px;
+    left: 7px;
+
+    background-color: #0d51a2;
+    border-radius: 0;
+    color: #fff;
+}
+
+.THIS .admin-popover .slds-popover {
+    border: none;
+    width: 180px;
+}

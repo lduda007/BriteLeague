@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>Competition - Cup</audienceName>
+    <container>briteleague</container>
+    <criteria>
+        <criterion>
+            <criterionValue>
+                <entityField>RecordTypeId</entityField>
+                <entityType>BL_League__c</entityType>
+                <fieldValue>BL_League__c.Cup</fieldValue>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>FieldBased</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+</Audience>

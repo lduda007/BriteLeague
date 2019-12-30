@@ -1,0 +1,22 @@
+<aura:component access="global">
+    <aura:attribute name="spinnerEnabled" type="Boolean" default="{!true}" description="Set true if overlay should display spinner, false otherwise"/>
+    <aura:attribute name="config" type="Object" access="private"/>
+    <aura:attribute name="visibilityConfig" type="Object" access="private"/>
+    <aura:attribute name="visible" type="Boolean" access="private"/>
+    <aura:attribute name="portalRelativeUrl" type="String" default="/cwp" access="private"/>
+
+    <aura:handler name="overlayCmpEvent" event="c:BL_OverlayComponentEvent" action="{!c.handleComponentEvent}" includeFacets="true"/>
+    <aura:handler event="c:BL_OverlayApplicationEvent" action="{!c.handleApplicationEvent}"/>
+
+    <aura:method name="isVisible" action="{!c.isVisible}"/>
+
+    <c:BL_ServiceDispatcher aura:id="dispatcher"/>
+
+    <div class="slds-is-relative">
+        <aura:if isTrue="{!and(v.config.spinnerActive, v.spinnerEnabled)}">
+            <lightning:spinner/>
+        </aura:if>
+
+        {!v.body}
+    </div>
+</aura:component>

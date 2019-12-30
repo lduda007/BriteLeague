@@ -13,6 +13,7 @@
     <clickjackProtectionLevel>SameOriginOnly</clickjackProtectionLevel>
     <contentSniffingProtection>true</contentSniffingProtection>
     <cspUpgradeInsecureRequests>true</cspUpgradeInsecureRequests>
+    <enableAuraRequests>true</enableAuraRequests>
     <fileNotFoundPage>FileNotFound</fileNotFoundPage>
     <genericErrorPage>Exception</genericErrorPage>
     <inMaintenancePage>InMaintenance</inMaintenancePage>

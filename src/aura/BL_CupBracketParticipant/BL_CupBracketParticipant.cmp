@@ -1,0 +1,19 @@
+<aura:component description="BL_CupBracketParticipant">
+    <aura:attribute name="participant" type="Object" access="public"/>
+    <aura:attribute name="isWinner" type="Boolean" access="public" default="false"/>
+    <aura:attribute name="score" type="Integer" access="public"/>
+
+    <div class="{!concat('participant ', equals(v.isWinner, true) ? 'winner' : '')}">
+        <lightning:layout multipleRows="false" horizontalAlign="spread">
+            <lightning:layoutItem size="11" class="slds-m-around--none">
+                <img src="{!v.participant.Player1__r.ImageUrl__c}" class="playerAvatar"/>
+                <span class="slds-truncate">
+                    <a data-recordId="{!v.participant.Id}" onclick="{!c.goToTeamPage}" class="slds-truncate">
+                        {!v.participant.Name}
+                    </a>
+                </span>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1" class="slds-m-around--none score slds-text-align--right">{!v.score}</lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

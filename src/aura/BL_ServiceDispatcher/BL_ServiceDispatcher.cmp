@@ -1,0 +1,39 @@
+<aura:component access="global">
+    <aura:attribute name="active" type="Object" access="private" description="Stores active services."/>
+
+    <aura:method name="callService" action="{!c.callService}">
+        <aura:attribute name="serviceName" type="String"/>
+        <aura:attribute name="methodName" type="String"/>
+        <aura:attribute name="params" type="Object[]"/>
+    </aura:method>
+
+
+    <!--<aura:if isTrue="{!v.active.serverActionService}">-->
+        <!--<c:SVC_CP_ServerActionService aura:id="serverActionService"/>-->
+    <!--</aura:if>-->
+
+    <!--<aura:if isTrue="{!v.active.errorHandlerService}">-->
+        <!--<c:SVC_CP_ErrorHandlerService aura:id="errorHandlerService"/>-->
+    <!--</aura:if>-->
+
+    <aura:if isTrue="{!v.active.uiService}">
+        <c:BL_UIService aura:id="uiService"/>
+    </aura:if>
+
+    <!--<aura:if isTrue="{!v.active.navigationService}">-->
+        <!--<c:SVC_CP_NavigationService aura:id="navigationService"/>-->
+    <!--</aura:if>-->
+
+    <!--<aura:if isTrue="{!v.active.settingsService}">-->
+        <!--<c:SVC_CP_SettingsService aura:id="settingsService"/>-->
+    <!--</aura:if>-->
+
+    <!--<aura:if isTrue="{!v.active.dataService}">-->
+        <!--<c:SVC_CP_DataService aura:id="dataService"/>-->
+    <!--</aura:if>-->
+
+    <!--<aura:if isTrue="{!v.active.storageService}">-->
+        <!--<c:SVC_CP_StorageCacheService aura:id="storageService"/>-->
+    <!--</aura:if>-->
+
+</aura:component>

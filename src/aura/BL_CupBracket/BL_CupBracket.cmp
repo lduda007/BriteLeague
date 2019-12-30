@@ -1,0 +1,65 @@
+<aura:component description="BL_CupBracket">
+    <aura:attribute name="matches" type="Object[]" access="public"/>
+
+    <div>
+
+        <!--<aura:if isTrue="{!!empty(v.matches[64])}">-->
+            <!--<lightning:tab id="64" label="{!$Label.c.BL_X1_64_Stage}">-->
+                <!--<c:BL_MatchesTable matches="{!v.matches[64]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>-->
+            <!--</lightning:tab>-->
+        <!--</aura:if>-->
+
+        <!--<aura:if isTrue="{!!empty(v.matches[32])}">-->
+            <!--<lightning:tab id="32" label="{!$Label.c.BL_X1_32_Stage}">-->
+                <!--<c:BL_MatchesTable matches="{!v.matches[32]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>-->
+            <!--</lightning:tab>-->
+        <!--</aura:if>-->
+
+        <!--<aura:if isTrue="{!!empty(v.matches[16])}">-->
+            <!--<lightning:tab id="16"  label="{!$Label.c.BL_X1_16_Stage}">-->
+                <!--<c:BL_MatchesTable matches="{!v.matches[16]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>-->
+            <!--</lightning:tab>-->
+        <!--</aura:if>-->
+
+        <!--<aura:if isTrue="{!!empty(v.matches[8])}">-->
+            <!--<lightning:tab id="8"  label="{!$Label.c.BL_X1_8_Stage}">-->
+                <!--<c:BL_MatchesTable matches="{!v.matches[8]}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>-->
+            <!--</lightning:tab>-->
+        <!--</aura:if>-->
+
+
+
+        <!--<aura:if isTrue="{!!empty(v.matches[0])}">-->
+        <!--<lightning:tab id="0"  label="3rd Place">-->
+        <!--<c:BL_MatchesTable matches="{!v.matches[0]}" isThirdPlace="{!true}" playerId="{!v.user.ContactId}" teamSize="{!v.cup.TeamSize__c}" showRoundsColumn="false" showPlayersAvatars="true"/>-->
+        <!--</lightning:tab>-->
+        <!--</aura:if>-->
+
+        <div class="bracket">
+            <aura:if isTrue="{!!empty(v.matches[4])}">
+                <aura:if isTrue="{!not(empty(v.matches[4]))}">
+                    <c:BL_CupBracketRound matches="{!v.matches[4]}" sectionClass="round quarterfinals"/>
+                </aura:if>
+            </aura:if>
+
+            <aura:if isTrue="{!!empty(v.matches[2])}">
+                <aura:if isTrue="{!not(empty(v.matches[2]))}">
+                    <c:BL_CupBracketRound matches="{!v.matches[2]}" sectionClass="round semifinals"/>
+                </aura:if>
+            </aura:if>
+
+            <aura:if isTrue="{!!empty(v.matches[1])}">
+                <aura:if isTrue="{!not(empty(v.matches[1]))}">
+                    <c:BL_CupBracketRound matches="{!v.matches[1]}" sectionClass="round finals" showConnectorSection="false"/>
+                </aura:if>
+            </aura:if>
+
+            <aura:if isTrue="{!!empty(v.matches[0])}">
+                <aura:if isTrue="{!not(empty(v.matches[0]))}">
+                    <c:BL_CupBracketRound matches="{!v.matches[0]}" sectionClass="round finals slds-p-left--large" showConnectorSection="false"/>
+                </aura:if>
+            </aura:if>
+        </div>
+
+    </div>
+</aura:component>

@@ -44,6 +44,8 @@
         <members>BL_MatchDetailsController</members>
         <members>BL_CompetitionDetailsController</members>
         <members>BL_MatchesTableController</members>
+        <members>BL_Exc</members>
+        <members>BL_ImageUploaderController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -97,33 +99,6 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members>BL_CommunitySettings__c.BL_CommunityUserAccountName__c</members>
-        <members>BL_CommunitySettings__c.BL_CommunityUserProfileId__c</members>
-        <members>BL_CommunitySettings__c.BL_CommunityUserProfileName__c</members>
-        <members>BL_CommunitySettings__c.BL_NumberOfCommunityLicenses__c</members>
-        <members>BL_CommunitySettings__c.BL_RegistrationUsernameOrgSuffix__c</members>
-        <members>BL_Competitor__c.Eliminated__c</members>
-        <members>BL_Competitor__c.League__c</members>
-        <members>BL_Competitor__c.Team__c</members>
-        <members>BL_League__c.End_Date__c</members>
-        <members>BL_League__c.Match_No__c</members>
-        <members>BL_League__c.Max_Team_No__c</members>
-        <members>BL_League__c.Max_Teams__c</members>
-        <members>BL_League__c.Start_Date__c</members>
-        <members>BL_League__c.isPrivate__c</members>
-        <members>BL_Match__c.League__c</members>
-        <members>BL_Match__c.Team1_Score__c</members>
-        <members>BL_Match__c.Team1__c</members>
-        <members>BL_Match__c.Team2_Score__c</members>
-        <members>BL_Match__c.Team2__c</members>
-        <members>BL_Match__c.Winner__c</members>
-        <members>BL_Team__c.IsActive__c</members>
-        <members>BL_Team__c.Player1__c</members>
-        <members>BL_Team__c.Player2__c</members>
-        <members>Contact.Match_Role__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
         <members>BL_CommunitySettings__c</members>
         <members>BL_Competitor__c</members>
         <members>BL_League__c</members>
@@ -133,6 +108,7 @@
         <members>BL_BriteLeagueUrls__c</members>
         <members>BL_BriteLeagueSettings__c</members>
         <members>BL_TeamMember__c</members>
+        <members>BL_Notifications_Provider__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -141,6 +117,10 @@
         <members>BL_League__c-en_US</members>
         <members>BL_Match__c-en_US</members>
         <members>BL_Team__c-en_US</members>
+        <members>BL_BriteLeagueSettings__c-en_US</members>
+        <members>BL_BriteLeagueUrls__c-en_US</members>
+        <members>BL_Notifications_Provider__c-en_US</members>
+        <members>BL_TeamMember__c-en_US</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -150,6 +130,97 @@
     <types>
         <members>briteleague</members>
         <name>CustomSite</name>
+    </types>
+    <types>
+        <members>briteleague</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>briteleague1</members>
+        <name>SiteDotCom</name>
+    </types>
+    <types>
+        <members>Competition_Classic_Battle_Royale</members>
+        <members>Competition_Cup</members>
+        <name>Audience</name>
+    </types>
+    <types>
+        <members>Google</members>
+        <members>Google_Login</members>
+        <name>AuthProvider</name>
+    </types>
+    <types>
+        <members>BL_LogoBottom</members>
+        <members>BL_LogoTop</members>
+        <name>ContentAsset</name>
+    </types>
+    <types>
+        <members>BL_Competitor__c</members>
+        <members>BL_League__c</members>
+        <members>BL_Match__c</members>
+        <members>BL_Notifications_Provider__c</members>
+        <members>BL_Team__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>unfiled$public/BL_LeagueEndEmail</members>
+        <members>unfiled$public/BL_LeagueStartEmail</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>BL_SendEmailsWhenCompetitionStarts</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>BL_SendEmailsWhenCompetitionStarts</members>
+        <name>FlowDefinition</name>
+    </types>
+    <types>
+        <members>BL_Competitor__c-Competitor Layout</members>
+        <members>BL_League__c-League Layout</members>
+        <members>BL_Match__c-Match Layout</members>
+        <members>BL_Notifications_Provider__c-Notifications Provider Layout</members>
+        <members>BL_TeamMember__c-Team Member Layout</members>
+        <members>BL_Team__c-Team Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>briteleague</members>
+        <name>ManagedTopics</name>
+    </types>
+    <types>
+        <members>cbbriteleague</members>
+        <name>NetworkBranding</name>
+    </types>
+    <types>
+        <members>BL_Player</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>BTN Community user</members>
+        <members>BTN Community user Plus</members>
+        <members>briteleague Profile</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>BriteLeague/Active_Leagues</members>
+        <members>BriteLeague/New_Teams_Report_Zd0</members>
+        <members>BriteLeague/New_Users_Report_rr5</members>
+        <members>BriteLeague/default_Users_with_Matches_report_gah</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>ChartJS</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>BL_Competitor__c</members>
+        <members>BL_League__c</members>
+        <members>BL_Match__c</members>
+        <members>BL_Notifications_Provider__c</members>
+        <members>BL_TeamMember__c</members>
+        <members>BL_Team__c</members>
+        <name>TopicsForObjects</name>
     </types>
     <version>43.0</version>
 </Package>
