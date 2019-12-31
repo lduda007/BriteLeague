@@ -1,7 +1,7 @@
 public with sharing class BL_MatchScoreProviderController {
 
     @AuraEnabled
-    public static String updateMatchScore(String matchId, Decimal team1Score, Decimal team2Score, List<Decimal> team1GoalsInRound, List<Decimal> team2GoalsInRound) {
+    public static String updateMatchScore(String matchId, Decimal team1Score, Decimal team2Score, List<Decimal> team1GoalsInRound, List<Decimal> team2GoalsInRound, Datetime matchDate) {
         Decimal[] team1GoalsInAllRounds = new Decimal[3];
         Decimal[] team2GoalsInAllRounds = new Decimal[3];
         List<String> competitors = new List<String>();
@@ -16,7 +16,7 @@ public with sharing class BL_MatchScoreProviderController {
 
         match.Team1_Score__c = team1Score;
         match.Team2_Score__c = team2Score;
-        match.MatchDate__c = System.now();
+        match.MatchDate__c = matchDate;
         competitors.add(match.Team1__c);
         competitors.add(match.Team2__c);
 

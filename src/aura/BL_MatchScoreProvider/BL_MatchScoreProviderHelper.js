@@ -49,7 +49,8 @@
             "team1Score": event.getParam("team1score"),
             "team2Score": event.getParam("team2score"),
             "team1GoalsInRound": event.getParam("team1Goals"),
-            "team2GoalsInRound": event.getParam("team2Goals")
+            "team2GoalsInRound": event.getParam("team2Goals"),
+            "matchDate": event.getParam("matchDate")
         });
         action.setCallback(this, function(response) {
             let state = response.getState();
