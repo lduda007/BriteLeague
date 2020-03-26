@@ -1,10 +1,12 @@
-public with sharing class BL_LeagueMatchesService {
-    public static void generateMatchesAfterLeagueStarted(String leagueId) {
-        List<BL_Competitor__c> competitors = BL_Utils.getLeagueCompetitors(leagueId);
-        List<BL_League__c> league = [SELECT Match_No__c, RecordType.DeveloperName FROM BL_League__c WHERE Id = :leagueId];
-        if (competitors.size() >= 2 && league.size() > 0) {
+public without sharing class BL_MatchService {
+
+    public static void generateMatches(String competitionId) {
+        List<BL_Competitor__c> competitors = new BL_DAO_Competitor().getCompetitorsByCompetitionId(competitionId);
+        BL_Competition__c league = new BL_DAO_Competition().getCompetitionById(competitionId);
+
+        if (competitors.size() >= 2) {
             BL_MatchGenerator matchGenerator;
-            if (league[0].RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
+            if (league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
                 matchGenerator = new BL_BattleRoyaleMatchGenerator();
             } else {
                 matchGenerator = new BL_ClassicMatchGenerator();
@@ -16,8 +18,8 @@ public with sharing class BL_LeagueMatchesService {
 
             generatedMatches = matchGenerator.generateMatches(
                     competitorsIds,
-                    (Id) leagueId,
-                    (Integer) league[0].Match_No__c
+                    (Id) competitionId,
+                    (Integer) league.Match_No__c
             );
 
             insertGeneratedMatches(generatedMatches);

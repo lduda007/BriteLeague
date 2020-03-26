@@ -21,7 +21,7 @@ public with sharing class BL_CupEndEmailContentController {
             List<BL_Match__c> finalMatch = [
                     SELECT Id, Winner__c
                     FROM BL_Match__c
-                    WHERE CupStage__c = 1 AND League__c =: competitor.League__c
+                    WHERE CupStage__c = 1 AND Competition__c =: competitor.League__c
             ];
             if(!finalMatch.isEmpty()){
                 List<BL_Competitor__c> winnerTeam = [

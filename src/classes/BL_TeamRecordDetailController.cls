@@ -15,14 +15,14 @@ public with sharing class BL_TeamRecordDetailController {
     }
 
     @AuraEnabled
-    public static List<BL_League__c> getTeamCompetitions(String teamId) {
+    public static List<BL_Competition__c> getTeamCompetitions(String teamId) {
         List<String> compsIds = new List<String>();
         for (BL_Competitor__c comp : [SELECT Id, League__c FROM BL_Competitor__c WHERE Team__c = :teamId]) {
             compsIds.add(comp.League__c);
         }
         return [
                 SELECT RecordType.DeveloperName, Start_Date__c, End_Date__c, Name
-                FROM BL_League__c
+                FROM BL_Competition__c
                 WHERE Id IN :compsIds
         ];
     }

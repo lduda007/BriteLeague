@@ -25,6 +25,7 @@
     <filter>
         <criteriaItems>
             <column>PROFILE</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>BTN Community user,BTN Community user Plus</value>

@@ -64,7 +64,7 @@ public with sharing class BL_MatchScoreProviderController {
     private static void updateCompetitorStatistics(BL_Match__c match, List<String> competitors, List<Decimal> team1GoalsInRound, List<Decimal> team2GoalsInRound) {
         Decimal team1TotalGoalsScored = 0;
         Decimal team2TotalGoalsScored = 0;
-        Boolean isBattleRoyale = match.League__r.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE;
+        Boolean isBattleRoyale = match.Competition__r.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE;
 
         BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
         Map<Id, BL_Competitor__c> competitorsMap = daoCompetitor.getCompetitorsMapByIds(competitors);
@@ -74,8 +74,8 @@ public with sharing class BL_MatchScoreProviderController {
         BL_Competitor__c parent2;
 
         if (isBattleRoyale) {
-            parent1 = daoCompetitor.getParentCompetitorByMemberTeamIdAndLeagueId(competitor1.Team__c, match.League__c);
-            parent2 = daoCompetitor.getParentCompetitorByMemberTeamIdAndLeagueId(competitor2.Team__c, match.League__c);
+            parent1 = daoCompetitor.getParentCompetitorByMemberTeamIdAndLeagueId(competitor1.Team__c, match.Competition__c);
+            parent2 = daoCompetitor.getParentCompetitorByMemberTeamIdAndLeagueId(competitor2.Team__c, match.Competition__c);
         }
 
         BL_MatchScoreService scoreService = new BL_MatchScoreService();
@@ -101,7 +101,7 @@ public with sharing class BL_MatchScoreProviderController {
 
     private static Boolean isMatchResolved(BL_Match__c match, Integer roundsPlayed) {
         Boolean result = false;
-        if (match.League__r.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CUP) {
+        if (match.Competition__r.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CUP) {
             if (roundsPlayed >= 2 && match.Team1_Score__c != match.Team2_Score__c) {
                 result = true;
             }

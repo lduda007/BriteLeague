@@ -1,5 +1,5 @@
 Hey {!Contact.Name}!
-League {!BL_League__c.Name} has just started.
+League {!BL_Competition__c.Name} has just started.
 Visit community page to see timetable.
-League ends on {!BL_League__c.End_Date__c} so make sure to play all your games.
+League ends on {!BL_Competition__c.End_Date__c} so make sure to play all your games.
 Good luck!

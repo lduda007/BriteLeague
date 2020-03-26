@@ -1,22 +1,20 @@
 public class BL_CompetitionProgressChartController {
 
     @AuraEnabled
-    public static InitDataWrapper getInitDataWrapper(String leagueId) {
+    public static InitDataWrapper getInitDataWrapper(String competitionId) {
         InitDataWrapper wrapper = new InitDataWrapper();
         try {
-            BL_DAO_League daoLeague = new BL_DAO_League();
-            BL_League__c league = daoLeague.getLeagueById(leagueId);
+            BL_Competition__c competition = new BL_DAO_Competition().getCompetitionById(competitionId);
 
-            if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
+            if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(competition.Status__c)) {
                 wrapper.isCompetitionStarted = true;
                 List<BL_ChartJS.DataSet> dataSets = new List<BL_ChartJS.DataSet>();
                 Map<Id, BL_ChartJS.DataSet> competitorIdToDataSet = new Map<Id, BL_ChartJS.DataSet>();
                 Map<Id, BL_Competitor__c> teamIdToCompetitor = new Map<Id, BL_Competitor__c>();
-                List<String> hexColors = BL_ColorHelper.getHexColors(Integer.valueOf(league.Teams_Joined__c));
+                List<String> hexColors = BL_ColorHelper.getHexColors(Integer.valueOf(competition.Teams_Joined__c));
                 Integer numberOfDirectCompetitors = 0;
 
-                BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
-                List<BL_Competitor__c> competitors = daoCompetitor.getCompetitorsByLeagueId(leagueId);
+                List<BL_Competitor__c> competitors = new BL_DAO_Competitor().getCompetitorsByCompetitionId(competitionId);
 
                 for(BL_Competitor__c competitor : competitors) {
                     if(competitor.Is_Direct_Competitor__c) {
@@ -39,10 +37,8 @@ public class BL_CompetitionProgressChartController {
                     teamIdToCompetitor.put(competitor.Team__c, competitor);
                 }
 
-                if(league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
-                    BL_DAO_Team daoTeam = new BL_DAO_Team();
-
-                    for(BL_Team__c team : daoTeam.getTeamsWithMembersByLeagueId(leagueId)) {
+                if(competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
+                    for(BL_Team__c team : new BL_DAO_Team().getTeamsWithMembersByCompetitionId(competitionId)) {
                         if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_CLASSIC) {
                             for(BL_TeamMember__c teamMember : team.Members__r) {
                                 if(teamIdToCompetitor.containsKey(teamMember.Team__c)) {
@@ -60,14 +56,7 @@ public class BL_CompetitionProgressChartController {
                     }
                 }
 
-                for(BL_Match__c match : [
-                        SELECT Id, Team1__c, Team2__c, Team1_Score__c, Team2_Score__c, Winner__c, Team1__r.Team__r.Name,
-                                Team2__r.Team__r.Name, MatchDate__c
-                        FROM BL_Match__c
-                        WHERE League__c = :leagueId
-                        AND isResolved__c = true
-                        ORDER BY MatchDate__c ASC, LastModifiedDate ASC
-                ]) {
+                for(BL_Match__c match : new BL_DAO_Match().getResolvedMatchesForCompetition(competitionId)) {
                     BL_ChartJS.DataSet team1DataSet = competitorIdToDataSet.get(match.Team1__c);
                     BL_ChartJS.DataSet team2DataSet = competitorIdToDataSet.get(match.Team2__c);
 
@@ -97,13 +86,13 @@ public class BL_CompetitionProgressChartController {
                     team2DataSet.addPoint(team2Point);
                 }
 
-                wrapper.labels.addAll(prepareLabels(league, numberOfDirectCompetitors));
+                wrapper.labels.addAll(prepareLabels(competition, numberOfDirectCompetitors));
                 wrapper.dataSets.addAll(dataSets);
             } else {
                 wrapper.isCompetitionStarted = false;
             }
         } catch(Exception e) {
-            String uiMessage = 'An error occurred during loading of BL_CompetitionProgressChartController component';
+            String uiMessage = 'An error occurred during loading of "BL_CompetitionProgressChart" component';
             BL_Utils.throwAuraHandledException(uiMessage, e);
         }
         return wrapper;
@@ -119,15 +108,15 @@ public class BL_CompetitionProgressChartController {
         }
     }
 
-    private static List<String> prepareLabels(BL_League__c league, Integer numberOfDirectCompetitors) {
+    private static List<String> prepareLabels(BL_Competition__c competition, Integer numberOfDirectCompetitors) {
         Integer numberOfMatchesPerTeam = 0;
 
-        if(league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CLASSIC) {
-            numberOfMatchesPerTeam = Integer.valueOf(league.Match_No__c * (league.Teams_Joined__c - 1));
-        } else if(league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
-            Integer numberOfSubTeamsPerBattleRoyaleTeam = Integer.valueOf(league.Teams_Joined__c - numberOfDirectCompetitors) / numberOfDirectCompetitors;
+        if(competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CLASSIC) {
+            numberOfMatchesPerTeam = Integer.valueOf(competition.Match_No__c * (competition.Teams_Joined__c - 1));
+        } else if(competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
+            Integer numberOfSubTeamsPerBattleRoyaleTeam = Integer.valueOf(competition.Teams_Joined__c - numberOfDirectCompetitors) / numberOfDirectCompetitors;
 
-            numberOfMatchesPerTeam = Integer.valueOf((numberOfDirectCompetitors - 1) * Math.pow(numberOfSubTeamsPerBattleRoyaleTeam, 2) * league.Match_No__c);
+            numberOfMatchesPerTeam = Integer.valueOf((numberOfDirectCompetitors - 1) * Math.pow(numberOfSubTeamsPerBattleRoyaleTeam, 2) * competition.Match_No__c);
         }
 
         List<String> labels = new List<String>();

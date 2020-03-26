@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
-    <executionUser>lukasz.duda@britenet.com.briteliga</executionUser>
+    <executionUser>norbert.wieruszewski@britenet.com.pl.briteliga</executionUser>
     <friendlyName>Google</friendlyName>
     <iconUrl>https://test.salesforce.com/icons/google-grey.png</iconUrl>
     <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>

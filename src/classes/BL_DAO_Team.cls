@@ -15,7 +15,7 @@ public class BL_DAO_Team {
         ];
     }
 
-    public List<BL_Team__c> getTeamsByLeagueId(Id leagueId) {
+    public List<BL_Team__c> getTeamsByCompetitionId(Id competitionId) {
         return [
                 SELECT
                         Id,
@@ -28,12 +28,12 @@ public class BL_DAO_Team {
                 WHERE Id IN (
                         SELECT Team__c
                         FROM BL_Competitor__c
-                        WHERE League__c = :leagueId
+                        WHERE League__c = :competitionId
                 )
         ];
     }
 
-    public List<BL_Team__c> getTeamsWithMembersByLeagueId(Id leagueId) {
+    public List<BL_Team__c> getTeamsWithMembersByCompetitionId(Id competitionId) {
         return [
                 SELECT
                         Id,
@@ -58,7 +58,7 @@ public class BL_DAO_Team {
                 WHERE Id IN (
                         SELECT Team__c
                         FROM BL_Competitor__c
-                        WHERE League__c = :leagueId
+                        WHERE League__c = :competitionId
                 )
                 ORDER BY Name ASC
         ];

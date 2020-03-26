@@ -1,13 +1,14 @@
 @isTest
-private class BL_LeagueMatchesServiceTest {
+private class BL_MatchServiceTest {
+
     @isTest
-    static void testMatchGenerationForClassicLeagueEvenNumberOfTeams() {
+    static void testMatchGenerationForClassicCompetitionEvenNumberOfTeams() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testLeague = setupData.insertLeague(BL_Constants.LEAGUE_RT_CLASSIC, 1);
-        setupData.insertClassicTeamsForLeague(setupData.testLeague.Id, 4);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_CLASSIC, 1);
+        setupData.insertClassicTeamsForLeague(setupData.testCompetition.Id, 4);
 
         Test.startTest();
-        BL_LeagueMatchesService.generateMatchesAfterLeagueStarted(setupData.testLeague.Id);
+        BL_MatchService.generateMatches(setupData.testCompetition.Id);
         Test.stopTest();
 
         List<BL_Match__c> matches = [SELECT Id FROM BL_Match__c];
@@ -16,13 +17,13 @@ private class BL_LeagueMatchesServiceTest {
     }
 
     @isTest
-    static void testMatchGenerationForClassicLeagueOddNumberOfTeams() {
+    static void testMatchGenerationForClassicCompetitionOddNumberOfTeams() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testLeague = setupData.insertLeague(BL_Constants.LEAGUE_RT_CLASSIC, 1);
-        setupData.insertClassicTeamsForLeague(setupData.testLeague.Id, 5);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_CLASSIC, 1);
+        setupData.insertClassicTeamsForLeague(setupData.testCompetition.Id, 5);
 
         Test.startTest();
-        BL_LeagueMatchesService.generateMatchesAfterLeagueStarted(setupData.testLeague.Id);
+        BL_MatchService.generateMatches(setupData.testCompetition.Id);
         Test.stopTest();
 
         List<BL_Match__c> matches = [SELECT Id FROM BL_Match__c];
@@ -33,11 +34,11 @@ private class BL_LeagueMatchesServiceTest {
     @isTest
     static void testClassicGenerationForMultipleRounds() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testLeague = setupData.insertLeague(BL_Constants.LEAGUE_RT_CLASSIC, 5);
-        setupData.insertClassicTeamsForLeague(setupData.testLeague.Id, 2);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_CLASSIC, 5);
+        setupData.insertClassicTeamsForLeague(setupData.testCompetition.Id, 2);
 
         Test.startTest();
-        BL_LeagueMatchesService.generateMatchesAfterLeagueStarted(setupData.testLeague.Id);
+        BL_MatchService.generateMatches(setupData.testCompetition.Id);
         Test.stopTest();
 
         List<BL_Match__c> matches = [SELECT Id, Team1__c, Team2__c FROM BL_Match__c ORDER BY Round__c];
@@ -56,11 +57,11 @@ private class BL_LeagueMatchesServiceTest {
     @isTest
     static void testBattleRoyaleGenerationForMultipleRounds() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testLeague = setupData.insertLeague(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 5);
-        setupData.insertBattleRoyaleTeamsForLeague(setupData.testLeague.Id, 2, 1);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 5);
+        setupData.insertBattleRoyaleTeamsForLeague(setupData.testCompetition.Id, 2, 1);
 
         Test.startTest();
-        BL_LeagueMatchesService.generateMatchesAfterLeagueStarted(setupData.testLeague.Id);
+        BL_MatchService.generateMatches(setupData.testCompetition.Id);
         Test.stopTest();
 
         List<BL_Match__c> matches = [SELECT Id, Team1__c, Team2__c FROM BL_Match__c ORDER BY Round__c];
@@ -79,12 +80,12 @@ private class BL_LeagueMatchesServiceTest {
     @isTest
     static void testMatchGenerationForBattleRoyaleLeague() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testLeague = setupData.insertLeague(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 2);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 2);
 
-        setupData.insertBattleRoyaleTeamsForLeague(setupData.testLeague.Id, 3, 2);
+        setupData.insertBattleRoyaleTeamsForLeague(setupData.testCompetition.Id, 3, 2);
 
         Test.startTest();
-        BL_LeagueMatchesService.generateMatchesAfterLeagueStarted(setupData.testLeague.Id);
+        BL_MatchService.generateMatches(setupData.testCompetition.Id);
         Test.stopTest();
 
         List<BL_Match__c> generatedMatches = [SELECT Id, Round__c, Team1__r.Name, Team2__r.Name FROM BL_Match__c];
@@ -106,10 +107,10 @@ private class BL_LeagueMatchesServiceTest {
     @isTest
     static void testMatchGenerationForBattleRoyaleLeagueWhenTeamIsInAnotherLeagueInAnotherBRTeam() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testLeague = setupData.insertLeague(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 1);
-        setupData.insertBattleRoyaleTeamsForLeague(setupData.testLeague.Id, 3, 5);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 1);
+        setupData.insertBattleRoyaleTeamsForLeague(setupData.testCompetition.Id, 3, 5);
 
-        BL_League__c anotherLeague = setupData.insertLeague(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 1);
+        BL_Competition__c anotherLeague = setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 1);
         BL_Team__c anotherBRTeam = new BL_Team__c(RecordTypeId = BL_Utils.getRecordTypeIdByDeveloperName('BL_Team__c', BL_Constants.TEAM_RT_BATTLE_ROYALE));
         insert anotherBRTeam;
         BL_Team__c chosenTeam = [SELECT Id FROM BL_Team__c WHERE RecordType.Name = :BL_Constants.TEAM_RT_CLASSIC LIMIT 1];
@@ -119,7 +120,7 @@ private class BL_LeagueMatchesServiceTest {
 
 
         Test.startTest();
-        BL_LeagueMatchesService.generateMatchesAfterLeagueStarted(setupData.testLeague.Id);
+        BL_MatchService.generateMatches(setupData.testCompetition.Id);
         Test.stopTest();
 
         List<BL_Match__c> generatedMatches = [SELECT Id, Round__c, Team1__r.Name, Team2__r.Name FROM BL_Match__c];
@@ -139,15 +140,15 @@ private class BL_LeagueMatchesServiceTest {
     }
 
     class SetupDataClass {
-        public BL_League__c testLeague;
+        public BL_Competition__c testCompetition;
 
-        public BL_League__c insertLeague(String recordTypeDevName, Integer rounds) {
-            BL_League__c league = new BL_League__c(
-                    RecordTypeId = BL_Utils.getRecordTypeIdByDeveloperName('BL_League__c', recordTypeDevName),
+        public BL_Competition__c insertCompetition(String recordTypeDevName, Integer rounds) {
+            BL_Competition__c competition = new BL_Competition__c(
+                    RecordTypeId = BL_Utils.getRecordTypeIdByDeveloperName(BL_Competition__c.SObjectType.getDescribe().getName(), recordTypeDevName),
                     Match_No__c = rounds
             );
-            insert league;
-            return league;
+            insert competition;
+            return competition;
         }
 
         public void insertClassicTeamsForLeague(Id leagueId, Integer numberOfTeams) {

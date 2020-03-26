@@ -1,15 +1,15 @@
 public with sharing class BL_CupDetailsController {
     @AuraEnabled
-    public static BL_League__c loadCupDetails(String cupId) {
-        List<BL_League__c> cup = [
+    public static BL_Competition__c loadCupDetails(String cupId) {
+        List<BL_Competition__c> cup = [
                 SELECT Id, Name, Start_Date__c, End_Date__c, Match_No__c, Max_Teams__c,Teams_Joined__c, isPrivate__c, CreatedBy.Name, Status__c, OwnerId, TeamSize__c,
                     (SELECT Id, Team__r.Name, Team__r.Player1__r.LastName, Team__r.Player2__r.LastName, Team__r.Player1__c, Team__r.Player2__c,
                             Team__r.Player1__r.ImageUrl__c, Team__r.Player2__r.ImageUrl__c
                      FROM Competitors__r)
-                FROM BL_League__c
+                FROM BL_Competition__c
                 WHERE Id =: cupId
         ];
-        return cup.size() > 0 ? cup[0] : new BL_League__c();
+        return cup.size() > 0 ? cup[0] : new BL_Competition__c();
     }
 
     @AuraEnabled
@@ -19,9 +19,9 @@ public with sharing class BL_CupDetailsController {
                         Team1__r.Team__r.Player1__r.ImageUrl__c, Team1__r.Team__r.Player2__r.ImageUrl__c, Team2__r.Team__r.Player1__r.ImageUrl__c, Team2__r.Team__r.Player2__r.ImageUrl__c,
                         Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c, Team2__r.Team__r.Name, CupStage__c, Team1_Score__c, Team2_Score__c,
                         Team1Round1Goals__c, Team1Round2Goals__c, Team1Round3Goals__c, Team2Round1Goals__c,Team2Round2Goals__c,Team2Round3Goals__c,
-                        Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, League__r.TeamSize__c
+                        Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name, Team2__r.Team__r.Player1__r.Name, Team2__r.Team__r.Player2__r.Name, Competition__r.TeamSize__c
                 FROM BL_Match__c
-                WHERE League__c =: cupId
+                WHERE Competition__c =: cupId
         ];
         Map<Decimal, List<BL_Match__c>> roundToMatchMap = new Map<Decimal, List<BL_Match__c>>();
         for(BL_Match__c match : cupMatches){
@@ -37,8 +37,8 @@ public with sharing class BL_CupDetailsController {
     }
 
     @AuraEnabled
-    public static BL_League__c startCupNow(String cupId) {
-        BL_League__c cup = loadCupDetails(cupId);
+    public static BL_Competition__c startCupNow(String cupId) {
+        BL_Competition__c cup = loadCupDetails(cupId);
         if(cup == null || cup.Status__c == 'Started'){
             throw new AuraHandledException(Label.BL_Cup_already_started);
         }

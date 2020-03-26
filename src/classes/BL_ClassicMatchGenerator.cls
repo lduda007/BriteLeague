@@ -1,14 +1,14 @@
 public with sharing class BL_ClassicMatchGenerator implements BL_MatchGenerator {
 
-    public List<BL_Match__c> generateMatches(List<Id> competitorsIds, Id leagueId, Integer rounds) {
+    public List<BL_Match__c> generateMatches(List<Id> competitorsIds, Id competitionId, Integer rounds) {
         if (Math.mod(competitorsIds.size(), 2) == 0) {
-            return generateMatchesForEvenNumberOfTeams(competitorsIds, leagueId, rounds);
+            return generateMatchesForEvenNumberOfTeams(competitorsIds, competitionId, rounds);
         } else {
-            return generateMatchesForOddNumberOfTeams(competitorsIds, leagueId, rounds);
+            return generateMatchesForOddNumberOfTeams(competitorsIds, competitionId, rounds);
         }
     }
 
-    private List<BL_Match__c> generateMatchesForEvenNumberOfTeams(List<Id> competitorsIds, Id leagueId, Integer rounds) {
+    private List<BL_Match__c> generateMatchesForEvenNumberOfTeams(List<Id> competitorsIds, Id competitionId, Integer rounds) {
         List<BL_Match__c> generatedMatches = new List<BL_Match__c>();
         Integer numberOfTeams = competitorsIds.size();
         Id lastTeamOnTheListId = competitorsIds[numberOfTeams - 1];
@@ -20,7 +20,7 @@ public with sharing class BL_ClassicMatchGenerator implements BL_MatchGenerator 
                             new BL_MatchBuilder()
                                     .setTeam1(Math.mod(currentRound + 1, 2) == 0 ? competitorsIds[j] : competitorsIds[numberOfTeams - j - 1])
                                     .setTeam2(Math.mod(currentRound + 1, 2) == 0 ? competitorsIds[numberOfTeams - j - 1] : competitorsIds[j])
-                                    .setLeague(leagueId)
+                                    .setCompetition(competitionId)
                                     .setRound(currentRound + 1)
                                     .build()
                     );
@@ -34,7 +34,7 @@ public with sharing class BL_ClassicMatchGenerator implements BL_MatchGenerator 
         return generatedMatches;
     }
 
-    private List<BL_Match__c> generateMatchesForOddNumberOfTeams(List<Id> competitorsIds, Id leagueId, Integer rounds) {
+    private List<BL_Match__c> generateMatchesForOddNumberOfTeams(List<Id> competitorsIds, Id competitionId, Integer rounds) {
         List<BL_Match__c> generatedMatches = new List<BL_Match__c>();
         Integer numberOfTeams = competitorsIds.size();
 
@@ -45,7 +45,7 @@ public with sharing class BL_ClassicMatchGenerator implements BL_MatchGenerator 
                             new BL_MatchBuilder()
                                     .setTeam1(competitorsIds[j])
                                     .setTeam2(competitorsIds[numberOfTeams - j - 2])
-                                    .setLeague(leagueId)
+                                    .setCompetition(competitionId)
                                     .setRound(currentRound + 1)
                                     .build()
                     );

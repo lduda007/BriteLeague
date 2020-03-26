@@ -1,4 +1,4 @@
 Hi {!Contact.Name}!
-League {!BL_League__c.Name} has ended.
+League {!BL_Competition__c.Name} has ended.
 Thank you for being part of the competition. 
 Visit BriteLeague website to see league statistics.and join other leagues.

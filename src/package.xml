@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>BL_BriteLeagueRegistrationHandler</members>
@@ -9,7 +9,7 @@
         <members>BL_UserActivationManager</members>
         <members>BL_Utils</members>
         <members>BL_TournamentsEmailService</members>
-        <members>BL_LeagueMatchesService</members>
+        <members>BL_MatchService</members>
         <members>BL_CupMatchesService</members>
         <members>BL_MatchScoreProviderController</members>
         <members>BL_CompetitionProgressChartController</members>
@@ -20,15 +20,15 @@
         <members>BL_CompetitionStatusChartController</members>
         <members>BL_CompetitionFeedController</members>
         <members>BL_Constants</members>
-        <members>BL_CreateLeagueController</members>
+        <members>BL_NewCompetitionController</members>
         <members>BL_ImageController</members>
         <members>BL_BattleRoyaleTableController</members>
-        <members>BL_DAO_League</members>
+        <members>BL_DAO_Competition</members>
         <members>BL_DAO_Team</members>
         <members>BL_BattleRoyaleDetailsController</members>
         <members>BL_Settings</members>
         <members>BL_DAO_Competitor</members>
-        <members>BL_LeagueService</members>
+        <members>BL_CompetitionService</members>
         <members>BL_LeaguesListViewController</members>
         <members>BL_DTO_Team</members>
         <members>BL_BattleRoyaleMatchGenerator</members>
@@ -46,6 +46,17 @@
         <members>BL_MatchesTableController</members>
         <members>BL_Exc</members>
         <members>BL_ImageUploaderController</members>
+        <members>BL_HomeDashboardController</members>
+        <members>BL_CupDetailsController</members>
+        <members>BL_TeamRecordDetailController</members>
+        <members>BL_TournamentEndEmailService</members>
+        <members>BL_LeaveCompetitionController</members>
+        <members>BL_LeagueEndEmailContentController</members>
+        <members>BL_CupEndEmailContentController</members>
+        <members>BL_CompetitionStartedEmailController</members>
+        <members>BL_LeagueDetailsController</members>
+        <members>BL_SinglePlayerScoreProviderController</members>
+        <members>BL_MatchServiceTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -55,7 +66,6 @@
         <members>BL_CustomLookupResult</members>
         <members>BL_PlayerTeamsList</members>
         <members>BL_SelectedsObjectRecordEvent</members>
-        <members>BL_CreateLeague</members>
         <members>BL_Modal</members>
         <members>BL_CompetitionCreatedEvent</members>
         <members>BL_MatchScoreProviderTile</members>
@@ -72,7 +82,6 @@
         <members>BL_TeamRecordDetail</members>
         <members>BL_ProgressDoughnutChart</members>
         <members>BL_CompetitionStatusChart</members>
-        <members>BL_OpenCompetitionsTable</members>
         <members>BL_CompetitionFeed</members>
         <members>BL_FeedItem</members>
         <members>BL_HomeDashboard</members>
@@ -96,6 +105,7 @@
         <members>BL_MatchDetails</members>
         <members>BL_TeamSelectedEvent</members>
         <members>BL_CompetitionDetails</members>
+        <members>BL_NewCompetition</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -109,18 +119,10 @@
         <members>BL_BriteLeagueSettings__c</members>
         <members>BL_TeamMember__c</members>
         <members>BL_Notifications_Provider__c</members>
+        <members>BL_Competition__c</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>BL_CommunitySettings__c-en_US</members>
-        <members>BL_Competitor__c-en_US</members>
-        <members>BL_League__c-en_US</members>
-        <members>BL_Match__c-en_US</members>
-        <members>BL_Team__c-en_US</members>
-        <members>BL_BriteLeagueSettings__c-en_US</members>
-        <members>BL_BriteLeagueUrls__c-en_US</members>
-        <members>BL_Notifications_Provider__c-en_US</members>
-        <members>BL_TeamMember__c-en_US</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -136,7 +138,7 @@
         <name>Network</name>
     </types>
     <types>
-        <members>briteleague1</members>
+        <members>Brite_Liga1</members>
         <name>SiteDotCom</name>
     </types>
     <types>
@@ -146,7 +148,6 @@
     </types>
     <types>
         <members>Google</members>
-        <members>Google_Login</members>
         <name>AuthProvider</name>
     </types>
     <types>
@@ -156,10 +157,10 @@
     </types>
     <types>
         <members>BL_Competitor__c</members>
-        <members>BL_League__c</members>
         <members>BL_Match__c</members>
         <members>BL_Notifications_Provider__c</members>
         <members>BL_Team__c</members>
+        <members>BL_Competition__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -169,19 +170,20 @@
     </types>
     <types>
         <members>BL_SendEmailsWhenCompetitionStarts</members>
+        <members>MoveTeamToNextCupStage</members>
+        <members>SetCompetitionStatusToFinishedAfterAllGamesPlayed</members>
         <name>Flow</name>
     </types>
     <types>
-        <members>BL_SendEmailsWhenCompetitionStarts</members>
         <name>FlowDefinition</name>
     </types>
     <types>
         <members>BL_Competitor__c-Competitor Layout</members>
-        <members>BL_League__c-League Layout</members>
         <members>BL_Match__c-Match Layout</members>
         <members>BL_Notifications_Provider__c-Notifications Provider Layout</members>
         <members>BL_TeamMember__c-Team Member Layout</members>
         <members>BL_Team__c-Team Layout</members>
+        <members>BL_Competition__c-League Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -215,11 +217,11 @@
     </types>
     <types>
         <members>BL_Competitor__c</members>
-        <members>BL_League__c</members>
         <members>BL_Match__c</members>
         <members>BL_Notifications_Provider__c</members>
         <members>BL_TeamMember__c</members>
         <members>BL_Team__c</members>
+        <members>BL_Competition__c</members>
         <name>TopicsForObjects</name>
     </types>
     <version>43.0</version>

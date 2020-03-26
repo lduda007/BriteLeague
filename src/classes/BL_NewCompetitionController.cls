@@ -1,4 +1,4 @@
-public without sharing class BL_CreateLeagueController {
+public without sharing class BL_NewCompetitionController {
 
     @AuraEnabled
     public static InitDataWrapper getInitDataWrapper() {
@@ -7,82 +7,82 @@ public without sharing class BL_CreateLeagueController {
             initDataWrapper = new InitDataWrapper();
             initDataWrapper.populateLeagueRecordTypeDeveloperNameToIdMap();
             initDataWrapper.populateLeagueTeamSizeOptions();
-            initDataWrapper.populateLeagueWrapper();
-        } catch(Exception e) {
-            String uiMessage = 'An error occurred during initialization: ' + e.getMessage();
+            initDataWrapper.populateCompetitionWrapper();
+        } catch (Exception e) {
+            String uiMessage = 'An error occurred during initialization of "BL_NewCompetition" component: ' + e.getMessage();
             BL_Utils.throwAuraHandledException(uiMessage, uiMessage + ' ' + e.getStackTraceString());
         }
         return initDataWrapper;
     }
 
     @AuraEnabled
-    public static Id saveCompetition(String newLeagueWrapperJson) {
-        BL_League__c league = new BL_League__c();
+    public static Id saveCompetition(String newCompetitionWrapperJson) {
+        BL_Competition__c competition = new BL_Competition__c();
         try {
-            LeagueWrapper newLeagueWrapper = (LeagueWrapper) JSON.deserialize(newLeagueWrapperJson, LeagueWrapper.class);
+            CompetitionWrapper newCompetitionWrapper = (CompetitionWrapper) JSON.deserialize(newCompetitionWrapperJson, CompetitionWrapper.class);
 
-            league.RecordTypeId = BL_League__c.getSObjectType()
+            competition.RecordTypeId = BL_Competition__c.getSObjectType()
                     .getDescribe()
                     .getRecordTypeInfosByDeveloperName()
-                    .get(newLeagueWrapper.recordType)
+                    .get(newCompetitionWrapper.recordType)
                     .getRecordTypeId();
 
-            league.Name = newLeagueWrapper.name;
-            league.TeamSize__c = newLeagueWrapper.teamSize;
-            league.Start_Date__c = newLeagueWrapper.startDate;
-            league.End_Date__c = newLeagueWrapper.endDate;
-            league.Max_Teams__c = newLeagueWrapper.teamsLimit;
+            competition.Name = newCompetitionWrapper.name;
+            competition.TeamSize__c = newCompetitionWrapper.teamSize;
+            competition.Start_Date__c = newCompetitionWrapper.startDate;
+            competition.End_Date__c = newCompetitionWrapper.endDate;
+            competition.Max_Teams__c = newCompetitionWrapper.teamsLimit;
 
-            if(newLeagueWrapper.recordType == BL_Constants.LEAGUE_RT_CUP) {
-                league.Match_No__c = 1;
+            if (newCompetitionWrapper.recordType == BL_Constants.LEAGUE_RT_CUP) {
+                competition.Match_No__c = 1;
             } else {
-                league.Match_No__c = newLeagueWrapper.rounds;
+                competition.Match_No__c = newCompetitionWrapper.rounds;
             }
 
-            insert league;
-        } catch(Exception e) {
+            insert competition;
+        } catch (Exception e) {
             String uiMessage = 'An error occurred during creation of competition: ' + e.getMessage();
             BL_Utils.throwAuraHandledException(uiMessage, uiMessage + ' ' + e.getStackTraceString());
         }
-        return league.Id;
+        return competition.Id;
     }
 
     public class InitDataWrapper {
         @AuraEnabled
-        public List<OptionWrapper> leagueRecordTypeOptions;
+        public List<OptionWrapper> competitionRecordTypeOptions;
         @AuraEnabled
-        public List<OptionWrapper> leagueTeamSizeOptions;
+        public List<OptionWrapper> competitionTeamSizeOptions;
         @AuraEnabled
-        public LeagueWrapper leagueWrapper;
+        public CompetitionWrapper competitionWrapper;
 
         public void populateLeagueRecordTypeDeveloperNameToIdMap() {
-            leagueRecordTypeOptions = new List<OptionWrapper>();
+            competitionRecordTypeOptions = new List<OptionWrapper>();
             BL_BriteLeagueSettings__c briteLeagueSettings = BL_BriteLeagueSettings__c.getInstance();
             Set<String> enabledLeagueRecordTypes = String.isNotBlank(briteLeagueSettings.Enabled_League_Record_Types__c)
                     ? new Set<String>(briteLeagueSettings.Enabled_League_Record_Types__c.split(','))
                     : new Set<String>();
 
-            Map<String, RecordTypeInfo> recordTypeInfoMap = BL_League__c.getSObjectType().getDescribe().getRecordTypeInfosByDeveloperName();
-            for(RecordTypeInfo recordTypeInfo : recordTypeInfoMap.values()) {
-                if(enabledLeagueRecordTypes.contains(recordTypeInfo.getDeveloperName())) {
-                    leagueRecordTypeOptions.add(new OptionWrapper(recordTypeInfo.getName(), recordTypeInfo.getDeveloperName()));
+            Map<String, RecordTypeInfo> recordTypeInfoMap = BL_Competition__c.getSObjectType().getDescribe().getRecordTypeInfosByDeveloperName();
+            for (RecordTypeInfo recordTypeInfo : recordTypeInfoMap.values()) {
+                if (enabledLeagueRecordTypes.contains(recordTypeInfo.getDeveloperName())) {
+                    competitionRecordTypeOptions.add(new OptionWrapper(recordTypeInfo.getName(), recordTypeInfo.getDeveloperName()));
                 }
             }
         }
 
         public void populateLeagueTeamSizeOptions() {
-            leagueTeamSizeOptions = new List<OptionWrapper>{
+            competitionTeamSizeOptions = new List<OptionWrapper>{
                     new OptionWrapper('Single Player', 'Single Player'),
                     new OptionWrapper('Two Players', 'Two Players')
             };
         }
 
-        public void populateLeagueWrapper() {
-            leagueWrapper = new LeagueWrapper();
+        public void populateCompetitionWrapper() {
+            competitionWrapper = new CompetitionWrapper();
         }
     }
 
-    public class LeagueWrapper {
+    public class CompetitionWrapper {
         @AuraEnabled
         public String recordType;
         @AuraEnabled

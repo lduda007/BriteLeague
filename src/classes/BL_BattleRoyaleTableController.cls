@@ -24,7 +24,7 @@ public class BL_BattleRoyaleTableController {
             Map<Id, BL_DTO_BattleRoyaleTeam> battleRoyaleTeamsMap = new Map<Id, BL_DTO_BattleRoyaleTeam>();
             List<BL_Team__c> classicTeams = new List<BL_Team__c>();
 
-            for(BL_Team__c team : daoTeam.getTeamsWithMembersByLeagueId(leagueId)) {
+            for(BL_Team__c team : daoTeam.getTeamsWithMembersByCompetitionId(leagueId)) {
                 if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
                     BL_DTO_BattleRoyaleTeam battleRoyaleTeam = new BL_DTO_BattleRoyaleTeam();
                     battleRoyaleTeam.setTeam(team);
@@ -58,7 +58,7 @@ public class BL_BattleRoyaleTableController {
 
             BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
 
-            for(BL_Competitor__c competitor : daoCompetitor.getCompetitorsByLeagueId(leagueId)) {
+            for(BL_Competitor__c competitor : daoCompetitor.getCompetitorsByCompetitionId(leagueId)) {
                 teamIdToCompetitorMap.put(competitor.Team__c, competitor);
             }
 

@@ -192,7 +192,7 @@
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
-            <stringValue>BL_League__c</stringValue>
+            <stringValue>BL_Competition__c</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -222,7 +222,7 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
-        <objectType>BL_League__c</objectType>
+        <objectType>BL_Competition__c</objectType>
     </variables>
     <variables>
         <name>myVariable_old</name>
@@ -230,7 +230,7 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
-        <objectType>BL_League__c</objectType>
+        <objectType>BL_Competition__c</objectType>
     </variables>
     <variables>
         <name>myVariable_waitStartTimeVariable</name>

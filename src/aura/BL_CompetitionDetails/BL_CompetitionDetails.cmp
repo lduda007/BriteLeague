@@ -30,7 +30,7 @@
                             variant="neutral"
                     />
                 </aura:if>
-                <aura:if isTrue="{!and(not(v.settings.isLeagueCompetitor), and(equals(v.league.Status__c, 'Assembling teams'), lessthan(v.settings.numberOfDirectLeagueCompetitors, v.league.Max_Teams__c)))}">
+                <aura:if isTrue="{!and(not(v.settings.isLeagueCompetitor), and(equals(v.league.Status__c, 'Assembling teams'), lessthan(v.settings.numberOfCompetitors, v.league.Max_Teams__c)))}">
                     <lightning:button
                             label="{!$Label.c.BL_Join}"
                             onclick="{!c.onJoin}"
@@ -108,7 +108,7 @@
                                         {!$Label.c.BL_Teams}
                                 </p>
                                 <ui:outputText
-                                        value="{!v.settings.numberOfDirectLeagueCompetitors + '/' + v.league.Max_Teams__c}"
+                                        value="{!v.settings.numberOfCompetitors + '/' + v.league.Max_Teams__c}"
                                         class="slds-text-heading--small"
                                 />
                             </lightning:layoutItem>

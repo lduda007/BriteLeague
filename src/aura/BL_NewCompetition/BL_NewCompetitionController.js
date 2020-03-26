@@ -3,7 +3,7 @@
         helper.doInit(component);
     },
 
-    onLeagueRecordTypeChange: function(component, event, helper) {
+    onCompetitionRecordTypeChange: function(component, event, helper) {
         helper.clearForm(component);
     },
 

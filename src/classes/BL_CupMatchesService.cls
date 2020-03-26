@@ -1,7 +1,7 @@
 public with sharing class BL_CupMatchesService {
     public static void generateMatchesAfterCupStarted(String leagueId){
         List<BL_Competitor__c> competitors = BL_Utils.getLeagueCompetitors(leagueId);
-        List<BL_League__c> league = [SELECT Match_No__c FROM BL_League__c WHERE Id =: leagueId];
+        List<BL_Competition__c> league = [SELECT Match_No__c FROM BL_Competition__c WHERE Id =: leagueId];
 
         if(competitors.size() >= 2 && league.size() > 0){
             List<String> competitorsIds = new List<String>();
@@ -24,7 +24,7 @@ public with sharing class BL_CupMatchesService {
             BL_Match__c newMatch = new BL_Match__c();
             newMatch.Team1__c = competitorIdsForDraw[jj];
             newMatch.Team2__c = competitorIdsForDraw[numberOfTeams-jj-1];
-            newMatch.League__c = leagueId;
+            newMatch.Competition__c = leagueId;
             newMatch.CupStage__c = cupStage;
             generatedMatches.add(newMatch);
         }
@@ -36,11 +36,11 @@ public with sharing class BL_CupMatchesService {
         while(numberOfTeamsAtCurrentStage/2 > 1){
             numberOfTeamsAtCurrentStage /= 2;
             for(Integer ii=0; ii < numberOfTeamsAtCurrentStage/2; ii++){
-                nextRoundsMatches.add(new BL_Match__c(League__c=leaguId));
+                nextRoundsMatches.add(new BL_Match__c(Competition__c=leaguId));
             }
         }
         //3rd place match
-        nextRoundsMatches.add(new BL_Match__c(League__c=leaguId));
+        nextRoundsMatches.add(new BL_Match__c(Competition__c=leaguId));
         try{
             insert nextRoundsMatches;
             return nextRoundsMatches;
@@ -96,7 +96,7 @@ public with sharing class BL_CupMatchesService {
 
     @InvocableMethod
     public static void moveWinnerTeamToNextCupStep(List<String> wonMatchId){
-        List<BL_Match__c> wonMatch = [SELECT Id, Winner__c, Team1__c, Team2__c, League__c, NextRoundMatch__c, Third_Place_Match__c FROM BL_Match__c WHERE Id =: wonMatchId];
+        List<BL_Match__c> wonMatch = [SELECT Id, Winner__c, Team1__c, Team2__c, Competition__c, NextRoundMatch__c, Third_Place_Match__c FROM BL_Match__c WHERE Id =: wonMatchId];
         List<BL_Match__c> nextRoundMatch = [
                 SELECT Id, Team1__c, Team2__c
                 FROM BL_Match__c

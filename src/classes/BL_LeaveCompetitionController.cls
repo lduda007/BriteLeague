@@ -5,8 +5,7 @@ public with sharing class BL_LeaveCompetitionController {
         try {
             List<BL_Competitor__c> competitorsToDelete = new List<BL_Competitor__c>();
 
-            BL_DAO_League daoLeague = new BL_DAO_League();
-            BL_League__c league = daoLeague.getLeagueById(leagueId);
+            BL_Competition__c league = new BL_DAO_Competition().getCompetitionById(leagueId);
 
             BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
 

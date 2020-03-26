@@ -15,8 +15,8 @@ public without sharing class BL_MatchBuilder {
         return this;
     }
 
-    public BL_MatchBuilder setLeague(Id leagueId) {
-        record.League__c = leagueId;
+    public BL_MatchBuilder setCompetition(Id competitionId) {
+        record.Competition__c = competitionId;
         return this;
     }
 

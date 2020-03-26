@@ -6,46 +6,37 @@ public class BL_CompetitionStatusChartController {
         try {
             initDataWrapper = new InitDataWrapper();
 
-            BL_League__c league = [
-                    SELECT Id, TeamSize__c, Teams_Joined__c, Start_Date__c, End_Date__c, Status__c, (
-                            SELECT Id, isResolved__c, Team1__r.Team__r.Player1__c, Team1__r.Team__r.Player2__c,
-                                    Team2__r.Team__r.Player1__c, Team2__r.Team__r.Player2__c
-                            FROM Matches__r
-                    )
-                    FROM BL_League__c
-                    WHERE Id = :competitionId
-                    LIMIT 1
-            ];
+            BL_Competition__c competition = new BL_DAO_Competition().getCompetitionById(competitionId);
 
-            if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
+            if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(competition.Status__c)) {
                 initDataWrapper.isCompetitionStarted = true;
 
-                initDataWrapper.competitionTimeProgressDataSet = getCompetitionTimeProgressDataSet(league);
-                initDataWrapper.competitionMatchesProgressDataSet = getCompetitionMatchesProgressDataSet(league.Matches__r);
-                initDataWrapper.teamMatchesProgressDataSet = getTeamMatchesProgressDataSet(league.Matches__r);
+                initDataWrapper.competitionTimeProgressDataSet = getCompetitionTimeProgressDataSet(competition);
+                initDataWrapper.competitionMatchesProgressDataSet = getCompetitionMatchesProgressDataSet(competition.Matches__r);
+                initDataWrapper.teamMatchesProgressDataSet = getTeamMatchesProgressDataSet(competition.Matches__r);
 
                 populateStatusFields(initDataWrapper);
             } else {
                 initDataWrapper.isCompetitionStarted = false;
             }
         } catch(Exception e) {
-            String uiMessage = 'An error occurred during initialization of Competition Status Chart component: ' + e.getMessage();
+            String uiMessage = 'An error occurred during initialization of "BL_CompetitionStatusChart" component: ' + e.getMessage();
             BL_Utils.throwAuraHandledException(uiMessage, e);
         }
         return initDataWrapper;
     }
 
-    private static BL_ChartJS.DataSet getCompetitionTimeProgressDataSet(BL_League__c league) {
+    private static BL_ChartJS.DataSet getCompetitionTimeProgressDataSet(BL_Competition__c competition) {
         BL_ChartJS.DataSet dataSet = new BL_ChartJS.DataSet();
 
         Date today = System.today();
-        Integer fromStartDays = league.Start_Date__c.date().daysBetween(today);
+        Integer fromStartDays = competition.Start_Date__c.date().daysBetween(today);
         if(fromStartDays < 0) {
             fromStartDays = 0;
         }
-        Integer toEndDays = today.daysBetween(league.End_Date__c.date());
+        Integer toEndDays = today.daysBetween(competition.End_Date__c.date());
         if(toEndDays < 0) {
-            fromStartDays = league.Start_Date__c.date().daysBetween(league.End_Date__c.date());
+            fromStartDays = competition.Start_Date__c.date().daysBetween(competition.End_Date__c.date());
             toEndDays = 0;
         }
 

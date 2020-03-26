@@ -7,9 +7,9 @@
             let errors = response.getError();
 
             if(state === "SUCCESS") {
-                let newLeagueWrapper = result.leagueWrapper;
-                newLeagueWrapper.startDate = this.convertDateToString(component, new Date());
-                component.set("v.newLeagueWrapper", newLeagueWrapper);
+                let newCompetitionWrapper = result.competitionWrapper;
+                newCompetitionWrapper.startDate = this.convertDateToString(component, new Date());
+                component.set("v.newCompetitionWrapper", newCompetitionWrapper);
                 component.set("v.initDataWrapper", result);
             } else if(state === "ERROR") {
                 let message = 'Unknown error';
@@ -25,7 +25,7 @@
     doSave: function(component) {
         let action = component.get("c.saveCompetition");
         action.setParams({
-            newLeagueWrapperJson: JSON.stringify(component.get("v.newLeagueWrapper"))
+            newCompetitionWrapperJson: JSON.stringify(component.get("v.newCompetitionWrapper"))
         });
         action.setCallback(this, function(response) {
             let state = response.getState();
@@ -35,9 +35,9 @@
             if(state === "SUCCESS") {
                 this.showToast('SUCCESS', 'Competition Created!');
                 $A.get("e.force:navigateToSObject").setParams({
-                      "recordId": result,
-                      "slideDevName": "detail"
-                      }).fire();
+                    "recordId": result,
+                    "slideDevName": "detail"
+                }).fire();
             } else if(state === "ERROR") {
                 let message;
                 if(errors && Array.isArray(errors) && errors.length > 0) {
@@ -74,16 +74,16 @@
     },
 
     validateForm: function(component) {
-        return component.find('newLeagueForm').reduce(function (isValidSoFar, input) {
+        return component.find('newCompetitionForm').reduce(function (isValidSoFar, input) {
             return isValidSoFar && input.get('v.validity').valid;
-            }, true);
+        }, true);
     },
 
     clearForm: function(component) {
-        let newLeagueWrapper = component.get("v.newLeagueWrapper");
-        newLeagueWrapper.teamsLimit = null;
-        newLeagueWrapper.rounds = null;
-        component.set("v.newLeagueWrapper", newLeagueWrapper);
+        let newCompetitionWrapper = component.get("v.newCompetitionWrapper");
+        newCompetitionWrapper.teamsLimit = null;
+        newCompetitionWrapper.rounds = null;
+        component.set("v.newCompetitionWrapper", newCompetitionWrapper);
     },
 
     showToast: function(type, message) {

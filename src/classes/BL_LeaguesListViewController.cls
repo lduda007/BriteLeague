@@ -63,22 +63,22 @@ public with sharing class BL_LeaguesListViewController {
     }
 
     @AuraEnabled
-    public static List<BL_League__c> getAllLeagues() {
+    public static List<BL_Competition__c> getAllLeagues() {
         return [
                 SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, TeamSize__c,
                         RecordType.DeveloperName, Status__c
-                FROM BL_League__c
+                FROM BL_Competition__c
                 ORDER BY Name ASC
         ];
     }
 
     @AuraEnabled
-    public static List<BL_League__c> getOpenLeagues() {
-        List<BL_League__c> leagues = new List<BL_League__c>();
-        for(BL_League__c league : [
+    public static List<BL_Competition__c> getOpenLeagues() {
+        List<BL_Competition__c> leagues = new List<BL_Competition__c>();
+        for(BL_Competition__c league : [
                 SELECT Id, Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, TeamSize__c,
                         RecordType.DeveloperName
-                FROM BL_League__c
+                FROM BL_Competition__c
                 WHERE (Status__c = 'Assembling teams' AND Start_Date__c >= :System.now())
                 AND Id NOT IN :getPlayerLeaguesIds()
                 AND RecordType.DeveloperName != :BL_Constants.LEAGUE_RT_BATTLE_ROYALE
@@ -91,12 +91,12 @@ public with sharing class BL_LeaguesListViewController {
     }
 
     @AuraEnabled
-    public static List<BL_League__c> getMyLeagues() {
-        List<BL_League__c> leagues = new List<BL_League__c>();
-        for(BL_League__c league : [
+    public static List<BL_Competition__c> getMyLeagues() {
+        List<BL_Competition__c> leagues = new List<BL_Competition__c>();
+        for(BL_Competition__c league : [
                 SELECT Name, Max_Teams__c, Teams_Joined__c, Start_Date__c, End_Date__c, RecordType.DeveloperName,
                         Status__c, TeamSize__c
-                FROM BL_League__c
+                FROM BL_Competition__c
                 WHERE Id IN :getPlayerLeaguesIds()
                 ORDER BY Name
         ]) {
@@ -112,8 +112,7 @@ public with sharing class BL_LeaguesListViewController {
         BL_DAO_Team daoTeam = new BL_DAO_Team();
         List<BL_Team__c> teams = daoTeam.getTeamsByPlayerId(playerId);
 
-        BL_DAO_League daoLeague = new BL_DAO_League();
-        BL_League__c league = daoLeague.getLeagueById(leagueId);
+        BL_Competition__c league = new BL_DAO_Competition().getCompetitionById(leagueId);
 
         List<DTO_Team> dtoList = new List<DTO_Team>();
 
@@ -144,9 +143,9 @@ public with sharing class BL_LeaguesListViewController {
 
     private static Boolean checkLeagueCompetitors(String leagueId, String teamId) {
         BL_Settings settings = new BL_Settings()
-                .populateSettingsForLeague(leagueId);
+                .populateSettingsForCompetition(leagueId);
 
-        if(settings.isCaptainOfBattleRoyaleTeam || settings.isLeagueCompetitor || settings.numberOfDirectLeagueCompetitors == settings.getLeague().Max_Teams__c) {
+        if(settings.isCaptainOfBattleRoyaleTeam || settings.isCompetitor || settings.numberOfCompetitors == settings.getCompetition().Max_Teams__c) {
             return false;
         }
 

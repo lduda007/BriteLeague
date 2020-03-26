@@ -4,7 +4,7 @@
     <encodingKey>UTF-8</encodingKey>
     <name>League Start Email</name>
     <style>none</style>
-    <subject>League {!BL_League__c.Name} has started.</subject>
+    <subject>League {!BL_Competition__c.Name} has started.</subject>
     <type>text</type>
     <uiType>Aloha</uiType>
 </EmailTemplate>

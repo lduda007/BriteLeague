@@ -4,23 +4,23 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>BL_League__c.Start_Date__c</field>
+        <field>BL_Competition__c.Start_Date__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>BL_League__c.Max_Teams__c</field>
+        <field>BL_Competition__c.Max_Teams__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>BL_League__c.Teams_Joined__c</field>
+        <field>BL_Competition__c.Teams_Joined__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>BL_League__c.Matches_Scheduled__c</field>
+        <field>BL_Competition__c.Matches_Scheduled__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>BL_League__c.Total_Matches_Played__c</field>
+        <field>BL_Competition__c.Total_Matches_Played__c</field>
     </columns>
     <columns>
         <field>CUST_OWNER_NAME</field>
@@ -43,20 +43,25 @@
     <currency>PLN</currency>
     <filter>
         <criteriaItems>
-            <column>BL_League__c.Status__c</column>
+            <column>BL_Competition__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>Assembling teams,Started</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <field>CUST_CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>Active Leagues</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CustomEntity$BL_League__c</reportType>
+    <reportType>CustomEntity$BL_Competition__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
@@ -64,7 +69,7 @@
     <sortColumn>CUST_NAME</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
-        <dateColumn>BL_League__c.End_Date__c</dateColumn>
+        <dateColumn>BL_Competition__c.End_Date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>

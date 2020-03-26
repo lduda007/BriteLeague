@@ -1,11 +1,11 @@
 <aura:component
-        description="BL_CreateLeague"
-        controller="BL_CreateLeagueController"
+        description="BL_NewCompetition"
+        controller="BL_NewCompetitionController"
         implements="force:lightningQuickActionWithoutHeader,forceCommunity:availableForAllPageTypes"
 >
 
     <aura:attribute name="initDataWrapper" type="Object" access="private"/>
-    <aura:attribute name="newLeagueWrapper" type="Object" default="{}" access="private"/>
+    <aura:attribute name="newCompetitionWrapper" type="Object" default="{}" access="private"/>
     <aura:attribute name="cupTeamsNumber" type="List" default="[4,8,16,32,64]" access="private"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
@@ -15,19 +15,19 @@
     <lightning:card title="New League">
         <aura:if isTrue="{!not(empty(v.initDataWrapper))}">
             <div class="slds-align_absolute-center">
-                <lightning:layout multipleRows="true" class="new-league-form">
+                <lightning:layout multipleRows="true" class="new-competition-form">
                     <lightning:layoutItem
                             size="12"
                             class="slds-p-around--x-small"
                     >
                         <lightning:radioGroup
                                 label="Type"
-                                options="{!v.initDataWrapper.leagueRecordTypeOptions}"
-                                value="{!v.newLeagueWrapper.recordType}"
+                                options="{!v.initDataWrapper.competitionRecordTypeOptions}"
+                                value="{!v.newCompetitionWrapper.recordType}"
                                 type="button"
-                                onchange="{!c.onLeagueRecordTypeChange}"
+                                onchange="{!c.onCompetitionRecordTypeChange}"
                                 required="true"
-                                aura:id="newLeagueForm"
+                                aura:id="newCompetitionForm"
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem
@@ -36,22 +36,22 @@
                     >
                         <lightning:radioGroup
                                 label="Team size"
-                                options="{!v.initDataWrapper.leagueTeamSizeOptions}"
-                                value="{!v.newLeagueWrapper.teamSize}"
+                                options="{!v.initDataWrapper.competitionTeamSizeOptions}"
+                                value="{!v.newCompetitionWrapper.teamSize}"
                                 type="button"
                                 required="true"
-                                aura:id="newLeagueForm"
+                                aura:id="newCompetitionForm"
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem size="12" class="slds-p-around--x-small">
                         <lightning:input
                                 label="Name"
-                                value="{!v.newLeagueWrapper.name}"
+                                value="{!v.newCompetitionWrapper.name}"
                                 pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
                                 maxlength="40"
                                 required="true"
                                 messageWhenPatternMismatch="Only letters and numbers allowed"
-                                aura:id="newLeagueForm"
+                                aura:id="newCompetitionForm"
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem
@@ -59,11 +59,11 @@
                             class="slds-p-around--x-small">
                         <lightning:input
                                 label="Start Date"
-                                value="{!v.newLeagueWrapper.startDate}"
+                                value="{!v.newCompetitionWrapper.startDate}"
                                 type="datetime"
                                 required="true"
                                 min="{!v.currentDate}"
-                                aura:id="newLeagueForm"
+                                aura:id="newCompetitionForm"
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem
@@ -72,40 +72,40 @@
                     >
                         <lightning:input
                                 label="End Date"
-                                value="{!v.newLeagueWrapper.endDate}"
+                                value="{!v.newCompetitionWrapper.endDate}"
                                 type="datetime"
                                 required="true"
-                                min="{!v.newLeagueWrapper.startDate}"
-                                aura:id="newLeagueForm"
+                                min="{!v.newCompetitionWrapper.startDate}"
+                                aura:id="newCompetitionForm"
                         />
                     </lightning:layoutItem>
                     <aura:if
-                            isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
+                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'Classic'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
                         <lightning:layoutItem
                                 size="12"
                                 class="slds-p-around--x-small"
                         >
                             <lightning:input
                                     label="Teams limit (2-40)"
-                                    value="{!v.newLeagueWrapper.teamsLimit}"
+                                    value="{!v.newCompetitionWrapper.teamsLimit}"
                                     type="number"
                                     min="2"
                                     max="40"
                                     required="true"
-                                    aura:id="newLeagueForm"
+                                    aura:id="newCompetitionForm"
                             />
                         </lightning:layoutItem>
                     </aura:if>
-                    <aura:if isTrue="{!equals(v.newLeagueWrapper.recordType, 'Cup')}">
+                    <aura:if isTrue="{!equals(v.newCompetitionWrapper.recordType, 'Cup')}">
                         <lightning:layoutItem
                                 size="12"
                                 class="slds-p-around--x-small"
                         >
                             <lightning:select
                                     label="Teams"
-                                    value="{!v.newLeagueWrapper.teamsLimit}"
+                                    value="{!v.newCompetitionWrapper.teamsLimit}"
                                     required="true"
-                                    aura:id="newLeagueForm"
+                                    aura:id="newCompetitionForm"
                             >
                                 <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamsLimit">
                                     <option label="{!cupTeamsLimit}" value="{!cupTeamsLimit}"></option>
@@ -114,19 +114,19 @@
                         </lightning:layoutItem>
                     </aura:if>
                     <aura:if
-                            isTrue="{!or(equals(v.newLeagueWrapper.recordType, 'Classic'), equals(v.newLeagueWrapper.recordType, 'Battle_Royale'))}">
+                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'Classic'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
                         <lightning:layoutItem
                                 size="12"
                                 class="slds-p-around--x-small"
                         >
                             <lightning:input
                                     label="Rounds"
-                                    value="{!v.newLeagueWrapper.rounds}"
+                                    value="{!v.newCompetitionWrapper.rounds}"
                                     type="number"
                                     min="1"
                                     max="40"
                                     required="true"
-                                    aura:id="newLeagueForm"
+                                    aura:id="newCompetitionForm"
                             />
                         </lightning:layoutItem>
                     </aura:if>

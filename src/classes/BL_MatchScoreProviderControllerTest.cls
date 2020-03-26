@@ -1,6 +1,6 @@
 @isTest
 private class BL_MatchScoreProviderControllerTest {
-    @isTest
+   @isTest
     static void testClassicLeagueMatchScore() {
         SetupDataClass setupData = new SetupDataClass();
         setupData.insertLeague(BL_Constants.LEAGUE_RT_CLASSIC);
@@ -14,7 +14,8 @@ private class BL_MatchScoreProviderControllerTest {
                 2,
                 0,
                 new List<Decimal>{10, 10},
-                new List<Decimal>{3, 3}
+                new List<Decimal>{3, 3},
+                Datetime.now()
         );
         Test.stopTest();
 
@@ -43,7 +44,8 @@ private class BL_MatchScoreProviderControllerTest {
                 2,
                 1,
                 new List<Decimal>{10, 3, 10},
-                new List<Decimal>{3, 10, 3}
+                new List<Decimal>{3, 10, 3},
+                Datetime.now()
         );
         Test.stopTest();
 
@@ -72,7 +74,8 @@ private class BL_MatchScoreProviderControllerTest {
                 2,
                 0,
                 new List<Decimal>{10, 10},
-                new List<Decimal>{3, 3}
+                new List<Decimal>{3, 3},
+                Datetime.now()
         );
         Test.stopTest();
 
@@ -88,13 +91,13 @@ private class BL_MatchScoreProviderControllerTest {
     }
 
     class SetupDataClass {
-        BL_League__c testLeague;
+        BL_Competition__c testLeague;
         List<BL_Team__c> testTeams = new List<BL_Team__c>();
         List<BL_Competitor__c> testCompetitors = new List<BL_Competitor__c>();
         BL_Match__c testMatch;
 
         public void insertLeague(String recordTypeName) {
-            testLeague = new BL_League__c(
+            testLeague = new BL_Competition__c(
                     Match_No__c = 1,
                     RecordTypeId = BL_Utils.getRecordTypeIdByDeveloperName('BL_League__c', recordTypeName)
             );
@@ -145,7 +148,7 @@ private class BL_MatchScoreProviderControllerTest {
 
         public void insertMatch() {
             testMatch = new BL_MatchBuilder()
-                    .setLeague(testLeague.Id)
+                    .setCompetition(testLeague.Id)
                     .setTeam1(testCompetitors[0].Id)
                     .setTeam2(testCompetitors[1].Id)
                     .build();

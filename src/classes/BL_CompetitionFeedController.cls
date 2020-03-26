@@ -15,25 +15,15 @@ public class BL_CompetitionFeedController {
         try {
             initDataWrapper = new InitDataWrapper();
 
-            BL_League__c league = [
-                    SELECT Id, CreatedDate, CreatedBy.Name, Status__c, Start_Date__c, End_Date__c, Date_League_Finished__c
-                    FROM BL_League__c
-                    WHERE Id = :competitionId
-                    LIMIT 1
-            ];
+            BL_Competition__c competition = new BL_DAO_Competition().getCompetitionById(competitionId);
 
             initDataWrapper.addFeedItem(
                     new FeedItemWrapperBuilder()
-                            .setAsLeagueCreated(league.CreatedDate, league.CreatedBy.Name)
+                            .setAsCompetitionCreated(competition.CreatedDate, competition.CreatedBy.Name)
                             .build()
             );
 
-            for(BL_Competitor__c competitor : [
-                    SELECT Id, Team__r.Name, CreatedDate
-                    FROM BL_Competitor__c
-                    WHERE League__c = :competitionId
-                    ORDER BY Team__r.Name ASC
-            ]) {
+            for(BL_Competitor__c competitor : new BL_DAO_Competitor().getCompetitorsByCompetitionId(competitionId)) {
                 initDataWrapper.addFeedItem(
                         new FeedItemWrapperBuilder()
                                 .setAsTeamJoined(competitor.Team__r.Name, competitor.CreatedDate)
@@ -41,21 +31,14 @@ public class BL_CompetitionFeedController {
                 );
             }
 
-            if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(league.Status__c)) {
+            if(BL_Constants.LEAGUE_STARTED_STATUSES.contains(competition.Status__c)) {
                 initDataWrapper.addFeedItem(
                         new FeedItemWrapperBuilder()
-                                .setAsLeagueStarted(league.Start_Date__c)
+                                .setAsCompetitionStarted(competition.Start_Date__c)
                                 .build()
                 );
 
-                for(BL_Match__c match : [
-                        SELECT Id, Team1_Score__c, Team2_Score__c, Team1TotalGoalsScored__c, Team2TotalGoalsScored__c,
-                                Team1__r.Team__r.Name, Team2__r.Team__r.Name, MatchDate__c, LastModifiedDate
-                        FROM BL_Match__c
-                        WHERE League__c = :competitionId
-                        AND isResolved__c = true
-                        ORDER BY MatchDate__c ASC, LastModifiedDate ASC
-                ]) {
+                for(BL_Match__c match : new BL_DAO_Match().getResolvedMatchesForCompetition(competitionId)) {
                     initDataWrapper.addFeedItem(
                             new FeedItemWrapperBuilder()
                                     .setAsMatch(match)
@@ -64,10 +47,10 @@ public class BL_CompetitionFeedController {
                 }
             }
 
-            if(league.Status__c == BL_Constants.LEAGUE_STATUS_FINISHED) {
+            if(competition.Status__c == BL_Constants.LEAGUE_STATUS_FINISHED) {
                 initDataWrapper.addFeedItem(
                         new FeedItemWrapperBuilder()
-                                .setAsLeagueFinished(league.Date_League_Finished__c)
+                                .setAsCompetitionFinished(competition.Date_League_Finished__c)
                                 .build()
                 );
             }
@@ -134,7 +117,7 @@ public class BL_CompetitionFeedController {
             record = new FeedItemWrapper();
         }
 
-        public FeedItemWrapperBuilder setAsLeagueCreated(Datetime createdDatetime, String createdBy) {
+        public FeedItemWrapperBuilder setAsCompetitionCreated(Datetime createdDatetime, String createdBy) {
             record.eventType = EVENT_TYPE_LEAGUE_CREATED;
             record.iconName = 'custom:custom44';
             record.dt = createdDatetime;
@@ -145,7 +128,7 @@ public class BL_CompetitionFeedController {
             return this;
         }
 
-        public FeedItemWrapperBuilder setAsLeagueStarted(Datetime startDatetime) {
+        public FeedItemWrapperBuilder setAsCompetitionStarted(Datetime startDatetime) {
             record.eventType = EVENT_TYPE_LEAGUE_STARTED;
             record.iconName = 'custom:custom20';
             record.dt = startDatetime;
@@ -154,7 +137,7 @@ public class BL_CompetitionFeedController {
             return this;
         }
 
-        public FeedItemWrapperBuilder setAsLeagueFinished(Datetime endDatetime) {
+        public FeedItemWrapperBuilder setAsCompetitionFinished(Datetime endDatetime) {
             record.eventType = EVENT_TYPE_LEAGUE_FINISHED;
             record.iconName = 'custom:custom95';
             record.dt = endDatetime;
@@ -257,7 +240,7 @@ public class BL_CompetitionFeedController {
             return getRandomStatement(drawStatements, seed, drawRecentlyUsed);
         }
 
-        private String getRandomStatement(List<String> statements, Integer seed, List<string> recentlyUsed) {
+        private String getRandomStatement(List<String> statements, Integer seed, List<String> recentlyUsed) {
             List<String> statementsToUse = statements.clone();
             Integer i = 0;
             while (i < statementsToUse.size()){
