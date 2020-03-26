@@ -8,9 +8,8 @@ public with sharing class BL_LeagueEndEmailContentController {
     public List<BL_Competitor__c> leagueCompetitors {get; set;}
 
     private void initializeCompetitorDetails(String competitorId){
-        system.debug(competitorId);
         List<BL_Competitor__c> competitors = [
-            SELECT Id, Team__r.Name, GoalsFor__c, GoalsAgainst__c, Points__c, League__r.Name, League__c, League__r.TeamSize__c
+            SELECT Id, Team__r.Name, GoalsFor__c, GoalsAgainst__c, Points__c, Competition__r.Name, Competition__c, Competition__r.TeamSize__c
             FROM BL_Competitor__c
             WHERE Id =: competitorId
         ];
@@ -21,7 +20,7 @@ public with sharing class BL_LeagueEndEmailContentController {
             Map<Id, BL_Competitor__c> competitorsMap = new Map<Id, BL_Competitor__c>([
                 SELECT Id, Team__r.Name, Team__r.Player1__r.Name, Team__r.Player2__r.Name, GamesWon__c, GamesLost__c, GamesDrawn__c, GoalsFor__c, GoalsAgainst__c, GoalsDraw__c, Points__c
                 FROM BL_Competitor__c
-                WHERE League__c =: competitor.League__c
+                WHERE Competition__c =: competitor.Competition__c
                 ORDER BY Points__c DESC, GoalsDraw__c DESC, GoalsFor__c DESC, GoalsAgainst__c ASC
             ]);
 
@@ -30,7 +29,7 @@ public with sharing class BL_LeagueEndEmailContentController {
             for (BL_Competitor__c cmp : [
                     SELECT Id, Team__r.Name
                     FROM BL_Competitor__c
-                    WHERE League__c =: competitor.League__c
+                    WHERE Competition__c =: competitor.Competition__c
                     ORDER BY Points__c DESC
             ]) {
                 if (index == 0) {

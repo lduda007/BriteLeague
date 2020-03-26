@@ -22,7 +22,7 @@ public with sharing class BL_Utils {
         List<BL_Competitor__c> competitors = [
             SELECT Id, Team__c, Team__r.Player1__c, Team__r.Player2__c, Points__c
             FROM BL_Competitor__c
-            WHERE League__c =: leagueId
+            WHERE Competition__c =: leagueId
             ORDER BY Points__c DESC
         ];
         return competitors;

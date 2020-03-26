@@ -6,8 +6,8 @@ public with sharing class BL_CompetitionStartedEmailController {
 
     private void initializeCompetitorDetails(String competitorId){
         List<BL_Competitor__c> competitors = [
-                SELECT Id, Team__r.Name, GoalsFor__c, GoalsAgainst__c, Points__c, League__r.Name, League__c,
-                        League__r.End_Date__c, League__r.RecordType.DeveloperName, League__r.TeamSize__c
+                SELECT Id, Team__r.Name, GoalsFor__c, GoalsAgainst__c, Points__c, Competition__r.Name, Competition__c,
+                        Competition__r.End_Date__c, Competition__r.RecordType.DeveloperName, Competition__r.TeamSize__c
                 FROM BL_Competitor__c
                 WHERE Id =: competitorId
         ];

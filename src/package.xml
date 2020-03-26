@@ -57,6 +57,7 @@
         <members>BL_LeagueDetailsController</members>
         <members>BL_SinglePlayerScoreProviderController</members>
         <members>BL_MatchServiceTest</members>
+        <members>BL_Create1PlayerCompetitorController</members>
         <name>ApexClass</name>
     </types>
     <types>

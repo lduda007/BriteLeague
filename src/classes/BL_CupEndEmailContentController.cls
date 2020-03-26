@@ -8,9 +8,8 @@ public with sharing class BL_CupEndEmailContentController {
     public List<BL_Competitor__c> leagueCompetitors {get; set;}
 
     private void initializeCompetitorDetails(String competitorId){
-        system.debug(competitorId);
         List<BL_Competitor__c> competitors = [
-                SELECT Id, Team__r.Name, GoalsFor__c, GoalsAgainst__c, Points__c, League__r.Name, League__c, Team__r.Player1__c, Team__r.Player2__c, League__r.TeamSize__c
+                SELECT Id, Team__r.Name, GoalsFor__c, GoalsAgainst__c, Points__c, Competition__r.Name, Competition__c, Team__r.Player1__c, Team__r.Player2__c, Competition__r.TeamSize__c
                 FROM BL_Competitor__c
                 WHERE Id =: competitorId
         ];
@@ -21,7 +20,7 @@ public with sharing class BL_CupEndEmailContentController {
             List<BL_Match__c> finalMatch = [
                     SELECT Id, Winner__c
                     FROM BL_Match__c
-                    WHERE CupStage__c = 1 AND Competition__c =: competitor.League__c
+                    WHERE CupStage__c = 1 AND Competition__c =: competitor.Competition__c
             ];
             if(!finalMatch.isEmpty()){
                 List<BL_Competitor__c> winnerTeam = [

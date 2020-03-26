@@ -115,8 +115,8 @@ private class BL_MatchServiceTest {
         insert anotherBRTeam;
         BL_Team__c chosenTeam = [SELECT Id FROM BL_Team__c WHERE RecordType.Name = :BL_Constants.TEAM_RT_CLASSIC LIMIT 1];
         insert new BL_TeamMember__c(Team__c = anotherBRTeam.Id, Member__c = chosenTeam.Id);
-        insert new BL_Competitor__c(Team__c = anotherBRTeam.Id, League__c = anotherLeague.Id);
-        insert new BL_Competitor__c(Team__c = chosenTeam.Id, League__c = anotherLeague.Id);
+        insert new BL_Competitor__c(Team__c = anotherBRTeam.Id, Competition__c = anotherLeague.Id);
+        insert new BL_Competitor__c(Team__c = chosenTeam.Id, Competition__c = anotherLeague.Id);
 
 
         Test.startTest();
@@ -161,8 +161,8 @@ private class BL_MatchServiceTest {
             }
             insert teams;
             for (Integer i = 0; i < numberOfTeams; i++) {
-                BL_Competitor__c competitor = new BL_Competitor__c(League__c = leagueId, Team__c = teams[i].Id);
-                competitors.add(new BL_Competitor__c(League__c = leagueId, Team__c = teams[i].Id));
+                BL_Competitor__c competitor = new BL_Competitor__c(Competition__c = leagueId, Team__c = teams[i].Id);
+                competitors.add(new BL_Competitor__c(Competition__c = leagueId, Team__c = teams[i].Id));
             }
             insert competitors;
         }
@@ -190,7 +190,7 @@ private class BL_MatchServiceTest {
             insert teamMembers;
 
             for (Integer i = 0; i < teams.size(); i++) {
-                competitors.add(new BL_Competitor__c(League__c = leagueId, Team__c = teams[i].Id));
+                competitors.add(new BL_Competitor__c(Competition__c = leagueId, Team__c = teams[i].Id));
             }
             insert competitors;
         }

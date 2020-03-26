@@ -4,11 +4,11 @@ public with sharing class BL_Create1PlayerCompetitorController {
     public static String insertCompetitor(BL_Competitor__c competitor) {
         User currentUser = BL_Utils.getCurrentUser();
         competitor.Team__c = getPlayerSinglePlayerTeamId(currentUser.ContactId);
-        system.debug(competitor);
+
         if(competitor.Team__c == null){
             competitor.Team__c = createTeamForSinglePlayerAndGetId();
         }
-        if (String.isNotBlank(competitor.League__c)) {
+        if (String.isNotBlank(competitor.Competition__c)) {
             insert competitor;
             return 'SUCCESS';
         } else {

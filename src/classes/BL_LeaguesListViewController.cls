@@ -4,7 +4,7 @@ public with sharing class BL_LeaguesListViewController {
         List<BL_Competitor__c> competitorsToInsert = new List<BL_Competitor__c>();
 
         try {
-            if(checkLeagueCompetitors(competitor.League__c, competitor.Team__c)) {
+            if(checkLeagueCompetitors(competitor.Competition__c, competitor.Team__c)) {
                 competitorsToInsert.add(competitor);
 
                 BL_DAO_Team daoTeam = new BL_DAO_Team();
@@ -14,7 +14,7 @@ public with sharing class BL_LeaguesListViewController {
                     for(BL_Team__c subTeam : daoTeam.getTeamsByParentTeamId(competitor.Team__c)) {
                         BL_Competitor__c subCompetitor = new BL_Competitor__c(
                                 Team__c = subTeam.Id,
-                                League__c = competitor.League__c
+                                Competition__c = competitor.Competition__c
                         );
 
                         competitorsToInsert.add(subCompetitor);
@@ -37,14 +37,14 @@ public with sharing class BL_LeaguesListViewController {
     private static List<String> getPlayerLeaguesIds() {
         String playerId = BL_Utils.getCurrentUser().ContactId;
         List<BL_Competitor__c> comps = [
-                SELECT Id, League__c
+                SELECT Id, Competition__c
                 FROM BL_Competitor__c
                 WHERE Team__r.Player1__c = :playerId
                 OR Team__r.Player2__c = :playerId
         ];
         List<Id> excLeagues = new List<Id>();
         List<BL_Competitor__c> parentTeamsCompetitors = [
-                SELECT League__c
+                SELECT Competition__c
                 FROM BL_Competitor__c
                 WHERE Team__c IN (
                         SELECT Team__c
@@ -54,10 +54,10 @@ public with sharing class BL_LeaguesListViewController {
                 )
         ];
         for(BL_Competitor__c bl_competitor : comps) {
-            excLeagues.add(bl_competitor.League__c);
+            excLeagues.add(bl_competitor.Competition__c);
         }
         for(BL_Competitor__c bl_competitor : parentTeamsCompetitors) {
-            excLeagues.add(bl_competitor.League__c);
+            excLeagues.add(bl_competitor.Competition__c);
         }
         return excLeagues;
     }

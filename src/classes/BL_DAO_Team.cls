@@ -28,7 +28,7 @@ public class BL_DAO_Team {
                 WHERE Id IN (
                         SELECT Team__c
                         FROM BL_Competitor__c
-                        WHERE League__c = :competitionId
+                        WHERE Competition__c = :competitionId
                 )
         ];
     }
@@ -58,7 +58,7 @@ public class BL_DAO_Team {
                 WHERE Id IN (
                         SELECT Team__c
                         FROM BL_Competitor__c
-                        WHERE League__c = :competitionId
+                        WHERE Competition__c = :competitionId
                 )
                 ORDER BY Name ASC
         ];

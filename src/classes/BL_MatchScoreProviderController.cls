@@ -74,8 +74,8 @@ public with sharing class BL_MatchScoreProviderController {
         BL_Competitor__c parent2;
 
         if (isBattleRoyale) {
-            parent1 = daoCompetitor.getParentCompetitorByMemberTeamIdAndLeagueId(competitor1.Team__c, match.Competition__c);
-            parent2 = daoCompetitor.getParentCompetitorByMemberTeamIdAndLeagueId(competitor2.Team__c, match.Competition__c);
+            parent1 = daoCompetitor.getParentCompetitorByMemberTeamIdAndCompetitionId(competitor1.Team__c, match.Competition__c);
+            parent2 = daoCompetitor.getParentCompetitorByMemberTeamIdAndCompetitionId(competitor2.Team__c, match.Competition__c);
         }
 
         BL_MatchScoreService scoreService = new BL_MatchScoreService();

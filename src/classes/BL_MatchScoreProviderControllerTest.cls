@@ -139,7 +139,7 @@ private class BL_MatchScoreProviderControllerTest {
         public void insertCompetitors() {
             for (Integer i = 0; i < testTeams.size(); i++) {
                 testCompetitors.add(new BL_Competitor__c(
-                        League__c = testLeague.Id,
+                        Competition__c = testLeague.Id,
                         Team__c = testTeams[i].Id
                 ));
             }

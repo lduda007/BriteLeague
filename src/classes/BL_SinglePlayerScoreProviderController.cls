@@ -35,7 +35,7 @@ public with sharing class BL_SinglePlayerScoreProviderController {
         Map<Id, BL_Competitor__c> matchCompetitorsMap = new Map<Id, BL_Competitor__c>([
                 SELECT Id, GamesLost__c,GamesDrawn__c,GamesWon__c,GoalsAgainst__c,GoalsFor__c, RoundsWon__c, RoundsLost__c
                 FROM BL_Competitor__c
-                WHERE League__c = :match.Competition__c
+                WHERE Competition__c = :match.Competition__c
                 AND (
                         Id = :match.Team1__c
                         OR Id = :match.Team2__c

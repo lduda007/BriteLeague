@@ -20,12 +20,12 @@ public class BL_DAO_Competitor {
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
                 FROM BL_Competitor__c
-                WHERE League__c = :competitionId
+                WHERE Competition__c = :competitionId
                 ORDER BY Team__r.Name ASC
         ];
     }
 
-    public BL_Competitor__c getCompetitorByPlayerIdAndLeagueId(Id playerId, Id leagueId) {
+    public BL_Competitor__c getCompetitorByPlayerIdAndCompetitionId(Id playerId, Id competitionId) {
         return [
                 SELECT
                         Id,
@@ -43,7 +43,7 @@ public class BL_DAO_Competitor {
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
                 FROM BL_Competitor__c
-                WHERE League__c = :leagueId
+                WHERE Competition__c = :competitionId
                 AND (
                         Team__r.Player1__c = :playerId
                         OR Team__r.Player2__c = :playerId
@@ -52,7 +52,7 @@ public class BL_DAO_Competitor {
         ];
     }
 
-    public BL_Competitor__c getCompetitorByPlayerIdAndLeagueIdAndTeamRecordTypeDevName(Id playerId, Id leagueId, String teamRecordType) {
+    public BL_Competitor__c getCompetitorByPlayerIdAndCompetitionIdAndTeamRecordTypeDevName(Id playerId, Id competitionId, String teamRecordType) {
         return [
                 SELECT
                         Id,
@@ -70,7 +70,7 @@ public class BL_DAO_Competitor {
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
                 FROM BL_Competitor__c
-                WHERE League__c = :leagueId
+                WHERE Competition__c = :competitionId
                 AND (
                         Team__r.Player1__c = :playerId
                         OR Team__r.Player2__c = :playerId
@@ -80,7 +80,7 @@ public class BL_DAO_Competitor {
         ];
     }
 
-    public List<BL_Competitor__c> getCompetitorsByLeagueIdAndParentTeamId(Id leagueId, Id parentTeamId) {
+    public List<BL_Competitor__c> getCompetitorsByCompetitionIdAndParentTeamId(Id competitionId, Id parentTeamId) {
         return [
                 SELECT
                         Id,
@@ -98,7 +98,7 @@ public class BL_DAO_Competitor {
                         Team__r.Player2__c,
                         Team__r.RecordType.DeveloperName
                 FROM BL_Competitor__c
-                WHERE League__c = :leagueId
+                WHERE Competition__c = :competitionId
                 AND Team__c IN (
                         SELECT Member__c
                         FROM BL_TeamMember__c
@@ -107,11 +107,11 @@ public class BL_DAO_Competitor {
         ];
     }
 
-    public BL_Competitor__c getParentCompetitorByMemberTeamIdAndLeagueId(Id memberTeamId, Id leagueId) {
+    public BL_Competitor__c getParentCompetitorByMemberTeamIdAndCompetitionId(Id memberTeamId, Id competitionId) {
         List<BL_Competitor__c> competitor = [
                 SELECT Id, GamesLost__c, GamesWon__c, GamesDrawn__c, RoundsWon__c, RoundsLost__c, GoalsAgainst__c, GoalsFor__c, GoalsDraw__c
-                FROM bl_competitor__c
-                WHERE League__c = :leagueId
+                FROM BL_Competitor__c
+                WHERE Competition__c = :competitionId
                 AND Team__c IN (
                         SELECT Team__c
                         FROM BL_TeamMember__c
@@ -123,7 +123,7 @@ public class BL_DAO_Competitor {
     }
 
     public Map<Id, BL_Competitor__c> getCompetitorsMapByIds(List<Id> ids) {
-        return new Map<ID, BL_Competitor__c>([
+        return new Map<Id, BL_Competitor__c>([
                 SELECT
                         Id,
                         Team__c,

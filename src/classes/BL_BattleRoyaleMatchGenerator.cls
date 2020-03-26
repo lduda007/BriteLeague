@@ -12,7 +12,7 @@ public with sharing class BL_BattleRoyaleMatchGenerator implements BL_MatchGener
         }
 
         // get competitors for classic teams
-        List<BL_Competitor__c> memberCompetitors = [SELECT Id, Team__r.Name FROM BL_Competitor__c WHERE League__c = :leagueId AND Team__c IN (SELECT Member__c FROM BL_TeamMember__c WHERE Team__r.Id In :teamToParentComp.keySet())];
+        List<BL_Competitor__c> memberCompetitors = [SELECT Id, Team__r.Name FROM BL_Competitor__c WHERE Competition__c = :leagueId AND Team__c IN (SELECT Member__c FROM BL_TeamMember__c WHERE Team__r.Id In :teamToParentComp.keySet())];
         Map<Id, Id> teamToMemberComp = new Map<Id, Id>();
         for (BL_Competitor__c comp : memberCompetitors) {
             teamToMemberComp.put(comp.Team__r.Id, comp.Id);
