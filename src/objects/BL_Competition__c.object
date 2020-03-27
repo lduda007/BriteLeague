@@ -188,7 +188,7 @@
         <fullName>Matches_Scheduled__c</fullName>
         <externalId>false</externalId>
         <label>Matches Scheduled</label>
-        <summaryForeignKey>BL_Match__c.League__c</summaryForeignKey>
+        <summaryForeignKey>BL_Match__c.Competition__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
@@ -435,7 +435,7 @@
         <fullName>Teams_Joined__c</fullName>
         <externalId>false</externalId>
         <label>Teams Joined</label>
-        <summaryForeignKey>BL_Competitor__c.League__c</summaryForeignKey>
+        <summaryForeignKey>BL_Competitor__c.Competition__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
@@ -462,7 +462,7 @@
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
-        <summaryForeignKey>BL_Match__c.League__c</summaryForeignKey>
+        <summaryForeignKey>BL_Match__c.Competition__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
@@ -713,10 +713,9 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Classic</fullName>
+        <fullName>Cup</fullName>
         <active>true</active>
-        <description>Classic round-robin tournament</description>
-        <label>Classic</label>
+        <label>Cup</label>
         <picklistValues>
             <picklist>Max_Team_No__c</picklist>
             <values>
@@ -868,9 +867,10 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Cup</fullName>
+        <fullName>League</fullName>
         <active>true</active>
-        <label>Cup</label>
+        <description>Classic round-robin tournament</description>
+        <label>League</label>
         <picklistValues>
             <picklist>Max_Team_No__c</picklist>
             <values>
