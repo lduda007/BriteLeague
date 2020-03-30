@@ -1,5 +1,8 @@
-<aura:component controller="BL_CustomLookupController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
-    <!--declare attributes-->
+<aura:component
+        description="BL_CustomLookup"
+        controller="BL_CustomLookupController"
+        access="global">
+
     <aura:attribute name="selectedRecord" type="sObject" default="{}" description="Use,for store SELECTED sObject Record"/>
     <aura:attribute name="listOfSearchRecords" type="List" description="Use,for store the list of search records which returns from apex class"/>
     <aura:attribute name="SearchKeyWord" type="string"/>
@@ -10,21 +13,14 @@
     <aura:attribute name="Message" type="String" default=""/>
     <aura:attribute name="filters" type="String" default=""/>
 
-    <!--declare events hendlers-->
     <aura:handler name="oSelectedRecordEvent" event="c:BL_SelectedsObjectRecordEvent" action="{!c.handleComponentEvent}"/>
     <aura:handler event="c:BL_CustomLookupClearEvent" action="{!c.handleApplicationEvent}"/>
 
-
-    <!-- https://www.lightningdesignsystem.com/components/lookups/ -->
-
     <div onmouseleave="{!c.onblur}" aura:id="searchRes" class="slds-form-element slds-lookup slds-is-close" data-select="single">
         <label class="slds-form-element__label" for="lookup-348">{!v.label}</label>
-        <!--This part is for display search bar for lookup-->
         <div class="slds-form-element__control">
 
-            <div class="slds-input-has-icon slds-input-has-icon--right"> 
-                <!--<lightning:icon class="slds-input__icon slds-show" iconName="utility:search" size="x-small" alternativeText="search"/>-->
-                <!-- This markup is for when an record is selected -->
+            <div class="slds-input-has-icon slds-input-has-icon--right">
                 <div aura:id="lookup-pill" class="slds-pill-container slds-hide">
                     <lightning:pill class="pillSize" label="{!v.selectedRecord.Name}" name="{!v.selectedRecord.Name}" onremove="{! c.clear }">
                         <aura:set attribute="media">
@@ -41,7 +37,6 @@
                 </div>
             </div>
         </div>
-        <!--This part is for Display typehead lookup result List-->
         <ul style="min-height:40px;margin-top:0px !important; z-index: 9999;" class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds-lookup__menu slds" role="listbox">
             <lightning:spinner class="slds-hide" variant="brand" size="small" aura:id="mySpinner"/>
             <center> {!v.Message}</center>

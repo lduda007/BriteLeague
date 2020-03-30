@@ -4,7 +4,7 @@
 
         let action = component.get("c.getDataWrapper");
         action.setParams({
-            "leagueId": component.get("v.recordId")
+            "competitionId": component.get("v.recordId")
         });
         action.setCallback(this, function(response) {
             let state = response.getState();
@@ -12,7 +12,7 @@
             let errors = response.getError();
 
             if(state === "SUCCESS") {
-                component.set("v.league", result.league);
+                component.set("v.competition", result.competition);
                 component.set("v.settings", result.settings);
             } else if(state === "ERROR") {
                 this.getUtils(component).handleError(errors);

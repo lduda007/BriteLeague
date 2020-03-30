@@ -1,8 +1,10 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+<aura:component
+        description="BL_CustomLookupResult"
+        access="global">
+
     <aura:attribute name="oRecord" type="sObject" />
     <aura:attribute name="IconName" type="string"/>
 
-    <!--Register the component level event-->
     <aura:registerEvent name="oSelectedRecordEvent" type="c:BL_SelectedsObjectRecordEvent"/>
 
     <li role="presentation" class="slds-listbox__item" onclick="{!c.selectRecord}">

@@ -10,19 +10,19 @@ public with sharing class BL_LeaveCompetitionController {
             BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
 
             if(league.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
-                BL_Competitor__c battleRoyaleCompetitor = daoCompetitor.getCompetitorByPlayerIdAndLeagueIdAndTeamRecordTypeDevName(
+                BL_Competitor__c battleRoyaleCompetitor = daoCompetitor.getCompetitorByPlayerIdAndCompetitionIdAndTeamRecordTypeDevName(
                         playerId, leagueId, BL_Constants.TEAM_RT_BATTLE_ROYALE
                 );
 
                 competitorsToDelete.add(battleRoyaleCompetitor);
 
-                List<BL_Competitor__c> classicCompetitors = daoCompetitor.getCompetitorsByLeagueIdAndParentTeamId(
+                List<BL_Competitor__c> classicCompetitors = daoCompetitor.getCompetitorsByCompetitionIdAndParentTeamId(
                         leagueId, battleRoyaleCompetitor.Team__c
                 );
 
                 competitorsToDelete.addAll(classicCompetitors);
             } else {
-                BL_Competitor__c competitor = daoCompetitor.getCompetitorByPlayerIdAndLeagueId(
+                BL_Competitor__c competitor = daoCompetitor.getCompetitorByPlayerIdAndCompetitionId(
                         playerId, leagueId
                 );
                 competitorsToDelete.add(competitor);

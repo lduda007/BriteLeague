@@ -5,7 +5,7 @@
         access="global"
 >
 
-    <aura:attribute name="league" type="Object"/>
+    <aura:attribute name="competition" type="Object"/>
     <aura:attribute name="settings" type="Object"/>
     <aura:attribute name="isSpinner" type="Boolean" default="false"/>
 
@@ -17,27 +17,27 @@
 
     <lightning:card
             iconName="utility:activity"
-            title="{!v.league.Name}"
+            title="{!v.competition.Name}"
             variant="narrow"
             class="height-230px"
     >
         <aura:set attribute="actions">
             <lightning:buttonGroup>
-                <aura:if isTrue="{!and(v.settings.isLeagueOwner, equals(v.league.Status__c, 'Assembling teams'))}">
+                <aura:if isTrue="{!and(v.settings.isCompetitionOwner, equals(v.competition.Status__c, 'Assembling teams'))}">
                     <lightning:button
                             label="Start"
                             onclick="{!c.onStart}"
                             variant="neutral"
                     />
                 </aura:if>
-                <aura:if isTrue="{!and(not(v.settings.isLeagueCompetitor), and(equals(v.league.Status__c, 'Assembling teams'), lessthan(v.settings.numberOfCompetitors, v.league.Max_Teams__c)))}">
+                <aura:if isTrue="{!and(not(v.settings.isCompetitionCompetitor), and(equals(v.competition.Status__c, 'Assembling teams'), lessthan(v.settings.numberOfCompetitors, v.competition.Max_Teams__c)))}">
                     <lightning:button
                             label="{!$Label.c.BL_Join}"
                             onclick="{!c.onJoin}"
                             variant="brand"
                     />
                 </aura:if>
-                <aura:if isTrue="{!and(v.settings.isLeagueCompetitor, and(equals(v.league.Status__c, 'Assembling teams'), v.settings.isCaptainOfBattleRoyaleTeam))}">
+                <aura:if isTrue="{!and(v.settings.isCompetitionCompetitor, and(equals(v.competition.Status__c, 'Assembling teams'), v.settings.isCaptainOfBattleRoyaleTeam))}">
                     <c:BL_LeaveCompetition
                             competitionId="{!v.recordId}"
                             playerId="{!v.settings.playerId}"
@@ -65,7 +65,7 @@
                                     Type
                                 </p>
                                 <ui:outputText
-                                        value="{!v.league.RecordType.Name}"
+                                        value="{!v.competition.RecordType.Name}"
                                         class="slds-text-heading--small"
                                 />
                             </lightning:layoutItem>
@@ -80,7 +80,7 @@
                                         {!$Label.c.BL_Status}
                                 </p>
                                 <ui:outputText
-                                        value="{!v.league.Status__c}"
+                                        value="{!v.competition.Status__c}"
                                         class="slds-text-heading--small"
                                 />
                             </lightning:layoutItem>
@@ -92,7 +92,7 @@
                                 fileName="league-logo"
                                 width="200px"
                                 height="160px"
-                                isEditable="{!v.settings.isLeagueOwner}"
+                                isEditable="{!v.settings.isCompetitionOwner}"
                         />
                     </lightning:layoutItem>
                     <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
@@ -108,7 +108,7 @@
                                         {!$Label.c.BL_Teams}
                                 </p>
                                 <ui:outputText
-                                        value="{!v.settings.numberOfCompetitors + '/' + v.league.Max_Teams__c}"
+                                        value="{!v.settings.numberOfCompetitors + '/' + v.competition.Max_Teams__c}"
                                         class="slds-text-heading--small"
                                 />
                             </lightning:layoutItem>
@@ -123,7 +123,7 @@
                                         {!$Label.c.BL_Owner}
                                 </p>
                                 <ui:outputText
-                                        value="{!v.league.Owner.Name}"
+                                        value="{!v.competition.Owner.Name}"
                                         class="slds-text-heading--small"
                                 />
                             </lightning:layoutItem>
