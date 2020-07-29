@@ -5,7 +5,6 @@ public class BL_CompetitionDetailsController {
         DataWrapper wrapper;
         try {
             wrapper = new DataWrapper();
-
             wrapper.competition = new BL_DAO_Competition().getCompetitionById(competitionId);
             wrapper.settings = new BL_Settings().populateSettingsForCompetition(competitionId);
             wrapper.matches = new BL_DAO_Match().getMatchesForCompetition(competitionId);

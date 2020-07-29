@@ -1,9 +1,10 @@
 <aura:component
-        description="BL_BattleRoyaleTable"
-        controller="BL_BattleRoyaleTableController"
+        description="BL_CompetitionTableBattleRoyale"
+        controller="BL_CompetitionTableBattleRoyaleCtrl"
+        implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+        access="global"
 >
 
-    <aura:attribute name="leagueId" type="String"/>
     <aura:attribute name="battleRoyaleTeams" type="List"/>
     <aura:attribute name="columns" type="Object"/>
     <aura:attribute name="viewMode" type="String" default="COMPACT" description="Values: DETAILS, COMPACT"/>

@@ -1,9 +1,9 @@
 ({
-    loadLeagueMatches : function(component, competitorId) {
-        let action = component.get('c.loadLeagueMatches');
+    getCompetitionMatches : function(component, competitorId) {
+        let action = component.get('c.getCompetitionMatches');
         action.setParams({
-            leagueId: component.get("v.recordId"),
-            competitorId: competitorId
+            competitionId: component.get("v.recordId"),
+            competitorId: null
         })
 
         action.setCallback(this, function(response){

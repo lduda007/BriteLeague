@@ -1,7 +1,7 @@
 ({
     doInit : function(component, event, helper){
-        helper.loadLeagueWithCompetitors(component);
-        helper.loadLeagueMatches(component, null);
+        helper.loadCompetitionWithCompetitors(component);
+        helper.loadCompetitionMatches(component, null);
         helper.getCurrentUser(component);
     },
 
@@ -17,10 +17,10 @@
             let competitorId = event.currentTarget.dataset.competitorid;
             $A.util.addClass(rows[index], "row-highlighted");
             component.set("v.selectedRowIndex", index);
-            helper.loadLeagueMatches(component, competitorId);
+            helper.loadCompetitionMatches(component, competitorId);
         } else {
             component.set("v.selectedRowIndex", null);
-            helper.loadLeagueMatches(component, null);
+            helper.loadCompetitionMatches(component, null);
         }
     },
 
@@ -38,8 +38,8 @@
     },
 
     onScoreSubmitted: function (component, event, helper) {
-        helper.loadLeagueWithCompetitors(component);
-        helper.loadLeagueMatches(component, null);
+        helper.loadCompetitionWithCompetitors(component);
+        helper.loadCompetitionMatches(component, null);
     },
 
     openJoinToCompetitionModal : function(component, event, helper) {
@@ -54,16 +54,16 @@
     },
 
     handleCompetitorCreated : function(component, event, helper) {
-        helper.loadLeagueWithCompetitors(component);
+        helper.loadCompetitionWithCompetitors(component);
         helper.closeJoinToCompetitionModal(component);
     },
 
     handleCompetitorLeftCompetition : function(component, event, helper) {
-        helper.loadLeagueWithCompetitors(component);
+        helper.loadCompetitionWithCompetitors(component);
     },
 
     onSinglePlayerMatchScoreSaved : function(component, event, helper) {
-        helper.loadLeagueWithCompetitors(component);
-        helper.loadLeagueMatches(component, null);
+        helper.loadCompetitionWithCompetitors(component);
+        helper.loadCompetitionMatches(component, null);
     }
 });

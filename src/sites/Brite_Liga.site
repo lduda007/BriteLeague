@@ -18,13 +18,14 @@
     <genericErrorPage>Exception</genericErrorPage>
     <inMaintenancePage>InMaintenance</inMaintenancePage>
     <indexPage>CommunitiesLanding</indexPage>
-    <masterLabel>briteleague</masterLabel>
+    <masterLabel>Brite Liga</masterLabel>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>bartlomiej.matyjaszczyk@britenet.com</siteAdmin>
+    <siteAdmin>norbert.wieruszewski@britenet.com.pl</siteAdmin>
+    <siteGuestRecordDefaultOwner>michal.zienkowski22@britenet.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>briteerp</subdomain>
-    <urlPathPrefix>briteleague</urlPathPrefix>
+    <urlPathPrefix>briteliga</urlPathPrefix>
 </CustomSite>

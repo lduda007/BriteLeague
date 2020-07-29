@@ -4,7 +4,7 @@
 
         let action = component.get("c.getDataWrapper");
         action.setParams({
-            "leagueId": component.get("v.leagueId")
+            "competitionId": component.get("v.recordId")
         });
         action.setCallback(this, function(response) {
             let state = response.getState();

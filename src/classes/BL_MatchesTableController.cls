@@ -1,21 +1,21 @@
 public class BL_MatchesTableController {
 
-/*    @AuraEnabled
-    public static List<BL_Match__c> loadLeagueMatches(String leagueId, String competitorId) {
-        List<BL_Match__c> leagueMatches;
+    @AuraEnabled
+    public static List<BL_Match__c> getCompetitionMatches(String competitionId, String competitorId) {
+        List<BL_Match__c> matches;
         BL_DAO_Match daoMatch = new BL_DAO_Match();
 
         if(competitorId == null) {
-            leagueMatches = daoMatch.getMatchesForCompetition(leagueId);
+            matches = daoMatch.getMatchesForCompetition(competitionId);
         } else {
-            leagueMatches = daoMatch.getMatchesForCompetitionAndCompetitor(leagueId, competitorId);
+            matches = daoMatch.getMatchesForCompetitionAndCompetitor(competitionId, competitorId);
         }
 
-        return leagueMatches;
+        return matches;
     }
 
     @AuraEnabled
     public static User getCurrentUser() {
         return BL_Utils.getCurrentUser();
-    }*/
+    }
 }

@@ -1,9 +1,7 @@
 <aura:component
         description="BL_CompetitionDetails"
         controller="BL_CompetitionDetailsController"
-        implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
-        access="global"
->
+        implements="force:hasRecordId, forceCommunity:availableForAllPageTypes">
 
     <aura:attribute name="competition" type="Object"/>
     <aura:attribute name="settings" type="Object"/>
@@ -14,6 +12,10 @@
     <aura:handler name="BL_CompetitorCreated" event="c:BL_CompetitorCreated" action="{!c.onCompetitorCreated}"/>
 
     <c:BL_Utils aura:id="utils"/>
+
+    <c:BL_Modal aura:id="joinLeague" visible="false">
+        <c:BL_JoinLeague leagueId="{!v.recordId}"/>
+    </c:BL_Modal>
 
     <lightning:card
             iconName="utility:activity"
@@ -133,11 +135,4 @@
             </aura:if>
         </div>
     </lightning:card>
-
-    <c:BL_Modal
-            aura:id="joinLeague"
-            visible="false"
-    >
-        <c:BL_JoinLeague leagueId="{!v.recordId}"/>
-    </c:BL_Modal>
 </aura:component>

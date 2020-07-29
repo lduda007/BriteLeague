@@ -1,6 +1,6 @@
 ({
     onInit : function(component, event, helper) {
-        helper.loadLeagueMatches(component, null);
+        helper.getCompetitionMatches(component, null);
         helper.getCurrentUser(component);
     },
 

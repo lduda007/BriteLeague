@@ -1,11 +1,11 @@
-public class BL_BattleRoyaleTableController {
+public class BL_CompetitionTableBattleRoyaleCtrl {
 
     @AuraEnabled
-    public static DataWrapper getDataWrapper(Id leagueId) {
+    public static DataWrapper getDataWrapper(Id competitionId) {
         DataWrapper wrapper;
         try {
             wrapper = new DataWrapper();
-            wrapper.populateBattleRoyaleTeams(leagueId);
+            wrapper.populateBattleRoyaleTeams(competitionId);
         } catch(Exception e) {
             String uiMessage = 'An error occurred during initialization of "Battle Royale Table" component';
             BL_Utils.throwAuraHandledException(uiMessage, e);
@@ -18,13 +18,13 @@ public class BL_BattleRoyaleTableController {
         @AuraEnabled
         public List<BL_DTO_BattleRoyaleTeam> battleRoyaleTeams;
 
-        public void populateBattleRoyaleTeams(Id leagueId) {
+        public void populateBattleRoyaleTeams(Id competitionId) {
             BL_DAO_Team daoTeam = new BL_DAO_Team();
 
             Map<Id, BL_DTO_BattleRoyaleTeam> battleRoyaleTeamsMap = new Map<Id, BL_DTO_BattleRoyaleTeam>();
             List<BL_Team__c> classicTeams = new List<BL_Team__c>();
 
-            for(BL_Team__c team : daoTeam.getTeamsWithMembersByCompetitionId(leagueId)) {
+            for(BL_Team__c team : daoTeam.getTeamsWithMembersByCompetitionId(competitionId)) {
                 if(team.RecordType.DeveloperName == BL_Constants.TEAM_RT_BATTLE_ROYALE) {
                     BL_DTO_BattleRoyaleTeam battleRoyaleTeam = new BL_DTO_BattleRoyaleTeam();
                     battleRoyaleTeam.setTeam(team);
@@ -58,7 +58,7 @@ public class BL_BattleRoyaleTableController {
 
             BL_DAO_Competitor daoCompetitor = new BL_DAO_Competitor();
 
-            for(BL_Competitor__c competitor : daoCompetitor.getCompetitorsByCompetitionId(leagueId)) {
+            for(BL_Competitor__c competitor : daoCompetitor.getCompetitorsByCompetitionId(competitionId)) {
                 teamIdToCompetitorMap.put(competitor.Team__c, competitor);
             }
 

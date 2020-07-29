@@ -58,6 +58,8 @@
         <members>BL_SinglePlayerScoreProviderController</members>
         <members>BL_MatchServiceTest</members>
         <members>BL_Create1PlayerCompetitorController</members>
+        <members>BL_CompetitionTableBattleRoyaleCtrl</members>
+        <members>BL_CompetitionTableLeagueCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -107,6 +109,10 @@
         <members>BL_TeamSelectedEvent</members>
         <members>BL_CompetitionDetails</members>
         <members>BL_NewCompetition</members>
+        <members>BL_CompetitionMainPage</members>
+        <members>BL_CupDetails</members>
+        <members>BL_CompetitionTableBattleRoyale</members>
+        <members>BL_CompetitionTableLeague</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -131,7 +137,7 @@
         <name>CustomLabels</name>
     </types>
     <types>
-        <members>briteleague</members>
+        <members>Brite_Liga</members>
         <name>CustomSite</name>
     </types>
     <types>
@@ -225,5 +231,5 @@
         <members>BL_Competition__c</members>
         <name>TopicsForObjects</name>
     </types>
-    <version>43.0</version>
+    <version>48.0</version>
 </Package>

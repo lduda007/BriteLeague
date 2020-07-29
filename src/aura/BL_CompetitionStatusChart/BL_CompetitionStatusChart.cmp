@@ -1,7 +1,7 @@
 <aura:component
         description="BL_CompetitionStatusChart"
         controller="BL_CompetitionStatusChartController"
-        implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+        implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
         access="global"
 >
 

@@ -1,18 +1,16 @@
 ({
-    loadLeagueWithCompetitors : function(component){
-        let action = component.get('c.loadLeagueWithCompetitors');
-        let leagueId = component.get("v.leagueId");
+    loadCompetitionWithCompetitors : function(component){
+        let action = component.get('c.loadCompetitionWithCompetitors');
         action.setParams({
-            leagueId: leagueId
+            competitionId: component.get("v.recordId")
         })
 
         action.setCallback(this, function(response){
             let state = response.getState();
-            if (state === "SUCCESS")
-            {
-                let league = response.getReturnValue();
-                component.set("v.league", league);
-                this.checkIsCurrentUserAlreadyInCompetition(component, component.get("v.user"), league);
+            if (state === "SUCCESS") {
+                let result = response.getReturnValue();
+                component.set("v.competition", result);
+                this.checkIsCurrentUserAlreadyInCompetition(component, component.get("v.user"), result);
             }else{
                 let resultsToast = $A.get("e.force:showToast");
                 if ($A.util.isUndefined(resultsToast)){
@@ -49,7 +47,7 @@
             {
                 let league = response.getReturnValue();
                 component.set("v.league", league);
-                this.loadLeagueMatches(component, null);
+                this.loadCompetitionMatches(component, null);
                 let resultsToast = $A.get("e.force:showToast");
                 resultsToast.setParams({
                     "type": "success",
@@ -107,4 +105,8 @@
         }
         component.set("v.isCurrentUserAlreadyInCompetition", false);
     },
-})
+
+    loadCompetitionMatches: function(component) {
+
+    }
+});

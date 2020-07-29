@@ -5,7 +5,7 @@
 
     <force:recordData
             aura:id="matchRecordData"
-            fields="Id, Name, MatchDate__c, League__r.RecordType.DeveloperName,
+            fields="Id, Name, MatchDate__c, Competition__r.RecordType.DeveloperName,
                       Team1__r.Team__r.Name, Team2__r.Team__r.Name,
                       Team1_Status__c, Team2_Status__c, Team1_Score__c, Team2_Score__c,
                       Team1__r.Team__r.Player1__r.Name, Team1__r.Team__r.Player2__r.Name,
