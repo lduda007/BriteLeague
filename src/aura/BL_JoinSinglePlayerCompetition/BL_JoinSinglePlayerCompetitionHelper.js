@@ -3,7 +3,7 @@
         var self = this;
         let action = component.get('c.insertCompetitor');
         let comp = component.get('v.competitorToInsert');
-        comp.League__c = component.get('v.competitionId');
+        comp.Competition__c = component.get('v.competitionId');
         comp.SinglePlayer__c = component.get('v.playerId');
         action.setParams({
             'competitor' : comp

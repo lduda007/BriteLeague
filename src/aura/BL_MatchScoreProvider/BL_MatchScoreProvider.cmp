@@ -16,9 +16,9 @@
                       fields="
                       MatchDate__c,
                       isResolved__c,
-                      League__r.RecordType.DeveloperName,
-                      League__r.Start_Date__c,
-                      League__r.End_Date__c,
+                      Competition__r.RecordType.DeveloperName,
+                      Competition__r.Start_Date__c,
+                      Competition__r.End_Date__c,
                       Team1_Score__c,
                       Team2_Score__c,
                       Team1_Status__c,
@@ -54,7 +54,7 @@
                     matchRecord="{!v.simpleMatchRecord}"
                     team1="{!v.simpleMatchRecord.Team1__r}"
                     team2="{!v.simpleMatchRecord.Team2__r}"
-                    isCup="{!equals(v.simpleMatchRecord.League__r.RecordType.DeveloperName, 'Cup')}"
+                    isCup="{!equals(v.simpleMatchRecord.Competition__r.RecordType.DeveloperName, 'Cup')}"
                     team1Score="{!v.simpleMatchRecord.Team1_Score__c}"
                     team2Score="{!v.simpleMatchRecord.Team2_Score__c}"
             />

@@ -28,16 +28,30 @@ public class BL_CompetitionStatusChartController {
 
     private static BL_ChartJS.DataSet getCompetitionTimeProgressDataSet(BL_Competition__c competition) {
         BL_ChartJS.DataSet dataSet = new BL_ChartJS.DataSet();
-
         Date today = System.today();
-        Integer fromStartDays = competition.Start_Date__c.date().daysBetween(today);
-        if(fromStartDays < 0) {
-            fromStartDays = 0;
-        }
-        Integer toEndDays = today.daysBetween(competition.End_Date__c.date());
-        if(toEndDays < 0) {
-            fromStartDays = competition.Start_Date__c.date().daysBetween(competition.End_Date__c.date());
-            toEndDays = 0;
+        Date startDate = competition.Start_Date__c.date();
+        Date endDate = competition.End_Date__c.date();
+        Integer fromStartDays;
+        Integer toEndDays;
+
+        if(startDate.daysBetween(endDate) > 0) { // The competition lasts longer than 1 day
+            fromStartDays = startDate.daysBetween(today);
+            if(fromStartDays < 0) {
+                fromStartDays = 0;
+            }
+            toEndDays = today.daysBetween(endDate);
+            if(toEndDays < 0) {
+                fromStartDays = startDate.daysBetween(endDate);
+                toEndDays = 0;
+            }
+        } else { // One-day competition
+            if(today <= startDate) {
+                fromStartDays = 0;
+                toEndDays = 1;
+            } else {
+                fromStartDays = 1;
+                toEndDays = 0;
+            }
         }
 
         dataSet.data.add(fromStartDays);

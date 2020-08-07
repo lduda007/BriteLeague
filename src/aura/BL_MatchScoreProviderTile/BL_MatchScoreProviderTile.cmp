@@ -63,8 +63,8 @@
                                     type="datetime"
                                     label="Match date"
                                     value="{!v.matchDate}"
-                                    min="{!v.matchRecord.League__r.Start_Date__c}"
-                                    max="{!v.matchRecord.League__r.End_Date__c}"
+                                    min="{!v.matchRecord.Competition__r.Start_Date__c}"
+                                    max="{!v.matchRecord.Competition__r.End_Date__c}"
                             />
                         </div>
                     </div>

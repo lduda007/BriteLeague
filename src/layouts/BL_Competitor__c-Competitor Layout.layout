@@ -21,7 +21,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>League__c</field>
+                <field>Competition__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

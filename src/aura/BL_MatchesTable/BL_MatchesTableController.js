@@ -55,7 +55,7 @@
         let matches = component.get('v.matches');
         let matchIndex = event.getSource().get("v.value");
         let match = matches[matchIndex];
-        let teamSize = match.League__r.TeamSize__c;
+        let teamSize = match.Competition__r.TeamSize__c;
         component.set("v.teamSize", teamSize);
         component.set("v.selectedMatchId", match.Id);
         component.set("v.editMode", true);

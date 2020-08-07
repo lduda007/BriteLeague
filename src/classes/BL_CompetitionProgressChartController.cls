@@ -111,7 +111,7 @@ public class BL_CompetitionProgressChartController {
     private static List<String> prepareLabels(BL_Competition__c competition, Integer numberOfDirectCompetitors) {
         Integer numberOfMatchesPerTeam = 0;
 
-        if(competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CLASSIC) {
+        if(competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_LEAGUE) {
             numberOfMatchesPerTeam = Integer.valueOf(competition.Match_No__c * (competition.Teams_Joined__c - 1));
         } else if(competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
             Integer numberOfSubTeamsPerBattleRoyaleTeam = Integer.valueOf(competition.Teams_Joined__c - numberOfDirectCompetitors) / numberOfDirectCompetitors;

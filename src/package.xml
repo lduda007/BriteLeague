@@ -115,12 +115,12 @@
         <members>BL_CompetitionTableBattleRoyale</members>
         <members>BL_CompetitionTableLeague</members>
         <members>BL_CompetitionNew</members>
+        <members>BL_MatchScoreViewer</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
         <members>BL_CommunitySettings__c</members>
         <members>BL_Competitor__c</members>
-        <members>BL_League__c</members>
         <members>BL_Match__c</members>
         <members>BL_Team__c</members>
         <members>Contact</members>
@@ -216,10 +216,6 @@
         <name>Profile</name>
     </types>
     <types>
-        <members>BriteLeague/Active_Leagues</members>
-        <members>BriteLeague/New_Teams_Report_Zd0</members>
-        <members>BriteLeague/New_Users_Report_rr5</members>
-        <members>BriteLeague/default_Users_with_Matches_report_gah</members>
         <name>Report</name>
     </types>
     <types>
@@ -237,6 +233,8 @@
     </types>
     <types>
         <members>BL_CompetitionStartedEmailNotifContent</members>
+        <members>BL_LeagueEndEmailNotificationContent</members>
+        <members>BL_CupEndEmailNotificationContent</members>
         <name>ApexComponent</name>
     </types>
     <version>48.0</version>

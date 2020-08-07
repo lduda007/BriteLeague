@@ -1,9 +1,10 @@
-@isTest
+@IsTest
 private class BL_MatchScoreProviderControllerTest {
-   @isTest
+
+    @IsTest
     static void testClassicLeagueMatchScore() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.insertLeague(BL_Constants.LEAGUE_RT_CLASSIC);
+        setupData.insertCompetition(BL_Constants.LEAGUE_RT_LEAGUE);
         setupData.insertClassicTeams();
         setupData.insertCompetitors();
         setupData.insertMatch();
@@ -13,8 +14,8 @@ private class BL_MatchScoreProviderControllerTest {
                 setupData.testMatch.Id,
                 2,
                 0,
-                new List<Decimal>{10, 10},
-                new List<Decimal>{3, 3},
+                new List<Decimal> {10, 10},
+                new List<Decimal> {3, 3},
                 Datetime.now()
         );
         Test.stopTest();
@@ -30,10 +31,10 @@ private class BL_MatchScoreProviderControllerTest {
         System.assertEquals(1, setupData.testCompetitors[1].GamesLost__c);
     }
 
-    @isTest
+    @IsTest
     static void testCupMatchScore() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.insertLeague(BL_Constants.LEAGUE_RT_CUP);
+        setupData.insertCompetition(BL_Constants.LEAGUE_RT_CUP);
         setupData.insertClassicTeams();
         setupData.insertCompetitors();
         setupData.insertMatch();
@@ -43,8 +44,8 @@ private class BL_MatchScoreProviderControllerTest {
                 setupData.testMatch.Id,
                 2,
                 1,
-                new List<Decimal>{10, 3, 10},
-                new List<Decimal>{3, 10, 3},
+                new List<Decimal> {10, 3, 10},
+                new List<Decimal> {3, 10, 3},
                 Datetime.now()
         );
         Test.stopTest();
@@ -60,10 +61,10 @@ private class BL_MatchScoreProviderControllerTest {
         System.assertEquals(1, setupData.testCompetitors[1].GamesLost__c);
     }
 
-    @isTest
+    @IsTest
     static void testBattleRoyaleLeagueMatchScore() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.insertLeague(BL_Constants.LEAGUE_RT_BATTLE_ROYALE);
+        setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE);
         setupData.insertBattleRoyaleAndMemberTeams();
         setupData.insertCompetitors();
         setupData.insertMatch();
@@ -73,8 +74,8 @@ private class BL_MatchScoreProviderControllerTest {
                 setupData.testMatch.Id,
                 2,
                 0,
-                new List<Decimal>{10, 10},
-                new List<Decimal>{3, 3},
+                new List<Decimal> {10, 10},
+                new List<Decimal> {3, 3},
                 Datetime.now()
         );
         Test.stopTest();
@@ -96,16 +97,16 @@ private class BL_MatchScoreProviderControllerTest {
         List<BL_Competitor__c> testCompetitors = new List<BL_Competitor__c>();
         BL_Match__c testMatch;
 
-        public void insertLeague(String recordTypeName) {
+        public void insertCompetition(String recordTypeName) {
             testLeague = new BL_Competition__c(
                     Match_No__c = 1,
-                    RecordTypeId = BL_Utils.getRecordTypeIdByDeveloperName('BL_League__c', recordTypeName)
+                    RecordTypeId = BL_Utils.getRecordTypeIdByDeveloperName('BL_Competition__c', recordTypeName)
             );
             insert testLeague;
         }
 
         public void insertClassicTeams() {
-            for (Integer i = 0; i < 2; i++) {
+            for(Integer i = 0; i < 2; i++) {
                 testTeams.add(new BL_Team__c(
                         Name = 'Test Team ' + i
                 ));
@@ -115,29 +116,29 @@ private class BL_MatchScoreProviderControllerTest {
 
         public void insertBattleRoyaleAndMemberTeams() {
             List<BL_TeamMember__c> teamMembers = new List<BL_TeamMember__c>();
-            for (Integer i = 0; i < 2; i++) {
+            for(Integer i = 0; i < 2; i++) {
                 testTeams.add(new BL_Team__c(
                         Name = 'Test Team ' + i
                 ));
             }
-            for (Integer BRCount = 0; BRCount < 2; BRCount++) {
+            for(Integer BRCount = 0; BRCount < 2; BRCount++) {
                 testTeams.add(new BL_Team__c(
                         Name = 'Test Team ' + (2 + BRCount),
                         RecordTypeId = BL_Utils.getRecordTypeIdByDeveloperName('BL_Team__c', BL_Constants.TEAM_RT_BATTLE_ROYALE)
                 ));
             }
             insert testTeams;
-            for (Integer i = 0; i < 2; i++) {
+            for(Integer i = 0; i < 2; i++) {
                 teamMembers.add(new BL_TeamMember__c(
                         Member__c = testTeams[i].Id,
-                        Team__c = testTeams[i+2].Id
+                        Team__c = testTeams[i + 2].Id
                 ));
             }
             insert teamMembers;
         }
 
         public void insertCompetitors() {
-            for (Integer i = 0; i < testTeams.size(); i++) {
+            for(Integer i = 0; i < testTeams.size(); i++) {
                 testCompetitors.add(new BL_Competitor__c(
                         Competition__c = testLeague.Id,
                         Team__c = testTeams[i].Id
@@ -160,4 +161,4 @@ private class BL_MatchScoreProviderControllerTest {
             testMatch = [SELECT isResolved__c FROM BL_Match__c WHERE Id = :testMatch.Id LIMIT 1];
         }
     }
- }
+}

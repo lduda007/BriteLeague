@@ -9,7 +9,7 @@ public class BL_Constants {
             LEAGUE_STATUS_STARTED, LEAGUE_STATUS_FINISHED
     };
 
-    public static final String LEAGUE_RT_CLASSIC = 'Classic';
+    public static final String LEAGUE_RT_LEAGUE = 'League';
     public static final String LEAGUE_RT_CUP = 'Cup';
     public static final String LEAGUE_RT_BATTLE_ROYALE = 'Battle_Royale';
 

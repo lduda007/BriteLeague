@@ -31,7 +31,7 @@
                     <div class="slds-truncate" title="{!match.Team2__r.Team__r.Name}"><a data-recordId="{!match.Team2__r.Team__c}" onclick="{!c.goToTeamPage}">{!match.Team2__r.Team__r.Name}</a></div>
                 </td>
                 <td scope="row" data-label="Competition Name">
-                    <div class="slds-truncate" title="{!match.League__r.Name}"><a data-recordId="{!match.League__c}" onclick="{!c.goToLeaguePage}">{!match.League__r.Name}</a></div>
+                    <div class="slds-truncate" title="{!match.Competition__r.Name}"><a data-recordId="{!match.Competition__c}" onclick="{!c.goToLeaguePage}">{!match.Competition__r.Name}</a></div>
                 </td>
                 <td scope="row" data-label="Result">
                     <!--<div class="slds-truncate slds-text-align&#45;&#45;center score" title="Result" data-recordId="{!match.Id}" onclick="{!c.openScoreProviderModal}">SET</div>-->

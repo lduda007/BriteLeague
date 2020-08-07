@@ -8,7 +8,7 @@ public without sharing class BL_TournamentEndEmailService {
         String templateName;
         if (competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CUP) {
             templateName = 'CupEndEmailNotification';
-        } else if (competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_CLASSIC) {
+        } else if (competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_LEAGUE) {
             templateName = 'LeagueEndEmailNotification';
         } else if (competition.RecordType.DeveloperName == BL_Constants.LEAGUE_RT_BATTLE_ROYALE) {
             templateName = 'LeagueEndEmailNotification';

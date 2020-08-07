@@ -88,7 +88,7 @@
                         <aura:iteration items="{!v.matches}" var="match" indexVar="index">
                             <tr>
                                 <aura:if isTrue="{!v.showRoundsColumn}">
-                                    <aura:if isTrue="{!equals(match.League__r.RecordType.DeveloperName, 'Cup')}">
+                                    <aura:if isTrue="{!equals(match.Competition__r.RecordType.DeveloperName, 'Cup')}">
                                         <td scope="row" data-label="Round">
                                             <aura:if isTrue="{!greaterthan(match.CupStage__c,1)}">
                                                 <div class="slds-truncate" title="{!'1/'+match.CupStage__c}">{!'1/'+match.CupStage__c}</div>
@@ -174,7 +174,7 @@
                                                     title="{!$Label.c.BL_Result}"
                                                     data-recordId="{!match.Id}"
                                                     data-recordIndex="{!index}"
-                                                    data-recordTeamSize="{!match.League__r.TeamSize__c}"
+                                                    data-recordTeamSize="{!match.Competition__r.TeamSize__c}"
                                                     onclick="{!c.openScoreViewModal}">
                                             {!match.Team1_Score__c} : {!match.Team2_Score__c}
                                             </div>
@@ -221,7 +221,7 @@
                                 </td>
                                 <aura:if isTrue="{!v.showCompetitionColumn}">
                                     <td scope="row" data-label="Competition Name">
-                                        <div class="slds-truncate" title="{!match.League__r.Name}"><a data-recordId="{!match.League__c}" onclick="{!c.goToLeaguePage}">{!match.League__r.Name}</a></div>
+                                        <div class="slds-truncate" title="{!match.Competition__r.Name}"><a data-recordId="{!match.Competition__c}" onclick="{!c.goToLeaguePage}">{!match.Competition__r.Name}</a></div>
                                     </td>
                                 </aura:if>
                             </tr>

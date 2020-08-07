@@ -2,32 +2,32 @@
     <apex:attribute name="competitorId" type="String" description="Competitor Id" assignTo="{!recordId}"/>
 
     <p>
-        Hello <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}"> team </apex:outputPanel><span style="font-size: 22; font-weight: bold;"> {!competitor.Team__r.Name}!</span>
+        Hello <apex:outputPanel rendered="{!competitor.Competition__r.TeamSize__c == 'Two Players Team'}"> team </apex:outputPanel><span style="font-size: 22; font-weight: bold;"> {!competitor.Team__r.Name}!</span>
     </p>
     <p>
-        Cup {!competitor.League__r.Name} that u were competing in has ended.
+        Cup {!competitor.Competition__r.Name} that u were competing in has ended.
     </p>
     <apex:outputPanel rendered="{!!isWinner}">
         <p>
-            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}">Your team</apex:outputPanel>
-            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Single Player'}">You </apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.Competition__r.TeamSize__c == 'Two Players Team'}">Your team</apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.Competition__r.TeamSize__c == 'Single Player'}">You </apex:outputPanel>
             scored {!competitor.GoalsFor__c} goals.
-            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}">Team </apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.Competition__r.TeamSize__c == 'Two Players Team'}">Team </apex:outputPanel>
             <span style="font-weight: bold;">{!winnerTeamName}</span> won the cup. Good luck next time!
         </p>
     </apex:outputPanel>
     <apex:outputPanel rendered="{!isWinner}">
         <p>
-            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Two Players Team'}">Your team </apex:outputPanel>
-            <apex:outputPanel rendered="{!competitor.League__r.TeamSize__c == 'Single Player'}">You </apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.Competition__r.TeamSize__c == 'Two Players Team'}">Your team </apex:outputPanel>
+            <apex:outputPanel rendered="{!competitor.Competition__r.TeamSize__c == 'Single Player'}">You </apex:outputPanel>
             performed best in the cup scoring {!competitor.GoalsFor__c} goals and beating every enemy.
-            We are glad to name you the <span style="font-weight: bold;">{!competitor.League__r.Name}</span> cup WINNER! 
+            We are glad to name you the <span style="font-weight: bold;">{!competitor.Competition__r.Name}</span> cup WINNER! 
         </p>
     </apex:outputPanel>
     <p>
         To review cup details and full results visit cup page at our community:
     </p>
     <p>
-        {!competitionUrl}/{!competitor.League__c}
+        {!competitionUrl}/{!competitor.Competition__c}
     </p>
 </apex:component>

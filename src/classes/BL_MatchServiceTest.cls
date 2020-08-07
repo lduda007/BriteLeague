@@ -1,10 +1,10 @@
-@isTest
+@IsTest
 private class BL_MatchServiceTest {
 
-    @isTest
+    @IsTest
     static void testMatchGenerationForClassicCompetitionEvenNumberOfTeams() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_CLASSIC, 1);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_LEAGUE, 1);
         setupData.insertClassicTeamsForLeague(setupData.testCompetition.Id, 4);
 
         Test.startTest();
@@ -16,10 +16,10 @@ private class BL_MatchServiceTest {
         System.assertEquals(6, matches.size());
     }
 
-    @isTest
+    @IsTest
     static void testMatchGenerationForClassicCompetitionOddNumberOfTeams() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_CLASSIC, 1);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_LEAGUE, 1);
         setupData.insertClassicTeamsForLeague(setupData.testCompetition.Id, 5);
 
         Test.startTest();
@@ -31,10 +31,10 @@ private class BL_MatchServiceTest {
         System.assertEquals(10, matches.size());
     }
 
-    @isTest
+    @IsTest
     static void testClassicGenerationForMultipleRounds() {
         SetupDataClass setupData = new SetupDataClass();
-        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_CLASSIC, 5);
+        setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_LEAGUE, 5);
         setupData.insertClassicTeamsForLeague(setupData.testCompetition.Id, 2);
 
         Test.startTest();
@@ -54,7 +54,7 @@ private class BL_MatchServiceTest {
         System.assertEquals(team1Id, matches[4].Team1__c);
     }
 
-    @isTest
+    @IsTest
     static void testBattleRoyaleGenerationForMultipleRounds() {
         SetupDataClass setupData = new SetupDataClass();
         setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 5);
@@ -77,7 +77,7 @@ private class BL_MatchServiceTest {
         System.assertEquals(team1Id, matches[4].Team1__c);
     }
 
-    @isTest
+    @IsTest
     static void testMatchGenerationForBattleRoyaleLeague() {
         SetupDataClass setupData = new SetupDataClass();
         setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 2);
@@ -104,7 +104,7 @@ private class BL_MatchServiceTest {
         System.assertEquals(12, roundTwoMatches);
     }
 
-    @isTest
+    @IsTest
     static void testMatchGenerationForBattleRoyaleLeagueWhenTeamIsInAnotherLeagueInAnotherBRTeam() {
         SetupDataClass setupData = new SetupDataClass();
         setupData.testCompetition = setupData.insertCompetition(BL_Constants.LEAGUE_RT_BATTLE_ROYALE, 1);

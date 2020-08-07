@@ -36,9 +36,6 @@
         <layout>BL_Competitor__c-Competitor Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>BL_League__c-League Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>BL_Match__c-Match Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -52,10 +49,6 @@
     </layoutAssignments>
     <tabVisibilities>
         <tab>BL_Competitor__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>BL_League__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -101,10 +94,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>RemoveDirectMessageMembers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>
     </userPermissions>
     <userPermissions>
@@ -114,9 +103,5 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>UseWebLink</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewAllUsers</name>
     </userPermissions>
 </Profile>
