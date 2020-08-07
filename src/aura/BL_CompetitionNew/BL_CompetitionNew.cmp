@@ -62,25 +62,26 @@
                                 value="{!v.newCompetitionWrapper.startDate}"
                                 type="datetime"
                                 required="true"
-                                min="{!v.currentDate}"
                                 aura:id="newCompetitionForm"
                         />
                     </lightning:layoutItem>
-                    <lightning:layoutItem
-                            size="12"
-                            class="slds-p-around--x-small"
-                    >
-                        <lightning:input
-                                label="End Date"
-                                value="{!v.newCompetitionWrapper.endDate}"
-                                type="datetime"
-                                required="true"
-                                min="{!v.newCompetitionWrapper.startDate}"
-                                aura:id="newCompetitionForm"
-                        />
-                    </lightning:layoutItem>
+                    <aura:if isTrue="{!not(empty(v.newCompetitionWrapper.startDate))}">
+                        <lightning:layoutItem
+                                size="12"
+                                class="slds-p-around--x-small"
+                        >
+                            <lightning:input
+                                    label="End Date"
+                                    value="{!v.newCompetitionWrapper.endDate}"
+                                    type="datetime"
+                                    required="true"
+                                    min="{!v.newCompetitionWrapper.startDate}"
+                                    aura:id="newCompetitionForm"
+                            />
+                        </lightning:layoutItem>
+                    </aura:if>
                     <aura:if
-                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'Classic'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
+                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'League'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
                         <lightning:layoutItem
                                 size="12"
                                 class="slds-p-around--x-small"
