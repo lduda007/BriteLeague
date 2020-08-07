@@ -29,7 +29,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>leagueId</stringValue>
+                    <stringValue>competitionIds</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -50,28 +50,12 @@
                     <stringValue>Reference</stringValue>
                 </value>
             </processMetadataValues>
-            <name>leagueId</name>
+            <name>competitionIds</name>
             <value>
                 <elementReference>myVariable_current.Id</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
-    <assignments>
-        <name>myVariable_waitStartTimeAssignment</name>
-        <label>myVariable_waitStartTimeAssignment</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>isChangedDecision2_myRule_1_Status_c</targetReference>
-        </connector>
-    </assignments>
     <decisions>
         <name>isChangedDecision2_myRule_1_Status_c</name>
         <label>isChangedDecision2_myRule_1_Status_c</label>
@@ -187,7 +171,7 @@
             <label>IsCompetitionStarted</label>
         </rules>
     </decisions>
-    <interviewLabel>BL_SendEmailsWhenCompetitionStarts-4_InterviewLabel</interviewLabel>
+    <interviewLabel>BL_SendEmailsWhenCompetitionStarts-5_InterviewLabel</interviewLabel>
     <label>Send Emails When Competition Starts</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -214,7 +198,7 @@
         </value>
     </processMetadataValues>
     <processType>Workflow</processType>
-    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <startElementReference>isChangedDecision2_myRule_1_Status_c</startElementReference>
     <status>Active</status>
     <variables>
         <name>myVariable_current</name>
@@ -231,15 +215,5 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <objectType>BL_Competition__c</objectType>
-    </variables>
-    <variables>
-        <name>myVariable_waitStartTimeVariable</name>
-        <dataType>DateTime</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Flow.CurrentDateTime</elementReference>
-        </value>
     </variables>
 </Flow>

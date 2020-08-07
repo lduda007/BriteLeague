@@ -1,5 +1,5 @@
-
 public with sharing class BL_CompetitionStartedEmailController {
+
     public Id recordId {get; set {initializeCompetitorDetails(value);}}
     public String competitionUrl {get; set;}
     public BL_Competitor__c competitor {get; set;}

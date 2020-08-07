@@ -60,6 +60,8 @@
         <members>BL_CompetitionTableBattleRoyaleCtrl</members>
         <members>BL_CompetitionTableLeagueCtrl</members>
         <members>BL_CompetitionNewCtrl</members>
+        <members>BL_TournamentStartEmailService</members>
+        <members>BL_TournamentEmailService</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -173,6 +175,8 @@
     <types>
         <members>unfiled$public/BL_LeagueEndEmail</members>
         <members>unfiled$public/BL_LeagueStartEmail</members>
+        <members>unfiled$public</members>
+        <members>unfiled$public/BL_CompetitionStartedEmailNotification</members>
         <name>EmailTemplate</name>
     </types>
     <types>
@@ -230,6 +234,10 @@
         <members>BL_Team__c</members>
         <members>BL_Competition__c</members>
         <name>TopicsForObjects</name>
+    </types>
+    <types>
+        <members>BL_CompetitionStartedEmailNotifContent</members>
+        <name>ApexComponent</name>
     </types>
     <version>48.0</version>
 </Package>
