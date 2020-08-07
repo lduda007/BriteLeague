@@ -106,13 +106,13 @@ public with sharing class BL_LeaguesListViewController {
     }
 
     @AuraEnabled
-    public static List<DTO_Team> getPlayerTeams(String leagueId) {
+    public static List<DTO_Team> getPlayerTeams(String competitionId) {
         Id playerId = BL_Utils.getCurrentUser().ContactId;
 
         BL_DAO_Team daoTeam = new BL_DAO_Team();
         List<BL_Team__c> teams = daoTeam.getTeamsByPlayerId(playerId);
 
-        BL_Competition__c league = new BL_DAO_Competition().getCompetitionById(leagueId);
+        BL_Competition__c league = new BL_DAO_Competition().getCompetitionById(competitionId);
 
         List<DTO_Team> dtoList = new List<DTO_Team>();
 

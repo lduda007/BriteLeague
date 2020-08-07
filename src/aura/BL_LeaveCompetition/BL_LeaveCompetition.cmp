@@ -7,7 +7,7 @@
 
     <c:BL_Utils aura:id="utils"/>
 
-    <lightning:button onclick="{!c.openLeaveCompetitionModal}" variant="neutral" label="Leave"></lightning:button>
+    <lightning:button onclick="{!c.openLeaveCompetitionModal}" variant="destructive" label="Leave"></lightning:button>
 
     <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="leaveCompetitionModal">
         <div class="slds-modal__container">

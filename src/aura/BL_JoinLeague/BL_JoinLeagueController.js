@@ -14,6 +14,7 @@
              })
          );
     },
+
     saveCompetitor : function(component, event, helper) {
         let team = component.get('v.competitorToInsert').Team__c;
         if($A.util.isEmpty(team)){
@@ -27,4 +28,4 @@
             helper.handleSaveCompetitor(component, event, helper);
         }
     }
-})
+});

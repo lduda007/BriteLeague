@@ -16,8 +16,8 @@
             if(state === "SUCCESS") {
                 this.getUtils(component).showSuccessToast($A.get("$Label.c.BL_You_ve_left_the_competition"));
                 this.closeLeaveCompetitionModal(component);
-
                 component.getEvent('BL_CompetitorLeftCompetition').fire();
+                $A.get('e.force:refreshView').fire();
             } else {
                 this.getUtils(component).handleError(errors);
             }

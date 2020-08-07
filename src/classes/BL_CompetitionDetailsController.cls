@@ -17,7 +17,7 @@ public class BL_CompetitionDetailsController {
     }
 
     @AuraEnabled
-    public static void startLeague(Id competitionId) {
+    public static void startCompetition(Id competitionId) {
         try {
             BL_CompetitionService.startCompetition(competitionId);
         } catch(Exception e) {

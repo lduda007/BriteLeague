@@ -161,20 +161,4 @@
             </div>
         </c:BL_Card>
     </aura:if>
-    <div class="slds-modal" aria-hidden="false" role="dialog" aura:id="joinToCompetitionModal">
-        <div class="slds-modal__container">
-            <div class="slds-modal__header">
-                <lightning:buttonIcon variant="bare-inverse" iconName="utility:close" size="large"
-                                      alternativeText="Close" class="slds-modal__close"
-                                      onclick="{!c.closeJoinToCompetitionModal}"/>
-                <h2 class="slds-text-heading--medium">{!$Label.c.BL_Select_Your_Team}</h2>
-            </div>
-            <div class="slds-modal__content slds-p-around--medium">
-                <div align="center">
-                    <c:BL_JoinLeague leagueId="{!v.competition}" aura:id="joinComponent"/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="slds-backdrop" aura:id="backdrop"></div>
 </aura:component>

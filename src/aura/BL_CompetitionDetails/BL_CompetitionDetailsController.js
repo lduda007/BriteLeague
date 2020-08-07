@@ -15,6 +15,5 @@
     onCompetitorCreated: function(component, event, helper) {
         let joinLeagueModal = component.find("joinLeague");
         joinLeagueModal.hide();
-        helper.getDataWrapper(component);
     }
 });

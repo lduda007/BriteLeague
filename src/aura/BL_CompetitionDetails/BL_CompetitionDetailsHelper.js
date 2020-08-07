@@ -26,9 +26,9 @@
     doStart: function(component) {
         this.showSpinner(component);
 
-        let action = component.get("c.startLeague");
+        let action = component.get("c.startCompetition");
         action.setParams({
-            "leagueId": component.get("v.recordId")
+            "competitionId": component.get("v.recordId")
         });
         action.setCallback(this, function(response) {
             let state = response.getState();
@@ -36,7 +36,7 @@
 
             if(state === "SUCCESS") {
                 this.getUtils(component).showSuccessToast($A.get("$Label.c.BL_League_has_started"));
-                // TODO: Publish "League Started" event
+                $A.get('e.force:refreshView').fire();
             } else if(state === "ERROR") {
                 this.getUtils(component).handleError(errors);
             }

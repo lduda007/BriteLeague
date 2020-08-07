@@ -8,7 +8,7 @@
     <aura:attribute name="newCompetitor" type="Object"/>
     <aura:attribute name="competitorToInsert" type="Object"/>
     <aura:attribute name="newCompetitorError" type="String"/>
-    <aura:attribute name="leagueId" type="String"/>
+    <aura:attribute name="competitionId" type="String" required="true" access="public"/>
     <aura:attribute name="isCurrentUserAlreadyInCompetition" type="Boolean" default="true"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>

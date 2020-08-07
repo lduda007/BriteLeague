@@ -1,9 +1,9 @@
 ({
     getPlayerActiveTeams: function(component) {
-        let leagueId = component.get("v.leagueId");
+        let competitionId = component.get("v.competitionId");
         let actionTeams = component.get('c.getPlayerTeams');
         actionTeams.setParams({
-            leagueId: leagueId
+            competitionId: competitionId
         });
         actionTeams.setCallback(this, function(response) {
             let state = response.getState();
@@ -21,7 +21,7 @@
         let self = this;
         let action = component.get('c.insertCompetitor');
         let comp = component.get('v.competitorToInsert');
-        comp.League__c = component.get('v.leagueId');
+        comp.Competition__c = component.get('v.competitionId');
         action.setParams({
             'competitor': comp
         });
@@ -38,6 +38,7 @@
                 self.getPlayerActiveTeams(component);
                 let evt = component.getEvent('BL_CompetitorCreated');
                 evt.fire();
+                $A.get('e.force:refreshView').fire();
             } else if(state === 'ERROR') {
                 let showToast = $A.get("e.force:showToast");
                 showToast.setParams({

@@ -14,7 +14,7 @@
     <c:BL_Utils aura:id="utils"/>
 
     <c:BL_Modal aura:id="joinLeague" visible="false">
-        <c:BL_JoinLeague leagueId="{!v.recordId}"/>
+        <c:BL_JoinLeague competitionId="{!v.recordId}"/>
     </c:BL_Modal>
 
     <lightning:card
@@ -29,17 +29,18 @@
                     <lightning:button
                             label="Start"
                             onclick="{!c.onStart}"
-                            variant="neutral"
+                            variant="success"
+                            disabled="{!not(greaterthan(v.settings.numberOfCompetitors, 1))}"
                     />
                 </aura:if>
-                <aura:if isTrue="{!and(not(v.settings.isCompetitionCompetitor), and(equals(v.competition.Status__c, 'Assembling teams'), lessthan(v.settings.numberOfCompetitors, v.competition.Max_Teams__c)))}">
+                <aura:if isTrue="{!and(not(v.settings.isCompetitor), and(equals(v.competition.Status__c, 'Assembling teams'), lessthan(v.settings.numberOfCompetitors, v.competition.Max_Teams__c)))}">
                     <lightning:button
                             label="{!$Label.c.BL_Join}"
                             onclick="{!c.onJoin}"
                             variant="brand"
                     />
                 </aura:if>
-                <aura:if isTrue="{!and(v.settings.isCompetitionCompetitor, and(equals(v.competition.Status__c, 'Assembling teams'), v.settings.isCaptainOfBattleRoyaleTeam))}">
+                <aura:if isTrue="{!and(v.settings.isCompetitor, equals(v.competition.Status__c, 'Assembling teams'))}">
                     <c:BL_LeaveCompetition
                             competitionId="{!v.recordId}"
                             playerId="{!v.settings.playerId}"
