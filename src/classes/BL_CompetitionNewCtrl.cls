@@ -1,11 +1,11 @@
-public without sharing class BL_NewCompetitionController {
+public without sharing class BL_CompetitionNewCtrl {
 
     @AuraEnabled
     public static InitDataWrapper getInitDataWrapper() {
         InitDataWrapper initDataWrapper;
         try {
             initDataWrapper = new InitDataWrapper();
-            initDataWrapper.populateLeagueRecordTypeDeveloperNameToIdMap();
+            initDataWrapper.populateCompetitionRecordTypeOptions();
             initDataWrapper.populateLeagueTeamSizeOptions();
             initDataWrapper.populateCompetitionWrapper();
         } catch (Exception e) {
@@ -55,7 +55,7 @@ public without sharing class BL_NewCompetitionController {
         @AuraEnabled
         public CompetitionWrapper competitionWrapper;
 
-        public void populateLeagueRecordTypeDeveloperNameToIdMap() {
+        public void populateCompetitionRecordTypeOptions() {
             competitionRecordTypeOptions = new List<OptionWrapper>();
             BL_BriteLeagueSettings__c briteLeagueSettings = BL_BriteLeagueSettings__c.getInstance();
             Set<String> enabledLeagueRecordTypes = String.isNotBlank(briteLeagueSettings.Enabled_League_Record_Types__c)

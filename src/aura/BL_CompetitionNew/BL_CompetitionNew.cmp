@@ -1,6 +1,6 @@
 <aura:component
-        description="BL_NewCompetition"
-        controller="BL_NewCompetitionController"
+        description="BL_CompetitionNew"
+        controller="BL_CompetitionNewCtrl"
         implements="force:lightningQuickActionWithoutHeader,forceCommunity:availableForAllPageTypes"
 >
 
@@ -114,7 +114,7 @@
                         </lightning:layoutItem>
                     </aura:if>
                     <aura:if
-                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'Classic'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
+                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'League'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
                         <lightning:layoutItem
                                 size="12"
                                 class="slds-p-around--x-small"

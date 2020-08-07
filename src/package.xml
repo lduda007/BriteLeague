@@ -20,7 +20,6 @@
         <members>BL_CompetitionStatusChartController</members>
         <members>BL_CompetitionFeedController</members>
         <members>BL_Constants</members>
-        <members>BL_NewCompetitionController</members>
         <members>BL_ImageController</members>
         <members>BL_BattleRoyaleTableController</members>
         <members>BL_DAO_Competition</members>
@@ -60,6 +59,7 @@
         <members>BL_Create1PlayerCompetitorController</members>
         <members>BL_CompetitionTableBattleRoyaleCtrl</members>
         <members>BL_CompetitionTableLeagueCtrl</members>
+        <members>BL_CompetitionNewCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -108,11 +108,11 @@
         <members>BL_MatchDetails</members>
         <members>BL_TeamSelectedEvent</members>
         <members>BL_CompetitionDetails</members>
-        <members>BL_NewCompetition</members>
         <members>BL_CompetitionMainPage</members>
         <members>BL_CupDetails</members>
         <members>BL_CompetitionTableBattleRoyale</members>
         <members>BL_CompetitionTableLeague</members>
+        <members>BL_CompetitionNew</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
