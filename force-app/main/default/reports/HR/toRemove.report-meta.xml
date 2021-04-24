@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>BTN_CV__c$Name</field>
+    </columns>
+    <columns>
+        <field>BTN_CV__c$Contact__c</field>
+    </columns>
+    <columns>
+        <field>BTN_CV__c$Status__c</field>
+    </columns>
+    <currency>PLN</currency>
+    <filter>
+        <criteriaItems>
+            <column>BTN_CV__c$Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Approved by external</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BTN_CV__c$Owner_frm__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>toRemove</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Candidates__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>BTN_CV__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURY</interval>
+    </timeFrameFilter>
+</Report>

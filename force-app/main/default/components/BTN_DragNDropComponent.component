@@ -1,0 +1,28 @@
+<apex:component id="BTN_DragNDropComponent" controller="BTN_DragNDropComponentController">
+    <apex:attribute name="parentId" description="The ID of the record uploaded documents will be attached to." type="String" required="true"/>
+
+    <link rel="stylesheet" type="text/css" href="{!$Resource.FileUploadCSS}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-ui.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.FileUploadJS)}"/>
+
+    <script type="text/javascript">
+    	var parentId = '{!parentId}'; //Will be used by FileUploadJS.js but must be declared here. Static resources don't support dynamic values.
+        var currentURL;
+        function refreshPage() {
+            currentURL = "https://{!URLForPage}/{!parentId}"; top.location.href = currentURL;
+        }
+    </script>
+
+    <div class="uploadBox">
+        <table cellpadding="0" cellspacing="0" class="uploadTable">
+            <tr>
+                <td><input type="file" multiple="true" id="filesInput" name="file" /></td>
+                <td class="buttonTD">
+                    <input id="uploadButton" type="button" title="Upload" class="btn" value=" Upload "/>
+                    <input id="clear" type="button" title="Clear" class="btn" value=" Clear "/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</apex:component>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Previous_Rank__c</fullName>
+    <description>Stores previous value of Rank after field update. Created for PB and Email Alert</description>
+    <externalId>false</externalId>
+    <label>Previous Rank</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0:$</fullName>
+                <default>false</default>
+                <label>0:$</label>
+            </value>
+            <value>
+                <fullName>1:bardzo ważne</fullName>
+                <default>false</default>
+                <label>1:bardzo ważne</label>
+            </value>
+            <value>
+                <fullName>2:ważne</fullName>
+                <default>false</default>
+                <label>2:ważne</label>
+            </value>
+            <value>
+                <fullName>3:w wolnej chwili</fullName>
+                <default>false</default>
+                <label>3:w wolnej chwili</label>
+            </value>
+            <value>
+                <fullName>4:bez szans</fullName>
+                <default>false</default>
+                <label>4:bez szans</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

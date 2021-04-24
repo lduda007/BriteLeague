@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location__c</fullName>
+    <externalId>false</externalId>
+    <label>Location</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DataCenter</fullName>
+                <default>false</default>
+                <label>DataCenter</label>
+            </value>
+            <value>
+                <fullName>Lublin Hamleta</fullName>
+                <default>false</default>
+                <label>Lublin Hamleta</label>
+            </value>
+            <value>
+                <fullName>Kielce IX Wieków</fullName>
+                <default>false</default>
+                <label>Kielce IX Wieków</label>
+            </value>
+            <value>
+                <fullName>Klient</fullName>
+                <default>false</default>
+                <label>Klient</label>
+            </value>
+            <value>
+                <fullName>Lublin Morwowa</fullName>
+                <default>false</default>
+                <label>Lublin Morwowa</label>
+            </value>
+            <value>
+                <fullName>Poznań Strzelecka</fullName>
+                <default>false</default>
+                <label>Poznań Strzelecka</label>
+            </value>
+            <value>
+                <fullName>Warszawa Bukowińska</fullName>
+                <default>false</default>
+                <label>Warszawa Bukowińska</label>
+            </value>
+            <value>
+                <fullName>Warszawa Wołoska</fullName>
+                <default>false</default>
+                <label>Warszawa Wołoska</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

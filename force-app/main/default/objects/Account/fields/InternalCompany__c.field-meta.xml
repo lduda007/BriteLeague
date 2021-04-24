@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InternalCompany__c</fullName>
+    <externalId>false</externalId>
+    <label>Internal Company</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Britenet Sp. z o.o.</fullName>
+                <default>false</default>
+                <label>Britenet Sp. z o.o.</label>
+            </value>
+            <value>
+                <fullName>Britenet Professional Services</fullName>
+                <default>false</default>
+                <label>Britenet Professional Services</label>
+            </value>
+            <value>
+                <fullName>Britenet Payment Solutions</fullName>
+                <default>false</default>
+                <label>Britenet Payment Solutions</label>
+            </value>
+            <value>
+                <fullName>Britenet Polska</fullName>
+                <default>false</default>
+                <label>Britenet Polska</label>
+            </value>
+            <value>
+                <fullName>GtFace</fullName>
+                <default>false</default>
+                <label>GtFace</label>
+            </value>
+            <value>
+                <fullName>Cambria</fullName>
+                <default>false</default>
+                <label>Cambria</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

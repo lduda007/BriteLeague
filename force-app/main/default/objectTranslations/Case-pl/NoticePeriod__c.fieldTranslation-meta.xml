@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Standardowo przy B2B powinien być 2 mies. --></help>
+    <label>Okres wypowiedzenia</label>
+    <name>NoticePeriod__c</name>
+    <picklistValues>
+        <masterLabel>1 miesiąc</masterLabel>
+        <translation>1 miesiąc</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 miesiące</masterLabel>
+        <translation>2 miesiące</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 tygodnie</masterLabel>
+        <translation>2 tyogdnie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3 dni robocze</masterLabel>
+        <translation>3 dni robocze</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3 miesiące</masterLabel>
+        <translation>3 miesiące</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Inne</masterLabel>
+        <translation>Inne</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Od zaraz</masterLabel>
+        <translation>Od zaraz</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zgodnie z kodeksem pracy</masterLabel>
+        <translation><!-- Zgodnie z kodeksem pracy --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

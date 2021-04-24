@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>BriteCRM</letterhead>
+    <name>HTML Deadline Reminder Template</name>
+    <style>freeForm</style>
+    <subject>Opportunity Notification: Deadline.</subject>
+    <textOnly>Hi {!Receiving_User.Username},
+
+The next step defined for the Opportunity: {!Opportunity.Name} is about to hit the deadline in 24 hours. Please check and update it if necessary.
+
+The next step which was defined:
+{!Opportunity.NextStep__c}
+
+Kind regards,
+BriteCRM Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isResolved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If match isResolved that means all rounds was played and match should be included in score tables, otherwise, statistics are not counted</description>
+    <externalId>false</externalId>
+    <label>isResolved</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

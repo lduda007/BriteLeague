@@ -1,0 +1,5 @@
+<messaging:emailTemplate subject="Competition started" recipientType="Contact" relatedToType="BL_Competitor__c">
+    <messaging:htmlEmailBody >
+        <c:BL_CompetitionStartedEmailNotifContent competitorId="{!RelatedTo.Id}"/>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

@@ -1,0 +1,45 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "cfb2580e-3067-4a29-96b9-0ff71dbde6fb",
+  "label" : "Teams",
+  "regions" : [ {
+    "id" : "aa9576dc-ba82-4a22-90e9-417547e81d94",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_PlayerTeamsList",
+      "id" : "164d4322-5ca6-4df4-aa43-bf38f6a157f8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "90313e5e-bd64-432d-8849-eaf43c43bbee",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "2a1a4968-e43f-461c-969a-90fe2b30b3a4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Teams"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "be9a648b-cc90-44de-8f09-2d071968eb90",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "034e778d-6545-436b-85b5-9d3f8aad0764",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-teams"
+}

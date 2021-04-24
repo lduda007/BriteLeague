@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Availability --></label>
+    <name>ContactAvailability__c</name>
+    <picklistValues>
+        <masterLabel>1 month</masterLabel>
+        <translation><!-- 1 month --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 months</masterLabel>
+        <translation><!-- 2 months --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 weeks</masterLabel>
+        <translation><!-- 2 weeks --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3 months</masterLabel>
+        <translation><!-- 3 months --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>From now</masterLabel>
+        <translation><!-- From now --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

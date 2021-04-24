@@ -1,0 +1,127 @@
+<apex:page id="BTN_EquipmentEdit" standardController="BTN_Equipment__c" extensions="BTN_EquipmentExtension">
+
+    <apex:sectionHeader title="{!$Label.Edit} {!$ObjectType.BTN_Equipment__c.Label}" subTitle="{!IF(ISNULL(equipment.Id), $Label.New + ' ' + $ObjectType.BTN_Equipment__c.Label, equipment.Name)}"/>
+    <apex:pageMessages id="pageMessages"/>
+
+    <apex:form >
+
+        <apex:pageBlock mode="edit" title="{!$Label.EditSectionTitle} {!$ObjectType.BTN_Equipment__c.Label}">
+
+            <apex:pageBlockButtons >
+                <apex:commandButton id="save" action="{!save}" value="{!$Label.SaveBtn}"/>
+                <apex:commandButton id="saveAndNew" action="{!saveAndNew}" value="{!$Label.SaveAndNewBtn}"/>
+                <apex:commandButton id="cancel" action="{!cancel}" value="{!$Label.CancelBtn}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="{!$Label.Information}" id="equipmentSection" rendered="{!isEquipment}">
+                <apex:inputField value="{!equipment.Type__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Equipment__c.fields.Contact__c.Label}"/>
+                    <apex:outputPanel id="contact">
+                        <apex:actionRegion >
+                            <apex:inputField value="{!equipment.Contact__c}">
+                                <apex:actionSupport event="onchange" action="{!queryContactLocationAndPhone}" rerender="location, phoneNumber"/>
+                            </apex:inputField>
+                        </apex:actionRegion>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!equipment.Manufacturer__c}" required="true"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Equipment__c.fields.Equipment_Request__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!equipment.Equipment_Request__c}">
+                            <apex:actionSupport event="onchange" action="{!queryContactFromEquipmentRequest}" rerender="contact"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!equipment.Model__c}" required="true"/>
+                <apex:inputField value="{!equipment.Company__c}" required="true"/>
+                <apex:inputField value="{!equipment.Serial_Number__c}" required="true"/>
+                <apex:inputField id="location" value="{!equipment.Location__c}"/>
+                <apex:inputField value="{!equipment.Description__c}" style="width: 260px;"/>
+                <apex:inputField value="{!equipment.Britenet_ID__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!equipment.Reserved__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!equipment.Active__c}"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="{!$Label.Information}" id="licenseSection" rendered="{!isLicense}">
+                <apex:inputField value="{!equipment.Type__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Equipment__c.fields.Contact__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:outputPanel id="contact">
+                            <apex:inputField value="{!equipment.Contact__c}">
+                                <apex:actionSupport event="onchange" action="{!queryContactLocationAndPhone}" rerender="location, phoneNumber"/>
+                            </apex:inputField>
+                        </apex:outputPanel>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!equipment.License_Type__c}" required="true"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Equipment__c.fields.Equipment__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!equipment.Equipment__c}">
+                            <apex:actionSupport event="onchange" action="{!queryContactFromEquipment}" rerender="contact"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!equipment.Manufacturer__c}" required="true"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Equipment__c.fields.Equipment_Request__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!equipment.Equipment_Request__c}">
+                            <apex:actionSupport event="onchange" action="{!queryContactFromEquipmentRequest}" rerender="contact"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!equipment.License_Name__c}" required="true"/>
+                <apex:inputField value="{!equipment.Company__c}" required="true"/>
+                <apex:inputField value="{!equipment.Subscription_Type__c}" required="true"/>
+                <apex:inputField id="location" value="{!equipment.Location__c}"/>
+                <apex:inputField value="{!equipment.Vendor__c}" required="true"/>
+                <apex:inputField value="{!equipment.Reserved__c}"/>
+                <apex:inputField value="{!equipment.Serial_Number__c}" required="true"/>
+                <apex:inputField value="{!equipment.Active__c}"/>
+                <apex:inputField value="{!equipment.Expiration_Date__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!equipment.Description__c}" style="width: 260px;"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="{!$Label.Information}" id="phoneContractSection" rendered="{!isPhoneContract}">
+                <apex:inputField value="{!equipment.Type__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Equipment__c.fields.Contact__c.Label}"/>
+                    <apex:outputPanel id="contact">
+                        <apex:actionRegion >
+                            <apex:inputField value="{!equipment.Contact__c}">
+                                <apex:actionSupport event="onchange" action="{!queryContactLocationAndPhone}" rerender="location, phoneNumber"/>
+                            </apex:inputField>
+                        </apex:actionRegion>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:inputField id="phoneNumber" value="{!equipment.Phone_Number__c}" required="true"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Equipment__c.fields.Equipment_Request__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!equipment.Equipment_Request__c}">
+                            <apex:actionSupport event="onchange" action="{!queryContactFromEquipmentRequest}" rerender="contact"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!equipment.Phone_Contract__c}" required="true"/>
+                <apex:inputField value="{!equipment.Company__c}" required="true"/>
+                <apex:inputField value="{!equipment.Expiration_Date__c}"/>
+                <apex:inputField id="location" value="{!equipment.Location__c}"/>
+                <apex:inputField value="{!equipment.Description__c}" style="width: 260px;"/>
+                <apex:inputField value="{!equipment.Reserved__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!equipment.Active__c}"/>
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+
+    </apex:form>
+
+</apex:page>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Account_frm__c</columns>
+    <columns>Position_frm__c</columns>
+    <columns>Status__c</columns>
+    <columns>Requestor_frm__c</columns>
+    <columns>Only_for_RA__c</columns>
+    <columns>Resource_Manager__c</columns>
+    <columns>ResponsiblePerson_frm__c</columns>
+    <columns>Location_frm__c</columns>
+    <columns>Priority_frm__c</columns>
+    <columns>CreatedDate_frm__c</columns>
+    <columns>DeliveryDeadline_frm__c</columns>
+    <columns>CVsAllInFinal__c</columns>
+    <columns>CVsApprovedRequested__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+</ListView>

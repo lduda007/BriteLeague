@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Spodziewane zarobki netto brutto</label>
+    <name>ExpectedSalaryGrossNet__c</name>
+    <picklistValues>
+        <masterLabel>Brutto</masterLabel>
+        <translation><!-- Brutto --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Netto</masterLabel>
+        <translation><!-- Netto --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

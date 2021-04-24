@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vResourceRequest</fullName>
+    <active>true</active>
+    <description>Resource Request required when status = Approved</description>
+    <errorConditionFormula>CONTAINS(RecordType.DeveloperName, &apos;External&apos;) &amp;&amp; 
+ISPICKVAL(Status , &apos;Approved&apos;) &amp;&amp;
+ISBLANK(Resource_Request__c)</errorConditionFormula>
+    <errorDisplayField>Resource_Request__c</errorDisplayField>
+    <errorMessage>Please Choose corect Resource Request</errorMessage>
+</ValidationRule>

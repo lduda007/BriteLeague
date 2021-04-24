@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Zamówienie na sprzęt</label>
+    <lookupFilter>
+        <errorMessage>Możesz wybrać jedynie Zapotrzebowanie na sprzęt dotyczące wybranego pracownika</errorMessage>
+    </lookupFilter>
+    <name>Equipment_Request__c</name>
+    <relationshipLabel>Sprzęt</relationshipLabel>
+</CustomFieldTranslation>

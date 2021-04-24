@@ -1,0 +1,15 @@
+<messaging:emailTemplate subject="Your Contact has a birthday coming!" recipientType="User" relatedToType="Contact">
+<messaging:htmlEmailBody >
+
+    Dear {!recipient.Name},
+    <br />
+    <br />
+    Your contact&nbsp;<c:BTN_LinkComponent Opportunity="{!relatedTo.Id}" OpportunityName="{!relatedTo.Name}"/> ({!relatedTo.Account.Name}) is having birthday in a week. Reach out <a href="mailto:{!relatedTo.Email}">to him</a>.
+    <br />
+    <br />
+    Kind regards,
+    <br />
+    BriteCRM Team
+
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

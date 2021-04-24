@@ -1,0 +1,3 @@
+<apex:page standardController="Case" extensions="BTN_CaseEditRedirect" action="{!checkRecordType}">
+
+</apex:page>

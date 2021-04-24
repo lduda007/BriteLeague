@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SalaryB2B_frm__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (
+  OR(Contact__r.Leader__c == $User.ContactId, Contact__c == $User.ContactId),
+  SalaryB2B__c,
+  NULL
+)</formula>
+    <label>Salary B2B</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,7 @@
+<apex:page controller="BTN_GoogleSidebarController">
+<apex:outputPanel rendered="{!integrated }" style="color:green;font-weight:bold;">{!$Label.Integrated}</apex:outputPanel>
+<apex:outputPanel rendered="{!NOT(integrated )}" style="color:red;font-weight:bold;">{!$Label.NotIntegrated}</apex:outputPanel>
+<br/>
+<apex:outputlink rendered="{!NOT(integrated )}" value="/apex/BTN_GoogleAuthorise" target="_parent">{!$Label.Integrate}</apex:outputlink>
+<apex:outputlink rendered="{!integrated }" value="/apex/BTN_GoogleAuthorise" target="_parent">{!$Label.RefreshIntegration}</apex:outputlink>
+</apex:page>

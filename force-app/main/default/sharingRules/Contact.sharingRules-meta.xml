@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Share_BusinessInternalContactsWithSales</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Business, Internal Contacts With Sales</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Sales</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Business</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Internals_with_Admins</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Shares Internal Contacts with Admins</description>
+        <label>Share Internals with Admins</label>
+        <sharedTo>
+            <group>Admins</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Internal</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Recruits_with_HR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Recruits with HR</label>
+        <sharedTo>
+            <group>Human_Resources</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Recruit,Internal</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Shared_With_Resource_Manager</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Shared With Resource Manager</label>
+        <sharedTo>
+            <role>ResourceManager</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Supplier,Business,Internal,Recruit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>shareInternalContactsToTechnicalLeaders</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>shareInternalContactsToTechnicalLeaders</label>
+        <sharedTo>
+            <group>BTN_TechnicalLeaders</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Internal</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

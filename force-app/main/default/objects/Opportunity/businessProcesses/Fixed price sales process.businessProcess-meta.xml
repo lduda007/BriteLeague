@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fixed price sales process</fullName>
+    <description>Sales process for fixed price opportunities</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Agreement Approved</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Customer</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Draft</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Draft Offer Sent</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Draft Valuation</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Draft Valuation Ready</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>In progress</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer Sent</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Price Accepted</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Prospecting</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Qualification</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Valuation</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Valuation Ready</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

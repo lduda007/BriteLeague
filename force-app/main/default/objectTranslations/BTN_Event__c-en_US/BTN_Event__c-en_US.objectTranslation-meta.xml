@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Events</value>
+    </caseValues>
+    <layouts>
+        <layout>Event Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Profiling details --></label>
+            <section>Profiling details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>General Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Periodic Assessment Layout</layout>
+        <sections>
+            <label><!-- Career Path --></label>
+            <section>Career Path</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Feedback --></label>
+            <section>Feedback</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Periodic Assessment --></label>
+            <section>Periodic Assessment</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Genereal event --></description>
+        <label><!-- General --></label>
+        <name>General</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Interview with potential employee --></description>
+        <label><!-- Interview --></label>
+        <name>Interview</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Periodic Assessment --></label>
+        <name>Periodic_Assessment</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Other location is mandatory! --></errorMessage>
+        <name>OtherLocation_mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set correctly Start and End Date --></errorMessage>
+        <name>vDates</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill &quot;Interviewer&quot; field --></errorMessage>
+        <name>vInterviewer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set Start Time before End Time --></errorMessage>
+        <name>vStartBeforeEndDate</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- NewCall --></label>
+        <name>NewCall</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewExternalInterview --></label>
+        <name>NewExternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewInternalInterview --></label>
+        <name>NewInternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewInterview --></label>
+        <name>NewInterview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewMeeting --></label>
+        <name>NewMeeting</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </webLinks>
+</CustomObjectTranslation>

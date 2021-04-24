@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Rodzaj wydarzenia</label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Call</masterLabel>
+        <translation>Rozmowa telefoniczna</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>External Interview</masterLabel>
+        <translation>Wywiad zewnętrzny</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Internal Interview</masterLabel>
+        <translation>Wywiad wewnętrzny</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Meeting</masterLabel>
+        <translation>Spotkanie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation>Inne</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Periodic Assessment</masterLabel>
+        <translation>Rozmowa okresowa</translation>
+    </picklistValues>
+</CustomFieldTranslation>

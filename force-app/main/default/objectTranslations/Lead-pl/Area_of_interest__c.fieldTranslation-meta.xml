@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Area of interest --></label>
+    <name>Area_of_interest__c</name>
+    <picklistValues>
+        <masterLabel>BI</masterLabel>
+        <translation><!-- BI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OUT</masterLabel>
+        <translation><!-- OUT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SFDC</masterLabel>
+        <translation><!-- SFDC --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

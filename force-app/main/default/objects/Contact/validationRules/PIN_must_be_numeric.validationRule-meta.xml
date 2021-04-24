@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PIN_must_be_numeric</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK(WiFi_PIN__c)),NOT(ISNUMBER(WiFi_PIN__c)))</errorConditionFormula>
+    <errorDisplayField>WiFi_PIN__c</errorDisplayField>
+    <errorMessage>PIN must be a number</errorMessage>
+</ValidationRule>

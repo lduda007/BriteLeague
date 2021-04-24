@@ -1,0 +1,194 @@
+<!--
+ * @author Mateusz Przywara
+ * @date   2016-11-03
+ * @description BTN_EventPage
+ -->
+<apex:page id="BTN_EventPage" standardController="BTN_Event__c" extensions="BTN_EventController" docType="html-5.0"
+           title="{!$Label.EventPageTitle}" action="{!onLoadAction}">
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/bootstrap/moment.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/bootstrap/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/bootstrap/bootstrap-datetimepicker.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/bootstrap/bootstrap-datetimepicker.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/bootstrap/css/bootstrap.css')}"/>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(function () {
+            /* Ignite Date Time picker on Date fields*/
+            $("[id$=startDatePicker]").datetimepicker( {
+                format: 'DD.MM.YYYY HH:mm'
+            });
+            $("[id$=startDatePicker]").data("DateTimePicker").date(
+                '{!startTimeString}'
+            );
+
+            if ('{!BTN_Event__c.RecordType.Name}' == '{!RT_Interview}') {
+                $("[id$=endDatePicker]").datetimepicker( {
+                    format: 'DD.MM.YYYY HH:mm'
+                });
+                $("[id$=endDatePicker]").data("DateTimePicker").date(
+                    '{!endTimeString}'
+                );
+
+                $("[id$=profilingDatePicker]").datetimepicker( {
+                    format: 'DD.MM.YYYY HH:mm'
+                });
+                $("[id$=profilingDatePicker]").data("DateTimePicker").date(
+                    '{!profilingTimeString}'
+                );
+            }
+
+            /* Set up listeners*/
+            $("[id$=startDatePicker]").on("dp.change", function(ev) {
+                if ('{!BTN_Event__c.RecordType.Name}' == '{!RT_Interview}') {
+                    $("[id$=endDatePicker]").data("DateTimePicker").date(
+                        moment($("[id$=startDatePicker]").val(), "DD.MM.YYYY HH:mm").add(1, 'hours').format("DD.MM.YYYY HH:mm")
+                    );
+                }
+            });
+            $("[id$=startDatePicker]").focus();
+            $("[id$=startDatePicker]").blur();
+        });
+    });
+    </script>
+    <apex:form id="f1" html-novalidate="html-novalidate">
+        <apex:pageBlock >
+            <apex:pageMessages id="msg"/>
+            <apex:pageBlockSection title="{!MainSectionLabel}" columns="2" id="info">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Title__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.Title__c}" required="false"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name != RT_Interview}">
+                    <apex:outputLabel value="{!$Label.RecordTypeName}"/>
+                    <apex:outputField id="RTName" value="{!BTN_Event__c.RecordType.Name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Type__c.Label}"/>
+                    <apex:outputField id="TypePicklist" value="{!BTN_Event__c.Type__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Start_Time__c.Label}"/>
+                    <apex:outputPanel >
+                        <div class='input-group date' id='datetimepicker1' style="width: 50%">
+                            <apex:input type="datetime" id="startDatePicker" value="{!startTime}"
+                                        styleClass="form-control">
+                                <!--<apex:actionSupport event="onchange" action="{!setEndDateHourLater}" reRender="endDatePicker"/>-->
+                            </apex:input>
+                            <span class="input-group-addon" style="">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem id="EndTime"
+                        rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.End_Time__c.Label}"/>
+                    <apex:outputPanel >
+                        <div class='input-group date' id='datetimepicker1' style="width: 50%">
+                            <apex:input type="text" id="endDatePicker" value="{!endTime}"
+                                        styleClass="form-control"/>
+                            <span class="input-group-addon" style="">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Location__c.Label}"/>
+                    <apex:actionRegion >
+                    <apex:inputField value="{!BTN_Event__c.Location__c}">
+                        <apex:actionSupport event="onchange" action="{!refreshAvailableMeetingRooms}" rerender="roomSelectId" />
+                    </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <span></span>
+                <apex:pageBlockSectionItem rendered="{!ISBLANK(BTN_Event__c.Id)}" >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Meeting_Room__c.Label}"/>
+                    <apex:selectList value="{!chosenRoom}" id="roomSelectId" size="1">
+                        <apex:selectOptions value="{!availableMeetingRooms}" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!ISBLANK(BTN_Event__c.Id)}" />
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.OtherLocation__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.OtherLocation__c}"/>
+                </apex:pageBlockSectionItem>
+                <span></span>
+
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}" >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Profile__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!BTN_Event__c.Profile__c}" required="true">
+                            <apex:actionSupport event="onchange" rerender="details"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="{!$Label.Details}" id="details">
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Interviewed__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.Interviewed__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}" />
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name != RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Interviewed__c.Label}"/>
+                    <apex:outputField value="{!BTN_Event__c.Interviewed__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.RecordType.Name != RT_Interview}"/>
+
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.Profile__c != 'Techniczna' && BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Interviewer_Contact__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.Interviewer_Contact__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.Profile__c != 'Miękka' && BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Technical_Interviewer__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.Technical_Interviewer__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.Profile__c != 'Techniczna' }">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Description__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.Description__c}" style="width: 80%"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!BTN_Event__c.Profile__c != 'Miękka' && BTN_Event__c.RecordType.Name = RT_Interview}">
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.DescriptionTechnical__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.DescriptionTechnical__c}" style="width: 80%"/>
+                </apex:pageBlockSectionItem>
+
+                <apex:inputField value="{!BTN_Event__c.Internal_Description__c}" style="width: 80%" rendered="{!BTN_Event__c.Profile__c != 'Techniczna' }"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="{!$Label.ProfilingDetailsSec}"
+                                   rendered="{!BTN_Event__c.RecordType.Name = RT_Interview}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Profiling__c.Label}"/>
+                    <apex:inputField value="{!BTN_Event__c.Profiling__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_Event__c.Fields.Profiling_date__c.Label}"/>
+                    <apex:outputPanel >
+                        <div class='input-group date' id='datetimepicker3' style="width: 50%">
+                            <apex:input type="text" id="profilingDatePicker" value="{!profilingDate}"
+                                        styleClass="form-control"/>
+                            <span class="input-group-addon" style="">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:actionFunction action="{!doSaveAfterValidation}" name="saveFunction" />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.SaveBtn}" action="{!beforeSaveValidation}" onComplete="saveFunction();"/>
+                <apex:commandButton value="{!$Label.CancelBtn}" action="{!cancel}" immediate="true"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+   
+    <div style="display: none;">
+        {!BTN_Event__c.Start_Time__c}
+        {!BTN_Event__c.End_Time__c}
+        {!BTN_Event__c.Profiling_date__c}
+        {!BTN_Event__c.Candidate__c}
+    </div>
+</apex:page>

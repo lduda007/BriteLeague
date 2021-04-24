@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Direct_Competitor__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  Competition__r.RecordType.DeveloperName != &quot;Battle_Royale&quot;,
+  true,
+  Team__r.RecordType.DeveloperName = &apos;Battle_Royale&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Direct Competitor</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

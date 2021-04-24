@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>true</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Submitted to external</fullName>
+                <default>false</default>
+                <label>Submitted to external</label>
+            </value>
+            <value>
+                <fullName>Interview-in-progress</fullName>
+                <default>false</default>
+                <label>Interview-in-progress</label>
+            </value>
+            <value>
+                <fullName>Approved by external</fullName>
+                <default>false</default>
+                <label>Approved by external</label>
+            </value>
+            <value>
+                <fullName>Contract signed</fullName>
+                <default>false</default>
+                <label>Contract signed</label>
+            </value>
+            <value>
+                <fullName>Contract signed with different external</fullName>
+                <default>false</default>
+                <label>Contract signed with different external</label>
+            </value>
+            <value>
+                <fullName>Rejected by external</fullName>
+                <default>false</default>
+                <label>Rejected by external</label>
+            </value>
+            <value>
+                <fullName>Rejected by us</fullName>
+                <default>false</default>
+                <label>Rejected by us</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+            <value>
+                <fullName>Offer expired</fullName>
+                <default>false</default>
+                <label>Offer expired</label>
+            </value>
+            <value>
+                <fullName>Closed in ZOHO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Closed in ZOHO</label>
+            </value>
+            <value>
+                <fullName>Rejected by internal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Rejected by internal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

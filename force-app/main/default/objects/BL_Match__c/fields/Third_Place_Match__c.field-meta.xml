@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Third_Place_Match__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>3rd Place Match</label>
+    <referenceTo>BL_Match__c</referenceTo>
+    <relationshipLabel>Matches (3rd Place Match)</relationshipLabel>
+    <relationshipName>ThirdPlacePreviousRoundMatches</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

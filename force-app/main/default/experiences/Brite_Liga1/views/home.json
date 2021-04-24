@@ -1,0 +1,49 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "6979245d-fd66-41d9-ba73-dd082251c58b",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "b670486f-cfd7-4e30-908a-966839940426",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "0d27a1bb-59ef-4b3e-8f66-b7312b92e903",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_HomeOpenCompetitions",
+      "id" : "0b5201b2-0824-40d7-b48d-0dd574877620",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "09aa4fff-a39c-4665-bcd4-ab2b49e96cd8",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "619239eb-46aa-4137-b1c5-05d5562df685",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Brite League"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9bf75510-49bc-42ea-8339-8f4efd9bf13a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6618789b-5314-4407-b768-64ee97ad7c1c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

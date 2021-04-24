@@ -1,0 +1,3089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- BriteCRM --></label>
+        <name>BriteCRM</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Brite Liga --></label>
+        <name>Brite_Liga</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- BriteRM --></label>
+        <name>Resource_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Surveys --></label>
+        <name>Surveys</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- opportunity pricebook rel sec title --></label>
+        <name>ASAP</name>
+    </customLabels>
+    <customLabels>
+        <label>Dostęp</label>
+        <name>Access</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>AccountName</name>
+    </customLabels>
+    <customLabels>
+        <label>AchievementId jest wymagany</label>
+        <name>AchievementIdIsMandatory</name>
+    </customLabels>
+    <customLabels>
+        <label>Achievement Set nie jest ustawiony dla szablony ankiety!</label>
+        <name>AchievementSetWasNotSetOnTheSurveyTemplate</name>
+    </customLabels>
+    <customLabels>
+        <label>Akcja</label>
+        <name>Action</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>ActionHeader</name>
+    </customLabels>
+    <customLabels>
+        <label>Dodaj</label>
+        <name>Add</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CV File --></label>
+        <name>AddNewCV</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>AddProductsFormSec</name>
+    </customLabels>
+    <customLabels>
+        <label>Dodatkowy komentarz</label>
+        <name>AdditionalComment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>AdditionalData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>AdditionalInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AdditionalInformation --></label>
+        <name>AdditionalInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Addproduct</name>
+    </customLabels>
+    <customLabels>
+        <label>Wszystkie pytania</label>
+        <name>All_Questions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Already collected candidates section for email template --></label>
+        <name>AlreadyCollectedCandidates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Zastosuj</label>
+        <name>Apply</name>
+    </customLabels>
+    <customLabels>
+        <label>Jesteś pewny?</label>
+        <name>Are_You_Sure</name>
+    </customLabels>
+    <customLabels>
+        <label>Wszystkie</label>
+        <name>Assignment_List_Filter_All</name>
+    </customLabels>
+    <customLabels>
+        <label>Plik</label>
+        <name>AttachedCVName</name>
+    </customLabels>
+    <customLabels>
+        <label>Załączniki</label>
+        <name>AttachmentSec</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Author --></label>
+        <name>Author</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Start now --></label>
+        <name>BLStart_now</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Access --></label>
+        <name>BL_Access</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Members --></label>
+        <name>BL_Add_Members</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Selected Teams --></label>
+        <name>BL_Add_Selected_Teams</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All --></label>
+        <name>BL_All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Already joined --></label>
+        <name>BL_Already_joined</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Available --></label>
+        <name>BL_Available</name>
+    </customLabels>
+    <customLabels>
+        <label>Battle Royale</label>
+        <name>BL_Battle_Royale</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cannot start cup --></label>
+        <name>BL_Cannot_start_cup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cannot start league --></label>
+        <name>BL_Cannot_start_league</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Close --></label>
+        <name>BL_Close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Competitions --></label>
+        <name>BL_Competitions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Create Competition --></label>
+        <name>BL_Create_Competition</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cup --></label>
+        <name>BL_Cup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cup Rounds --></label>
+        <name>BL_Cup_Rounds</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cup already started --></label>
+        <name>BL_Cup_already_started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cup has started --></label>
+        <name>BL_Cup_has_started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Draw --></label>
+        <name>BL_Draw</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Draw Statements --></label>
+        <name>BL_Draw_Statements</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- End Date --></label>
+        <name>BL_End_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error --></label>
+        <name>BL_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error When Leaving Competition --></label>
+        <name>BL_Error_When_Leaving_Competition</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error When Loading Team Details --></label>
+        <name>BL_Error_When_Loading_Team_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error when adding teams --></label>
+        <name>BL_Error_when_adding_teams</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error when loading cup details --></label>
+        <name>BL_Error_when_loading_cup_details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error when loading league details --></label>
+        <name>BL_Error_when_loading_league_details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error when loading league matches --></label>
+        <name>BL_Error_when_loading_league_matches</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error when removing team --></label>
+        <name>BL_Error_when_removing_team</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Feed --></label>
+        <name>BL_Feed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Final --></label>
+        <name>BL_Final</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Goals Against --></label>
+        <name>BL_Goals_Against</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Goals Draw --></label>
+        <name>BL_Goals_Draw</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Goals For --></label>
+        <name>BL_Goals_For</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hard Loss Statements --></label>
+        <name>BL_Hard_Loss_Statements</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hard Win Statements --></label>
+        <name>BL_Hard_Win_Statements</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Join --></label>
+        <name>BL_Join</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League --></label>
+        <name>BL_League</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League Created Statement --></label>
+        <name>BL_League_Created_Statement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League Finished Statement --></label>
+        <name>BL_League_Finished_Statement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL League Full --></label>
+        <name>BL_League_Full</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League not started --></label>
+        <name>BL_League_Not_Started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League Started Statement --></label>
+        <name>BL_League_Started_Statement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League Table --></label>
+        <name>BL_League_Table</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League already started --></label>
+        <name>BL_League_already_started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- League has started --></label>
+        <name>BL_League_has_started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Loser match --></label>
+        <name>BL_Loser_match</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lost --></label>
+        <name>BL_Lost</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Match Score --></label>
+        <name>BL_Match_Score</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Matches --></label>
+        <name>BL_Matches</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Matches not generated yet --></label>
+        <name>BL_Matches_not_generated_yet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Members --></label>
+        <name>BL_Members</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- My --></label>
+        <name>BL_My</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Name --></label>
+        <name>BL_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL No Competitions For Team --></label>
+        <name>BL_No_Competitions_For_Team</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL No Open Competitions --></label>
+        <name>BL_No_Open_Competitions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL No Team Members --></label>
+        <name>BL_No_Team_Members</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No competitors found --></label>
+        <name>BL_No_competitors_found</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No matches found --></label>
+        <name>BL_No_matches_found</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No teams joined yet --></label>
+        <name>BL_No_teams_joined_yet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Owner --></label>
+        <name>BL_Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Parent Teams --></label>
+        <name>BL_Parent_Teams</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Player --></label>
+        <name>BL_Player</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Points --></label>
+        <name>BL_Points</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Pos --></label>
+        <name>BL_Pos</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Position --></label>
+        <name>BL_Position</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Private --></label>
+        <name>BL_Private</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Progress Chart --></label>
+        <name>BL_Progress_Chart</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Public --></label>
+        <name>BL_Public</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Quarter Finals --></label>
+        <name>BL_Quarter_Finals</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Result --></label>
+        <name>BL_Result</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rounds Lost Scores Title --></label>
+        <name>BL_Rounds_Lost_Scores_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rounds Won Scores Title --></label>
+        <name>BL_Rounds_Won_Scores_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Select Team Error --></label>
+        <name>BL_Select_Team_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Select Your Team --></label>
+        <name>BL_Select_Your_Team</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Semi Finals --></label>
+        <name>BL_Semi_Finals</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Set --></label>
+        <name>BL_Set</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Soft Loss Statements --></label>
+        <name>BL_Soft_Loss_Statements</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Soft Win Statements --></label>
+        <name>BL_Soft_Win_Statements</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Start Date --></label>
+        <name>BL_Start_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Start now --></label>
+        <name>BL_Start_now</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Started --></label>
+        <name>BL_Started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Status --></label>
+        <name>BL_Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Success --></label>
+        <name>BL_Success</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Team 1 --></label>
+        <name>BL_Team_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Team 2 --></label>
+        <name>BL_Team_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Team Capitain --></label>
+        <name>BL_Team_Capitain</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Team Joined Statement --></label>
+        <name>BL_Team_Joined_Statement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Team Name --></label>
+        <name>BL_Team_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Team Players --></label>
+        <name>BL_Team_Players</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Team Removed --></label>
+        <name>BL_Team_Removed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Teams --></label>
+        <name>BL_Teams</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Teams Already Joined --></label>
+        <name>BL_Teams_Already_Joined</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Teams number --></label>
+        <name>BL_Teams_number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL Type --></label>
+        <name>BL_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Waiting for teams --></label>
+        <name>BL_Waiting_for_teams</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Win --></label>
+        <name>BL_Win</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Winner match --></label>
+        <name>BL_Winner_match</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 1/16 Stage --></label>
+        <name>BL_X1_16_Stage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 1/32 Stage --></label>
+        <name>BL_X1_32_Stage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 1/64 Stage --></label>
+        <name>BL_X1_64_Stage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 1/8 Stage --></label>
+        <name>BL_X1_8_Stage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL You Are Not Assigned --></label>
+        <name>BL_You_Are_Not_Assigned</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You Joined Competition --></label>
+        <name>BL_You_Joined_Competition</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BL You Joined League --></label>
+        <name>BL_You_Joined_League</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You&apos;ve left the competition. --></label>
+        <name>BL_You_ve_left_the_competition</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Date format for BriteSheet - Synchronizations --></label>
+        <name>BSDateFormat</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BSReturnedError --></label>
+        <name>BSReturnedError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BSS Webservice call --></label>
+        <name>BSSCallError</name>
+    </customLabels>
+    <customLabels>
+        <label>Szczegóły o pracowniku</label>
+        <name>BSUserDataSection</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delivery of cv --></label>
+        <name>CVDeliveryDeadline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RR external form customer --></label>
+        <name>CVEternalFormPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- language of CV --></label>
+        <name>CVLanguage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Site title --></label>
+        <name>CVSiteTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic label for Cv email template --></label>
+        <name>CVemailLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Anuluj</label>
+        <name>CancelBtn</name>
+    </customLabels>
+    <customLabels>
+        <label>Anuluj</label>
+        <name>Cancel_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>Kandydat</label>
+        <name>CandidateName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Candidate source type --></label>
+        <name>CandidateSourceType</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie można znaleźć kontakt z e-mailem = {0}. Proszę skontaktować się z administratorem!</label>
+        <name>CannotFindContactWithEmail</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie można znaleźć odpowiedniej ankiety!</label>
+        <name>CannotFindProperSurvey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cannot found Achievement with ID: --></label>
+        <name>CannotFoundAchievementWithID</name>
+    </customLabels>
+    <customLabels>
+        <label>Kariera</label>
+        <name>Career</name>
+    </customLabels>
+    <customLabels>
+        <label>Informacje</label>
+        <name>CaseInfoSection</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Trigger Future Method Exception --></label>
+        <name>CaseTriggerFailedToCreateBSUser</name>
+    </customLabels>
+    <customLabels>
+        <label>Kategoria</label>
+        <name>Category</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- feed item body3 --></label>
+        <name>ChangeOnCandidate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ChoosePriceBook</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CloseBtn --></label>
+        <name>CloseBtn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>CloseDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Komentarz</label>
+        <name>Comment</name>
+    </customLabels>
+    <customLabels>
+        <label>Połącz z google</label>
+        <name>ConnectWithGoogle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Contact</name>
+    </customLabels>
+    <customLabels>
+        <label>Szczegóły kontaktowe</label>
+        <name>ContactDetails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Continue button --></label>
+        <name>Continue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ContractDates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ContractDatesErr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContractDuration --></label>
+        <name>ContractDuration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContractDuration --></label>
+        <name>ContractDurationUnit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contract Edit Page --></label>
+        <name>ContractEditPageTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ContractEnd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ContractEndDescription</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>ContractInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>ContractLen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- oppo lenght --></label>
+        <name>ContractLenHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ContractLengthHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ContractStart</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ContractStartDescription</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContractTaskSubject --></label>
+        <name>ContractTaskSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create New Resource Request button label --></label>
+        <name>CreateNewRR</name>
+    </customLabels>
+    <customLabels>
+        <label>Utwórz nowy</label>
+        <name>Create_New</name>
+    </customLabels>
+    <customLabels>
+        <label>Obecne cele</label>
+        <name>CurrentTargets</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic label for Cv email template --></label>
+        <name>Customer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RR external form customer --></label>
+        <name>CustomerNType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Author --></label>
+        <name>CvExternalFormValidationError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Deal Edit Page --></label>
+        <name>DealEditPageTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sender --></label>
+        <name>DefaultEmailSenderRM</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- email subject --></label>
+        <name>DefaultEmailSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- email subject --></label>
+        <name>DefaultEmailSubjectAutoRequest</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- email subject --></label>
+        <name>DefaultEmailSubjectRequest</name>
+    </customLabels>
+    <customLabels>
+        <label>Usuń</label>
+        <name>Delete</name>
+    </customLabels>
+    <customLabels>
+        <label>Usuń</label>
+        <name>Delete_Button</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delivery deadline of cv --></label>
+        <name>DeliveryDeadline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>DescInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Description</name>
+    </customLabels>
+    <customLabels>
+        <label>Szczegóły</label>
+        <name>Details</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} nie zawiera żadnych pytań</label>
+        <name>DosentContainAnyQuestions</name>
+    </customLabels>
+    <customLabels>
+        <label>Edycja</label>
+        <name>Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>EditAll</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>EditProductsFormSec</name>
+    </customLabels>
+    <customLabels>
+        <label>Edycja pozycji</label>
+        <name>EditSectionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Edytuj</label>
+        <name>Edit_Button</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailContent --></label>
+        <name>EmailContent</name>
+    </customLabels>
+    <customLabels>
+        <label>Szczegóły maila</label>
+        <name>EmailDetails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sender --></label>
+        <name>EmailFatal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sender --></label>
+        <name>EmailSuccesful</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Base Batch fail --></label>
+        <name>EmailTemplateBatchFailedSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Base Batch Completed --></label>
+        <name>EmailTemplateBatchSuccessBody</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Base Batch Completed --></label>
+        <name>EmailTemplateBatchSuccessSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Base Job Exception fail --></label>
+        <name>EmailTemplateJobFailedAndReschedulesBody</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Base Job Exception fail --></label>
+        <name>EmailTemplateJobFailedAndReschedulesSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Base Job Exception fail --></label>
+        <name>EmailTemplateJobFailedBody</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Base Job Exception fail --></label>
+        <name>EmailTemplateJobFailedSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>Wybierz pracownika do oceny</label>
+        <name>Employee</name>
+    </customLabels>
+    <customLabels>
+        <label>Szczegóły zatrudnienia</label>
+        <name>EmploymentDetails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>End</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>ErrorWhileAddingNewPostOnChatterGroup</name>
+    </customLabels>
+    <customLabels>
+        <label>Formularz wywiadu / notatki</label>
+        <name>EventPageTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie ma dostepnej salki w wybranym czasie, nie masz dostepu do kalendarza salek lub połączenie z Goolge jest nieskonfigurowane.</label>
+        <name>Event_Meeting_Room_Warning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Deal Edit Page --></label>
+        <name>ExceptionInAssignmentAndProjectProcessing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Deal Edit Page --></label>
+        <name>ExceptionInAssignmentProcessing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Deal Edit Page --></label>
+        <name>ExceptionInProjectProcessing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Exception --></label>
+        <name>ExceptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Pobierz nowy token autoryzacyjny</label>
+        <name>FetchNewAuthToken</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Candidate has been added with success --></label>
+        <name>FileInsertionSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Pierwsza</label>
+        <name>First</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Page Label --></label>
+        <name>FirstPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- first page sign pagination button --></label>
+        <name>FirstPageSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- fixed price opportunity product field --></label>
+        <name>FixedPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>FixedPriceHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Cofnij</label>
+        <name>GoBack</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>HR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>HourUnits</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opportunity Info sec title --></label>
+        <name>Info</name>
+    </customLabels>
+    <customLabels>
+        <label>Informacje</label>
+        <name>Information</name>
+    </customLabels>
+    <customLabels>
+        <label>Zintegruj</label>
+        <name>Integrate</name>
+    </customLabels>
+    <customLabels>
+        <label>Zintegrowany!</label>
+        <name>Integrated</name>
+    </customLabels>
+    <customLabels>
+        <label>Rozmowa o pozycję {0} z RR {1}</label>
+        <name>InterviewSectionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Introduction to email template --></label>
+        <name>IntroductionToEmail</name>
+    </customLabels>
+    <customLabels>
+        <label>Nieprawidłowe parametry konstruktora</label>
+        <name>InvalidConstructorParameters</name>
+    </customLabels>
+    <customLabels>
+        <label>Nieprawidłowe parametry metody</label>
+        <name>InvalidMethodParameters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Placement --></label>
+        <name>Language</name>
+    </customLabels>
+    <customLabels>
+        <label>Ostatnia</label>
+        <name>Last</name>
+    </customLabels>
+    <customLabels>
+        <label>Ostatnia</label>
+        <name>LastPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- next page sign pagination button --></label>
+        <name>LastPagePageSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- next page sign pagination button --></label>
+        <name>LastPageSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>LeadSource</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>Level</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>LineDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ListPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- loadingview data text --></label>
+        <name>LoadingDataText</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- product main skill field --></label>
+        <name>MainSkill</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Deal Edit Page --></label>
+        <name>MaximumFieldLengthError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustEnterValue --></label>
+        <name>MustEnterValue</name>
+    </customLabels>
+    <customLabels>
+        <label>Nazwa</label>
+        <name>Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Utwórz</label>
+        <name>New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error while sending request to BS:user --></label>
+        <name>NewInternalOnboardingError</name>
+    </customLabels>
+    <customLabels>
+        <label>Następna</label>
+        <name>Next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- next page sign pagination button --></label>
+        <name>NextPageSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>NextStep</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>NextStepDeadline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- old niceToHaveSkills field now SecondarySkills__c --></label>
+        <name>NiceToHaveSkills</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request form request section header --></label>
+        <name>NoCandidateName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Alternate ending for email template --></label>
+        <name>NoCollectedCandidates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>NoContacts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email body validation --></label>
+        <name>NoEmailBody</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Click on file input to select proper CV File --></label>
+        <name>NoFile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel button --></label>
+        <name>NoProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request form request section header --></label>
+        <name>NoRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email Sender Validation --></label>
+        <name>NoSender</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email Subject Validation --></label>
+        <name>NoSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No matches found --></label>
+        <name>No_matches_found</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- none --></label>
+        <name>None</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie znaleziono Achievment Setu z Id {0}</label>
+        <name>NotFoundAchievementSetWithId</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie znaleziono szablonu: {0}</label>
+        <name>NotFoundTemplate</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie znaleziono użytkownika: {0}</label>
+        <name>NotFoundUser</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie zintegrowany!</label>
+        <name>NotIntegrated</name>
+    </customLabels>
+    <customLabels>
+        <label>Tylko liderzy</label>
+        <name>OnlyLeaders</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>OppoInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- oppo lenght --></label>
+        <name>OppoLineItemUpdateActionSuccesfull</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>OppoName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>OppoRecType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Opportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>OpportunityCurr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>OpportunityOwn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- new task created with opportunity --></label>
+        <name>OpportunityTaskSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Opportunity Guidance Approved --></label>
+        <name>Opportunity_Guidance_Approved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Opportunity Guidance Customer --></label>
+        <name>Opportunity_Guidance_Customer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Opportunity Guidance Draft --></label>
+        <name>Opportunity_Guidance_Draft</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Opportunity Guidance InProgress --></label>
+        <name>Opportunity_Guidance_InProgress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>OthLocation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>OtherLocation</name>
+    </customLabels>
+    <customLabels>
+        <label>Właściciel</label>
+        <name>OwnerName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SearchFilterFieldLabel --></label>
+        <name>PagesOf</name>
+    </customLabels>
+    <customLabels>
+        <label>Rozmowa okresowa</label>
+        <name>PeriodicAssessment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PeriodicAssessmentTaskNotification --></label>
+        <name>PeriodicAssessmentTaskNotification</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Placement --></label>
+        <name>Placement</name>
+    </customLabels>
+    <customLabels>
+        <label>Proszę podać Target ID, to pole jest obowiązkowe</label>
+        <name>PleaseProvideTargetIdThisFieldIsMandatory</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Position</name>
+    </customLabels>
+    <customLabels>
+        <label>Poprzednia</label>
+        <name>Previous</name>
+    </customLabels>
+    <customLabels>
+        <label>Poprzednia rozmowa okresowa</label>
+        <name>PreviousAssessment</name>
+    </customLabels>
+    <customLabels>
+        <label>Poprzednia ścieżka kariery</label>
+        <name>PreviousCareerPath</name>
+    </customLabels>
+    <customLabels>
+        <label>Poprzednia ocena ogólna</label>
+        <name>PreviousGeneralAssessment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- previous page sign pagination button --></label>
+        <name>PreviousPageSign</name>
+    </customLabels>
+    <customLabels>
+        <label>Cele postawione na poprzedniej rozmowie</label>
+        <name>PreviousTargets</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>PriceBook</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>PriceBookNameFormat</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opportunity pricebook rel sec title --></label>
+        <name>PriceHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opportunity pricebook rel sec title --></label>
+        <name>PricePerDay</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>PricesHeader</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Priority</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Probability</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Product</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table code column --></label>
+        <name>ProductCode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>ProductContractLen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table description column --></label>
+        <name>ProductDesc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table family column --></label>
+        <name>ProductFamily</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table name column --></label>
+        <name>ProductName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>ProductsAdded</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>ProductsAddedErr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>ProductsInOppoError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product sec title --></label>
+        <name>ProductsSec</name>
+    </customLabels>
+    <customLabels>
+        <label>Szczegóły przygotowania do rozmowy</label>
+        <name>ProfilingDetailsSec</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>ProjectDescription</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Quantity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>QuantityRowNum</name>
+    </customLabels>
+    <customLabels>
+        <label>Pytanie</label>
+        <name>Question</name>
+    </customLabels>
+    <customLabels>
+        <label>Question Provider: Należy wprowadzić wartość</label>
+        <name>QuestionProviderError</name>
+    </customLabels>
+    <customLabels>
+        <label>Lista pytań</label>
+        <name>Question_List</name>
+    </customLabels>
+    <customLabels>
+        <label>Pytanie o pracownika</label>
+        <name>Question_Who</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContractDuration --></label>
+        <name>Rate</name>
+    </customLabels>
+    <customLabels>
+        <label>Odbiorca</label>
+        <name>Recipient</name>
+    </customLabels>
+    <customLabels>
+        <label>Typ rekordu</label>
+        <name>RecordTypeName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecordTypePicklistLabel --></label>
+        <name>RecordTypePicklistLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SearchFilterFieldLabel --></label>
+        <name>RecordsOf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>RecrutedBy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecrutimentDetails --></label>
+        <name>RecrutimentDetails</name>
+    </customLabels>
+    <customLabels>
+        <label>Odśwież integrację</label>
+        <name>RefreshIntegration</name>
+    </customLabels>
+    <customLabels>
+        <label>Usuń</label>
+        <name>Remove</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Author --></label>
+        <name>RequestCVFromHR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Resource Request Form Title --></label>
+        <name>RequestFormTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request form request section header --></label>
+        <name>RequestInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>KOMENTARZ Z REQUESTu:</label>
+        <name>Request_CV_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- contact --></label>
+        <name>Requestor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request form request section header --></label>
+        <name>RequestorHasNoEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>ResourceRequest</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>ResourceRequestAddedSuccesful</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>ResourceRequestFatal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResponseFromBSisNull --></label>
+        <name>ResponseFromBSisNull</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>SalesPrice</name>
+    </customLabels>
+    <customLabels>
+        <label>Zapisz i nowy</label>
+        <name>SaveAndNewBtn</name>
+    </customLabels>
+    <customLabels>
+        <label>Zapisz</label>
+        <name>SaveBtn</name>
+    </customLabels>
+    <customLabels>
+        <label>Zapisz</label>
+        <name>Save_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>Zapis zakończony powodzeniem</label>
+        <name>Saved_Successfully</name>
+    </customLabels>
+    <customLabels>
+        <label>Wyszukaj</label>
+        <name>Search</name>
+    </customLabels>
+    <customLabels>
+        <label>Wyszukaj kontakty z poniższymi słowami (oddzielonymi przecinkiem):</label>
+        <name>SearchFilterFieldLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- search error --></label>
+        <name>SearchPageError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SearchFilterFieldLabel --></label>
+        <name>SearchPageNoResults</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Sector</name>
+    </customLabels>
+    <customLabels>
+        <label>Wybierz</label>
+        <name>Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- select products button --></label>
+        <name>SelectBtn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Click on file input to select proper CV FIle --></label>
+        <name>SelectCV</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectRecord Type Section Name on Selection Page --></label>
+        <name>SelectRecordType</name>
+    </customLabels>
+    <customLabels>
+        <label>Wybierz użytkownika</label>
+        <name>SelectUser</name>
+    </customLabels>
+    <customLabels>
+        <label>Zaznacz wszystkie</label>
+        <name>Select_All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opportunity pricebook rel sec title --></label>
+        <name>SelectedPB</name>
+    </customLabels>
+    <customLabels>
+        <label>Wyślij</label>
+        <name>SendEmailBtn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Author --></label>
+        <name>SendFormBtn</name>
+    </customLabels>
+    <customLabels>
+        <label>Nadawca</label>
+        <name>Sender</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- separator for links --></label>
+        <name>Separator</name>
+    </customLabels>
+    <customLabels>
+        <label>Udostępnij record {0} leaderowi</label>
+        <name>ShareWithLeader</name>
+    </customLabels>
+    <customLabels>
+        <label>Udostępnij Resource Request użytkownikowi z HR</label>
+        <name>Share_Resource_Request_with_HR_User</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Site Exception --></label>
+        <name>SiteExceptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>poziom początkujący</label>
+        <name>SkillLevelJunior</name>
+    </customLabels>
+    <customLabels>
+        <label>poziom średnio-zaawansowany</label>
+        <name>SkillLevelProfessional</name>
+    </customLabels>
+    <customLabels>
+        <label>poziom zaawansowany</label>
+        <name>SkillLevelSenior</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Stage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Start</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table price column --></label>
+        <name>StdPrice</name>
+    </customLabels>
+    <customLabels>
+        <label>Krok</label>
+        <name>Step</name>
+    </customLabels>
+    <customLabels>
+        <label>Temat</label>
+        <name>Subject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- submit btn --></label>
+        <name>SubmitForm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Author --></label>
+        <name>Success</name>
+    </customLabels>
+    <customLabels>
+        <label>Survey handler &quot;{0}&quot; nie istnieje!</label>
+        <name>SurveyHandlerDoesNotExist</name>
+    </customLabels>
+    <customLabels>
+        <label>Survey provider &quot;{0}&quot; nie istnieje!</label>
+        <name>SurveyProviderDoesNotExist</name>
+    </customLabels>
+    <customLabels>
+        <label>Odpowiedź ankiety nie może być pusta!</label>
+        <name>SurveyResponseCannotBeBlank</name>
+    </customLabels>
+    <customLabels>
+        <label>Tylko jedno pole może być wypełnione: [Kontakt] lub [Tylko Liderzy]</label>
+        <name>SurveyTemplateAccesses_AddContactAccess_Error</name>
+    </customLabels>
+    <customLabels>
+        <label>Pytanie systemowe</label>
+        <name>SystemQuestion</name>
+    </customLabels>
+    <customLabels>
+        <label>Szablon nie zawiera pytania o &quot;pracownika do oceny&quot;</label>
+        <name>TamplateNotContainsQuestionOfEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>Technology</name>
+    </customLabels>
+    <customLabels>
+        <label>Pola TemplateApiName jest obowiązkowe!</label>
+        <name>TemplateApiNameFieldValueIsMandatory</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} nie jest dostępna.</label>
+        <name>TemplateNameIsNotUnavailable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>TotalPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>TotalPriceFormulaError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>TotalPriceHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change owner before insert Case Trigger Error --></label>
+        <name>TriggerFailedToFindResourceManagersQueue</name>
+    </customLabels>
+    <customLabels>
+        <label>Typ</label>
+        <name>Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opportunity product contract length --></label>
+        <name>UnitHours</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opportunity pricebook rel sec title --></label>
+        <name>UnitPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>UnitsHour</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>UnitsUnit</name>
+    </customLabels>
+    <customLabels>
+        <label>Odznacz wszystkie</label>
+        <name>Unselect_All</name>
+    </customLabels>
+    <customLabels>
+        <label>Wartość pola UserId jest obowiązkowa!</label>
+        <name>UserIdFieldValueIsMandatory</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- WiFi PIN Changed --></label>
+        <name>WiFi_PIN_Changed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- WiFi PIN Refresh --></label>
+        <name>WiFi_PIN_Refresh</name>
+    </customLabels>
+    <customLabels>
+        <label>Tylko właściciel i admin mogą widzieć i edytować PIN.</label>
+        <name>WiFi_PIN_Uneditable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opportunity pricebook rel sec title --></label>
+        <name>WorkStart</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Product table action column --></label>
+        <name>WorkStartSec</name>
+    </customLabels>
+    <customLabels>
+        <label>Tak</label>
+        <name>Yes</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie masz uprawnień!</label>
+        <name>YouNotHavePermission</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>failedAssignmentSync</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>failedBSSSync</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>failedCertSync</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>failedContactSync</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>failedGettingConProperty</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- word --></label>
+        <name>failedProjectSync</name>
+    </customLabels>
+    <customLabels>
+        <label>Opinia</label>
+        <name>feedback</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- gAPI_Application_Not_Authorized --></label>
+        <name>gAPI_Application_Not_Authorized</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Successfull message after Google Data API Authorization --></label>
+        <name>gAPI_Authorization_Failure</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Close window message after Google Data API Authorization --></label>
+        <name>gAPI_Cal_Close_Window</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Close window message after Google Data API Authorization --></label>
+        <name>gAPI_Cal_Close_Window_Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Google Services Authorization Status Panel Caption --></label>
+        <name>gAPI_Cal_Config_Auth_Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Detail for Succesful Autorization message --></label>
+        <name>gAPI_Cal_Config_Auth_Successful_Msg_Detail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Summary for Succesful Autorization message --></label>
+        <name>gAPI_Cal_Config_Auth_Successful_Msg_Summary</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Title for Succesful Autorization message --></label>
+        <name>gAPI_Cal_Config_Auth_Successful_Msg_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Authorize command button caption --></label>
+        <name>gAPI_Cal_Config_Authorize_Access</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Available Google Calendars panel caption --></label>
+        <name>gAPI_Cal_Config_Avail_Calendars</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete selected records button caption --></label>
+        <name>gAPI_Cal_Config_Delete_Selected_Requests</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First button caption on paginator bar --></label>
+        <name>gAPI_Cal_Config_First_Paginator</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last button caption on paginator bar --></label>
+        <name>gAPI_Cal_Config_Last_Paginator</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next button caption on paginator bar --></label>
+        <name>gAPI_Cal_Config_Next_Paginator</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Detail for &quot;User not authorized to use Google Services API&quot; message --></label>
+        <name>gAPI_Cal_Config_Not_Authorized_Msg_Detail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Summary for &quot;User not authorized to use Google Services API&quot; message --></label>
+        <name>gAPI_Cal_Config_Not_Authorized_Msg_Summary</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Tilte for &quot;User not authorized to use Google Services API&quot; message --></label>
+        <name>gAPI_Cal_Config_Not_Authorized_Msg_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Pending Google Requests section/header caption --></label>
+        <name>gAPI_Cal_Config_Pending_Requests</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Previous button caption on paginator bar --></label>
+        <name>gAPI_Cal_Config_Previous_Paginator</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Refresh Calendar list button caption --></label>
+        <name>gAPI_Cal_Config_Refresh_Calendars</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Summary for &quot;Selected requests are currently being processed.&quot; message --></label>
+        <name>gAPI_Cal_Config_Request_Processing_In_Progress_Msg_Summary</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Title for &quot;Selected requests are currently being processed.&quot; message --></label>
+        <name>gAPI_Cal_Config_Request_Processing_In_Progress_Msg_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Google Requests Search section caption --></label>
+        <name>gAPI_Cal_Config_Requests_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Revoke access button caption --></label>
+        <name>gAPI_Cal_Config_Revoke_Access</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Google Requests button caption --></label>
+        <name>gAPI_Cal_Config_Search_Request</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Set default calendar button caption --></label>
+        <name>gAPI_Cal_Config_Set_Default_Calendar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Show All Google Requests button caption --></label>
+        <name>gAPI_Cal_Config_Show_All_Requests</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Synchronize all records button caption --></label>
+        <name>gAPI_Cal_Config_Synchronize_All_Requests</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Synchronize selected records button caption --></label>
+        <name>gAPI_Cal_Config_Synchronize_Selected_Requests</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Google Calendar Configuration Page Header Title --></label>
+        <name>gAPI_Cal_Config_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Google Calendar configuration link name --></label>
+        <name>gAPI_Cal_Config_URL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- gAPI_Cal_Empty_Calendar_Id --></label>
+        <name>gAPI_Cal_Empty_Calendar_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- gAPI_Cal_Empty_Calendar_Name --></label>
+        <name>gAPI_Cal_Empty_Calendar_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- gAPI_Cal_Empty_Event_Id --></label>
+        <name>gAPI_Cal_Empty_Event_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- gAPI_Cal_Google_Calendar_Name --></label>
+        <name>gAPI_Cal_Google_Calendar_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Google Calendar name used to store SFDC Events. --></label>
+        <name>gAPI_Cal_Salesforce_Google_Calendar_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Choose calendar message after Google Data API successful Authorization --></label>
+        <name>gAPI_Choose_Calendar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Not authorized error on gAPI OAuth Authorization page --></label>
+        <name>gAPI_Not_Authorized</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Calendar selection label - short caption --></label>
+        <name>gAPI_Select_Calendar_Short</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Successfull message after Google Data API Authorization --></label>
+        <name>gAPI_Succesfull_Authorization</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- feed item body2 --></label>
+        <name>hasBeenCreated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- feed item body --></label>
+        <name>hasBeenUpdated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invalid Resource Request Id --></label>
+        <name>invalidRR</name>
+    </customLabels>
+    <customLabels>
+        <label>Zawiera wszystkie słowa:</label>
+        <name>searchAllWords</name>
+    </customLabels>
+    <customLabels>
+        <label>Zawiera którekolwiek ze słów:</label>
+        <name>searchAnyoneWords</name>
+    </customLabels>
+    <customLabels>
+        <label>Nie zawiera żadnych ze słów:</label>
+        <name>searchNoneWords</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic label for Cv email template --></label>
+        <name>sectionRRtitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResourceRequest --></label>
+        <name>submitRequestBtn</name>
+    </customLabels>
+    <customTabs>
+        <label><!-- BriteSkills Users --></label>
+        <name>BriteSkillsUsers</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Jira --></label>
+        <name>Jira</name>
+    </customTabs>
+    <customTabs>
+        <label>Wyszukiwarka</label>
+        <name>Search</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Search Contacts --></label>
+        <name>SearchContacts</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Surveys --></label>
+        <name>Surveys</name>
+    </customTabs>
+    <flowDefinitions>
+        <flows/>
+        <fullName>BL_SendEmailsWhenCompetitionStarts</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Change_competition_status</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>ContactFlow</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>CreateNewResourceRequest</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>CreateTasksForNewContract</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Create_Task_for_Event</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Email_Notification_when_a_Web_Lead_has_been_created</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Equipment_Request_Flow</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>KeepRichTextFieldsInResourceRequestUpToDate</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Lead_Reminder</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>LoginFlowScreencmp</name>
+                </fields>
+                <name>Terms_and_Conditions_Screen</name>
+            </screens>
+        </flows>
+        <fullName>Login_Flow</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Manage_RR_Rank_Updates</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Manage_RR_Status_Updates</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>MoveTeamToNextCupStage</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>NewResourceRequestNotification</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>OpportunityInProgressNotifications</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Process_Candidates</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Process_Cases</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Process_Events</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Process_New_Resource_Requests</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Process_Resource_Requests</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>RR_Status_Flow</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>SendExternalCasesNotification</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Send_Emails_when_competition_is_finished</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>SetCompetitionStatusToFinishedAfterAllGamesPlayed</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>SetUpFlagOnCase</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Set_Interviewed_on_Event</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Set_source_status_for_Closed_Lost</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Stage_Change</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Task_Reminders</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>TrustedPerson</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>UpdateAffilatedResourceRequest</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Update_Last_Stage_Before_Closed_Lost</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Updates_Interview_Description</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>test</fullName>
+    </flowDefinitions>
+    <quickActions>
+        <label><!-- Follow Up --></label>
+        <name>Follow_Up</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- LogACall --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewAccount --></label>
+        <name>NewAccount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewCase --></label>
+        <name>NewCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewContact --></label>
+        <name>NewContact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewGroup --></label>
+        <name>NewGroup</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewLead --></label>
+        <name>NewLead</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewOpportunity --></label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewTask --></label>
+        <name>NewTask</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- CDN Usage --></description>
+        <label><!-- CDN Usage --></label>
+        <name>CDN_Usage</name>
+        <sections>
+            <label><!-- Domains --></label>
+            <name>Domains</name>
+        </sections>
+        <sections>
+            <label><!-- Limit Usage Histories --></label>
+            <name>Limit Usage Histories</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Candidates --></description>
+        <label><!-- Candidates --></label>
+        <name>Candidates</name>
+        <sections>
+            <label><!-- Candidates --></label>
+            <name>Candidates</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Activity 1.0 --></description>
+        <label><!-- Chatter Activity 1.0 --></label>
+        <name>Chatter_Activity_1_0</name>
+        <sections>
+            <label><!-- Chatter Activity --></label>
+            <name>Chatter Activity</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Activity Daily Metrics 1.0 --></description>
+        <label><!-- Chatter Activity Daily Metrics 1.0 --></label>
+        <name>Chatter_Activity_Daily_Metrics_1_0</name>
+        <sections>
+            <label><!-- Network Activity Daily Metrics --></label>
+            <name>Network Activity Daily Metrics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Edits 1.0 --></description>
+        <label><!-- Chatter Edits 1.0 --></label>
+        <name>Chatter_Edits_1_0</name>
+        <sections>
+            <label><!-- Feed Revisions --></label>
+            <name>Feed Revisions</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Group Members 1.0 --></description>
+        <label><!-- Chatter Group Members 1.0 --></label>
+        <name>Chatter_Group_Members_1_0</name>
+        <sections>
+            <label><!-- Group Members --></label>
+            <name>Group Members</name>
+        </sections>
+        <sections>
+            <label><!-- Groups --></label>
+            <name>Groups</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Groups Activity 1.0 --></description>
+        <label><!-- Chatter Groups Activity 1.0 --></label>
+        <name>Chatter_Groups_Activity_1_0</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Group Feed --></label>
+            <name>Group Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Groups --></label>
+            <name>Groups</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Knowledgeable Users 1.0 --></description>
+        <label><!-- Chatter Knowledgeable Users 1.0 --></label>
+        <name>Chatter_Knowledgeable_Users_1_0</name>
+        <sections>
+            <label><!-- Knowledgeable Users --></label>
+            <name>Knowledgeable Users</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Topic Assignments 1.0 --></description>
+        <label><!-- Chatter Topic Assignments 1.0 --></label>
+        <name>Chatter_Topic_Assignments_1_0</name>
+        <sections>
+            <label><!-- Topic Assignments --></label>
+            <name>Topic Assignments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Topics 1.0 --></description>
+        <label><!-- Chatter Topics 1.0 --></label>
+        <name>Chatter_Topics_1_0</name>
+        <sections>
+            <label><!-- Topics --></label>
+            <name>Topics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Unique Contributor Daily Metrics 1.0 --></description>
+        <label><!-- Chatter Unique Contributor Daily Metrics 1.0 --></label>
+        <name>Chatter_Unique_Contributor_Daily_Metrics_1_0</name>
+        <sections>
+            <label><!-- Network Unique Contributor Daily Metrics --></label>
+            <name>Network Unique Contributor Daily Metrics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter User Activity 1.0 --></description>
+        <label><!-- Chatter User Activity 1.0 --></label>
+        <name>Chatter_User_Activity_1_0</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- User Feed --></label>
+            <name>User Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Community Searches 1.0 --></description>
+        <label><!-- Community Searches 1.0 --></label>
+        <name>Community_Searches_1_0</name>
+        <sections>
+            <label><!-- Network Search Query Frequency --></label>
+            <name>Network Search Query Frequency</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Community Searches 2.0 --></description>
+        <label><!-- Community Searches 2.0 --></label>
+        <name>Community_Searches_2_0</name>
+        <sections>
+            <label><!-- Network Search Query Frequency --></label>
+            <name>Network Search Query Frequency</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Contacts with Britenet Events --></description>
+        <label><!-- Contacts with Britenet Events --></label>
+        <name>Contacts_with_Britenet_Events</name>
+        <sections>
+            <label><!-- Events --></label>
+            <name>Events</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Contacts with Candidates --></description>
+        <label><!-- Contacts with Candidates --></label>
+        <name>Contacts_with_Candidates</name>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Contacts with or without Britenet Events --></description>
+        <label><!-- Contacts with or without Britenet Events --></label>
+        <name>Contacts_with_or_without_Britenet_Events</name>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+        <sections>
+            <label><!-- Events (Interviewer (Contact)) --></label>
+            <name>Events (Interviewer (Contact))</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Matches --></description>
+        <label><!-- Matches --></label>
+        <name>Matches</name>
+        <sections>
+            <label><!-- Matches --></label>
+            <name>Matches</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Unique Contributor Daily Metrics 2.0 --></description>
+        <label><!-- Network Unique Contributor Daily Metrics 2.0 --></label>
+        <name>NetworkUniqueContributorMetrics</name>
+        <sections>
+            <label><!-- Network Unique Contributor Daily Metrics --></label>
+            <name>Network Unique Contributor Daily Metrics</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Activity Audit 1.0 --></description>
+        <label><!-- Network Activity Audit 1.0 --></label>
+        <name>Network_Activity_Audit_1_0</name>
+        <sections>
+            <label><!-- Network Audits --></label>
+            <name>Network Audits</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Activity Daily Metrics 2.0 --></description>
+        <label><!-- Network Activity Daily Metrics 2.0 --></label>
+        <name>Network_Activity_Daily_Metrics_20</name>
+        <sections>
+            <label><!-- Network Activity Daily Metrics --></label>
+            <name>Network Activity Daily Metrics</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Cases 1.0 --></description>
+        <label><!-- Network Cases 1.0 --></label>
+        <name>Network_Case_1_0</name>
+        <sections>
+            <label><!-- Case Feed --></label>
+            <name>Case Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Chatter Edits 1.0 --></description>
+        <label><!-- Network Chatter Edits 1.0 --></label>
+        <name>Network_Chatter_Edits_1_0</name>
+        <sections>
+            <label><!-- Feed Revisions --></label>
+            <name>Feed Revisions</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Comments Pending Approval 1.0 --></description>
+        <label><!-- Network Comments Pending Approval 1.0 --></label>
+        <name>Network_Comments_Pending_Approval_1_0</name>
+        <sections>
+            <label><!-- Feed Comments --></label>
+            <name>Feed Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- Unpublished Feed Entities --></label>
+            <name>Unpublished Feed Entities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Custom Recommendations 1.0 --></description>
+        <label><!-- Network Custom Recommendations 1.0 --></label>
+        <name>Network_Custom_Recommendations_1_0</name>
+        <sections>
+            <label><!-- Recommendation Metrics --></label>
+            <name>Recommendation Metrics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Feed Activity --></description>
+        <label><!-- Network Feed Activity --></label>
+        <name>Network_Feed_Activity</name>
+        <sections>
+            <label><!-- Feed Item --></label>
+            <name>Feed Item</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Frozen Members 1.0 --></description>
+        <label><!-- Network Frozen Members 1.0 --></label>
+        <name>Network_Frozen_Members_1_0</name>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- User Login --></label>
+            <name>User Login</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Frozen Members 2.0 --></description>
+        <label><!-- Network Frozen Members 2.0 --></label>
+        <name>Network_Frozen_Members_2_0</name>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- User Login --></label>
+            <name>User Login</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Groups Activity 2.0 --></description>
+        <label><!-- Network Groups Activity 2.0 --></label>
+        <name>Network_Group_Activity_2_0</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Group Feed --></label>
+            <name>Group Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Groups --></label>
+            <name>Groups</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Group Membership 2.0 --></description>
+        <label><!-- Network Group Membership 2.0 --></label>
+        <name>Network_Group_Members_20</name>
+        <sections>
+            <label><!-- Group Members --></label>
+            <name>Group Members</name>
+        </sections>
+        <sections>
+            <label><!-- Groups --></label>
+            <name>Groups</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Group Membership 3.0 --></description>
+        <label><!-- Network Group Membership 3.0 --></label>
+        <name>Network_Group_Members_30</name>
+        <sections>
+            <label><!-- Group Members --></label>
+            <name>Group Members</name>
+        </sections>
+        <sections>
+            <label><!-- Groups --></label>
+            <name>Groups</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Groups Activity 3.0 --></description>
+        <label><!-- Network Groups Activity 3.0 --></label>
+        <name>Network_Groups_Activity_3_0</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Group Feed --></label>
+            <name>Group Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Groups --></label>
+            <name>Groups</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Groups Q&amp;A Activity 1.0 --></description>
+        <label><!-- Network Groups Q&amp;A Activity 1.0 --></label>
+        <name>Network_Groups_Q_A_Activity_1_0</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Group Feed --></label>
+            <name>Group Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Groups --></label>
+            <name>Groups</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Login History 2.0 --></description>
+        <label><!-- Network Login History 2.0 --></label>
+        <name>Network_Login_History_20</name>
+        <sections>
+            <label><!-- Login History --></label>
+            <name>Login History</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Login History 3.0 --></description>
+        <label><!-- Network Login History 3.0 --></label>
+        <name>Network_Login_History_3_0</name>
+        <sections>
+            <label><!-- Login History --></label>
+            <name>Login History</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Login History 4.0 --></description>
+        <label><!-- Network Login History 4.0 --></label>
+        <name>Network_Login_History_40</name>
+        <sections>
+            <label><!-- Login History --></label>
+            <name>Login History</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Login History 5.0 --></description>
+        <label><!-- Network Login History 5.0 --></label>
+        <name>Network_Login_History_5_0</name>
+        <sections>
+            <label><!-- Login History --></label>
+            <name>Login History</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Member Activity 1.0 --></description>
+        <label><!-- Network Member Activity 1.0 --></label>
+        <name>Network_Member_Activity_1_0</name>
+        <sections>
+            <label><!-- Chatter Activity --></label>
+            <name>Chatter Activity</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Members 2.0 --></description>
+        <label><!-- Network Members 2.0 --></label>
+        <name>Network_Members_20</name>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Members 3.0 --></description>
+        <label><!-- Network Members 3.0 --></label>
+        <name>Network_Members_30</name>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Membership Daily Metrics 2.0 --></description>
+        <label><!-- Network Membership Daily Metrics 2.0 --></label>
+        <name>Network_Membership_Daily_Metrics</name>
+        <sections>
+            <label><!-- Network Membership Daily Metrics --></label>
+            <name>Network Membership Daily Metrics</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Pending 1.0 --></description>
+        <label><!-- Network Moderation Pending 1.0 --></label>
+        <name>Network_Moderation_1_0</name>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation 2.0 --></description>
+        <label><!-- Network Moderation 2.0 --></label>
+        <name>Network_Moderation_20</name>
+        <sections>
+            <label><!-- Network Audits --></label>
+            <name>Network Audits</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Comments 1.0 --></description>
+        <label><!-- Network Moderation Flagged Comments 1.0 --></label>
+        <name>Network_Moderation_Flagged_Comments_1_0</name>
+        <sections>
+            <label><!-- Feed Comments --></label>
+            <name>Feed Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Comments 2.0 --></description>
+        <label><!-- Network Moderation Flagged Comments 2.0 --></label>
+        <name>Network_Moderation_Flagged_Comments_2_0</name>
+        <sections>
+            <label><!-- Feed Comments --></label>
+            <name>Feed Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Direct Messages 1.0 --></description>
+        <label><!-- Network Moderation Flagged Direct Messages 1.0 --></label>
+        <name>Network_Moderation_Flagged_Direct_Messages_1_0</name>
+        <sections>
+            <label><!-- Direct Messages --></label>
+            <name>Direct Messages</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Files 1.0 --></description>
+        <label><!-- Network Moderation Flagged Files 1.0 --></label>
+        <name>Network_Moderation_Flagged_Files_1_0</name>
+        <sections>
+            <label><!-- Content Documents --></label>
+            <name>Content Documents</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Files 2.0 --></description>
+        <label><!-- Network Moderation Flagged Files 2.0 --></label>
+        <name>Network_Moderation_Flagged_Files_2_0</name>
+        <sections>
+            <label><!-- Content Documents --></label>
+            <name>Content Documents</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Messages 1.0 --></description>
+        <label><!-- Network Moderation Flagged Messages 1.0 --></label>
+        <name>Network_Moderation_Flagged_Messages_1_0</name>
+        <sections>
+            <label><!-- Chatter Messages --></label>
+            <name>Chatter Messages</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Messages 2.0 --></description>
+        <label><!-- Network Moderation Flagged Messages 2.0 --></label>
+        <name>Network_Moderation_Flagged_Messages_2_0</name>
+        <sections>
+            <label><!-- Chatter Messages --></label>
+            <name>Chatter Messages</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Posts 1.0 --></description>
+        <label><!-- Network Moderation Flagged Posts 1.0 --></label>
+        <name>Network_Moderation_Flagged_Posts_1_0</name>
+        <sections>
+            <label><!-- Feed Posts --></label>
+            <name>Feed Posts</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Moderation Flagged Posts 2.0 --></description>
+        <label><!-- Network Moderation Flagged Posts 2.0 --></label>
+        <name>Network_Moderation_Flagged_Posts_2_0</name>
+        <sections>
+            <label><!-- Feed Posts --></label>
+            <name>Feed Posts</name>
+        </sections>
+        <sections>
+            <label><!-- Network Moderations --></label>
+            <name>Network Moderations</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Posts Pending Approval 1.0 --></description>
+        <label><!-- Network Posts Pending Approval 1.0 --></label>
+        <name>Network_Posts_Pending_Approval_1_0</name>
+        <sections>
+            <label><!-- Feed Posts --></label>
+            <name>Feed Posts</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- Unpublished Feed Entities --></label>
+            <name>Unpublished Feed Entities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Posts Pending Approval 2.0 --></description>
+        <label><!-- Network Posts Pending Approval 2.0 --></label>
+        <name>Network_Posts_Pending_Approval_2_0</name>
+        <sections>
+            <label><!-- Feed Posts --></label>
+            <name>Feed Posts</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- Unpublished Feed Entities --></label>
+            <name>Unpublished Feed Entities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Private Messages 2.0 --></description>
+        <label><!-- Network Private Messages 2.0 --></label>
+        <name>Network_Private_Messages_20</name>
+        <sections>
+            <label><!-- Chatter Messages --></label>
+            <name>Chatter Messages</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Private Messages 3.0 --></description>
+        <label><!-- Network Private Messages 3.0 --></label>
+        <name>Network_Private_Messages_30</name>
+        <sections>
+            <label><!-- Chatter Messages --></label>
+            <name>Chatter Messages</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Public Usage Daily Metrics 2.0 --></description>
+        <label><!-- Network Public Usage Daily Metrics 2.0 --></label>
+        <name>Network_Public_Usage_Daily_Metrics_20</name>
+        <sections>
+            <label><!-- Network Public Usage Daily Metrics --></label>
+            <name>Network Public Usage Daily Metrics</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Tenant Usage Entitlement WeeklyMetrics 2.0 --></description>
+        <label><!-- Network Tenant Usage Entitlement WeeklyMetrics 2.0 --></label>
+        <name>Network_Tenant_Usage_Entitlement_Weekly_Metrics</name>
+        <sections>
+            <label><!-- Network Tenant Usage Entitlement Weekly Metrics --></label>
+            <name>Network Tenant Usage Entitlement Weekly Metrics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Topic Assignments 2.0 --></description>
+        <label><!-- Network Topic Assignments 2.0 --></label>
+        <name>Network_Topic_Assignments_2_0</name>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- Topic Assignments --></label>
+            <name>Topic Assignments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Topic Assignments 3.0 --></description>
+        <label><!-- Network Topic Assignments 3.0 --></label>
+        <name>Network_Topic_Assignments_3_0</name>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- Topic Assignments --></label>
+            <name>Topic Assignments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Topics 2.0 --></description>
+        <label><!-- Network Topics 2.0 --></label>
+        <name>Network_Topics_2_0</name>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- Topics --></label>
+            <name>Topics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network Topics 3.0 --></description>
+        <label><!-- Network Topics 3.0 --></label>
+        <name>Network_Topics_3_0</name>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- Topic Feed --></label>
+            <name>Topic Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Topics --></label>
+            <name>Topics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network User Activity 2.0 --></description>
+        <label><!-- Network User Activity 2.0 --></label>
+        <name>Network_User_Activity_2_0</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- User Feed --></label>
+            <name>User Feed</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network User Activity 3.0 --></description>
+        <label><!-- Network User Activity 3.0 --></label>
+        <name>Network_User_Activity_3_0</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- User Feed --></label>
+            <name>User Feed</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network User Licenses 1.0 --></description>
+        <label><!-- Network User Licenses 1.0 --></label>
+        <name>Network_User_Licenses_1_0</name>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Network User Daily Participation --></description>
+        <label><!-- Network User Daily Participation --></label>
+        <name>Network_User_Participitai</name>
+        <sections>
+            <label><!-- Network User participation Daily Metrics --></label>
+            <name>Network User participation Daily Metrics</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- New Members --></description>
+        <label><!-- New Members --></label>
+        <name>New_Members</name>
+        <sections>
+            <label><!-- Chatter Activity --></label>
+            <name>Chatter Activity</name>
+        </sections>
+        <sections>
+            <label><!-- Network Members --></label>
+            <name>Network Members</name>
+        </sections>
+        <sections>
+            <label><!-- Networks --></label>
+            <name>Networks</name>
+        </sections>
+        <sections>
+            <label><!-- User Login --></label>
+            <name>User Login</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Related Questions CTR 1.0 --></description>
+        <label><!-- Related Questions CTR 1.0 --></label>
+        <name>Related_Questions_CTR_1_0</name>
+        <sections>
+            <label><!-- Related Content Metrics --></label>
+            <name>Related Content Metrics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Teams with --></description>
+        <label><!-- Teams with --></label>
+        <name>Teams_with</name>
+        <sections>
+            <label><!-- Competitors --></label>
+            <name>Competitors</name>
+        </sections>
+        <sections>
+            <label><!-- Matches --></label>
+            <name>Matches</name>
+        </sections>
+        <sections>
+            <label><!-- Matches (3rd Place Match) --></label>
+            <name>Matches (3rd Place Match)</name>
+        </sections>
+        <sections>
+            <label><!-- Teams --></label>
+            <name>Teams</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Users with Matches --></description>
+        <label><!-- Users with Matches --></label>
+        <name>Users_with_Matches</name>
+        <sections>
+            <label><!-- Competitors --></label>
+            <name>Competitors</name>
+        </sections>
+        <sections>
+            <label><!-- Matches --></label>
+            <name>Matches</name>
+        </sections>
+        <sections>
+            <label><!-- Teams (Owner) --></label>
+            <name>Teams (Owner)</name>
+        </sections>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Screen Flows --></description>
+        <label><!-- Screen Flows --></label>
+        <name>screen_flows_prebuilt_crt</name>
+        <sections>
+            <label><!-- Flow Interview Log Entries --></label>
+            <name>Flow Interview Log Entries</name>
+        </sections>
+        <sections>
+            <label><!-- Flow Interview Logs --></label>
+            <name>Flow Interview Logs</name>
+        </sections>
+    </reportTypes>
+</Translations>

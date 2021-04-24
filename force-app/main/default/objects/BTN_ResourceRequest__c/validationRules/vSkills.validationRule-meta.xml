@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vSkills</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(ISBLANK( MainSkills__c ), ISBLANK( SecondarySkills__c ))</errorConditionFormula>
+    <errorDisplayField>MainSkills__c</errorDisplayField>
+    <errorMessage>Please enter Main and Secondary Skills</errorMessage>
+</ValidationRule>

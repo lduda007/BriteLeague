@@ -1,0 +1,104 @@
+<messaging:emailTemplate subject="[BriteCRM] - {!relatedTo.Name} - Opportunity Sent to RM" recipientType="User" relatedToType="Opportunity">
+    <messaging:htmlEmailBody >
+                <style type="text/css">
+                    .DataTable {
+                        margin: 0.9em;
+                    }
+
+                    .spaceRow {
+                        height: 0.9em;
+                    }
+
+                    #ProductList {
+                        border: 1px solid;
+                        border-collapse: collapse;
+                    }
+
+                    .headRow {
+                        background-color: #0098d8;
+                        text-align: center;
+                        width: 100%;
+                        border-bottom: 1px solid;
+                        border-top: 1px solid;
+                    }
+
+                    #ProductList tbody tr td {
+                        padding: 2px;
+                    }
+                </style>
+        <html>
+            <body>
+                <p style="margin-left: 1em;">Dear User,</p>
+                <p style="margin-left: 1em;">This is to inform you that the opportunity&nbsp;<c:BTN_LinkComponent Opportunity="{!relatedTo.Id}" OpportunityName="{!relatedTo.Name}"/> needs your attention.</p>
+                <table class="DataTable" id="MainData" style="margin-left: 0.9em;">
+                    <tr><td><b>Account Name:</b>&nbsp;{!relatedTo.Account.Name}</td></tr>
+                    <tr><td><b>Account Status:</b>&nbsp;{!relatedTo.Account.Status__c}</td></tr>
+                    <tr><td><b>Opportunity Owner:</b>&nbsp;{!relatedTo.Owner.Name}</td></tr>
+                    <tr><td colspan="2" class="spaceRow" style="height: 0.9em"></td></tr>
+                    <tr><td><b>CV Language:</b>&nbsp;{!relatedTo.CVLanguage__c}</td></tr>
+                </table>
+
+                <table class="DataTable" id="Description" style="margin: 0.9em;">
+                    <tr><td><b>Opportunity description:</b></td></tr>
+                    <tr><td colspan="2">{!relatedTo.Description}</td></tr>
+                </table>
+
+                <apex:variable var="count" value="{!1}"/>
+                <table class="DataTable" id="ProductList" style="margin: 0.9em; border: 1px solid; border-collapse: collapse;">
+                    <apex:repeat var="item" value="{!relatedTo.OpportunityLineItems}">
+                        <tr class="headRow" style="background-color: #0098d8; text-align: center; border-bottom: 1px solid; border-top: 1px solid; padding-left: 2px;">
+                            <td colspan="2">
+                                <b><apex:outputText value="{!$Label.Position} {!count}"/>
+                                <apex:variable var="count" value="{!count + 1}"/></b>
+                            </td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td><b><apex:outputText value="{!$Label.Position}: "/></b><apex:outputField value="{!item.Product2.Name}"/></td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td><b><apex:outputText value="{!$Label.Quantity}: "/></b><apex:outputField value="{!item.Quantity}"/></td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td><b>
+                                <apex:outputText value="{!$Label.UnitPrice}: " rendered="{!(item.Hourly_Rate__c != 0) || ((item.Hourly_Rate__c == 0) && (item.FixedPrice__c == 0))}"/>
+                                <apex:outputText value="{!$Label.FixedPrice}: " rendered="{!((item.FixedPrice__c != 0) && (item.FixedPrice__c != null))}"/></b>
+                                <apex:outputField value="{!item.Hourly_Rate__c}" rendered="{!item.Hourly_Rate__c != 0}"/>
+                                <apex:outputField value="{!item.FixedPrice__c}" rendered="{!item.FixedPrice__c != 0}"/>
+                                <apex:outputText value="{!item.TotalPrice}" rendered="{!((item.Hourly_Rate__c == 0) && (item.FixedPrice__c == 0))}"/>
+                            </td>
+                        </tr>
+                        <tr  class="spaceRow" style="height: 0.9em"></tr>
+                        <tr style="padding-left: 2px;">
+                            <td colspan="2"><b><apex:outputText value="{!$Label.MainSkill}: "/></b></td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td colspan="2"><apex:outputText value="{!item.MainSkill__c}"/></td>
+                        </tr>
+                        <tr class="spaceRow" style="height: 0.9em">
+                        </tr>
+                        <tr style="margin-top: 0.9em;">
+                            <td colspan="2"><b><apex:outputText value="{!$Label.NiceToHaveSkills}: "/></b></td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td colspan="2"><apex:outputText value="{!item.SecondarySkills__c}"/></td>
+                        </tr>
+                        <tr class="spaceRow" style="height: 0.9em">
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td><b><apex:outputText value="{!$Label.CVDeliveryDeadline}: "/></b><apex:outputField value="{!relatedTo.CVDeliveryDeadline__c}"/></td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td><b><apex:outputText value="{!$Label.Location}: "/></b><apex:outputField value="{!relatedTo.Location__c}"/>&nbsp;<apex:outputField value="{!relatedTo.OtherLocation__c}" rendered="{!relatedTo.OtherLocation__c != null}"/></td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td><b><apex:outputText value="{!$Label.ContractStart}: "/></b><apex:outputField value="{!relatedTo.ContractStart__c}"/>&nbsp;<apex:outputField value="{!relatedTo.ContractStartDescription__c}"/></td>
+                        </tr>
+                        <tr style="padding-left: 2px;">
+                            <td><b><apex:outputText value="{!$Label.ContractEnd}: "/></b><apex:outputField value="{!relatedTo.ContractEnd__c}"/>&nbsp;<apex:outputField value="{!relatedTo.ContractEndDescription__c}"/></td>
+                        </tr>
+                    </apex:repeat>              
+                </table>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

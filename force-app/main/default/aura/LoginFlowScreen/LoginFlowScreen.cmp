@@ -1,0 +1,20 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+
+    <aura:attribute name="FileLink" type="String" default="https://niac--uat.my.salesforce.com/sfc/p/3O0000008m78/a/3O0000008ZIN/h0YHZGJx5U12MCkmNNAmpj0oI2FDauGGx.Z6CJATx0Y"/>   
+    
+    <lightning:card>
+        <aura:set attribute="title">
+            <lightning:icon iconName="utility:connected_apps" size="small"/>
+            Terms and Conditions
+        </aura:set>
+
+        <div>
+    		<iframe src="{!v.FileLink}" style="width: 100%; height: 300px;"></iframe>
+        </div>
+
+        <aura:set attribute="footer">
+    		<lightning:button variant="brand" label="Accept" onclick="{!c.handleAccept}"/>
+    		<lightning:button variant="neutral" label="Reject" onclick="{!c.handleReject}"/>
+        </aura:set>
+    </lightning:card>
+</aura:component>

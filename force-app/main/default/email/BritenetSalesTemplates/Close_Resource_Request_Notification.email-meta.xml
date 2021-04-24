@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification for RM / HR to close Resource Request and related candidates when Sale is closed</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Close Resource Request Notification</name>
+    <style>none</style>
+    <subject>Action Required: Close of Resource Request</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

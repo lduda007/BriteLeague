@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MonthAfterNextMonthFirstDay_frm__c</fullName>
+    <externalId>false</externalId>
+    <formula>DATE(IF((MONTH(TODAY())+2)&gt;12,YEAR(TODAY()) + 1,YEAR(TODAY())),IF((MONTH(TODAY()) + 2) &gt; 12, 1, MONTH(TODAY()) + 2),1)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Month After Next Month First Day</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

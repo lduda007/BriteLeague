@@ -1,0 +1,24 @@
+{
+    "users":[
+        {
+            "Id": 1,
+            "Email": "dupa@dupa.pl",
+            "Name": "Adam Małysz"
+        },
+        {
+            "Id": 2,
+            "Email": "dupa2@dupa.pl",
+            "Name": "Stefan Hula"
+        },
+        {
+            "Id": 3,
+            "Email": "dupa3@dupa.pl",
+            "Name": "Robert Mateja"
+        },
+        {
+            "Id": 4,
+            "Email": "dupa4@dupa.pl",
+            "Name": "Tomasz Pochwała"
+        }
+    ]
+}

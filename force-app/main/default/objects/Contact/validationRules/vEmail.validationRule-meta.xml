@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vEmail</fullName>
+    <active>false</active>
+    <description>BRITCRM-307</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(Email)), NOT(CONTAINS(Email, &apos;@britenet.com.pl&apos;) ), RecordType.DeveloperName != &apos;Business&apos;, RecordType.DeveloperName != &apos;Recruit&apos;)</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>Please provide valid Britenet Email</errorMessage>
+</ValidationRule>

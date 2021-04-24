@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Current Position --></label>
+    <lookupFilter>
+        <errorMessage><!-- Please select Achievement Set that describe position profile and Position form selected Career Path --></errorMessage>
+    </lookupFilter>
+    <name>Current_Position__c</name>
+    <relationshipLabel><!-- Contacts --></relationshipLabel>
+</CustomFieldTranslation>

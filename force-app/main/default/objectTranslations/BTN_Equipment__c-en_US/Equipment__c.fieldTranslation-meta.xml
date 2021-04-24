@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Equipment --></label>
+    <lookupFilter>
+        <errorMessage><!-- Selected Equipment must be owned by the selected Contact --></errorMessage>
+    </lookupFilter>
+    <name>Equipment__c</name>
+    <relationshipLabel><!-- Licenses --></relationshipLabel>
+</CustomFieldTranslation>

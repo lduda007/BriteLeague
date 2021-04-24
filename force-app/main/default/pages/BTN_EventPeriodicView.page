@@ -1,0 +1,35 @@
+<apex:page standardController="BTN_Event__c" extensions="BTN_EventPeriodicController">
+	<apex:sectionHeader title="{!$Label.PeriodicAssessment}" subtitle="{!BTN_Event__c.Name}"/>
+	<apex:detail subject="{!BTN_Event__c.Id}" relatedList="false" title="false"/>
+	<apex:pageBlock mode="maindetail">
+		<apex:PageBlockSection title="{!$Label.PreviousAssessment}">
+			
+			<apex:outputField value="{!previousAssessment.Career_path__c}"/>
+			<apex:outputField value="{!previousAssessment.createdDate}"/>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$ObjectType.Contact.Fields.Position__c.Label}"/>
+					<apex:outputField value="{!previousAssessment.Current_Position__c}"/>
+				</apex:pageBlockSectionItem>
+		</apex:PageBlockSection>
+		<apex:pageBlockTable value="{!previousTargets}" var="item">
+		 	<apex:facet name="caption"><h2>{!$Label.PreviousTargets}</h2></apex:facet>
+            <apex:column value="{!item.Name}"/>
+            <apex:column value="{!item.Type__c}"/>
+            <apex:column >
+                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Target__c.Label}</apex:facet>
+                <apex:outputField value="{!item.Target__c}" rendered="{!item.Type__c != 'Certificate'}"/>
+                <apex:outputField value="{!item.Certificate__c}" rendered="{!item.Type__c = 'Certificate'}"/>
+            </apex:column>
+            <apex:column value="{!item.Comments__c}"/>
+            <apex:column value="{!item.Achieved_percent__c}"/>
+        </apex:pageBlockTable>
+	</apex:pageBlock>
+	<apex:relatedList list="BTN_Personaltarget__r">
+        <apex:facet name="header"><h3>{!$Label.CurrentTargets}</h3></apex:facet>
+    </apex:relatedList>
+
+	<div style="display:none">
+		{!BTN_Event__c.Interviewed__c}
+		{!BTN_Event__c.createdDate}
+	</div>
+</apex:page>

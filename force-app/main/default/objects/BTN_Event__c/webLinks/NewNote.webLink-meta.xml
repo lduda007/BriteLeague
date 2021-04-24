@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewNote</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Note</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>window.parent.location.href=&apos;/a0I/e?RecordType=01258000000gicE&amp;ent=BTN_Event__c&amp;retURL={!Contact.Id}{!BTN_CV__c.Id}&amp;ContactId={!Contact.Id}{!BTN_CV__c.ContactId__c}&amp;Type=Other&amp;CandidateId={!BTN_CV__c.Id}&apos;;</url>
+</WebLink>

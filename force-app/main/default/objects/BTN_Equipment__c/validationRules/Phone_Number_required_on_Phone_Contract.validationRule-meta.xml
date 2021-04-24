@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Number_required_on_Phone_Contract</fullName>
+    <active>true</active>
+    <description>Checks if Phone Number is filled when the equipment type is Phone Contract</description>
+    <errorConditionFormula>AND (
+   RecordType.DeveloperName = &apos;Phone_Contract&apos;,
+   ISBLANK(Phone_Number__c) 
+)</errorConditionFormula>
+    <errorDisplayField>Phone_Number__c</errorDisplayField>
+    <errorMessage>Phone Number is required</errorMessage>
+</ValidationRule>

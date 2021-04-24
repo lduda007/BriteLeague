@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Skill</fullName>
+    <active>true</active>
+    <description>Umiejętność określana jakościowo za pomocą trzy stopniowej skali</description>
+    <label>Skill</label>
+    <picklistValues>
+        <picklist>Group_Type__c</picklist>
+        <values>
+            <fullName>Greatest Value</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

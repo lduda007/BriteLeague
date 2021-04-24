@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Approved by external</masterLabel>
+        <translation><!-- Approved by external --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Contract signed</masterLabel>
+        <translation><!-- Contract signed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Contract signed with different external</masterLabel>
+        <translation><!-- Contract signed with different external --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interview-in-progress</masterLabel>
+        <translation><!-- Interview-in-progress --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Interested</masterLabel>
+        <translation><!-- Not Interested --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Offer expired</masterLabel>
+        <translation><!-- Offer expired --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Open</masterLabel>
+        <translation><!-- Open --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rejected by external</masterLabel>
+        <translation><!-- Rejected by external --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rejected by us</masterLabel>
+        <translation><!-- Rejected by us --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Submitted to external</masterLabel>
+        <translation><!-- Submitted to external --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

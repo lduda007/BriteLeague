@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vOpenCandidate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND
+(
+ISCHANGED(Status__c),
+OpenCandidates__c &gt; 0,
+OR
+(
+	ISPICKVAL(Status__c, &apos;Closed - Success&apos;),
+	ISPICKVAL(Status__c, &apos;Closed - Failure&apos;),
+	ISPICKVAL(Status__c, &apos;Closed - We resign&apos;),
+	ISPICKVAL(Status__c, &apos;Closed - Blood in the sand&apos;)
+)
+)</errorConditionFormula>
+    <errorMessage>Please close remaining Candidates</errorMessage>
+</ValidationRule>

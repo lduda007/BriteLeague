@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>oppoDeadlineMail</fullName>
+        <description>oppoDeadlineMail</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Account Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Channel Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Executive Sponsor</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Lead Qualifier</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Pre-Sales Consultant</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Sales Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Sales Rep</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/htmlDeadlineReminderTemplate</template>
+    </alerts>
+    <alerts>
+        <fullName>wfRuleMailAlertOpportunityInPrFixedPriceogress</fullName>
+        <description>wfRuleMailAlertOpportunityInprogress Fixed Price</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>tomasz.kowalczyk@britenet.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_OpportunityStageOpenSentToRM</template>
+    </alerts>
+    <alerts>
+        <fullName>wfRuleMailAlertOpportunityNextStepDeadLineExpired</fullName>
+        <description>wfRuleMailAlertOpportunityNextStepDeadLineExpired</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SalesRepManagerEmail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_OpportunityNextStepDeadlineExpired</template>
+    </alerts>
+    <alerts>
+        <fullName>wfRuleMailAlertOpportunityOpen</fullName>
+        <ccEmails>rm@britenet.com.pl</ccEmails>
+        <description>wfRuleMailAlertOpportunityInprogress Time Material</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_OpportunityStageOpenSentToRM</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>SetSectorToPrivate</fullName>
+        <description>Sets the Secor value to &apos;Private Sector&apos;</description>
+        <field>Sector__c</field>
+        <literalValue>Private</literalValue>
+        <name>SetSectorToPrivate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SetSectorToPublic</fullName>
+        <description>Sets the Sector value to &apos;Public Sector&apos;</description>
+        <field>Sector__c</field>
+        <literalValue>Public</literalValue>
+        <name>SetSectorToPublic</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SetupSalesRepManagerEmail</fullName>
+        <field>SalesRepManagerEmail__c</field>
+        <formula>Owner.Manager.Email</formula>
+        <name>Setup Sales Rep Manager Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateAmount</fullName>
+        <field>Amount</field>
+        <formula>IF(ISPICKVAL(Type , &apos;T&amp;M&apos;), 
+Placement__c * Rate__c * Contract_Logic__c * 8 * Contract_Duration_Number__c,
+Amount)</formula>
+        <name>UpdateAmount</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>startWorkOpportunityUpdate</fullName>
+        <field>OpportunityStart__c</field>
+        <formula>TODAY()</formula>
+        <name>startWorkOpportunityUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>OpportunityNextStepDeadlineExpiredNotification</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.NextStepDeadline__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>wfRuleMailAlertOpportunityNextStepDeadLineExpired</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity.NextStepDeadline__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>OpportunityNotificationWhenBecomesOpen</fullName>
+        <actions>
+            <name>wfRuleMailAlertOpportunityOpen</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>In progress</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>SetDefaultsForPrivateAccount</fullName>
+        <actions>
+            <name>SetSectorToPrivate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Private Sector</value>
+        </criteriaItems>
+        <description>Triggered after creation of Opportunity related to Private Sector Account</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>SetDefaultsForPublicAccount</fullName>
+        <actions>
+            <name>SetSectorToPublic</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Public Sector</value>
+        </criteriaItems>
+        <description>Triggered after creation of Opportunity related to Public Sector Account</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Setup Sales Reps Manager Email</fullName>
+        <actions>
+            <name>SetupSalesRepManagerEmail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Setting Managers Email asociated with Sales Rep (Oppoertunity Owner).</description>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>UpdateAmountPerType</fullName>
+        <actions>
+            <name>UpdateAmount</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.Type</field>
+            <operation>equals</operation>
+            <value>T&amp;M</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>deadlineReminder</fullName>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>oppoDeadlineMail</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity.NextStepDeadline__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

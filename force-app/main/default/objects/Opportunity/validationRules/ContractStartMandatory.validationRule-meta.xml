@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContractStartMandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+	OR(
+		ISPICKVAL(StageName , &apos;In progress&apos;), 
+		ISPICKVAL(StageName , &apos;Customer&apos;), 
+		ISPICKVAL(StageName , &apos;Approved&apos;), 
+		ISPICKVAL(StageName , &apos;Closed Won&apos;), 
+		ISPICKVAL(StageName , &apos;Closed Lost&apos;)), 
+	OR(ISBLANK(ContractStart__c ),
+	ContractStart__c = NULL)
+)</errorConditionFormula>
+    <errorDisplayField>ContractStart__c</errorDisplayField>
+    <errorMessage>Please provide data</errorMessage>
+</ValidationRule>

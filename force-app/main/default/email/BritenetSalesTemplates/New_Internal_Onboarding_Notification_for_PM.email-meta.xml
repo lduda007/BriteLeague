@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>BriteCRM</letterhead>
+    <name>New Internal Onboarding Notification for PM</name>
+    <style>freeForm</style>
+    <subject>New Internal Onboarding - {!Case.Contact}</subject>
+    <textOnly>Dear PM,
+
+{!Case.Contact} was hired in response to your request
+and will be available from {!Case.WorkStartDate__c}
+
+Kind regards,
+BriteCRM Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

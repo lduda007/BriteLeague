@@ -1,0 +1,28 @@
+<messaging:emailTemplate subject="Zbliżające się spotkanie" recipientType="User" relatedToType="Event">
+<messaging:htmlEmailBody >
+<apex:variable var="url" value="{!LEFT($Api.Partner_Server_URL_140, FIND(".com/",$Api.Partner_Server_URL_140)+3)}"/>
+
+  <h1 style="font-size: 14px;">Zbliżające się spotkanie: {!relatedTo.StartDateTime}</h1>
+    <p>
+        W najbliższym czasie masz umówione spotkanie.
+    </p>
+    <p>
+        Podstawowe informacje: <br/>
+        <b>Data i czas:</b>  od {!relatedTo.StartDateTime} do {!relatedTo.EndDateTime} <br/>
+        <b>Spotkanie z:</b> {!relatedTo.Who.Name} <br/>
+        <b>Temat:</b> {!relatedTo.Subject} <br/>
+        <b>Opis:</b> {!relatedTo.Description} <br/>
+    </p>
+    <p>
+    Więcej informacji o wydarzeniu możesz znaleźć 
+    <apex:outputLink value="{!url}/{! relatedTo.Id}" style="font-size: 15px; color: #333;"> tutaj.</apex:outputLink>
+    <br/>
+    </p>
+    <p>
+    Pozdrawiamy, <br/>
+    BriteCRM Team
+    </p>
+</messaging:htmlEmailBody>
+<messaging:plainTextEmailBody >
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

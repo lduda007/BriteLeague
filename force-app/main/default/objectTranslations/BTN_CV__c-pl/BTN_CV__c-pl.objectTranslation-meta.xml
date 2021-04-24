@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Kandydat</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Kandydaci</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Kandydat</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Kandydaci</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Kandydata</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Kandydatów</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Kandydatowi</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Kandydatom</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Instrumental</caseType>
+        <plural>false</plural>
+        <value>Kandydatem</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Instrumental</caseType>
+        <plural>true</plural>
+        <value>Kandydatami</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Locative</caseType>
+        <plural>false</plural>
+        <value>Kandydacie</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Locative</caseType>
+        <plural>true</plural>
+        <value>Kandydatach</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Feed Tracking Field Set --></label>
+        <name>FeedTrackingFieldSet</name>
+    </fieldSets>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>CV Custom Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+        <sections>
+            <label><!-- Events &amp; attachments --></label>
+            <section>Events &amp; attachments</section>
+        </sections>
+        <sections>
+            <label><!-- Resource Request details --></label>
+            <section>Resource Request details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CV Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Candidate ID --></nameFieldLabel>
+    <validationRules>
+        <errorMessage>Proszę określić Kontakt</errorMessage>
+        <name>vContact</name>
+    </validationRules>
+    <webLinks>
+        <label>Nowy wewnętrzny Onboarding</label>
+        <name>CreateNewInternalOnboarding</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowa zewnętrzna rozmowa</label>
+        <name>NewExternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowa wewnętrzna rozmowa</label>
+        <name>NewInternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowy wewnętrzny Onboarding</label>
+        <name>NewInternalOnboarding</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowy wewnętrzny Onboarding (Sprawa)</label>
+        <name>NewInternalOnboardingCase</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowa notatka</label>
+        <name>NewNote</name>
+    </webLinks>
+    <webLinks>
+        <label>Wyślij CV do Twórcy RR</label>
+        <name>SendCVtoRequestor</name>
+    </webLinks>
+</CustomObjectTranslation>

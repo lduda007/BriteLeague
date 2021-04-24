@@ -1,0 +1,28 @@
+<aura:component
+        description="BL_CompetitionMainPage"
+        implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+        access="global"
+>
+
+    <aura:attribute name="competitionType" type="String"/>
+    <aura:attribute name="competitionFields" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+
+    <force:recordData
+            recordId="{!v.recordId}"
+            fields="Id, RecordType.DeveloperName"
+            targetError="{!v.recordError}"
+            targetFields="{!v.competitionFields}"
+            recordUpdated="{!c.recordUpdated}"
+    />
+
+    <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'League')}">
+        <!--        <c:BL_LeagueDetails competitionId="{!v.recordId}"/>-->
+    </aura:if>
+    <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'Cup')}">
+        <!--        <c:BL_CupDetails cupId="{!v.recordId}"/>-->
+    </aura:if>
+    <aura:if isTrue="{!equals(v.competitionFields.RecordType.DeveloperName, 'Battle_Royale')}">
+        <c:BL_BattleRoyaleTable competitionId="{!v.recordId}"/>
+    </aura:if>
+</aura:component>

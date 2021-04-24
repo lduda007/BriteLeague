@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewUserB2B__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>New BS User is on B2B</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is new User on Business-to-business?</inlineHelpText>
+    <label>On B2B?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

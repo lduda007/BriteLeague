@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interviewer_frm__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (
+  ISPICKVAL(Profile__c, &apos;Miękka&apos;), Interviewer_Contact__r.Name_frm__c,
+  IF (
+    ISPICKVAL(Profile__c, &apos;Techniczna&apos;), Technical_Interviewer__r.Name_frm__c,
+    Interviewer_Contact__r.Name_frm__c + &apos; / &apos; + Technical_Interviewer__r.Name_frm__c
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Interviewer</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

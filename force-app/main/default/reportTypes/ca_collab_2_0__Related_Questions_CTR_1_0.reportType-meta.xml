@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>CommunityIqCtrMetric</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Provides information about the number of times a user clicks on the Related Questions widget compared to the number of times it is shown.</description>
+    <label>Related Questions CTR 1.0</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AcceptedCount</field>
+            <table>CommunityIqCtrMetric</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Ctr</field>
+            <table>CommunityIqCtrMetric</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DayRecorded</field>
+            <table>CommunityIqCtrMetric</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DisplayedCount</field>
+            <table>CommunityIqCtrMetric</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Community Name</displayNameOverride>
+            <field>Network</field>
+            <table>CommunityIqCtrMetric</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RelatedItemType</field>
+            <table>CommunityIqCtrMetric</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network.Id</field>
+            <table>CommunityIqCtrMetric</table>
+        </columns>
+        <masterLabel>Related Content Metrics</masterLabel>
+    </sections>
+</ReportType>

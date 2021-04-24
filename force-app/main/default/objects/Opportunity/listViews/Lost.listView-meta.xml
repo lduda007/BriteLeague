@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost</fullName>
+    <columns>Opportunity_Amount__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Placement__c</columns>
+    <columns>OPPORTUNITY.RECORDTYPE</columns>
+    <columns>Close_Reason__c</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.WON</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSED</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Lost</label>
+</ListView>

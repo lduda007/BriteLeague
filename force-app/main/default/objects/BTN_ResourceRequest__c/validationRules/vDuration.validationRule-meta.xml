@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vDuration</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISBLANK( ContractDuration__c )</errorConditionFormula>
+    <errorDisplayField>ContractDuration__c</errorDisplayField>
+    <errorMessage>Please set Contract Duration</errorMessage>
+</ValidationRule>

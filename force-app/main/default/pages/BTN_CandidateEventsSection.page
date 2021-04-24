@@ -1,0 +1,39 @@
+<apex:page standardController="BTN_CV__c" extensions="BTN_CandidateEventsSectionController">
+
+<!-- <apex:relatedList list="Interviews__r" subject="{!BTN_CV__c.Contact__c}"/> -->
+<div style="display:none;">{!BTN_CV__c.Contact__c}</div>
+<script type="text/javascript">
+function openParentUrl(aUrl){
+	window.parent.location.href = aUrl;
+}
+</script>
+<apex:pageBlock title="{!$ObjectType.BTN_Event__c.LabelPlural}">
+	<apex:pageBlocktable value="{!events}" var="item">
+		<apex:column >
+            <apex:facet name="header">{!$ObjectType.BTN_Event__c.fields.name.Label}</apex:facet>
+            <a href="javascript:openParentUrl('/{!item.id}')">{!item.name}</a>
+        </apex:column>
+		<apex:column value="{!item.Type__c}"/>
+		<apex:column >
+            <apex:facet name="header">{!$ObjectType.BTN_Event__c.fields.Candidate__c.Label}</apex:facet>
+            <a href="javascript:openParentUrl('/{!item.Candidate__c}')">{!item.Candidate__r.name}</a>
+        </apex:column>
+		<apex:column value="{!item.Title__c}"/>
+		<apex:column value="{!item.Start_Time__c}"/>
+		<apex:column >
+            <apex:facet name="header">{!$ObjectType.BTN_Event__c.fields.Interviewer_Contact__c.Label}</apex:facet>
+            <a href="javascript:openParentUrl('/{!item.Interviewer_Contact__c}')">{!item.Interviewer_Contact__r.name}</a>
+        </apex:column>
+		<apex:column value="{!item.Location__c}"/>
+		<apex:column value="{!item.Description__c}"/>
+		<apex:column value="{!item.CreatedDate}"/>
+		<apex:column >
+            <apex:facet name="header">{!$ObjectType.Contact.fields.OwnerId.Label}</apex:facet>
+            <a href="javascript:openParentUrl('/{!item.ownerId}')">{!item.owner.name}</a>
+        </apex:column>
+		
+	</apex:pageBlocktable>
+</apex:pageBlock>
+
+
+</apex:page>

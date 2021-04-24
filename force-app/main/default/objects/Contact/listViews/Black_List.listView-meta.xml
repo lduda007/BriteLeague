@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Black_List</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Phones__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Position__c</columns>
+    <columns>Owner_Formula__c</columns>
+    <columns>CreatedDate_frm__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>On_Black_List__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Black List</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Human_Resources</group>
+        <role>ResourceManager</role>
+    </sharedTo>
+</ListView>

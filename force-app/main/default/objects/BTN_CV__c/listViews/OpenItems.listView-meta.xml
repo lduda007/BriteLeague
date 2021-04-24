@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpenItems</fullName>
+    <columns>NAME</columns>
+    <columns>ContactRecordType__c</columns>
+    <columns>ContactFirstName_frm__c</columns>
+    <columns>ContactLastName_frm__c</columns>
+    <columns>AttachedFileLink__c</columns>
+    <columns>ResourceRequest__c</columns>
+    <columns>Account_frm__c</columns>
+    <columns>Position_Name_frm__c</columns>
+    <columns>Requestor_frm__c</columns>
+    <columns>RequestCreationDate__c</columns>
+    <columns>DeliveryDeadline_frm__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RequestStatus__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <label>Open Items</label>
+    <language>en_US</language>
+</ListView>

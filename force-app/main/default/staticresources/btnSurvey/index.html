@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="btn.survey">
+    <head>
+        <meta charset="utf-8">
+        <title>btn.survey</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <base href="/">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="styles/vendor.css">
+
+        <link rel="stylesheet" href="styles/app.css">
+        </head>
+    <body >
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <script src="scripts/vendor.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script>
+        angular.module('myApp', ['btn.survey'])
+            .run(function ($rootScope, btnSurveySfdcConf) {
+                $rootScope.btnSurveySfdcConf = btnSurveySfdcConf;
+            });
+        angular.module('btn.survey').constant('btnSurveySfdcConf', null);
+    </script>
+
+    <div style="padding-top: 150px;">
+        <div id="main-container">
+            <div data-ng-cloak="ng-cloak">
+                <div ng-controller="MainController">
+                    <btn-survey-type templates="templates" survey="survey" mode="'achievementTree'" can-change-mode="false" user="michal@michal.pl"></btn-survey-type>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

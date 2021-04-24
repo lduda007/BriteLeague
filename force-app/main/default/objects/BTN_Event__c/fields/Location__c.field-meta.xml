@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location__c</fullName>
+    <externalId>false</externalId>
+    <label>Location</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lublin Hamleta</fullName>
+                <default>false</default>
+                <label>Lublin Hamleta</label>
+            </value>
+            <value>
+                <fullName>Lublin Morwowa</fullName>
+                <default>false</default>
+                <label>Lublin Morwowa</label>
+            </value>
+            <value>
+                <fullName>Warszawa Bukowińska</fullName>
+                <default>false</default>
+                <label>Warszawa Bukowińska</label>
+            </value>
+            <value>
+                <fullName>Warszawa Wołoska</fullName>
+                <default>false</default>
+                <label>Warszawa Wołoska</label>
+            </value>
+            <value>
+                <fullName>Kielce IX Wieków</fullName>
+                <default>false</default>
+                <label>Kielce IX Wieków</label>
+            </value>
+            <value>
+                <fullName>Poznań Strzelecka</fullName>
+                <default>false</default>
+                <label>Poznań Strzelecka</label>
+            </value>
+            <value>
+                <fullName>Zdalnie</fullName>
+                <default>false</default>
+                <label>Zdalnie</label>
+            </value>
+            <value>
+                <fullName>U klienta [Other location is mandatory]</fullName>
+                <default>false</default>
+                <label>U klienta [Other location is mandatory]</label>
+            </value>
+            <value>
+                <fullName>Inne [Other location is mandatory]</fullName>
+                <default>false</default>
+                <label>Inne [Other location is mandatory]</label>
+            </value>
+            <value>
+                <fullName>Call</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Call</label>
+            </value>
+            <value>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Meeting</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

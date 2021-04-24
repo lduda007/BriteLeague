@@ -1,0 +1,68 @@
+<apex:component layout="none">
+
+    <apex:attribute name="readonly" type="Boolean" default="false" description="Determines read only mode"/>
+    <apex:attribute name="highlight" type="Boolean" default="false" description="Highlight differences"/>
+    <apex:attribute name="showAll" type="Boolean" default="true" description="Show all achievements"/>
+    <apex:attribute name="showComparedRecords" type="Boolean" default="false" description="Show compared records only"/>
+
+    <apex:attribute name="name" type="String" description="The Achievement Category name" required="true"/>
+    <apex:attribute name="achievements" type="Achievement[]" description="The Achievement class instances" required="true"/>
+    <apex:attribute name="levels" type="SelectOption[]" description="The achievement levels"/>
+
+    <apex:attribute name="showGroups" type="Boolean" default="true" description="Show group achievements"/>
+    <apex:attribute name="showSpecializations" type="Boolean" default="true" description="Show specialization achievements"/>
+
+    <apex:stylesheet value="{!URLFOR($Resource.achievements, 'achievements.css')}"/>
+
+    <section class="achievement-category">
+        <header>
+            <span class="achievement-category-name">{!name}</span>
+        </header>
+        <ul>
+            <apex:repeat value="{!achievements}" var="achievement">
+                <apex:outputPanel layout="none" rendered="{!IF(showComparedRecords, achievement.hasValueToCompare, achievement.hasValue || achievement.hasDifferentValue || showAll)}">
+                    <apex:outputPanel layout="none" rendered="{!NOT(OR(AND(NOT(OR(showGroups, achievement.isModificableGroup)), achievement.isGroup), AND(NOT(showSpecializations) && achievement.IsSpecialization)))}">
+                        <li title="{!achievement.description}"
+                            class="tooltip {!IF(achievement.hasDifferentValue, 'achievement-difference', IF(highlight, 'achievement-nodifference', ''))}{!IF(achievement.isSkill || achievement.isGroup, ' achievement-skill', '')}{!IF(AND(achievement.isSkill || achievement.isGroup, achievement.level != '' || NOT(readonly)), ' achievement-skill-' + IF(readonly, LOWER(achievement.level), 'senior'), '')}{!IF(achievement.isCert, ' achievement-cert', '')}{!IF(achievement.isCert, ' achievement-cert' + IF(achievement.selected || NOT(readonly), '-yes', '-no'), '')}{!IF(achievement.isBadge || achievement.isSpecialization, ' achievement-badge', '')}{!IF(achievement.isBadge || achievement.isSpecialization, ' achievement-badge' + IF(achievement.amount != '0' || achievement.minSpecialityMatch != '0.0' || NOT(readonly), '-yes', '-no'), '')}{!IF(achievement.isAttribute, ' achievement-attribute', '')}{!IF(achievement.isMonthsFromDate, ' achievement-date', '')}">
+    
+                            <apex:outputLabel value="{!achievement.name}" styleClass="achievement-label"/>
+        
+                            <apex:outputPanel layout="inline" styleClass="achievement-value">
+                                <apex:selectList value="{!achievement.level}" multiselect="false" size="1" rendered="{!NOT(readonly) && (achievement.isSkill || achievement.isGroup)}">
+                                    <apex:selectOptions value="{!levels}"/>
+                                </apex:selectList>
+                                <apex:outputText value="{!IF(achievement.level == '', '----', achievement.level)}" rendered="{!readonly && (achievement.isSkill || achievement.isGroup)}" />
+                                
+                                <apex:selectList value="{!achievement.amount}" multiselect="false" size="1" rendered="{!NOT(readonly) && (achievement.isAttribute)}">
+                                    <apex:selectOptions value="{!achievement.attributeLevels}"/>
+                                </apex:selectList>
+                                <apex:outputText value="{!IF(achievement.amount== '', '----', achievement.attributeLevelValues)}" rendered="{!readonly && (achievement.isAttribute)}" />
+                            
+                                <apex:inputCheckbox value="{!achievement.selected}" rendered="{!NOT(readonly) && achievement.isCert}" />
+                            
+                                <apex:inputText value="{!achievement.amount}" rendered="{!NOT(readonly) && achievement.isBadge}"/>
+                                <apex:outputText value="{!achievement.amount}" rendered="{!readonly && achievement.isBadge}"/>
+                                                                
+                                <apex:inputField value="{!achievement.oldRecord.Date__c}" rendered="{!NOT(readonly) && achievement.isMonthsFromDate}"/>
+                                <apex:outputText value="{0, number, integer}" rendered="{!readonly && achievement.isMonthsFromDate}">
+                                    <apex:param value="{!achievement.oldRecord.NumberOfMonths__c}" />
+                                </apex:outputText>
+                                <apex:inputText value="{!achievement.minSpecialityMatch}" rendered="{!NOT(readonly) && (achievement.IsSpecialization)}"/>
+                                <apex:outputText value="{!achievement.minSpecialityMatch}" rendered="{!readonly && (achievement.IsSpecialization)}"/>
+                            </apex:outputPanel>
+                        
+                            <apex:outputPanel layout="inline" styleClass="achievement-difference-info" rendered="{!achievement.hasDifferentValue}">
+                                <apex:outputText value="{!achievement.differenceInfo}"/>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel layout="inline" styleClass="tooltip-text">
+                                <apex:outputText escape="false" value="{!achievement.HTMLDescription}"/>
+                            </apex:outputPanel>
+                        </li>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:repeat>
+        </ul>
+    </section>
+    
+</apex:component>

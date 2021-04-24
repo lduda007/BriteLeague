@@ -1,0 +1,61 @@
+<messaging:emailTemplate subject="[BriteCRM] - {!relatedTo.Name} - Opportunity in progress" recipientType="User" relatedToType="Opportunity">
+    <messaging:htmlEmailBody >
+                <style type="text/css">
+                    .DataTable {
+                        margin: 0.9em;
+                        font-size: 90% !important;
+                        font-family: Arial !important;
+                    }
+
+                    .spaceRow {
+                        height: 0.9em;
+                    }
+
+                    .headRow {
+                        background-color: #0098d8;
+                        text-align: center;
+                        width: 100%;
+                        border-bottom: 1px solid;
+                        border-top: 1px solid;
+                    }
+                </style>
+        <html>
+            <body>
+            <p style="margin-left: 1em;">Dear User,</p>
+            <p style="margin-left: 1em;">This is to inform you that the opportunity&nbsp;<c:BTN_LinkComponent Opportunity="{!relatedTo.Id}" OpportunityName="{!relatedTo.Name}"/> needs your attention.</p>
+                <table class="DataTable" id="MainData" style="margin-left: 0.9em; width: 80%; font-size: 90% !important; font-family: Arial !important;">
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Account_Name__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Account.Name}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Account.Fields.Status__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Account.Status__c}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$Label.OpportunityOwn}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Owner.Name}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Priority__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Priority__c}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.CloseDate.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.CloseDate}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Type__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Type__c}"/></td></tr>
+                    <tr><td><b>
+                        <apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Location__c.Label}"/>
+                        </b>&nbsp;
+                        <apex:outputField value="{!relatedTo.Location__c}"/>
+                        &nbsp;
+                        <apex:outputText value="({!relatedTo.OtherLocation__c})" rendered="{!relatedTo.OtherLocation__c != ''}"
+                    />
+                    </td></tr>
+                    <tr><td colspan="2" class="spaceRow" style="height: 0.9em"></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.ContractStart__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.ContractStart__c}"/></td></tr>  
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.ContractStartDescription__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.ContractStartDescription__c}"/></td></tr>  
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Contract_Duration_Number__c.Label}"/></b>&nbsp;{!relatedTo.Contract_Duration_Number__c}&nbsp;<apex:outputField value="{!relatedTo.Contract_Duration__c}"/></td></tr>
+                    <tr><td colspan="2" class="spaceRow" style="height: 0.9em"></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Rate__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Rate__c}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Placement__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Placement__c}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Amount_frm__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Amount_frm__c}"/></td></tr>
+                    <tr><td colspan="2" class="spaceRow" style="height: 0.9em"></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$Label.ProjectDescription}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Description}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Product_Main_Skills__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Product_Main_Skills__c}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Product_Secondary_Skills__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.Product_Secondary_Skills__c}"/></td></tr>
+                    <tr><td colspan="2" class="spaceRow" style="height: 0.9em"></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.CVDeliveryDeadline__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.CVDeliveryDeadline__c}"/></td></tr>
+                    <tr><td><b><apex:outputLabel value="{!$ObjectType.Opportunity.Fields.CVLanguage__c.Label}"/></b>&nbsp;<apex:outputField value="{!relatedTo.CVLanguage__c}"/></td></tr>
+                </table>
+     <p>Kind regards,<br/>BriteRM Team</p>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

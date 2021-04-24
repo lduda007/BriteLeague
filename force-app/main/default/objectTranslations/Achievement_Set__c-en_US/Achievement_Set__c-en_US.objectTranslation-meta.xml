@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Achievement Set</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Achievement Sets</value>
+    </caseValues>
+    <layouts>
+        <layout>Achievements Set Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact Profile Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Survey Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Zbiór umiejętności określający Specjalizację pracownika --></description>
+        <label><!-- Specialization --></label>
+        <name>Achievements_Profile</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Zbiór umiejętności określający profil pracownika --></description>
+        <label><!-- Employee Profile --></label>
+        <name>Contact_Profile</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Zbiór umiejętności określający stanowsko pracownika --></description>
+        <label><!-- Position Profile --></label>
+        <name>Position_Profile</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Ankieta opisująca umiejętności pracownika --></description>
+        <label><!-- Survey --></label>
+        <name>Survey</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Field Career Path cannot be filled for non Postion Profile Sets --></errorMessage>
+        <name>CareerPathFieldForNonProfilePositions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the Career Path field --></errorMessage>
+        <name>CareerPathFieldForPositionProfile</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the Contact field --></errorMessage>
+        <name>ContactFieldForContactAchievementSets</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Field Contact cannot be filled for non Contact Achievement Sets --></errorMessage>
+        <name>ContactFieldForNonContactAchievementSets</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Field Who and About Who cannot be filled for non Survey Sets --></errorMessage>
+        <name>WhoAndAboutWhoFieldForNonSurveys</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the Who and About Who fields --></errorMessage>
+        <name>WhoAndAboutWhoFieldForSurveys</name>
+    </validationRules>
+</CustomObjectTranslation>

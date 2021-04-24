@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>checkAchievmentByGroup</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(OR(AND(ISPICKVAL(Group__r.Group_Type__c, &apos;Greatest Value (Specialization)&apos;), Achievement__r.RecordType.DeveloperName != &apos;Specialization&apos;), AND(OR(ISPICKVAL(Group__r.Group_Type__c, &apos;Greatest Value&apos;), ISPICKVAL(Group__r.Group_Type__c, &apos;Manual&apos;)), OR(Achievement__r.RecordType.DeveloperName = &apos;Group&apos;, Achievement__r.RecordType.DeveloperName = &apos;Specialization&apos;))), TRUE, FALSE)</errorConditionFormula>
+    <errorMessage>Please select the proper type of achievement</errorMessage>
+</ValidationRule>

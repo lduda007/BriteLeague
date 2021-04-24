@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Drugorzędny język</label>
+    <name>Language_2__c</name>
+    <picklistValues>
+        <masterLabel>English</masterLabel>
+        <translation>Angielski</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>German</masterLabel>
+        <translation>Niemiecki</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation>Inny</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Spanish</masterLabel>
+        <translation>Hiszpański</translation>
+    </picklistValues>
+</CustomFieldTranslation>

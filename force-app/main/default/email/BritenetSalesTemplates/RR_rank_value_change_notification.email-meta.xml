@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send to requestor when rank value changes</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>BriteCRM</letterhead>
+    <name>RR rank value change notification</name>
+    <style>freeForm</style>
+    <subject>Rank changed on request {!BTN_ResourceRequest__c.Name}</subject>
+    <textOnly>Dear Requestor, 
+
+Rank on request {!BTN_ResourceRequest__c.Name} has changed.
+
+Previous rank:  {!BTN_ResourceRequest__c.Previous_Rank__c}
+New rank: {!BTN_ResourceRequest__c.Rank__c}
+
+For more information visit the Request:
+https://britenet.my.salesforce.com/{!BTN_ResourceRequest__c.Id}
+https://briteerp.force.com/{!BTN_ResourceRequest__c.Id}
+
+Kind regards, 
+BriteCRM Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,132 @@
+<apex:page showHeader="true" sidebar="true" standardController="SurveyTemplate__c" extensions="SurveyTemplateExtension">
+
+    <apex:sectionHeader title="{!$ObjectType.SurveyTemplate__c.label} {!$Label.site.edit}" subtitle="{!$Label.New} {!$ObjectType.SurveyTemplate__c.label}"/>
+    <apex:form >
+        <apex:pageMessages id="errors"/>
+        <apex:pageBlock title="{!$ObjectType.SurveyTemplate__c.label} {!$Label.site.edit}" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="{!$Label.site.save}" rerender="errors, templateSection"></apex:commandButton>
+                <apex:commandButton action="{!cancel}" value="{!$Label.site.cancel}" immediate="true"></apex:commandButton>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection collapsible="false" title="{!$Label.Information}" id="templateSection" columns="1">
+                <apex:inputField value="{!template.Name}" required="true"></apex:inputField>
+                <apex:inputField value="{!template.Description__c}"></apex:inputField>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.SurveyTemplate__c.fields.SurveyHandler__c.Label}"></apex:outputLabel>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!template.SurveyHandler__c}" required="true">
+                            <apex:actionSupport event="onchange" action="{!setTemplateConfig}" rerender="handlerConfig"></apex:actionSupport>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.SurveyTemplate__c.fields.Config__c.Label}"></apex:outputLabel>
+                    <apex:outputPanel id="handlerConfig">
+                        <apex:inputTextArea value="{!template.Config__c}" cols="50" rows="5"></apex:inputTextArea>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!template.Active__c}"></apex:inputField>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.SurveyTemplate__c.fields.Private__c.Label}"></apex:outputLabel>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!template.Private__c}">
+                            <apex:actionSupport event="onchange" action="{!clearContactList}" rerender="seciuritySection" status="privateChanging"></apex:actionSupport>
+                                <apex:actionStatus id="privateChanging">
+                                    <apex:facet name="start">
+                                        <apex:image value="/img/loading32.gif" width="16" height="16" style="vertical-align:middle"/>
+                                    </apex:facet>
+                             </apex:actionStatus>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!template.Submittable__c}"></apex:inputField>
+                <apex:inputField value="{!template.MultiSurvey__c}"></apex:inputField>
+                <apex:inputField value="{!template.Importance__c}"></apex:inputField>
+                <apex:inputField value="{!template.StartDate__c}"></apex:inputField>
+                <apex:inputField value="{!template.EndDate__c}"></apex:inputField>
+                <apex:inputField value="{!template.QuestionSearchOptions__c}"></apex:inputField>
+            </apex:pageBlockSection>
+
+            <apex:outputPanel id="seciuritySection">
+                <apex:pageBlockSection collapsible="false" title="{!$Label.Access}" columns="1" rendered="{!template.Private__c}">
+                    <apex:actionRegion >
+                        <apex:pageBlockTable value="{!contactList}" var="contact" columnsWidth="70%,30%">
+                            <apex:column headerValue="{!$ObjectType.Contact.Label}">
+                                <apex:outputText value="{!contact.contactName}"></apex:outputText>
+                            </apex:column>
+                            <apex:column headerValue="{!$Label.Action}">
+                                <apex:actionRegion >
+                                    <apex:commandButton action="{!contact.remove}" rerender="seciuritySection" value="{!$Label.Remove}"></apex:commandButton>
+                                </apex:actionRegion>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:actionRegion>
+                    <apex:selectList label="{!$ObjectType.SurveyTemplateAccesses__c.fields.Contact__c.Label}" multiselect="false" size="1" value="{!templateAccess.Contact__c}">
+                        <apex:selectOptions value="{!contacts}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:inputField value="{!templateAccess.OnlyLeaders__c}"></apex:inputField>
+                    <apex:commandButton value="{!$Label.Add}" action="{!addContact}" rerender="seciuritySection, errors"></apex:commandButton>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <apex:pageBlockSection collapsible="false" title="{!$Label.Question_List}" id="questionSection" columns="1">
+                <apex:actionRegion >
+                    <apex:pageBlockTable value="{!questionList}" var="question" columnsWidth="65%,25%">
+                        <apex:column headerValue="{!$Label.Question}">
+                            <apex:outputField value="{!question.data.Name}"></apex:outputField>
+                        </apex:column>
+                        <apex:column headerValue="{!$Label.SystemQuestion}">
+                            <apex:outputField value="{!question.data.IsSystem__c}"></apex:outputField>
+                        </apex:column>
+                        <apex:column headerValue="{!$Label.Action}">
+                            <apex:actionRegion >
+                                <apex:commandButton action="{!question.remove}" rerender="questionSection" value="{!$Label.Remove}"></apex:commandButton>
+                            </apex:actionRegion>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:actionRegion>
+            </apex:pageBlockSection>
+            <apex:actionRegion >
+                <apex:pageBlockSection collapsible="false" title="{!$Label.Add} {!$Label.Question}" id="addQuestionSection" columns="1">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.SurveyTemplateItem__c.fields.QuestionProvider__c.Label}"></apex:outputLabel>
+                        <apex:actionRegion >
+                            <apex:inputField value="{!templateItem.QuestionProvider__c}" required="false">
+                                <apex:actionSupport event="onchange" action="{!setTemplateItemConfig}" rerender="questionProviderConfig"></apex:actionSupport>
+                            </apex:inputField>
+                        </apex:actionRegion>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.SurveyTemplateItem__c.fields.Config__c.Label}"></apex:outputLabel>
+                        <apex:outputPanel id="questionProviderConfig">
+                            <apex:inputTextArea value="{!templateItem.Config__c}" cols="50" rows="5"></apex:inputTextArea>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.SurveyTemplateItem__c.fields.Required__c.Label}"></apex:outputLabel>
+                        <apex:outputPanel id="system">
+                            <apex:inputField value="{!templateItem.Required__c}"></apex:inputField>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.SurveyTemplateItem__c.fields.IsSystem__c.Label}"></apex:outputLabel>
+                        <apex:inputField value="{!templateItem.IsSystem__c}">
+                            <apex:actionSupport event="onchange" action="{!checkedRequired}" rerender="system" status="systemChanging"></apex:actionSupport>
+                            <apex:actionStatus id="systemChanging">
+                                <apex:facet name="start">
+                                    <apex:image value="/img/loading32.gif" width="16" height="16" style="vertical-align:middle"/>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:inputField>
+                   </apex:pageBlockSectionItem>
+
+
+                    <apex:commandButton action="{!addQuestion}" value="{!$Label.Add}" rerender="questionSection, addQuestionSection, errors"></apex:commandButton>
+                </apex:pageBlockSection>
+            </apex:actionRegion>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

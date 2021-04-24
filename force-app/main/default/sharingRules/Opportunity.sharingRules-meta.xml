@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Sales_director</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sales director</label>
+        <sharedTo>
+            <role>SalesDirector</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Time &amp; Material</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>SharePrivateOpportunities</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares Private opportunities with Private Sales Team</description>
+        <label>SharePrivateOpportunities</label>
+        <sharedTo>
+            <roleAndSubordinates>SalesPrivateSector</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Sector__c</field>
+            <operation>equals</operation>
+            <value>Private</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>SharePublicOpportunities</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares Public opportunities with Public Sales Team</description>
+        <label>SharePublicOpportunities</label>
+        <sharedTo>
+            <roleAndSubordinates>SalesPublicSector</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Sector__c</field>
+            <operation>equals</operation>
+            <value>Public</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>ResourceManagerOpportunityView</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Resource Manager Opportunity View</label>
+        <sharedTo>
+            <roleAndSubordinates>ResourceManager</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>CEO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SharePrivateOpportunities</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Shares Private opportunities with Private Sales Team</description>
+        <label>SharePrivateOpportunities</label>
+        <sharedTo>
+            <roleAndSubordinates>HRDirector</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>CEO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

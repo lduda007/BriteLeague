@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExecutionDate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(RecordType.DeveloperName = &apos;ExternalOnboarding&apos;, Assignment__r.StartDate__c, IF(RecordType.DeveloperName = &apos;ExternalOffboarding&apos;,  Assignment__r.EndDate__c , NULL))</formula>
+    <label>Execution Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

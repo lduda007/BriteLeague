@@ -1,0 +1,18 @@
+<apex:page standardController="Contact" extensions="BTN_UserPINController">
+
+	<apex:sectionHeader title="WiFi PIN" subtitle="{!Contact.Name}" />
+
+	<apex:pageMessages />
+
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton value="{!$Label.SaveBtn}" action="{!savePin}" disabled="{!userCannotEditPin}" />
+				<apex:commandButton value="{!$Label.WiFi_PIN_Refresh}" action="{!refreshPIN}" rendered="{!contact.WiFi_PIN__c != syncedValue}" disabled="{!userCannotEditPin}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection columns="1" collapsible="false">
+				<apex:inputField value="{!contact.WiFi_PIN__c}" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

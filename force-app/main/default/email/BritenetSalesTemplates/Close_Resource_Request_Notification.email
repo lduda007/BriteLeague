@@ -1,0 +1,11 @@
+Dear {!BTN_ResourceRequest__c.OwnerFirstName}, 
+
+Sales just closed Opportunity {!BTN_ResourceRequest__c.OpportunityName_frm__c} 
+for Resource Request {!BTN_ResourceRequest__c.Name}. 
+
+Please close specified Resource Request and related candidates. 
+https://britenet.my.salesforce.com/{!BTN_ResourceRequest__c.Id}
+https://briteerp.force.com/{!BTN_ResourceRequest__c.Id}
+
+Kind Regards, 
+BriteRM Team

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Rank --></label>
+    <name>Rank__c</name>
+    <picklistValues>
+        <masterLabel>0:$</masterLabel>
+        <translation><!-- 0:$ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1:bardzo ważne</masterLabel>
+        <translation><!-- 1:bardzo ważne --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2:ważne</masterLabel>
+        <translation><!-- 2:ważne --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3:w wolnej chwili</masterLabel>
+        <translation><!-- 3:w wolnej chwili --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>4:bez szans</masterLabel>
+        <translation><!-- 4:bez szans --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

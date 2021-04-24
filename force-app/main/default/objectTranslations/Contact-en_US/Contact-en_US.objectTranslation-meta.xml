@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Player</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Players</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Feed Tracking Field Set --></label>
+        <name>FeedTrackingFieldSet</name>
+    </fieldSets>
+    <layouts>
+        <layout>Admin Contact Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Business Contact Layout</layout>
+        <sections>
+            <label><!-- Contact information --></label>
+            <section>Contact information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HR Contact Layout</layout>
+        <sections>
+            <label><!-- Address details --></label>
+            <section>Address details</section>
+        </sections>
+        <sections>
+            <label><!-- Contact details --></label>
+            <section>Contact details</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+        <sections>
+            <label><!-- Foreign Languages details --></label>
+            <section>Foreign Languages details</section>
+        </sections>
+        <sections>
+            <label><!-- Percentage Assignment --></label>
+            <section>Percentage Assignment</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment Details --></label>
+            <section>Recruitment Details</section>
+        </sections>
+        <sections>
+            <label><!-- Skills --></label>
+            <section>Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Internal Contact Layout</layout>
+        <sections>
+            <label><!-- Address Details --></label>
+            <section>Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- BriteSheet --></label>
+            <section>BriteSheet</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Profile --></label>
+            <section>Contact Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Contact information --></label>
+            <section>Contact information</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+        <sections>
+            <label><!-- Foreign Languages Details --></label>
+            <section>Foreign Languages Details</section>
+        </sections>
+        <sections>
+            <label><!-- Percentage Assignment --></label>
+            <section>Percentage Assignment</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment Details --></label>
+            <section>Recruitment Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Leader Contact Layout</layout>
+        <sections>
+            <label><!-- Address Details --></label>
+            <section>Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- BriteSheet --></label>
+            <section>BriteSheet</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+        <sections>
+            <label><!-- Foreign Languages Details --></label>
+            <section>Foreign Languages Details</section>
+        </sections>
+        <sections>
+            <label><!-- Percentage Assignment --></label>
+            <section>Percentage Assignment</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment Details --></label>
+            <section>Recruitment Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RM Contact Layout</layout>
+        <sections>
+            <label><!-- Address Details --></label>
+            <section>Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- Brite Sheet --></label>
+            <section>Brite Sheet</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact information --></label>
+            <section>Contact information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+        <sections>
+            <label><!-- Foreign Languages Details --></label>
+            <section>Foreign Languages Details</section>
+        </sections>
+        <sections>
+            <label><!-- Percentage Assignment --></label>
+            <section>Percentage Assignment</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment Details --></label>
+            <section>Recruitment Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Recruit Contact Layout</layout>
+        <sections>
+            <label><!-- Address details --></label>
+            <section>Address details</section>
+        </sections>
+        <sections>
+            <label><!-- Contact information --></label>
+            <section>Contact information</section>
+        </sections>
+        <sections>
+            <label><!-- Foreign Languages details --></label>
+            <section>Foreign Languages details</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment Details --></label>
+            <section>Recruitment Details</section>
+        </sections>
+        <sections>
+            <label><!-- Skills --></label>
+            <section>Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Supplier Contact Layout</layout>
+        <sections>
+            <label><!-- Address Details --></label>
+            <section>Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- BriteSheet --></label>
+            <section>BriteSheet</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Profile --></label>
+            <section>Contact Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Contact information --></label>
+            <section>Contact information</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+        <sections>
+            <label><!-- Foreign Languages Details --></label>
+            <section>Foreign Languages Details</section>
+        </sections>
+        <sections>
+            <label><!-- Percentage Assignment --></label>
+            <section>Percentage Assignment</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment Details --></label>
+            <section>Recruitment Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New Event --></label>
+        <name>BTN_New_Event</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Business contact --></description>
+        <label><!-- Business --></label>
+        <name>Business</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Internal employees --></description>
+        <label><!-- Internal --></label>
+        <name>Internal</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Recruits --></description>
+        <label><!-- Recruit --></label>
+        <name>Recruit</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Supplier --></description>
+        <label><!-- Supplier --></label>
+        <name>Supplier</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Internal contacts (employees) can be assigned to Britenet account only. --></errorMessage>
+        <name>InternalContactAssignedToBritenet</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- PIN is too short, min 6 characters required --></errorMessage>
+        <name>PIN_is_to_short</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Given PIN is too simple --></errorMessage>
+        <name>PIN_is_too_simple</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- PIN must be a number --></errorMessage>
+        <name>PIN_must_be_numeric</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide valid Britenet Email --></errorMessage>
+        <name>vEmail</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide First Name --></errorMessage>
+        <name>vFirstName</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Change_Achievements --></label>
+        <name>Change_Achievements</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewExternalInterview --></label>
+        <name>NewExternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewInternalInterview --></label>
+        <name>NewInternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewInternalOnboarding --></label>
+        <name>NewInternalOnboarding</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Candidate --></label>
+        <name>New_Candidate</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Periodic_Assessment --></label>
+        <name>New_Periodic_Assessment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendGmail --></label>
+        <name>SendGmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Set_PIN --></label>
+        <name>Set_PIN</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Share_with_Leader --></label>
+        <name>Share_with_Leader</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooWeather --></label>
+        <name>YahooWeather</name>
+    </webLinks>
+</CustomObjectTranslation>

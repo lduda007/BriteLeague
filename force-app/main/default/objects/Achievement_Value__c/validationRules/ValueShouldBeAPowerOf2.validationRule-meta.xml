@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValueShouldBeAPowerOf2</fullName>
+    <active>true</active>
+    <errorConditionFormula>Value__c != 1 &amp;&amp; MOD(Value__c, 2) &gt; 0</errorConditionFormula>
+    <errorDisplayField>Value__c</errorDisplayField>
+    <errorMessage>Value should be a power of 2</errorMessage>
+</ValidationRule>

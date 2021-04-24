@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_contacts_no_street</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.ADDRESS2_STREET</columns>
+    <columns>CONTACT.ADDRESS1_CITY</columns>
+    <columns>CONTACT.ADDRESS1_ZIP</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_STREET</field>
+        <operation>equals</operation>
+    </filters>
+    <label>My_contacts-no_street</label>
+    <language>en_US</language>
+</ListView>

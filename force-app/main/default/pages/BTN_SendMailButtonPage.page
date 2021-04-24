@@ -1,0 +1,57 @@
+<apex:page showHeader="true" controller="BTN_SendEmailController" sidebar="true" tabStyle="BTN_ResourceRequest__c">
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-ui.min.js')}"/>
+    <apex:includeScript value="{!$Resource.jQueryLoading}/showLoading/js/jquery.showLoading.js"/>
+    <apex:stylesheet value="{!$Resource.jQueryLoading}/showLoading/css/showLoading.css"/>
+    <style type="text/css">
+        .wideTextArea {
+            width: 80%;
+            height: 18em;
+        }
+
+        .subject {
+            width: 80%;
+            height: 1.11em;
+        }
+    </style>
+    <script type="text/javascript">
+    </script>
+    <apex:form >
+        <apex:pageBlock >
+                <!-- email zone -->
+            <apex:pageMessages id="msg"/>
+            <apex:pageBlockSection title="{!$Label.EmailDetails}" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Sender}"/>
+                    <apex:inputText value="{!sender}" styleClass="subject"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Recipient}"/>
+                    <apex:outputLabel value="{!recipient}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Subject}"/>
+                    <apex:inputText value="{!subject}" styleClass="subject"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.EmailContent}"/>
+                    <apex:inputTextarea value="{!emailBody}" styleClass="wideTextArea" richText="false"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!$Label.AttachmentSec}" columns="1">
+                
+                <apex:pageBlockTable value="{!attachments}" var="item">
+                     <apex:column headerValue="{!$Label.CandidateName}" value="{!item.Parent.Name}">
+                    </apex:column>                   
+                    <apex:column headerValue="{!$Label.AttachedCVName}" value="{!item.Name}">
+                    </apex:column>
+                </apex:pageBlockTable>
+
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.SendEmailBtn}" action="{!sendEmail}" reRender="msg" onclick="$('#contentWrapper').showLoading()" oncomplete="$('#contentWrapper').hideLoading()"/>
+                <apex:commandButton value="{!$Label.GoBack}" action="{!goBack}" onclick="$('#contentWrapper').showLoading()" oncomplete="$('#contentWrapper').hideLoading()"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

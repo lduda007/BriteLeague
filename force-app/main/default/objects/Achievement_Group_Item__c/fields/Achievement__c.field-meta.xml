@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Achievement__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Achievement</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Achievement__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Group</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Achievement__c</referenceTo>
+    <relationshipLabel>Achievement Group Items (Achievement)</relationshipLabel>
+    <relationshipName>Achievement_Group_Items1</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

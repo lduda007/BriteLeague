@@ -1,0 +1,38 @@
+.label-range {
+    width: 2.7em !important;
+}
+.input-range {
+    width: 93% !important; 
+    display: inline !important;
+}
+.user-data-table {
+    width: 100%;
+    border-spacing: 5px !important;
+    border-collapse: initial !important;
+}
+.user-data-table-desc {
+    width: 15%
+}
+.user-data-table-value {
+    width: 35%
+}
+.vertical-align-middle {
+    vertical-align: middle !important;
+}
+.no-contacts-info {
+    padding-top: 2em;
+    text-align: center;
+    font-weight: 700;
+    display: block;
+}
+#main-container table td {
+    vertical-align: middle
+}
+#main-container table td ul {
+    margin-bottom: 0;
+}
+#main-container tags-input .tags {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-color: #ccc;
+    border-radius: 5px;
+}

@@ -1,0 +1,12 @@
+W zeszłym tygodniu brałeś udział w spotkaniu z {!Event.Who}. 
+Czy wykonałeś już notatki z tego spotkania? Jeśli nie, przypominamy szczegóły dotyczące tego wydarzenia. 
+
+Data spotkania: {!Event.StartDateTime} 
+Spotkanie z: {!Event.Who} 
+Temat: {!Event.Subject} 
+Opis: {!Event.Description} 
+
+Więcej informacji dotyczących tego wydarzenia znajdziesz pod adresem: {!Event.Link}. 
+
+Kind regards, 
+BriteCRM Team

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Instrumental</caseType>
+        <plural>false</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Instrumental</caseType>
+        <plural>true</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Locative</caseType>
+        <plural>false</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <caseValues>
+        <caseType>Locative</caseType>
+        <plural>true</plural>
+        <value><!-- Resource request --></value>
+    </caseValues>
+    <gender><!-- Neuter --></gender>
+    <layouts>
+        <layout>Auto request Layout</layout>
+        <sections>
+            <label>Niestandardowe łącza</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Opis i umiejętności</label>
+            <section>Description and skills</section>
+        </sections>
+        <sections>
+            <label>Szczegóły okazji biznesowej</label>
+            <section>Opportunity Details</section>
+        </sections>
+        <sections>
+            <label>Szczegóły rekrutacji</label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Auto request community Layout</layout>
+        <sections>
+            <label>Niestandardowe łącza</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Opis i umiejętności</label>
+            <section>Description and skills</section>
+        </sections>
+        <sections>
+            <label>Szczegóły okazji biznesowej</label>
+            <section>Opportunity Details</section>
+        </sections>
+        <sections>
+            <label>Szczegóły rekrutacji</label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Manual request Layout</layout>
+        <sections>
+            <label>Niestandardowe łącza</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Opis</label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label>Szczegóły</label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label>Szczegóły rekrutacji</label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Manual request community Layout</layout>
+        <sections>
+            <label>Niestandardowe łącza</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Opis</label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label>Szczegóły</label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label>Szczegóły rekrutacji</label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Request ID --></nameFieldLabel>
+    <recordTypes>
+        <description><!-- Automatic resource request --></description>
+        <label>Automatyczny</label>
+        <name>Auto</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Manual resource request --></description>
+        <label>Ręczny</label>
+        <name>Manual</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- Requestor --></label>
+        <name>Requestor</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Shared with HR --></label>
+        <name>Shared_with_HR</name>
+    </sharingReasons>
+    <validationRules>
+        <errorMessage>Proszę ustawić datę rozpoczęcia kontraktu</errorMessage>
+        <name>vContractStart</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę ustawić klienta</errorMessage>
+        <name>vCustomer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę ustawić termin dostarczenia</errorMessage>
+        <name>vDeadline</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę ustawić czas trwania kontraktu</errorMessage>
+        <name>vDuration</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę zamknąć pozostałych Kandydatów</errorMessage>
+        <name>vOpenCandidate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę podać inną lokalizację</errorMessage>
+        <name>vOtherLocationRequiredIfLocationIsOther</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę ustawić ilość</errorMessage>
+        <name>vPlacement</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę ustawić stawkę</errorMessage>
+        <name>vRate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę ustawić wnioskodawcę</errorMessage>
+        <name>vRequestor</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę wprowadzić główne oraz drugorzędne umiejętności</errorMessage>
+        <name>vSkills</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Close_Request --></label>
+        <name>Close_Request</name>
+    </webLinks>
+    <webLinks>
+        <label>Zarządaj CV od HR</label>
+        <name>RequestCvsFromHr</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_CVs_from_HR --></label>
+        <name>Request_CVs_from_HR</name>
+    </webLinks>
+    <webLinks>
+        <label>Wyślij CV do Twórcy RR</label>
+        <name>SendCVtoRequestor</name>
+    </webLinks>
+</CustomObjectTranslation>

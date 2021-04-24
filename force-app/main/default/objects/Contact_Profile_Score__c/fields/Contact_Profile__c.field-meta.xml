@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Profile__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Employee Profile</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Achievement_Set__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employee Profile</value>
+        </filterItems>
+        <filterItems>
+            <field>$Source.Contact__c</field>
+            <operation>equals</operation>
+            <valueField>Achievement_Set__c.Contact__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Achievement_Set__c</referenceTo>
+    <relationshipLabel>Employee Profile Probes (Employee Profile)</relationshipLabel>
+    <relationshipName>Contact_Profile_Scores</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

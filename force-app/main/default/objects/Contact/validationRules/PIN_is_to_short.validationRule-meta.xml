@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PIN_is_to_short</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK(WiFi_PIN__c)),LEN(WiFi_PIN__c) &lt; 6)</errorConditionFormula>
+    <errorDisplayField>WiFi_PIN__c</errorDisplayField>
+    <errorMessage>PIN is too short, min 6 characters required</errorMessage>
+</ValidationRule>

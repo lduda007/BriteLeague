@@ -1,0 +1,48 @@
+{
+  "appPageId" : "caa04331-be5e-4820-94ac-cdb0db3332fe",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "f4c44aef-fd8f-49b6-bbd6-4a87c1d777cc",
+  "label" : "Register",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align: center;\">Join the community to receive personalized information and customer support.</div>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "8497544e-752b-49eb-8048-2bdc3f5a1b5d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align: center;\"><a href=\"./\">Already have an account?</a></div>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "a9bebc68-01ec-429a-8045-05220687b0e3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "71b3c8eb-29ef-4fec-b2e3-a44a2f7c4174",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Register"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "13f3c12e-8bb4-4e15-92cb-84cab59ac607",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "621dac95-55a5-4e7f-9010-41eb66acb919",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "self-register"
+}

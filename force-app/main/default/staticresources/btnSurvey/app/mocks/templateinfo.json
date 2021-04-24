@@ -1,0 +1,163 @@
+[{
+    "templateApiName": "ankieta_do_oceny_umiejętności",
+    "submittable": false,
+    "startDate": "2016-09-14",
+    "name": "Ankieta do oceny umiejętności",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001HP02UAG",
+    "endDate": null,
+    "description": "Ankieta do oceny swoich umiejętności i umiejętności współpracowników",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umiejętności_net",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny umiejętności .NET",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001Ns7XUAS",
+    "endDate": null,
+    "description": "Ankieta do oceny umiejętności .NET",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności_net",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umiejętności_frontendu",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny umiejętności Frontendu",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001NvBaUAK",
+    "endDate": null,
+    "description": "Ankieta do oceny umiejętności Frontendu.",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności_frontendu",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umiejętności_miękkich",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny Umiejętności Miękkich",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001NvBuUAK",
+    "endDate": null,
+    "description": "Ankieta do oceny Umiejętności Miękkich",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności_miękkich",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umijętności_java",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny umijętności Java",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001NvErUAK",
+    "endDate": null,
+    "description": null,
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umijętności_java",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umiejętności_bietl",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny umiejętności BI/ETL",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001NvJ9UAK",
+    "endDate": null,
+    "description": "Ankieta do oceny umiejętności BI/ETL.",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności_bietl",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umiejętności_analizy",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny umiejętności Analizy",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001NvItUAK",
+    "endDate": null,
+    "description": "Ankieta do oceny umiejętności Analizy.",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności_analizy",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umiejętności_ogólnych_programistycznych",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny umiejętności Ogólnych Programistycznych",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001NvCHUA0",
+    "endDate": null,
+    "description": "Ankieta do oceny umiejętności Ogólnych Programistycznych.",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności_ogólnych_programistycznych",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}, {
+    "templateApiName": "ankieta_do_oceny_umiejętności_sfdc",
+    "submittable": false,
+    "startDate": "2016-09-28",
+    "name": "Ankieta do oceny umiejętności SFDC",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0N4E000001NusnUAC",
+    "endDate": null,
+    "description": "Ankieta do oceny umiejętności SFDC",
+    "surveys": [{
+        "userId": "marcin.kapusta@britenet.com.pl",
+        "templateApiName": "ankieta_do_oceny_umiejętności_sfdc",
+        "surveyId": "a0E4E000000OHwrUAG",
+        "name": "Marcin Kapusta",
+        "dueDate": null
+    }]
+}]

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Moje_kontakty_z_kartkami</fullName>
+    <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>KartkaPL__c</columns>
+    <columns>KartkaENG__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.ADDRESS2_STREET</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Business</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_STREET</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>KartkaPL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>KartkaENG__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Moje kontakty z kartkami</label>
+</ListView>

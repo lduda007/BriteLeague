@@ -1,0 +1,68 @@
+<apex:page standardController="Contact_Profile_Score__c" extensions="ContactAchievementSetScorePageExtension">
+    <apex:sectionHeader title="{!$ObjectType.Contact_Profile_Score__c.Label}" subTitle="{!Contact_Profile_Score__c.Contact__r.Name} - {!Contact_Profile_Score__c.Achievement_Profile__r.Name}"/>
+
+    <script>
+    var dataArray = [{'match':parseInt({!Contact_Profile_Score__c.Match__c}*100),'name':'{!$ObjectType.Contact_Profile_Score__c.fields.Match__c.Label}'}];
+    </script>
+
+    <apex:form >
+        <apex:pageBlock id="pageBlock" title="{!$Label.Details}" mode="maindetail">
+            <apex:pageMessages />
+
+            <div style="overflow:hidden; width:100%">
+                <div style="width:50%; float:left; margin-top:31px;">
+                    <apex:pageBlockSection columns="1" title=" " collapsible="false">
+                        <apex:outputField value="{!Contact_Profile_Score__c.Contact__c}"/>
+                        <apex:outputField value="{!Contact_Profile_Score__c.Contact_Profile__c}"/>
+                        <apex:outputField value="{!Contact_Profile_Score__c.Achievement_Profile__c}"/>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Contact_Profile_Score__c.fields.Match__c.Label}"/>
+                            <apex:outputText value="{!LPAD(TEXT(Contact_Profile_Score__c.Match__c * 100), 3, '0')} %"/>
+                        </apex:pageBlockSectionItem>                    
+                    </apex:pageBlockSection>
+                </div>
+                <div style="width:40%; float:left; text-align:center;">
+                    <apex:chart height="180" width="300" animate="true" legend="true" data="dataArray">
+                        <apex:axis type="Gauge" position="left" minimum="0" maximum="100" steps="10" title="{!$ObjectType.Contact_Profile_Score__c.fields.Match__c.Label}"/>
+                        <apex:gaugeSeries dataField="match" highlight="true" tips="true" donut="50" colorSet="#78c953, #ddd">
+                            <apex:chartLabel display="over"/>
+                        </apex:gaugeSeries>
+                    </apex:chart>
+                </div>
+            </div>
+        </apex:pageBlock>
+
+        <apex:actionRegion >
+            <apex:pageBlock id="achievementSection" mode="maindetail" title="{!$ObjectType.Achievement__c.LabelPlural}">
+                <apex:pageBlockSection columns="2" title="{!$Label.Search}" collapsible="true">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel ></apex:outputLabel>
+                        <apex:outputPanel >
+                            <apex:commandButton value="{!$Label.Apply}"/>
+                            &nbsp;&nbsp;
+                            <apex:commandLink action="{!selectAllCategories}" value="{!$Label.Select_All}"/>
+                            &nbsp;&nbsp;
+                            <apex:commandLink action="{!unselectAllCategories}" value="{!$Label.Unselect_All}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem />
+    
+                    <apex:repeat value="{!categoryFilters}" var="categoryFilter">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!categoryFilter.category.Name}"/>
+                            <apex:inputCheckbox value="{!categoryFilter.selected}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="1" title=" " collapsible="false">
+                    <apex:repeat value="{!achievementGroups}" var="group">
+                        <c:AchievementSet name="{!group.name}" achievements="{!group.achievements}" levels="{!achievementLevels}" readonly="true" showAll="false" highlight="true" showComparedRecords="true" rendered="{!group.hasValueToCompare}"/>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:actionRegion>
+
+    </apex:form>
+</apex:page>

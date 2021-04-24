@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vLeader</fullName>
+    <active>true</active>
+    <description>For Internal Onboarding Leader is Required</description>
+    <errorConditionFormula>(RecordType.DeveloperName = &apos;InternalOnboarding&apos;) &amp;&amp; ISBLANK(Leader__c) 
+|| (RecordType.DeveloperName = &apos;InternalOnboarding&apos;) &amp;&amp; (Leader__r.Id = ContactId)</errorConditionFormula>
+    <errorMessage>Please specify proper Contact Leader</errorMessage>
+</ValidationRule>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License</fullName>
+    <active>true</active>
+    <description>Licencje</description>
+    <label>License</label>
+    <picklistValues>
+        <picklist>Company__c</picklist>
+        <values>
+            <fullName>Britenet</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Britenet Operations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Britenet Polska</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>License_Type__c</picklist>
+        <values>
+            <fullName>Box</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Floating</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serial</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Location__c</picklist>
+        <values>
+            <fullName>DataCenter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kielce IX Wieków</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Klient</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lublin Hamleta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lublin Morwowa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poznań Strzelecka</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warszawa Bukowińska</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warszawa Wołoska</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subscription_Type__c</picklist>
+        <values>
+            <fullName>Dożywotnia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Miesięczna</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roczna</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Licencja</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Vendor__c</picklist>
+        <values>
+            <fullName>Inny</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OVH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Microsoft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sparx</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

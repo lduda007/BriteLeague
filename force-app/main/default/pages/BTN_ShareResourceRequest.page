@@ -1,0 +1,26 @@
+<apex:page standardController="BTN_ResourceRequest__c" extensions="BTN_ShareResourceRequestController">
+    <apex:form >
+        <apex:pageBlock title="{!$Label.Share_Resource_Request_with_HR_User}">
+            <apex:pageMessages id="msg"></apex:pageMessages>
+            <apex:pageBlockSection title="{!$Label.SelectUser}" columns="1">
+                <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="{!$Label.SelectUser}" />
+                     <apex:selectList value="{!aShare.UserOrGroupId}" multiselect="false" required="true" size="1">
+                        <apex:selectOptions value="{!availableUsers}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Comments__c.Label}" />
+                    <apex:inputTextarea value="{!aComment}" style="width: 30%" rows="5"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton id="SubmitBtn"
+                        value="{!$Label.Save_Button}"
+                        action="{!insertShare}"
+                        rendered="{!aShare.UserOrGroupId = null}"
+                />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

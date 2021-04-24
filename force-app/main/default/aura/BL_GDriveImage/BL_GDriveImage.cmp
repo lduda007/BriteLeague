@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="BL_GDriveImageController" >
+    <aura:attribute name="pictureSrc" type="String"
+            default="https://s3-us-west-1.amazonaws.com/sfdc-demo/image-placeholder.png"/>
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="recordLoadError" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="change" value="{!v.record}" action="{!c.recordLoaded}"/>
+
+    <force:recordData aura:id="recordLoader"
+            recordId="{!v.recordId}"
+            fields="Logo_Id__c"
+            targetFields="{!v.record}"
+            targetError="{!v.recordLoadError}"
+    />
+<div style="position: relative; display: block; width: 200px;" class="slds-is-relative">
+    <lightning:spinner aura:id="spinner" />
+
+    <lightning:card class="slds-m-around_medium" >
+        <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}">
+            <img src="{!v.pictureSrc}" onload="{!c.imageLoaded}" style="margin: auto; display: block;"/>
+        </div>
+    </lightning:card>
+</div>
+</aura:component>

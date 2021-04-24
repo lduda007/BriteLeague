@@ -1,0 +1,76 @@
+<apex:page showHeader="true" controller="BTN_SendEmailController" sidebar="true" tabStyle="BTN_ResourceRequest__c">
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-ui.min.js')}"/>
+    <apex:includeScript value="{!$Resource.jQueryLoading}/showLoading/js/jquery.showLoading.js"/>
+    <apex:stylesheet value="{!$Resource.jQueryLoading}/showLoading/css/showLoading.css"/>
+    <style type="text/css">
+        .wideTextArea {
+            width: 80%;
+            height: 18em;
+        }
+
+        .subject {
+            width: 80%;
+            height: 1.11em;
+        }
+
+        .cke_browser_gecko {
+            width: 80%;
+        }
+
+        li {
+            list-style-type: none !important;
+        }
+    </style>
+    <script type="text/javascript">
+    </script>
+    <apex:form >
+        <apex:pageBlock id="thePageBlock">
+                <!-- email zone -->
+            <apex:pageMessages id="msg"/>
+            <apex:pageBlockSection title="{!$Label.EmailDetails}" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Sender}"/>
+                    <apex:inputText value="{!sender}" styleClass="subject"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Recipient}"/>
+                     <apex:inputText value="{!recipientEmail}" styleClass="subject" >
+                     	<apex:actionSupport event="onblur" action="{!generateTemplate}" onSubmit="$('#contentWrapper').showLoading()" oncomplete="$('#contentWrapper').hideLoading()"/>
+                     </apex:inputText>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Subject}"/>
+                    <apex:inputText value="{!subject}" styleClass="subject"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem id="msgBodySectionItem">
+                    <apex:outputLabel value="{!$Label.AdditionalComment}"/>
+                    <apex:inputTextarea id="msgBody" value="{!emailBody}" styleClass="wideTextArea" richText="true"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="attachmentsSection" title="{!$Label.AttachmentSec}" columns="1"
+                                   rendered="{!withAttachments}">
+                <apex:pageBlockTable value="{!attachmentsWraps}" var="item">
+                	<apex:column headerValue="{!$Label.Select}" >
+                		<apex:inputCheckbox value="{!item.selected}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.CandidateName}" value="{!item.cv.Name}">
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.Name.Label}" value="{!item.cv
+                            .ContactName_frm__c}">
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.BTN_CV__c.Fields.Status__c.Label}"
+                            value="{!item.cv.Status__c}"
+                    >
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.AttachedCVName}" value="{!item.att.Name}">
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton disabled="{!attachments.size == 0 && $CurrentPage.parameters.type=='resreq' || emailFormatRecipients.size == 0 && $CurrentPage.parameters.type=='hrcvreq'}" value="{!$Label.SendEmailBtn}" action="{!sendEmail}" reRender="msg" onclick="$('#contentWrapper').showLoading()" oncomplete="$('#contentWrapper').hideLoading()"/>
+                <apex:commandButton value="{!$Label.GoBack}" action="{!goBack}" onclick="$('#contentWrapper').showLoading()" oncomplete="$('#contentWrapper').hideLoading()"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

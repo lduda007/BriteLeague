@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InternalContactAssignedToBritenet</fullName>
+    <active>false</active>
+    <description>Ensures all Internal contacts are assigned to Britenet Account</description>
+    <errorConditionFormula>RecordType.DeveloperName = &apos;Internal&apos; &amp;&amp; Account.Name != &apos;Britenet Sp. z o.o.&apos;</errorConditionFormula>
+    <errorMessage>Internal contacts (employees) can be assigned to Britenet account only.</errorMessage>
+</ValidationRule>

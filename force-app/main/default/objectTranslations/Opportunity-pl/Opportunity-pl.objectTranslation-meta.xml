@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Opportunity Layout</layout>
+        <sections>
+            <label><!-- Amount Information --></label>
+            <section>Amount Information</section>
+        </sections>
+        <sections>
+            <label>Informacje dotyczące kontraktu</label>
+            <section>Contract Information</section>
+        </sections>
+        <sections>
+            <label>Przewodnik</label>
+            <section>Guidance</section>
+        </sections>
+        <sections>
+            <label>Informacje</label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label>Szczegóły dotyczące zamówienia</label>
+            <section>Order Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout Fixed</layout>
+        <sections>
+            <label>Informacje dotyczące kontraktu</label>
+            <section>Contract Information</section>
+        </sections>
+        <sections>
+            <label>Przewodnik</label>
+            <section>Guidance</section>
+        </sections>
+        <sections>
+            <label>HR</label>
+            <section>HR</section>
+        </sections>
+        <sections>
+            <label>Informacje</label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label>Szczegóły dotyczące zamówienia</label>
+            <section>Order Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout Fixed 2</layout>
+        <sections>
+            <label><!-- Amount Information --></label>
+            <section>Amount Information</section>
+        </sections>
+        <sections>
+            <label>Informacje dotyczące kontraktu</label>
+            <section>Contract Information</section>
+        </sections>
+        <sections>
+            <label>Przewodnik</label>
+            <section>Guidance</section>
+        </sections>
+        <sections>
+            <label>Informacje</label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label>Szczegóły dotyczące zamówienia</label>
+            <section>Order Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Fixed price --></label>
+        <name>FixedPrice</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Support --></label>
+        <name>Support</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Time &amp; Material --></label>
+        <name>TimeMaterial</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>Proszę podać wytłumaczenie</errorMessage>
+        <name>CloseDetailsMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę uzupełnić dane</errorMessage>
+        <name>ContactMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę uzupełnić dane</errorMessage>
+        <name>ContractStartMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę uzupełnić dane</errorMessage>
+        <name>DescriptionMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Data zakończenia kontraktu musi być po dacie rozpoczęcia kontraktu</errorMessage>
+        <name>EndDateHasToBeAfterStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę uzupełnić dane</errorMessage>
+        <name>LanguageMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę uzupełnić dane</errorMessage>
+        <name>LocationMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę uzupełnić dane</errorMessage>
+        <name>MainSkillsMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę podać datę dla następnego kroku oraz daty jego zakończenia, lub nie podawać wcale</errorMessage>
+        <name>NextStepValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę podać inną lokalizację</errorMessage>
+        <name>OtherLocationMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę podać powód</errorMessage>
+        <name>ReasonForLostMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please contact RM / HR for closing remaining Candidates on related Resource Request. --></errorMessage>
+        <name>vOpenCandidatesInRR</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Fix_Opportunity --></label>
+        <name>New_Fix_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_TM_Opportunity --></label>
+        <name>New_TM_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Old_Opportunity --></label>
+        <name>Old_Opportunity</name>
+    </webLinks>
+</CustomObjectTranslation>

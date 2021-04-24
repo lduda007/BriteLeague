@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_Profiled</fullName>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>BTN_Event__c.Interview</value>
+    </filters>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>External Interview</value>
+    </filters>
+    <filters>
+        <field>Profiling__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Not Profiled</label>
+    <language>en_US</language>
+</ListView>

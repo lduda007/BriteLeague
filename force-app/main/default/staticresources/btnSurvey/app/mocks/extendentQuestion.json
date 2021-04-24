@@ -1,0 +1,1240 @@
+[
+    {
+    "templateApiName": "ankieta_opisująca_profile_pracowników",
+    "submittable": false,
+    "startDate": "2016-07-04",
+    "name": "Ankieta opisująca profile pracowników",
+    "multiSurvey": false,
+    "isPrivate": true,
+    "importance": null,
+    "id": "ankieta_opisująca_profile_pracowników",
+    "endDate": null,
+    "description": "Ankieta opisująca profile pracowników",
+    "questions": [{
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 1,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Apex",
+        "isSystem": false,
+        "id": "a0B3E000000BrREUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "wykorzystanie certyfikatów w integracjach, wykonywanie code review, 2 lata doświadczenia, może uczyć innych oraz wyceniać funkcjionalości, osoba kontaktowa w przypadku zapytań o daną umiejętność",
+            "Professional": "1 rok doświadczenia.  Znajomość API standardowego,  batche, scheduler, exceptions,  wywołania asynchroniczne, callouty, webservice's, rest,  kontrolery VF/LC,  limity APEXa.",
+            "Junior": "podstawy języka,  składnia (typy, klasy, instrukcje warunkowe, pętle) Dziedziczenie",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 2,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "AppExchange",
+        "isSystem": false,
+        "id": "a0B3E000000BrRlUAK",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "umie wrzucić package na AppExchange, zna zaplecze biznesowe",
+            "Professional": "umie stworzyć package",
+            "Junior": "umie zainstalować package",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 3,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Community Cloud",
+        "isSystem": false,
+        "id": "a0B3E000000BrKXUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "Znajomość cen i licencji, umiejętność wycenienia projektu opierającego się o Community Cloud. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "Umiejętność stworzenia niestandardowych layoutów, znajomość ograniczeń profili Community Cloud, wiedza o zakresie konfiguracji dostępnym Community Management Console, znajomośc reguł eskalacji, Question-to-Case, znajomość Site'ów, integracja z social media",
+            "Junior": "Znajomość podstawowych zasad działania i przeznaczenia Community Cloud, umiejętność konfiguracji podstawowego rozwiązania.",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 4,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Konfiguracja SFDC",
+        "isSystem": false,
+        "id": "a0B3E000000BrKQUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "ant migration tool, developer console, security certs,  różnice między licencjami, connected app, SSO",
+            "Professional": "umie konfigurować: obiekty niestandardowe, history tracking, activity, change sety/package,  workfows/process builder/flow, data loader, import/export wizard, apex jobs, znajomość limitów, refresh sandboxów, approval procesy, Lightning Connect",
+            "Junior": "umie konfigurować: profile, perm sety, grupy role, tłumaczenia, userów, zarządzać obiektami std (Lead/Account/Contact/Opportunity), app, taby",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 5,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Lightning Components",
+        "isSystem": false,
+        "id": "a0B3E000000BrKNUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "Umiejętność wycenienia oraz wdrożenia projektu opierającego się o Lightning Components. Wiedza potwierdzona więcej niż jednym projektem. Osoba kontaktowa w przypadku zapytań o daną umiejętność.",
+            "Professional": "Rozumienie Event Driven Development. Umiejętność tworzenia customowych komponentów. Znajomość limitów, ograniczeń i dobrych praktyk. Znajomość Lightning Design System. Wiedza potwierdzona projektem.",
+            "Junior": "Znajomość  architektury i podstawowych komponentów LC (pakiet ui). Wiedza potwierdzona projektem lub Trailhead",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 6,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Lightning Experience",
+        "isSystem": false,
+        "id": "a0B3E000000BrKPUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "umiejętność wycenienia oraz wdrożenia projektu opierającego się o Lightning Experience. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "umiejętność samodzielnego wdrożenia projektu, znajomość limitów i ograniczeń. Umiętność użycia gotowych LC, VF, App Buldera do tworzenia stron LEX.",
+            "Junior": "kontakt z technologią w projekcie lub zdobyte odznaki w trailhead. Podstawowa znajomość nowych funkcjonalności (Home, Dashboards, Opportunity, Account & Contacts, Lead)",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 7,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Marketing Cloud",
+        "isSystem": false,
+        "id": "a0B3E000000BrKSUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "Znajomość cen i licencji, umiejętność wycenienia projektu opierającego się o Marketing Cloud. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "Umiejętność budowania kampanii, znajomość Journey Builder, Audience Builder, Contact Builder, Automation Studio, Analytics i budowania raportów.",
+            "Junior": "Znajomość przeznaczenia narzedzia, umiejętnośc konfiguracji połączenia z sfdc.",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 8,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "ngForce",
+        "isSystem": false,
+        "id": "a0B3E000000BrKWUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "umiejętność wycenienia projektu opierającego się o ngForce. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "umiejętność samodzielnego stworzenia aplikacji używającej ngForce od podstaw. Wiedza potwierdzona projektem, praca jako jeden z głównych programistów",
+            "Junior": "kontakt z technologią w projekcie, znajomość architektury i założeń biblioteki. Znajomość JSRemoting",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 9,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Reports and Dashbords",
+        "isSystem": false,
+        "id": "a0B3E000000BrKTUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "Zna bardzo dobrze zagadnienia związane z raportami i dashboardami, umie zarządzać sharingami. Umiejętność wycenienia raportów, dashbordów i analitic cloud. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "Umie tworzyć zaawansowane raporty i dashboardy oraz potrafi łączyć je ze sobą. Umie schedulować raporty. Analitic Wave",
+            "Junior": "Umie tworzyć podstawowe raporty przy użyciu Report Buildera oraz Dashboardy przy użyciu Dashboard Buildera.",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 10,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Sales Cloud",
+        "isSystem": false,
+        "id": "a0B3E000000BrKRUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność",
+            "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+            "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 11,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Salesforce 1",
+        "isSystem": false,
+        "id": "a0B3E000000BrKOUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "Umiejętność wycenienia projektu opierającego się o Salesforce 1. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "Umie tworzyć zaawansowane strony Visualforce dla Salesforce1 (Remote Object, Actions)oraz płynnie poruszać się w środowisku Salesforce1",
+            "Junior": "Zna podstawy Salesforce1 i potrafi wykonać podstawową konfigurację jak np. konfigurację menu, actionów czy ustawienia Compact Layout. Umie tworzyć podstawowe strony VisualForce oraz Ligthing Components i używać ich w Salesforce1.",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 12,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Service Cloud",
+        "isSystem": false,
+        "id": "a0B3E000000BrKUUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "Integracja z Open CTI, znajomość Omni-Channel, LiveAgent, Entitlement Management, Service Console i implementacja customowych componentów, znajomośc licencji i cen. Umiejętność wycenienia projektu opierającego się o Service Cloud. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "Znajomość interface'u InboundEmailHandler, konfiguracji Knowledge Base, Solutions i Suggested Solutions, question-to-case",
+            "Junior": "Znajomość podstawowych obiektów Service Cloud (Case, Contact), znajomość mechanizmów web-to-case i email-to-case, tworzenia automatycznych reguł przypisań, eskalacji i automatycznych odpowiedzi, znajomość kolejek i grup.",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 13,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "SFDC Mobile SDK",
+        "isSystem": false,
+        "id": "a0B3E000000BrKVUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "umiejętność wycenienia projektu opierającego się o Mobile SDK. Wiedza potwierdzona więcej niż jednym projektem.",
+            "Professional": "umiejętność samodzielnego stworzenia aplikacji używającej Mobile SDK od podstaw na konkretnej platformie (Android, iOS, Hybrid, HTML), Wiedza potwierdzona projektem, praca jako jeden z głównych programistów",
+            "Junior": "kontakt z technologią w projekcie, znajomość architektury i założeń biblioteki, podstawowa znajomość interfejsów SmartSync i SmartStore, Identity & Security",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 14,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "SOQL",
+        "isSystem": false,
+        "id": "a0B3E000000BrRjUAK",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "może uczyć innych oraz wyceniać funkcjonalności,  wiedza potwierdzona pracą w kilku projektach, pisze optymalne zapytania - wie kiedy ma do czynienia z indexami",
+            "Professional": "Korzystanie z relacji,  znajomość funkcji do Date/DateTime, znajmość z jakich typów pól nie moze korzystać w klauzuli Where",
+            "Junior": "Aliasowanie, podstawowe limity, funkcje agregujące, klauzule having/group by/order by",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 15,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "SOSL",
+        "isSystem": false,
+        "id": "a0B3E000000BrRkUAK",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność",
+            "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+            "Junior": "zna limity",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 16,
+        "options": [{
+            "name": "-- none --",
+            "id": null
+        }, {
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Visualforce",
+        "isSystem": false,
+        "id": "a0B3E000000BrKMUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "znajomość Sites, tworzenie customowych stron > 1 rok",
+            "Professional": "Znajmość ActionFunction/Support/Region, używanie StaticResources.",
+            "Junior": "Znajomość podstawowych właściwości kontrolek APEX, znajomość komponentów APEX'owych, wykorzystanie custom labels, korzystanie z kontrolerów.",
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }, {
+        "type": "percent",
+        "readOnly": true,
+        "question": null,
+        "order": 17,
+        "options": null,
+        "name": "SFDC Administrator",
+        "isSystem": false,
+        "id": "a0B3E000000BrTBUA0",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": null,
+            "Professional": null,
+            "Junior": null,
+            "Default": null
+        },
+        "category": "SFDC",
+        "canOpen": true
+    }]
+},
+    {
+        "template": {
+            "templateApiName": "3",
+            "id": "3",
+            "name": "Survey multiselect 3",
+            "description": "Survey 1 description",
+            "active": true,
+            "isPrivate": false,
+            "submitable": false,
+            "visibility": true,
+            "multiSurvey": true,
+                    "questions": [{
+                "canOpen": true,
+                "descriptions": {
+                    "s": 2,
+                    "v": {}
+                },
+                "parentIds": {
+                    "s": 3,
+                    "v": []
+                },
+                "required": true,
+                "id": "email",
+                "name": "Employee",
+                "options": {
+                    "s": 4,
+                    "v": [{
+                        "name": "-- none --"
+                    }, {
+                        "id": "marcin.kapusta@britenet.com.pl",
+                        "name": "Marcin Kapusta"
+                    }, {
+                        "id": "michal.banasik@britenet.com.pl",
+                        "name": "Michał Banasik"
+                    }]
+                },
+                "order": 0,
+                "readOnly": false,
+                "type": "email"
+            }, {
+                "canOpen": true,
+                "category": "Java",
+                "descriptions": {
+                    "s": 5,
+                    "v": {}
+                },
+                "parentIds": {
+                    "s": 6,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvqUAG",
+                "name": "Java Experience",
+                "order": 1,
+                "readOnly": false,
+                "type": "positiveInteger"
+            }, {
+                "canOpen": true,
+                "category": "Java",
+                "descriptions": {
+                    "s": 7,
+                    "v": {}
+                },
+                "parentIds": {
+                    "s": 8,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvvUAG",
+                "name": "Junior Java Developer I",
+                "options": {
+                    "s": 9,
+                    "v": [{
+                        "name": "-- none --"
+                    }, {
+                        "id": "Yes",
+                        "name": "Yes"
+                    }]
+                },
+                "order": 2,
+                "readOnly": false,
+                "type": "select"
+            }, {
+                "canOpen": true,
+                "category": "Java",
+                "descriptions": {
+                    "s": 10,
+                    "v": {
+                        "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+                        "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+                        "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność"
+                    }
+                },
+                "parentIds": {
+                    "s": 11,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvgUAG",
+                "name": "Apache Axis",
+                "options": {
+                    "s": 12,
+                    "v": [{
+                        "name": "-- none --"
+                    }, {
+                        "id": "Junior",
+                        "name": "Junior"
+                    }, {
+                        "id": "Professional",
+                        "name": "Professional"
+                    }, {
+                        "id": "Senior",
+                        "name": "Senior"
+                    }]
+                },
+                "order": 3,
+                "readOnly": false,
+                "type": "select"
+            }, {
+                "canOpen": true,
+                "category": "Java",
+                "descriptions": {
+                    "s": 13,
+                    "v": {
+                        "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+                        "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+                        "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność"
+                    }
+                },
+                "parentIds": {
+                    "s": 14,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvWUAW",
+                "name": "Spring",
+                "options": {
+                    "r": 12
+                },
+                "order": 4,
+                "readOnly": false,
+                "type": "select"
+            }, {
+                "canOpen": true,
+                "category": "Java",
+                "descriptions": {
+                    "s": 15,
+                    "v": {
+                        "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+                        "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+                        "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność"
+                    }
+                },
+                "parentIds": {
+                    "s": 16,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvbUAG",
+                "name": "Struts",
+                "options": {
+                    "r": 12
+                },
+                "order": 5,
+                "readOnly": false,
+                "type": "select"
+            }, {
+                "canOpen": true,
+                "category": "Salesforce",
+                "descriptions": {
+                    "s": 17,
+                    "v": {}
+                },
+                "parentIds": {
+                    "s": 18,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvRUAW",
+                "name": "Salesforce Experience",
+                "order": 6,
+                "readOnly": false,
+                "type": "positiveInteger"
+            }, {
+                "canOpen": true,
+                "category": "Salesforce",
+                "descriptions": {
+                    "s": 19,
+                    "v": {}
+                },
+                "parentIds": {
+                    "s": 20,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvMUAW",
+                "name": "SFDC Developer I",
+                "options": {
+                    "s": 21,
+                    "v": [{
+                        "name": "-- none --"
+                    }, {
+                        "id": "Yes",
+                        "name": "Yes"
+                    }]
+                },
+                "order": 7,
+                "readOnly": false,
+                "type": "select"
+            }, {
+                "canOpen": true,
+                "category": "Salesforce",
+                "descriptions": {
+                    "s": 22,
+                    "v": {
+                        "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+                        "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+                        "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność"
+                    }
+                },
+                "parentIds": {
+                    "s": 23,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIv7UAG",
+                "name": "Apex",
+                "options": {
+                    "r": 12
+                },
+                "order": 9,
+                "readOnly": false,
+                "type": "select"
+            }, {
+                "canOpen": true,
+                "category": "Salesforce",
+                "descriptions": {
+                    "s": 24,
+                    "v": {
+                        "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+                        "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+                        "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność"
+                    }
+                },
+                "parentIds": {
+                    "s": 25,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvHUAW",
+                "name": "SOQL",
+                "options": {
+                    "r": 12
+                },
+                "order": 10,
+                "readOnly": false,
+                "type": "select"
+            }, {
+                "canOpen": true,
+                "category": "Salesforce",
+                "descriptions": {
+                    "s": 26,
+                    "v": {
+                        "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+                        "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+                        "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność"
+                    }
+                },
+                "parentIds": {
+                    "s": 27,
+                    "v": []
+                },
+                "required": false,
+                "id": "a0B3E000000BIvCUAW",
+                "name": "Visualforce",
+                "options": {
+                    "r": 12
+                },
+                "order": 11,
+                "readOnly": false,
+                "type": "select"
+            }]
+        }
+    },
+    {
+        "template": {
+            "templateApiName": "2",
+            "id": "2",
+            "name": "Survey multiselect",
+            "description": "Survey 1 description",
+            "active": true,
+            "isPrivate": false,
+            "submitable": false,
+            "visibility": true,
+            "multiSurvey": true,
+            "questions": [
+                {
+                    "id": "id-15",
+                    "type": "select",
+                    "readOnly": true,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 2,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description sleect",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-2",
+                    "type": "email",
+                    "readOnly": false,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 4,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description email",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-3",
+                    "type": "picklist",
+                    "readOnly": false,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 3,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description picklist",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "root",
+                    "name":"info type",
+                    "type":"info",
+                    "readOnly": false,
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "value":"Senior"
+                },
+                {
+                    "id": "id-152",
+                    "type": "select",
+                    "readOnly": true,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 2,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description sleect",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-122",
+                    "type": "email",
+                    "readOnly": false,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 4,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description email",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-133",
+                    "type": "picklist",
+                    "readOnly": false,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 3,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description picklist",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "root21",
+                    "name":"info type",
+                    "type":"info",
+                    "readOnly": false,
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "value":"Senior"
+                },
+                {
+                    "id": "id-11235",
+                    "type": "select",
+                    "readOnly": true,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 2,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description sleect",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-2121",
+                    "type": "email",
+                    "readOnly": false,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 4,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description email",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "id-12213",
+                    "type": "picklist",
+                    "readOnly": false,
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 3,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "name": "test new description picklist",
+                    "required": "true",
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "options": [
+                        {
+                            "id": null,
+                            "name": "Michal Michal"
+                        },
+                        {
+                            "id": "Junior",
+                            "name": "Michal Michal2"
+                        },
+                        {
+                            "id": "Senior",
+                            "name": "Michal Michal3"
+                        }
+                    ]
+                },
+                {
+                    "id": "roo12t",
+                    "name":"info type",
+                    "type":"info",
+                    "readOnly": false,
+                    "descriptions":{
+                        "Junior":"opis junior",
+                        "Senior":"opis senior",
+                        "Professional":"opis prof",
+                        "Default":"dupa"
+                    },
+                    "value":"Senior"
+                }
+            ]
+        }
+    },
+    {
+        "template": {
+            "templateApiName": "1",
+            "id": "1",
+            "name": "Survey 1",
+            "description": "Survey 1 description",
+            "active": true,
+            "isPrivate": false,
+            "submitable": true,
+            "visibility": true,
+            "multiSurvey": false,
+            "questions": [
+                {
+                    "id": "root",
+                    "name":"root",
+                    "type":"info",
+                    "readOnly": true
+                },
+                {
+                    "id": "id-1",
+                    "type": "percent",
+                    "x": 0.4,
+                    "y": 0.4,
+                    "order": 1,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "readOnly": false,
+                    "name": "Percent"
+                },
+                {
+                    "id": "id-2",
+                    "type": "text",
+                    "x": 0.4,
+                    "y": 0.6,
+                    "order": 2,
+                    "description":"some descrption about skill",
+                    "parentIds": ["root"],
+                    "achievementSetId": "9009290AXsd3342",
+                    "readOnly": false,
+                    "name": "Survey 1 question 2?"
+                },
+                {
+                    "id": "id-16",
+                    "type": "info",
+                    "x": 0.8,
+                    "y": 0.6,
+                    "order": 16,
+                    "description":"some descrption about skill",
+                    "readOnly": false,
+                    "isOpen": false,
+                    "achievementSetId": "9009290AXsd3342",
+                    "parentIds": ["id-12"],
+                    "name": "Survey 1 question 16?"
+                }
+            ]
+        }
+    }
+]

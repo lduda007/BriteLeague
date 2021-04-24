@@ -1,0 +1,33 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "1bf2823f-d712-4d81-a4d1-13cb3285ba78",
+  "label" : "Team Related List",
+  "regions" : [ {
+    "id" : "09791a31-1a93-4c01-84ad-b748522584dd",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "parentRecordId" : "{!parentRecordId}",
+        "relatedListName" : "{!relatedListName}"
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "4170a826-f60f-4544-86f3-8c7e21048af9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1f8dad26-87f9-4bb8-8e05-d0f2a8b80fa1",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "1aa22b25-3159-40dc-a089-37dc49dfda13",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "relatedlist-a0g"
+}

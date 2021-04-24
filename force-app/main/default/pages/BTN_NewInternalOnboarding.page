@@ -1,0 +1,239 @@
+<!--
+ - Created by Adam on 4/22/2018.
+ -->
+
+<apex:page id="BTN_NewInternalOnboarding" standardController="Case" extensions="BTN_NewInternalOnboardingController">
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-ui.min.js')}"/>
+    <apex:includeScript value="{!$Resource.jQueryLoading}/showLoading/js/jquery.showLoading.js"/>
+    <apex:stylesheet value="{!$Resource.jQueryLoading}/showLoading/css/showLoading.css"/>
+    <style>
+        .OneColumnInputWidth {
+            width: 27%
+        }
+
+        .OneColumnInputWidthInTwoColumnSection {
+            width: 71%
+        }
+    </style>
+    <apex:pageMessages id="msg"/>
+    <apex:form id="f1">
+        <apex:pageBlock >
+            <apex:pageBlockSection title="{!$Label.CaseInfoSection}" columns="2" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.OwnerName}"/>
+                    <apex:outputText value="{!ownerName}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.RecordTypeName}"/>
+                    <apex:outputText value="{!pageRecordTypeName}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.ContactId.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Contact.Fields.Name.Label}"/>
+                    <apex:outputField value="{!Case.ContactId}" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.Status.Label}"/>
+                    <apex:inputField value="{!Case.Status}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageblockSection>
+            <apex:pageBlockSection title="{!$Label.BSUserDataSection}" collapsible="false">
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.NewUserTitle__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.NewUserTitle__c.Label}"/>
+                    <apex:inputField value="{!Case.NewUserTitle__c}" styleClass="OneColumnInputWidthInTwoColumnSection" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.NewUserEmail__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.NewUserEmail__c.Label}"/>
+                    <apex:outputField value="{!Case.NewUserEmail__c}"
+                                      styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.NewUserProjectRole__c.inlineHelpText}">
+
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.NewUserProjectRole__c.Label}"/>
+                    <apex:outputPanel >
+                        <div class="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:selectList multiselect="false"
+                                             size="1"
+                                             value="{!Case.NewUserProjectRoleId__c}"
+                                             required="true"
+                                             styleClass="OneColumnInputWidthInTwoColumnSection">
+                                <apex:selectOptions value="{!projectRoles}"></apex:selectOptions>
+                            </apex:selectList>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.Leader__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.Leader__c.Label}"/>
+                    <apex:inputField value="{!Case.Leader__c}" required="true" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <span></span>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.Guardian__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.Guardian__c.Label}"/>
+                    <apex:inputField value="{!Case.Guardian__c}" styleClass="OneColumnInputWidthInTwoColumnSection" required="true"/>
+                </apex:pageBlockSectionItem>
+                <span></span>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.Location__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.Location__c.Label}"/>
+                    <apex:inputField value="{!Case.Location__c}"
+                                     required="true"
+                                     styleClass="OneColumnInputWidthInTwoColumnSection"
+                    />
+                </apex:pageBlockSectionItem>
+                <span></span>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.OtherLocation__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.OtherLocation__c.Label}"/>
+                    <apex:inputField value="{!Case.OtherLocation__c}"
+                                     required="false"
+                                     styleClass="OneColumnInputWidthInTwoColumnSection"
+                    />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!$Label.ContactDetails}" columns="2" collapsible="false">
+
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Contact.fields.CityLocation__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Contact.Fields.CityLocation__c.Label}"/>
+                    <apex:outputField value="{!sourceRecruit.CityLocation__c}" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.PersonalEmail__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.PersonalEmail__c.Label}"/>
+                    <apex:inputField value="{!Case.PersonalEmail__c}" required="true" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Contact.fields.Location__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Contact.Fields.Location__c.Label}"/>
+                    <apex:outputField value="{!sourceRecruit.Location__c}" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.PersonalPhone__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.PersonalPhone__c.Label}"/>
+                    <apex:inputField value="{!Case.PersonalPhone__c}" required="true" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.City__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.City__c.Label}"/>
+                    <apex:inputField value="{!Case.City__c}"
+                                     required="false"
+                                     styleClass="OneColumnInputWidthInTwoColumnSection"
+                    />
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!Case.Freelancer__c}"/>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.ZipCode__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.ZipCode__c.Label}"/>
+                    <apex:inputField value="{!Case.ZipCode__c}"
+                                     required="false"
+                                     styleClass="OneColumnInputWidthInTwoColumnSection"
+                    />
+                </apex:pageBlockSectionItem>
+                <span></span>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.Street__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.Street__c.Label}"/>
+                    <apex:inputField value="{!Case.Street__c}"
+                                     required="false"
+                                     styleClass="OneColumnInputWidthInTwoColumnSection"
+                    />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection id="employmentDetailsSection"
+                                   title="{!$Label.EmploymentDetails}"
+                                   columns="2"
+                                   collapsible="false"
+            >
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.ContractType__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.ContractType__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!Case.ContractType__c}" required="true">
+                            <apex:actionSupport event="onchange" reRender="employmentDetailsSection"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.WorkStartDate__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.WorkStartDate__c.Label}"/>
+                    <apex:inputField value="{!Case.WorkStartDate__c}" required="true" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem id="SalaryInput"
+                                           helpText="{!IF(NOT(ISBLANK(Case.ContractType__c)),
+                                                   IF(CONTAINS(Case.ContractType__c, 'B2B'),
+                                                           $ObjectType.Case.fields.SalaryB2B__c.inlineHelpText,
+                                                           $ObjectType.Case.fields.SalaryUoP__c.inlineHelpText),
+                                                   '')}">
+                    <apex:outputPanel id="paneUoP">
+                        <apex:outputLabel value="{!$ObjectType.Case.Fields.SalaryUoP__c.Label}"
+                                          rendered="{!AND(NOT(CONTAINS(Case.ContractType__c, 'B2B')), NOT(ISBLANK(Case.ContractType__c)))}"
+                        />
+                        <apex:outputLabel value="{!$ObjectType.Case.Fields.SalaryB2B__c.Label}"
+                                          rendered="{!AND(CONTAINS(Case.ContractType__c, 'B2B'), NOT(ISBLANK(Case.ContractType__c)))}"
+                        />
+                    </apex:outputPanel>
+                    <apex:outputPanel id="paneB2B">
+                        <apex:inputField value="{!Case.SalaryB2B__c}"
+                                         required="true"
+                                         rendered="{!AND(CONTAINS(Case.ContractType__c, 'B2B'), NOT(ISBLANK(Case.ContractType__c)))}"
+                                         styleClass="OneColumnInputWidthInTwoColumnSection"
+                        />
+                        <apex:inputField value="{!Case.SalaryUoP__c}"
+                                         required="true"
+                                         rendered="{!AND(NOT(CONTAINS(Case.ContractType__c, 'B2B')), NOT(ISBLANK(Case.ContractType__c)))}"
+                                         styleClass="OneColumnInputWidthInTwoColumnSection"
+                        />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.WorkStartDateComment__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.WorkStartDateComment__c.Label}"/>
+                    <apex:inputField value="{!Case.WorkStartDateComment__c}" required="false"
+                                     styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.ContractLength__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.ContractLength__c.Label}"/>
+                    <apex:inputField value="{!Case.ContractLength__c}" required="true" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.WorkEndDate__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.WorkEndDate__c.Label}"/>
+                    <apex:inputField value="{!Case.WorkEndDate__c}" required="false" styleClass="OneColumnInputWidthInTwoColumnSection"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="noticeSection">
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.NoticePeriod__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.NoticePeriod__c.Label}"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!Case.NoticePeriod__c}" required="true" styleClass="OneColumnInputWidthInTwoColumnSection">
+                            <apex:actionSupport event="onchange" reRender="noticeSection"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <span></span>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.Notice_Period_Comment__c.inlineHelpText}">
+                    <apex:outputPanel >
+                        <apex:outputLabel value="{!$ObjectType.Case.Fields.Notice_Period_Comment__c.Label}"/>
+                    </apex:outputPanel>
+                    <apex:outputPanel >
+                        <apex:inputField value="{!Case.Notice_Period_Comment__c}" required="true" styleClass="OneColumnInputWidthInTwoColumnSection" rendered="{!IF(LOWER(Case.NoticePeriod__c) = 'inne', true, false)}"/>
+                        <apex:inputField value="{!Case.Notice_Period_Comment__c}" required="false" styleClass="OneColumnInputWidthInTwoColumnSection" rendered="{!IF(NOT(LOWER(Case.NoticePeriod__c) = 'inne'), true, false)}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection collapsible="false" columns="1">
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.Responsibilities__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Case.Fields.Responsibilities__c.Label}"/>
+                    <apex:inputField value="{!Case.Responsibilities__c}" required="true" style="width: 89%"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Case.fields.Description.inlineHelpText}">
+                    <apex:outputLabel value="{!$Label.Comment}"/>
+                    <apex:inputField value="{!Case.Description}" required="false" style="width: 89%"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="equipmentSection" columns="1">
+                <apex:inputField value="{!Case.Requested_Equipment__c}" />
+                <apex:inputField value="{!Case.Requested_Equipment_Comments__c}" style="width: 89%"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.SaveBtn}"
+                                    action="{!saveInternalOnboardingCase}"
+                                    reRender="f1, msg" onclick="$('#contentWrapper').showLoading()"
+                                    oncomplete="$('#contentWrapper').hideLoading()"
+                />
+                <apex:actionRegion >
+                    <apex:commandButton value="{!$Label.CancelBtn}" action="{!cancel}" immediate="true"/>
+                </apex:actionRegion>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

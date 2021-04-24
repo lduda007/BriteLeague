@@ -1,0 +1,36 @@
+<!--
+ - Created by Adam on 12/20/2017.
+ -->
+
+<apex:page id="BTN_CloseResourceRequest" standardController="BTN_ResourceRequest__c" extensions="BTN_CloseResourceRequestController">
+
+    <apex:form >
+        <apex:pageBlock id="rrPageBlock">
+            <apex:pageMessages />
+            <apex:pageBlockSection id="rrSection"
+                                   title="Close Resource Request {!BTN_ResourceRequest__c.Name} - {!BTN_ResourceRequest__c.Account_frm__c}"
+                                   columns="1"
+                                   rendered="{!$ObjectType.BTN_ResourceRequest__c.Fields.Status__c.Updateable}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Status__c.Label}"/>
+                    <apex:inputField value="{!BTN_ResourceRequest__c.Status__c}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="rrCandidatesSection" title="Set Candidates Statuses" columns="1">
+                <apex:pageBlockTable value="{!candidates}" var="candidate">
+                    <apex:column headerValue="{!$Label.CandidateName}">
+                        <apex:outputField value="{!candidate.ContactName_frm__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.BTN_CV__c.Fields.Status__c.Label}">
+                        <apex:inputField value="{!candidate.Status__c}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

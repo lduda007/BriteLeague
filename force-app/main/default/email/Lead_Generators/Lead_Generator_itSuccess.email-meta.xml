@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Lead_Generators</letterhead>
+    <name>Wsparcie IT receptą na sukces</name>
+    <style>formalLetter</style>
+    <subject>Wsparcie IT receptą na sukces</subject>
+    <textOnly>Szanowny {!Lead.Salutation} {!Lead.FirstName}, 
+
+Pozwalam sobie na kontakt mailowy, celem prezentacji usług świdczonych przez firmę BRITENET. Będę wdzięczna za informację, czy wiadomość dotarła. 
+
+Jesteśmy polskim software house&apos;m istniejącym na rynku od 2006 roku. Specjalizujemy się w obszarach: 
+- Business Intelligence 
+- Salesforce 
+- Dostarczaniu wykwalifikowanych ekspertów IT na zasadach outsourcingu 
+
+W swoim składzie mamy już ponad 400 specjalistów IT. Są to ludzie doświadczeni, otwarci na nowe wyzwania i odważni w podejmowaniu decyzji. 
+
+Zaufali nam m.in.: PKO BP, Bank Pekao, Generali, Nationale Nederlanden, ING, Volkswagen Group Polska, IGT czy MasterCard. 
+
+Chciałabym zaproponować Państwu współpracę w obszarze IT, a na początek zaprosić na spotkanie z nami. Z przyjemnością poznalibyśmy Państwa potrzeby i zaprezentowali nasze doświadczenia i możliwości. 
+
+Zapraszam do kontaktu. 
+{!User.FirstName} {!User.LastName}  
+{!User.Title} 
+{!User.Phone} 
+Britenet Sp. z o.o. 
+{!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

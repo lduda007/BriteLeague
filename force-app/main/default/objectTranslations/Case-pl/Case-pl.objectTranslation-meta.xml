@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Case Layout</layout>
+        <sections>
+            <label>Szczegóły oferty</label>
+            <section>Deal Deatils</section>
+        </sections>
+        <sections>
+            <label><!-- Resource Request --></label>
+            <section>Resource Request</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Internal OnBoarding Layout</layout>
+        <sections>
+            <label>Szczegóły kontaktowe</label>
+            <section>Contact Details</section>
+        </sections>
+        <sections>
+            <label>Szczegóły pracownika</label>
+            <section>Employee Details</section>
+        </sections>
+        <sections>
+            <label>Szczegóły zatrudnienia</label>
+            <section>Employment Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- External Offboarding Case --></description>
+        <label>Zewnętrzny Offboarding</label>
+        <name>ExternalOffboarding</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- External Onboarding Case --></description>
+        <label>Zewnętrzny Onboarding</label>
+        <name>ExternalOnboarding</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Internal Offboarding Case --></description>
+        <label>Wewnętrzny Offboarding</label>
+        <name>InternalOffboarding</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Internal Onboarding Case --></description>
+        <label>Wewnętrzny Onboarding</label>
+        <name>InternalOnboarding</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>Proszę ustawić miesiąc sprawy</errorMessage>
+        <name>vDealMonth</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę określić poprawnego Lidera</errorMessage>
+        <name>vLeader</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę wybrać poprawny Resource Request</errorMessage>
+        <name>vResourceRequest</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- CreateNewInternalOnboarding --></label>
+        <name>CreateNewInternalOnboarding</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewCase --></label>
+        <name>NewCase</name>
+    </webLinks>
+</CustomObjectTranslation>

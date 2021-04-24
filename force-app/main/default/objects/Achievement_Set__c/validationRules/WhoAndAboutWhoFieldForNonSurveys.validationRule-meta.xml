@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WhoAndAboutWhoFieldForNonSurveys</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ NOT(CONTAINS(RecordType.DeveloperName, &apos;Survey&apos;)),
+ OR(NOT(ISBLANK(Who__c)),
+    NOT(ISBLANK(AboutWho__c))
+ )
+)</errorConditionFormula>
+    <errorMessage>Field Who and About Who cannot be filled for non Survey Sets</errorMessage>
+</ValidationRule>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Survey Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Survey Configurations</value>
+    </caseValues>
+    <layouts>
+        <layout>Survey Configuration Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Survey Handler --></label>
+        <name>Survey_Handler</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Survey Question Provider --></label>
+        <name>Survey_Question_Provider</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

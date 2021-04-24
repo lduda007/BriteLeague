@@ -1,0 +1,5 @@
+<messaging:emailTemplate subject="League has finished" recipientType="Contact" relatedToType="BL_Competitor__c" >
+    <messaging:htmlEmailBody >
+        <c:BL_LeagueEndEmailNotificationContent competitorId="{!RelatedTo.Id}"/>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

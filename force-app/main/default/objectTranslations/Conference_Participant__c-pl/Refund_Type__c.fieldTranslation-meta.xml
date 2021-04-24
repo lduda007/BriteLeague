@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Typ refundacji</label>
+    <name>Refund_Type__c</name>
+    <picklistValues>
+        <masterLabel>Full</masterLabel>
+        <translation>Pełna</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partial</masterLabel>
+        <translation>Częściowa</translation>
+    </picklistValues>
+</CustomFieldTranslation>

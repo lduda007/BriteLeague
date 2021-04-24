@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>35.0</apiVersion>
+    <available>false</available>
+    <description>Opportunity Stage Open Sent to RM Notification Template</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>OLD_Opportunity Stage Open Sent to RM</name>
+    <style>none</style>
+    <subject>[BriteCRM] -  - Opportunity Sent to RM</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

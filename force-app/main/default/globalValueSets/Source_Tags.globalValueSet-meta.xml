@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CeBIT</fullName>
+        <default>false</default>
+        <label>CeBIT</label>
+    </customValue>
+    <customValue>
+        <fullName>Hannover Messe</fullName>
+        <default>false</default>
+        <label>Hannover Messe</label>
+    </customValue>
+    <customValue>
+        <fullName>Pioneers Festival</fullName>
+        <default>false</default>
+        <label>Pioneers Festival</label>
+    </customValue>
+    <customValue>
+        <fullName>Xing</fullName>
+        <default>false</default>
+        <label>Xing</label>
+    </customValue>
+    <customValue>
+        <fullName>Google Adwords</fullName>
+        <default>false</default>
+        <label>Google Adwords</label>
+    </customValue>
+    <customValue>
+        <fullName>Linkedin</fullName>
+        <default>false</default>
+        <label>Linkedin</label>
+    </customValue>
+    <customValue>
+        <fullName>Startups</fullName>
+        <default>false</default>
+        <label>Startups</label>
+    </customValue>
+    <masterLabel>Source Tags</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

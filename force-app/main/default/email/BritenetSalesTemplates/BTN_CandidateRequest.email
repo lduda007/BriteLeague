@@ -1,0 +1,22 @@
+<messaging:emailTemplate subject="Resource Request has been created" recipientType="User" relatedToType="BTN_ResourceRequest__c">
+    <messaging:htmlEmailBody >
+        Dear {!recipient.name},<br/>
+        <br/>
+        A new Candidate has been requested:<br/>
+        <ul>
+            <li><strong>Position name</strong>: {!relatedTo.Position_frm__c}</li>
+            <li><strong>Customer</strong>: {!relatedTo.Account_frm__c}</li>
+        </ul>
+        <apex:outputText rendered="{!NOT(ISNULL(relatedTo.Comments__c))}">
+            The additional comment provided:<br/>
+                {!relatedTo.Comments__c}<br/>
+        </apex:outputtext>
+        <br/>
+        For more details please visit the&nbsp;
+        <c:BTN_LinkComponent Opportunity="{!relatedTo.Id}" OpportunityName="{!relatedTo.Name}"/>
+         in BriteRM app.<br/>
+        <br/>
+        Kind regards,<br/>
+        BriteRM Team<br/>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

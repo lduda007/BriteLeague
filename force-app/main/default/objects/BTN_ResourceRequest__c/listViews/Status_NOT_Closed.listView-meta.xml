@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_NOT_Closed</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Account_frm__c</columns>
+    <columns>Position_frm__c</columns>
+    <columns>Level_frm__c</columns>
+    <columns>Location_frm__c</columns>
+    <columns>Rank__c</columns>
+    <columns>Requestor_frm__c</columns>
+    <columns>Only_for_RA__c</columns>
+    <columns>Main_Recruiter__c</columns>
+    <columns>CVsApprovedRequested__c</columns>
+    <columns>CreatedDate_frm__c</columns>
+    <columns>DeliveryDeadline_frm__c</columns>
+    <columns>CVsAllInFinal__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open,Waiting for client,On shelf,Opportunity Closed</value>
+    </filters>
+    <label>Status: NOT Closed</label>
+    <language>en_US</language>
+</ListView>

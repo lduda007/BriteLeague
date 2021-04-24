@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Duration__c</fullName>
+    <description>How many days have passed since last stage change.</description>
+    <externalId>false</externalId>
+    <formula>IF( ISNULL(Stage_Change__c) , 1, (TODAY() - DATEVALUE(Stage_Change__c) + 1))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field shows how many days have passed since last stage change.</inlineHelpText>
+    <label>Stage Duration</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

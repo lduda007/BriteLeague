@@ -1,0 +1,143 @@
+<aura:component
+        description="BL_NewCompetition"
+        controller="BL_NewCompetitionController"
+        implements="force:lightningQuickActionWithoutHeader,forceCommunity:availableForAllPageTypes"
+>
+
+    <aura:attribute name="initDataWrapper" type="Object" access="private"/>
+    <aura:attribute name="newCompetitionWrapper" type="Object" default="{}" access="private"/>
+    <aura:attribute name="cupTeamsNumber" type="List" default="[4,8,16,32,64]" access="private"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:registerEvent name="competitionCreated" type="c:BL_CompetitionCreatedEvent"/>
+
+    <lightning:card title="New League">
+        <aura:if isTrue="{!not(empty(v.initDataWrapper))}">
+            <div class="slds-align_absolute-center">
+                <lightning:layout multipleRows="true" class="new-competition-form">
+                    <lightning:layoutItem
+                            size="12"
+                            class="slds-p-around--x-small"
+                    >
+                        <lightning:radioGroup
+                                label="Type"
+                                options="{!v.initDataWrapper.competitionRecordTypeOptions}"
+                                value="{!v.newCompetitionWrapper.recordType}"
+                                type="button"
+                                onchange="{!c.onCompetitionRecordTypeChange}"
+                                required="true"
+                                aura:id="newCompetitionForm"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem
+                            size="12"
+                            class="slds-p-around--x-small"
+                    >
+                        <lightning:radioGroup
+                                label="Team size"
+                                options="{!v.initDataWrapper.competitionTeamSizeOptions}"
+                                value="{!v.newCompetitionWrapper.teamSize}"
+                                type="button"
+                                required="true"
+                                aura:id="newCompetitionForm"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" class="slds-p-around--x-small">
+                        <lightning:input
+                                label="Name"
+                                value="{!v.newCompetitionWrapper.name}"
+                                pattern="[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ &amp;!@#$%^*()]+"
+                                maxlength="40"
+                                required="true"
+                                messageWhenPatternMismatch="Only letters and numbers allowed"
+                                aura:id="newCompetitionForm"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem
+                            size="12"
+                            class="slds-p-around--x-small">
+                        <lightning:input
+                                label="Start Date"
+                                value="{!v.newCompetitionWrapper.startDate}"
+                                type="datetime"
+                                required="true"
+                                min="{!v.currentDate}"
+                                aura:id="newCompetitionForm"
+                        />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem
+                            size="12"
+                            class="slds-p-around--x-small"
+                    >
+                        <lightning:input
+                                label="End Date"
+                                value="{!v.newCompetitionWrapper.endDate}"
+                                type="datetime"
+                                required="true"
+                                min="{!v.newCompetitionWrapper.startDate}"
+                                aura:id="newCompetitionForm"
+                        />
+                    </lightning:layoutItem>
+                    <aura:if
+                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'Classic'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
+                        <lightning:layoutItem
+                                size="12"
+                                class="slds-p-around--x-small"
+                        >
+                            <lightning:input
+                                    label="Teams limit (2-40)"
+                                    value="{!v.newCompetitionWrapper.teamsLimit}"
+                                    type="number"
+                                    min="2"
+                                    max="40"
+                                    required="true"
+                                    aura:id="newCompetitionForm"
+                            />
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <aura:if isTrue="{!equals(v.newCompetitionWrapper.recordType, 'Cup')}">
+                        <lightning:layoutItem
+                                size="12"
+                                class="slds-p-around--x-small"
+                        >
+                            <lightning:select
+                                    label="Teams"
+                                    value="{!v.newCompetitionWrapper.teamsLimit}"
+                                    required="true"
+                                    aura:id="newCompetitionForm"
+                            >
+                                <aura:iteration items="{!v.cupTeamsNumber}" var="cupTeamsLimit">
+                                    <option label="{!cupTeamsLimit}" value="{!cupTeamsLimit}"></option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <aura:if
+                            isTrue="{!or(equals(v.newCompetitionWrapper.recordType, 'Classic'), equals(v.newCompetitionWrapper.recordType, 'Battle_Royale'))}">
+                        <lightning:layoutItem
+                                size="12"
+                                class="slds-p-around--x-small"
+                        >
+                            <lightning:input
+                                    label="Rounds"
+                                    value="{!v.newCompetitionWrapper.rounds}"
+                                    type="number"
+                                    min="1"
+                                    max="40"
+                                    required="true"
+                                    aura:id="newCompetitionForm"
+                            />
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <lightning:layoutItem size="12" class="slds-p-around--x-small slds-align--absolute-center">
+                        <lightning:button label="Create"
+                                          variant="brand"
+                                          onclick="{!c.onSave}"
+                        />
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </aura:if>
+    </lightning:card>
+</aura:component>

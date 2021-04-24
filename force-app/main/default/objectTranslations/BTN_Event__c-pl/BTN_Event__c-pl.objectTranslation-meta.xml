@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Wydarzenie</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Wydarzenia</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Wydarzenie</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Wydarzenia</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Wydarzenia</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Wydarzeń</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Wydarzeniu</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Wydarzeniom</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Instrumental</caseType>
+        <plural>false</plural>
+        <value>Wydarzeniem</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Instrumental</caseType>
+        <plural>true</plural>
+        <value>Wydarzeniami</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Locative</caseType>
+        <plural>false</plural>
+        <value>Wydarzeniu</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Locative</caseType>
+        <plural>true</plural>
+        <value>Wydarzeniach</value>
+    </caseValues>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Event Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Szczegóły</label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label>Szczegóły przygotowania do rozmowy</label>
+            <section>Profiling details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>General Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Periodic Assessment Layout</layout>
+        <sections>
+            <label>Ścieżka kariery</label>
+            <section>Career Path</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Opinia</label>
+            <section>Feedback</section>
+        </sections>
+        <sections>
+            <label>Nowa sekcja</label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label>Rozmowa okresowa</label>
+            <section>Periodic Assessment</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Event --></nameFieldLabel>
+    <recordTypes>
+        <description><!-- Genereal event --></description>
+        <label>Ogolne</label>
+        <name>General</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Interview with potential employee --></description>
+        <label>Wywiad</label>
+        <name>Interview</name>
+    </recordTypes>
+    <recordTypes>
+        <label>Rozmowa okresowa</label>
+        <name>Periodic_Assessment</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>Pole &quot;Inna lokalizacja&quot; jest obowiązkowe</errorMessage>
+        <name>OtherLocation_mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę ustawić poprawne daty</errorMessage>
+        <name>vDates</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Proszę wypełnić pole &quot;Przeprowadzający wywiad&quot;</errorMessage>
+        <name>vInterviewer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Czas rozpoczęcia powinien być przed czasem zakończenia</errorMessage>
+        <name>vStartBeforeEndDate</name>
+    </validationRules>
+    <webLinks>
+        <label>Nowa rozmowa telefoniczna</label>
+        <name>NewCall</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowa zewnętrzna rozmowa</label>
+        <name>NewExternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowa wewnętrzna rozmowa</label>
+        <name>NewInternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowa rozmowa</label>
+        <name>NewInterview</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowe spotkanie</label>
+        <name>NewMeeting</name>
+    </webLinks>
+    <webLinks>
+        <label>Nowa notatka</label>
+        <name>NewNote</name>
+    </webLinks>
+</CustomObjectTranslation>

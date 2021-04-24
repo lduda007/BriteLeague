@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewInternalInterview</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Internal Interview</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/a0I/e?RecordType=01258000000gicF&amp;ent=BTN_Event__c&amp;retURL={!Contact.Id}&amp;ContactId={!Contact.Id}&amp;Type=Internal%20Interview</url>
+</WebLink>

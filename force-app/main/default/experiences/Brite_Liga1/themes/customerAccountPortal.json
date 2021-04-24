@@ -1,0 +1,226 @@
+{
+  "activeBrandingSetId" : "1b293319-1543-4376-a095-3751badeaa27",
+  "customCSS" : ".cSearchContainer {\n    display:none;\n}\n::-webkit-scrollbar {\n  width: 6px;\n  height: 6px;\n}\n::-webkit-scrollbar-button {\n  width: 0px;\n  height: 0px;\n}\n::-webkit-scrollbar-thumb {\n  background: #d3dde8;\n  border: 0px none #ffffff;\n  border-radius: 100px;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #ffffff;\n}\n::-webkit-scrollbar-thumb:active {\n  background: #000000;\n}\n::-webkit-scrollbar-track {\n  background: rgba(0,0,0,0);\n  border: 0px;\n  border-radius: 7px;\n}\n::-webkit-scrollbar-track:hover {\n  background: #666666;\n}\n::-webkit-scrollbar-track:active {\n  background: #333333;\n}\n::-webkit-scrollbar-corner {\n  background: transparent;\n}",
+  "developerName" : "cpt",
+  "id" : "7598305d-8d2d-4336-958f-46c5b37980bb",
+  "label" : "Customer Account Portal",
+  "layouts" : {
+    "Inner" : "2a5bf47b-4527-45df-8cd8-169563b78400",
+    "K8N25kPlNgvAOAme1fARIszqHB69CY" : "5e7a7bf2-2817-4929-9268-fcfce9ef20f9",
+    "Login" : "5fdd3a8e-1458-492c-ac18-5d41a77c9573"
+  },
+  "type" : "theme",
+  "views" : [ {
+    "componentAttributes" : { },
+    "componentName" : "salesforceIdentity:loginBody2",
+    "id" : "5fdd3a8e-1458-492c-ac18-5d41a77c9573",
+    "label" : "Login",
+    "regions" : [ {
+      "id" : "448e5d76-edba-41cd-bdc9-444986e2a2a1",
+      "regionName" : "header",
+      "type" : "region"
+    }, {
+      "id" : "32fd66db-f452-4202-a890-296f22bf8496",
+      "regionName" : "content",
+      "type" : "region"
+    }, {
+      "id" : "e8024255-cf7a-4efe-a7b1-0820967200b5",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "IsDefaultHeaderHidden" : false,
+      "IsDefaultHeaderPositionFixed" : false,
+      "IsDefaultNotificationsHidden" : true,
+      "IsSearchBarHidden" : true
+    },
+    "componentName" : "siteforce:cptBody",
+    "id" : "2a5bf47b-4527-45df-8cd8-169563b78400",
+    "label" : "Default",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "richTextValue" : "<p style=\"text-align: center;\"><img class=\"sfdcCbImage\" src=\"{!contentAsset.brite_league_logo_small.1}\" /></p>"
+        },
+        "componentName" : "forceCommunity:richTextInline",
+        "id" : "fdae7cd7-962c-4df7-b227-4c51efc686ba",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "ac57be92-0af6-443c-86d1-b44bc38b412d",
+      "regionName" : "customHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "maxAutoCompleteResults" : 5,
+          "searchLabel" : "Search...",
+          "searchObjects" : [ {
+            "isPublic" : true,
+            "name" : "KnowledgeArticleVersion"
+          }, {
+            "isPublic" : false,
+            "name" : "Case"
+          }, {
+            "isPublic" : true,
+            "name" : "ContentDocument"
+          } ]
+        },
+        "componentName" : "forceCommunity:globalSearchInput",
+        "id" : "aab52c2e-9742-474b-8f1b-bb5ab3065693",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "e079688c-084e-463f-ae12-078159374dfa",
+      "regionName" : "search",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "accountManagementLabel" : "Account Management",
+          "communityBuilderLabel" : "Community Builder",
+          "communitySetupLabel" : "Community Setup",
+          "contactSupportLabel" : "Contact Support",
+          "filterName" : "MyCases",
+          "homeLabel" : "Home",
+          "includeContactSupport" : false,
+          "includeMessages" : false,
+          "loginLabel" : "Login",
+          "logoutLabel" : "Logout",
+          "myAccountLabel" : "My Account",
+          "showAccountManagement" : false,
+          "showUserSettings" : false,
+          "userSettingsLabel" : "My Settings",
+          "viewProfileLabel" : "My Profile"
+        },
+        "componentName" : "selfService:userProfileMenu",
+        "id" : "1ccc1f40-51fa-40de-b6ee-2412a255afbb",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "20d57201-794f-4ce7-be49-d09729f8e308",
+      "regionName" : "profileMenu",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "NavigationMenuEditorRefresh" : "Brite_League",
+          "hideAppLauncher" : true,
+          "hideHomeText" : false
+        },
+        "componentName" : "forceCommunity:globalNavigation",
+        "id" : "783ea472-0ccf-493c-b014-116fb686af0c",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "9d3199e6-d751-411e-82d0-8d88e993dba1",
+      "regionName" : "navBar",
+      "type" : "region"
+    }, {
+      "id" : "767a11af-d83f-4b77-b459-b7d86fe31da4",
+      "regionName" : "customRegion",
+      "type" : "region"
+    }, {
+      "id" : "9137ca60-b52c-4f23-92e2-58195b2bb179",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : { },
+    "componentName" : "c:LoginTheme",
+    "id" : "5e7a7bf2-2817-4929-9268-fcfce9ef20f9",
+    "label" : "Login Theme",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "richTextValue" : "<p style=\"text-align: center;\"><img class=\"sfdcCbImage\" src=\"{!contentAsset.brite_league_logo_small.1}\" /></p>"
+        },
+        "componentName" : "forceCommunity:richTextInline",
+        "id" : "371cd984-9c55-46a7-b584-1e57b0f25d2d",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "b855be9e-0e06-40b2-a895-0fa5a59ae6c2",
+      "regionName" : "customHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "maxAutoCompleteResults" : 5,
+          "searchLabel" : "Search...",
+          "searchObjects" : [ {
+            "isPublic" : true,
+            "name" : "KnowledgeArticleVersion"
+          }, {
+            "isPublic" : false,
+            "name" : "Case"
+          }, {
+            "isPublic" : true,
+            "name" : "ContentDocument"
+          } ]
+        },
+        "componentName" : "forceCommunity:globalSearchInput",
+        "id" : "a4c1fa57-2645-46e5-9630-d08563c7acbb",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "69f2ebd9-0e27-4cc8-b307-03859b6f3d70",
+      "regionName" : "search",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "accountManagementLabel" : "Account Management",
+          "communityBuilderLabel" : "Community Builder",
+          "communitySetupLabel" : "Community Setup",
+          "contactSupportLabel" : "Contact Support",
+          "filterName" : "MyCases",
+          "homeLabel" : "Home",
+          "includeContactSupport" : false,
+          "includeMessages" : false,
+          "loginLabel" : "Login",
+          "logoutLabel" : "Logout",
+          "myAccountLabel" : "My Account",
+          "showAccountManagement" : false,
+          "showUserSettings" : false,
+          "userSettingsLabel" : "My Settings",
+          "viewProfileLabel" : "My Profile"
+        },
+        "componentName" : "selfService:userProfileMenu",
+        "id" : "7daaacb0-7529-419c-aa88-408fa629f64c",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "a6c6dc81-26a9-4352-8c03-a27397c14324",
+      "regionName" : "profileMenu",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "NavigationMenuEditorRefresh" : "Brite_League",
+          "hideAppLauncher" : true,
+          "hideHomeText" : false
+        },
+        "componentName" : "forceCommunity:globalNavigation",
+        "id" : "7b925491-b4c5-4335-be39-9e8513bcf37e",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "c9ab7aa3-116d-4eb1-b3cf-07e83a02c2fe",
+      "regionName" : "navBar",
+      "type" : "region"
+    }, {
+      "id" : "3925a3de-42bd-493d-b4f2-5d4938765339",
+      "regionName" : "customRegion",
+      "type" : "region"
+    }, {
+      "id" : "011c98f3-57c6-4b6e-9c52-6480cd8fab95",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  } ]
+}

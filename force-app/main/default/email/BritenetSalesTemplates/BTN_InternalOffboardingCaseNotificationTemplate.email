@@ -1,0 +1,11 @@
+<p>Dear Resource Manager,</p>
+
+An Internal Offboarding has been identified for:<br/>
+Contact: {!Case.Contact}<br/>
+Client: {!Account.Name}<br/>
+For more information please visit the case <a href={!Case.Link}>{!Case.CaseNumber}</a> in BriteRM app.
+
+<p>
+Kind regards,<br>
+BriteRM Team
+</p>

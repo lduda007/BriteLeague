@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Achievement Set --></label>
+    <name>Achievement_Set__c</name>
+    <relationshipLabel><!-- Achievements --></relationshipLabel>
+</CustomFieldTranslation>

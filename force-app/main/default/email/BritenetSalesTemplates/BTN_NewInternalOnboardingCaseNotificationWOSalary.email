@@ -1,0 +1,19 @@
+<p>The new Internal onboarding case <a href={!Case.Link}>{!Case.CaseNumber}</a> has been created by {!Case.OwnerFullName}.</p>
+<strong>Name:</strong> {!Case.NewUserFirstName__c}&nbsp;{!Case.NewUserLastName__c}<br/>
+<strong>Position:</strong> {!Case.NewUserTitle__c}<br/>
+<strong>Work start date:</strong> {!Case.WorkStartDate__c}<br/>
+<strong>Location:</strong> {!Case.Location_frm__c}<br/>
+<strong>Description:</strong> {!Case.Description}<br/>
+<strong>Leader:</strong> {!Case.Leader__c}<br/>
+<strong>Requested Equipment:</strong> {!Case.Requested_Equipment__c}<br/>
+<strong>Requested Equipment Comments:</strong> {!Case.Requested_Equipment_Comments__c}<br/>
+
+<p><u>Contact details</u></p>
+<strong>Email:</strong> {!Case.PersonalEmail__c}<br/>
+<strong>Phone:</strong> {!Case.PersonalPhone__c}<br/>
+<strong>Address:</strong> {!Case.Street__c}, {!Case.ZipCode__c} {!Case.City__c}<br/>
+
+<p>
+Kind regards,<br/>
+BriteRM Team
+</p>

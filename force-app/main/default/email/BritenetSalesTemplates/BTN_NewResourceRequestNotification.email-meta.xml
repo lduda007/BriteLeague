@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>BriteCRM</letterhead>
+    <name>New Resource Request Notification</name>
+    <style>formalLetter</style>
+    <subject>New Resource Request has been created</subject>
+    <textOnly>Dear RM,
+New Resource Request has been created by {!BTN_ResourceRequest__c.RequestorUser__r.Name} for {!BTN_ResourceRequest__c.Account_frm__c}. The CVs are expected to be delivered till {!BTN_ResourceRequest__c.DeliveryDeadline_frm__c}. For more information visit the {!BTN_ResourceRequest__c.Name}.
+
+BriteCRM Team
+Regards,</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

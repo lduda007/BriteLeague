@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vStartBeforeEndDate</fullName>
+    <active>true</active>
+    <description>BRITCRM-299 Start Date can not occur after End Date</description>
+    <errorConditionFormula>Start_Time__c &gt; End_Time__c</errorConditionFormula>
+    <errorMessage>Please set Start Time before End Time</errorMessage>
+</ValidationRule>

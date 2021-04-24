@@ -1,0 +1,30 @@
+<apex:page standardController="Case" extensions="BTN_ResourceRequestSelectorController">
+<apex:form >
+	<apex:pageBlock mode="maindetail ">
+	<apex:pageMessages id="msgs"/>
+	<apex:actionStatus startText="Setting Resource Request...." id="myStatus">
+	    
+	</apex:actionStatus>
+	<apex:pageBlockTable value="{!resourceRequests}" var="rr">
+		<apex:column >
+			<apex:facet name="header">Actions</apex:facet>
+			<apex:commandLink value="Select" action="{!selectResourceRequest}" target="_parent">
+	            <apex:param name="aParam"
+	                value="{!rr.Id}"
+	                assignTo="{!selectedResourceRequest}"/>
+        	</apex:commandLink>
+		</apex:column>
+		<apex:column value="{!rr.name}"/>
+		<apex:column value="{!rr.Billing_Type__c}"/>
+	    <apex:column value="{!rr.CustomerAccount__c}"/>
+		<apex:column value="{!rr.Position_frm__c}"/>
+		<apex:column value="{!rr.RequestorUser__c}"/>
+		<apex:column value="{!rr.Location__c}"/>
+		<apex:column value="{!rr.ZOHOUrl_frm__c}"/>
+		<apex:column value="{!rr.createdDate}"/>
+		<apex:column value="{!rr.DeliveryDeadline_frm__c}"/>
+		<apex:column value="{!rr.CVsReceivedRequested__c}"/>
+    </apex:pageBlockTable> 
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

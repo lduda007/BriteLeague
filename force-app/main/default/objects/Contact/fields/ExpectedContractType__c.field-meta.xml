@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExpectedContractType__c</fullName>
+    <externalId>false</externalId>
+    <label>Expected Contract Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B2B</fullName>
+                <default>false</default>
+                <label>B2B</label>
+            </value>
+            <value>
+                <fullName>Umowa o Pracę</fullName>
+                <default>false</default>
+                <label>Umowa o Pracę</label>
+            </value>
+            <value>
+                <fullName>Umowa o Pracę z kosztami autorskimi - 90%</fullName>
+                <default>false</default>
+                <label>Umowa o Pracę z kosztami autorskimi - 90%</label>
+            </value>
+            <value>
+                <fullName>Umowa o Pracę z kosztami autorskimi ...</fullName>
+                <default>false</default>
+                <label>Umowa o Pracę z kosztami autorskimi ...</label>
+            </value>
+            <value>
+                <fullName>Umowa o Dzieło</fullName>
+                <default>false</default>
+                <label>Umowa o Dzieło</label>
+            </value>
+            <value>
+                <fullName>Umowa Zlecenie</fullName>
+                <default>false</default>
+                <label>Umowa Zlecenie</label>
+            </value>
+            <value>
+                <fullName>Inny rodzaj umowy</fullName>
+                <default>false</default>
+                <label>Inny rodzaj umowy</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ManagementOwner__c</fullName>
+    <externalId>false</externalId>
+    <label>Management Owner</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Michał Borny</fullName>
+                <default>false</default>
+                <label>Michał Borny</label>
+            </value>
+            <value>
+                <fullName>Tomasz Dziki</fullName>
+                <default>false</default>
+                <label>Tomasz Dziki</label>
+            </value>
+            <value>
+                <fullName>Tomasz Krajewski</fullName>
+                <default>false</default>
+                <label>Tomasz Krajewski</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Candidate</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Candidates</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Feed Tracking Field Set --></label>
+        <name>FeedTrackingFieldSet</name>
+    </fieldSets>
+    <layouts>
+        <layout>CV Custom Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+        <sections>
+            <label><!-- Events &amp; attachments --></label>
+            <section>Events &amp; attachments</section>
+        </sections>
+        <sections>
+            <label><!-- Resource Request details --></label>
+            <section>Resource Request details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CV Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Drag and Drop --></label>
+            <section>Drag and Drop</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please specify Contact --></errorMessage>
+        <name>vContact</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- CreateNewInternalOnboarding --></label>
+        <name>CreateNewInternalOnboarding</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewExternalInterview --></label>
+        <name>NewExternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewInternalInterview --></label>
+        <name>NewInternalInterview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewInternalOnboarding --></label>
+        <name>NewInternalOnboarding</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewInternalOnboardingCase --></label>
+        <name>NewInternalOnboardingCase</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendCVtoRequestor --></label>
+        <name>SendCVtoRequestor</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_Profiles</fullName>
+    <columns>Contact__c</columns>
+    <columns>NAME</columns>
+    <columns>Number_Of_Achievements__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Achievement_Set__c.Contact_Profile</value>
+    </filters>
+    <filters>
+        <field>Active_Contact__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Employee Profiles</label>
+</ListView>

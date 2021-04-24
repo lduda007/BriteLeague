@@ -1,0 +1,19 @@
+<aura:component access="global">
+    <aura:attribute name="spinnerVisible" type="Boolean"/>
+
+    <aura:method name="checkIsBuilderContext" action="{!c.checkIsBuilderContext}"/>
+    <aura:method name="checkMobileBrowser" action="{!c.checkMobileBrowser}"/>
+    <aura:method name="showSpinner" action="{!c.showSpinner}"/>
+    <aura:method name="hideSpinner" action="{!c.hideSpinner}"/>
+    <aura:method name="showGlobalSpinner" action="{!c.showGlobalSpinner}"/>
+    <aura:method name="hideGlobalSpinner" action="{!c.hideGlobalSpinner}"/>
+    <aura:method name="createCmp" action="{!c.createCmp}"/><!--todo-->
+    <aura:method name="destroyCmp" action="{!c.destroyCmp}"/><!--todo-->
+
+    <aura:registerEvent name="overlayCmpEvent" type="c:BL_OverlayComponentEvent"/>
+
+    <aura:if isTrue="{!v.spinnerVisible}">
+        <lightning:spinner/>
+    </aura:if>
+
+</aura:component>

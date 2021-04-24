@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuestionProvider__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Question Provider</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>SurveyConfiguration__c.RecordType.DeveloperName</field>
+            <operation>equals</operation>
+            <value>Survey_Question_Provider</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>SurveyConfiguration__c</referenceTo>
+    <relationshipLabel>Survey Template Items</relationshipLabel>
+    <relationshipName>SurveyTemplateItems</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

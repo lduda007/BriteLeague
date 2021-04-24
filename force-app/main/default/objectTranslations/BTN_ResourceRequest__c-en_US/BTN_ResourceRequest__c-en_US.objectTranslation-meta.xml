@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Resource request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Resource Requests</value>
+    </caseValues>
+    <layouts>
+        <layout>Auto request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description and skills --></label>
+            <section>Description and skills</section>
+        </sections>
+        <sections>
+            <label><!-- Opportunity Details --></label>
+            <section>Opportunity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment details --></label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Auto request community Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description and skills --></label>
+            <section>Description and skills</section>
+        </sections>
+        <sections>
+            <label><!-- Opportunity Details --></label>
+            <section>Opportunity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment details --></label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Manual request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment details --></label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Manual request community Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- Recruitment details --></label>
+            <section>Recruitment details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Automatic resource request --></description>
+        <label><!-- Auto --></label>
+        <name>Auto</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Manual resource request --></description>
+        <label><!-- Manual --></label>
+        <name>Manual</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- Requestor --></label>
+        <name>Requestor</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Shared with HR --></label>
+        <name>Shared_with_HR</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please set Contract Start --></errorMessage>
+        <name>vContractStart</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set Customer --></errorMessage>
+        <name>vCustomer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set Delivery Deadline --></errorMessage>
+        <name>vDeadline</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set Contract Duration --></errorMessage>
+        <name>vDuration</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please close remaining Candidates --></errorMessage>
+        <name>vOpenCandidate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Fill Other Location --></errorMessage>
+        <name>vOtherLocationRequiredIfLocationIsOther</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set Placement --></errorMessage>
+        <name>vPlacement</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set Rate --></errorMessage>
+        <name>vRate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please set Requestor --></errorMessage>
+        <name>vRequestor</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Main and Secondary Skills --></errorMessage>
+        <name>vSkills</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Close_Request --></label>
+        <name>Close_Request</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RequestCvsFromHr --></label>
+        <name>RequestCvsFromHr</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_CVs_from_HR --></label>
+        <name>Request_CVs_from_HR</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendCVtoRequestor --></label>
+        <name>SendCVtoRequestor</name>
+    </webLinks>
+</CustomObjectTranslation>

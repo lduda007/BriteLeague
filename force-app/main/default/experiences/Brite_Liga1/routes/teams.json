@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "cfb2580e-3067-4a29-96b9-0ff71dbde6fb",
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "configurationTags" : [ ],
+  "id" : "817d5b1a-9039-423e-8779-f57b265321ed",
+  "label" : "Teams",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-teams",
+  "type" : "route",
+  "urlPrefix" : "teams"
+}

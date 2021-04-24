@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuestionSearchOptions__c</fullName>
+    <externalId>false</externalId>
+    <label>Question Search Options</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Rated</fullName>
+                <default>false</default>
+                <label>Rated</label>
+            </value>
+            <value>
+                <fullName>Not rated</fullName>
+                <default>false</default>
+                <label>Not rated</label>
+            </value>
+            <value>
+                <fullName>Rated in self-survey</fullName>
+                <default>false</default>
+                <label>Rated in self-survey</label>
+            </value>
+            <value>
+                <fullName>Rated by co-workers</fullName>
+                <default>false</default>
+                <label>Rated by co-workers</label>
+            </value>
+            <value>
+                <fullName>Rated in self-survey or by co-workers</fullName>
+                <default>false</default>
+                <label>Rated in self-survey or by co-workers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

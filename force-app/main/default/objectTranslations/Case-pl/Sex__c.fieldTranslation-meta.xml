@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Płeć</label>
+    <name>Sex__c</name>
+    <picklistValues>
+        <masterLabel>Female</masterLabel>
+        <translation>Kobieta</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Male</masterLabel>
+        <translation>Mężczyzna</translation>
+    </picklistValues>
+</CustomFieldTranslation>

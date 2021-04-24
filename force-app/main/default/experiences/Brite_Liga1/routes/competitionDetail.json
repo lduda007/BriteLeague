@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "c5965548-c3d8-4c84-9f85-52f84621780a",
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "configurationTags" : [ ],
+  "id" : "23bcc661-bdd7-4983-861a-5f2b64cbd165",
+  "label" : "Competition Detail",
+  "objectApiName" : "BL_Competition__c",
+  "routeType" : "detail-a0j",
+  "type" : "route",
+  "urlPrefix" : "bl-competition"
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CloseDetailsMandatory</fullName>
+    <active>true</active>
+    <description>If Close Reason is OTHER, then Close Details is mandatory</description>
+    <errorConditionFormula>AND(ISPICKVAL(Close_Reason__c, &apos;Other&apos;), ISPICKVAL(StageName, &apos;Closed Lost&apos;), Close_Details__c = NULL)</errorConditionFormula>
+    <errorDisplayField>Close_Details__c</errorDisplayField>
+    <errorMessage>Please provide explanation.</errorMessage>
+</ValidationRule>

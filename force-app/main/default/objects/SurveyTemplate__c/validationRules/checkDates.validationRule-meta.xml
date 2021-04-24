@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>checkDates</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( (!ISBLANK(StartDate__c)  &amp;&amp;  !ISBLANK(EndDate__c)),  StartDate__c &gt; EndDate__c, FALSE)</errorConditionFormula>
+    <errorMessage>Start date cannot be greater than end date</errorMessage>
+</ValidationRule>

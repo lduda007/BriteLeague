@@ -1,0 +1,17 @@
+<p>The requested equipment <a href={!BTN_Equipment_Request__c.Link}>{!BTN_Equipment_Request__c.Name}</a> must be ready in <b>3 days</b>.</p>
+<strong>Name:</strong> {!BTN_Equipment_Request__c.Contact_Name_frm__c}<br/>
+<strong>Position:</strong> {!BTN_Equipment_Request__c.Contact_Position_frm__c}<br/>
+<strong>Work start date:</strong> {!BTN_Equipment_Request__c.Work_Start_Date_frm__c}<br/>
+<strong>Location:</strong> {!BTN_Equipment_Request__c.Location_frm__c}<br/>
+<strong>Requested Equipment:</strong> {!BTN_Equipment_Request__c.Requested_Equipment__c}<br/>
+<strong>Requested Equipment Comments:</strong> {!BTN_Equipment_Request__c.Requested_Equipment_Comments__c}<br/>
+
+<p><u>Contact details</u></p>
+<strong>Britenet Email:</strong> {!BTN_Equipment_Request__c.Contact_Email_frm__c}<br/>
+<strong>Email:</strong> {!BTN_Equipment_Request__c.Contact_Personal_Email_frm__c}<br/>
+<strong>Phone:</strong> {!BTN_Equipment_Request__c.Contact_Personal_Phone_frm__c}<br/>
+
+<p>
+Kind regards,<br/>
+BriteRM Team
+</p>

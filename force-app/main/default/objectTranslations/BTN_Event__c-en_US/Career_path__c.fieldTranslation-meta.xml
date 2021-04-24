@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Career path --></label>
+    <name>Career_path__c</name>
+    <relationshipLabel><!-- Events (Career path) --></relationshipLabel>
+</CustomFieldTranslation>

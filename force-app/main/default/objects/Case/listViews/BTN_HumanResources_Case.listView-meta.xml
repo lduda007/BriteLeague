@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BTN_HumanResources_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Human Resources</label>
+    <queue>BTN_HumanResources</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

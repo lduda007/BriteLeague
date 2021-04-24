@@ -1,0 +1,12 @@
+<apex:page standardController="Account" extensions="BTN_AccountAssignmentsController">	
+	<apex:pageBlock >
+		<apex:pageBlockTable value="{!assignments}" var="assignment">
+			<apex:column value="{!assignment.Name}"/>
+			<apex:column value="{!assignment.Project__r.Name}"/>
+			<apex:column value="{!assignment.Contact__r.Name}"/>
+			<apex:column value="{!assignment.StartDate__c}"/>
+			<apex:column value="{!assignment.EndDate__c}"/>
+			<apex:column value="{!assignment.Allocation__c}"/>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+</apex:page>

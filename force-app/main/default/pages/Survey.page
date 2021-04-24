@@ -1,0 +1,50 @@
+<apex:page sidebar="true"
+    docType="html-5.0"
+    showHeader="true"
+    standardStylesheets="false" 
+    controller="SurveyRemoteActions">
+
+    <html>
+        <head>
+            <title>Survey</title>
+            <meta charset="utf-8" />
+            <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1" />
+            <link href="{!URLFOR($Resource.btnSurvey, '/styles/app.css')}" type="text/css" rel="stylesheet" />
+            <link href="{!URLFOR($Resource.btnSurvey, '/styles/vendor.css')}" type="text/css" rel="stylesheet" />
+            <script src="{!URLFOR($Resource.btnSurvey, '/scripts/vendor.js')}" type="text/javascript" />
+            <script src="{!URLFOR($Resource.btnSurvey, '/scripts/app.js')}" type="text/javascript" />
+            <script src="/soap/ajax/36.0/connection.js" type="text/javascript"></script>
+            <script src="/soap/ajax/36.0/apex.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                angular.module('myApp', ['btn.survey'])
+                    .run(function ($rootScope, btnSurveySfdcConf) {
+                        $rootScope.btnSurveySfdcConf = btnSurveySfdcConf;
+                    });
+            </script>
+        </head>
+        <body ng-app="myApp">
+        <script>
+            angular.module('myApp').constant('btnSurveySfdcConf', {
+                url : {
+                    surveyTemplate : {
+                        getTemplatesInfo: '{!$RemoteAction.SurveyRemoteActions.getTemplatesInfo}',
+                        getTemplate: '{!$RemoteAction.SurveyRemoteActions.getTemplate}',
+                        saveSurvey: '{!$RemoteAction.SurveyRemoteActions.saveSurvey}',
+                        getSurvey: '{!$RemoteAction.SurveyRemoteActions.getSurvey}',
+                        getCategories: '{!$RemoteAction.SurveyRemoteActions.getCategoriesTree}'
+                    },
+                    imgPath: '{!URLFOR($Resource.btnSurvey, "/styles/assets/images/")}'
+                }
+            });
+        </script>
+        <div id="main-container">
+            <div data-ng-cloak="ng-cloak">
+                <div ng-controller="MainController">
+                    <btn-survey-type class="main-container" templates="templates" survey="survey" mode="'achievementTree'" can-change-mode="false" user="{!$User.Email}"></btn-survey-type>
+                </div>
+            </div>
+        </div>
+        </body>
+    </html>
+</apex:page>

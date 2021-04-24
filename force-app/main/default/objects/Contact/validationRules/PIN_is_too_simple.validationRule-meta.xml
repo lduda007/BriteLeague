@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PIN_is_too_simple</fullName>
+    <active>true</active>
+    <description>Check if given PIN is to simple</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(WiFi_PIN__c)),OR(WiFi_PIN__c = &quot;000000&quot;,WiFi_PIN__c = &quot;111111&quot;,WiFi_PIN__c = &quot;222222&quot;,WiFi_PIN__c = &quot;333333&quot;,WiFi_PIN__c = &quot;444444&quot;,WiFi_PIN__c = &quot;555555&quot;,WiFi_PIN__c = &quot;666666&quot;,WiFi_PIN__c = &quot;777777&quot;,WiFi_PIN__c = &quot;888888&quot;,WiFi_PIN__c = &quot;999999&quot;,WiFi_PIN__c = &quot;123456&quot;,WiFi_PIN__c = &quot;012345&quot;))</errorConditionFormula>
+    <errorDisplayField>WiFi_PIN__c</errorDisplayField>
+    <errorMessage>Given PIN is too simple</errorMessage>
+</ValidationRule>

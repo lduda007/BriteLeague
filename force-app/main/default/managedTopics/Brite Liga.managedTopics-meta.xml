@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedTopics xmlns="http://soap.sforce.com/2006/04/metadata">
+    <managedTopic>
+        <fullName>Brite Liga.Navigational:FIFA</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>FIFA</name>
+        <parentName>Sport</parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Brite Liga.Navigational:Piłkarzyki</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Piłkarzyki</name>
+        <parentName>Sport</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Brite Liga.Navigational:Sport</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Sport</name>
+        <parentName/>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+</ManagedTopics>

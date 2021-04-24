@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Competition__c</columns>
+    <columns>Team__c</columns>
+    <columns>GoalsFor__c</columns>
+    <columns>GoalsDraw__c</columns>
+    <columns>GoalsAgainst__c</columns>
+    <columns>Points__c</columns>
+    <columns>GamesWon__c</columns>
+    <columns>GamesDrawn__c</columns>
+    <columns>GamesLost__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LAST_UPDATE</field>
+        <operation>notEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>All</label>
+</ListView>

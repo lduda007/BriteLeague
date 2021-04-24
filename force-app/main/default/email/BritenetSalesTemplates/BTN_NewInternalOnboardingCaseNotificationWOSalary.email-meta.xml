@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when Internal Onboarding has been created without salary info</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>New Internal Onboarding Case Notification WO salary</name>
+    <style>none</style>
+    <subject>[BriteRM] New Internal onboarding has been created</subject>
+    <textOnly>The new Internal onboarding case {!Case.CaseNumber} has been created by {!Case.OwnerFullName}.
+
+Name: {!Case.NewUserFirstName__c} {!Case.NewUserLastName__c}
+Position: {!Case.NewUserTitle__c}
+Work start date: {!Case.WorkStartDate__c}
+Location: {!Case.Location_frm__c}
+Description: {!Case.Description}
+Leader: {!Case.Leader__c}
+Requested Equipment: {!Case.Requested_Equipment__c}
+Requested Equipment Comments: {!Case.Requested_Equipment_Comments__c}
+
+Contact details
+
+Email: {!Case.PersonalEmail__c}
+Phone: {!Case.PersonalPhone__c}
+Address: {!Case.PersonalPhone__c}, {!Case.ZipCode__c} {!Case.City__c}
+
+Kind regards,
+BriteRM Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

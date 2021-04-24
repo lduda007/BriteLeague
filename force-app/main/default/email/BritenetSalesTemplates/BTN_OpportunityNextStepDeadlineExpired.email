@@ -1,0 +1,18 @@
+<messaging:emailTemplate subject="Opportunity Notification: Next Step Deadline has not been extended (1 day)." recipientType="User" relatedToType="Opportunity">
+	<messaging:htmlEmailBody >
+		Dear&nbsp;<apex:outputtext value="Resource Manager"/>,<br/>
+		<br/>
+		The Next Step Deadline defined for the Opportunity:&nbsp;<c:BTN_LinkComponent Opportunity="{!relatedTo.Id}" OpportunityName="{!relatedTo.Name}"/> has not been extended and expired 24 hours ago.<br/>
+		<br/>
+		<strong>Opportunity Owner</strong>: {!relatedTo.Owner.Name},<br/>
+		<strong>Next Step Deadline</strong>: 
+		<apex:outputText value="{0, date, MMMM d','  yyyy}">
+			<apex:param value="{!relatedTo.NextStepDeadline__c}" /> 
+		</apex:outputText>,<br/>
+		<strong>Next Step</strong>: {!relatedTo.NextStep__c},<br/>
+		<br/>
+		<br/>
+		Kind regards,<br/>
+		BriteCRM Team
+	</messaging:htmlEmailBody>
+</messaging:emailTemplate>

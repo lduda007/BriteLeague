@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>BriteCRM</letterhead>
+    <name>Candidate Contract Signed Notification</name>
+    <style>freeForm</style>
+    <subject>Contract signed for: Candidate {!BTN_CV__c.Contact__c} - RR {!BTN_ResourceRequest__c.Name}</subject>
+    <textOnly>Dear PM, 
+
+Contract for {!BTN_CV__c.Contact__c} 
+for request {!BTN_ResourceRequest__c.Name} has been signed. 
+
+For more information visit the Request: 
+https://britenet.my.salesforce.com/{!BTN_ResourceRequest__c.Id}
+https://briteerp.force.com/{!BTN_ResourceRequest__c.Id}
+
+Kind regards, 
+BriteCRM Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

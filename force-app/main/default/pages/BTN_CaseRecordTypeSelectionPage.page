@@ -1,0 +1,34 @@
+<!--
+ * @author Mateusz Przywara
+ * @date   2016-09-06
+ * @description BTN_CaseRecordTypeSelectionPage Page with DropDown list with Case Record Types
+ -->
+<apex:page id="BTN_CaseRecordTypeSelectionPage" controller="BTN_CaseRecordTypeSelectionController" tabStyle="Case">
+    <apex:form id="f1">
+    <apex:pageBlock title="{!$Label.SelectRecordType}">
+        <apex:pageMessages id="msg"/>
+        <apex:pageBlockSection >
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="{!$Label.RecordTypePicklistLabel}" for="rtPicklist"/>
+                <apex:outputPanel >
+                    <div class="requiredInput">
+                        <div class="requiredBlock"></div>
+                        <apex:selectList id="rtPicklist"
+                                value="{!selectedRecordType}"
+                                required="true" size="1"
+                        >
+                            <apex:selectOptions value="{!CaseRecordTypes}"/>
+                        </apex:selectList>
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+
+        <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.Continue}" action="{!redirectToNewCaseForm}" reRender="f1, msg"/>
+                <apex:commandButton value="{!$Label.CancelBtn}" action="{!cancel}" reRender="f1, msg"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

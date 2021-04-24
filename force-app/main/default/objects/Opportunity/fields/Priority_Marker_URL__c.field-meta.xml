@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Marker_URL__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISPICKVAL(Priority__c, &quot;No Competitors&quot;),
+ &quot;/servlet/servlet.FileDownload?file=01558000000AqQN&quot;,
+  &quot;/servlet/servlet.FileDownload?file=01558000000AqQL&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Priority Marker URL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

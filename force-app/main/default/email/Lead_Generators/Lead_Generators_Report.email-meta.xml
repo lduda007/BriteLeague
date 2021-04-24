@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Lead_Generators</letterhead>
+    <name>Raporty nie muszą być zmorą</name>
+    <style>formalLetter</style>
+    <subject>Raporty nie muszą być zmorą</subject>
+    <textOnly>Szanowny {!Lead.Salutation} {!Lead.FirstName}, 
+
+
+
+Pozwalam sobie na kontakt mailowy, celem prezentacji profilu firmy Britenet. Będę wdzięczna za informację, czy wiadomość do Pana dotarła. 
+
+Britenet to polski software house, istniejący na rynku przeszło 10 lat. Nasz zespół tworzy 400 specjalistów IT. Specjalizujemy się w rozwiązaniach Business Intelligence, Salesforce i Outsourcingu ekspertów IT. Zarządzamy projektami informatycznymi, doradzamy, dostosowujemy i wspieramy w wielu technologiach. 
+
+W ramach BI: 
+- Integrujemy dane z różnych systemów informatycznych 
+- Integrujemy bazy danych poszczególnych działów firmy 
+- Przygotowujemy cykliczne raporty 
+- Analizujemy zachowania klientów 
+- Przetwarzamy i analizujemy olbrzymie zbiory danych 
+
+Zaufali nam m.in.: Volkswagen Group Polska, Lidl, Concordia, Generali, Master Card, COI. 
+
+Chętnie poznalibyśmy Państwa potrzeby w zakresie wsparcia IT i opowiedzieli o naszych doświadczeniach i możliwościach. Czy znaleźliby Państwo dla nas czas w najbliższych dniach/tygodniach ? 
+
+
+
+Pozdrawiam serdecznie, 
+{!User.FirstName} {!User.LastName} 
+{!User.Title} 
+{!User.Phone} 
+Britenet Sp. z o.o. 
+{!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

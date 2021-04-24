@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vInterviewer</fullName>
+    <active>false</active>
+    <description>Field Interviewer mandatory if it&apos;s Internal Interview type</description>
+    <errorConditionFormula>AND(ISPICKVAL(Type__c, &apos;Internal Interview&apos;), ISBLANK(Interviewer_user__c), RecordType.DeveloperName = &apos;Interview&apos;)</errorConditionFormula>
+    <errorDisplayField>Interviewer_user__c</errorDisplayField>
+    <errorMessage>Please fill &quot;Interviewer&quot; field</errorMessage>
+</ValidationRule>

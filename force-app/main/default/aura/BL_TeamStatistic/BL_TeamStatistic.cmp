@@ -1,0 +1,22 @@
+<aura:component description="BL_TeamStatistic" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="BL_TeamRecordDetailController">
+    <aura:attribute name="values" type="Integer[]" default="[]"/>
+    <aura:attribute name="remisy" type="Integer"/>
+    <aura:attribute name="labels" type="String[]" default="['Win', 'Lost']"/>
+    <aura:attribute name="colors" type="String[]" default="[]"/>
+    <aura:attribute name="chartHeight" type="String" default="300"/>
+    <aura:attribute name="chartWidth" type="String" default="100%"/>
+
+    <ltng:require scripts="{!$Resource.ChartJS}" afterScriptsLoaded="{!c.loadStatistics}"/>
+
+    <lightning:card title="">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <canvas aura:id="matchesPie" height="{!v.chartHeight}" width="{!v.chartWidth}"></canvas>
+            </div>
+            <div class="slds-size_1-of-2">
+                <canvas aura:id="goalsPie" height="{!v.chartHeight}" width="{!v.chartWidth}"></canvas>
+            </div>
+        </div>
+    </lightning:card>
+    
+</aura:component>

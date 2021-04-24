@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Vendor --></label>
+    <name>Vendor__c</name>
+    <picklistValues>
+        <masterLabel>Inny</masterLabel>
+        <translation><!-- Inny --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OVH</masterLabel>
+        <translation><!-- OVH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partner Microsoft</masterLabel>
+        <translation><!-- Partner Microsoft --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sparx</masterLabel>
+        <translation><!-- Sparx --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

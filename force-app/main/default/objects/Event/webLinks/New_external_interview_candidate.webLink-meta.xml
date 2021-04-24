@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_external_interview_candidate</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New external interview</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>window.location=&apos;/00U/e?what_id={!BTN_CV__c.Id}&amp;retURL=%2F{!BTN_CV__c.Id}&amp;RecordType=0123E0000000Dc3&amp;ent=Event&amp;evt2_manyWId={!BTN_CV__c.ContactId__c}&amp;evt2_manyWName=[&quot;{!BTN_CV__c.ContactFirstName_frm__c} {!BTN_CV__c.ContactLastName_frm__c}&quot;]&amp;evt3_lkid={!BTN_CV__c.Id}&amp;evt3={!BTN_CV__c.Name}&apos;</url>
+</WebLink>

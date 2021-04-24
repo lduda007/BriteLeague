@@ -1,0 +1,11 @@
+<apex:page id="ContactAchievements" standardController="Contact" extensions="ContactAchievementSetPageExtension" showHeader="false" sideBar="false">
+    <apex:form rendered="{!Contact.SkillAssessment__c == true}">
+        <apex:pageBlock id="achievementSection" mode="maindetail">
+            <apex:pageBlockSection columns="1" title=" " collapsible="false">
+                <apex:repeat value="{!achievementGroups}" var="group">
+                    <c:AchievementSet name="{!group.name}" achievements="{!group.achievements}" levels="{!achievementLevels}" readonly="true" showAll="false" rendered="{!group.hasValue}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

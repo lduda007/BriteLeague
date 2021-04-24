@@ -1,0 +1,9 @@
+<!doctype html><html ng-app="btn.search"><head><meta charset="utf-8"><title>btn.search</title><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><base href="/"><link rel="stylesheet" href="styles/search.vendor.css"><link rel="stylesheet" href="styles/briteskills.search.css"></head><body><!--[if lt IE 10]>
+ <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+ <![endif]--><script src="scripts/search.vendor.js"></script><script src="scripts/search.app.js"></script><script>
+        angular.module('myApp', ['btn.search'])
+            .run(function ($rootScope, btnSearchSfdcConf) {
+                $rootScope.btnSearchSfdcConf = btnSearchSfdcConf;
+            });
+        angular.module('btn.search').constant('btnSearchSfdcConf', null);
+    </script><div style="padding-top: 150px;"><div id="main-container" class="container"><div data-ng-cloak="ng-cloak"><btn-search-base></btn-search-base></div></div></div></body></html>

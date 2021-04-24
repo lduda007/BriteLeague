@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "c3a738cd-4d7d-4aa3-a45b-b76dd569e986",
+    "propertyOverrides" : {
+      "activeViewId" : "cf355646-5c67-426a-94af-10dc6dc310ac"
+    },
+    "targetId" : "23bcc661-bdd7-4983-861a-5f2b64cbd165",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Competition_Detail_Battle_Royale_Page",
+  "id" : "29ef570d-3316-4aa8-9b5a-edd28894cfbd",
+  "type" : "experienceVariation"
+}

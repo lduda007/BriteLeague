@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Opportunity Layout</layout>
+        <sections>
+            <label><!-- Amount Information --></label>
+            <section>Amount Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contract Information --></label>
+            <section>Contract Information</section>
+        </sections>
+        <sections>
+            <label><!-- Guidance --></label>
+            <section>Guidance</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout Fixed</layout>
+        <sections>
+            <label><!-- Contract Information --></label>
+            <section>Contract Information</section>
+        </sections>
+        <sections>
+            <label><!-- Guidance --></label>
+            <section>Guidance</section>
+        </sections>
+        <sections>
+            <label><!-- HR --></label>
+            <section>HR</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout Fixed 2</layout>
+        <sections>
+            <label><!-- Amount Information --></label>
+            <section>Amount Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contract Information --></label>
+            <section>Contract Information</section>
+        </sections>
+        <sections>
+            <label><!-- Guidance --></label>
+            <section>Guidance</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Fixed price --></label>
+        <name>FixedPrice</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Support --></label>
+        <name>Support</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Time &amp; Material --></label>
+        <name>TimeMaterial</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please provide explanation. --></errorMessage>
+        <name>CloseDetailsMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide data --></errorMessage>
+        <name>ContactMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide data --></errorMessage>
+        <name>ContractStartMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide data --></errorMessage>
+        <name>DescriptionMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract End date has to be after Contract Start date --></errorMessage>
+        <name>EndDateHasToBeAfterStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide data --></errorMessage>
+        <name>LanguageMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide data --></errorMessage>
+        <name>LocationMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide data --></errorMessage>
+        <name>MainSkillsMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide data for both (Next Step and Next Step Deadline fields) or none. --></errorMessage>
+        <name>NextStepValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please type Other Location --></errorMessage>
+        <name>OtherLocationMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide the reason --></errorMessage>
+        <name>ReasonForLostMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please contact RM / HR for closing remaining Candidates on related Resource Request. --></errorMessage>
+        <name>vOpenCandidatesInRR</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Fix_Opportunity --></label>
+        <name>New_Fix_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_TM_Opportunity --></label>
+        <name>New_TM_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Old_Opportunity --></label>
+        <name>Old_Opportunity</name>
+    </webLinks>
+</CustomObjectTranslation>

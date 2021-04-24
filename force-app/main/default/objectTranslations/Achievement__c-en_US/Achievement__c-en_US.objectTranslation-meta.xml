@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Achievement</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Achievements</value>
+    </caseValues>
+    <layouts>
+        <layout>Achievement Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Attribute Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Group Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Skill Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Specialization Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Umiejętność określana jakościowo za pomocą konfigurowalnej skali --></description>
+        <label><!-- Attribute --></label>
+        <name>Attribute</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Odznaka - współczynnik ilościowy --></description>
+        <label><!-- Badge --></label>
+        <name>Badge</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Certifikat --></description>
+        <label><!-- Certificate --></label>
+        <name>Certificate</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Zbiór umiejętności. --></description>
+        <label><!-- Group --></label>
+        <name>Group</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Liczba miesięcy od podanej daty --></description>
+        <label><!-- Number of Months From Date --></label>
+        <name>MonthsFromDate</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Umiejętność określana jakościowo za pomocą trzy stopniowej skali --></description>
+        <label><!-- Skill --></label>
+        <name>Skill</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Specializacja --></description>
+        <label><!-- Specialization --></label>
+        <name>Specialization</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

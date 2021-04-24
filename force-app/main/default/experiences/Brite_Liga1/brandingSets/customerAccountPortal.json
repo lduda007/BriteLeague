@@ -1,0 +1,33 @@
+{
+  "definitionName" : "cpt:branding-cpt",
+  "id" : "1b293319-1543-4376-a095-3751badeaa27",
+  "label" : "Customer Account Portal",
+  "type" : "brandingSet",
+  "values" : {
+    "ActionColor" : "rgb(15, 76, 117)",
+    "BorderColor" : "#D4D4D4",
+    "CardBackgroundColor" : "rgba(255, 255, 255, 0)",
+    "CompanyLogo" : "",
+    "DetailTextColor" : "#5A5A5A",
+    "ErrorFontColor" : "#ff9e9e",
+    "HeaderBackgroundColor" : "rgb(27, 38, 44)",
+    "HeaderFonts" : "Salesforce Sans",
+    "LinkColor" : "rgb(50, 130, 184)",
+    "LoginBackgroundColor" : "rgb(255, 255, 255)",
+    "LoginBackgroundImage" : "../../../../sfsites/picasso/core/external/salesforceIdentity/images/background.jpg?v=1",
+    "NavigationMenuTextColor" : "rgb(255, 255, 255)",
+    "OverlayTextColor" : "#FFFFFF",
+    "PageBackgroundColor" : "rgb(255, 255, 255)",
+    "PrimaryFont" : "Salesforce Sans",
+    "TextColor" : "#222222",
+    "TextTransformStyle" : "none",
+    "_ActionColorDarker" : "#092f48",
+    "_ActionColorTrans" : "rgba(15, 76, 117, 0.9)",
+    "_HeaderInputBackgroundColor" : "rgba(255,255,255,.2)",
+    "_HeaderPlaceholderTextColor" : "rgba(255,255,255,.7)",
+    "_HeaderTextColor" : "rgba(250,250,250,.9)",
+    "_HoverColor" : "rgba(15, 76, 117, 0.05)",
+    "_LinkColorDarker" : "#296b98",
+    "_NavigationMenuHoverColor" : "rgba(255,255,255,.2)"
+  }
+}

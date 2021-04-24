@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Candidate Source --></label>
+    <name>Candidate_Source__c</name>
+    <picklistValues>
+        <masterLabel>Academy/College</masterLabel>
+        <translation><!-- Academy/College --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement 4programmers</masterLabel>
+        <translation><!-- Advertisement 4programmers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement Goldenline</masterLabel>
+        <translation><!-- Advertisement Goldenline --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement Kariera Britenet</masterLabel>
+        <translation><!-- Advertisement Kariera Britenet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement linked-in</masterLabel>
+        <translation><!-- Advertisement linked-in --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement nofluffjobs</masterLabel>
+        <translation><!-- Advertisement nofluffjobs --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement olx.pl</masterLabel>
+        <translation><!-- Advertisement olx.pl --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement other</masterLabel>
+        <translation><!-- Advertisement other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement praca.pl</masterLabel>
+        <translation><!-- Advertisement praca.pl --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement pracuj.pl</masterLabel>
+        <translation><!-- Advertisement pracuj.pl --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct Goldenline</masterLabel>
+        <translation><!-- Direct Goldenline --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct linked-in</masterLabel>
+        <translation><!-- Direct linked-in --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recommendation external</masterLabel>
+        <translation><!-- Recommendation external --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recommendation internal</masterLabel>
+        <translation><!-- Recommendation internal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>powrót</masterLabel>
+        <translation><!-- powrót --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

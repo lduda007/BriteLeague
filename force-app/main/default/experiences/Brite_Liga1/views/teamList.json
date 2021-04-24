@@ -1,0 +1,36 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "22098517-6878-4ece-b854-891e1288fbd4",
+  "label" : "Team List",
+  "regions" : [ {
+    "id" : "8ac7fc81-cfa9-4249-8b03-49f9ec21cfd8",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "filterName" : "{!filterId}",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "{!objectName}",
+        "showDisplay" : "showall"
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "c4eb3493-2b55-419b-9429-d5a2947dd124",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "00837417-b9dd-4a8a-ad62-e4466e2ec65c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "3b2ee3d8-18ce-4dbd-852a-bcfe720a3f0d",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-a0g"
+}

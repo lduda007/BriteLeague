@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Poziom znajomości drugorzędnego języka</label>
+    <name>Language_level_2__c</name>
+    <picklistValues>
+        <masterLabel>A1</masterLabel>
+        <translation><!-- A1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>A2</masterLabel>
+        <translation><!-- A2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>B1</masterLabel>
+        <translation><!-- B1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>B2</masterLabel>
+        <translation><!-- B2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>C1</masterLabel>
+        <translation><!-- C1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>C2</masterLabel>
+        <translation><!-- C2 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

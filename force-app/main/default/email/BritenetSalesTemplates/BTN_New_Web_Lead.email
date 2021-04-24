@@ -1,0 +1,10 @@
+Dear {!Receiving_User.Name},</br>
+</br>
+new Web Lead has been created:</br>
+</br>
+Name: {!Lead.Name}</br>
+Company: {!Lead.Company}</br>
+For more information visit the <a href="{!Lead.Link}">BriteCRM app</a>.</br>
+</br>
+Kind regards,</br>
+BriteCRM Team

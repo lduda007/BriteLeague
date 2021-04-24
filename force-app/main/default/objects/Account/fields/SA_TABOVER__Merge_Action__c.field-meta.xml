@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SA_TABOVER__Merge_Action__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>HYPERLINK( 
+&quot;/merge/accmergewizard.jsp?srch=&quot; &amp; Name &amp; 
+&quot;&amp;retURL=%2F&quot; &amp; Id &amp; 
+&quot;&amp;cancelURL=%2F&quot; &amp; Id, &quot;Merge Accounts&quot;, &quot;_top&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Merge Action</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

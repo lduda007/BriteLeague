@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_with_profiling</fullName>
+    <columns>NAME</columns>
+    <columns>Title__c</columns>
+    <columns>Interviewed__c</columns>
+    <columns>Candidate__c</columns>
+    <columns>Profiling__c</columns>
+    <columns>Profile__c</columns>
+    <columns>Profiling_date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Profiling__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>External with profiling</label>
+    <language>en_US</language>
+</ListView>

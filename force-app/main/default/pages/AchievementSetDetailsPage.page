@@ -1,0 +1,62 @@
+<apex:page id="AchievementSetDetailsPage" standardController="Achievement_Set__c" extensions="AchievementSetPageExtension">
+    <apex:sectionHeader title="{!$ObjectType.Achievement_Set__c.Label}" subTitle="{!achievementSet.Name}"/>
+
+    <link href="{!URLFOR($Resource.achievements, 'achievements.css')}"  rel="stylesheet" type="text/css"></link>
+
+    <apex:form >
+        <apex:pageBlock id="pageBlock" title="{!$Label.Details}" mode="maindetail">
+            <apex:pageMessages />
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!edit}" value="{!$Label.Edit_Button}" rendered="{!$ObjectType.Achievement_Set__c.updateable}"/>
+                <apex:commandButton action="{!delete}" value="{!$Label.Delete_Button}" onclick="return confirm('{!$Label.Are_You_Sure}');" rendered="{!$ObjectType.Achievement_Set__c.deletable}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection columns="1" title=" " collapsible="false">
+                <apex:outputField value="{!achievementSet.Name}"/>
+                <apex:outputField value="{!achievementSet.RecordTypeId}"/>
+                <apex:outputField value="{!achievementSet.Contact__c}" rendered="{!showAchievementSetContact}"/>
+                <apex:outputField value="{!achievementSet.Skip_Score_Calculation__c}" rendered="{!showAchievementSetMinScoreValue}"/>
+                <apex:outputField value="{!achievementSet.Score_Minimal_Value__c}" rendered="{!showAchievementSetMinScoreValue}"/>
+                <apex:outputField value="{!achievementSet.Career_Path__c}" rendered="{!showCareerPath}"/>
+                <apex:outputField value="{!achievementSet.Parent_Profile__c}" rendered="{!showCareerPath}"/>
+                <apex:outputField value="{!achievementSet.Who__c}" rendered="{!showWhoField}"/>
+                <apex:outputField value="{!achievementSet.AboutWho__c}" rendered="{!showWhoField}"/>
+                <apex:outputField value="{!achievementSet.SelfSurvey__c}" rendered="{!showWhoField}"/>
+                <apex:outputField value="{!achievementSet.Number_Of_Achievements__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:actionRegion >
+            <apex:pageBlock id="achievementSection" mode="maindetail" title="{!$ObjectType.Achievement__c.LabelPlural}">
+                <apex:pageBlockSection columns="2" title="{!$Label.Search}" collapsible="true">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel ></apex:outputLabel>
+                        <apex:outputPanel >
+                            <apex:commandButton value="{!$Label.Apply}"/>
+                            &nbsp;&nbsp;
+                            <apex:commandLink action="{!selectAllCategories}" value="{!$Label.Select_All}"/>
+                            &nbsp;&nbsp;
+                            <apex:commandLink action="{!unselectAllCategories}" value="{!$Label.Unselect_All}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem />
+    
+                    <apex:repeat value="{!categoryFilters}" var="categoryFilter">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!categoryFilter.category.Name}"/>
+                            <apex:inputCheckbox value="{!categoryFilter.selected}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="1" title=" " collapsible="false">
+                    <apex:repeat value="{!achievementGroups}" var="group">
+                        <c:AchievementSet name="{!group.name}" achievements="{!group.achievements}" levels="{!achievementLevels}" readonly="true" showAll="false" rendered="{!group.hasValue}"/>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:actionRegion>
+
+    </apex:form>
+</apex:page>

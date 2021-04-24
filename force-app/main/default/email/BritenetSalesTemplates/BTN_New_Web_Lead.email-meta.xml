@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>New Web Lead</name>
+    <style>none</style>
+    <subject>[BriteCRM] New Web Lead has been created - {!Lead.Name}</subject>
+    <textOnly>Dear {!Receiving_User.Name},
+
+new Web Lead has been created:
+
+Name: {!Lead.Name}
+Company: {!Lead.Company}
+For more information visit the BriteCRM app.
+
+Kind regards,
+BriteCRM Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Equipment_Requests</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>Requested_Equipment__c</columns>
+    <columns>Requested_Equipment_Comments__c</columns>
+    <columns>Due_Date__c</columns>
+    <columns>Location_frm__c</columns>
+    <columns>Ready__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Ready__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Oczekujące</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins</group>
+    </sharedTo>
+</ListView>

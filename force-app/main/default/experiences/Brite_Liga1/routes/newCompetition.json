@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "8f10dc83-9150-4fe6-81da-f0fb8685527c",
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "configurationTags" : [ ],
+  "id" : "9be58bc7-281b-4ca6-9863-8a3e012011c6",
+  "label" : "New Competition",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-new-competition",
+  "type" : "route",
+  "urlPrefix" : "new-competition"
+}

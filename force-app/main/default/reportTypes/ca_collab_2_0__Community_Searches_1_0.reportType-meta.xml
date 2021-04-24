@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>NetworkSearchQueryFrequency</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Provides information about community’s search behavior.</description>
+    <label>Community Searches 1.0</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NetworkUserType</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CountQueries</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>QueryDate</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SearchTerm</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>UsedDeflection</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network.Name</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network.Id</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network.SelfRegProfile</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network.Status</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network.UserVisibility</field>
+            <table>NetworkSearchQueryFrequency</table>
+        </columns>
+        <masterLabel>Network Search Query Frequency</masterLabel>
+    </sections>
+</ReportType>

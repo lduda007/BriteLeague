@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vRate</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISBLANK( Rate__c )</errorConditionFormula>
+    <errorDisplayField>Rate__c</errorDisplayField>
+    <errorMessage>Please set Rate</errorMessage>
+</ValidationRule>

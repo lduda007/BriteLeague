@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "cfafad0f-c6ee-4eb5-84b9-e721100458f3",
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "configurationTags" : [ ],
+  "id" : "8f48676c-dc25-4b18-91f9-46a51daddf08",
+  "label" : "Match Detail",
+  "objectApiName" : "BL_Match__c",
+  "routeType" : "detail-a0h",
+  "type" : "route",
+  "urlPrefix" : "bl-match"
+}

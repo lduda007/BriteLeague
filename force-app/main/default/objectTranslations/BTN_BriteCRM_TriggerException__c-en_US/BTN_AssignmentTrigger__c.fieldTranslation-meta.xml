@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If marked then trigger will not execute. --></help>
+    <label><!-- BTN_AssignmentTrigger --></label>
+    <name>BTN_AssignmentTrigger__c</name>
+</CustomFieldTranslation>

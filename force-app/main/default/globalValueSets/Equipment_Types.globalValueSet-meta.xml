@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Komputer</fullName>
+        <default>false</default>
+        <label>Komputer</label>
+    </customValue>
+    <customValue>
+        <fullName>Monitor</fullName>
+        <default>false</default>
+        <label>Monitor</label>
+    </customValue>
+    <customValue>
+        <fullName>Klawiatura</fullName>
+        <default>false</default>
+        <label>Klawiatura</label>
+    </customValue>
+    <customValue>
+        <fullName>Mysz</fullName>
+        <default>false</default>
+        <label>Mysz</label>
+    </customValue>
+    <customValue>
+        <fullName>Telefon</fullName>
+        <default>false</default>
+        <label>Telefon</label>
+    </customValue>
+    <customValue>
+        <fullName>Tablet</fullName>
+        <default>false</default>
+        <label>Tablet</label>
+    </customValue>
+    <customValue>
+        <fullName>Licencja</fullName>
+        <default>false</default>
+        <label>Licencja</label>
+    </customValue>
+    <customValue>
+        <fullName>Karta SIM</fullName>
+        <default>false</default>
+        <label>Karta SIM</label>
+    </customValue>
+    <customValue>
+        <fullName>Router</fullName>
+        <default>false</default>
+        <label>Router</label>
+    </customValue>
+    <customValue>
+        <fullName>Switch</fullName>
+        <default>false</default>
+        <label>Switch</label>
+    </customValue>
+    <customValue>
+        <fullName>Access Point</fullName>
+        <default>false</default>
+        <label>Access Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Okablowanie</fullName>
+        <default>false</default>
+        <label>Okablowanie</label>
+    </customValue>
+    <customValue>
+        <fullName>Słuchawki</fullName>
+        <default>false</default>
+        <label>Słuchawki</label>
+    </customValue>
+    <customValue>
+        <fullName>Podstawka pod laptopa</fullName>
+        <default>false</default>
+        <label>Podstawka pod laptopa</label>
+    </customValue>
+    <customValue>
+        <fullName>Listwa</fullName>
+        <default>false</default>
+        <label>Listwa</label>
+    </customValue>
+    <customValue>
+        <fullName>Inne</fullName>
+        <default>false</default>
+        <label>Inne</label>
+    </customValue>
+    <masterLabel>Equipment Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

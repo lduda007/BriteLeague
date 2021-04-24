@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Week after meeting reminder</name>
+    <style>none</style>
+    <subject>Przypomnienie tydzień po spotkaniu z {!Event.Who}.</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContractType__c</fullName>
+    <externalId>false</externalId>
+    <label>Contract Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B2B</fullName>
+                <default>false</default>
+                <label>B2B</label>
+            </value>
+            <value>
+                <fullName>Umowa o Pracę</fullName>
+                <default>false</default>
+                <label>Umowa o Pracę</label>
+            </value>
+            <value>
+                <fullName>Umowa o Pracę z kosztami autorskimi - 90%</fullName>
+                <default>false</default>
+                <label>Umowa o Pracę z kosztami autorskimi - 90%</label>
+            </value>
+            <value>
+                <fullName>Umowa o Pracę z kosztami autorskimi ...</fullName>
+                <default>false</default>
+                <label>Umowa o Pracę z kosztami autorskimi ...</label>
+            </value>
+            <value>
+                <fullName>Umowa o Dzieło</fullName>
+                <default>false</default>
+                <label>Umowa o Dzieło</label>
+            </value>
+            <value>
+                <fullName>Umowa Zlecenie</fullName>
+                <default>false</default>
+                <label>Umowa Zlecenie</label>
+            </value>
+            <value>
+                <fullName>Inny rodzaj umowy</fullName>
+                <default>false</default>
+                <label>Inny rodzaj umowy</label>
+            </value>
+            <value>
+                <fullName>B2B (stawka netto za godzinę)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B2B (stawka netto za godzinę)</label>
+            </value>
+            <value>
+                <fullName>UoP</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>UoP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

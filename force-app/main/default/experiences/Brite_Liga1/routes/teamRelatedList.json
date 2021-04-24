@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "1bf2823f-d712-4d81-a4d1-13cb3285ba78",
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "configurationTags" : [ ],
+  "id" : "f2b4a0e7-55f3-45dd-8519-dc7da006e3b3",
+  "label" : "Team Related List",
+  "objectApiName" : "BL_Team__c",
+  "routeType" : "relatedlist-a0g",
+  "type" : "route",
+  "urlPrefix" : "bl-team"
+}

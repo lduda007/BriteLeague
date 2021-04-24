@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Responsible_Person__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Osoba odpowiedzialna za uzupełnienie opisów</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Osoba odpowiedzialna za uzupełnienie opisów</inlineHelpText>
+    <label>Responsible Person</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Achievements</relationshipLabel>
+    <relationshipName>Achievements</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

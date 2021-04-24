@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Goals_Lost__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Goals Lost</label>
+    <summarizedField>BL_Competitor__c.GoalsAgainst__c</summarizedField>
+    <summaryForeignKey>BL_Competitor__c.Team__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

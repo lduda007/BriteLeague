@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ResourceRequest__c</fullName>
+    <externalId>false</externalId>
+    <label>Resource request</label>
+    <lookupFilter>
+        <active>false</active>
+        <errorMessage>Resource request must not be closed</errorMessage>
+        <filterItems>
+            <field>BTN_ResourceRequest__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed Delivered, Closed Rejected</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>BTN_ResourceRequest__c</referenceTo>
+    <relationshipLabel>Candidates</relationshipLabel>
+    <relationshipName>CVs_lkp</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

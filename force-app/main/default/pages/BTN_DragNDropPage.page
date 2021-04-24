@@ -1,0 +1,3 @@
+<apex:page id="BTN_DragNDropPage" standardController="BTN_CV__c">
+    <c:BTN_DragNDropComponent parentId="{!BTN_CV__c.Id}"/>
+</apex:page>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Moje_Leady_Kartki</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>KartkaPL__c</columns>
+    <columns>KartkaENG__c</columns>
+    <columns>LEAD.STREET</columns>
+    <columns>LEAD.CITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>KartkaPL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>LEAD.STREET</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Moje leady z kartkami</label>
+</ListView>

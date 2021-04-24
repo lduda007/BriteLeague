@@ -1,0 +1,60 @@
+{
+    "userId": "marcin.kapusta@britenet.com.pl",
+    "templateApiName": "ankieta_do_opisu_super_umiejętności",
+    "surveyId": "a0A3E0000004AupUAE",
+    "name": "Marcin Kapusta",
+    "dueDate": null,
+    "answers": [{
+        "value": "Junior",
+        "serviceName": null,
+        "questionId": "a0B3E000000LLSJUA4",
+        "id": "a093E000000fscUQAQ",
+        "comment": null,
+        "type": "Skill",
+        "sumAnswers": 0,
+        "selfAnswer": null,
+        "readOnly": false,
+        "otherEmployeesSkillOrGroupValue": {},
+        "otherEmployeeAvgValue": null,
+        "aboutWhoName": null
+    }, {
+        "value": "5",
+        "serviceName": null,
+        "questionId": "a0B3E000000LLSYUA4",
+        "id": "a093E000000fsceQAA",
+        "comment": null,
+        "type": "Badge",
+        "sumAnswers": 0,
+        "selfAnswer": null,
+        "readOnly": false,
+        "otherEmployeesSkillOrGroupValue": {},
+        "otherEmployeeAvgValue": null,
+        "aboutWhoName": null
+    }, {
+        "value": "Yes",
+        "serviceName": null,
+        "questionId": "a0B3E000000LLSTUA4",
+        "id": "a093E000000fscZQAQ",
+        "comment": null,
+        "type": "Certificate",
+        "sumAnswers": 0,
+        "selfAnswer": null,
+        "readOnly": false,
+        "otherEmployeesSkillOrGroupValue": {},
+        "otherEmployeeAvgValue": null,
+        "aboutWhoName": null
+    }, {
+        "value": "marcin.kapusta@britenet.com.pl",
+        "serviceName": null,
+        "questionId": "email",
+        "id": null,
+        "comment": null,
+        "type": null,
+        "sumAnswers": 0,
+        "selfAnswer": null,
+        "readOnly": true,
+        "otherEmployeesSkillOrGroupValue": {},
+        "otherEmployeeAvgValue": null,
+        "aboutWhoName": "Marcin Kapusta"
+    }]
+}

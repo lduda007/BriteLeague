@@ -1,0 +1,214 @@
+<apex:page controller="BTN_JiraController" docType="html-5.0">
+
+	<apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/bootstrap/css/bootstrap.css')}"/>
+	<apex:stylesheet value="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+	<apex:form id="jiraForm">
+		<div class="container-fluid">
+			<apex:outputPanel layout="block" rendered="{!NOT(ISNULL(infoMessages))}" styleClass="alert alert-success">
+				<ul style="list-style: none; margin: 0; padding: 0;">
+					<apex:repeat value="{!infoMessages}" var="msg"><li>{!msg}</li></apex:repeat>
+				</ul>
+			</apex:outputPanel>
+			<apex:outputPanel layout="block" rendered="{!NOT(ISNULL(errorMessages))}" styleClass="alert alert-danger">
+				<ul style="list-style: none; margin: 0; padding: 0;">
+					<apex:repeat value="{!errorMessages}" var="msg"><li>{!msg}</li></apex:repeat>
+				</ul>
+			</apex:outputPanel>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Issue List</h3>
+						</div>
+						<div class="panel-body">
+							<apex:actionStatus id="tableStatus">
+								<apex:facet name="start">
+									<img src="/img/loading.gif" height="14px" width="14px"/> Loading
+								</apex:facet>
+								<apex:facet name="stop">
+									<img src="/img/s.gif" height="14px" width="14px"/>
+								</apex:facet>
+							</apex:actionStatus>
+							<div class="pull-right">
+								<button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#newIssue" onclick="return false;">New Issue</button>
+							</div>
+						</div>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<td>Key</td>
+									<td>Title</td>
+									<td>Priority</td>
+									<td>Status</td>
+									<td>Type</td>
+								</tr>
+							</thead>
+							<tbody>
+								<apex:repeat value="{!issues}" var="item">
+								<tr>
+									<td>
+										<apex:commandLink action="{!loadJira}" value="{!item.key}" status="tableStatus" reRender="jiraForm">
+											<apex:param name="key" value="{!item.key}" assignTo="{!issueKey}"/>
+										</apex:commandLink>
+									</td>
+									<td>{!item.fields.summary}</td>
+									<td><apex:image value="{!item.fields.issuetype.iconUrl}" height="16px" width="16px" rendered="{!RIGHT(item.fields.issuetype.iconUrl, 1) != '/'}" /> {!item.fields.issuetype.name}</td>
+									<td><apex:image value="{!item.fields.priority.iconUrl}" height="16px" width="16px" rendered="{!RIGHT(item.fields.priority.iconUrl, 1) != '/'}" /> {!item.fields.priority.name}</td>
+									<td><apex:image value="{!item.fields.status.iconUrl}" height="16px" width="16px" rendered="{!RIGHT(item.fields.status.iconUrl, 1) != '/'}" /> {!item.fields.status.name}</td>
+								</tr>
+								</apex:repeat>
+							</tbody>
+						</table>
+						<div class="panel-footer">
+							<nav>
+							<ul class="pagination pagination-sm" style="margin: 0;">
+								<li class="{!IF(page > 0, '', 'disabled')}">
+									<apex:commandLink action="{!previousPage}" value="Previous" status="tableStatus" reRender="jiraForm" />
+								</li>
+								<li class="active"><span>{!page + 1} / {!CEILING(total / 5)}</span></li>
+								<li class="{!IF(page < (CEILING(total / 5) - 1), '', 'disabled')}">
+									<apex:commandLink action="{!nextPage}" value="Next" status="tableStatus" reRender="jiraForm" />
+								</li>
+							</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+			<apex:outputPanel id="jiraDetails" layout="none" rendered="{!NOT(ISNULL(issue))}">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">{!issue.key}: {!issue.fields.summary}</h3>
+						</div>
+						<div class="panel-body">
+							<apex:pageBlock mode="maindetail">
+								<apex:pageBlockSection >
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Type" />
+										<apex:outputPanel >
+											<apex:image value="{!issue.fields.issuetype.iconUrl}" height="16px" width="16px" rendered="{!RIGHT(issue.fields.issuetype.iconUrl, 1) != '/'}" />
+											<apex:outputText value="{!issue.fields.issuetype.name}" />
+										</apex:outputPanel>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Status" />
+										<apex:outputPanel >
+											<apex:image value="{!issue.fields.status.iconUrl}" height="16px" width="16px" rendered="{!RIGHT(issue.fields.status.iconUrl, 1) != '/'}" />
+											<apex:outputText value="{!issue.fields.status.name}" />
+										</apex:outputPanel>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Priority" />
+										<apex:outputPanel >
+											<apex:image value="{!issue.fields.priority.iconUrl}" height="16px" width="16px" rendered="{!RIGHT(issue.fields.priority.iconUrl, 1) != '/'}" />
+											<apex:outputText value="{!issue.fields.priority.name}" />
+										</apex:outputPanel>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Labels" />
+										<apex:outputPanel >
+											<apex:repeat value="{!issue.fields.labels}" var="label">
+												<span class="label label-info">{!label}</span>
+											</apex:repeat>
+										</apex:outputPanel>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Reporter" />
+										<apex:outputText value="{!issue.fields.reporter.displayName}" />
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Assignee" />
+										<apex:outputText value="{!issue.fields.assignee.displayName}" />
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Created" />
+										<apex:outputText value="{!issue.created}" />
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										<apex:outputLabel value="Updated" />
+										<apex:outputText value="{!issue.updated}" />
+									</apex:pageBlockSectionItem>
+								</apex:pageBlockSection>
+							</apex:pageBlock>
+						</div>
+						<div class="panel-heading">
+							<h3 class="panel-title">Description</h3>
+						</div>
+						<div class="panel-body" id="descriptionContainer">
+							{!TRIM(issue.fields.description)}
+						</div>
+						<div class="panel-heading">
+							<h3 class="panel-title">Comments</h3>
+						</div>
+						<table class="table">
+							<tr>
+								<td><i class="fa fa-comment" aria-hidden="true"></i> <strong>New Comment</strong></td>
+								<td><apex:commandButton value="Add Comment" action="{!addComment}" status="commentStatus" reRender="jiraForm" /></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+                                    <apex:actionStatus id="commentStatus">
+                                        <apex:facet name="start">
+                                            <img src="/img/loading.gif" height="14px" width="14px"/> Saving
+                                        </apex:facet>
+                                        <apex:facet name="stop">
+                                            <img src="/img/s.gif" height="14px" width="14px"/>
+                                        </apex:facet>
+                                    </apex:actionStatus>
+									<apex:inputTextarea value="{!body}" styleClass="form-control"></apex:inputTextarea>
+								</td>
+							</tr>
+						<apex:repeat value="{!issue.fields.comment.comments}" var="comment">
+							<tr>
+								<td><i class="fa fa-user-circle" aria-hidden="true"></i> <strong>{!comment.author.displayName}</strong></td>
+								<td><i class="fa fa-clock-o" aria-hidden="true"></i> {!comment.created}</td>
+							</tr>
+							<tr>
+								<td colspan="2">{!comment.body}</td>
+							</tr>
+						</apex:repeat>
+						</table>
+					</div>
+				</div>
+			</div>
+			</apex:outputPanel>
+		</div>
+
+		<div class="modal fade" id="newIssue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">New Issue</h4>
+					</div>
+					<div class="modal-body">
+						<apex:pageBlock mode="maindetail">
+							<apex:pageBlockSection columns="1">
+								<apex:selectList value="{!issueType}" label="Type" size="1" multiselect="false">
+									<apex:selectOptions value="{!typesOptions}" />
+								</apex:selectList>
+								<apex:selectList value="{!priority}" label="Priority" size="1" multiselect="false">
+									<apex:selectOptions value="{!priorityOptions}" />
+								</apex:selectList>
+								<apex:inputText value="{!summary}" label="Title" />
+								<apex:inputTextarea value="{!description}" label="Description"></apex:inputTextarea>
+							</apex:pageBlockSection>
+						</apex:pageBlock>
+					</div>
+					<div class="modal-footer">
+						<apex:commandButton value="Create" action="{!createIssue}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</apex:form>
+
+	<apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/bootstrap/js/bootstrap.min.js')}"/>
+
+</apex:page>

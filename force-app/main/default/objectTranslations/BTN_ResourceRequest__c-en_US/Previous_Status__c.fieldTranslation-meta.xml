@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Previous Status --></label>
+    <name>Previous_Status__c</name>
+    <picklistValues>
+        <masterLabel>Closed - Blood in the sand</masterLabel>
+        <translation><!-- Closed - Blood in the sand --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Closed - Failure</masterLabel>
+        <translation><!-- Closed - Failure --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Closed - Success</masterLabel>
+        <translation><!-- Closed - Success --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Closed - We resign</masterLabel>
+        <translation><!-- Closed - We resign --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>On shelf</masterLabel>
+        <translation><!-- On shelf --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Open</masterLabel>
+        <translation><!-- Open --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Opportunity Closed</masterLabel>
+        <translation><!-- Opportunity Closed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Waiting for client</masterLabel>
+        <translation><!-- Waiting for client --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

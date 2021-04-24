@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification to RM 2 weeks before Internal Offboarding</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Internal Offboarding Case Notification Template</name>
+    <style>none</style>
+    <subject>[BriteRM] External Offboarding: {!Case.Contact} ({!Account.Name})</subject>
+    <textOnly>Dear Resource Manager,
+
+An Internal Offboarding has been identified for:
+Contact: {!Case.Contact}
+Client: {!Account.Name}
+For more information please visit the case {!Case.CaseNumber} in BriteRM app.
+
+Kind regards,
+BriteRM Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract</fullName>
+    <active>true</active>
+    <label>Contract</label>
+    <picklistValues>
+        <picklist>ContractType__c</picklist>
+        <values>
+            <fullName>B2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inny rodzaj umowy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umowa Zlecenie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umowa o Dzieło</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umowa o Pracę</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umowa o Pracę z kosztami autorskimi %2E%2E%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umowa o Pracę z kosztami autorskimi - 90%25</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NoticePeriod__c</picklist>
+        <values>
+            <fullName>1 miesiąc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 miesiące</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 tygodnie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 dni robocze</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 miesiące</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Od zaraz</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

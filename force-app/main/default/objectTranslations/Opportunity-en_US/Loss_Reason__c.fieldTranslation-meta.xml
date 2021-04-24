@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Loss Reason --></label>
+    <name>Loss_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Candidate has reisgned</masterLabel>
+        <translation><!-- Candidate has reisgned --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Candidate was poorly assessed</masterLabel>
+        <translation><!-- Candidate was poorly assessed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Candidate withdrew</masterLabel>
+        <translation><!-- Candidate withdrew --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Client has resigned</masterLabel>
+        <translation><!-- Client has resigned --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Competition candidate was selected</masterLabel>
+        <translation><!-- Competition candidate was selected --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lost to Competitor</masterLabel>
+        <translation><!-- Lost to Competitor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No qualifications</masterLabel>
+        <translation><!-- No qualifications --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not enough time to deliver</masterLabel>
+        <translation><!-- Not enough time to deliver --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Too low rate</masterLabel>
+        <translation><!-- Too low rate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Too low/high rate</masterLabel>
+        <translation><!-- Too low/high rate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>We don&apos;t have proper manpower</masterLabel>
+        <translation><!-- We don&apos;t have proper manpower --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

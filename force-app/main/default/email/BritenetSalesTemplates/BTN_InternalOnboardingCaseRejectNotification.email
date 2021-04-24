@@ -1,0 +1,11 @@
+<p>The internal onboarding case <a href={!Case.Link}>{!Case.CaseNumber}</a> has been rejected by: {!Case.Approver__c}</p>
+<strong>Name:</strong> {!Case.NewUserFirstName__c}&nbsp;{!Case.NewUserLastName__c}<br/>
+<strong>Position:</strong> {!Case.NewUserTitle__c}<br/>
+<strong>Work start date:</strong> {!Case.WorkStartDate__c}<br/>
+<strong>Location:</strong> {!Case.Location_frm__c}<br/>
+<strong>Leader:</strong> {!Case.Leader__c}<br/>
+
+<p>
+Kind regards,<br/>
+BriteRM Team
+</p>

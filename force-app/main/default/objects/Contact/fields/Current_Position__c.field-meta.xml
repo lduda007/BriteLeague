@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Position__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Current Position</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please select Achievement Set that describe position profile and Position form selected Career Path</errorMessage>
+        <filterItems>
+            <field>Achievement_Set__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Position Profile</value>
+        </filterItems>
+        <filterItems>
+            <field>Achievement_Set__c.Career_Path__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Career_Path__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Achievement_Set__c</referenceTo>
+    <relationshipLabel>Contacts</relationshipLabel>
+    <relationshipName>Contacts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

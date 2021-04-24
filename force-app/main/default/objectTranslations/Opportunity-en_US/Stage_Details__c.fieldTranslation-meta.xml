@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Stage Details --></label>
+    <name>Stage_Details__c</name>
+    <picklistValues>
+        <masterLabel>Candidate has withdrawn</masterLabel>
+        <translation><!-- Candidate has withdrawn --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No Skills on the market</masterLabel>
+        <translation><!-- No Skills on the market --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Enough Time</masterLabel>
+        <translation><!-- Not Enough Time --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Too Expensive</masterLabel>
+        <translation><!-- Too Expensive --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

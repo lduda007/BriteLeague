@@ -1,0 +1,15 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[Dear RM,<br>]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[New Resource Request has been created by {!BTN_ResourceRequest__c.Requestor_frm__c} for {!BTN_ResourceRequest__c.OpportunityName_frm__c} {!BTN_ResourceRequest__c.Position__c} at {!BTN_ResourceRequest__c.Account_frm__c}. The CVs are expected to be delivered till {!BTN_ResourceRequest__c.DeliveryDeadline_frm__c}. For more information visit the <a href="{!BTN_ResourceRequest__c.Link}">Request: {!BTN_ResourceRequest__c.Name}</a>.<br><br>Kind regards,
+<br>BriteCRM Team<br>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[<br>]]></td>
+</tr>
+</table>

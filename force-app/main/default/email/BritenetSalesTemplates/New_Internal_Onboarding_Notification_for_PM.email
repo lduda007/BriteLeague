@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 255, 255);">Dear PM,&nbsp;</span><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><br><font face="arial" style="" size="2">{!Case.Contact}&nbsp;was hired in response to your request <br>and will be available from&nbsp;{!Case.WorkStartDate__c}</font><br><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 255, 255);">Kind regards,&nbsp;</span><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 255, 255);">BriteCRM Team</span>]]></td>
+</tr>
+</table>

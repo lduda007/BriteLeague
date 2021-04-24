@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Powód przegranej</label>
+    <name>Loss_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Candidate has reisgned</masterLabel>
+        <translation>Kandydat zrezygnował</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Candidate was poorly assessed</masterLabel>
+        <translation>Kandydat został słabo oceniony</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Candidate withdrew</masterLabel>
+        <translation>Kandydat wycofał się</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Client has resigned</masterLabel>
+        <translation>Klient zrezygnował</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Competition candidate was selected</masterLabel>
+        <translation>Wybrany został kandydat konkurencji</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lost to Competitor</masterLabel>
+        <translation>Przegrana z konkurencją</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No qualifications</masterLabel>
+        <translation>Brak kwalifikacji</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not enough time to deliver</masterLabel>
+        <translation>Niewystarczająca ilość czasu na dostarczenie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation>Inne</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Too low rate</masterLabel>
+        <translation>Stawka za niska</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Too low/high rate</masterLabel>
+        <translation>Stawka za niska / wysoka</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>We don&apos;t have proper manpower</masterLabel>
+        <translation>Brak wystarczającej mocy przerobowej</translation>
+    </picklistValues>
+</CustomFieldTranslation>

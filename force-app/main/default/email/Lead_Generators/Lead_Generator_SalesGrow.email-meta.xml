@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Lead_Generators</letterhead>
+    <name>Sprzedaż rośnie, a handlowcy nie marnują czasu</name>
+    <style>formalLetter</style>
+    <subject>Sprzedaż rośnie, a handlowcy nie marnują czasu</subject>
+    <textOnly>Szanowny {!Lead.Salutation} {!Lead.FirstName}, 
+
+Pozwalam sobie na kontakt mailowy. celem prezentacji profilu działalności firmy Britenet, którą reprezentuję. Będę wdzięczna za informację, czy wiadomość dotarła. 
+
+Britenet to polska firma Informatyczna z zespołem liczącym ponad 400 specjalistów IT. Na rynku jesteśmy od 2006 roku. Specjalizujemy się w trzech obszarach: Salesforce, Business Intelligence oraz Outsourcing ekspertów IT. 
+
+Chciałabym krótko zaprezentować system wsparcia sprzedaży i obsługi klienta Salesforce: 
+
+Dopasowany do potrzeb i indywidualnych wymagań 
+Zlokalizowany w chmurze 
+Bardzo elastyczny i szybki 
+Dostępny w języku polskim 
+Mobilny 
+Sprawdzony przez największych (Coca-Cola, Canon, JYSK) 
+Chętnie poznalibyśmy Państwa potrzeby w zakresie wsparcia IT oraz zaprezentowali nasze doświadczenia i możliwości. Zapraszam do kontaktu. 
+
+
+
+Pozdrawiam serdecznie, 
+{!User.FirstName} {!User.LastName}  
+{!User.Title} 
+{!User.Phone} 
+Britenet Sp. z o.o. 
+{!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

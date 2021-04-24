@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Candidate Source</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Direct linked-in</fullName>
+                <default>false</default>
+                <label>Direct linked-in</label>
+            </value>
+            <value>
+                <fullName>Advertisement linked-in</fullName>
+                <default>false</default>
+                <label>Advertisement linked-in</label>
+            </value>
+            <value>
+                <fullName>Direct Goldenline</fullName>
+                <default>false</default>
+                <label>Direct Goldenline</label>
+            </value>
+            <value>
+                <fullName>Advertisement Goldenline</fullName>
+                <default>false</default>
+                <label>Advertisement Goldenline</label>
+            </value>
+            <value>
+                <fullName>Advertisement Kariera Britenet</fullName>
+                <default>false</default>
+                <label>Advertisement Kariera Britenet</label>
+            </value>
+            <value>
+                <fullName>Advertisement praca.pl</fullName>
+                <default>false</default>
+                <label>Advertisement praca.pl</label>
+            </value>
+            <value>
+                <fullName>Advertisement olx.pl</fullName>
+                <default>false</default>
+                <label>Advertisement olx.pl</label>
+            </value>
+            <value>
+                <fullName>Advertisement 4programmers</fullName>
+                <default>false</default>
+                <label>Advertisement 4programmers</label>
+            </value>
+            <value>
+                <fullName>Advertisement pracuj.pl</fullName>
+                <default>false</default>
+                <label>Advertisement pracuj.pl</label>
+            </value>
+            <value>
+                <fullName>Advertisement nofluffjobs</fullName>
+                <default>false</default>
+                <label>Advertisement nofluffjobs</label>
+            </value>
+            <value>
+                <fullName>Advertisement other</fullName>
+                <default>false</default>
+                <label>Advertisement other</label>
+            </value>
+            <value>
+                <fullName>Academy/College</fullName>
+                <default>false</default>
+                <label>Academy/College</label>
+            </value>
+            <value>
+                <fullName>Recommendation external</fullName>
+                <default>false</default>
+                <label>Recommendation external</label>
+            </value>
+            <value>
+                <fullName>Recommendation internal</fullName>
+                <default>false</default>
+                <label>Recommendation internal</label>
+            </value>
+            <value>
+                <fullName>powrót</fullName>
+                <default>false</default>
+                <label>powrót</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

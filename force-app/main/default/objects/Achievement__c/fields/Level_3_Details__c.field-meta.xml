@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Level_3_Details__c</fullName>
+    <defaultValue>&quot;może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność&quot;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Jakie warunki trzeba spełnić aby osiągnąć trzeci poziom umiejętności</inlineHelpText>
+    <label>Level 3 Details</label>
+    <length>32768</length>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

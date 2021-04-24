@@ -1,0 +1,171 @@
+<apex:page standardController="BTN_Event__c" extensions="BTN_EventPeriodicController">
+<apex:form >
+<apex:pageBlock title="{!$Label.PeriodicAssessment}">
+	<apex:pageBlockButtons >
+		<apex:commandButton value="{!$Label.SaveBtn}" action="{!save}"/>
+		<apex:commandButton value="{!$Label.CancelBtn}" action="{!cancel}"/>
+	</apex:pageBlockButtons>
+	<apex:pageMessages id="pageMsgs"/>
+	
+		
+		<apex:pageBlockSection title="{!$Label.Information}">
+			<apex:outputField value="{!assessment.Interviewed__c}"/>
+			<apex:outputField value="{!assessment.Current_Position__c}"/>
+			<apex:outputField value="{!assessment.createdDate}" rendered="{!assessment.Id !=null}"/>
+		   <apex:pageBlockSectionItem >
+			   <apex:outputLabel value="{!$ObjectType.BTN_Event__c.fields.Assessment_Date__c.Label}"/>
+			   <apex:actionRegion >
+				   <apex:inputField value="{!assessment.Assessment_Date__c}">
+					   <apex:actionSupport event="onchange" rerender="currentTargetsTable"/>
+				   </apex:inputField>
+			   </apex:actionRegion>
+		   </apex:pageBlockSectionItem>
+			<apex:inputField value="{!assessment.CV_updated__c}"/>
+			<apex:inputField value="{!assessment.BS_skills_updated__c}"/>
+			<apex:inputField value="{!assessment.BriteSkills_updated__c}"/>
+			<apex:inputField value="{!assessment.Customer_survey_updated__c}"/>
+			
+			
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockSection title="{!$Label.PreviousAssessment}">
+			<apex:outputField value="{!previousAssessment.createdDate}"/>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="{!$ObjectType.Contact.Fields.Position__c.Label}"/>
+				<apex:outputField value="{!previousAssessment.Current_Position__c}"/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="{!$Label.PreviousCareerPath}"></apex:outputLabel>
+				<apex:outputField value="{!previousAssessment.Career_path__c}"/>
+			</apex:pageBlockSectionItem>
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockSection title="{!$Label.Career}">
+			<apex:inputField value="{!assessment.Career_path__c}"/>
+			<apex:inputField value="{!assessment.career_path_comments__c}"/>
+			<apex:inputField value="{!assessment.Additional_Carrer_path__c}"/>
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockSection title="{!$ObjectType.BTN_PersonalTarget__c.LabelPlural}" columns="1">
+			 <apex:pageBlockTable value="{!previousTargets}" var="item">
+			 	<apex:facet name="caption"><h2>{!$Label.PreviousTargets}</h2></apex:facet>
+
+	            <apex:column value="{!item.Name}"/>
+	            <apex:column value="{!item.Type__c}"/>
+	            <apex:column >
+                    <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Target__c.Label}</apex:facet>
+                    <apex:outputField value="{!item.Target__c}" rendered="{!item.Type__c != 'Certificate'}"/>
+                    <apex:outputField value="{!item.Certificate__c}" rendered="{!item.Type__c = 'Certificate'}"/>
+				</apex:column>
+	            <apex:column >
+	                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Comments__c.Label}</apex:facet>
+	                        <apex:inputField value="{!item.Comments__c}" />
+	            </apex:column>
+	            <apex:column >
+	                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Achieved_percent__c.Label}</apex:facet>
+	                        <apex:inputField value="{!item.Achieved_percent__c}" required="true" />
+	            </apex:column>
+	        </apex:pageBlockTable>
+	        
+	        <apex:actionRegion >
+	        <apex:pageBlockTable value="{!currentTargets}" var="item" id="currentTargetsTable">
+	        	<apex:variable var="currTargetsCounter" value="{!-1}"/>
+			 	<apex:facet name="caption"><h2>{!$Label.CurrentTargets}</h2></apex:facet>
+			 	<apex:column >
+	                <apex:facet name="header">#</apex:facet>
+	                		<apex:variable var="currTargetsCounter" value="{!currTargetsCounter + 1}"/>
+	                        {!currTargetsCounter}
+
+	            </apex:column>
+			 	<apex:column >
+	                <apex:facet name="header">{!$Label.Action}</apex:facet>
+	                <apex:outputpanel >
+			            <apex:outputLink value="#-" style="color:red;">{!$Label.Delete}</apex:outputLink>
+			            <apex:actionSupport event="onclick"
+			                                action="{!delCurrentTarget}"
+			                                rerender="currentTargetsTable,pageMsgs"
+											immediate="true">
+			                 <apex:param name="targetTodel" value="{!currTargetsCounter}" assignTo="{!targetToDel}" />
+			            </apex:actionSupport>
+			        </apex:outputpanel>
+	                        
+	            </apex:column>
+	            <apex:column value="{!item.Name}"/>
+	            <apex:column >
+	                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Type__c.Label}</apex:facet>
+		                    <div class="requiredInput">
+                                <div class="requiredBlock"/>
+								<apex:inputField value="{!item.Type__c}">
+									<apex:actionSupport event="onchange"
+														rerender="currentTargetsTable,pageMsgs">
+									</apex:actionSupport>
+								</apex:inputField>
+							</div>
+	            </apex:column>
+	            <apex:column >
+	                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Target__c.Label}</apex:facet>
+						<div class="requiredInput">
+							<div class="requiredBlock" />
+							<apex:inputField value="{!item.Target__c}" rendered="{!item.Type__c != 'Certificate'}"/>
+							<apex:inputField value="{!item.Certificate__c}" rendered="{!item.Type__c = 'Certificate'}"/>
+						</div>
+				</apex:column>
+	            <apex:column >
+	                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Comments__c.Label}</apex:facet>
+	                        <apex:inputField value="{!item.Comments__c}" />
+	            </apex:column>
+	            <apex:column >
+	                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Due_date__c.Label}</apex:facet>
+						<div class="requiredInput">
+							<div class="requiredBlock" />
+							<apex:inputField value="{!item.Due_date__c}" />
+						</div>
+				</apex:column>
+	            <apex:column >
+	                <apex:facet name="header">{!$ObjectType.BTN_PersonalTarget__c.Fields.Achieved_percent__c.Label}</apex:facet>
+                    	<div class="requiredInput">
+                        	<div class="requiredBlock" />
+							<apex:inputField value="{!item.Achieved_percent__c}" />
+						</div>
+	            </apex:column>
+	            
+	            <apex:facet name="footer">
+	            	<apex:outputpanel >
+			            <apex:outputLink value="#-" style="color:green;">{!$Label.Add}</apex:outputLink>
+			            <apex:actionSupport event="onclick"
+			                                action="{!addCurrentTarget}"
+			                                rerender="currentTargetsTable,pageMsgs,nextAssessmentDate">
+			            </apex:actionSupport>
+			        </apex:outputpanel>
+	            </apex:facet>
+	        </apex:pageBlockTable>
+	        </apex:actionRegion>
+		
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockSection title="{!$Label.PeriodicAssessment}">
+			<apex:inputField value="{!assessment.Customer_feedback_summary__c}"/>
+			<apex:inputField value="{!assessment.Coworkers_feedback__c}"/>
+			<apex:inputField value="{!assessment.Weak_spots__c}"/>
+			<apex:inputField value="{!assessment.Strong_spots__c}"/>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="{!$Label.PreviousGeneralAssessment}"/>
+				<apex:outputField value="{!previousAssessment.General_assessment__c}"/>
+			</apex:pageBlockSectionItem>
+			<apex:inputField value="{!assessment.General_assessment__c}"/>
+			<apex:inputField value="{!assessment.Assessment_trend__c}"/>
+			<apex:inputField value="{!assessment.Assessment_comments__c}"/>
+			
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockSection title="{!$Label.feedback}">
+			<apex:inputField value="{!assessment.Feedback_department__c}"/>
+			<apex:inputField value="{!assessment.Feedback_company__c}"/>
+			<apex:inputField value="{!assessment.Feedback_other_departments__c}"/>
+			<apex:inputField value="{!assessment.Requests_complaints__c}"/>
+		</apex:pageBlockSection>
+	
+	
+</apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Technologia</label>
+    <name>Technology__c</name>
+    <picklistValues>
+        <masterLabel>.NET_C#</masterLabel>
+        <translation><!-- .NET_C# --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>.NET_VB</masterLabel>
+        <translation><!-- .NET_VB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABAP</masterLabel>
+        <translation><!-- ABAP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Administration</masterLabel>
+        <translation><!-- Administration --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Analysis</masterLabel>
+        <translation><!-- Analysis --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Android</masterLabel>
+        <translation><!-- Android --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BI</masterLabel>
+        <translation><!-- BI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>C</masterLabel>
+        <translation><!-- C --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>C++</masterLabel>
+        <translation><!-- C++ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CQ5</masterLabel>
+        <translation><!-- CQ5 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ETL</masterLabel>
+        <translation><!-- ETL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Groovie</masterLabel>
+        <translation><!-- Groovie --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HTML_CSS</masterLabel>
+        <translation><!-- HTML_CSS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IOS</masterLabel>
+        <translation><!-- IOS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>JAVA</masterLabel>
+        <translation><!-- JAVA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>JavaScript</masterLabel>
+        <translation><!-- JavaScript --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Liferay</masterLabel>
+        <translation><!-- Liferay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MicrosoftDynamics</masterLabel>
+        <translation><!-- MicrosoftDynamics --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PHP</masterLabel>
+        <translation><!-- PHP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PL/SQL</masterLabel>
+        <translation><!-- PL/SQL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Python</masterLabel>
+        <translation><!-- Python --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Qt</masterLabel>
+        <translation><!-- Qt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ruby</masterLabel>
+        <translation><!-- Ruby --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Salesforce.com</masterLabel>
+        <translation><!-- Salesforce.com --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sharepoint</masterLabel>
+        <translation><!-- Sharepoint --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>T-SQL</masterLabel>
+        <translation><!-- T-SQL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Testing</masterLabel>
+        <translation><!-- Testing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WindowsPhone</masterLabel>
+        <translation><!-- WindowsPhone --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>fullstack</masterLabel>
+        <translation><!-- fullstack --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

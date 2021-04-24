@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonForLostMandatory</fullName>
+    <active>true</active>
+    <description>Reason why the Opportunity is Lost should be mandatory if the Stage = Close Lost</description>
+    <errorConditionFormula>IF(  AND(ISPICKVAL(StageName, &apos;Closed Lost&apos;),  ISBLANK(TEXT(Close_Reason__c))), true , false )</errorConditionFormula>
+    <errorDisplayField>Close_Reason__c</errorDisplayField>
+    <errorMessage>Please provide the reason</errorMessage>
+</ValidationRule>

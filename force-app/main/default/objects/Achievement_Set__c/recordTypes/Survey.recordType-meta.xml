@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey</fullName>
+    <active>true</active>
+    <description>Ankieta opisująca umiejętności pracownika</description>
+    <label>Survey</label>
+</RecordType>

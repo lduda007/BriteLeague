@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Lokalizacja</label>
+    <name>Location__c</name>
+    <picklistValues>
+        <masterLabel>Kielce</masterLabel>
+        <translation>Kielce</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lublin</masterLabel>
+        <translation>Lublin</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation>Inne</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Poznań</masterLabel>
+        <translation>Poznań</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Remote</masterLabel>
+        <translation>Zdalnie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Warszawa</masterLabel>
+        <translation>Warszawa</translation>
+    </picklistValues>
+</CustomFieldTranslation>

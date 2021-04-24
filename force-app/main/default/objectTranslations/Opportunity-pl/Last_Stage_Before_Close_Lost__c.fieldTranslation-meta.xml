@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Last Stage Before Close Lost --></label>
+    <name>Last_Stage_Before_Close_Lost__c</name>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation>Zaakceptowany</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer</masterLabel>
+        <translation>Klient</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Draft</masterLabel>
+        <translation>Szkic</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In progress</masterLabel>
+        <translation>W trakcie</translation>
+    </picklistValues>
+</CustomFieldTranslation>

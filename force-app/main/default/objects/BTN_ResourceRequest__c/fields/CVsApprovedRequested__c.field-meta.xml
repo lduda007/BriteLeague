@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CVsApprovedRequested__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (
+  RecordType.DeveloperName = &apos;Auto&apos;,
+  (TEXT(NumberOfCVsApproved__c)+ &apos;/&apos; + Placement_frm__c),
+  (TEXT(NumberOfCVsApproved__c)+ &apos;/&apos; + TEXT(Placement__c))
+)</formula>
+    <label>CVs Approved / Requested</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

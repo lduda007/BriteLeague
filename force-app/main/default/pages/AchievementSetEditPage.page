@@ -1,0 +1,96 @@
+<apex:page docType="html-5.0" id="AchievementSetDetailsPage" standardController="Achievement_Set__c" extensions="AchievementSetPageExtension">
+
+    <apex:sectionHeader title="{!$ObjectType.Achievement_Set__c.Label}" subTitle="{!achievementSet.Name}" rendered="{!record.Id != null}"/>
+    <apex:sectionHeader title="{!$Label.Create_New}" subTitle="{!$ObjectType.Achievement_Set__c.Label}" rendered="{!record.Id == null}"/>
+
+    <apex:form id="form">
+        <apex:pageBlock id="pageBlock" title="{!$Label.Details}" mode="maindetail">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveAchievementSet}" value="{!$Label.Save_Button}" rendered="{!AND($ObjectType.Achievement_Set_Item__c.updateable, achievementSet.Id != null)}"/>
+                <apex:commandButton action="{!saveAchievementSet}" value="{!$Label.Save_Button}" rendered="{!AND($ObjectType.Achievement_Set__c.createable, achievementSet.Id == null)}"/>
+                <apex:commandButton action="{!cancel}" value="{!$Label.Cancel_Button}" immediate="true"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection columns="1" title=" " collapsible="false">
+                <apex:inputField required="true" value="{!achievementSet.Name}" rendered="{!AND(canEditAchievementSetName, OR($ObjectType.Achievement_Set_Item__c.updateable && achievementSet.Id != null, $ObjectType.Achievement_Set__c.createable && achievementSet.Id == null))}"/>
+                <apex:outputField value="{!achievementSet.Name}" rendered="{!NOT(AND(canEditAchievementSetName, OR($ObjectType.Achievement_Set_Item__c.updateable && achievementSet.Id != null, $ObjectType.Achievement_Set__c.createable && achievementSet.Id == null)))}"/>
+                <apex:outputField value="{!achievementSet.RecordTypeId}"/>
+                <apex:outputField value="{!achievementSet.Contact__c}" rendered="{!showAchievementSetContact}"/>
+
+                <apex:inputField value="{!achievementSet.Who__c}" rendered="{!showWhoField}"/>
+                <apex:inputField value="{!achievementSet.AboutWho__c}" rendered="{!showWhoField}"/>
+                <apex:outputField value="{!achievementSet.SelfSurvey__c}" rendered="{!showWhoField}"/>
+
+                <apex:inputField id="skipScoreCalculation" value="{!achievementSet.Skip_Score_Calculation__c}" rendered="{!showAchievementSetMinScoreValue}"
+                                 onChange="toggleScoreMinimalValueState();"/>
+                <apex:inputField id="scoreMinimalValue" value="{!achievementSet.Score_Minimal_Value__c}" rendered="{!showAchievementSetMinScoreValue}"/>
+                <apex:inputField value="{!achievementSet.Career_Path__c}" rendered="{!showCareerPath}">
+                    <apex:actionSupport event="onchange" rendered="parentProfileSection"/>
+                </apex:inputField>
+                <apex:pageBlockSectionItem rendered="{!showCareerPath}">
+                    <apex:outputLabel value="{!$ObjectType.Achievement_Set__c.fields.Parent_Profile__c.Label}"/>
+                    <apex:outputPanel id="parentProfileSection">
+                        <apex:inputField value="{!achievementSet.Parent_Profile__c}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!achievementSet.Number_Of_Achievements__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+
+        <apex:actionRegion >
+            <apex:pageBlock id="achievementSection" mode="maindetail" title="{!$ObjectType.Achievement__c.LabelPlural}">
+                <apex:pageBlockSection columns="2" title="{!$Label.Search}" collapsible="true">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel ></apex:outputLabel>
+                        <apex:outputPanel >
+                            <apex:commandButton value="{!$Label.Apply}"/>
+                            &nbsp;&nbsp;
+                            <apex:commandLink action="{!selectAllCategories}" value="{!$Label.Select_All}"/>
+                            &nbsp;&nbsp;
+                            <apex:commandLink action="{!unselectAllCategories}" value="{!$Label.Unselect_All}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem />
+
+                    <apex:repeat value="{!categoryFilters}" var="categoryFilter">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!categoryFilter.category.Name}"/>
+                            <apex:inputCheckbox value="{!categoryFilter.selected}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection columns="1" title=" " collapsible="false">
+                    <apex:repeat value="{!achievementGroups}" var="group">
+                        <c:AchievementSet name="{!group.name}" achievements="{!group.achievements}" levels="{!achievementLevels}" readonly="false" showAll="true"
+                                        showGroups="{!showGroups}" showSpecializations="{!showSpecializations}"/>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:actionRegion>
+
+    </apex:form>
+
+    <script>
+        document.addEventListener('load', setInitialScoreInputValue, true);
+
+        function setInitialScoreInputValue() {
+            var skipScoreCalculationCheckbox = document.querySelector('input[id*=skipScoreCalculation]');
+            var scoreMinimalValueInput = document.querySelector('input[id*=scoreMinimalValue]');
+            console.log(skipScoreCalculationCheckbox.checked);
+            if (skipScoreCalculationCheckbox.checked) {
+                scoreMinimalValueInput.setAttribute('value', '');
+                scoreMinimalValueInput.disabled = true;
+            }
+        };
+
+        function toggleScoreMinimalValueState() {
+            var scoreMinimalValueInput = document.querySelector('input[id*=scoreMinimalValue]');
+            scoreMinimalValueInput.setAttribute('value', '');
+            var inputDisabled = scoreMinimalValueInput.disabled;
+            scoreMinimalValueInput.disabled = !inputDisabled;
+        }
+    </script>
+</apex:page>

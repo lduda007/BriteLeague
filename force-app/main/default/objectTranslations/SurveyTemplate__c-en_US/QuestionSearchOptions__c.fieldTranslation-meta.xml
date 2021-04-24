@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Question Search Options --></label>
+    <name>QuestionSearchOptions__c</name>
+    <picklistValues>
+        <masterLabel>Not rated</masterLabel>
+        <translation><!-- Not rated --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rated</masterLabel>
+        <translation><!-- Rated --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rated by co-workers</masterLabel>
+        <translation><!-- Rated by co-workers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rated in self-survey</masterLabel>
+        <translation><!-- Rated in self-survey --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rated in self-survey or by co-workers</masterLabel>
+        <translation><!-- Rated in self-survey or by co-workers --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

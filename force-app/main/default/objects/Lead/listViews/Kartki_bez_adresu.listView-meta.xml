@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kartki_bez_adresu</fullName>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>KartkaPL__c</columns>
+    <columns>KartkaENG__c</columns>
+    <columns>LEAD.STREET</columns>
+    <columns>LEAD.CITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>KartkaENG__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>KartkaPL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>LEAD.STREET</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Kartki bez adresu</label>
+</ListView>

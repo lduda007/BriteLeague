@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when Equipment Request not yet ready</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Equipment Request Reminder Notification</name>
+    <style>none</style>
+    <subject>[BriteRM] Equipment Request Reminder</subject>
+    <textOnly>The requested equipment {!BTN_Equipment_Request__c.Name} must be ready in 3 days.
+
+Name: {!BTN_Equipment_Request__c.Contact_Name_frm__c}
+Position: {!BTN_Equipment_Request__c.Contact_Position_frm__c}
+Work start date: {!BTN_Equipment_Request__c.Work_Start_Date_frm__c}
+Location: {!BTN_Equipment_Request__c.Location_frm__c}
+Requested Equipment: {!BTN_Equipment_Request__c.Requested_Equipment__c}
+Requested Equipment Comments: {!BTN_Equipment_Request__c.Requested_Equipment_Comments__c}
+
+Contact details
+
+Britenet Email: {!BTN_Equipment_Request__c.Contact_Email_frm__c}
+Email: {!BTN_Equipment_Request__c.Contact_Personal_Email_frm__c}
+Phone: {!BTN_Equipment_Request__c.Contact_Personal_Phone_frm__c}
+
+Kind regards,
+BriteRM Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

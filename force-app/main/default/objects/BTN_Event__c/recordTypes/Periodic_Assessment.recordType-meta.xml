@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Periodic_Assessment</fullName>
+    <active>true</active>
+    <label>Periodic Assessment</label>
+    <picklistValues>
+        <picklist>Assessment_trend__c</picklist>
+        <values>
+            <fullName>Declining</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Growth</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stagnation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>General_assessment__c</picklist>
+        <values>
+            <fullName>Above average</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Below average</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OK</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Location__c</picklist>
+        <values>
+            <fullName>Inne %5BOther location is mandatory%5D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kielce IX Wieków</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lublin Hamleta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lublin Morwowa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poznań Strzelecka</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U klienta %5BOther location is mandatory%5D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warszawa Bukowińska</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warszawa Wołoska</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zdalnie</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Profile__c</picklist>
+        <values>
+            <fullName>Miękka</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Miękka %2B Techniczna</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Techniczna</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SubType__c</picklist>
+        <values>
+            <fullName>In person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telephonic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Interview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal Interview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Periodic Assessment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

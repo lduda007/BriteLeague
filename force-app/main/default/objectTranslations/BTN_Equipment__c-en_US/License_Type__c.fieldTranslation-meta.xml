@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- License Type --></label>
+    <name>License_Type__c</name>
+    <picklistValues>
+        <masterLabel>Box</masterLabel>
+        <translation><!-- Box --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cloud</masterLabel>
+        <translation><!-- Cloud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Floating</masterLabel>
+        <translation><!-- Floating --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Oem</masterLabel>
+        <translation><!-- Oem --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Serial</masterLabel>
+        <translation><!-- Serial --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

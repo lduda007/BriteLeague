@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Contact --></label>
+    <lookupFilter>
+        <errorMessage><!-- Contact field is valid only for Contact Survey and Contact Profile record types --></errorMessage>
+    </lookupFilter>
+    <name>Contact__c</name>
+    <relationshipLabel><!-- Achievement Sets --></relationshipLabel>
+</CustomFieldTranslation>

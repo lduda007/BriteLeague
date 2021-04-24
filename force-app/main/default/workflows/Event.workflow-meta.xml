@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>After_meeting_reminder</fullName>
+        <description>After meeting reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/After_Meeting_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Before_meeting_reminder</fullName>
+        <description>Before meeting reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/Incoming_Meeting_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Week_after_meeting</fullName>
+        <description>Week after meeting</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/Week_After_Meeting_Template</template>
+    </alerts>
+    <rules>
+        <fullName>Meeting Reminder</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event.Type</field>
+            <operation>equals</operation>
+            <value>Meeting</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>After_meeting_reminder</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Event.EndDateTime</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Before_meeting_reminder</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Event.StartDateTime</offsetFromField>
+            <timeLength>-2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Week_after_meeting</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Event.EndDateTime</offsetFromField>
+            <timeLength>7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

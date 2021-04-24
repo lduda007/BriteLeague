@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "48d16b30-a882-4f30-9fd7-16c96a406bcd",
+    "propertyOverrides" : {
+      "activeViewId" : "285f62f3-f1d6-4e03-89a0-77195bd847a3"
+    },
+    "targetId" : "23bcc661-bdd7-4983-861a-5f2b64cbd165",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Competition_Detail_League_Page",
+  "id" : "b7a75e95-c925-473b-a499-235ffc49391f",
+  "type" : "experienceVariation"
+}

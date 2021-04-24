@@ -1,0 +1,99 @@
+<apex:page showHeader="false" sidebar="false" standardController="BTN_ResourceRequest__c" extensions="BTN_SendEmailPageTemplateController" readOnly="true">
+    <style type="text/css">
+        ol, ul, dl {
+            display: block;
+            list-style-type: none;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .strong {
+            font-weight: bold;
+        }
+
+    </style>
+    <p>
+        <apex:outputText value="Dear {!contactPerson.FirstName},"/>
+    </p>
+    <p>
+        <apex:outputText value="{!$Label.IntroductionToEmail}"/>&nbsp;
+    </p>
+    <ul>
+        <li style="list-style-type: none;">
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Account_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.Account_frm__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Position_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputText value="{!BTN_ResourceRequest__c.Position_frm__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Description__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.Description__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.MainSkills__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.MainSkills__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.SecondarySkills__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.SecondarySkills__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Level__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.Level__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Location_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputText value="{!BTN_ResourceRequest__c.Location_frm__c}"/>&nbsp;
+            <apex:outputText value="({!BTN_ResourceRequest__c.OtherLocation_frm__c})"
+                             rendered="{!BTN_ResourceRequest__c.OtherLocation_frm__c != ''}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Language_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.Language_frm__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.ContractStart_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.ContractStart_frm__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.ContractDuration_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputText value="{!BTN_ResourceRequest__c.ContractDuration_frm__c} {!BTN_ResourceRequest__c.ContractDurationUnit_frm__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Rate_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputText value="{!BTN_ResourceRequest__c.Rate_frm__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.Placement_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.Placement_frm__c}"/>
+        </li>
+        <li>
+            <b><apex:outputLabel value="{!$ObjectType.BTN_ResourceRequest__c.Fields.DeliveryDeadline_frm__c.Label}"/>:&nbsp;</b>
+            <apex:outputField value="{!BTN_ResourceRequest__c.DeliveryDeadline_frm__c}"/>
+        </li>
+    </ul>
+
+    <h3>
+        <apex:outputText value="{!$Label.AlreadyCollectedCandidates}"
+                         rendered="{!candidates.size > 0}"
+                         style="font-weight: bold;"/>
+        <apex:outputText value="{!$Label.NoCollectedCandidates}" rendered="{!candidates.size = 0}"/>
+    </h3>
+    <ul>
+        <apex:repeat value="{!candidates}" var="candidate">
+            <li>{!candidate.Contact__r.FirstName}&nbsp;{!candidate.Contact__r.LastName}</li>
+        </apex:repeat>
+    </ul>
+
+    <br/>
+    <p>Kind regards,<br/>BriteRM Team</p>
+</apex:page>

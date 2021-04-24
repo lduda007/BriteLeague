@@ -1,0 +1,6 @@
+<apex:page readOnly="true">
+
+    <apex:enhancedList type="Contact" height="800" rowsPerPage="200"
+            id="ContactList" customizable="false" listId="{!$Setup.AchievementsConfig__c.ContactAssasment__c}"/>
+
+</apex:page>

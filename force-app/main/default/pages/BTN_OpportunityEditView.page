@@ -1,0 +1,204 @@
+<apex:page showHeader="true" sidebar="true" standardController="Opportunity" extensions="BTN_OpportunityViewExtension">
+	<apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/> 
+	<apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-ui.min.js')}"/>
+	<apex:includeScript value="{!$Resource.jQueryLoading}/showLoading/js/jquery.showLoading.js"/>
+	<apex:stylesheet value="{!URLFOR($Resource.jquery, '/jquery-ui.min.css')}"/>
+	<apex:stylesheet value="{!$Resource.jQueryLoading}/showLoading/css/showLoading.css"/>
+	<style type="text/css">
+		.pbTitle {
+			width: 0% !important;
+		}
+
+		.pbButton {
+			width: 100% !important;
+		}
+
+		.pbButtonb {
+			width: 100% !important;
+		}
+	</style>
+	<apex:form >
+		<apex:pageMessages id="msgForm"/>
+		<apex:pageBlock id="pb">
+			<apex:pageBlockButtons >
+				<div align="center">
+					<apex:commandButton action="{!save}" value="{!$Label.SaveBtn}" reRender="msgForm" onclick="$('#contentWrapper').showLoading()" oncomplete="$('#contentWrapper').hideLoading()"/>
+					<apex:commandButton action="{!cancel}" value="{!$Label.CancelBtn}"/>
+				</div>
+			</apex:pageBlockButtons>
+			<apex:actionRegion >
+				<apex:pageBlockSection title="{!$Label.OppoInfo}" collapsible="true" columns="2">
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.OppoName}"/>
+						<apex:inputField value="{!Opportunity.Name}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem rendered="{!(Opportunity.Owner != null)}">
+						<apex:outputLabel value="{!$Label.OpportunityOwn}"/>
+						<apex:outputField value="{!Opportunity.Owner.Name}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem rendered="{!(Opportunity.Owner == null)}">
+						<apex:outputLabel value="{!$Label.OpportunityOwn}"/>
+						<apex:outputText value="{!$User.FirstName} {!$User.LastName}"/>
+					</apex:pageBlockSectionItem>										
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.AccountName}"/>
+						<apex:actionRegion >
+							<apex:inputField value="{!Opportunity.AccountId}" required="true">
+								<apex:actionSupport event="onchange" reRender="contactPane, pbPane, currencyPane" status="loadingStatus" action="{!setPriceBookByAccountCurrency}"/>
+							</apex:inputField>
+						</apex:actionRegion>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.OppoRecType}"/>
+						<apex:outputText value="{!Opportunity.Type}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.Contact}"/>
+						<apex:outputPanel id="contactPane">
+							<div class="requiredInput">
+								<div class="requiredBlock"></div>
+								<apex:selectList label="{!$Label.Contact}" value="{!Opportunity.ContactId__c}" size="1" required="true">
+									<apex:selectOptions value="{!relatedContactsToAccount}"/>
+								</apex:selectList>
+							</div>
+						</apex:outputPanel>
+					</apex:pageBlockSectionItem>
+					<span></span>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.CloseDate}"/>
+						<apex:inputField value="{!Opportunity.CloseDate}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.Sector}"/>
+						<apex:outputField value="{!Opportunity.Sector__c}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.PriceBook}"/>
+						<apex:actionRegion >
+							<apex:outputPanel id="pbPane">
+								<apex:selectList id="pbSelectList" value="{!Opportunity.PriceBook2Id}" size="1" disabled="{!hasProducts}">
+									<apex:selectOptions value="{!pricebookOptions}"/>
+									<apex:actionSupport event="onchange" action="{!setOppoCurrency}" reRender="currencyPane"/>
+								</apex:selectList>
+							</apex:outputPanel>
+						</apex:actionRegion>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.Stage}"/>
+						<apex:actionRegion >
+							<apex:inputField value="{!Opportunity.StageName}">
+								<apex:actionSupport event="onchange" action="{!setOpportunityProbability}" reRender="probabilityPane"/>
+							</apex:inputField>
+						</apex:actionRegion>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.OpportunityCurr}"/>
+						<apex:actionRegion >
+							<apex:outputPanel id="currencyPane">
+								<apex:outputField value="{!Opportunity.CurrencyIsoCode}"/>
+							</apex:outputPanel>
+						</apex:actionRegion>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.Probability}"/>
+						<apex:outputPanel id="probabilityPane">
+							<apex:outputField value="{!Opportunity.Probability}"/>
+						</apex:outputPanel>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.Location}"/>
+						<apex:actionRegion >
+							<apex:inputField value="{!Opportunity.Location__c}">
+								<apex:actionSupport event="onchange" reRender="othLocation,othLocationLabel"/>
+							</apex:inputField>
+						</apex:actionRegion>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.Priority}"/>
+						<apex:inputField value="{!Opportunity.Priority__c}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputPanel id="othLocationLabel">
+							<apex:outputLabel value="{!$Label.OthLocation}" rendered="{!((Opportunity.Location__c == 'Other') || (Opportunity.Location__c == 'Remote'))}"/>
+						</apex:outputPanel>
+						<apex:outputPanel id="othLocation">
+							<apex:inputField value="{!Opportunity.OtherLocation__c}" rendered="{!((Opportunity.Location__c == 'Other') || (Opportunity.Location__c == 'Remote'))}"/>
+						</apex:outputPanel>
+					</apex:pageBlockSectionItem>				
+				</apex:pageBlockSection>
+			</apex:actionRegion>
+			<apex:pageBlockSection title="{!$Label.ContractInfo}" collapsible="true" columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.Description}"/>
+					<apex:inputField value="{!Opportunity.Description}" style="width: 80%; min-height: 9.9em;"/>
+				</apex:pageBlockSectionItem>
+<!-- 				<apex:pageBlockSectionItem>
+					<apex:outputLabel value="{!$Label.ASAP}"/>
+						<apex:inputCheckbox value="{!Opportunity.ASAP__c}">
+							<apex:actionSupport event="onchange"  reRender="asapLabelPane,asapPane" status="loadingStatus"/>
+						</apex:inputCheckbox>
+				</apex:pageBlockSectionItem> -->
+				<apex:pageBlockSection columns="2">
+					<apex:pageBlockSectionItem >
+						<apex:outputPanel id="asapLabelPane">
+							<apex:outputLabel value="{!$Label.ContractStart}" rendered="{!IF(Opportunity.ASAP__c, false, true)}"/>
+						</apex:outputPanel>
+						<apex:outputPanel id="asapPane">
+							<apex:inputField value="{!Opportunity.ContractStart__c}" rendered="{!IF(Opportunity.ASAP__c, false, true)}"/>
+						</apex:outputPanel>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.ContractEnd}"/>
+						<apex:inputField value="{!Opportunity.ContractEnd__c}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.ContractStartDescription}"/>
+						<apex:inputField value="{!Opportunity.ContractStartDescription__c}"/>
+					</apex:pageBlockSectionItem>
+
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.ContractEndDescription}"/>
+						<apex:inputField value="{!Opportunity.ContractEndDescription__c}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="{!$Label.Amount}"/>
+						<apex:outputField value="{!Opportunity.Amount}"/>
+					</apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</apex:pageBlockSection>
+			<apex:actionRegion >
+			</apex:actionRegion>
+			<apex:pageBlockSection title="{!$Label.AdditionalInfo}" collapsible="true" columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.NextStep}" />
+					<apex:inputField value="{!Opportunity.NextStep__c}" style="width: 80%; min-height: 9.9em;"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.NextStepDeadline}"/>
+					<apex:inputField value="{!Opportunity.NextStepDeadline__c}"/>
+				</apex:pageBlockSectionItem>												
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="{!$Label.HR}" collapsible="true" columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.RecrutedBy}"/>
+					<apex:actionRegion >
+						<apex:inputField value="{!Opportunity.RecrutedBy__c}"/>
+					</apex:actionRegion>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.CVLanguage}"/>
+					<apex:actionRegion >
+						<apex:inputField value="{!Opportunity.CVLanguage__c}"/>
+					</apex:actionRegion>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.CVDeliveryDeadline}"/>
+					<apex:actionRegion >
+						<apex:inputField value="{!Opportunity.CVDeliveryDeadline__c}"/>
+					</apex:actionRegion>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+		<apex:actionStatus id="loadingStatus" onstart="$('#contentWrapper').showLoading()" onstop="$('#contentWrapper').hideLoading()"/>
+	</apex:form>
+</apex:page>

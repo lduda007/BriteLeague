@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeliveryContacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Phones__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Position__c</columns>
+    <columns>Owner_frm__c</columns>
+    <columns>BSexternalId__c</columns>
+    <columns>joinDateBS__c</columns>
+    <columns>CreatedDate_frm__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ResourceRequestor__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Delivery Contacts</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>ResourceManager</roleAndSubordinates>
+    </sharedTo>
+</ListView>

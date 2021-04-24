@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time material sales process</fullName>
+    <description>Time material for body leasing opportunities</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>CV Delivered to Sales</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>CV Sent to Customer</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Cannot Provide</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Customer</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Customer Approves</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Draft</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Frozen</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>In progress</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Open %2F Sent to RM</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Recruitment</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

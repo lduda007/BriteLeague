@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Match Role --></label>
+    <name>Match_Role__c</name>
+    <picklistValues>
+        <masterLabel>Goalkeeper/Defence</masterLabel>
+        <translation><!-- Goalkeeper/Defence --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Striker/Midfielder</masterLabel>
+        <translation><!-- Striker/Midfielder --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>Domain</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>The amount of CDN consumed by an org, listed by domain.</description>
+    <join>
+        <outerJoin>false</outerJoin>
+        <relationship>UsageHistory</relationship>
+    </join>
+    <label>CDN Usage</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>CNAME</displayNameOverride>
+            <field>CnameTarget</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Date Created</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Domain</displayNameOverride>
+            <field>Domain</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DomainType</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Enrollment ID</displayNameOverride>
+            <field>CdnEnrollmentRef</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>Domain</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Date Last Modified</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>Domain</table>
+        </columns>
+        <masterLabel>Domains</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LimitType</field>
+            <table>Domain.UsageHistory</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Usage (in KBs)</displayNameOverride>
+            <field>Usage</field>
+            <table>Domain.UsageHistory</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>UsageDate</field>
+            <table>Domain.UsageHistory</table>
+        </columns>
+        <masterLabel>Limit Usage Histories</masterLabel>
+    </sections>
+</ReportType>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- General assessment --></label>
+    <name>General_assessment__c</name>
+    <picklistValues>
+        <masterLabel>Above average</masterLabel>
+        <translation><!-- Above average --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Below average</masterLabel>
+        <translation><!-- Below average --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OK</masterLabel>
+        <translation><!-- OK --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

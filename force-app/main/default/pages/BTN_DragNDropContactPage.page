@@ -1,0 +1,3 @@
+<apex:page id="BTN_DragNDropContactPage" standardController="Contact">
+    <c:BTN_DragNDropComponent parentId="{!Contact.Id}"/>
+</apex:page>

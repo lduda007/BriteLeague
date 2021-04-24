@@ -1,0 +1,123 @@
+{"templates": [{
+        "id": "1",
+        "name": "Survey 1",
+        "description": "Survey 1 description",
+        "active": true,
+        "private": false,
+        "type": "public",
+        "questions": [{
+            "id": "id-1",
+            "type": "text",
+                    "readOnly": true,
+            "order": 1,
+            "comment": "",
+            "description":"some descrption about skill",
+            "question": "Survey 1 question 1?"
+        }, {
+            "id": "id-2",
+            "type": "text",
+                    "readOnly": true,
+            "order": 2,
+            "comment": "",
+            "description":"some descrption about skill",
+            "question": "Survey 1 question 2?"
+        }, {
+            "id": "id-3",
+            "type": "select",
+                    "readOnly": true,
+            "order": 3,
+            "comment": "",
+            "description":"some descrption about skill",
+            "question": "Survey 1 question 3?",
+            "options": [{
+                "id": "option-1",
+                "name": "Survey 1 question 3 option 1"
+            }, {
+                "id": "option-2",
+                "name": "Survey 1 question 3 option 2"
+            }, {
+                "id": "option-3",
+                "name": "Survey 1 question 3 option 3"
+            }]
+        }, {
+            "id": "id-4",
+            "type": "select",
+                    "readOnly": true,
+            "order": 4,
+            "comment": "",
+            "description":"some descrption about skill",
+            "question": "Survey 1 question 4?",
+            "options": [{
+                "id": "option-1",
+                "name": "Survey 1 question 4 option 1"
+            }, {
+                "id": "option-2",
+                "name": "Survey 1 question 4 option 2"
+            }, {
+                "id": "option-3",
+                "name": "Survey 1 question 4 option 3"
+            }]
+        }]
+    },
+    {
+        "id": "2",
+        "name": "Survey 2",
+        "description": "Survey 2 description",
+        "active": true,
+        "private": false,
+        "type": "public",
+        "questions": [{
+            "id": "id-1",
+            "type": "text",
+            "order": 1,
+            "comment": "",
+                    "readOnly": true,
+            "description":"some descrption about skill",
+            "question": "Survey 2 question 1?"
+        }, {
+            "id": "id-2",
+            "type": "text",
+                    "readOnly": true,
+            "order": 2,
+            "comment": "",
+            "description":"some descrption about skill",
+            "question": "Survey 2 question 2?"
+        }, {
+            "id": "id-3",
+            "type": "select",
+            "question": "Survey 2 question 3?",
+            "order": 3,
+                    "readOnly": true,
+            "comment": "",
+            "description":"some descrption about skill",
+            "options": [{
+                "id": "option-1",
+                "name": "Survey 2 question 3 option 1"
+            }, {
+                "id": "option-2",
+                "name": "Survey 2 question 3 option 2"
+            }, {
+                "id": "option-3",
+                "name": "Survey 2 question 3 option 3"
+            }]
+        }, {
+            "id": "id-4",
+            "type": "select",
+                    "readOnly": true,
+            "order": 4,
+            "comment": "",
+            "description":"some descrption about skill",
+            "question": "Survey 2 question 4?",
+            "options": [{
+                "id": "option-1",
+                "name": "Survey 2 question 4 option 1"
+            }, {
+                "id": "option-2",
+                "name": "Survey 2 question 4 option 2"
+            }, {
+                "id": "option-3",
+                "name": "Survey 2 question 4 option 3"
+            }]
+        }]
+    }
+]}

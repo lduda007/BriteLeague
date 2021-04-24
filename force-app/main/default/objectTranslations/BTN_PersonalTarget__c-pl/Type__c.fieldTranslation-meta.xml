@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Typ</label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>CV Improvement</masterLabel>
+        <translation>Poprawa CV</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Certificate</masterLabel>
+        <translation>Certyfikat</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Company</masterLabel>
+        <translation>Firma</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Technical</masterLabel>
+        <translation>Techniczny</translation>
+    </picklistValues>
+</CustomFieldTranslation>

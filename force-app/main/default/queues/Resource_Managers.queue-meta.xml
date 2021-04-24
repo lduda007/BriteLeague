@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Resource Managers</name>
+    <queueMembers>
+        <roles>
+            <role>ResourceManager</role>
+        </roles>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>BTN_ResourceRequest__c</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

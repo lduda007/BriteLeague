@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto</fullName>
+    <active>true</active>
+    <description>Automatic resource request</description>
+    <label>Auto</label>
+    <picklistValues>
+        <picklist>Billing_Type__c</picklist>
+        <values>
+            <fullName>FIX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unbillable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Language__c</picklist>
+        <values>
+            <fullName>English</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Polish</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Polish or English</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Location__c</picklist>
+        <values>
+            <fullName>Kielce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lublin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poznań</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warszawa</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OpportunityType__c</picklist>
+        <values>
+            <fullName>Fixed price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Time %26 Material</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Previous_Rank__c</picklist>
+        <values>
+            <fullName>0%3A%24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%3Abardzo ważne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%3Aważne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%3Aw wolnej chwili</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%3Abez szans</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Previous_Status__c</picklist>
+        <values>
+            <fullName>Closed - Blood in the sand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Failure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Success</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - We resign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On shelf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opportunity Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for client</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rank__c</picklist>
+        <values>
+            <fullName>0%3A%24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%3Abardzo ważne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%3Aważne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%3Aw wolnej chwili</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%3Abez szans</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Closed - Blood in the sand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Failure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Success</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - We resign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On shelf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Opportunity Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for client</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

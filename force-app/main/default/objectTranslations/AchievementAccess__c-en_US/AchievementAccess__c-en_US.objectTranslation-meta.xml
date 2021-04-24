@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Achievement Access</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>AchievementsAccess</value>
+    </caseValues>
+    <layouts>
+        <layout>Achievement Access Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please fill Contact or Only Leaders field --></errorMessage>
+        <name>ContactAndLeadersCannotBeEmpty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contact and leaders cannot be filled --></errorMessage>
+        <name>ContactAndLeadersCannotBeFill</name>
+    </validationRules>
+</CustomObjectTranslation>

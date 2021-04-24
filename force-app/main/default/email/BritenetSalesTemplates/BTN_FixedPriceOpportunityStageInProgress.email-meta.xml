@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>35.0</apiVersion>
+    <available>true</available>
+    <description>Opportunity Stage In Progress Notification Template</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>FixedPrice Opportunity Stage In Progress</name>
+    <style>none</style>
+    <subject>[BriteCRM] -  - Opportunity in progress</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

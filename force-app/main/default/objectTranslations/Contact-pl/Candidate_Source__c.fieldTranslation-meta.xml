@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Źródło kandydata</label>
+    <name>Candidate_Source__c</name>
+    <picklistValues>
+        <masterLabel>Academy/College</masterLabel>
+        <translation>Akademia / Uniwersytet</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement 4programmers</masterLabel>
+        <translation>Ogłoszenie - 4programmers</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement Goldenline</masterLabel>
+        <translation>Ogłoszenie - Goldenline</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement Kariera Britenet</masterLabel>
+        <translation>Ogłoszenie - Kariera Britenet</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement linked-in</masterLabel>
+        <translation>Ogłoszenie - Linkedin</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement nofluffjobs</masterLabel>
+        <translation>Ogłoszenie - nofluffjobs</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement olx.pl</masterLabel>
+        <translation>Ogłoszenie - olx.pl</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement other</masterLabel>
+        <translation>Ogłoszenie - Inne</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement praca.pl</masterLabel>
+        <translation>Ogłoszenie - praca.pl</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advertisement pracuj.pl</masterLabel>
+        <translation>Ogłoszenie - pracuj.pl</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct Goldenline</masterLabel>
+        <translation>Goldenline</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct linked-in</masterLabel>
+        <translation>Linkedin</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recommendation external</masterLabel>
+        <translation>Rekomendacja zewnętrzna</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recommendation internal</masterLabel>
+        <translation>Rekomendacja wewnętrzna</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>powrót</masterLabel>
+        <translation>Powrót</translation>
+    </picklistValues>
+</CustomFieldTranslation>

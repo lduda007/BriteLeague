@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Billing Type --></label>
+    <name>Billing_Type__c</name>
+    <picklistValues>
+        <masterLabel>FIX</masterLabel>
+        <translation><!-- FIX --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LM</masterLabel>
+        <translation><!-- LM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SUP</masterLabel>
+        <translation><!-- SUP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TS</masterLabel>
+        <translation><!-- TS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unbillable</masterLabel>
+        <translation><!-- Unbillable --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

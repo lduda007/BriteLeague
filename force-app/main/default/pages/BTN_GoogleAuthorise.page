@@ -1,0 +1,19 @@
+<apex:page controller="BTN_GoogleAuthoriseController">
+<apex:pageMessages />
+<center>
+<apex:form >
+<br/>
+<br/>
+<br/>
+<span style="font-size:20px;font-weight:bold;color:rgb(30,160,70);">
+<apex:outputPanel rendered="{!googleConfSet && accessCode==null && !integrationComplete}">{!$Label.Step} 1/2</apex:outputPanel>
+<apex:outputPanel rendered="{!googleConfSet && accessCode!=null && !integrationComplete}">{!$Label.Step} 2/2</apex:outputPanel>
+</span>
+<br/>
+<br/>
+<br/>
+ <apex:commandButton value="{!$Label.ConnectWithGoogle}" action="{!connect}" rendered="{!googleConfSet && accessCode==null}"/>
+ <apex:commandButton value="{!$Label.FetchNewAuthToken}" action="{!requestTokens}" rendered="{!googleConfSet && accessCode!=null && !integrationComplete}"/>
+</apex:form>
+</center>
+</apex:page>

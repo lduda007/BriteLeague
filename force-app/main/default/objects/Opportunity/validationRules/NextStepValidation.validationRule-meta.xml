@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NextStepValidation</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT( ISBLANK(NextStep__c) = ISBLANK(NextStepDeadline__c))</errorConditionFormula>
+    <errorMessage>Please provide data for both (Next Step and Next Step Deadline fields) or none.</errorMessage>
+</ValidationRule>

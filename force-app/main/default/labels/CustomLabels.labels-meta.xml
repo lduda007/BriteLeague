@@ -1,0 +1,3436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ASAP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity pricebook rel sec title</shortDescription>
+        <value>ASAP</value>
+    </labels>
+    <labels>
+        <fullName>Access</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Access</shortDescription>
+        <value>Access</value>
+    </labels>
+    <labels>
+        <fullName>AccountName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Account Name</value>
+    </labels>
+    <labels>
+        <fullName>AchievementIdIsMandatory</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AchievementId is mandatory</shortDescription>
+        <value>AchievementId is mandatory</value>
+    </labels>
+    <labels>
+        <fullName>AchievementSetWasNotSetOnTheSurveyTemplate</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Achievement Set was not set on the Survey Template</shortDescription>
+        <value>Achievement Set was not set on the Survey Template!</value>
+    </labels>
+    <labels>
+        <fullName>Action</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Action</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>ActionHeader</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>AddNewCV</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CV File</shortDescription>
+        <value>Add Selected File</value>
+    </labels>
+    <labels>
+        <fullName>AddProductsFormSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Add Products to {0} with {1}.</value>
+    </labels>
+    <labels>
+        <fullName>AdditionalComment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Additional comment</shortDescription>
+        <value>Additional Comment</value>
+    </labels>
+    <labels>
+        <fullName>AdditionalData</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Additional info</value>
+    </labels>
+    <labels>
+        <fullName>AdditionalInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Additional Info</value>
+    </labels>
+    <labels>
+        <fullName>AdditionalInformation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdditionalInformation</shortDescription>
+        <value>Additional Information</value>
+    </labels>
+    <labels>
+        <fullName>Addproduct</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Add Product</value>
+    </labels>
+    <labels>
+        <fullName>All_Questions</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All Questions</shortDescription>
+        <value>All Questions</value>
+    </labels>
+    <labels>
+        <fullName>AlreadyCollectedCandidates</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Already collected candidates section for email template</shortDescription>
+        <value>Already collected candidates</value>
+    </labels>
+    <labels>
+        <fullName>Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Amount</value>
+    </labels>
+    <labels>
+        <fullName>Apply</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apply</shortDescription>
+        <value>Apply</value>
+    </labels>
+    <labels>
+        <fullName>Are_You_Sure</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are You Sure Message</shortDescription>
+        <value>Are you sure ?</value>
+    </labels>
+    <labels>
+        <fullName>Assignment_List_Filter_All</fullName>
+        <categories>Assignment List Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assignment List Filter All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>AttachedCVName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>File Name</value>
+    </labels>
+    <labels>
+        <fullName>AttachmentSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attachments</shortDescription>
+        <value>Attachments</value>
+    </labels>
+    <labels>
+        <fullName>Author</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Author</shortDescription>
+        <value>Author</value>
+    </labels>
+    <labels>
+        <fullName>BLStart_now</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start now</shortDescription>
+        <value>Start now</value>
+    </labels>
+    <labels>
+        <fullName>BL_Access</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Access</shortDescription>
+        <value>Access</value>
+    </labels>
+    <labels>
+        <fullName>BL_Add_Members</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Members</shortDescription>
+        <value>Add Members</value>
+    </labels>
+    <labels>
+        <fullName>BL_Add_Selected_Teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Selected Teams</shortDescription>
+        <value>Add Selected Teams</value>
+    </labels>
+    <labels>
+        <fullName>BL_All</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>BL_Already_joined</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Already joined</shortDescription>
+        <value>Already joined</value>
+    </labels>
+    <labels>
+        <fullName>BL_Available</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available</shortDescription>
+        <value>Available</value>
+    </labels>
+    <labels>
+        <fullName>BL_Battle_Royale</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Battle Royale</shortDescription>
+        <value>Battle Royale</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cannot_start_cup</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot start cup</shortDescription>
+        <value>Cannot start cup</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cannot_start_league</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot start league</shortDescription>
+        <value>Cannot start league</value>
+    </labels>
+    <labels>
+        <fullName>BL_Close</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>BL_Competitions</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Competitions</shortDescription>
+        <value>Competitions</value>
+    </labels>
+    <labels>
+        <fullName>BL_Create_Competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Create Competition</shortDescription>
+        <value>Create Competition</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup</shortDescription>
+        <value>Cup</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup_Rounds</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup Rounds</shortDescription>
+        <value>Cup Rounds</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup_already_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup already started</shortDescription>
+        <value>Cup already started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Cup_has_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cup has started</shortDescription>
+        <value>Cup has started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Draw</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draw</shortDescription>
+        <value>Draw</value>
+    </labels>
+    <labels>
+        <fullName>BL_Draw_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draw Statements</shortDescription>
+        <value>Drużyny {0} i {1} zremisowały!;Drużyny {0} i {1} rozegrały równy mecz!;Mecz pomiędzy drużynami {0} i {1} zakończył się remisem.;Równy podział punktów pomiędzy zespoły {0} i {1}.;Równa walka pomiędzy {0} i {1} dobiegła końca!</value>
+    </labels>
+    <labels>
+        <fullName>BL_End_Date</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>End Date</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_When_Leaving_Competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error When Leaving Competition</shortDescription>
+        <value>Error when leaving competition</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_When_Loading_Team_Details</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error When Loading Team Details</shortDescription>
+        <value>Error when loading team details</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_adding_teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when adding teams</shortDescription>
+        <value>Error when adding teams</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_loading_cup_details</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when loading cup details</shortDescription>
+        <value>Error when loading cup details</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_loading_league_details</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when loading league details</shortDescription>
+        <value>Error when loading league details</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_loading_league_matches</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when loading league matches</shortDescription>
+        <value>Error when loading league matches</value>
+    </labels>
+    <labels>
+        <fullName>BL_Error_when_removing_team</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when removing team</shortDescription>
+        <value>Error when removing team</value>
+    </labels>
+    <labels>
+        <fullName>BL_Feed</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Feed</shortDescription>
+        <value>Feed</value>
+    </labels>
+    <labels>
+        <fullName>BL_Final</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Final</shortDescription>
+        <value>Final</value>
+    </labels>
+    <labels>
+        <fullName>BL_Goals_Against</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Goals Against</shortDescription>
+        <value>Goals Against</value>
+    </labels>
+    <labels>
+        <fullName>BL_Goals_Draw</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Goals Draw</shortDescription>
+        <value>Goals Draw</value>
+    </labels>
+    <labels>
+        <fullName>BL_Goals_For</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Goals For</shortDescription>
+        <value>Goals For</value>
+    </labels>
+    <labels>
+        <fullName>BL_Hard_Loss_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hard Loss Statements</shortDescription>
+        <value>Drużyna {0} dostała ostre bęcki od zespołu {1}!;Drużyna {0} nie spodziewała się takiej potęgi ze strony {1}.;Drużyna {0} dowiedziała się gdzie pieprz rośnie dzięki zespołowi {1}!;Drużyna {0} musi jeszcze długo popracować jeśli chce się mierzyć z takimi jak {1}!</value>
+    </labels>
+    <labels>
+        <fullName>BL_Hard_Win_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hard Win Statements</shortDescription>
+        <value>Zespół {0} nie zostawił suchej nitki na drużynie {1}!;Zespół {0} rozgromił drużynę {1}!;Babcie zespołu {0} grają o niebo lepiej niż drużyna {1}!;Zespół {0} dał drużynie {1} porządną lekcję!;Tacy kozacy jak {0} nie powinni męczyć drużyn pokroju {1}!</value>
+    </labels>
+    <labels>
+        <fullName>BL_Join</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Join</shortDescription>
+        <value>Join</value>
+    </labels>
+    <labels>
+        <fullName>BL_League</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League</shortDescription>
+        <value>League</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Created_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Created Statement</shortDescription>
+        <value>Liga została utworzona przez użytkownika {0}.</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Finished_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Finished Statement</shortDescription>
+        <value>Liga dobiegła końca!</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Full</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL League Full</shortDescription>
+        <value>Ups! Somebody already join this league and now it is full, or your team mate already joined to this league with your team.</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Not_Started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League not started</shortDescription>
+        <value>League not started</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Started_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Started Statement</shortDescription>
+        <value>Ligę uznaję za rozpoczętą!</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_Table</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League Table</shortDescription>
+        <value>League Table</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_already_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League already started</shortDescription>
+        <value>League already started</value>
+    </labels>
+    <labels>
+        <fullName>BL_League_has_started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>League has started</shortDescription>
+        <value>League has started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Loser_match</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loser match</shortDescription>
+        <value>Loser match</value>
+    </labels>
+    <labels>
+        <fullName>BL_Lost</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lost</shortDescription>
+        <value>Lost</value>
+    </labels>
+    <labels>
+        <fullName>BL_Match_Score</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Match Score</shortDescription>
+        <value>Match Score</value>
+    </labels>
+    <labels>
+        <fullName>BL_Matches</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Matches</shortDescription>
+        <value>Matches</value>
+    </labels>
+    <labels>
+        <fullName>BL_Matches_not_generated_yet</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Matches not generated yet</shortDescription>
+        <value>Matches not generated yet</value>
+    </labels>
+    <labels>
+        <fullName>BL_Members</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Members</shortDescription>
+        <value>Members</value>
+    </labels>
+    <labels>
+        <fullName>BL_My</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My</shortDescription>
+        <value>My</value>
+    </labels>
+    <labels>
+        <fullName>BL_Name</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_Competitions_For_Team</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL No Competitions For Team</shortDescription>
+        <value>This team doesn&apos;t take part in any competition.</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_Open_Competitions</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL No Open Competitions</shortDescription>
+        <value>There is no open competitions, but you can create one.</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_Team_Members</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL No Team Members</shortDescription>
+        <value>This team doesn&apos;t have any members.</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_competitors_found</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No competitors found</shortDescription>
+        <value>No competitors found</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_matches_found</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No matches found</shortDescription>
+        <value>No matches found</value>
+    </labels>
+    <labels>
+        <fullName>BL_No_teams_joined_yet</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No teams joined yet</shortDescription>
+        <value>No teams joined yet</value>
+    </labels>
+    <labels>
+        <fullName>BL_Owner</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner</shortDescription>
+        <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>BL_Parent_Teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Parent Teams</shortDescription>
+        <value>Parent Teams</value>
+    </labels>
+    <labels>
+        <fullName>BL_Player</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Player</shortDescription>
+        <value>Player</value>
+    </labels>
+    <labels>
+        <fullName>BL_Points</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Points</shortDescription>
+        <value>Points</value>
+    </labels>
+    <labels>
+        <fullName>BL_Pos</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pos</shortDescription>
+        <value>Pos</value>
+    </labels>
+    <labels>
+        <fullName>BL_Position</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Position</shortDescription>
+        <value>Position</value>
+    </labels>
+    <labels>
+        <fullName>BL_Private</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Private</shortDescription>
+        <value>Private</value>
+    </labels>
+    <labels>
+        <fullName>BL_Progress_Chart</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Progress Chart</shortDescription>
+        <value>Progress Chart</value>
+    </labels>
+    <labels>
+        <fullName>BL_Public</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Public</shortDescription>
+        <value>Public</value>
+    </labels>
+    <labels>
+        <fullName>BL_Quarter_Finals</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quarter Finals</shortDescription>
+        <value>Quarter Finals</value>
+    </labels>
+    <labels>
+        <fullName>BL_Result</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Result</shortDescription>
+        <value>Result</value>
+    </labels>
+    <labels>
+        <fullName>BL_Rounds_Lost_Scores_Title</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rounds Lost Scores Title</shortDescription>
+        <value>How many points {0} scores when opponents win the matches?</value>
+    </labels>
+    <labels>
+        <fullName>BL_Rounds_Won_Scores_Title</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rounds Won Scores Title</shortDescription>
+        <value>How many points opponents scores when {0} win the matches?</value>
+    </labels>
+    <labels>
+        <fullName>BL_Select_Team_Error</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Select Team Error</shortDescription>
+        <value>Please select your team.</value>
+    </labels>
+    <labels>
+        <fullName>BL_Select_Your_Team</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Select Your Team</shortDescription>
+        <value>Select your team</value>
+    </labels>
+    <labels>
+        <fullName>BL_Semi_Finals</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Semi Finals</shortDescription>
+        <value>Semi Finals</value>
+    </labels>
+    <labels>
+        <fullName>BL_Set</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Set</shortDescription>
+        <value>Set</value>
+    </labels>
+    <labels>
+        <fullName>BL_Soft_Loss_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Soft Loss Statements</shortDescription>
+        <value>Drużyna {0} uległa zespołowi {1}.; Tym razem drużyna {0} nie zdołała pokonać zespołu {1}.;Drużyna {0} dostała nauczkę od zespołu {1}!;Może kolejnym razem drużyna {0} będzie miała więcej szczęścia. {1} górą!</value>
+    </labels>
+    <labels>
+        <fullName>BL_Soft_Win_Statements</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Soft Win Statements</shortDescription>
+        <value>Zespołowi {0} udało się pokonać drużynę {1}.;Zespół {0} odniósł zwycięstwo nad drużyną {1};Zespół {0} zagrał dobry mecz i tym razem drużyna {1} musiała pogodzić się z porażką.;Zespół {0} zlitował się nad drużyną {1} i zafundował jej tylko lekki wpiernicz.;Zespół {0} pokazał drużynie {1} jak się gra w tą grę!</value>
+    </labels>
+    <labels>
+        <fullName>BL_Start_Date</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>BL_Start_now</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start now</shortDescription>
+        <value>Start now</value>
+    </labels>
+    <labels>
+        <fullName>BL_Started</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Started</shortDescription>
+        <value>Started</value>
+    </labels>
+    <labels>
+        <fullName>BL_Status</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>BL_Success</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_1</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team 1</shortDescription>
+        <value>Team 1</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_2</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team 2</shortDescription>
+        <value>Team 2</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Capitain</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Team Capitain</shortDescription>
+        <value>Team Capitain</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Joined_Statement</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Joined Statement</shortDescription>
+        <value>Drużyna {0} dołączyła do gry!</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Name</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Name</shortDescription>
+        <value>Team Name</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Players</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Players</shortDescription>
+        <value>Team Players</value>
+    </labels>
+    <labels>
+        <fullName>BL_Team_Removed</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Removed</shortDescription>
+        <value>Team removed</value>
+    </labels>
+    <labels>
+        <fullName>BL_Teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Teams</shortDescription>
+        <value>Teams</value>
+    </labels>
+    <labels>
+        <fullName>BL_Teams_Already_Joined</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Teams Already Joined</shortDescription>
+        <value>Teams Already Joined</value>
+    </labels>
+    <labels>
+        <fullName>BL_Teams_number</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Teams number</shortDescription>
+        <value>Teams number</value>
+    </labels>
+    <labels>
+        <fullName>BL_Type</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>BL_Waiting_for_teams</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Waiting for teams</shortDescription>
+        <value>Waiting for teams</value>
+    </labels>
+    <labels>
+        <fullName>BL_Win</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Win</shortDescription>
+        <value>Win</value>
+    </labels>
+    <labels>
+        <fullName>BL_Winner_match</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Winner match</shortDescription>
+        <value>Winner match</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_16_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/16 Stage</shortDescription>
+        <value>1/16 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_32_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/32 Stage</shortDescription>
+        <value>1/32 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_64_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/64 Stage</shortDescription>
+        <value>1/64 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_X1_8_Stage</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1/8 Stage</shortDescription>
+        <value>1/8 Stage</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_Are_Not_Assigned</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL You Are Not Assigned</shortDescription>
+        <value>You are not assigned to competition.</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_Joined_Competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You Joined Competition</shortDescription>
+        <value>You&apos;ve joined the competition.</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_Joined_League</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BL You Joined League</shortDescription>
+        <value>You&apos;ve joined the league.</value>
+    </labels>
+    <labels>
+        <fullName>BL_You_ve_left_the_competition</fullName>
+        <categories>BriteLeague</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You&apos;ve left the competition.</shortDescription>
+        <value>You&apos;ve left the competition.</value>
+    </labels>
+    <labels>
+        <fullName>BSDateFormat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Date format for BriteSheet - Synchronizations</shortDescription>
+        <value>YYYY-MM-dd</value>
+    </labels>
+    <labels>
+        <fullName>BSReturnedError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BSReturnedError</shortDescription>
+        <value>BS Returned Error while adding new User message:</value>
+    </labels>
+    <labels>
+        <fullName>BSSCallError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BSS Webservice call</shortDescription>
+        <value>Error returned error please inspect following</value>
+    </labels>
+    <labels>
+        <fullName>BSUserDataSection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BSUserDataSection</shortDescription>
+        <value>Employee Details</value>
+    </labels>
+    <labels>
+        <fullName>CVDeliveryDeadline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>delivery of cv</shortDescription>
+        <value>CV delivery deadline</value>
+    </labels>
+    <labels>
+        <fullName>CVEternalFormPage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RR external form customer</shortDescription>
+        <value>Please Provide Candidates files for Resource Request</value>
+    </labels>
+    <labels>
+        <fullName>CVLanguage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>language of CV</shortDescription>
+        <value>CV Language</value>
+    </labels>
+    <labels>
+        <fullName>CVSiteTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Site title</shortDescription>
+        <value>Candidates files delivery</value>
+    </labels>
+    <labels>
+        <fullName>CVemailLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dynamic label for Cv email template</shortDescription>
+        <value>Dear {0}, Please inspect attached files. Customer {1}, Location {2}</value>
+    </labels>
+    <labels>
+        <fullName>CancelBtn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel button</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Cancel_Button</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Button</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>CandidateName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sender</shortDescription>
+        <value>Candidate Name</value>
+    </labels>
+    <labels>
+        <fullName>CandidateSourceType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Candidate source type</shortDescription>
+        <value>Source Type</value>
+    </labels>
+    <labels>
+        <fullName>CannotFindContactWithEmail</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot find contact with email</shortDescription>
+        <value>Cannot find contact with email = {0}. Please contact with your administrator!</value>
+    </labels>
+    <labels>
+        <fullName>CannotFindProperSurvey</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot find proper survey</shortDescription>
+        <value>Cannot find proper survey!</value>
+    </labels>
+    <labels>
+        <fullName>CannotFoundAchievementWithID</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot found Achievement with ID:</shortDescription>
+        <value>Cannot found Achievement with ID: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Career</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Career</shortDescription>
+        <value>Career</value>
+    </labels>
+    <labels>
+        <fullName>CaseInfoSection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CaseInfoSection</shortDescription>
+        <value>Case Information</value>
+    </labels>
+    <labels>
+        <fullName>CaseTriggerFailedToCreateBSUser</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Trigger Future Method Exception</shortDescription>
+        <value>Case Trigger Failed to CreateBSUser Error:</value>
+    </labels>
+    <labels>
+        <fullName>Category</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Category</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>ChangeOnCandidate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>feed item body3</shortDescription>
+        <value>{0} of {1} {2} has been changed from {3} to {4}</value>
+    </labels>
+    <labels>
+        <fullName>ChoosePriceBook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Choose Price Book</value>
+    </labels>
+    <labels>
+        <fullName>CloseBtn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CloseBtn</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>CloseDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Close Date</value>
+    </labels>
+    <labels>
+        <fullName>Comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Comment field label - new Internal Onboarding</shortDescription>
+        <value>Comment</value>
+    </labels>
+    <labels>
+        <fullName>ConnectWithGoogle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Connect with Google</shortDescription>
+        <value>Connect with Google</value>
+    </labels>
+    <labels>
+        <fullName>Contact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>ContactDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ContactDetails Section</shortDescription>
+        <value>Contact Details</value>
+    </labels>
+    <labels>
+        <fullName>Continue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Continue button</shortDescription>
+        <value>Continue</value>
+    </labels>
+    <labels>
+        <fullName>ContractDates</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contract Dates</value>
+    </labels>
+    <labels>
+        <fullName>ContractDatesErr</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contract Start Date or Contract End Date is not specified on Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>ContractDuration</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ContractDuration</shortDescription>
+        <value>Contract Duration</value>
+    </labels>
+    <labels>
+        <fullName>ContractDurationUnit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ContractDuration</shortDescription>
+        <value>Contract Duration Unit</value>
+    </labels>
+    <labels>
+        <fullName>ContractEditPageTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contract Edit Page</shortDescription>
+        <value>Contract Creator</value>
+    </labels>
+    <labels>
+        <fullName>ContractEnd</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contract End</value>
+    </labels>
+    <labels>
+        <fullName>ContractEndDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contract End Description</value>
+    </labels>
+    <labels>
+        <fullName>ContractInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Contract Information</value>
+    </labels>
+    <labels>
+        <fullName>ContractLen</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Opportunity Days</value>
+    </labels>
+    <labels>
+        <fullName>ContractLenHelp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>oppo lenght</shortDescription>
+        <value>Opportunity Length in days</value>
+    </labels>
+    <labels>
+        <fullName>ContractLengthHelp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contract Length in hours</value>
+    </labels>
+    <labels>
+        <fullName>ContractStart</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contract Start</value>
+    </labels>
+    <labels>
+        <fullName>ContractStartDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contract Start Description</value>
+    </labels>
+    <labels>
+        <fullName>ContractTaskSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ContractTaskSubject</shortDescription>
+        <value>Contract is close to the end</value>
+    </labels>
+    <labels>
+        <fullName>CreateNewRR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create New Resource Request button label</shortDescription>
+        <value>Create New Resource Request</value>
+    </labels>
+    <labels>
+        <fullName>Create_New</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create New Label</shortDescription>
+        <value>Create New</value>
+    </labels>
+    <labels>
+        <fullName>CurrentTargets</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current Targets</shortDescription>
+        <value>Current Targets</value>
+    </labels>
+    <labels>
+        <fullName>Customer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dynamic label for Cv email template</shortDescription>
+        <value>Customer</value>
+    </labels>
+    <labels>
+        <fullName>CustomerNType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RR external form customer</shortDescription>
+        <value>Customer name and type</value>
+    </labels>
+    <labels>
+        <fullName>CvExternalFormValidationError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Author</shortDescription>
+        <value>Please set Author and attach at least one file</value>
+    </labels>
+    <labels>
+        <fullName>Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Date</value>
+    </labels>
+    <labels>
+        <fullName>DealEditPageTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deal Edit Page</shortDescription>
+        <value>Deal Creator</value>
+    </labels>
+    <labels>
+        <fullName>DefaultEmailSenderRM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sender</shortDescription>
+        <value>RM</value>
+    </labels>
+    <labels>
+        <fullName>DefaultEmailSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>email subject</shortDescription>
+        <value>CV for {0} ({1})</value>
+    </labels>
+    <labels>
+        <fullName>DefaultEmailSubjectAutoRequest</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>email subject</shortDescription>
+        <value>CV for {0} ({1})</value>
+    </labels>
+    <labels>
+        <fullName>DefaultEmailSubjectRequest</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>email subject</shortDescription>
+        <value>{0} ({1})</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Delete_Button</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete Button</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>DeliveryDeadline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>delivery deadline of cv</shortDescription>
+        <value>Delivery Deadline</value>
+    </labels>
+    <labels>
+        <fullName>DescInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Description Information</value>
+    </labels>
+    <labels>
+        <fullName>Description</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Details</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>DosentContainAnyQuestions</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>dosen&apos;t contain any questions</shortDescription>
+        <value>{0} dosen&apos;t contain any questions</value>
+    </labels>
+    <labels>
+        <fullName>Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>EditAll</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Edit All</value>
+    </labels>
+    <labels>
+        <fullName>EditProductsFormSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Edit Products from {0} with {1}.</value>
+    </labels>
+    <labels>
+        <fullName>EditSectionTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EditSectionTitle</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Button</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Button</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>EmailContent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EmailContent</shortDescription>
+        <value>Email Content</value>
+    </labels>
+    <labels>
+        <fullName>EmailDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Details</shortDescription>
+        <value>Email Details</value>
+    </labels>
+    <labels>
+        <fullName>EmailFatal</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sender</shortDescription>
+        <value>Error while sending email. Please contact Administrator.</value>
+    </labels>
+    <labels>
+        <fullName>EmailSuccesful</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sender</shortDescription>
+        <value>Email has been sent</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateBatchFailedSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Batch fail</shortDescription>
+        <value>Batch {0} FAILED</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateBatchSuccessBody</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Batch Completed</shortDescription>
+        <value>Your batch job {0} has finished \n It executed {1} batches \n  Of which {2} processed without any exceptions thrown and {3} batches threw unhandled exceptions.\n  Of the batches that executed without error, {4} records processed successfully.
+            \n  {5} records were set. \n {6} records were updated. \n {6} records Failed. \n</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateBatchSuccessSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Batch Completed</shortDescription>
+        <value>Batch {0} Completed</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateJobFailedAndReschedulesBody</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Job Exception fail</shortDescription>
+        <value>There are currently already 5 batches running, Job will be rescheduled.</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateJobFailedAndReschedulesSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Job Exception fail</shortDescription>
+        <value>Information: {0} -Rescheduled.</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateJobFailedBody</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Job Exception fail</shortDescription>
+        <value>Scheduler Class {0} Exception. {1}</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateJobFailedSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Job Exception fail</shortDescription>
+        <value>Scheduler Class {0} Exception.</value>
+    </labels>
+    <labels>
+        <fullName>Employee</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Employee</shortDescription>
+        <value>Employee</value>
+    </labels>
+    <labels>
+        <fullName>EmploymentDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EmploymentDetails Section</shortDescription>
+        <value>Employment Details</value>
+    </labels>
+    <labels>
+        <fullName>End</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>End Date:</value>
+    </labels>
+    <labels>
+        <fullName>ErrorWhileAddingNewPostOnChatterGroup</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Error while adding post to Chatter feed, please check if you are All HR group member</value>
+    </labels>
+    <labels>
+        <fullName>EventPageTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New / Edit Event Page</shortDescription>
+        <value>Interview/Note Form</value>
+    </labels>
+    <labels>
+        <fullName>Event_Meeting_Room_Warning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event Meeting Room Warning</shortDescription>
+        <value>There is no free room at given time, you don not have access to rooms calendars, or Google connection is not configured. If you still wish to save please continue.</value>
+    </labels>
+    <labels>
+        <fullName>ExceptionInAssignmentAndProjectProcessing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deal Edit Page</shortDescription>
+        <value>Error while processing Assignment with BSS Project</value>
+    </labels>
+    <labels>
+        <fullName>ExceptionInAssignmentProcessing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deal Edit Page</shortDescription>
+        <value>Error while processing BSS Assignment</value>
+    </labels>
+    <labels>
+        <fullName>ExceptionInProjectProcessing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deal Edit Page</shortDescription>
+        <value>Error while processing BSS Project</value>
+    </labels>
+    <labels>
+        <fullName>ExceptionLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Exception</shortDescription>
+        <value>Candidate has been Onboarded. Please check Candidate Contact.</value>
+    </labels>
+    <labels>
+        <fullName>FetchNewAuthToken</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FetchNewAuthToken</shortDescription>
+        <value>Fetch New Auth Token</value>
+    </labels>
+    <labels>
+        <fullName>FileInsertionSuccess</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Candidate has been added with success</shortDescription>
+        <value>File has been added</value>
+    </labels>
+    <labels>
+        <fullName>First</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Page Label</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>FirstPage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Page Label</shortDescription>
+        <value>First Page</value>
+    </labels>
+    <labels>
+        <fullName>FirstPageSign</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>first page sign pagination button</shortDescription>
+        <value>|&lt;</value>
+    </labels>
+    <labels>
+        <fullName>FixedPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fixed price opportunity product field</shortDescription>
+        <value>Fixed Price</value>
+    </labels>
+    <labels>
+        <fullName>FixedPriceHelp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Fixed Price is unit price for material.\nFilling this field will blank Hourly Price.\n</value>
+    </labels>
+    <labels>
+        <fullName>GoBack</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go Back to previous page</shortDescription>
+        <value>Go Back</value>
+    </labels>
+    <labels>
+        <fullName>HR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>HR</value>
+    </labels>
+    <labels>
+        <fullName>HourUnits</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Hour Units</value>
+    </labels>
+    <labels>
+        <fullName>Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity Info sec title</shortDescription>
+        <value>Info</value>
+    </labels>
+    <labels>
+        <fullName>Information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Information header</shortDescription>
+        <value>Information</value>
+    </labels>
+    <labels>
+        <fullName>Integrate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Integrate (eg google account)</shortDescription>
+        <value>Integrate</value>
+    </labels>
+    <labels>
+        <fullName>Integrated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Integrated (somethingt is already integrated)</shortDescription>
+        <value>Integrated!</value>
+    </labels>
+    <labels>
+        <fullName>InterviewSectionLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Interview for -PositionName From RR-</shortDescription>
+        <value>Interview for {0} from {1}</value>
+    </labels>
+    <labels>
+        <fullName>IntroductionToEmail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Introduction to email template</shortDescription>
+        <value>A new Candidate has been requested with the details below. Please send CVs through
+            the</value>
+    </labels>
+    <labels>
+        <fullName>InvalidConstructorParameters</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid constructor parameters</shortDescription>
+        <value>Invalid constructor parameters</value>
+    </labels>
+    <labels>
+        <fullName>InvalidMethodParameters</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid method parameters</shortDescription>
+        <value>Invalid method parameters</value>
+    </labels>
+    <labels>
+        <fullName>Language</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Placement</shortDescription>
+        <value>Language</value>
+    </labels>
+    <labels>
+        <fullName>Last</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Page Label</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>LastPage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Page Label</shortDescription>
+        <value>Last Page</value>
+    </labels>
+    <labels>
+        <fullName>LastPagePageSign</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>next page sign pagination button</shortDescription>
+        <value>&gt;|</value>
+    </labels>
+    <labels>
+        <fullName>LastPageSign</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>next page sign pagination button</shortDescription>
+        <value>&gt;|</value>
+    </labels>
+    <labels>
+        <fullName>LeadSource</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Lead Source</value>
+    </labels>
+    <labels>
+        <fullName>Level</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Experience Level</value>
+    </labels>
+    <labels>
+        <fullName>LineDesc</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Line description</value>
+    </labels>
+    <labels>
+        <fullName>ListPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>List Price</value>
+    </labels>
+    <labels>
+        <fullName>LoadingDataText</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>loadingview data text</shortDescription>
+        <value>Loading Data Please Wait...</value>
+    </labels>
+    <labels>
+        <fullName>Location</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Location</value>
+    </labels>
+    <labels>
+        <fullName>MainSkill</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>product main skill field</shortDescription>
+        <value>Main Skills</value>
+    </labels>
+    <labels>
+        <fullName>MaximumFieldLengthError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deal Edit Page</shortDescription>
+        <value>{0} Field exceeds maximum number of {1} characters</value>
+    </labels>
+    <labels>
+        <fullName>MustEnterValue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MustEnterValue</shortDescription>
+        <value>You must enter a value</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>New</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>NewInternalOnboardingError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error while sending request to BS:user</shortDescription>
+        <value>There was an error during communication with BriteSheet. Please contact your administrator</value>
+    </labels>
+    <labels>
+        <fullName>Next</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Next Label</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>NextPageSign</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>next page sign pagination button</shortDescription>
+        <value>&gt;</value>
+    </labels>
+    <labels>
+        <fullName>NextStep</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Next Step</value>
+    </labels>
+    <labels>
+        <fullName>NextStepDeadline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Next Step Deadline</value>
+    </labels>
+    <labels>
+        <fullName>NiceToHaveSkills</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>old niceToHaveSkills field now SecondarySkills__c</shortDescription>
+        <value>Secondary Skills</value>
+    </labels>
+    <labels>
+        <fullName>NoCandidateName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request form request section header</shortDescription>
+        <value>Please specify Candidate Name</value>
+    </labels>
+    <labels>
+        <fullName>NoCollectedCandidates</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alternate ending for email template</shortDescription>
+        <value>This Resource Request has no collected candidates yet.</value>
+    </labels>
+    <labels>
+        <fullName>NoContacts</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>No Contacts available</value>
+    </labels>
+    <labels>
+        <fullName>NoEmailBody</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email body validation</shortDescription>
+        <value>Email body required.</value>
+    </labels>
+    <labels>
+        <fullName>NoFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Click on file input to select proper CV File</shortDescription>
+        <value>Please select a file</value>
+    </labels>
+    <labels>
+        <fullName>NoProducts</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel button</shortDescription>
+        <value>No Selected Products</value>
+    </labels>
+    <labels>
+        <fullName>NoRecipient</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request form request section header</shortDescription>
+        <value>Invalid Recipient</value>
+    </labels>
+    <labels>
+        <fullName>NoSender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Sender Validation</shortDescription>
+        <value>Email sender required.</value>
+    </labels>
+    <labels>
+        <fullName>NoSubject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Subject Validation</shortDescription>
+        <value>Email subject required.</value>
+    </labels>
+    <labels>
+        <fullName>No_matches_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No matches found</shortDescription>
+        <value>No matches found</value>
+    </labels>
+    <labels>
+        <fullName>None</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>none</shortDescription>
+        <value>-- none --</value>
+    </labels>
+    <labels>
+        <fullName>NotFoundAchievementSetWithId</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not found Achievement Set with Id</shortDescription>
+        <value>Not found Achievement Set with Id  {0}</value>
+    </labels>
+    <labels>
+        <fullName>NotFoundTemplate</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not found template</shortDescription>
+        <value>Not found template: {0}</value>
+    </labels>
+    <labels>
+        <fullName>NotFoundUser</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not found user</shortDescription>
+        <value>Not found user: {0}</value>
+    </labels>
+    <labels>
+        <fullName>NotIntegrated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not Integrated (something is not integrated)</shortDescription>
+        <value>NOT Integrated!</value>
+    </labels>
+    <labels>
+        <fullName>OnlyLeaders</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Only Leaders</shortDescription>
+        <value>Only Leaders</value>
+    </labels>
+    <labels>
+        <fullName>OppoInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Opportunity Information</value>
+    </labels>
+    <labels>
+        <fullName>OppoLineItemUpdateActionSuccesfull</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>oppo lenght</shortDescription>
+        <value>Opportunity Items Updated</value>
+    </labels>
+    <labels>
+        <fullName>OppoName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Opportunity Name</value>
+    </labels>
+    <labels>
+        <fullName>OppoRecType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Opportunity Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityCurr</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Opportunity Currency</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityOwn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Opportunity Owner</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityTaskSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>new task created with opportunity</shortDescription>
+        <value>{0}, Next Step: {1} ({2})</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_Guidance_Approved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity Guidance Approved</shortDescription>
+        <value>Potwierdzenie wszystkich ustaleń i podpisanie zlecenia</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_Guidance_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity Guidance Customer</shortDescription>
+        <value>Potwierdzamy z klientem atrakcyjność kandydatów. Umawiamy spotkania, calle etc. Na kliencie staramy się wymusić jak najszybsze podejęcie decyzji. Gwarantujemy mu tylko kandydat na określoną (7) liczbę dni . Za każdym razem staramy się klienta przekonać do tego, żeby jak najszybciej podjął decyzję. Jeśli widzimy, ze klient się waha możemy zaproponować bezpłatny okres próbny (jeśli jest na to uzasadnienie finansowe np. sprzedajemy kogoś na wysokiej marży, lub ktoś jest obecnie na bezrobociu.</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_Guidance_Draft</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity Guidance Draft</shortDescription>
+        <value>Zbieramy informacje o:
+            - oczekiwanej stwace
+            - konkurencji
+            - na czym będzie polegać praca
+            - jakie są wymagane umiejętności
+            - daty: startu, dostarczenia oferty, podjecia decyzji
+            - czy klient realnie chce zlecić te prace
+            - na podstawie czego klient podejmie decyzję
+            Należy też ocenić jaka jest szansa na dokonanie sprzedaży. W zależności od zebranych informacji należy podjąć decyzję czy przekazujemy opportunity do realizacji</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_Guidance_InProgress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity Guidance InProgress</shortDescription>
+        <value>Handlowiec czeka na dostarczenie CV z firmy. Jak dostanie wysyła do klienta ofertę. W międzyczasie jest na bieżąco w kontakcie z klientem i informuje Go o postępie prac. Staramy się wysyłać jednego kandydata na jedno stanowisko. Od RM-ów potrzebujemy też informacji na ile dni kandydat blokuje dla nas swoją dostępność. Klientowi przekazujemy też informację o tym na ile ma zablokowanego kandydata.</value>
+    </labels>
+    <labels>
+        <fullName>OthLocation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Other Location</value>
+    </labels>
+    <labels>
+        <fullName>OtherLocation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Other Location</value>
+    </labels>
+    <labels>
+        <fullName>OwnerName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Owner Name</value>
+    </labels>
+    <labels>
+        <fullName>PagesOf</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SearchFilterFieldLabel</shortDescription>
+        <value>Page {0} of {1}</value>
+    </labels>
+    <labels>
+        <fullName>PeriodicAssessment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Periodic assessment</shortDescription>
+        <value>Periodic assessment</value>
+    </labels>
+    <labels>
+        <fullName>PeriodicAssessmentTaskNotification</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PeriodicAssessmentTaskNotification</shortDescription>
+        <value>Periodic assessment for {0} due date is on {1}</value>
+    </labels>
+    <labels>
+        <fullName>Placement</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Placement</shortDescription>
+        <value>Quantity</value>
+    </labels>
+    <labels>
+        <fullName>PleaseProvideTargetIdThisFieldIsMandatory</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please provide Target Id, this field is mandatory</shortDescription>
+        <value>Please provide Target Id, this field is mandatory</value>
+    </labels>
+    <labels>
+        <fullName>Position</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Position Name</value>
+    </labels>
+    <labels>
+        <fullName>Previous</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Previous Label</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>PreviousAssessment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Previous assessment</shortDescription>
+        <value>Previous assessment</value>
+    </labels>
+    <labels>
+        <fullName>PreviousCareerPath</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PreviousCareerPath</shortDescription>
+        <value>Previous career path</value>
+    </labels>
+    <labels>
+        <fullName>PreviousGeneralAssessment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PreviousGeneralAssessment</shortDescription>
+        <value>Previous general assessment</value>
+    </labels>
+    <labels>
+        <fullName>PreviousPageSign</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>previous page sign pagination button</shortDescription>
+        <value>&lt;</value>
+    </labels>
+    <labels>
+        <fullName>PreviousTargets</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Previous Targets</shortDescription>
+        <value>Targets set on last assessment</value>
+    </labels>
+    <labels>
+        <fullName>Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Price</value>
+    </labels>
+    <labels>
+        <fullName>PriceBook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Price Book</value>
+    </labels>
+    <labels>
+        <fullName>PriceBookNameFormat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>{0} Price Book</value>
+    </labels>
+    <labels>
+        <fullName>PriceHelp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity pricebook rel sec title</shortDescription>
+        <value>Price Per Hour for One Employee.\nFilling this field will blank Fixed Price for product.</value>
+    </labels>
+    <labels>
+        <fullName>PricePerDay</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity pricebook rel sec title</shortDescription>
+        <value>Price Per Day</value>
+    </labels>
+    <labels>
+        <fullName>PricesHeader</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Unit Price</value>
+    </labels>
+    <labels>
+        <fullName>Priority</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Probability</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Probability (%)</value>
+    </labels>
+    <labels>
+        <fullName>Product</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Product</value>
+    </labels>
+    <labels>
+        <fullName>ProductCode</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table code column</shortDescription>
+        <value>Product Code</value>
+    </labels>
+    <labels>
+        <fullName>ProductContractLen</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Contract Hours</value>
+    </labels>
+    <labels>
+        <fullName>ProductDesc</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table description column</shortDescription>
+        <value>Product Description</value>
+    </labels>
+    <labels>
+        <fullName>ProductFamily</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table family column</shortDescription>
+        <value>Product Family</value>
+    </labels>
+    <labels>
+        <fullName>ProductName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table name column</shortDescription>
+        <value>Product Name</value>
+    </labels>
+    <labels>
+        <fullName>ProductsAdded</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Products Added</value>
+    </labels>
+    <labels>
+        <fullName>ProductsAddedErr</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Error while adding products</value>
+    </labels>
+    <labels>
+        <fullName>ProductsInOppoError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Opportunity has products</value>
+    </labels>
+    <labels>
+        <fullName>ProductsSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product sec title</shortDescription>
+        <value>Products</value>
+    </labels>
+    <labels>
+        <fullName>ProfilingDetailsSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Profiling Details</shortDescription>
+        <value>Profiling Details</value>
+    </labels>
+    <labels>
+        <fullName>ProjectDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Project Description</value>
+    </labels>
+    <labels>
+        <fullName>Quantity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Quantity</value>
+    </labels>
+    <labels>
+        <fullName>QuantityRowNum</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Quantity must be greater than 0 row: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Question</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Question</shortDescription>
+        <value>Question</value>
+    </labels>
+    <labels>
+        <fullName>QuestionProviderError</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Question Provider Error</shortDescription>
+        <value>Question Provider: You must enter a value</value>
+    </labels>
+    <labels>
+        <fullName>Question_List</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Question List</shortDescription>
+        <value>Question List</value>
+    </labels>
+    <labels>
+        <fullName>Question_Who</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Question Who</shortDescription>
+        <value>Question Who</value>
+    </labels>
+    <labels>
+        <fullName>Rate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ContractDuration</shortDescription>
+        <value>Customer Rate</value>
+    </labels>
+    <labels>
+        <fullName>Recipient</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Recipient</shortDescription>
+        <value>Recipient</value>
+    </labels>
+    <labels>
+        <fullName>RecordTypeName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BSUserDataSection</shortDescription>
+        <value>Record Type Name</value>
+    </labels>
+    <labels>
+        <fullName>RecordTypePicklistLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RecordTypePicklistLabel</shortDescription>
+        <value>Record Type of new record</value>
+    </labels>
+    <labels>
+        <fullName>RecordsOf</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SearchFilterFieldLabel</shortDescription>
+        <value>{0} - {1} of {2}</value>
+    </labels>
+    <labels>
+        <fullName>RecrutedBy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Recruted By</value>
+    </labels>
+    <labels>
+        <fullName>RecrutimentDetails</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RecrutimentDetails</shortDescription>
+        <value>Recruitment details</value>
+    </labels>
+    <labels>
+        <fullName>RefreshIntegration</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Refresh integration</shortDescription>
+        <value>Refresh Integration</value>
+    </labels>
+    <labels>
+        <fullName>Remove</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>RequestCVFromHR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Author</shortDescription>
+        <value>{0} ({1})</value>
+    </labels>
+    <labels>
+        <fullName>RequestFormTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resource Request Form Title</shortDescription>
+        <value>Resource Request Form</value>
+    </labels>
+    <labels>
+        <fullName>RequestInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request form request section header</shortDescription>
+        <value>Request details</value>
+    </labels>
+    <labels>
+        <fullName>Request_CV_Comment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request CV Comment</shortDescription>
+        <value>REQUEST COMMENT</value>
+    </labels>
+    <labels>
+        <fullName>Requestor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>contact</shortDescription>
+        <value>Requestor</value>
+    </labels>
+    <labels>
+        <fullName>RequestorHasNoEmail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request form request section header</shortDescription>
+        <value>Please provide valid Email for Requestor Contact</value>
+    </labels>
+    <labels>
+        <fullName>ResourceRequest</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Resource Request</value>
+    </labels>
+    <labels>
+        <fullName>ResourceRequestAddedSuccesful</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Resource Request has been successfully added</value>
+    </labels>
+    <labels>
+        <fullName>ResourceRequestFatal</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Resource Request has not been added</value>
+    </labels>
+    <labels>
+        <fullName>ResponseFromBSisNull</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResponseFromBSisNull</shortDescription>
+        <value>Response is null</value>
+    </labels>
+    <labels>
+        <fullName>SalesPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Unit Price</value>
+    </labels>
+    <labels>
+        <fullName>SaveAndNewBtn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SaveAndNewBtn</shortDescription>
+        <value>Save and New</value>
+    </labels>
+    <labels>
+        <fullName>SaveBtn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SaveBtn</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Save_Button</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Saved_Successfully</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saved Successfully</shortDescription>
+        <value>Saved Successfully</value>
+    </labels>
+    <labels>
+        <fullName>Search</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>SearchFilterFieldLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SearchFilterFieldLabel</shortDescription>
+        <value>Find Contacts with following words (separated by comma):</value>
+    </labels>
+    <labels>
+        <fullName>SearchPageError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>search error</shortDescription>
+        <value>Error while searching for Recruits</value>
+    </labels>
+    <labels>
+        <fullName>SearchPageNoResults</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SearchFilterFieldLabel</shortDescription>
+        <value>No results found</value>
+    </labels>
+    <labels>
+        <fullName>Sector</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Sector</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>select products button</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>SelectBtn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>select products button</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>SelectCV</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Click on file input to select proper CV FIle</shortDescription>
+        <value>Click to Select File</value>
+    </labels>
+    <labels>
+        <fullName>SelectRecordType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectRecord Type Section Name on Selection Page</shortDescription>
+        <value>Please Select Case Record Type</value>
+    </labels>
+    <labels>
+        <fullName>SelectUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SelectUser</shortDescription>
+        <value>Select User</value>
+    </labels>
+    <labels>
+        <fullName>Select_All</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All</shortDescription>
+        <value>Select All</value>
+    </labels>
+    <labels>
+        <fullName>SelectedPB</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity pricebook rel sec title</shortDescription>
+        <value>Selected Price Source</value>
+    </labels>
+    <labels>
+        <fullName>SendEmailBtn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SendEmail</shortDescription>
+        <value>Send Email</value>
+    </labels>
+    <labels>
+        <fullName>SendFormBtn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Author</shortDescription>
+        <value>Send Files</value>
+    </labels>
+    <labels>
+        <fullName>Sender</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sender</shortDescription>
+        <value>Sender</value>
+    </labels>
+    <labels>
+        <fullName>Separator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>separator for links</shortDescription>
+        <value> | </value>
+    </labels>
+    <labels>
+        <fullName>ShareWithLeader</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Share with Leader</shortDescription>
+        <value>Share {0}&apos;s record with leader</value>
+    </labels>
+    <labels>
+        <fullName>Share_Resource_Request_with_HR_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Share Resource Request with HR User</shortDescription>
+        <value>Share Resource Request with HR User</value>
+    </labels>
+    <labels>
+        <fullName>SiteExceptionLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Site Exception</shortDescription>
+        <value>Candidate has been Onboarded. Please check Candidate Contact.</value>
+    </labels>
+    <labels>
+        <fullName>SkillLevelJunior</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Skill level</shortDescription>
+        <value>Junior</value>
+    </labels>
+    <labels>
+        <fullName>SkillLevelProfessional</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Skill level</shortDescription>
+        <value>Professional</value>
+    </labels>
+    <labels>
+        <fullName>SkillLevelSenior</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Skill level</shortDescription>
+        <value>Senior</value>
+    </labels>
+    <labels>
+        <fullName>Stage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Stage</value>
+    </labels>
+    <labels>
+        <fullName>Start</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Start Date:</value>
+    </labels>
+    <labels>
+        <fullName>StdPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table price column</shortDescription>
+        <value>Standard Price</value>
+    </labels>
+    <labels>
+        <fullName>Step</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Step</shortDescription>
+        <value>Step</value>
+    </labels>
+    <labels>
+        <fullName>Subject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subject</shortDescription>
+        <value>Subject</value>
+    </labels>
+    <labels>
+        <fullName>SubmitForm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>submit btn</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>Success</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Author</shortDescription>
+        <value>Files has been sent with success</value>
+    </labels>
+    <labels>
+        <fullName>SurveyHandlerDoesNotExist</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Survey handler does not exist</shortDescription>
+        <value>Survey handler &quot;{0}&quot; does not exist!</value>
+    </labels>
+    <labels>
+        <fullName>SurveyProviderDoesNotExist</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Survey provider does not exist</shortDescription>
+        <value>Survey provider &quot;{0}&quot; does not exist!</value>
+    </labels>
+    <labels>
+        <fullName>SurveyResponseCannotBeBlank</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Survey Response cannot be blank</shortDescription>
+        <value>Survey Response cannot be blank!</value>
+    </labels>
+    <labels>
+        <fullName>SurveyTemplateAccesses_AddContactAccess_Error</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SurveyTemplateAccesses AddContactAccess Error</shortDescription>
+        <value>Only one field may be filled: [Contact] or [Only Leaders]</value>
+    </labels>
+    <labels>
+        <fullName>SystemQuestion</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>System question</shortDescription>
+        <value>System question</value>
+    </labels>
+    <labels>
+        <fullName>TamplateNotContainsQuestionOfEmail</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tamplate not contains question of email</shortDescription>
+        <value>Tamplate not contains question of email</value>
+    </labels>
+    <labels>
+        <fullName>Technology</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Technology</value>
+    </labels>
+    <labels>
+        <fullName>TemplateApiNameFieldValueIsMandatory</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>templateApiName field value is mandatory</shortDescription>
+        <value>TemplateApiName field value is mandatory!</value>
+    </labels>
+    <labels>
+        <fullName>TemplateNameIsNotUnavailable</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>template is not unavailable</shortDescription>
+        <value>{0} is not unavailable.</value>
+    </labels>
+    <labels>
+        <fullName>TotalPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Total Price</value>
+    </labels>
+    <labels>
+        <fullName>TotalPriceFormulaError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Data provided in form is invalid. Please type valid data.</value>
+    </labels>
+    <labels>
+        <fullName>TotalPriceHelp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Total Price is quantity multiplied by hourly price and by Opportunity length in hours</value>
+    </labels>
+    <labels>
+        <fullName>TriggerFailedToFindResourceManagersQueue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Change owner before insert Case Trigger Error</shortDescription>
+        <value>Trigger Failed to Find Resource_Managers Queue</value>
+    </labels>
+    <labels>
+        <fullName>Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>UnitHours</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity product contract length</shortDescription>
+        <value>Unit Hours</value>
+    </labels>
+    <labels>
+        <fullName>UnitPrice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity pricebook rel sec title</shortDescription>
+        <value>Hourly Rate</value>
+    </labels>
+    <labels>
+        <fullName>UnitsHour</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>(per hour)</value>
+    </labels>
+    <labels>
+        <fullName>UnitsUnit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>(per unit)</value>
+    </labels>
+    <labels>
+        <fullName>Unselect_All</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unselect All</shortDescription>
+        <value>Unselect All</value>
+    </labels>
+    <labels>
+        <fullName>UserIdFieldValueIsMandatory</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UserId field value is mandatory</shortDescription>
+        <value>UserId field value is mandatory!</value>
+    </labels>
+    <labels>
+        <fullName>WiFi_PIN_Changed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WiFi PIN Changed</shortDescription>
+        <value>WiFi PIN was changed outside Salesforce. Do you want to refresh current value?</value>
+    </labels>
+    <labels>
+        <fullName>WiFi_PIN_Refresh</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WiFi PIN Refresh</shortDescription>
+        <value>Refresh PIN</value>
+    </labels>
+    <labels>
+        <fullName>WiFi_PIN_Uneditable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WiFi PIN Uneditable</shortDescription>
+        <value>Only owner and admin can see and change WiFi PIN.</value>
+    </labels>
+    <labels>
+        <fullName>WorkStart</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>opportunity pricebook rel sec title</shortDescription>
+        <value>Work Start Date</value>
+    </labels>
+    <labels>
+        <fullName>WorkStartSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product table action column</shortDescription>
+        <value>Work Start</value>
+    </labels>
+    <labels>
+        <fullName>Yes</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>YouNotHavePermission</fullName>
+        <categories>briteskills</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You not have permission</shortDescription>
+        <value>You not have permission!</value>
+    </labels>
+    <labels>
+        <fullName>failedAssignmentSync</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Assignment Sync Failed with BriteSheet</value>
+    </labels>
+    <labels>
+        <fullName>failedBSSSync</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Sync with BriteSheet Failed</value>
+    </labels>
+    <labels>
+        <fullName>failedCertSync</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Certificate Sync Failed with BriteSheet</value>
+    </labels>
+    <labels>
+        <fullName>failedContactSync</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Contact Sync Failed with BriteSheet</value>
+    </labels>
+    <labels>
+        <fullName>failedGettingConProperty</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>The connection configuration is wrong or missing!</value>
+    </labels>
+    <labels>
+        <fullName>failedProjectSync</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>word</shortDescription>
+        <value>Project Sync Failed with BriteSheet</value>
+    </labels>
+    <labels>
+        <fullName>feedback</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Feedback</shortDescription>
+        <value>Feedback</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Application_Not_Authorized</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>gAPI_Application_Not_Authorized</shortDescription>
+        <value>Application was not authorized to use Google Data API. Refresh Token is empty.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Authorization_Failure</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Successfull message after Google Data API Authorization</shortDescription>
+        <value>You have failed to authorize by Google Data API.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Close_Window</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Close window message after Google Data API Authorization</shortDescription>
+        <value>You can now safely close this window.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Close_Window_Message</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Close window message after Google Data API Authorization</shortDescription>
+        <value>You can now safely close this window.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Auth_Status</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Google Services Authorization Status Panel Caption</shortDescription>
+        <value>Google Services Authorization Status</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Auth_Successful_Msg_Detail</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Detail for Succesful Autorization message</shortDescription>
+        <value>If you want to revoke the data access, please click the button below. You will be able to grant data access again.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Auth_Successful_Msg_Summary</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary for Succesful Autorization message</shortDescription>
+        <value>Your Google calendar data can be accessed by this application.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Auth_Successful_Msg_Title</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for Succesful Autorization message</shortDescription>
+        <value>You have been successfully authorized in Google Data API.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Authorize_Access</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Authorize command button caption</shortDescription>
+        <value>Authorize</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Avail_Calendars</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available Google Calendars panel caption</shortDescription>
+        <value>Available Google Calendars</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Delete_Selected_Requests</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete selected records button caption</shortDescription>
+        <value>Delete selected records</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_First_Paginator</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First button caption on paginator bar</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Last_Paginator</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last button caption on paginator bar</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Next_Paginator</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next button caption on paginator bar</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Not_Authorized_Msg_Detail</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Detail for &quot;User not authorized to use Google Services API&quot; message</shortDescription>
+        <value>You will be asked to sign in to your Google account, and then asked to accept the request for permission to access your data.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Not_Authorized_Msg_Summary</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary for &quot;User not authorized to use Google Services API&quot; message</shortDescription>
+        <value>Please press the button below.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Not_Authorized_Msg_Title</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tilte for &quot;User not authorized to use Google Services API&quot; message</shortDescription>
+        <value>Please Authorize Google Calendar API.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Pending_Requests</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pending Google Requests section/header caption</shortDescription>
+        <value>Pending Google Requests</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Previous_Paginator</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous button caption on paginator bar</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Refresh_Calendars</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Refresh Calendar list button caption</shortDescription>
+        <value>Refresh</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Request_Processing_In_Progress_Msg_Summary</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary for &quot;Selected requests are currently being processed.&quot; message</shortDescription>
+        <value>If you would like to refresh Google pending requests list, please press &quot;Refresh&quot; button below.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Request_Processing_In_Progress_Msg_Title</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for &quot;Selected requests are currently being processed.&quot; message</shortDescription>
+        <value>Selected requests are currently being processed.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Requests_Search</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Google Requests Search section caption</shortDescription>
+        <value>Google Requests Search</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Revoke_Access</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Revoke access button caption</shortDescription>
+        <value>Revoke</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Search_Request</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Google Requests button caption</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Set_Default_Calendar</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Set default calendar button caption</shortDescription>
+        <value>Set as default</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Show_All_Requests</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show All Google Requests button caption</shortDescription>
+        <value>Show all</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Synchronize_All_Requests</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Synchronize all records button caption</shortDescription>
+        <value>Synchronize all records</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Synchronize_Selected_Requests</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Synchronize selected records button caption</shortDescription>
+        <value>Synchronize selected records</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_Title</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Google Calendar Configuration Page Header Title</shortDescription>
+        <value>Google Calendar Configuration</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Config_URL</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Google Calendar configuration link name</shortDescription>
+        <value>Google Calendar configuration</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Empty_Calendar_Id</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>gAPI_Cal_Empty_Calendar_Id</shortDescription>
+        <value>Calendar Id is empty. Please authorize application to use Google Data API.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Empty_Calendar_Name</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>gAPI_Cal_Empty_Calendar_Name</shortDescription>
+        <value>Calendar Name is empty.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Empty_Event_Id</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>gAPI_Cal_Empty_Event_Id</shortDescription>
+        <value>EventId is empty.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Google_Calendar_Name</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>gAPI_Cal_Google_Calendar_Name</shortDescription>
+        <value>SFDC Calendar Events</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Cal_Salesforce_Google_Calendar_Name</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Google Calendar name used to store SFDC Events.</shortDescription>
+        <value>Salesforce Events (please do not delete)</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Choose_Calendar</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Choose calendar message after Google Data API successful Authorization</shortDescription>
+        <value>Please choose Google calendar you would like to use:</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Not_Authorized</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not authorized error on gAPI OAuth Authorization page</shortDescription>
+        <value>Google Data API is not authorized. If you would like to use services provided by Google like Calendar synchronization, please press the button below.</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Select_Calendar_Short</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Calendar selection label - short caption</shortDescription>
+        <value>Select calendar</value>
+    </labels>
+    <labels>
+        <fullName>gAPI_Succesfull_Authorization</fullName>
+        <categories>gAPI</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Successfull message after Google Data API Authorization</shortDescription>
+        <value>You have successfully authorized Google Data API.</value>
+    </labels>
+    <labels>
+        <fullName>hasBeenCreated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>feed item body2</shortDescription>
+        <value>has been created</value>
+    </labels>
+    <labels>
+        <fullName>hasBeenUpdated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>feed item body</shortDescription>
+        <value>has been updated</value>
+    </labels>
+    <labels>
+        <fullName>invalidRR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid Resource Request Id</shortDescription>
+        <value>Invalid Resource Request Id</value>
+    </labels>
+    <labels>
+        <fullName>searchAllWords</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>searchAllWords</shortDescription>
+        <value>All of these words:</value>
+    </labels>
+    <labels>
+        <fullName>searchAnyoneWords</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>searchAnyoneWords</shortDescription>
+        <value>Anyone of these words:</value>
+    </labels>
+    <labels>
+        <fullName>searchNoneWords</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>searchNoneWords</shortDescription>
+        <value>None of these words:</value>
+    </labels>
+    <labels>
+        <fullName>sectionRRtitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dynamic label for Cv email template</shortDescription>
+        <value>Please provide data for new Resource Request</value>
+    </labels>
+    <labels>
+        <fullName>submitRequestBtn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ResourceRequest</shortDescription>
+        <value>Submit Request</value>
+    </labels>
+</CustomLabels>

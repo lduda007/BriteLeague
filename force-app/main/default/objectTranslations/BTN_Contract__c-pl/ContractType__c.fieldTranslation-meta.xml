@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Typ kontraktu</label>
+    <name>ContractType__c</name>
+    <picklistValues>
+        <masterLabel>B2B</masterLabel>
+        <translation>B2B</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Inny rodzaj umowy</masterLabel>
+        <translation>Inny rodzaj umowy</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Umowa Zlecenie</masterLabel>
+        <translation>Umowa Zlecenie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Umowa o Dzieło</masterLabel>
+        <translation>Umowa o Dzieło</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Umowa o Pracę</masterLabel>
+        <translation>Umowa o Pracę</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Umowa o Pracę z kosztami autorskimi - 90%</masterLabel>
+        <translation>Umowa o Pracę z kosztami autorskimi - 90%</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Umowa o Pracę z kosztami autorskimi ...</masterLabel>
+        <translation>Umowa o Pracę z kosztami autorskimi ...</translation>
+    </picklistValues>
+</CustomFieldTranslation>

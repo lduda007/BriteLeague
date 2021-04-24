@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContactAndLeadersCannotBeFill</fullName>
+    <active>true</active>
+    <description>Contact and leaders cannot be filled</description>
+    <errorConditionFormula>IF(AND(!ISBLANK( Contact__c ), OnlyLeaders__c = TRUE), TRUE, FALSE)</errorConditionFormula>
+    <errorMessage>Please fill only Contact or Only Leaders input.</errorMessage>
+</ValidationRule>

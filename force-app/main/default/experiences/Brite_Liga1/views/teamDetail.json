@@ -1,0 +1,57 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "99eba579-a5a7-4cd8-9d10-89274cca1f4a",
+  "label" : "Team Detail",
+  "regions" : [ {
+    "id" : "b4e6e6a4-5919-44f1-98d9-6aeb8b081c74",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_TeamMainPage",
+      "id" : "493f2a31-2127-48f6-9c1e-d22955ab9787",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "acec91b9-5d85-45e1-b382-ea129b5891f0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b770b9ab-b4db-4f82-b46e-13e0e94e1ff9",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c3f11b5b-77c4-4f85-a7c1-a5f48c79d817",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d75b2047-2d32-44b7-9485-8542f06dfa82",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_TeamMembersList",
+      "id" : "0bfad893-673c-40c3-81fc-b61fbe9ac34a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0c814350-6624-434d-9f7e-e3e8d39116ea",
+    "regionName" : "sidebar",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-a0g"
+}

@@ -1,0 +1,217 @@
+{
+    "a0B4E000002dzs1UAA": {
+        "parentId": null,
+        "name": "Administracja Systemów",
+        "id": "a0B4E000002dzs1UAA"
+    },
+    "a0B4E000002dzsOUAQ": {
+        "parentId": null,
+        "name": "Analiza",
+        "id": "a0B4E000002dzsOUAQ"
+    },
+    "a0B4E000002dzrtUAA": {
+        "parentId": "a0B4E000002dzsOUAQ",
+        "name": "Analiza Biznesowa",
+        "id": "a0B4E000002dzrtUAA"
+    },
+    "a0B4E000002dzsGUAQ": {
+        "parentId": "a0B4E000002dzsOUAQ",
+        "name": "Analiza Systemowa",
+        "id": "a0B4E000002dzsGUAQ"
+    },
+    "a0B4E000002dzsEUAQ": {
+        "parentId": "a0B4E000002dzsOUAQ",
+        "name": "Branża Analizy",
+        "id": "a0B4E000002dzsEUAQ"
+    },
+    "a0B4E000002dzs0UAA": {
+        "parentId": "a0B4E000002dzsOUAQ",
+        "name": "Certyfikaty Analityczne",
+        "id": "a0B4E000002dzs0UAA"
+    },
+    "a0B4E000002dzsHUAQ": {
+        "parentId": "a0B4E000002dzsOUAQ",
+        "name": "Języki Modelowania",
+        "id": "a0B4E000002dzsHUAQ"
+    },
+    "a0B4E000002dzsFUAQ": {
+        "parentId": "a0B4E000002dzsOUAQ",
+        "name": "Narzędzia specjalistyczne",
+        "id": "a0B4E000002dzsFUAQ"
+    },
+    "a0B4E000002dzryUAA": {
+        "parentId": null,
+        "name": "AppExchange",
+        "id": "a0B4E000002dzryUAA"
+    },
+    "a0B4E000002dzs7UAA": {
+        "parentId": null,
+        "name": "Bazy Danych",
+        "id": "a0B4E000002dzs7UAA"
+    },
+    "a0B4E000002dzs8UAA": {
+        "parentId": null,
+        "name": "Business Intelligence",
+        "id": "a0B4E000002dzs8UAA"
+    },
+    "a0B4E000002dzrwUAA": {
+        "parentId": null,
+        "name": "Certyfikaty",
+        "id": "a0B4E000002dzrwUAA"
+    },
+    "a0B4E000002dzsMUAQ": {
+        "parentId": "a0B4E000002dzrwUAA",
+        "name": "Certyfikaty Java",
+        "id": "a0B4E000002dzsMUAQ"
+    },
+    "a0B4E000002dzsLUAQ": {
+        "parentId": "a0B4E000002dzrwUAA",
+        "name": "Certyfikaty .NET",
+        "id": "a0B4E000002dzsLUAQ"
+    },
+    "a0B4E000002dzsNUAQ": {
+        "parentId": "a0B4E000002dzrwUAA",
+        "name": "Certyfikaty Salesforce",
+        "id": "a0B4E000002dzsNUAQ"
+    },
+    "a0B4E000002dzs2UAA": {
+        "parentId": null,
+        "name": "Cloud",
+        "id": "a0B4E000002dzs2UAA"
+    },
+    "a0B4E000002dzsBUAQ": {
+        "parentId": null,
+        "name": "CMS",
+        "id": "a0B4E000002dzsBUAQ"
+    },
+    "a0B4E000002dzrvUAA": {
+        "parentId": null,
+        "name": "Frontend",
+        "id": "a0B4E000002dzrvUAA"
+    },
+    "a0B4E000002dzsKUAQ": {
+        "parentId": "a0B4E000002dzrvUAA",
+        "name": "JavaScript Libraries",
+        "id": "a0B4E000002dzsKUAQ"
+    },
+    "a0B4E000002dzrxUAA": {
+        "parentId": null,
+        "name": "Inne",
+        "id": "a0B4E000002dzrxUAA"
+    },
+    "a0B4E000002dzs5UAA": {
+        "parentId": null,
+        "name": "Integracja",
+        "id": "a0B4E000002dzs5UAA"
+    },
+    "a0B4E000002dzs6UAA": {
+        "parentId": null,
+        "name": "Java",
+        "id": "a0B4E000002dzs6UAA"
+    },
+    "a0B4E000002dzsIUAQ": {
+        "parentId": null,
+        "name": "Języki Obce",
+        "id": "a0B4E000002dzsIUAQ"
+    },
+    "a0B4E000002dzruUAA": {
+        "parentId": null,
+        "name": "Języki Programowania",
+        "id": "a0B4E000002dzruUAA"
+    },
+    "a0B4E000002dzrqUAA": {
+        "parentId": null,
+        "name": "Mobile",
+        "id": "a0B4E000002dzrqUAA"
+    },
+    "a0B4E000002dzrzUAA": {
+        "parentId": null,
+        "name": "Narzędzia",
+        "id": "a0B4E000002dzrzUAA"
+    },
+    "a0B4E000002dzs3UAA": {
+        "parentId": null,
+        "name": ".NET",
+        "id": "a0B4E000002dzs3UAA"
+    },
+    "a0B4E000002dzsCUAQ": {
+        "parentId": null,
+        "name": "ORMs",
+        "id": "a0B4E000002dzsCUAQ"
+    },
+    "a0B4E000002dzsJUAQ": {
+        "parentId": null,
+        "name": "PHP",
+        "id": "a0B4E000002dzsJUAQ"
+    },
+    "a0B4E000002dzrrUAA": {
+        "parentId": null,
+        "name": "Podstawy Programowania",
+        "id": "a0B4E000002dzrrUAA"
+    },
+    "a0B4E000002dzs9UAA": {
+        "parentId": null,
+        "name": "SFDC",
+        "id": "a0B4E000002dzs9UAA"
+    },
+    "a0B4E000002dzsAUAQ": {
+        "parentId": null,
+        "name": "Testy",
+        "id": "a0B4E000002dzsAUAQ"
+    },
+    "a0B4E000002dzrsUAA": {
+        "parentId": null,
+        "name": "Umiejętności miekkie",
+        "id": "a0B4E000002dzrsUAA"
+    },
+    "a0B4E000002eBDjUAM": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Inicjatywa/proaktywność",
+        "id": "a0B4E000002eBDjUAM"
+    },
+    "a0B4E000002eEvQUAU": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Jakość pracy",
+        "id": "a0B4E000002eEvQUAU"
+    },
+    "a0B4E000002eEvGUAU": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Komunikatywność",
+        "id": "a0B4E000002eEvGUAU"
+    },
+    "a0B4E000002eBjBUAU": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Kontakt z klientem",
+        "id": "a0B4E000002eBjBUAU"
+    },
+    "a0B4E000002eEvBUAU": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Praca w zespole",
+        "id": "a0B4E000002eEvBUAU"
+    },
+    "a0B4E000002eEvLUAU": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Samodzielność",
+        "id": "a0B4E000002eEvLUAU"
+    },
+    "a0B4E000002e2GJUAY": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Wiedza specjalistyczna",
+        "id": "a0B4E000002e2GJUAY"
+    },
+    "a0B4E000002eCYEUA2": {
+        "parentId": "a0B4E000002dzrsUAA",
+        "name": "Zaangażowanie",
+        "id": "a0B4E000002eCYEUA2"
+    },
+    "a0B4E000002dzsDUAQ": {
+        "parentId": null,
+        "name": "Web Frameworks",
+        "id": "a0B4E000002dzsDUAQ"
+    },
+    "a0B4E000002dzs4UAA": {
+        "parentId": null,
+        "name": "Web Services",
+        "id": "a0B4E000002dzs4UAA"
+    }
+}

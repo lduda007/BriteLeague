@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PercentageCoefficientCurrentMonth__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( (DATE(YEAR(TODAY()), MONTH(TODAY()), 1) &gt; StartDate__c) &amp;&amp;  (DATE(YEAR(TODAY()), MONTH(TODAY()), 1) &gt; EndDate__c), 0,
+  (IF ( (DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(DATE(YEAR(TODAY()),(IF(MONTH(TODAY())+1 &gt; 12, 1, MONTH(TODAY())+1)),1)-1)) &lt; EndDate__c) &amp;&amp;  (DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(DATE(YEAR(TODAY()),(IF(MONTH(TODAY())+1 &gt; 12, 1, MONTH(TODAY())+1)),1)-1)) &lt; StartDate__c), 0,
+  (((
+  IF ( ((DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(DATE(YEAR(TODAY()),(IF(MONTH(TODAY())+1 &gt; 12, 1, MONTH(TODAY())+1)),1)-1)) &gt; EndDate__c) &amp;&amp;  ((DATE(YEAR(TODAY()), MONTH(TODAY()), 1)) &lt; EndDate__c) &amp;&amp; (DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(DATE(YEAR(TODAY()),(IF(MONTH(TODAY())+1 &gt; 12, 1, MONTH(TODAY())+1)),1)-1)) &gt; StartDate__c) &amp;&amp; (DATE(YEAR(TODAY()), MONTH(TODAY()), 1)) &lt; StartDate__c), DAY(EndDate__c) - DAY(StartDate__c) + 1, 
+    IF ( ((DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(DATE(YEAR(TODAY()),(IF(MONTH(TODAY())+1 &gt; 12, 1, MONTH(TODAY())+1)),1)-1)) &gt; StartDate__c) &amp;&amp; ((DATE(YEAR(TODAY()), MONTH(TODAY()), 1)) &lt; StartDate__c)), DAY(DATE(YEAR(TODAY()),IF(MONTH(TODAY()) &gt;= 12, 1, MONTH(TODAY()) + 1), 1)-1) - DAY(StartDate__c) + 1, 
+      IF (((DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(DATE(YEAR(TODAY()),(IF(MONTH(TODAY())+1 &gt; 12, 1, MONTH(TODAY())+1)),1)-1)) &gt; EndDate__c) &amp;&amp;  ((DATE(YEAR(TODAY()), MONTH(TODAY()), 1)) &lt; EndDate__c)), DAY(EndDate__c), 
+          DAY(DATE(YEAR(TODAY()),(IF(MONTH(TODAY())+1 &gt; 12, 1, MONTH(TODAY())+1)),1)-1))
+      )
+    )
+  )
+  / DAY(DATE(IF(MONTH(TODAY()) &gt;= 12, YEAR(TODAY()) + 1,  YEAR(TODAY())), (IF(MONTH(TODAY()) &gt; 12, 1, MONTH(TODAY()) + 1)), 1) -1 ))
+  * Allocation__c))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Percentage Coefficient Current Month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

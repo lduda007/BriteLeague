@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contract</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contracts</value>
+    </caseValues>
+    <layouts>
+        <layout>Contract Layout</layout>
+        <sections>
+            <label><!-- Contract Details --></label>
+            <section>Contract Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Period --></label>
+            <section>Notice Period</section>
+        </sections>
+        <sections>
+            <label><!-- Salary --></label>
+            <section>Salary</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RM Contract Layout</layout>
+        <sections>
+            <label><!-- Contract Details --></label>
+            <section>Contract Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Period --></label>
+            <section>Notice Period</section>
+        </sections>
+        <sections>
+            <label><!-- Salary --></label>
+            <section>Salary</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Contract --></label>
+        <name>Contract</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Loyalty Agreement --></label>
+        <name>LoyaltyAgreement</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

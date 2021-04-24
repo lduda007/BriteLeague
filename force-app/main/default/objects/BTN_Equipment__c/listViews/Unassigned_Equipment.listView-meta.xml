@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unassigned_Equipment</fullName>
+    <columns>NAME</columns>
+    <columns>Type__c</columns>
+    <columns>Manufacturer__c</columns>
+    <columns>Model__c</columns>
+    <columns>License_Name__c</columns>
+    <columns>Britenet_ID__c</columns>
+    <columns>Equipment__c</columns>
+    <columns>Location__c</columns>
+    <columns>Active__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Contact__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Nieprzypisane</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Admins</group>
+    </sharedTo>
+</ListView>

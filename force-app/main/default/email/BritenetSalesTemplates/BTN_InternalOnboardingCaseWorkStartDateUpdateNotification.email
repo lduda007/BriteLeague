@@ -1,0 +1,13 @@
+<p>The Internal onboarding case <a href={!Case.Link}>{!Case.CaseNumber}</a> has been updated by {!Case.OwnerFullName}.</p>
+<p>Work start date has been updated to: {!Case.WorkStartDate__c}</p>
+
+<p><u>Onboarding details</u></p>
+<strong>Name:</strong> {!Case.NewUserFirstName__c}&nbsp;{!Case.NewUserLastName__c}<br/>
+<strong>Position:</strong> {!Case.NewUserTitle__c}<br/>
+<strong>Location:</strong> {!Case.Location_frm__c}<br/>
+<strong>Leader:</strong> {!Case.Leader__c}<br/>
+
+<p>
+Kind regards,<br/>
+BriteRM Team
+</p>

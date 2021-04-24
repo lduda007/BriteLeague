@@ -1,0 +1,5 @@
+<apex:component controller="BTN_LinkComponentController" access="global">
+	<apex:attribute name="Opportunity" description="Related object" type="Id" assignTo="{!mysObject}"/>
+	<apex:attribute name="OpportunityName" description="Opportunity related object Name" type="String" assignTo="{!mysObjectName}"/>
+	<apex:outputLink value="{!link}">{!mysObjectName}</apex:outputLink>
+</apex:component>

@@ -1,0 +1,85 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "id" : "cf355646-5c67-426a-94af-10dc6dc310ac",
+  "label" : "Battle Royale",
+  "regions" : [ {
+    "id" : "8e3a76a3-2ec0-4887-b0a2-e8e21c82c3c1",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionDetails",
+      "id" : "c7e5717b-adf6-4f13-83cb-6093f759a0b3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionTableBattleRoyale",
+      "id" : "c471999c-68a5-4d35-baac-81d820e9ed2a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionProgressChart",
+      "id" : "4319647c-3b36-480b-b232-f1e54bee81b1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "079113f0-9002-412e-9030-3d2597ee9590",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionStatusChart",
+      "id" : "4245f056-10d1-44de-9022-d137b71fce02",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_MatchesTable",
+      "id" : "b787ca02-9b0a-4974-90da-af307cd0eea5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionFeed",
+      "id" : "8d385cf9-15c8-414c-8108-57ddfcc6ad6c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "04e9ede6-a27e-451a-be66-6078647e5d50",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "5c0c898f-d6e2-4b55-ae46-899a054152ee",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "93616ae9-0c08-440c-965b-ed9667529d33",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "41865e36-a349-41f9-a253-74163b86e105",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-a0j"
+}

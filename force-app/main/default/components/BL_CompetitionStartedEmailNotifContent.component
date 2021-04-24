@@ -1,0 +1,26 @@
+<apex:component id="BL_CompetitionStartedEmailNotifContent" access="global" controller="BL_CompetitionStartedEmailController">
+    <apex:attribute name="competitorId" type="String" description="Competitor Id" assignTo="{!recordId}"/>
+
+    <p>
+        Hello <apex:outputPanel rendered="{!competitor.Competition__r.TeamSize__c == 'Two Players Team'}"> team </apex:outputPanel><span style="font-size: 22; font-weight: bold;"> {!competitor.Team__r.Name}!</span>
+    </p>
+
+    <p>
+        <apex:outputPanel rendered="{!competitor.Competition__r.RecordType.DeveloperName = 'Cup'}">{!$Label.BL_Cup}</apex:outputPanel>
+        <apex:outputPanel rendered="{!competitor.Competition__r.RecordType.DeveloperName = 'Classic'}">{!$Label.BL_League}</apex:outputPanel>
+        <apex:outputPanel rendered="{!competitor.Competition__r.RecordType.DeveloperName = 'Battle_Royale'}">{!$Label.BL_Battle_Royale}</apex:outputPanel>
+        <span style="font-weight: bold;">{!competitor.Competition__r.Name}</span> has just started. Competition ends on
+        <span style="font-weight: bold;">
+            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                <apex:param value="{!competitor.Competition__r.End_Date__c}" />
+            </apex:outputText>
+        </span>
+        Make sure to play all your scheduled games and set scores.
+    </p>
+    <p>
+        Visit our community website to check matches schedule and games results.
+    </p>
+    <p>
+        {!competitionUrl}/{!competitor.Competition__c}
+    </p>
+</apex:component>

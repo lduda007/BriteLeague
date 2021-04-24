@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RM_Opportunities_in_progress</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>OPPORTUNITY.TYPE</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>CVDeliveryDeadline__c</columns>
+    <columns>OpportunityStart__c</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>In progress</value>
+    </filters>
+    <label>RM Opportunities in progress</label>
+    <language>en_US</language>
+</ListView>

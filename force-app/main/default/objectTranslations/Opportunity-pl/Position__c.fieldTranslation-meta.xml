@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Stanowisko</label>
+    <name>Position__c</name>
+    <picklistValues>
+        <masterLabel>Administrator</masterLabel>
+        <translation>Administrator</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Analyst</masterLabel>
+        <translation>Analityk</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Architect</masterLabel>
+        <translation>Architekt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Developer</masterLabel>
+        <translation>Deweloper</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed price project</masterLabel>
+        <translation>Projekt z ustaloną ceną</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation>Inny</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Project Manager</masterLabel>
+        <translation>Menadżer projektu</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Support</masterLabel>
+        <translation>Wsparcie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Support OnCall</masterLabel>
+        <translation>Wsparcie OnCall</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Support monthly</masterLabel>
+        <translation>Wsparcie miesięczne</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tester</masterLabel>
+        <translation>Tester</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Training</masterLabel>
+        <translation>Trening</translation>
+    </picklistValues>
+</CustomFieldTranslation>

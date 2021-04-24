@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Missing_Onboarding</fullName>
+    <columns>NAME</columns>
+    <columns>ContactRecordType__c</columns>
+    <columns>ContactFirstName_frm__c</columns>
+    <columns>ContactLastName_frm__c</columns>
+    <columns>AttachedFileLink__c</columns>
+    <columns>Status__c</columns>
+    <columns>ResourceRequest__c</columns>
+    <columns>Account_frm__c</columns>
+    <columns>Position_Name_frm__c</columns>
+    <columns>Requestor_frm__c</columns>
+    <columns>RequestCreationDate__c</columns>
+    <columns>DeliveryDeadline_frm__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Contract signed</value>
+    </filters>
+    <filters>
+        <field>Contract__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Missing Onboarding</label>
+    <language>en_US</language>
+</ListView>

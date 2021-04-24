@@ -1,0 +1,44 @@
+<apex:page showHeader="false" sidebar="false" standardController="Opportunity" extensions="BTN_ProductListComponentController">
+	<apex:includeScript value="{!URLFOR($Resource.jquery, '/jquery-2.1.4.js')}"/> 
+	<apex:includeScript value="{!URLFOR($Resource.TablesorterM, '/tablesorter-master/jquery.tablesorter.min.js')}"/> 
+	<apex:stylesheet value="{!URLFOR($Resource.TableStyles, '/blue/style.css')}"/>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("[id$=productList]").tablesorter({headers: {0: {sorter: false}},widgets: ['zebra']});
+		});
+
+		function reloadSorter() {
+			$("[id$=productList]").tablesorter({headers: {0: {sorter: false}},widgets: ['zebra']}); 
+		}
+	</script>
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton value="{!$Label.Addproduct}" action="{!AddProduct}"/>
+				<apex:commandButton value="{!$Label.ChoosePriceBook}" action="{!ChoosePricebook}"/>
+				<apex:commandButton value="{!$Label.EditAll}" action="{!EditAllProduct}"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection columns="1">
+				<apex:pageBlockTable id="productList" var="item" value="{!products}" styleClass="tablesorter">
+					<apex:column headerValue="{!$Label.ActionHeader}">
+					</apex:column>
+					<apex:column headerValue="{!$Label.Product}" value="{!item.PricebookEntry.Product2.Name}"/>
+					<apex:column headerValue="{!$Label.Quantity}" value="{!item.Quantity}"/>
+					<apex:column headerValue="{!$Label.UnitPrice}" value="{!item.Hourly_Rate__c}"/>
+					<apex:column headerValue="{!$Label.TotalPrice}" value="{!item.totalPrice}"/>
+					<apex:column headerValue="{!$Label.ListPrice}" value="{!item.listPrice}"/>
+				</apex:pageBlockTable>
+				<apex:panelGrid id="paginationPane" columns="6">
+					<apex:commandButton status="fetchStatus" reRender="productList,paginationPane" value="{!$Label.FirstPageSign}" action="{!first}" disabled="{!!hasPrevious}" title="{!$Label.FirstPage}"/>
+					<apex:commandButton status="fetchStatus" reRender="productList,paginationPane" value="{!$Label.PreviousPageSign}" action="{!previous}" disabled="{!!hasPrevious}" title="{!$Label.Previous}"/>
+					<apex:commandButton status="fetchStatus" reRender="productList,paginationPane" value="{!$Label.NextPageSign}" action="{!next}" disabled="{!!hasNext}" title="{!$Label.Next}"/>
+					<apex:commandButton status="fetchStatus" reRender="productList,paginationPane" value="{!$Label.LastPageSign}" action="{!last}" disabled="{!!hasNext}" title="{!$Label.Next}"/>
+					<apex:outputText >{!(pageNumber * size)+1-size}-{!IF((pageNumber * size)>numberOfRecords, numberOfRecords,(pageNumber*size))} of {!numberOfRecords}</apex:outputText>
+					<apex:outputPanel style="color:#4AA02C;font-weight:bold">
+						<apex:actionStatus id="fetchStatus" startText="{!$Label.LoadingDataText}" stopText="" onstart="" onstop="reloadSorter()"/>
+					</apex:outputPanel>
+				</apex:panelGrid>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

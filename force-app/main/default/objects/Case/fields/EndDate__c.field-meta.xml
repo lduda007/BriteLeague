@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EndDate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(RecordType.Name = &apos;External Offboarding&apos;, AssignmentEndDate__c, 
+IF(RecordType.Name = &apos;Internal Offboarding&apos;, ContactLastDayAtWork__c, WorkEndDate__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>End Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

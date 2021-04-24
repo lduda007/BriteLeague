@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Minimalne dopasowanie po jakim Profil zostanie przypisany do Pracownika --></help>
+    <label><!-- Score Minimal Value --></label>
+    <name>Score_Minimal_Value__c</name>
+</CustomFieldTranslation>

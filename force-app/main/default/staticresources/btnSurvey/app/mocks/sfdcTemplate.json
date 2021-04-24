@@ -1,0 +1,234 @@
+{
+    "templateApiName": "ankieta_do_opisu_super_umiejętności",
+    "submittable": false,
+    "startDate": "2016-08-18",
+    "name": "Ankieta do opisu super umiejętności",
+    "multiSurvey": true,
+    "isPrivate": false,
+    "importance": null,
+    "id": "a0I3E0000000Z4nUAE",
+    "endDate": null,
+    "description": null,
+    "questionSearchOption": ["searchinall", "rated", "notrated"],
+    "questions": [{
+        "type": "email",
+        "readOnly": false,
+        "question": null,
+        "order": 0,
+        "options": [{
+            "name": "Ewelina Jesionek",
+            "id": "ewelina.jesionek@britenet.com.pl"
+        }, {
+            "name": "Grzegorz Futa",
+            "id": "grzegorz.futa@britenet.com.pl"
+        }, {
+            "name": "Ireneusz Codello",
+            "id": "ireneusz.codello@britenet.com.pl"
+        }, {
+            "name": "Karol Chomik",
+            "id": "karol.chomik@britenet.com.pl"
+        }, {
+            "name": "Krzysztof Jędrzejak",
+            "id": "krzysztof.jedrzejak@britenet.com.pl"
+        }, {
+            "name": "Łukasz Łukaszewski",
+            "id": "lukasz.lukaszewski@britenet.com.pl"
+        }, {
+            "name": "Łukasz Nienartowicz",
+            "id": "lukasz.nienartowicz@britenet.com.pl"
+        }, {
+            "name": "Magdalena Rutkowska",
+            "id": "magdalena.rutkowska@britenet.com.pl"
+        }, {
+            "name": "Michał Zieńkowski",
+            "id": "michal.zienkowski@britenet.com.pl"
+        }, {
+            "name": "Paweł Sprysak",
+            "id": "pawel.sprysak@britenet.com.pl"
+        }, {
+            "name": "Piotr Pitera",
+            "id": "piotr.pitera@britenet.com.pl"
+        }, {
+            "name": "Sebastian Sadło",
+            "id": "sebastian.sadlo@britenet.com.pl"
+        }, {
+            "name": "Tomasz Kowalczyk",
+            "id": "tomasz.kowalczyk@britenet.com.pl"
+        }],
+        "name": "Employee",
+        "isSystem": true,
+        "id": "email",
+        "description": null,
+        "required": true,
+        "parentIds": [],
+        "descriptions": {},
+        "categoryId": null,
+        "category": null,
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 1,
+        "options": [{
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Teleportacja",
+        "isSystem": false,
+        "id": "a0B3E000000LLSJUA4",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność",
+            "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+            "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+            "Default": null
+        },
+        "categoryId": "a073E000000ICV9QAO",
+        "category": "Category 1",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 2,
+        "options": [{
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Telekineza",
+        "isSystem": false,
+        "id": "a0B3E000000LLSEUA4",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność",
+            "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+            "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+            "Default": null
+        },
+        "categoryId": "a073E000000ICVJQA4",
+        "category": "Category 1.1",
+        "canOpen": true
+    }, {
+        "type": "positiveInteger",
+        "readOnly": false,
+        "question": null,
+        "order": 3,
+        "options": null,
+        "name": "Szybkość",
+        "isSystem": false,
+        "id": "a0B3E000000LLSYUA4",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": null,
+            "Professional": null,
+            "Junior": null,
+            "Default": null
+        },
+        "categoryId": "a073E000000ICViQAO",
+        "category": "Category 1.1.2",
+        "canOpen": true
+    }, {
+        "type": "checkbox",
+        "readOnly": false,
+        "question": null,
+        "order": 4,
+        "options": [{
+            "name": "Yes",
+            "id": "Yes"
+        }],
+        "name": "Nadprzyrodzona siła",
+        "isSystem": false,
+        "id": "a0B3E000000LLSTUA4",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": null,
+            "Professional": null,
+            "Junior": null,
+            "Default": null
+        },
+        "categoryId": "a073E000000ICViQAO",
+        "category": "Category 1.1.2",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 5,
+        "options": [{
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Latanie",
+        "isSystem": false,
+        "id": "a0B3E000000LLIfUAO",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność",
+            "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+            "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+            "Default": null
+        },
+        "categoryId": "a073E000000ICViQAO",
+        "category": "Category 1.1.2",
+        "canOpen": true
+    }, {
+        "type": "select",
+        "readOnly": false,
+        "question": null,
+        "order": 6,
+        "options": [{
+            "name": "Junior",
+            "id": "Junior"
+        }, {
+            "name": "Professional",
+            "id": "Professional"
+        }, {
+            "name": "Senior",
+            "id": "Senior"
+        }],
+        "name": "Niewidzialność",
+        "isSystem": false,
+        "id": "a0B3E000000LLIkUAO",
+        "description": null,
+        "required": false,
+        "parentIds": [],
+        "descriptions": {
+            "Senior": "może uczyć innych oraz wyceniać funkcjionalości, wiedza potwierdzona pracą w kilku projektach, osoba kontaktowa w przypadku zapytań o daną umiejętność",
+            "Professional": "samodzielna praca przynajmniej w jednym projekcie, nie wymaga kontroli",
+            "Junior": "uczy się, brak samodzielnosci, wymaga kontroli i sprawdzania efektów pracy, ma kontakt z technologią w projekcie",
+            "Default": null
+        },
+        "categoryId": "a073E000000ICVTQA4",
+        "category": "Category 2.1",
+        "canOpen": true
+    }]
+}

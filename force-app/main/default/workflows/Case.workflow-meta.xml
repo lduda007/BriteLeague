@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ExternalOffboardingNotification</fullName>
+        <ccEmails>lukasz.lukaszewski@britenet.com.pl</ccEmails>
+        <ccEmails>ireneusz.codello@britenet.com.pl</ccEmails>
+        <description>External Offboarding Notification</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_ExternalOffboardingCaseNotificationTemplate</template>
+    </alerts>
+    <alerts>
+        <fullName>ExternalOnboardingNotification</fullName>
+        <ccEmails>rm@britenet.com.pl</ccEmails>
+        <description>External Onboarding Notification</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_ExternalOnboardingCaseNotificationTemplate</template>
+    </alerts>
+    <alerts>
+        <fullName>InternalOffboardingNotification</fullName>
+        <ccEmails>rm@britenet.com.pl</ccEmails>
+        <description>Internal Offboarding Notification</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_InternalOffboardingCaseNotificationTemplate</template>
+    </alerts>
+    <alerts>
+        <fullName>SendInternalOnboardingHasBeenApprovedNotification</fullName>
+        <ccEmails>admins@britenet.com.pl</ccEmails>
+        <ccEmails>rozliczenia@britenet.com.pl</ccEmails>
+        <ccEmails>hr@britenet.com.pl</ccEmails>
+        <ccEmails>rm@britenet.com.pl</ccEmails>
+        <description>Send Internal Onboarding has been approved notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Leader__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_InternalOnboardingCaseApproveNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>SendInternalOnboardingHasBeenCreatedNotification</fullName>
+        <ccEmails>kadry@britenet.com.pl</ccEmails>
+        <ccEmails>michal.zienkowski@britenet.com.pl</ccEmails>
+        <ccEmails>hr@britenet.com.pl</ccEmails>
+        <ccEmails>rm@britenet.com.pl</ccEmails>
+        <description>Send Internal Onboarding has been created notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Leader__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_NewInternalOnboardingCaseNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>SendInternalOnboardingHasBeenCreatedNotificationWOsalary</fullName>
+        <ccEmails>admins@britenet.com.pl</ccEmails>
+        <ccEmails>rozliczenia@britenet.com.pl</ccEmails>
+        <description>Send Internal Onboarding has been created notification WO salary</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_NewInternalOnboardingCaseNotificationWOSalary</template>
+    </alerts>
+    <alerts>
+        <fullName>SendInternalOnboardingHasBeenRejectedNotification</fullName>
+        <ccEmails>admins@britenet.com.pl</ccEmails>
+        <ccEmails>rozliczenia@britenet.com.pl</ccEmails>
+        <ccEmails>hr@britenet.com.pl</ccEmails>
+        <ccEmails>rm@britenet.com.pl</ccEmails>
+        <description>Send Internal Onboarding has been rejected notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Leader__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_InternalOnboardingCaseRejectNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>SendInternalOnboardingWorkStartDateHasBeenUpdatedNotification</fullName>
+        <ccEmails>kadry@britenet.com.pl</ccEmails>
+        <ccEmails>michal.zienkowski@britenet.com.pl</ccEmails>
+        <ccEmails>hr@britenet.com.pl</ccEmails>
+        <ccEmails>rm@britenet.com.pl</ccEmails>
+        <description>Send Internal Onboarding Work Start Date has been updated notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Leader__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/BTN_InternalOnboardingCaseWorkStartDateUpdateNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>SendInternalOnboardinghasbeencreatednotificationtoPM</fullName>
+        <description>Send Internal Onboarding has been created notification to PM</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Project_Manager_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BritenetSalesTemplates/New_Internal_Onboarding_Notification_for_PM</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ApproveInternalCase</fullName>
+        <field>Status</field>
+        <literalValue>Approved</literalValue>
+        <name>Approve External Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>RejectExternalCase</fullName>
+        <field>Status</field>
+        <literalValue>Rejected</literalValue>
+        <name>Reject External Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SubmitCase</fullName>
+        <field>Status</field>
+        <literalValue>Submitted</literalValue>
+        <name>Submit Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

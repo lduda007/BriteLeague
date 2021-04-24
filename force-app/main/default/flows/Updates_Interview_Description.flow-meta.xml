@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>myVariable_waitStartTimeAssignment</name>
+        <label>myVariable_waitStartTimeAssignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myDecision</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Is description changed?</label>
+        </rules>
+    </decisions>
+    <description>Updates Interview description by concatenating HR and technical interview descriptions</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>IF (
+  ISBLANK([BTN_Event__c].Description__c),
+  IF (ISBLANK([BTN_Event__c].DescriptionTechnical__c),
+    &apos;&apos;,
+    TRIM(LEFT([BTN_Event__c].DescriptionTechnical__c, 100)) +
+    IF (LEN([BTN_Event__c].DescriptionTechnical__c) &gt; 100, &apos;...&apos;, &apos;&apos;) 
+  ),
+  IF (ISBLANK([BTN_Event__c].DescriptionTechnical__c),
+    TRIM(LEFT([BTN_Event__c].Description__c, 100)) +  
+    IF (LEN([BTN_Event__c].Description__c) &gt; 100, &apos;...&apos;, &apos;&apos;),
+    TRIM(LEFT([BTN_Event__c].Description__c, 100))  + 
+    IF (LEN([BTN_Event__c].Description__c) &gt; 100, &apos;...&apos;, &apos;&apos;) +
+    &apos; / &apos; + LEFT([BTN_Event__c].DescriptionTechnical__c, 100) + 
+    IF (LEN([BTN_Event__c].DescriptionTechnical__c) &gt; 100, &apos;...&apos;, &apos;&apos;) 
+  )  
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_DescriptionMerged_c</name>
+        <dataType>String</dataType>
+        <expression>IF (
+  ISBLANK({!myVariable_current.Description__c}),
+  IF (ISBLANK({!myVariable_current.DescriptionTechnical__c}),
+    &apos;&apos;,
+    TRIM(LEFT({!myVariable_current.DescriptionTechnical__c}, 100)) +
+    IF (LEN({!myVariable_current.DescriptionTechnical__c}) &gt; 100, &apos;...&apos;, &apos;&apos;) 
+  ),
+  IF (ISBLANK({!myVariable_current.DescriptionTechnical__c}),
+    TRIM(LEFT({!myVariable_current.Description__c}, 100)) +  
+    IF (LEN({!myVariable_current.Description__c}) &gt; 100, &apos;...&apos;, &apos;&apos;),
+    TRIM(LEFT({!myVariable_current.Description__c}, 100))  + 
+    IF (LEN({!myVariable_current.Description__c}) &gt; 100, &apos;...&apos;, &apos;&apos;) +
+    &apos; / &apos; + LEFT({!myVariable_current.DescriptionTechnical__c}, 100) + 
+    IF (LEN({!myVariable_current.DescriptionTechnical__c}) &gt; 100, &apos;...&apos;, &apos;&apos;) 
+  )  
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>OR (
+  ISNEW(),
+  ISCHANGED([BTN_Event__c].Description__c),
+  ISCHANGED([BTN_Event__c].DescriptionTechnical__c)
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>OR (
+  ISNEW(),
+  ISCHANGED({!myVariable_current.Description__c}),
+  ISCHANGED({!myVariable_current.DescriptionTechnical__c})
+)</expression>
+    </formulas>
+    <interviewLabel>Updates_Interview_Description-10_BTN_Event__c</interviewLabel>
+    <label>Updates Interview Description</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>BTN_Event__c</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[BTN_Event__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Merge Descriptions</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Description</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>DescriptionMerged__c</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A1_DescriptionMerged_c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>BTN_Event__c</object>
+    </recordUpdates>
+    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>BTN_Event__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>BTN_Event__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_waitStartTimeVariable</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDateTime</elementReference>
+        </value>
+    </variables>
+</Flow>

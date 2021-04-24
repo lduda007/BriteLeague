@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Opportunity Type --></label>
+    <name>OpportunityType__c</name>
+    <picklistValues>
+        <masterLabel>Fixed price</masterLabel>
+        <translation><!-- Fixed price --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Time &amp; Material</masterLabel>
+        <translation><!-- Time &amp; Material --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

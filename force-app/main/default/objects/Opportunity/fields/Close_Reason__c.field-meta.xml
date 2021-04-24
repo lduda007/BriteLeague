@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Close Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>StageName</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Rate too low</fullName>
+                <default>false</default>
+                <label>Rate too low</label>
+            </value>
+            <value>
+                <fullName>Lost to Competitor</fullName>
+                <default>false</default>
+                <label>Lost to Competitor</label>
+            </value>
+            <value>
+                <fullName>No qualifications</fullName>
+                <default>false</default>
+                <label>No qualifications</label>
+            </value>
+            <value>
+                <fullName>Client has resigned</fullName>
+                <default>false</default>
+                <label>Client has resigned</label>
+            </value>
+            <value>
+                <fullName>No available resources</fullName>
+                <default>false</default>
+                <label>No available resources</label>
+            </value>
+            <value>
+                <fullName>Not enough time to deliver</fullName>
+                <default>false</default>
+                <label>Not enough time to deliver</label>
+            </value>
+            <value>
+                <fullName>Competition candidate was selected</fullName>
+                <default>false</default>
+                <label>Competition candidate was selected</label>
+            </value>
+            <value>
+                <fullName>Candidate was poorly assessed</fullName>
+                <default>false</default>
+                <label>Candidate was poorly assessed</label>
+            </value>
+            <value>
+                <fullName>Candidate has reisgned</fullName>
+                <default>false</default>
+                <label>Candidate has reisgned</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Quickness</fullName>
+                <default>false</default>
+                <label>Quickness</label>
+            </value>
+            <value>
+                <fullName>Candidate</fullName>
+                <default>false</default>
+                <label>Candidate</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Approved</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Draft</controllingFieldValue>
+            <controllingFieldValue>In progress</controllingFieldValue>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Client has resigned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Approved</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Candidate has reisgned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Approved</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Draft</controllingFieldValue>
+            <controllingFieldValue>In progress</controllingFieldValue>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Draft</controllingFieldValue>
+            <controllingFieldValue>In progress</controllingFieldValue>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Rate too low</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Draft</controllingFieldValue>
+            <valueName>Lost to Competitor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Draft</controllingFieldValue>
+            <valueName>No qualifications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>In progress</controllingFieldValue>
+            <valueName>No available resources</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>In progress</controllingFieldValue>
+            <valueName>Not enough time to deliver</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Competition candidate was selected</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Candidate was poorly assessed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <valueName>Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <valueName>Quickness</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <valueName>Candidate</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Group Calculation Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Greatest Value</fullName>
+                <default>true</default>
+                <label>Greatest Value</label>
+            </value>
+            <value>
+                <fullName>Manual</fullName>
+                <default>false</default>
+                <label>Manual</label>
+            </value>
+            <value>
+                <fullName>Greatest Value (Specialization)</fullName>
+                <default>false</default>
+                <label>Greatest Value (Specialization)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

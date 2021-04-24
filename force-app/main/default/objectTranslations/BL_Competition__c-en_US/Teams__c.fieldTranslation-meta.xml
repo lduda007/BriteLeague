@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Displays &quot;Teams Joined&quot; / &quot;Max Teams&quot; i.e. &quot;4/8&quot; --></help>
+    <label><!-- Teams --></label>
+    <name>Teams__c</name>
+</CustomFieldTranslation>

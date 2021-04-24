@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Candidate</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Candidate</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>window.location = &quot;a04/e?retURL=%2Fa04%2Fo&amp;CF00N5800000BYZQj={!Contact.Name}&amp;CF00N5800000BYZQj_lkid={!Contact.Id}&quot;;</url>
+</WebLink>

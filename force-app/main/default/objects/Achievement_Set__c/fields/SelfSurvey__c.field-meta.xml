@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SelfSurvey__c</fullName>
+    <externalId>false</externalId>
+    <formula>NOT(ISBLANK(AboutWho__c)) &amp;&amp; NOT(ISBLANK(Who__c)) &amp;&amp; AboutWho__c = Who__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Self-Survey</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

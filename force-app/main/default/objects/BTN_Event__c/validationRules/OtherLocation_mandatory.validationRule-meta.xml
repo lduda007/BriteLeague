@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OtherLocation_mandatory</fullName>
+    <active>true</active>
+    <description>If Location_c equals &quot;Inne&quot; then OtherLocation_c should be mandatory</description>
+    <errorConditionFormula>AND (
+  OR(
+    ISPICKVAL(Location__c,&apos;Inne [Other location is mandatory]&apos;),
+    ISPICKVAL(Location__c,&apos;U klienta [Other location is mandatory]&apos;)
+  ),
+(ISBLANK(OtherLocation__c)))</errorConditionFormula>
+    <errorDisplayField>OtherLocation__c</errorDisplayField>
+    <errorMessage>Other location is mandatory!</errorMessage>
+</ValidationRule>

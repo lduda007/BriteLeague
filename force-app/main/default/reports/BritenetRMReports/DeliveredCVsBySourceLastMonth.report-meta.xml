@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>BTN_CV__c.RequestStatus__c</field>
+    </columns>
+    <columns>
+        <field>BTN_CV__c.Account_frm__c</field>
+    </columns>
+    <columns>
+        <field>BTN_CV__c.Position_Name_frm__c</field>
+    </columns>
+    <columns>
+        <field>BTN_ResourceRequest__c.RequestorContact__c</field>
+    </columns>
+    <columns>
+        <field>BTN_CV__c.RequestCreationDate__c</field>
+    </columns>
+    <columns>
+        <field>BTN_CV__c.DeliveryDeadline_frm__c</field>
+    </columns>
+    <currency>PLN</currency>
+    <filter>
+        <criteriaItems>
+            <column>BTN_CV__c.RequestStatus__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Closed Delivered</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Delivered CV&apos;s by Source Last Month</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$BTN_ResourceRequest__c$BTN_CV__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>BTN_ResourceRequest__c.CreatedDate_frm__c</dateColumn>
+        <interval>INTERVAL_LASTMONTH</interval>
+    </timeFrameFilter>
+</Report>

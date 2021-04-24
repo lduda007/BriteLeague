@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CreateNewInternalOnboardingCase</fullName>
+    <availability>online</availability>
+    <description>Create New Internal Onboarding Case due process it will create BS User and Contact</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create New Internal Onboarding Case</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/500/e?RecordType=0124E0000004ZV8&amp;retURL=/a06&amp;cas14=Internal%20Onboarding</url>
+</WebLink>

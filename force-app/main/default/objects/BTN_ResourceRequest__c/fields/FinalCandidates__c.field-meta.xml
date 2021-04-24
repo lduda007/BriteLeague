@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FinalCandidates__c</fullName>
+    <description>Candidates in final Stage. More info BRITCRM-354.</description>
+    <externalId>false</externalId>
+    <label>Final Candidates</label>
+    <summaryFilterItems>
+        <field>BTN_CV__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Submitted to external, Approved by external, Contract signed, Rejected by external, Not Interested, Offer expired</value>
+    </summaryFilterItems>
+    <summaryForeignKey>BTN_CV__c.ResourceRequest__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

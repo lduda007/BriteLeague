@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Request</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Close Request</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var status = &apos;{!BTN_ResourceRequest__c.Status__c}&apos;;
+
+if(status === &quot;Closed Delivered&quot; || status === &quot;Closed Rejected&quot;){ 
+	alert(&apos;Resource Request has been already closed&apos;); 
+} else { 
+	window.location.replace(&apos;/apex/BTN_CloseResourceRequest?id={!BTN_ResourceRequest__c.Id}&apos;); 
+}</url>
+</WebLink>

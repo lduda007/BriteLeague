@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Channel --></label>
+    <name>SubType__c</name>
+    <picklistValues>
+        <masterLabel>In person</masterLabel>
+        <translation><!-- In person --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Online</masterLabel>
+        <translation><!-- Online --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telephonic</masterLabel>
+        <translation><!-- Telephonic --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,17 @@
+.modal {
+	background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+
+.modal-dialog {
+    background: #ffffff none repeat scroll 0% 0%;
+    margin: 5% auto;
+    width: 70%;
+    max-height: 80%;
+    overflow: auto;
+    border-radius: 10px;
+}

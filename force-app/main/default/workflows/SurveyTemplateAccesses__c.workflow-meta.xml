@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>ExternalId</fullName>
+        <field>ExternalId__c</field>
+        <formula>Name + &quot;#&quot; +  SurveyTemplate__r.ExternalId__c</formula>
+        <name>External Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Survey Template Access Update External Id</fullName>
+        <actions>
+            <name>ExternalId</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update External Id</description>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

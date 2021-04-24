@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_assessment__c</fullName>
+    <description>for periodic assessment</description>
+    <externalId>false</externalId>
+    <label>General assessment</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Below average</fullName>
+                <default>false</default>
+                <label>Below average</label>
+            </value>
+            <value>
+                <fullName>OK</fullName>
+                <default>false</default>
+                <label>OK</label>
+            </value>
+            <value>
+                <fullName>Above average</fullName>
+                <default>false</default>
+                <label>Above average</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

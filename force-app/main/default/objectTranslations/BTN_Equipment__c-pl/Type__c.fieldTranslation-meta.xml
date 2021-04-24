@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Typ</label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Access Point</masterLabel>
+        <translation><!-- Access Point --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Inne</masterLabel>
+        <translation><!-- Inne --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Karta SIM</masterLabel>
+        <translation><!-- Karta SIM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Komputer</masterLabel>
+        <translation><!-- Komputer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Licencja</masterLabel>
+        <translation><!-- Licencja --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Monitor</masterLabel>
+        <translation><!-- Monitor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Router</masterLabel>
+        <translation><!-- Router --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Switch</masterLabel>
+        <translation><!-- Switch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tablet</masterLabel>
+        <translation><!-- Tablet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telefon</masterLabel>
+        <translation><!-- Telefon --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

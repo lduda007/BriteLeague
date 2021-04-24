@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>BTN_Technical_Leader</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>BTN Technical Leader</label>
+        <sharedTo>
+            <group>BTN_TechnicalLeaders</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Auto,Manual</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>ShareResourceRequestsToHr</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>ShareResourceRequestsToHr</label>
+        <sharedTo>
+            <group>Human_Resources</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Auto,Manual</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

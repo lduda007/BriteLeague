@@ -1,0 +1,196 @@
+<!--
+ * @author Mateusz Przywara
+ * @date   2016-10-21
+ * @description BTN_ContactsSearchPage
+ -->
+<apex:page id="BTN_ContactsSearchPage" readOnly="true" cache="true" controller="BTN_ContactsSearchController"
+           tabStyle="Search__tab">
+    <apex:form id="f1">
+        <apex:pageBlock >
+            <apex:pageMessages id="msg"/>
+            <apex:pageBlockSection id="filterSection" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.SearchFilterFieldLabel}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.searchAllWords}"/>
+                    <apex:inputText value="{!searchConditions}"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!searchContact.Level__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.searchAnyoneWords}"/>
+                    <apex:inputText value="{!searchAnyone}"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!searchContact.CityLocation__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.searchNoneWords}"/>
+                    <apex:inputText value="{!searchNone}"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!searchContact.Language_1__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!searchContact.Language_level_1__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:selectList value="{!searchContactRecordType}" label="{!$ObjectType.RecordType.Label}" size="1">
+                    <apex:selectOptions value="{!recordTypes}"/>
+                </apex:selectList>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="{!$Label.Search}" action="{!resetSearch}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="dataSection" columns="1">
+                <apex:pageBlockTable id="ItemList" value="{!foundContacts}" var="item">
+                    <apex:column headerValue="{!$Label.Name}">
+                        <apex:commandLink onclick="window.location=('/{!item.Id}?retURL=/apex/BTN_ContactsSearchPage'); return false;">
+                            <apex:outputField value="{!item.Name_frm__c}"/>
+                        </apex:commandLink>
+                    </apex:column><!--
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.AccountId.Label}" value="{!item.Account}"/>-->
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.Title.Label}" value="{!item.Title}"/>
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.Phone.Label}" value="{!item.Phone}"/>
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.Email.Label}" value="{!item.Email}"/>
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.Level__c.Label}" value="{!item.Level__c}"/>
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.Location__c.Label}" value="{!item.Location__c}"/>
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.Position__c.Label}" value="{!item.Position__c}"/>
+                    <apex:column headerValue="{!$ObjectType.Contact.Fields.RecordTypeId.Label}" value="{!item.RecordTypeId}"/>
+                </apex:pageBlockTable>
+
+                <apex:outputPanel layout="block" styleClass="listViewport">
+                    <div class="bottomNav">
+                        <div class="paginator">
+                            <apex:panelGrid id="gridPaging"
+                                            columns="3"
+                                            width="100%"
+                                            columnclasses="left, center, right">
+                                <apex:panelGroup >
+                                    <span class="selectorTarget">
+                                        <strong>
+                                            <apex:outputText value="{!$Label.RecordsOf}">
+                                                <apex:param value="{!(pageNumber * size)+1-size}" />
+                                                <apex:param value="{!IF((pageNumber * size)>numberOfRecords, numberOfRecords,(pageNumber * size))}" />
+                                                <apex:param value="{!numberOfRecords}" />
+                                            </apex:outputText>
+                                        </strong>
+                                    </span>
+                                    <span>&nbsp;&nbsp;</span>
+                                    <apex:actionStatus id="statusPaging">
+                                        <apex:facet name="start">
+                                            <img src="/img/loading.gif" height="14px" width="14px"/>
+                                        </apex:facet>
+
+                                        <apex:facet name="stop">
+                                            <img src="/img/s.gif" height="14px" width="14px"/>
+                                        </apex:facet>
+                                    </apex:actionStatus>
+                                </apex:panelGroup>
+
+                                <apex:panelGroup >
+                        <span class="prevNextLinks">
+                            <span class="prevNext">
+                                <apex:commandLink id="linkMoveFirst"
+                                                  immediate="true"
+                                                  status="statusPaging"
+                                                  action="{!first}"
+                                                  rerender="ItemList, gridPaging"
+                                                  rendered="{!hasPrevious}">
+
+                                    <img src="/s.gif" title="{!$Label.First}" class="first" />
+                                </apex:commandLink>
+
+                                <apex:outputPanel layout="none"
+                                                  rendered="{!NOT(hasPrevious)}">
+
+                                    <apex:image url="/s.gif" title="{!$Label.First}" styleclass="firstoff" />
+                                </apex:outputPanel>
+                            </span>
+
+                            <span class="prevNext">
+                                <apex:commandLink id="linkMovePrev"
+                                                  immediate="true"
+                                                  title="{!$Label.Previous}"
+                                                  status="statusPaging"
+                                                  action="{!previous}"
+                                                  rerender="ItemList, gridPaging"
+                                                  rendered="{!hasPrevious}">
+
+                                    <img src="/s.gif" title="{!$Label.Previous}" class="prev"/>
+                                    <span>{!$Label.Previous}</span>
+                                </apex:commandLink>
+
+                                <apex:outputPanel layout="none"
+                                                  rendered="{!NOT(hasPrevious)}">
+
+                                    <apex:image url="/s.gif" title="{!$Label.Previous}" styleclass="prevoff" />
+                                    <span>{!$Label.Previous}</span>
+                                </apex:outputPanel>
+                            </span>
+
+                            <span class="prevNext">
+
+                                <apex:outputPanel layout="none"
+                                                  rendered="{!NOT(hasNext)}">
+
+                                     <span>{!$Label.Next}</span>
+
+                                </apex:outputPanel>
+
+                                <apex:commandLink id="linkMoveNext"
+                                                  immediate="true"
+                                                  title="{!$Label.Next}"
+                                                  status="statusPaging"
+                                                  action="{!next}"
+                                                  rerender="ItemList, gridPaging"
+                                                  rendered="{!hasNext}">
+
+                                    <span>{!$Label.Next}</span>
+                                    <img src="/s.gif" title="{!$Label.Next}" alt="{!$Label.Next}" class="next" />
+                                </apex:commandLink>
+
+                                <apex:outputPanel layout="none"
+                                                  rendered="{!NOT(hasNext)}">
+
+                                    <apex:image url="/s.gif" title="{!$Label.Next}" styleclass="nextoff" />
+
+                                </apex:outputPanel>
+                            </span>
+
+                            <span class="prevNext">
+                                <apex:commandLink id="linkMoveLast"
+                                                  immediate="true"
+                                                  status="statusPaging"
+                                                  action="{!last}"
+                                                  rerender="ItemList, gridPaging"
+                                                  rendered="{!hasNext}">
+
+                                    <img src="/s.gif" title="{!$Label.Last}" class="last" />
+                                </apex:commandLink>
+
+                                <apex:outputPanel layout="none"
+                                                  rendered="{!NOT(hasNext)}">
+
+                                    <apex:image url="/s.gif" title="{!$Label.Last}" styleclass="lastoff" />
+                                </apex:outputPanel>
+                            </span>
+                        </span>
+                                </apex:panelGroup>
+
+                                <apex:panelGroup >
+                        <span class="selectorTarget">
+                            <strong>
+                                <apex:outputText value="{!$Label.PagesOf}">
+                                    <apex:param value="{!pageNumber}" />
+                                    <apex:param value="{!CEILING(numberOfRecords / size)}" />
+                                </apex:outputText>
+                            </strong>
+                        </span>
+                                </apex:panelGroup>
+                            </apex:panelGrid>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+
+
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

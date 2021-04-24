@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when Internal Onboarding has been approved</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Internal Onboarding Case Approve Notification</name>
+    <style>none</style>
+    <subject>[BriteRM] Internal onboarding has been approved</subject>
+    <textOnly>The new internal onboarding case {!Case.CaseNumber} has been approved by: {!Case.Approver__c}
+
+Name: {!Case.NewUserFirstName__c} {!Case.NewUserLastName__c}
+Position: {!Case.NewUserTitle__c}
+Work start date: {!Case.WorkStartDate__c}
+Location: {!Case.Location_frm__c}
+Leader: {!Case.Leader__c}
+
+Kind regards,
+BriteRM Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

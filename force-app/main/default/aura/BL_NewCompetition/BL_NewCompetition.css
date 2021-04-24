@@ -1,0 +1,19 @@
+.THIS .new-competition-form {
+    max-width: 600px;
+}
+
+.THIS .slds-form-element__label {
+    margin: auto;
+    font-weight: 700;
+}
+
+.THIS .slds-radio_button [type=radio]:checked + label,
+.THIS .slds-radio_button [type=radio]:checked + label:hover {
+    background-color: #0099de !important;
+    font-weight: bold;
+}
+
+.THIS .slds-radio_button [type=radio] + label:hover {
+    background-color: #135F90 !important;
+    color: #FFFFFF;
+}

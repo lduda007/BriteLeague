@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loss_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Loss Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Too low rate</fullName>
+                <default>false</default>
+                <label>Too low rate</label>
+            </value>
+            <value>
+                <fullName>Lost to Competitor</fullName>
+                <default>false</default>
+                <label>Lost to Competitor</label>
+            </value>
+            <value>
+                <fullName>No qualifications</fullName>
+                <default>false</default>
+                <label>No qualifications</label>
+            </value>
+            <value>
+                <fullName>Client has resigned</fullName>
+                <default>false</default>
+                <label>Client has resigned</label>
+            </value>
+            <value>
+                <fullName>We don&apos;t have proper manpower</fullName>
+                <default>false</default>
+                <label>We don&apos;t have proper manpower</label>
+            </value>
+            <value>
+                <fullName>Not enough time to deliver</fullName>
+                <default>false</default>
+                <label>Not enough time to deliver</label>
+            </value>
+            <value>
+                <fullName>Candidate withdrew</fullName>
+                <default>false</default>
+                <label>Candidate withdrew</label>
+            </value>
+            <value>
+                <fullName>Too low/high rate</fullName>
+                <default>false</default>
+                <label>Too low/high rate</label>
+            </value>
+            <value>
+                <fullName>Competition candidate was selected</fullName>
+                <default>false</default>
+                <label>Competition candidate was selected</label>
+            </value>
+            <value>
+                <fullName>Candidate was poorly assessed</fullName>
+                <default>false</default>
+                <label>Candidate was poorly assessed</label>
+            </value>
+            <value>
+                <fullName>Candidate has reisgned</fullName>
+                <default>false</default>
+                <label>Candidate has reisgned</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

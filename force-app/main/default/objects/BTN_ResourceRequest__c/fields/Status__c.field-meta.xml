@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>true</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Waiting for client</fullName>
+                <default>false</default>
+                <label>Waiting for client</label>
+            </value>
+            <value>
+                <fullName>On shelf</fullName>
+                <default>false</default>
+                <label>On shelf</label>
+            </value>
+            <value>
+                <fullName>Closed - Success</fullName>
+                <default>false</default>
+                <label>Closed - Success</label>
+            </value>
+            <value>
+                <fullName>Closed - Failure</fullName>
+                <default>false</default>
+                <label>Closed - Failure</label>
+            </value>
+            <value>
+                <fullName>Opportunity Closed</fullName>
+                <default>false</default>
+                <label>Opportunity Closed</label>
+            </value>
+            <value>
+                <fullName>Closed - We resign</fullName>
+                <default>false</default>
+                <label>Closed - We resign</label>
+            </value>
+            <value>
+                <fullName>Closed - Blood in the sand</fullName>
+                <default>false</default>
+                <label>Closed - Blood in the sand</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

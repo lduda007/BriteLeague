@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when Internal Onboarding Work Start Date has been updated</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Internal Onboarding Case Work Start Date Update Notification</name>
+    <style>none</style>
+    <subject>Work Start Date updated on onboarding {!Case.CaseNumber} for {!Case.NewUserFirstName__c} {!Case.NewUserLastName__c}</subject>
+    <textOnly>The Internal onboarding case {!Case.CaseNumber} has been updated by {!Case.OwnerFullName}.
+
+Work start date has been updated to: {!Case.WorkStartDate__c}
+
+Onboarding details
+
+Name: {!Case.NewUserFirstName__c} {!Case.NewUserLastName__c}
+Position: {!Case.NewUserTitle__c}
+Location: {!Case.Location_frm__c}
+Leader: {!Case.Leader__c}
+
+Kind regards,
+BriteRM Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

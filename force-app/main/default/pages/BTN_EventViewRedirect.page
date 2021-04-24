@@ -1,0 +1,6 @@
+<apex:page standardController="BTN_Event__c" extensions="BTN_EventViewCtrl" action="{!onLoadAction}">
+<apex:outputPanel style="display:none;">
+	{!BTN_Event__c.recordTypeId}
+</apex:outputPanel>
+
+</apex:page>

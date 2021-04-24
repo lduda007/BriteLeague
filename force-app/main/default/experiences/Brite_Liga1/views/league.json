@@ -1,0 +1,85 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "id" : "285f62f3-f1d6-4e03-89a0-77195bd847a3",
+  "label" : "League",
+  "regions" : [ {
+    "id" : "5e5e1349-2fb1-49d6-90cc-1affaa6aff99",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionDetails",
+      "id" : "835e9128-7de9-47be-81b6-cdd35269bd1d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionTableLeague",
+      "id" : "c8e55de3-f5af-4a8a-a960-c91cf459e4f0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionProgressChart",
+      "id" : "c064aaa8-436e-4686-8f04-e8c06401ca9b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "06564bf9-e348-49f1-a491-1891683171cc",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionStatusChart",
+      "id" : "2d5bd77d-cc20-469b-84f4-6bd86684f56f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_MatchesTable",
+      "id" : "9be2dac8-e237-4ca8-9515-03e04f612031",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:BL_CompetitionFeed",
+      "id" : "9fab5bf6-bd60-44b3-9124-b414f9fbff31",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "aceb8735-d53e-4229-9d50-d3c47e862de8",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "54593725-c614-439d-9e62-2a1ff668de03",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f9b27bbd-b623-44ed-9069-921c8806309c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ffdc8dff-3ec2-4d1c-9a97-18452963c552",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-a0j"
+}

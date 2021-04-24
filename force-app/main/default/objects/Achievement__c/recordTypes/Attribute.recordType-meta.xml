@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attribute</fullName>
+    <active>true</active>
+    <description>Umiejętność określana jakościowo za pomocą konfigurowalnej skali</description>
+    <label>Attribute</label>
+    <picklistValues>
+        <picklist>Group_Type__c</picklist>
+        <values>
+            <fullName>Greatest Value</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Greatest Value %28Specialization%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manual</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

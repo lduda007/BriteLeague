@@ -1,0 +1,31 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[Hi {!Receiving_User.Name},]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[]]></td>
+</tr>
+<tr valign="top" height="150" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="1" >
+<![CDATA[	<table style="font-size: 8pt; color: #8B8178">	
+		<tr valign="top" style="height: 0.9em; color: blue;"><td colspan=3>---------------------------</td></tr>
+		<tr valign="top" style="color:black;"><td style="text-aligh: left;" colspan=3>{!User.Name}</td></tr>
+		<tr valign="top" style="color:black;"><td colspan=3>{!User.Title}</td></tr>
+		<tr valign="top" style="color:black;"><td colspan=3>{!User.Email}</td></tr>
+		<tr valign="top" style="color:black;"><td colspan=3>mobile: {!User.Phone}</td></tr>
+		<tr valign="top" style="height: 0.9em;"><td colspan=3></td></tr>
+		<tr valign="top"><td style="color: blue;" colspan=3><img src="/servlet/servlet.ImageServer?id=0153E0000008t8i&oid=00D3E000000CmTz&lastMod=1451922774000" alt="Company Logo" 
+height="64" width="160"/></td></tr>
+		<tr valign="top" style="height: 0.9em; color: blue;"><td colspan=3>---------------------------</td></tr>
+		<tr valign="middle"><td style="color: blue; text-align: left;" colspan=3></td></tr>
+		<tr valign="middle" style="height: 0.5em;"><td style="min-width:100.15pt;"></td><td style="min-width:135.15pt;"></td><td style="min-width:255.15pt;"></td></tr>
+		<tr valign="middle" ><td style="margin-right: 1em;"><strong>{!Organization.Name}</strong>
+		</td><td style="margin-right: 1em;">mobile: <a style="color:black;">{!Organization.Phone}</a></td><td>Sąd Rejonowy dla m. st. Warszawy XIII Wydział Gospodarczy</td></tr>
+		<tr valign="middle" ><td style="margin-right:1em;">{!Organization.Street}</td><td>fax: <a style="color:black;">{!Organization.Fax}</a></td><td>KRS 0000264919, NIP <a style="color: black;">951-219-77-37</a>, REGON <a style="color: black;">140727009</a></td></tr>
+		<tr valign="middle" ><td style="margin-right: 1em;">{!Organization.PostalCode} {!Organization.City}</td><td>biuro@britenet.com.pl
+		</td><td></td></tr>
+		<tr valign="middle" ><td style="margin-right: 1em;"><td>http://www.britenet.com.pl</td><td></td><td></td></tr>
+	</table>]]></td></tr>
+</table>

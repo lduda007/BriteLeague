@@ -1,0 +1,18 @@
+<apex:page id="BTN_ExceptionPage" showHeader="true" sideBar="true">
+    <style type="text/css">
+        .pbSubheader {
+            background-color: #007EB0 !important;
+        }
+
+        .secondaryPalette { /* page branding class */
+            border-color: #007EB0 !important;
+        }
+    </style>
+    <apex:pageBlock >
+        <apex:pageBlockSection columns="2">
+            <apex:image value="https://britenet--int--c.cs83.content.force.com/servlet/servlet.ImageServer?id=0154E0000009bvx&oid=00D4E0000000Qx1&lastMod=1472625376000"/>
+            <span/><span/>
+            <apex:outputLabel value="{!$Label.ExceptionLabel}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,81 @@
+<aura:component
+        description="BL_BattleRoyaleTable"
+        controller="BL_BattleRoyaleTableController"
+        implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+        access="global"
+>
+
+    <aura:attribute name="battleRoyaleTeams" type="List"/>
+    <aura:attribute name="columns" type="Object"/>
+    <aura:attribute name="viewMode" type="String" default="COMPACT" description="Values: DETAILS, COMPACT"/>
+    <aura:attribute name="isSpinner" type="Boolean" default="false"/>
+
+    <aura:handler event="c:BL_MatchScoreSaved" action="{!c.onInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:method name="refresh" action="{!c.onInit}"/>
+
+    <c:BL_Utils aura:id="utils"/>
+
+    <c:BL_Card title="{!$Label.c.BL_League_Table}">
+        <div style="height: 600px">
+            <aura:if isTrue="{!v.isSpinner}">
+                <div class="spinner-wrapper">
+                    <lightning:spinner size="small" variant="brand"/>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!not(v.isSpinner)}">
+                <aura:if isTrue="{!not(empty(v.battleRoyaleTeams))}">
+                    <lightning:layout multipleRows="true">
+                        <lightning:layoutItem size="6">
+                            <lightning:buttonGroup class="slds-float--left slds-p-around--small">
+                                <ui:outputText
+                                        value="{!v.viewMode}"
+                                        class="slds-text-heading--small"
+                                />
+                            </lightning:buttonGroup>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
+                            <lightning:buttonGroup class="slds-float--right">
+                                <lightning:button
+                                        label="Toggle View"
+                                        variant="brand"
+                                        iconName="utility:rotate"
+                                        iconPosition="left"
+                                        onclick="{!c.onToggleViewMode}"
+                                />
+                            </lightning:buttonGroup>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" class="slds-m-top--medium">
+                            <div class="slds-scrollable--y" style="height: 550px">
+                                <aura:if isTrue="{!equals(v.viewMode, 'DETAILS')}">
+                                    <aura:iteration items="{!v.battleRoyaleTeams}" var="battleRoyaleTeam">
+                                        <c:BL_BattleRoyaleTeamItem
+                                                team="{!battleRoyaleTeam}"
+                                        />
+                                    </aura:iteration>
+                                </aura:if>
+                                <aura:if isTrue="{!equals(v.viewMode, 'COMPACT')}">
+                                    <lightning:datatable
+                                            data="{!v.battleRoyaleTeams}"
+                                            keyField="teamId"
+                                            columns="{!v.columns}"
+                                            hideCheckboxColumn="true"
+                                            onrowaction="{!c.onRowAction}"
+                                            maxColumnWidth="685"
+                                            class="compact-table"
+                                    />
+                                </aura:if>
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </aura:if>
+                <aura:if isTrue="{!empty(v.battleRoyaleTeams)}">
+                    <div style="position: relative; padding: 24px;" class="slds-box_border" align="center">
+                        <ui:outputText value="{!$Label.c.BL_No_competitors_found}"/>
+                    </div>
+                </aura:if>
+            </aura:if>
+        </div>
+    </c:BL_Card>
+</aura:component>

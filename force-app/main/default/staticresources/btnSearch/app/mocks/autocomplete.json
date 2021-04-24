@@ -1,0 +1,40 @@
+{
+    "achievmentsSets": [{
+        "text": "Junior SFDC Developer",
+        "recordType": "Position_Profile",
+        "id": "a0358000001Wwc3AAC"
+    }],
+    "achievments": [{
+        "text": "years of experience",
+        "recordType": "Badge",
+        "id": "a0458000003cP0YAAU"
+    }, {
+        "text": "Certificate SFCD",
+        "recordType": "Certificate",
+        "id": "a0458000003cP0dAAE"
+    }, {
+        "text": "Salesforce Group",
+        "recordType": "Group",
+        "id": "a04580000015YsDAAU"
+    }, {
+        "text": "SFDC (Manual)",
+        "recordType": "Group",
+        "id": "a0458000003cP0JAAU"
+    }, {
+        "text": "SFDC (specialization)",
+        "recordType": "Group",
+        "id": "a0458000003cIUOAA2"
+    }, {
+        "text": "Apex",
+        "recordType": "Skill",
+        "id": "a04580000015VI5AAM"
+    }, {
+        "text": "Visualforce",
+        "recordType": "Skill",
+        "id": "a04580000015VIAAA2"
+    }, {
+        "text": "Specializacja SFDC",
+        "recordType": "Specialization",
+        "id": "a0458000003cP0iAAE"
+    }]
+}

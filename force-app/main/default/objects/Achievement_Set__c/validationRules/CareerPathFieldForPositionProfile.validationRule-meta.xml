@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CareerPathFieldForPositionProfile</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ OR(
+  CONTAINS(RecordType.DeveloperName, &apos;Position_Profile&apos;), 
+  CONTAINS(RecordType.DeveloperName, &apos;Achievements_Profile&apos;)
+ ),
+ ISBLANK(Career_Path__c)
+)</errorConditionFormula>
+    <errorMessage>Please fill the Career Path field</errorMessage>
+</ValidationRule>

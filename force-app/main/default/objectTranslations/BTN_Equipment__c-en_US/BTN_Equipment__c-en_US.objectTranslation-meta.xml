@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Equipment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Equipment</value>
+    </caseValues>
+    <layouts>
+        <layout>Equipment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>License Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Phone Contract Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Sprzęt - komputery, monitory, telefony, tablety, karty SIM, routery, switche, access pointy i inne --></description>
+        <label><!-- Equipment --></label>
+        <name>Equipment</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Licencje --></description>
+        <label><!-- License --></label>
+        <name>License</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Abonament na telefon --></description>
+        <label><!-- Phone Contract --></label>
+        <name>Phone_Contract</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Phone Number is required --></errorMessage>
+        <name>Phone_Number_required_on_Phone_Contract</name>
+    </validationRules>
+</CustomObjectTranslation>

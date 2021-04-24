@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Equipment_Request_ready_notification</fullName>
+        <ccEmails>admins@britenet.com.pl</ccEmails>
+        <ccEmails>liwia.tomaszewska@britenet.com.pl</ccEmails>
+        <ccEmails>ewelina.mroz@britenet.com.pl</ccEmails>
+        <ccEmails>anna.podbiegla@britenet.com.pl</ccEmails>
+        <description>Send Equipment Request ready notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Admins</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <recipient>Human_Resources</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>rm@britenet.com.pl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>BritenetSalesTemplates/BTN_EquipmentRequestReadinessNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>Equipment_Request_reminder_notification</fullName>
+        <ccEmails>admins@britenet.com.pl</ccEmails>
+        <ccEmails>liwia.tomaszewska@britenet.com.pl</ccEmails>
+        <ccEmails>ewelina.mroz@britenet.com.pl</ccEmails>
+        <ccEmails>anna.podbiegla@britenet.com.pl</ccEmails>
+        <description>Send Equipment Request reminder notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Admins</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>rm@britenet.com.pl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>BritenetSalesTemplates/BTN_EquipmentRequestReminderNotification</template>
+    </alerts>
+</Workflow>

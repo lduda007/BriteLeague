@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContactMandatory</fullName>
+    <active>true</active>
+    <description>Contact field mandatory for record type: T&amp;M and Fix in stage In progress</description>
+    <errorConditionFormula>AND(
+	OR(
+		ISPICKVAL(StageName , &apos;In progress&apos;), 
+		ISPICKVAL(StageName , &apos;Customer&apos;), 
+		ISPICKVAL(StageName , &apos;Approved&apos;), 
+		ISPICKVAL(StageName , &apos;Closed Won&apos;), 
+		ISPICKVAL(StageName , &apos;Closed Lost&apos;)),
+	OR(ContactId__c = NULL,ISBLANK(ContactId__c)) 
+)</errorConditionFormula>
+    <errorDisplayField>ContactId__c</errorDisplayField>
+    <errorMessage>Please provide data</errorMessage>
+</ValidationRule>

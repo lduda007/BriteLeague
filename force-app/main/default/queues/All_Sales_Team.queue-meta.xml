@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>All Sales Team</name>
+    <queueMembers>
+        <users>
+            <user>joanna.walczak@britenet.com</user>
+            <user>joanna.wroblewska@britenet.com</user>
+            <user>lukasz.pasternak@britenet.com</user>
+            <user>piotr.murias@britenet.com</user>
+            <user>tomasz.dziki@britenet.com</user>
+            <user>tomasz.kostienko@britenet.com</user>
+            <user>tomasz.krajewski@britenet.com</user>
+            <user>zaneta.wisniewska@britenet.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vContact</fullName>
+    <active>true</active>
+    <description>Force HR / RM to fill Contact lookup. When RT is Internal or External and Status approved.</description>
+    <errorConditionFormula>(ISPICKVAL(Status__c, &apos;Approved&apos;)) &amp;&amp;
+            ISBLANK(Contact__c)</errorConditionFormula>
+    <errorMessage>Please specify Contact</errorMessage>
+</ValidationRule>
