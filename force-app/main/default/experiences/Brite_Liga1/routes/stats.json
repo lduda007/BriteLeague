@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "174bcb1f-0f87-46c6-af16-6556070abfc4",
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "configurationTags" : [ ],
+  "id" : "e16fd917-5420-43b3-bba6-a9ac48ef6220",
+  "label" : "Stats",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-stats",
+  "type" : "route",
+  "urlPrefix" : "stats"
+}

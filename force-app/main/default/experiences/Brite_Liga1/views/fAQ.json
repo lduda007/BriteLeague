@@ -1,0 +1,37 @@
+{
+  "appPageId" : "fd0d2683-249a-4716-82b4-961643c3fc6b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "22fdd5e3-b93a-4953-bb14-05718bde7628",
+  "label" : "FAQ",
+  "regions" : [ {
+    "id" : "29890c18-7e44-403b-a82a-f8922bb60a57",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "d540c7ab-67b2-40f4-933b-a2b880609b1f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "94136f47-85f0-4985-b995-0e18fcd4e182",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "FAQ"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "98d1f2bc-972f-419b-9593-c8d53b8a291d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "da354f35-43ed-4ada-a6a4-52ebcb560602",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-faq"
+}
